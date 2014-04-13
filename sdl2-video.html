@@ -114,7 +114,7 @@
 <hr>
 
 <h2><a name="SDL_BlendMode">SDL_BlendMode</a></h2>
-SDL_RenderCopy()‚Æ•`‰æ‘€ì‚ÅŽg‚í‚ê‚éƒuƒŒƒ“ƒhƒ‚[ƒh‚Ì—ñ‹“‘Ì
+<a href="sdl2-render.html#SDL_RenderCopy">SDL_RenderCopy()</a>‚Æ•`‰æ‘€ì‚ÅŽg‚í‚ê‚éƒuƒŒƒ“ƒhƒ‚[ƒh‚Ì—ñ‹“‘Ì
 <h3>’l</h3>
 <table border="1" summary="SDL_BlendMode">
 <tr><td>SDL_BLENDMODE_NONE</td><td>ƒuƒŒƒ“ƒh‚µ‚È‚¢</td><td>dstRGBA = srcRGBA</td></tr>
@@ -123,15 +123,15 @@ SDL_RenderCopy()‚Æ•`‰æ‘€ì‚ÅŽg‚í‚ê‚éƒuƒŒƒ“ƒhƒ‚[ƒh‚Ì—ñ‹“‘Ì
 <tr><td>SDL_BLENDMODE_MOD</td><td>color modulate</td><td>dstRGB = srcRGB * dstRGB<br>dstA = dstA</td></tr>
 </table>
 <h3>ŠÖ˜A€–Ú(\‘¢‘Ì)</h3>
-<a href="#SDL_RendererInfo">SDL_RendererInfo</a><br>
+<a href="sdl2-render.html##SDL_RendererInfo">SDL_RendererInfo</a><br>
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
-<a href="#SDL_GetRenderDrawBlendMode">SDL_GetRenderDrawBlendMode</a><br>
-<a href="#SDL_GetSurfaceBlendMode">SDL_GetSurfaceBlendMode</a><br>
-<a href="#SDL_GetTextureBlendMode">SDL_GetTextureBlendMode</a><br>
-<a href="#SDL_RenderCopy">SDL_RenderCopy</a><br>
-<a href="#SDL_SetRenderDrawBlendMode">SDL_SetRenderDrawBlendMode</a><br>
-<a href="#SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode</a><br>
-<a href="#SDL_SetTextureBlendMode">SDL_SetTextureBlendMode</a><br>
+<a href="sdl2-render.html##SDL_GetRenderDrawBlendMode">SDL_GetRenderDrawBlendMode</a><br>
+<a href="sdl2-render.html##SDL_GetSurfaceBlendMode">SDL_GetSurfaceBlendMode</a><br>
+<a href="sdl2-render.html##SDL_GetTextureBlendMode">SDL_GetTextureBlendMode</a><br>
+<a href="sdl2-render.html##SDL_RenderCopy">SDL_RenderCopy</a><br>
+<a href="sdl2-render.html##SDL_SetRenderDrawBlendMode">SDL_SetRenderDrawBlendMode</a><br>
+<a href="sdl2-render.html##SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode</a><br>
+<a href="sdl2-render.html##SDL_SetTextureBlendMode">SDL_SetTextureBlendMode</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_BlendMode">SDL_BlendMode - SDL Wiki</a><br>
 <hr>
@@ -177,7 +177,7 @@ SDL_GL_CreateContext(window);<br>
 <h3>Ú×</h3>
 <p>
 ’Êí, OpenGL‚Ì‚Ù‚Æ‚ñ‚Ç‚Ì‘®«‚ÍÝ’è‚Å‚«‚é‚ª, ã‹L‚Ì‘®«‚ÍSDL‚ªOpenGLƒRƒ“ƒeƒLƒXƒg‚ðŽg‚¤‚½‚ß, ƒEƒBƒ“ƒhƒE‚ð¶¬‚·‚é‘O‚É‚í‚©‚Á‚Ä‚¢‚é•K—v‚ª‚ ‚é.
-‚±‚ê‚ç‚Ì‘®«‚ÍSDL_GL_SetAttribute()‚ÆSDL_GL_GetAttribute()‚ÅÝ’è, Šl“¾‚Å‚«‚é.
+‚±‚ê‚ç‚Ì‘®«‚Í<a href="#SDL_GL_SetAttribute">SDL_GL_SetAttribute()</a>‚Æ<a href="#SDL_GL_GetAttribute">SDL_GL_GetAttribute()</a>‚ÅÝ’è, Šl“¾‚Å‚«‚é.
 </p>
 <p>
 ‚±‚ê‚ç‚Ì‘®«‚ÍÅ¬’l‚Ì—v‹‚Ìê‡‚ª‚ ‚é.
@@ -188,13 +188,13 @@ GL‚ª—v‹‚³‚ê‚½Å¬‚Ì‘®«‚ð’ñ‹Ÿ‚Å‚«‚È‚¢ê‡‚ÍƒRƒ“ƒeƒLƒXƒg‚Ì¶¬‚Í•K‚¸Ž¸”s‚·‚é.
 </p>
 <p>
 ƒ}ƒ‹ƒ`ƒTƒ“ƒvƒ‹ ƒAƒ“ƒ`ƒGƒCƒŠƒAƒVƒ“ƒO‚Íƒtƒ‹ƒXƒNƒŠ[ƒ“‚ÌƒAƒ“ƒ`ƒGƒCƒŠƒAƒVƒ“ƒO‚Å‚ ‚é.
-ƒ}ƒ‹ƒ`ƒTƒ“ƒvƒ‹ ƒAƒ“ƒ`ƒGƒCƒŠƒAƒVƒ“ƒO‚ÍƒfƒtƒHƒ‹ƒg‚Å‚ÍƒIƒt‚¾‚ª, SDL_GL_MULTISAMPLEBUFFERS‚ð1, SDL_GL_MULTISAMPLESAMPLES‚ð0ˆÈã‚É‚·‚é‚ÆƒIƒ“‚É‚È‚é. ‚æ‚­Žg‚í‚ê‚é’l‚Í2‚Æ4‚Å‚ ‚é.
+ƒ}ƒ‹ƒ`ƒTƒ“ƒvƒ‹ ƒAƒ“ƒ`ƒGƒCƒŠƒAƒVƒ“ƒO‚ÍƒfƒtƒHƒ‹ƒg‚Å‚ÍƒIƒt‚¾‚ª, <a href="#SDL_GLattr">SDL_GL_MULTISAMPLEBUFFERS</a>‚ð1, <a href="#SDL_GLattr">SDL_GL_MULTISAMPLESAMPLES</a>‚ð0ˆÈã‚É‚·‚é‚ÆƒIƒ“‚É‚È‚é. ‚æ‚­Žg‚í‚ê‚é’l‚Í2‚Æ4‚Å‚ ‚é.
 </p>
 <p>
-SDL_GL_CONTEXT_PROFILE_MASK‚Í¶¬‚³‚ê‚½ƒRƒ“ƒeƒLƒXƒg‚ÅŒˆ‚Ü‚é.
-SDL_GL_CONTEXT_MAJOR_VERSION‚ÆSDL_GL_CONTEXT_MINOR_VERSION‚à“¯‚¶‚Å‚ ‚é.
+<a href="#SDL_GLattr">SDL_GL_CONTEXT_PROFILE_MASK</a>‚Í¶¬‚³‚ê‚½ƒRƒ“ƒeƒLƒXƒg‚ÅŒˆ‚Ü‚é.
+<a href="#SDL_GLattr">SDL_GL_CONTEXT_MAJOR_VERSION</a>‚Æ<a href="#SDL_GLattr">SDL_GL_CONTEXT_MINOR_VERSION</a>‚à“¯‚¶‚Å‚ ‚é.
 ‚±‚ê‚ç3‚Â‚Ì‘®«‚ÍÅ‰‚ÌƒEƒBƒ“ƒhƒE‚ª¶¬‚³‚ê‚é‘O‚ÉÝ’è‚·‚é•K—v‚ª‚ ‚é.
-‚»‚µ‚Ä, ’Êí‚ÍSDL_GL_CONTEXT_PROFILE_MASK‚Ì’l‚Í, ˆÈ‘O‚ÌÝ’è‚Å¶¬‚µ‚½ƒEƒBƒ“ƒhƒE‚ð‘S‚Ä‚Ì•Â‚¶‚é‚Ü‚Å‚Í•ÏX‚Å‚«‚È‚¢.
+‚»‚µ‚Ä, ’Êí‚Í<a href="#SDL_GLattr">SDL_GL_CONTEXT_PROFILE_MASK</a>‚Ì’l‚Í, ˆÈ‘O‚ÌÝ’è‚Å¶¬‚µ‚½ƒEƒBƒ“ƒhƒE‚ð‘S‚Ä‚Ì•Â‚¶‚é‚Ü‚Å‚Í•ÏX‚Å‚«‚È‚¢.
 </p>
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GL_GetAttribute">SDL_GL_GetAttribute</a><br>
@@ -214,7 +214,7 @@ OpenGLƒRƒ“ƒeƒLƒXƒg‚ÌÝ’èƒtƒ‰ƒO‚Ì‚½‚ß‚Ì—ñ‹“‘Ì
 <tr><td>SDL_GL_CONTEXT_RESET_ISOLATION_FLAG</td><td>Ú×‚ðŽQÆ‚·‚é‚±‚Æ</td></tr>
 </table>
 <h3>Ú×</h3>
-‚±‚Ì—ñ‹“‘Ì‚ÍSDL_GL_SetAttribute‚ÅSDL_GL_CONTEXT_FLAGS‚Æ‘g‚Ý‡‚í‚¹‚ÄŽg‚¤.
+‚±‚Ì—ñ‹“‘Ì‚Í<a href="#SDL_GL_SetAttribute">SDL_GL_SetAttribute</a>‚Å<a href="#SDL_GLattr">SDL_GL_CONTEXT_FLAGS</a>‚Æ‘g‚Ý‡‚í‚¹‚ÄŽg‚¤.
 ƒtƒ‰ƒO‚ð˜_—˜a‚Å•¡”Ý’è‚Å‚«‚é.
 <h4>SDL_GL_CONTEXT_DEBUG_FLAG</h4>
 ‚±‚Ìƒtƒ‰ƒO‚Í, X11‚ÌGLX_ARB_create_contextŠg’£‚ÌGLX_CONTEXT_DEBUG_BIT_ARB, Windows‚ÌWGL_ARB_create_contextŠg’£‚ÌWGL_CONTEXT_DEBUG_BIT_ARB‚Éƒ}ƒbƒv‚³‚ê‚Ä‚¢‚é.
@@ -246,10 +246,10 @@ OpenGLƒvƒƒtƒ@ƒCƒ‹‚Ì‚½‚ß‚Ì—ñ‹“‘Ì
 <tr><td>SDL_GL_CONTEXT_PROFILE_ES</td><td>Open GL ƒvƒƒtƒ@ƒCƒ‹ - OpenGL‚ÌƒTƒuƒZƒbƒg‹@”\‚Ì‚ÝŽg‚¦‚é</td></tr>
 </table>
 <h3>Ú×</h3>
-‚±‚Ì—ñ‹“‘Ì‚ÍSDL_GL_SetAttribute‚ÅSDL_GL_CONTEXT_PROFILE_MASK‚Æ‘g‚Ý‡‚í‚¹‚ÄŽg‚¤.
-SDL_GL_CONTEXT_PROFILE_MASK‚Í˜_—˜a‚Å•¡”Ý’è‚Å‚«‚é‚ª, ƒvƒƒtƒ@ƒCƒ‹‚Í”r‘¼“I‚Å‚ ‚è, SDL_GL_SetAttribute‚Í1‚Â‚µ‚©Žó‚¯•t‚¯‚È‚¢.
-SDL_GL_CONTEXT_PROFILE_MASK‘®«‚ð0‚É‚·‚é‚Æƒvƒƒtƒ@ƒCƒ‹‚ÍSDL‚ª‘I‘ð‚·‚é.
-OpenGL‚Ìƒvƒƒtƒ@ƒCƒ‹‚Íƒo[ƒWƒ‡ƒ“‚ÆÚ×‚ÉŠÖ˜A•t‚¯‚ç‚ê‚Ä‚¢‚é‚½‚ß, SDL_GL_CONTEXT_MAJOR_VERSION‚ÆSDL_GL_CONTEXT_MINOR_VERSION‘®«‚Í•K‚¸ˆê‚ÉŽg‚¤•K—v‚ª‚ ‚é.
+‚±‚Ì—ñ‹“‘Ì‚Í<a href="#SDL_GL_SetAttribute">SDL_GL_SetAttribute</a>‚Å<a href="#SDL_GLattr">SDL_GL_CONTEXT_PROFILE_MASK</a>‚Æ‘g‚Ý‡‚í‚¹‚ÄŽg‚¤.
+<a href="#SDL_GLattr">SDL_GL_CONTEXT_PROFILE_MASK</a>‚Í˜_—˜a‚Å•¡”Ý’è‚Å‚«‚é‚ª, ƒvƒƒtƒ@ƒCƒ‹‚Í”r‘¼“I‚Å‚ ‚è, <a href="#SDL_GL_SetAttribute">SDL_GL_SetAttribute</a>‚Í1‚Â‚µ‚©Žó‚¯•t‚¯‚È‚¢.
+<a href="#SDL_GLattr">SDL_GL_CONTEXT_PROFILE_MASK</a>‘®«‚ð0‚É‚·‚é‚Æƒvƒƒtƒ@ƒCƒ‹‚ÍSDL‚ª‘I‘ð‚·‚é.
+OpenGL‚Ìƒvƒƒtƒ@ƒCƒ‹‚Íƒo[ƒWƒ‡ƒ“‚ÆÚ×‚ÉŠÖ˜A•t‚¯‚ç‚ê‚Ä‚¢‚é‚½‚ß, <a href="#SDL_GLattr">SDL_GL_CONTEXT_MAJOR_VERSION</a>‚Æ<a href="#SDL_GLattr">SDL_GL_CONTEXT_MINOR_VERSION</a>‘®«‚Í•K‚¸ˆê‚ÉŽg‚¤•K—v‚ª‚ ‚é.
 OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚¢.
 <h3>ŠÖ˜A€–Ú(—ñ‹“‘Ì)</h3>
 <a href="#SDL_GLattr">SDL_GLattr</a><br>
@@ -295,7 +295,7 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <table border="1" summary="SDL_WindowEventID">
 <tr><td>SDL_WINDOW_FULLSCREEN</td><td>ƒtƒ‹ƒXƒNƒŠ[ƒ“</td></tr>
 <tr><td>SDL_WINDOW_FULLSCREEN_DESKTOP</td><td>Œ»Ý‚ÌƒfƒXƒNƒgƒbƒv‚Ì‰ð‘œ“x‚Åƒtƒ‹ƒXƒNƒŠ[ƒ“</td></tr>
-<tr><td>SDL_WINDOW_OPENGL</td><td>OpenGLƒRƒ“ƒeƒLƒXƒg‚ÅŽg—p‰Â”\</td></tr>
+<tr><td>SDL_WINDOW_OPENGL</td><td>OpenGLƒRƒ“ƒeƒLƒXƒg‚ÅŽg—p</td></tr>
 <tr><td>SDL_WINDOW_SHOWN</td><td>Œ©‚¦‚Ä‚¢‚é</td></tr>
 <tr><td>SDL_WINDOW_HIDDEN</td><td>Œ©‚¦‚Ä‚¢‚È‚¢</td></tr>
 <tr><td>SDL_WINDOW_BORDERLESS</td><td>˜g‚ª‚È‚¢</td></tr>
@@ -309,7 +309,7 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <tr><td>SDL_WINDOW_ALLOW_HIGHDPI</td><td>‚DPIƒ‚[ƒh‚Å¶¬‚³‚ê‚½ (SDL2.0.1ˆÈã)</td></tr>
 </table>
 <h3>Ú×</h3>
-SDL_WINDOW_OPENGLƒtƒ‰ƒO‚ÍOpenGL‚ðŽg‚¤€”õ‚ð‚·‚é. ‚µ‚©‚µ, ƒEƒBƒ“ƒhƒE‚ð¶¬‚µ‚½Œã‚ÍOpenGL‚ÌŠÖ”‚ðŒÄ‚Ô‘O‚ÉSDL_GL_CreateContext()‚ÅOpenGLƒRƒ“ƒeƒLƒXƒg‚ð¶¬‚·‚é•K—v‚ª‚ ‚é. 
+<a href="#SDL_WindowFlags">SDL_WINDOW_OPENGL</a>ƒtƒ‰ƒO‚ÍOpenGL‚ðŽg‚¤€”õ‚ð‚·‚é. ‚µ‚©‚µ, ƒEƒBƒ“ƒhƒE‚ð¶¬‚µ‚½Œã‚ÍOpenGL‚ÌŠÖ”‚ðŒÄ‚Ô‘O‚É<a href="#SDL_GL_CreateContext">SDL_GL_CreateContext()</a>‚ÅOpenGLƒRƒ“ƒeƒLƒXƒg‚ð¶¬‚·‚é•K—v‚ª‚ ‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_CreateWindow">SDL_CreateWindow</a><br>
 <a href="#SDL_GetWindowFlags">SDL_GetWindowFlags</a><br>
@@ -344,6 +344,5 @@ SDL_WINDOW_OPENGLƒtƒ‰ƒO‚ÍOpenGL‚ðŽg‚¤€”õ‚ð‚·‚é. ‚µ‚©‚µ, ƒEƒBƒ“ƒhƒE‚ð¶¬‚µ‚½Œã‚
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_DisplayMode">SDL_DisplayMode - SDL Wiki</a><br>
 <hr>
-
 </body>
 </html>
