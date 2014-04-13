@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top"    href="../index.html" title="ホーム">
+<link rel="parent" href="./index.html"  title="1つ上">
+<title>SDL2.0 日本語リファレンス - ディスプレイとウィンドウ</title>
+</head>
+<body>
+<h1>ディスプレイとウィンドウ</h1>
+インクルードファイル: SDL_video.h
+<h2>概要</h2>
+これらの関数はディスプレイとウィンドウを扱うためのものである.
+<h2>列挙体</h2>
+<ol>
+<li><a href="#SDL_BlendMode">SDL_BlendMode</a></li>
+<li><a href="#SDL_GLattr">SDL_GLattr</a></li>
+<li><a href="#SDL_GLcontextFlag">SDL_GLcontextFlag</a></li>
+<li><a href="#SDL_GLprofile">SDL_GLprofile</a></li>
+<li><a href="#SDL_WindowEventID">SDL_WindowEventID</a></li>
+<li><a href="#SDL_WindowFlags">SDL_WindowFlags</a></li>
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="#SDL_DisplayMode">SDL_DisplayMode</a></li>
+<li><a href="#SDL_WindowEvent">SDL_WindowEvent</a></li>
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="#SDL_CreateWindow">SDL_CreateWindow</a></li>
+<li><a href="#SDL_CreateWindowAndRenderer">SDL_CreateWindowAndRenderer</a></li>
+<li><a href="#SDL_CreateWindowFrom">SDL_CreateWindowFrom</a></li>
+<li><a href="#SDL_DestroyWindow">SDL_DestroyWindow</a></li>
+<li><a href="#SDL_DisableScreenSaver">SDL_DisableScreenSaver</a></li>
+<li><a href="#SDL_EnableScreenSaver">SDL_EnableScreenSaver</a></li>
+<li><a href="#SDL_GL_BindTexture">SDL_GL_BindTexture</a></li>
+<li><a href="#SDL_GL_CreateContext">SDL_GL_CreateContext</a></li>
+<li><a href="#SDL_GL_DeleteContext">SDL_GL_DeleteContext</a></li>
+<li><a href="#SDL_GL_ExtensionSupported">SDL_GL_ExtensionSupported</a></li>
+<li><a href="#SDL_GL_GetAttribute">SDL_GL_GetAttribute</a></li>
+<li><a href="#SDL_GL_GetCurrentContext">SDL_GL_GetCurrentContext</a></li>
+<li><a href="#SDL_GL_GetCurrentWindow">SDL_GL_GetCurrentWindow</a></li>
+<li><a href="#SDL_GL_GetDrawableSize">SDL_GL_GetDrawableSize</a></li>
+<li><a href="#SDL_GL_GetProcAddress">SDL_GL_GetProcAddress</a></li>
+<li><a href="#SDL_GL_GetSwapInterval">SDL_GL_GetSwapInterval</a></li>
+<li><a href="#SDL_GL_LoadLibrary">SDL_GL_LoadLibrary</a></li>
+<li><a href="#SDL_GL_MakeCurrent">SDL_GL_MakeCurrent</a></li>
+<li><a href="#SDL_GL_ResetAttributes">SDL_GL_ResetAttributes</a></li>
+<li><a href="#SDL_GL_SetAttribute">SDL_GL_SetAttribute</a></li>
+<li><a href="#SDL_GL_SetSwapInterval">SDL_GL_SetSwapInterval</a></li>
+<li><a href="#SDL_GL_SwapWindow">SDL_GL_SwapWindow</a></li>
+<li><a href="#SDL_GL_UnbindTexture">SDL_GL_UnbindTexture</a></li>
+<li><a href="#SDL_GL_UnloadLibrary">SDL_GL_UnloadLibrary</a></li>
+<li><a href="#SDL_GetClosestDisplayMode">SDL_GetClosestDisplayMode</a></li>
+<li><a href="#SDL_GetCurrentDisplayMode">SDL_GetCurrentDisplayMode</a></li>
+<li><a href="#SDL_GetCurrentVideoDriver">SDL_GetCurrentVideoDriver</a></li>
+<li><a href="#SDL_GetDesktopDisplayMode">SDL_GetDesktopDisplayMode</a></li>
+<li><a href="#SDL_GetDisplayBounds">SDL_GetDisplayBounds</a></li>
+<li><a href="#SDL_GetDisplayMode">SDL_GetDisplayMode</a></li>
+<li><a href="#SDL_GetDisplayName">SDL_GetDisplayName</a></li>
+<li><a href="#SDL_GetNumDisplayModes">SDL_GetNumDisplayModes</a></li>
+<li><a href="#SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays</a></li>
+<li><a href="#SDL_GetNumVideoDrivers">SDL_GetNumVideoDrivers</a></li>
+<li><a href="#SDL_GetVideoDriver">SDL_GetVideoDriver</a></li>
+<li><a href="#SDL_GetWindowBrightness">SDL_GetWindowBrightness</a></li>
+<li><a href="#SDL_GetWindowData">SDL_GetWindowData</a></li>
+<li><a href="#SDL_GetWindowDisplayIndex">SDL_GetWindowDisplayIndex</a></li>
+<li><a href="#SDL_GetWindowDisplayMode">SDL_GetWindowDisplayMode</a></li>
+<li><a href="#SDL_GetWindowFlags">SDL_GetWindowFlags</a></li>
+<li><a href="#SDL_GetWindowFromID">SDL_GetWindowFromID</a></li>
+<li><a href="#SDL_GetWindowGammaRamp">SDL_GetWindowGammaRamp</a></li>
+<li><a href="#SDL_GetWindowGrab">SDL_GetWindowGrab</a></li>
+<li><a href="#SDL_GetWindowID">SDL_GetWindowID</a></li>
+<li><a href="#SDL_GetWindowMaximumSize">SDL_GetWindowMaximumSize</a></li>
+<li><a href="#SDL_GetWindowMinimumSize">SDL_GetWindowMinimumSize</a></li>
+<li><a href="#SDL_GetWindowPixelFormat">SDL_GetWindowPixelFormat</a></li>
+<li><a href="#SDL_GetWindowPosition">SDL_GetWindowPosition</a></li>
+<li><a href="#SDL_GetWindowSize">SDL_GetWindowSize</a></li>
+<li><a href="#SDL_GetWindowSurface">SDL_GetWindowSurface</a></li>
+<li><a href="#SDL_GetWindowTitle">SDL_GetWindowTitle</a></li>
+<li><a href="#SDL_GetWindowWMInfo">SDL_GetWindowWMInfo</a></li>
+<li><a href="#SDL_HideWindow">SDL_HideWindow</a></li>
+<li><a href="#SDL_IsScreenSaverEnabled">SDL_IsScreenSaverEnabled</a></li>
+<li><a href="#SDL_MaximizeWindow">SDL_MaximizeWindow</a></li>
+<li><a href="#SDL_MinimizeWindow">SDL_MinimizeWindow</a></li>
+<li><a href="#SDL_RaiseWindow">SDL_RaiseWindow</a></li>
+<li><a href="#SDL_RestoreWindow">SDL_RestoreWindow</a></li>
+<li><a href="#SDL_SetWindowBordered">SDL_SetWindowBordered</a></li>
+<li><a href="#SDL_SetWindowBrightness">SDL_SetWindowBrightness</a></li>
+<li><a href="#SDL_SetWindowData">SDL_SetWindowData</a></li>
+<li><a href="#SDL_SetWindowDisplayMode">SDL_SetWindowDisplayMode</a></li>
+<li><a href="#SDL_SetWindowFullscreen">SDL_SetWindowFullscreen</a></li>
+<li><a href="#SDL_SetWindowGammaRamp">SDL_SetWindowGammaRamp</a></li>
+<li><a href="#SDL_SetWindowGrab">SDL_SetWindowGrab</a></li>
+<li><a href="#SDL_SetWindowIcon">SDL_SetWindowIcon</a></li>
+<li><a href="#SDL_SetWindowMaximumSize">SDL_SetWindowMaximumSize</a></li>
+<li><a href="#SDL_SetWindowMinimumSize">SDL_SetWindowMinimumSize</a></li>
+<li><a href="#SDL_SetWindowPosition">SDL_SetWindowPosition</a></li>
+<li><a href="#SDL_SetWindowSize">SDL_SetWindowSize</a></li>
+<li><a href="#SDL_SetWindowTitle">SDL_SetWindowTitle</a></li>
+<li><a href="#SDL_ShowMessageBox">SDL_ShowMessageBox</a></li>
+<li><a href="#SDL_ShowSimpleMessageBox">SDL_ShowSimpleMessageBox</a></li>
+<li><a href="#SDL_ShowWindow">SDL_ShowWindow</a></li>
+<li><a href="#SDL_UpdateWindowSurface">SDL_UpdateWindowSurface</a></li>
+<li><a href="#SDL_UpdateWindowSurfaceRects">SDL_UpdateWindowSurfaceRects</a></li>
+<li><a href="#SDL_VideoInit">SDL_VideoInit</a></li>
+<li><a href="#SDL_VideoQuit">SDL_VideoQuit</a></li>
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/CategoryVideo">CategoryVideo - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_BlendMode">SDL_BlendMode</a></h2>
+SDL_RenderCopy()と描画操作で使われるブレンドモードの列挙体
+<h3>値</h3>
+<table border="1" summary="SDL_BlendMode">
+<tr><td>SDL_BLENDMODE_NONE</td><td>ブレンドしない</td><td>dstRGBA = srcRGBA</td></tr>
+<tr><td>SDL_BLENDMODE_BLEND</td><td>アルファブレンディング</td><td>dstRGB = (srcRGB * srcA) + (dstRGB * (1 - srcA))<br>dstA = srcA + (dstA * (1 - srcA))</td></tr>
+<tr><td>SDL_BLENDMODE_ADD</td><td>加算ブレンディング</td><td>dstRGB = (srcRGB * srcA) + dstRGB<br>dstA = dstA</td></tr>
+<tr><td>SDL_BLENDMODE_MOD</td><td>color modulate</td><td>dstRGB = srcRGB * dstRGB<br>dstA = dstA</td></tr>
+</table>
+<h3>関連項目(構造体)</h3>
+<a href="#SDL_RendererInfo">SDL_RendererInfo</a><br>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetRenderDrawBlendMode">SDL_GetRenderDrawBlendMode</a><br>
+<a href="#SDL_GetSurfaceBlendMode">SDL_GetSurfaceBlendMode</a><br>
+<a href="#SDL_GetTextureBlendMode">SDL_GetTextureBlendMode</a><br>
+<a href="#SDL_RenderCopy">SDL_RenderCopy</a><br>
+<a href="#SDL_SetRenderDrawBlendMode">SDL_SetRenderDrawBlendMode</a><br>
+<a href="#SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode</a><br>
+<a href="#SDL_SetTextureBlendMode">SDL_SetTextureBlendMode</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_BlendMode">SDL_BlendMode - SDL Wiki</a><br>
+<hr>
+
+<h2><a name="SDL_GLattr">SDL_GLattr</a></h2>
+OpenGLの属性の設定のための列挙体
+<h3>値</h3>
+<table border="1" summary="SDL_GLattr">
+<tr><td>SDL_GL_RED_SIZE</td><td>カラーバッファの赤色チャネルの最小ビット数. デフォルトは3</td></tr>
+<tr><td>SDL_GL_GREEN_SIZE</td><td>カラーバッファの緑色チャネルの最小ビット数. デフォルトは3</td></tr>
+<tr><td>SDL_GL_BLUE_SIZE</td><td>カラーバッファの青色チャネルの最小ビット数. デフォルトは2</td></tr>
+<tr><td>SDL_GL_ALPHA_SIZE</td><td>カラーバッファのアルファチャネルの最小ビット数. デフォルトは0</td></tr>
+<tr><td>SDL_GL_BUFFER_SIZE</td><td>フレームバッファの最小ビット数. デフォルトは0</td></tr>
+<tr><td>SDL_GL_DOUBLEBUFFER</td><td>シングルか, ダブルバッファか. デフォルトはダブルバッファ</td></tr>
+<tr><td>SDL_GL_DEPTH_SIZE</td><td>深度バッファのビット数. デフォルトは16</td></tr>
+<tr><td>SDL_GL_STENCIL_SIZE</td><td>ステンシルバッファのビット数. デフォルトは0</td></tr>
+<tr><td>SDL_GL_ACCUM_RED_SIZE</td><td>蓄積バッファの赤色チャネルの最小ビット数. デフォルトは0</td></tr>
+<tr><td>SDL_GL_ACCUM_GREEN_SIZE</td><td>蓄積バッファの緑色チャネルの最小ビット数. デフォルトは0</td></tr>
+<tr><td>SDL_GL_ACCUM_BLUE_SIZE</td><td>蓄積バッファの青色チャネルの最小ビット数. デフォルトは0</td></tr>
+<tr><td>SDL_GL_ACCUM_ALPHA_SIZE</td><td>蓄積バッファのアルファチャネルの最小ビット数. デフォルトは0</td></tr>
+<tr><td>SDL_GL_STEREO</td><td>ステレオ3Dで出力するか. デフォルトはオフ</td></tr>
+<tr><td>SDL_GL_MULTISAMPLEBUFFERS</td><td>マルチサンプル アンチエイリアスで使うバッファの数. デフォルトは0. 詳細を参照すること</td></tr>
+<tr><td>SDL_GL_MULTISAMPLESAMPLES</td><td>マルチサンプル アンチエイリアスで使うピクセルの周辺のサンプル数. デフォルトは0. 詳細を参照すること</td></tr>
+<tr><td>SDL_GL_ACCELERATED_VISUAL</td><td>1を設定するとハードウェアアクセラレーション, 0を設定すると強制的にソフトウェアレンダリングを使う. デフォルトは両方を許可する</td></tr>
+<tr><td>SDL_GL_RETAINED_BACKING</td><td>未使用 (廃止)</td></tr>
+<tr><td>SDL_GL_CONTEXT_MAJOR_VERSION</td><td>OpenGLコンテキストのメジャーバージョン. 詳細を参照すること</td></tr>
+<tr><td>SDL_GL_CONTEXT_MINOR_VERSION</td><td>OpenGLコンテキストのマイナーバージョン. 詳細を参照すること</td></tr>
+<tr><td>SDL_GL_CONTEXT_FLAGS</td><td>0個以上のSDL_GLcontextFlag列挙体の要素. デフォルトは0</td></tr>
+<tr><td>SDL_GL_CONTEXT_PROFILE_MASK</td><td>OpenGLコンテキストの種類(Core, Compatibility, ES). SDL_GLprofile列挙体を参照すること. デフォルトは環境に依存する</td></tr>
+<tr><td>SDL_GL_SHARE_WITH_CURRENT_CONTEXT</td><td>OpenGLコンテキストのシェア. デフォルトは0</td></tr>
+<tr><td>SDL_GL_FRAMEBUFFER_SRGB_CAPABLE</td><td>sRGBの使用を要求する. デフォルトは0. (SDL 2.0.1以上)</td></tr>
+<tr><td>SDL_GL_CONTEXT_EGL</td><td>未使用 (廃止)</td></tr>
+</table>
+<h3>サンプルコード</h3>
+<code>
+SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);<br>
+SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);<br>
+SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);<br>
+SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);<br>
+SDL_GL_SetAttribute(SDL_DOUBLEBUFFER, 1);<br>
+SDL_GL_CreateContext(window);<br>
+</code>
+<h3>詳細</h3>
+<p>
+通常, OpenGLのほとんどの属性は設定できるが, 上記の属性はSDLがOpenGLコンテキストを使うため, ウィンドウを生成する前にわかっている必要がある.
+これらの属性はSDL_GL_SetAttribute()とSDL_GL_GetAttribute()で設定, 獲得できる.
+</p>
+<p>
+これらの属性は最小値の要求の場合がある.
+つまりGLは要求したちょうどの値を保障しない.
+例えば, 16bitの深度バッファを要求して24bitの深度バッファが設定されることや, ステンシルバッファを使わないように要求したが存在する, ということはありうる.
+GLが要求された最小の属性を提供できない場合はコンテキストの生成は必ず失敗する.
+しかし, 設定された属性がちょうどであるかを知るためにはチェックしなければならない.
+</p>
+<p>
+マルチサンプル アンチエイリアシングはフルスクリーンのアンチエイリアシングである.
+マルチサンプル アンチエイリアシングはデフォルトではオフだが, SDL_GL_MULTISAMPLEBUFFERSを1, SDL_GL_MULTISAMPLESAMPLESを0以上にするとオンになる. よく使われる値は2と4である.
+</p>
+<p>
+SDL_GL_CONTEXT_PROFILE_MASKは生成されたコンテキストで決まる.
+SDL_GL_CONTEXT_MAJOR_VERSIONとSDL_GL_CONTEXT_MINOR_VERSIONも同じである.
+これら3つの属性は最初のウィンドウが生成される前に設定する必要がある.
+そして, 通常はSDL_GL_CONTEXT_PROFILE_MASKの値は, 以前の設定で生成したウィンドウを全ての閉じるまでは変更できない.
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GL_GetAttribute">SDL_GL_GetAttribute</a><br>
+<a href="#SDL_GL_SetAttribute">SDL_GL_SetAttribute</a><br>
+<a href="#SDL_GL_CreateContext">SDL_GL_CreateContext</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GLattr">SDL_GLattr - SDL Wiki</a><br>
+<hr>
+
+<h2><a name="SDL_GLcontextFlag">SDL_GLcontextFlag</a></h2>
+OpenGLコンテキストの設定フラグのための列挙体
+<h3>値</h3>
+<table border="1" summary="SDL_GLcontextFlag">
+<tr><td>SDL_GL_CONTEXT_DEBUG_FLAG</td><td>詳細を参照すること</td></tr>
+<tr><td>SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG</td><td>詳細を参照すること</td></tr>
+<tr><td>SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG</td><td>詳細を参照すること</td></tr>
+<tr><td>SDL_GL_CONTEXT_RESET_ISOLATION_FLAG</td><td>詳細を参照すること</td></tr>
+</table>
+<h3>詳細</h3>
+この列挙体はSDL_GL_SetAttributeでSDL_GL_CONTEXT_FLAGSと組み合わせて使う.
+フラグを論理和で複数設定できる.
+<h4>SDL_GL_CONTEXT_DEBUG_FLAG</h4>
+このフラグは, X11のGLX_ARB_create_context拡張のGLX_CONTEXT_DEBUG_BIT_ARB, WindowsのWGL_ARB_create_context拡張のWGL_CONTEXT_DEBUG_BIT_ARBにマップされている.
+他の環境では同様の機能がないため無視される.
+<h4>SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG</h4>
+このフラグは, X11のGLX_ARB_create_context拡張のGLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB, WindowsのWGL_ARB_create_context拡張のWGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARBにマップされている.
+他の環境では同様の機能がないため無視される.
+<h4>SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG</h4>
+このフラグは, X11ではGLX_ARB_create_context_robustness拡張のGLX_CONTEXT_ROBUST_ACCESS_BIT_ARB, WindowsではWGL_ARB_create_context_robustness拡張のWGL_CONTEXT_ROBUST_ACCESS_BIT_ARBにマップされている.
+他の環境では同様の機能がないため無視される.
+<h4>SDL_GL_CONTEXT_RESET_ISOLATION_FLAG</h4>
+このフラグは, X11ではGLX_ARB_robustness_isolation拡張のGLX_CONTEXT_RESET_ISOLATION_BIT_ARB, WindowsではWGL_ARB_create_context_robustness拡張のWGL_CONTEXT_RESET_ISOLATION_BIT_ARBにマップされている.
+他の環境では同様の機能がないため無視される.
+<h3>関連項目(列挙体)</h3>
+<a href="#SDL_GLattr">SDL_GLattr</a><br>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GL_GetAttribute">SDL_GL_GetAttribute</a><br>
+<a href="#SDL_GL_SetAttribute">SDL_GL_SetAttribute</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GLcontextFlag">SDL_GLcontextFlag - SDL Wiki</a><br>
+<hr>
+
+<h2><a name="SDL_GLprofile">SDL_GLprofile</a></h2>
+OpenGLプロファイルのための列挙体
+<h3>値</h3>
+<table border="1" summary="SDL_GLprofile">
+<tr><td>SDL_GL_CONTEXT_PROFILE_CORE</td><td>OpenGL コアプロファイル - 廃止された機能は無効になる</td></tr>
+<tr><td>SDL_GL_CONTEXT_PROFILE_COMPATIBILITY</td><td>Open GL 互換プロファイル - 廃止された機能は許可される</td></tr>
+<tr><td>SDL_GL_CONTEXT_PROFILE_ES</td><td>Open GL プロファイル - OpenGLのサブセット機能のみ使える</td></tr>
+</table>
+<h3>詳細</h3>
+この列挙体はSDL_GL_SetAttributeでSDL_GL_CONTEXT_PROFILE_MASKと組み合わせて使う.
+SDL_GL_CONTEXT_PROFILE_MASKは論理和で複数設定できるが, プロファイルは排他的であり, SDL_GL_SetAttributeは1つしか受け付けない.
+SDL_GL_CONTEXT_PROFILE_MASK属性を0にするとプロファイルはSDLが選択する.
+OpenGLのプロファイルはバージョンと詳細に関連付けられているため, SDL_GL_CONTEXT_MAJOR_VERSIONとSDL_GL_CONTEXT_MINOR_VERSION属性は必ず一緒に使う必要がある.
+OpenGL ES バージョン1.0と1.1のcommonとcommon liteプロファイルを区別する方法はない.
+<h3>関連項目(列挙体)</h3>
+<a href="#SDL_GLattr">SDL_GLattr</a><br>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GL_GetAttribute">SDL_GL_GetAttribute</a><br>
+<a href="#SDL_GL_SetAttribute">SDL_GL_SetAttribute</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GLcontextFlag">SDL_GLcontextFlag - SDL Wiki</a><br>
+<hr>
+
+<h2><a name="SDL_WindowEventID">SDL_WindowEventID</a></h2>
+ウィンドウイベントのための列挙体
+<h3>値</h3>
+<table border="1" summary="SDL_WindowEventID">
+<tr><td>SDL_WINDOWEVENT_NONE</td><td>(この値が使われることはない)</td></tr>
+<tr><td>SDL_WINDOWEVENT_SHOWN</td><td>ウィンドウが見えるようになった</td></tr>
+<tr><td>SDL_WINDOWEVENT_HIDDEN</td><td>ウィンドウが見えないようになった</td></tr>
+<tr><td>SDL_WINDOWEVENT_EXPOSED</td><td>ウィンドウが現れた. 再描画する必要がある</td></tr>
+<tr><td>SDL_WINDOWEVENT_MOVED</td><td>ウィンドウがdata1からdata2へ移動した</td></tr>
+<tr><td>SDL_WINDOWEVENT_RESIZED</td><td>ウィンドウの大きさがdata1×data2になった. このイベントは常にSDL_WINDOWEVENT_SIZE_CHANGEDの前に発生する</td></tr>
+<tr><td>SDL_WINDOWEVENT_SIZE_CHANGED</td><td>ウィンドウの大きさが変わった. APIの呼び出しの結果とユーザが大きさを変えた場合の両方がある. このイベントは, 大きさが外部の要因, 例えばユーザやウィンドウマネージャで変えられた場合, SDL_WINDOWEVENT_RESIZEDイベントの後に発生する.</td></tr>
+<tr><td>SDL_WINDOWEVENT_MINIMIZED</td><td>ウィンドウが最小化された</td></tr>
+<tr><td>SDL_WINDOWEVENT_MAXIMIZED</td><td>ウィンドウが最大化された</td></tr>
+<tr><td>SDL_WINDOWEVENT_RESTORED</td><td>ウィンドウが通常の大きさと位置になった</td></tr>
+<tr><td>SDL_WINDOWEVENT_ENTER</td><td>ウィンドウがマウスのフォーカスを得た</td></tr>
+<tr><td>SDL_WINDOWEVENT_LEAVE</td><td>ウィンドウがマウスのフォーカスを失った</td></tr>
+<tr><td>SDL_WINDOWEVENT_FOCUS_GAINED</td><td>ウィンドウがキーボードのフォーカスを得た</td></tr>
+<tr><td>SDL_WINDOWEVENT_FOCUS_LOST</td><td>ウィンドウがキーボードのフォーカスを失った</td></tr>
+<tr><td>SDL_WINDOWEVENT_CLOSE</td><td>ウィンドウマネージャが閉じることを要求した</td></tr>
+</table>
+<h3>関連項目(構造体)</h3>
+<a href="#SDL_WindowEvent">SDL_WindowEvent</a><br>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetWindowID">SDL_GetWindowID</a><br>
+<a href="#SDL_GetWindowFromID">SDL_GetWindowFromID</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_WindowEventID">SDL_WindowEventID - SDL Wiki</a><br>
+<hr>
+
+<h2><a name="SDL_WindowFlags">SDL_WindowFlags</a></h2>
+ウィンドウの状態のための列挙体
+<h3>値</h3>
+<table border="1" summary="SDL_WindowEventID">
+<tr><td>SDL_WINDOW_FULLSCREEN</td><td>フルスクリーン</td></tr>
+<tr><td>SDL_WINDOW_FULLSCREEN_DESKTOP</td><td>現在のデスクトップの解像度でフルスクリーン</td></tr>
+<tr><td>SDL_WINDOW_OPENGL</td><td>OpenGLコンテキストで使用可能</td></tr>
+<tr><td>SDL_WINDOW_SHOWN</td><td>見えている</td></tr>
+<tr><td>SDL_WINDOW_HIDDEN</td><td>見えていない</td></tr>
+<tr><td>SDL_WINDOW_BORDERLESS</td><td>枠がない</td></tr>
+<tr><td>SDL_WINDOW_RESIZABLE</td><td>大きさを変えられる</td></tr>
+<tr><td>SDL_WINDOW_MINIMIZED</td><td>最小化されている</td></tr>
+<tr><td>SDL_WINDOW_MAXIMIZED</td><td>最大化されている</td></tr>
+<tr><td>SDL_WINDOW_INPUT_GRABBED</td><td>入力のフォーカスがグラブされている</td></tr>
+<tr><td>SDL_WINDOW_INPUT_FOCUS</td><td>入力のフォーカスがある</td></tr>
+<tr><td>SDL_WINDOW_MOUSE_FOCUS</td><td>マウスのフォーカスがある</td></tr>
+<tr><td>SDL_WINDOW_FOREIGN</td><td>SDL以外によって生成された</td></tr>
+<tr><td>SDL_WINDOW_ALLOW_HIGHDPI</td><td>高DPIモードで生成された (SDL2.0.1以上)</td></tr>
+</table>
+<h3>詳細</h3>
+SDL_WINDOW_OPENGLフラグはOpenGLを使う準備をする. しかし, ウィンドウを生成した後はOpenGLの関数を呼ぶ前にSDL_GL_CreateContext()でOpenGLコンテキストを生成する必要がある. 
+<h3>関連項目(関数)</h3>
+<a href="#SDL_CreateWindow">SDL_CreateWindow</a><br>
+<a href="#SDL_GetWindowFlags">SDL_GetWindowFlags</a><br>
+<a href="#SDL_HideWindow">SDL_HideWindow</a><br>
+<a href="#SDL_MaximizeWindow">SDL_MaximizeWindow</a><br>
+<a href="#SDL_MinimizeWindow">SDL_MinimizeWindow</a><br>
+<a href="#SDL_SetWindowFullscreen">SDL_SetWindowFullscreen</a><br>
+<a href="#SDL_SetWindowGrab">SDL_SetWindowGrab</a><br>
+<a href="#SDL_ShowWindow">SDL_ShowWindow</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_WindowFlags">SDL_WindowFlags - SDL Wiki</a><br>
+<hr>
+
+</body>
+</html>
