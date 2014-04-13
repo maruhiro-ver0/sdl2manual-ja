@@ -324,7 +324,7 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ğ‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <hr>
 
 <h2><a name="SDL_DisplayMode">SDL_DisplayMode</a></h2>
-ƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ•\‚·\‘¢‘Ì
+ƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğŠÜ‚Ş\‘¢‘Ì
 <h3>ƒtƒB[ƒ‹ƒh</h3>
 <table border="1" summary="SDL_DisplayMode">
 <tr><td>Uint32</td><td>format</td><td>SDL_PixelFormatEnum‚Ì’l‚Ì1‚Â. Ú×‚ğQÆ‚·‚é‚±‚Æ</td></tr>
@@ -344,5 +344,27 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ğ‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_DisplayMode">SDL_DisplayMode - SDL Wiki</a><br>
 <hr>
+
+<h2><a name="SDL_WindowEvent">SDL_WindowEvent</a></h2>
+ƒEƒBƒ“ƒhƒE‚Ìó‘Ô‚ª•Ï‰»‚µ‚½ê‡‚ÌƒCƒxƒ“ƒg‚Ìƒf[ƒ^‚ğŠÜ‚Ş\‘¢‘Ì
+<h3>ƒtƒB[ƒ‹ƒh</h3>
+<table border="1" summary="SDL_DisplayMode">
+<tr><td>Uint32</td><td>type</td><td>SDL_WINDOWEVENT</td></tr>
+<tr><td>Uint32</td><td>timestamp</td><td>ƒCƒxƒ“ƒg‚Ìƒ^ƒCƒ€ƒXƒ^ƒ“ƒv</td></tr>
+<tr><td>Uint32</td><td>windowID</td><td>ŠÖ˜A‚Ì‚ ‚éƒEƒBƒ“ƒhƒE</td></tr>
+<tr><td>Uint8</td><td>event</td><td><a href="#SDL_WindowEventID">SDL_WindowEventID</a></td></tr>
+<tr><td>Sint32</td><td>data1</td><td>ƒCƒxƒ“ƒg‚É‚æ‚Á‚ÄˆÙ‚È‚éƒf[ƒ^</td></tr>
+<tr><td>Sint32</td><td>data2</td><td>ƒCƒxƒ“ƒg‚É‚æ‚Á‚ÄˆÙ‚È‚éƒf[ƒ^</td></tr>
+</table>
+<h3>Ú×</h3>
+<a href="#SDL_WindowEvent">SDL_WindowEvent</a>‚Í<a href="sdl-event.html#SDL_Event">SDL_Event</a>‹¤—p‘Ì‚Ìƒƒ“ƒo‚Ì1‚Â‚Å, ƒCƒxƒ“ƒg‚Ìtype‚ªSDL_WINDOWEVENT‚Ìê‡‚Ég‚¤.
+ƒCƒxƒ“ƒg‚ÌwindowƒtƒB[ƒ‹ƒh‚ğŒo—R‚µ‚ÄƒAƒNƒZƒX‚·‚é•K—v‚ª‚ ‚é.
+<h3>ŠÖ˜A€–Ú(—ñ‹“‘Ì)</h3>
+<a href="sdl-event.html#SDL_EventType">SDL_EventType</a><br>
+<a href="#SDL_WindowEventID">SDL_WindowEventID</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_WindowEvent">SDL_WindowEvent - SDL Wiki</a><br>
+<hr>
+
 </body>
 </html>
