@@ -369,8 +369,7 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ğ‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <h2><a name="SDL_CreateWindow">SDL_CreateWindow</a></h2>
 ˆÊ’u, ‘å‚«‚³, ƒtƒ‰ƒO‚ğw’è‚µ‚ÄƒEƒBƒ“ƒhƒE‚ğ¶¬‚·‚é
 <h3>\•¶</h3>
-<code>SDL_Window* SDL_CreateWindow(const char* title, int x, int y, int w, int h, Uint32 flags)
-</code>
+<code>SDL_Window* SDL_CreateWindow(const char* title, int x, int y, int w, int h, Uint32 flags)</code>
 <h3>ˆø”</h3>
 <table border="1" summary="SDL_CreateWindow">
 <tr><td>title</td><td>UTF-8‚ÅƒR[ƒh‰»‚³‚ê‚½ƒEƒBƒ“ƒhƒE‚Ìƒ^ƒCƒgƒ‹</td></tr>
@@ -390,6 +389,31 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ğ‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <a href="#SDL_DestroyWindow">SDL_DestroyWindow</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_CreateWindow">SDL_CreateWindow - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_CreateWindowAndRenderer">SDL_CreateWindowAndRenderer</a></h2>
+ƒEƒBƒ“ƒhƒE‚ÆƒfƒtƒHƒ‹ƒg‚ÌƒŒƒ“ƒ_ƒ‰‚ğ¶¬‚·‚é
+<h3>\•¶</h3>
+<code>int SDL_CreateWindowAndRenderer(int width, int height, Uint32 window_flags, SDL_Window** window, SDL_Renderer** renderer)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_CreateWindowAndRenderer">
+<tr><td>width</td><td>ƒEƒBƒ“ƒhƒE‚Ì•</td></tr>
+<tr><td>height</td><td>ƒEƒBƒ“ƒhƒE‚Ì‚‚³</td></tr>
+<tr><td>window_flags</td><td>ƒEƒBƒ“ƒhƒE‚ğ¶¬‚·‚é‚Æ‚«‚Ég‚í‚ê‚éƒtƒ‰ƒO (<a href="#SDL_CreateWindow">SDL_CreateWindow</a>‚ğQÆ‚·‚é‚±‚Æ)</td></tr>
+<tr><td>window</td><td>¶¬‚³‚ê‚½ƒEƒBƒ“ƒhƒE‚Ìƒ|ƒCƒ“ƒ^, ˆÙí‚Ì‚Æ‚«‚ÍNULL</td></tr>
+<tr><td>renderer</td><td>¶¬‚³‚ê‚½ƒŒƒ“ƒ_ƒ‰‚Ìƒ|ƒCƒ“ƒ^, ˆÙí‚Ì‚Æ‚«‚ÍNULL</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+<p>
+³í‚Ì‚Æ‚«0, ˆÙí‚Ì‚Æ‚«-1‚ğ–ß‚·.
+‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+</p>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_CreateWindow">SDL_CreateWindow</a><br>
+<a href="#SDL_CreateRenderer">SDL_CreateRenderer</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_CreateWindowAndRenderer">SDL_CreateWindowAndRenderer - SDL Wiki</a>
+<hr>
 
 </body>
 </html>
