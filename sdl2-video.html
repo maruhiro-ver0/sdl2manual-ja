@@ -366,5 +366,30 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <a href="https://wiki.libsdl.org/SDL_WindowEvent">SDL_WindowEvent - SDL Wiki</a><br>
 <hr>
 
+<h2><a name="SDL_CreateWindow">SDL_CreateWindow</a></h2>
+ˆÊ’u, ‘å‚«‚³, ƒtƒ‰ƒO‚ðŽw’è‚µ‚ÄƒEƒBƒ“ƒhƒE‚ð¶¬‚·‚é
+<h3>\•¶</h3>
+<code>SDL_Window* SDL_CreateWindow(const char* title, int x, int y, int w, int h, Uint32 flags)
+</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_CreateWindow">
+<tr><td>title</td><td>UTF-8‚ÅƒR[ƒh‰»‚³‚ê‚½ƒEƒBƒ“ƒhƒE‚Ìƒ^ƒCƒgƒ‹</td></tr>
+<tr><td>x</td><td>ƒEƒBƒ“ƒhƒE‚ÌXÀ•W, SDL_WINDOWPOS_CENTERED ‚Ü‚½‚Í SDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>y</td><td>ƒEƒBƒ“ƒhƒE‚ÌYÀ•W, SDL_WINDOWPOS_CENTERED ‚Ü‚½‚Í SDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>w</td><td>ƒEƒBƒ“ƒhƒE‚Ì•</td></tr>
+<tr><td>h</td><td>ƒEƒBƒ“ƒhƒE‚Ì‚‚³</td></tr>
+<tr><td>flags</td><td>0 ‚Ü‚½‚Í 1‚ÂˆÈã‚Ì<a href="#SDL_WindowFlags">SDL_WindowFlags</a>‚Ì˜_—˜a</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+<p>
+¶¬‚³‚ê‚½ƒEƒBƒ“ƒhƒE‚ð–ß‚·.
+ˆÙí‚Ì‚Æ‚«NULL‚ð–ß‚·.
+‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+</p>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_DestroyWindow">SDL_DestroyWindow</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_CreateWindow">SDL_CreateWindow - SDL Wiki</a>
+
 </body>
 </html>
