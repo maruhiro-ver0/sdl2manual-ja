@@ -400,8 +400,8 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ğ‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <tr><td>width</td><td>ƒEƒBƒ“ƒhƒE‚Ì•</td></tr>
 <tr><td>height</td><td>ƒEƒBƒ“ƒhƒE‚Ì‚‚³</td></tr>
 <tr><td>window_flags</td><td>ƒEƒBƒ“ƒhƒE‚ğ¶¬‚·‚é‚Æ‚«‚Ég‚í‚ê‚éƒtƒ‰ƒO (<a href="#SDL_CreateWindow">SDL_CreateWindow</a>‚ğQÆ‚·‚é‚±‚Æ)</td></tr>
-<tr><td>window</td><td>¶¬‚³‚ê‚½ƒEƒBƒ“ƒhƒE‚Ìƒ|ƒCƒ“ƒ^, ˆÙí‚Ì‚Æ‚«‚ÍNULL</td></tr>
-<tr><td>renderer</td><td>¶¬‚³‚ê‚½ƒŒƒ“ƒ_ƒ‰‚Ìƒ|ƒCƒ“ƒ^, ˆÙí‚Ì‚Æ‚«‚ÍNULL</td></tr>
+<tr><td>window</td><td>¶¬‚³‚ê‚½ƒEƒBƒ“ƒhƒE‚ğ‘ã“ü‚·‚éƒ|ƒCƒ“ƒ^, ˆÙí‚Ì‚Æ‚«‚ÍNULL</td></tr>
+<tr><td>renderer</td><td>¶¬‚³‚ê‚½ƒŒƒ“ƒ_ƒ‰‚ğ‘ã“ü‚·‚éƒ|ƒCƒ“ƒ^, ˆÙí‚Ì‚Æ‚«‚ÍNULL</td></tr>
 </table>
 <h3>–ß‚è’l</h3>
 <p>
@@ -472,6 +472,30 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ğ‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <a href="#SDL_IsScreenSaverEnabled">SDL_IsScreenSaverEnabled</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_EnableScreenSaver">SDL_EnableScreenSaver - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GL_BindTexture">SDL_GL_BindTexture</a></h2>
+OpenGLƒvƒŠƒ~ƒeƒBƒu‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚Åg‚¤‚½‚ß‚ÉOpenGL/ES/ES2ƒeƒNƒXƒ`ƒƒ‚ğŒ»İ‚ÌƒRƒ“ƒeƒLƒXƒg‚ÉƒoƒCƒ“ƒh‚·‚é
+<h3>\•¶</h3>
+<code>int SDL_GL_BindTexture(SDL_Texture *texture, float *texw, float *texh)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_CreateWindowFrom">
+<tr><td>texture</td><td>Œ»İ‚ÌOpenGL/ES/ES2ƒRƒ“ƒeƒLƒXƒg‚ÉƒoƒCƒ“ƒh‚·‚éƒeƒNƒXƒ`ƒƒ</td></tr>
+<tr><td>texw</td><td>ƒeƒNƒXƒ`ƒƒ‚Ì•‚ğ‘ã“ü‚·‚éfloatŒ^‚Ì•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^, •K—v‚È‚¢ê‡‚ÍNULL</td></tr>
+<tr><td>texh</td><td>ƒeƒNƒXƒ`ƒƒ‚Ì‚‚³‚ğ‘ã“ü‚·‚éfloatŒ^‚Ì•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^, •K—v‚È‚¢ê‡‚ÍNULL</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+³í‚Ì‚Æ‚«0, ‘€ì‚ª‘Î‰‚µ‚Ä‚¢‚È‚¢‚Æ‚«‚Í-1
+<h3>Ú×</h3>
+’l‚ª“¾‚ç‚ê‚½‚È‚ç, texw‚Ætexh‚É‚Í“¾‚ç‚ê‚½ƒeƒNƒXƒ`ƒƒ‚É“K‚µ‚½•‚Æ‚‚³‚ª‘ã“ü‚³‚ê‚Ä‚¢‚é.
+‚Ù‚Æ‚ñ‚Ç‚Ìê‡, —¼•û‚Ì’l‚Í1.0‚Å‚ ‚é.
+‚µ‚©‚µ, the GL_ARB_texture_rectangleŠg’£‚É‘Î‰‚µ‚½ŠÂ‹«‚Å‚Í, ‚±‚ê‚ç‚Ì’l‚ÍƒeƒNƒXƒ`ƒƒ‚Ì¶¬‚Ì‚½‚ß‚Ég‚í‚ê‚½ÀÛ‚ÌƒsƒNƒZƒ‹”‚Ì•‚Æ‚‚³‚Å‚ ‚é.
+‚±‚Ì‚±‚Æ‚ÍOpenGL‚ÉƒeƒNƒXƒ`ƒƒ‚ÌÀ•W‚ğ—^‚¦‚éê‡‚Él—¶‚·‚é•K—v‚ª‚ ‚é.
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_GL_UnbindTexture">SDL_GL_UnbindTexture</a><br>
+<a href="#SDL_GL_MakeCurrent">SDL_GL_MakeCurrent</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_GL_BindTexture">SDL_GL_BindTexture - SDL Wiki</a>
 <hr>
 
 </body>
