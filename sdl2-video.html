@@ -292,7 +292,7 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ğ‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <h2><a name="SDL_WindowFlags">SDL_WindowFlags</a></h2>
 ƒEƒBƒ“ƒhƒE‚Ìó‘Ô‚Ì‚½‚ß‚Ì—ñ‹“‘Ì
 <h3>’l</h3>
-<table border="1" summary="SDL_WindowEventID">
+<table border="1" summary="SDL_WindowFlags">
 <tr><td>SDL_WINDOW_FULLSCREEN</td><td>ƒtƒ‹ƒXƒNƒŠ[ƒ“</td></tr>
 <tr><td>SDL_WINDOW_FULLSCREEN_DESKTOP</td><td>Œ»İ‚ÌƒfƒXƒNƒgƒbƒv‚Ì‰ğ‘œ“x‚Åƒtƒ‹ƒXƒNƒŠ[ƒ“</td></tr>
 <tr><td>SDL_WINDOW_OPENGL</td><td>OpenGLƒRƒ“ƒeƒLƒXƒg‚Åg—p</td></tr>
@@ -348,7 +348,7 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ğ‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <h2><a name="SDL_WindowEvent">SDL_WindowEvent</a></h2>
 ƒEƒBƒ“ƒhƒE‚Ìó‘Ô‚ª•Ï‰»‚µ‚½ê‡‚ÌƒCƒxƒ“ƒg‚Ìƒf[ƒ^‚ğŠÜ‚Ş\‘¢‘Ì
 <h3>ƒtƒB[ƒ‹ƒh</h3>
-<table border="1" summary="SDL_DisplayMode">
+<table border="1" summary="SDL_WindowEvent">
 <tr><td>Uint32</td><td>type</td><td>SDL_WINDOWEVENT</td></tr>
 <tr><td>Uint32</td><td>timestamp</td><td>ƒCƒxƒ“ƒg‚Ìƒ^ƒCƒ€ƒXƒ^ƒ“ƒv</td></tr>
 <tr><td>Uint32</td><td>windowID</td><td>ŠÖ˜A‚Ì‚ ‚éƒEƒBƒ“ƒhƒE</td></tr>
@@ -479,7 +479,7 @@ OpenGLƒvƒŠƒ~ƒeƒBƒu‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚Åg‚¤‚½‚ß‚ÉOpenGL/ES/ES2ƒeƒNƒXƒ`ƒƒ‚ğŒ»İ‚ÌƒRƒ“ƒ
 <h3>\•¶</h3>
 <code>int SDL_GL_BindTexture(SDL_Texture *texture, float *texw, float *texh)</code>
 <h3>ˆø”</h3>
-<table border="1" summary="SDL_CreateWindowFrom">
+<table border="1" summary="SDL_GL_BindTexture">
 <tr><td>texture</td><td>Œ»İ‚ÌOpenGL/ES/ES2ƒRƒ“ƒeƒLƒXƒg‚ÉƒoƒCƒ“ƒh‚·‚éƒeƒNƒXƒ`ƒƒ</td></tr>
 <tr><td>texw</td><td>ƒeƒNƒXƒ`ƒƒ‚Ì•‚ğ‘ã“ü‚·‚éfloatŒ^‚Ì•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^, •K—v‚È‚¢ê‡‚ÍNULL</td></tr>
 <tr><td>texh</td><td>ƒeƒNƒXƒ`ƒƒ‚Ì‚‚³‚ğ‘ã“ü‚·‚éfloatŒ^‚Ì•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^, •K—v‚È‚¢ê‡‚ÍNULL</td></tr>
@@ -503,7 +503,7 @@ OpenGLƒEƒBƒ“ƒhƒE‚Åg‚¤‚½‚ß‚ÉOpenGLƒRƒ“ƒeƒLƒXƒg‚ğ¶¬‚µ, Œ»İ‚ÌƒRƒ“ƒeƒLƒXƒg‚É‚·‚é
 <h3>\•¶</h3>
 <code>SDL_GLContext SDL_GL_CreateContext(SDL_Window* window)</code>
 <h3>ˆø”</h3>
-<table border="1" summary="SDL_CreateWindowFrom">
+<table border="1" summary="SDL_GL_CreateContext">
 <tr><td>window</td><td>ƒRƒ“ƒeƒLƒXƒg‚ÉŠÖ˜A•t‚¯‚éƒEƒBƒ“ƒhƒE</td></tr>
 </table>
 <h3>–ß‚è’l</h3>
@@ -517,6 +517,20 @@ window‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½OpenGLƒRƒ“ƒeƒLƒXƒg, ƒGƒ‰[‚Ì‚Æ‚«NULL‚ğ–ß‚·.
 <a href="#SDL_GL_MakeCurrent">SDL_GL_MakeCurrent</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_GL_CreateContext">SDL_GL_CreateContext - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GL_DeleteContext">SDL_GL_DeleteContext</a></h2>
+OpenGLƒRƒ“ƒeƒLƒXƒg‚ğíœ‚·‚é
+<h3>\•¶</h3>
+<code>void SDL_GL_DeleteContext(SDL_GLContext context)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_GL_DeleteContext">
+<tr><td>context</td><td>íœ‚·‚éOpenGLƒRƒ“ƒeƒLƒXƒg</td></tr>
+</table>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_GL_CreateContext">SDL_GL_CreateContext</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_GL_DeleteContext">SDL_GL_DeleteContext - SDL Wiki</a>
 <hr>
 
 </body>
