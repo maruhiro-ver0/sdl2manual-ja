@@ -475,12 +475,12 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <hr>
 
 <h2><a name="SDL_GL_BindTexture">SDL_GL_BindTexture</a></h2>
-OpenGLƒvƒŠƒ~ƒeƒBƒu‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ÅŽg‚¤‚½‚ß‚ÉOpenGL/ES/ES2ƒeƒNƒXƒ`ƒƒ‚ðŒ»Ý‚ÌƒRƒ“ƒeƒLƒXƒg‚ÉƒoƒCƒ“ƒh‚·‚é
+OpenGLƒvƒŠƒ~ƒeƒBƒu‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ÅŽg‚¤‚½‚ß‚ÉOpenGL/ES/ES2ƒeƒNƒXƒ`ƒƒ‚ðƒJƒŒƒ“ƒgƒRƒ“ƒeƒLƒXƒg‚ÉƒoƒCƒ“ƒh‚·‚é
 <h3>\•¶</h3>
 <code>int SDL_GL_BindTexture(SDL_Texture *texture, float *texw, float *texh)</code>
 <h3>ˆø”</h3>
 <table border="1" summary="SDL_GL_BindTexture">
-<tr><td>texture</td><td>Œ»Ý‚ÌOpenGL/ES/ES2ƒRƒ“ƒeƒLƒXƒg‚ÉƒoƒCƒ“ƒh‚·‚éƒeƒNƒXƒ`ƒƒ</td></tr>
+<tr><td>texture</td><td>OpenGL/ES/ES2ƒJƒŒƒ“ƒgƒRƒ“ƒeƒLƒXƒg‚ÉƒoƒCƒ“ƒh‚·‚éƒeƒNƒXƒ`ƒƒ</td></tr>
 <tr><td>texw</td><td>ƒeƒNƒXƒ`ƒƒ‚Ì•‚ð‘ã“ü‚·‚éfloatŒ^‚Ì•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^, •K—v‚È‚¢ê‡‚ÍNULL</td></tr>
 <tr><td>texh</td><td>ƒeƒNƒXƒ`ƒƒ‚Ì‚‚³‚ð‘ã“ü‚·‚éfloatŒ^‚Ì•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^, •K—v‚È‚¢ê‡‚ÍNULL</td></tr>
 </table>
@@ -499,7 +499,7 @@ OpenGLƒvƒŠƒ~ƒeƒBƒu‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ÅŽg‚¤‚½‚ß‚ÉOpenGL/ES/ES2ƒeƒNƒXƒ`ƒƒ‚ðŒ»Ý‚ÌƒRƒ“ƒ
 <hr>
 
 <h2><a name="SDL_GL_CreateContext">SDL_GL_CreateContext</a></h2>
-OpenGLƒEƒBƒ“ƒhƒE‚ÅŽg‚¤‚½‚ß‚ÉOpenGLƒRƒ“ƒeƒLƒXƒg‚ð¶¬‚µ, Œ»Ý‚ÌƒRƒ“ƒeƒLƒXƒg‚É‚·‚é
+OpenGLƒEƒBƒ“ƒhƒE‚ÅŽg‚¤‚½‚ß‚ÉOpenGLƒRƒ“ƒeƒLƒXƒg‚ð¶¬‚µ, ƒJƒŒƒ“ƒgƒRƒ“ƒeƒLƒXƒg‚É‚·‚é
 <h3>\•¶</h3>
 <code>SDL_GLContext SDL_GL_CreateContext(SDL_Window* window)</code>
 <h3>ˆø”</h3>
@@ -531,6 +531,24 @@ OpenGLƒRƒ“ƒeƒLƒXƒg‚ðíœ‚·‚é
 <a href="#SDL_GL_CreateContext">SDL_GL_CreateContext</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_GL_DeleteContext">SDL_GL_DeleteContext - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GL_ExtensionSupported">SDL_GL_ExtensionSupported</a></h2>
+ƒJƒŒƒ“ƒgƒRƒ“ƒeƒLƒXƒg‚ÅOpenGLŠg’£‚ª‘Î‰ž‚µ‚Ä‚¢‚é‚È‚ç^‚ð–ß‚·
+<h3>\•¶</h3>
+<code>SDL_bool SDL_GL_ExtensionSupported(const char* extension)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_GL_ExtensionSupported">
+<tr><td>extension</td><td>ƒ`ƒFƒbƒN‚·‚éŠg’£‚Ì–¼‘O</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+Šg’£‚É‘Î‰ž‚µ‚Ä‚¢‚ê‚ÎSDL_TRUE, ‚µ‚Ä‚¢‚È‚¯‚ê‚ÎSDL_FALSE‚ð–ß‚·
+<h3>Ú×</h3>
+‚±‚ÌŠÖ”‚ÍƒJƒŒƒ“ƒgƒRƒ“ƒeƒLƒXƒg‚Å“®ì‚·‚é.
+‚Â‚Ü‚è, ƒRƒ“ƒeƒLƒXƒg‚ª¶¬‚³‚ê‚Ä‚¢‚Ä, ŠÖ”‚ªŒÄ‚Î‚ê‚é‘O‚ÉƒJƒŒƒ“ƒg‚Å‚ ‚é•K—v‚ª‚ ‚é.
+¶¬‚µ‚½ƒRƒ“ƒeƒLƒXƒg‘S‚Ä‚ª“¯‚¶‚æ‚¤‚ÉŠg’£‚ªŽg‚¦‚é, ‚Ü‚½‚ÍŠù‚É‘¶Ý‚·‚éƒRƒ“ƒeƒLƒXƒg‚©‚çÄ¶¬‚µ‚½‚Æ‚«“¯‚¶Šg’£‚ªŽg‚¦‚é‚Æ‚Ý‚È‚µ‚Ä‚Í‚È‚ç‚È‚¢.
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_GL_ExtensionSupported">SDL_GL_ExtensionSupported - SDL Wiki</a>
 <hr>
 
 </body>
