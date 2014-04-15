@@ -578,16 +578,27 @@ OpenGLコンテキストを削除する
 <hr>
 
 <h2><a name="SDL_GL_GetCurrentContext">SDL_GL_GetCurrentContext</a></h2>
-カレントコンテキストを得る
+動作中のカレントコンテキストを得る
 <h3>構文</h3>
 <code>SDL_GLContext SDL_GL_GetCurrentContext(void)</code>
 <h3>戻り値</h3>
-カレントコンテキストを戻す. 失敗のときNULLを戻す.
+動作中のカレントコンテキストを戻す. 失敗のときNULLを戻す.
 そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h3>関連項目(関数)</h3>
 <a href="#SDL_GL_MakeCurrent">SDL_GL_MakeCurrent</a><br>
 <h3>SDL Wikiへのリンク</h3>
 <a href="https://wiki.libsdl.org/SDL_GL_GetCurrentContext">SDL_GL_GetCurrentContext - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GL_GetCurrentWindow">SDL_GL_GetCurrentWindow</a></h2>
+動作中のOpenGLウィンドウを得る
+<h3>構文</h3>
+<code>SDL_Window* SDL_GL_GetCurrentWindow(void)</code>
+<h3>戻り値</h3>
+成功のとき動作中のOpenGLを, 失敗のときNULLを戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GL_GetCurrentWindow">SDL_GL_GetCurrentWindow - SDL Wiki</a>
 <hr>
 
 </body>
