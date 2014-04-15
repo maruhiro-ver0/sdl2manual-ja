@@ -601,5 +601,25 @@ OpenGLコンテキストを削除する
 <a href="https://wiki.libsdl.org/SDL_GL_GetCurrentWindow">SDL_GL_GetCurrentWindow - SDL Wiki</a>
 <hr>
 
+<h2><a name="SDL_GL_GetDrawableSize">SDL_GL_GetDrawableSize</a></h2>
+(glViewportで使うために)ウィンドウ内の描画領域のサイズを得る
+<h3>構文</h3>
+<code>void SDL_GL_GetDrawableSize(SDL_Window* window, int* w, int* h)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_GL_GetDrawableSize">
+<tr><td>window</td><td>描画領域のサイズを求めるウィンドウ</td></tr>
+<tr><td>w</td><td>幅を代入する変数へのポインタ, NULLでもよい</td></tr>
+<tr><td>h</td><td>高さを代入する変数へのポインタ, NULLでもよい</td></tr>
+</table>
+<h3>詳細</h3>
+高DPI描画領域のレンダリングの場合, 例えば高DPI(AppleではRetinaと呼ばれている)に対応した環境で<a href="sdl2-hints.html#SDL_WINDOW_ALLOW_HIGHDPI">SDL_WINDOW_ALLOW_HIGHDPI</a>で生成したウィンドウでは, この関数の値と<a href="#SDL_GetWindowSize">SDL_GetWindowSize</a>の値はおそらく異なる.
+そして<a href="sdl2-hints.html#SDL_HINT_VIDEO_HIGHDPI_DISABLED">SDL_HINT_VIDEO_HIGHDPI_DISABLED</a>では無効にできない.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetWindowSize">SDL_GetWindowSize</a><br>
+<a href="#SDL_CreateWindow">SDL_CreateWindow</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GL_GetDrawableSize">SDL_GL_GetDrawableSize - SDL Wiki</a>
+<hr>
+
 </body>
 </html>
