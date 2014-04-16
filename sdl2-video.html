@@ -810,5 +810,24 @@ OpenGLレンダリングでウィンドウを更新する
 <a href="https://wiki.libsdl.org/SDL_GL_SwapWindow">SDL_GL_SwapWindow - SDL Wiki</a>
 <hr>
 
+<h2><a name="SDL_GL_UnbindTexture">SDL_GL_UnbindTexture</a></h2>
+OpenGLプリミティブのレンダリングで使っているOpenGL/ES/ES2テクスチャをカレントコンテキストからアンバインドする
+<h3>構文</h3>
+<code>int SDL_GL_UnbindTexture(SDL_Texture *texture)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_GL_UnbindTexture">
+<tr><td>texture</td><td>カレントOpenGL/ES/ES2コンテキストからアンバインドするテクスチャ</td></tr>
+</table>
+<h3>戻り値</h3>
+正常のとき0, 操作が対応していないときは-1
+<h3>詳細</h3>
+これらの関数の使用法は<a hreg="#SDL_GL_BindTexture">SDL_GL_BindTexture()</a>を参照すること
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GL_BindTexture">SDL_GL_BindTexture</a><br>
+<a href="#SDL_GL_MakeCurrent">SDL_GL_MakeCurrent</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GL_UnbindTexture">SDL_GL_UnbindTexture - SDL Wiki</a>
+<hr>
+
 </body>
 </html>
