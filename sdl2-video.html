@@ -846,9 +846,9 @@ OpenGLƒvƒŠƒ~ƒeƒBƒu‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚Åg‚Á‚Ä‚¢‚éOpenGL/ES/ES2ƒeƒNƒXƒ`ƒƒ‚ğƒJƒŒƒ“ƒgƒRƒ
 </code>
 <h3>ˆø”</h3>
 <table border="1" summary="SDL_GetClosestDisplayMode">
-<tr><td>displayIndex</td><td>—v‹‚·‚éƒfƒBƒXƒvƒŒƒC‚ÌƒCƒ“ƒfƒbƒNƒX”Ô†</td></tr>
-<tr><td>mode</td><td>—v‹‚·‚éƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ‘ã“ü‚µ‚½<a href="#SDL_DisplayMode">SDL_DisplayMode\‘¢‘Ì</td></tr>
-<tr><td>closest</td><td>Å‚à‹ß‚¢—˜—p‰Â”\‚ÈƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ‘ã“ü‚·‚é<a href="#SDL_DisplayMode">SDL_DisplayMode\‘¢‘Ì</td></td></tr>
+<tr><td>displayIndex</td><td>–â‚¢‡‚í‚¹‚éƒfƒBƒXƒvƒŒƒC‚Ì”Ô†</td></tr>
+<tr><td>mode</td><td>—v‹‚·‚éƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ‘ã“ü‚µ‚½<a href="#SDL_DisplayMode">SDL_DisplayMode</a>\‘¢‘Ì</td></tr>
+<tr><td>closest</td><td>Å‚à‹ß‚¢—˜—p‰Â”\‚ÈƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ‘ã“ü‚·‚é<a href="#SDL_DisplayMode">SDL_DisplayMode</a>\‘¢‘Ì</td></td></tr>
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«closest‚Ö‚Ìƒ|ƒCƒ“ƒ^, —˜—p‰Â”\‚ÈƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ª‚È‚¢‚Æ‚«NULL‚ğ–ß‚·.
@@ -864,6 +864,30 @@ mode‚Ìformat‚Ærefresh_rate‚ª0‚Ìê‡, ‰Šú’l‚ÌƒfƒXƒNƒgƒbƒv‚Ìƒ‚[ƒh‚Æ‚È‚é.
 <a href="#SDL_GetNumDisplayModes">SDL_GetNumDisplayModes</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_GetClosestDisplayMode">SDL_GetClosestDisplayMode - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GetCurrentDisplayMode">SDL_GetCurrentDisplayMode</a></h2>
+Œ»İ‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚Ìî•ñ‚ğ“¾‚é
+<h3>\•¶</h3>
+<code>int SDL_GetCurrentDisplayMode(int displayIndex, SDL_DisplayMode* mode)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_GetCurrentDisplayMode">
+<tr><td>displayIndex</td><td>–â‚¢‡‚í‚¹‚éƒfƒBƒXƒvƒŒƒC‚Ì”Ô†</td></tr>
+<tr><td>mode</td><td>Œ»İ‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ‘ã“ü‚·‚é<a href="#SDL_DisplayMode">SDL_DisplayMode</a>\‘¢‘Ì</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+¬Œ÷‚Ì‚Æ‚«0, ¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ğ–ß‚·.
+‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+<h3>Ú×</h3>
+‚±‚ÌŠÖ”‚Æ<a href="#SDL_GetDesktopDisplayMode">SDL_GetDesktopDisplayMode()</a>‚Í, SDL‚ªƒtƒ‹ƒXƒNƒŠ[ƒ“‚Å, ‚©‚Â‰ğ‘œ“x‚ğ•Ï‚¦‚½‚Æ‚«ˆÙ‚È‚é.
+‚»‚Ìê‡, ‚±‚ÌŠÖ”‚ÍŒ»İ‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ–ß‚·‚ª, <a href="#SDL_GetDesktopDisplayMode">SDL_GetDesktopDisplayMode()</a>‚Í‚»‚Ì‚Ü‚Ü‚Ì’l‚ğ–ß‚·.
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_GetDesktopDisplayMode">SDL_GetDesktopDisplayMode</a><br>
+<a href="#SDL_GetDisplayMode">SDL_GetDisplayMode</a><br>
+<a href="#SDL_SetWindowDisplayMode">SDL_SetWindowDisplayMode</a><br>
+<a href="#SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_GetCurrentDisplayMode">SDL_GetCurrentDisplayMode - SDL Wiki</a>
 <hr>
 
 </body>
