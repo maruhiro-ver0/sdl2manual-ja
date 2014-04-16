@@ -709,5 +709,25 @@ OpenGLライブラリを動的に読み込む
 <a href="https://wiki.libsdl.org/SDL_GL_LoadLibrary">SDL_GL_LoadLibrary - SDL Wiki</a>
 <hr>
 
+<h2><a name="SDL_GL_MakeCurrent">SDL_GL_MakeCurrent</a></h2>
+OpenGLコンテキストをOpenGLウィンドウにレンダリングするように設定する
+<h3>構文</h3>
+<code>int SDL_GL_MakeCurrent(SDL_Window* window, SDL_GLContext context)
+</code>
+<h3>引数</h3>
+<table border="1" summary="">
+<tr><td>window</td><td>コンテキストに関連付けるウィンドウ</td></tr>
+<tr><td>context</td><td>ウィンドウに関連付けるOpenGLコンテキスト</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GL_CreateContext">SDL_GL_CreateContext</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GL_MakeCurrent">SDL_GL_MakeCurrent - SDL Wiki</a>
+<hr>
+
 </body>
 </html>
