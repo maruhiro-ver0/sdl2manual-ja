@@ -652,7 +652,7 @@ OpenGLの関数を検索するのはいくつかの難点があり, アプリケーションは特に注意を要す
 そしてコンテキストを生成する前でも検索できる.
 これは少なくともいくつかのOpenGLの実装で, 存在しない関数を検索したとき, 安全では*ない*NULLでない結果を得ることを意味する.
 動作中のGLコンテキストで関数が実際に使えるか否かを, <a href="#SDL_GL_ExtensionSupported">SDL_GL_ExtensionSupported()</a>でその拡張の存在をチェックすることや, 使用中のバージョンのOpenGLでその関数が提供されているかを確認することで, 呼ぶ前に常に確認する必要がある.
-<li>全ての環境で, 対応していない関数の場合はNULLを戻すOpenGLのドライバが存在する.
+<li>全ての環境で, 一部のOpenGLのドライバは対応していない関数の場合はNULLを戻す.
 しかしその動作を期待してはならない.
 拡張の存在をチェックしたが, それでもNULLを得たならば, その拡張は使えないとみなすべきだ.
 これはドライバのバグかもしれない. しかし, いずれにせよこの方法ならばコードは堅牢になる.
@@ -747,7 +747,7 @@ OpenGLコンテキストの属性を全て元の値にリセットする
 </code>
 <h3>引数</h3>
 <table border="1" summary="SDL_GL_SetAttribute">
-<tr><td>attr</td><td>設定するOpenGL属性</td></tr>
+<tr><td>attr</td><td>設定するOpenGL属性 (詳細を参照すること)</td></tr>
 <tr><td>value</td><td>設定する属性の値</td></tr>
 </table>
 <h3>戻り値</h3>
@@ -767,6 +767,33 @@ attrは<a href="#SDL_GLattr">SDL_GLattr</a>列挙体の値の1つである.
 <a href="#SDL_GL_GetAttribute">SDL_GL_GetAttribute</a><br>
 <h3>SDL Wikiへのリンク</h3>
 <a href="https://wiki.libsdl.org/SDL_GL_SetAttribute">SDL_GL_SetAttribute - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GL_SetSwapInterval">SDL_GL_SetSwapInterval</a></h2>
+カレントコンテキストの交換インターバルを設定する
+<h3>構文</h3>
+<code>int SDL_GL_SetSwapInterval(int interval)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_GL_SetSwapInterval">
+<tr><td>interval</td><td>すぐに更新するとき0, 垂直帰線で同期するとき1, late swap tearingのとき-1 (詳細を参照すること)</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 設定した交換インターバルが対応していない場合は-1を戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+<p>
+一部の処理系ではintervalに-1を指定することでlate swap tearingが有効になる.
+Late swap tearingは垂直帰線同期と同じように働くが, 与えられたフレームの垂直帰線同期に失敗したとき, バッファをただちに交換する. それによりユーザのフレーム落ちに対する不快感を抑えることができる.
+アプリケーションがlate swap tearingを要求したが処理系が対応していないとき, この関数は失敗し-1を戻す.
+その場合は, 再びこの関数をintervalを1にして呼ぶ必要がある.
+</p>
+<p>
+Late swap tearingは, 一部のglXドライバのGLX_EXT_swap_control_tearと, 一部のWindowsドライバのWGL_EXT_swap_control_tearで実装されている.
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GL_GetSwapInterval">SDL_GL_GetSwapInterval</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GL_SetSwapInterval">SDL_GL_SetSwapInterval - SDL Wiki</a>
 <hr>
 
 </body>
