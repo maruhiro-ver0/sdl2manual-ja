@@ -839,5 +839,32 @@ OpenGLƒvƒŠƒ~ƒeƒBƒu‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚Åg‚Á‚Ä‚¢‚éOpenGL/ES/ES2ƒeƒNƒXƒ`ƒƒ‚ğƒJƒŒƒ“ƒgƒRƒ
 <a href="https://wiki.libsdl.org/SDL_GL_UnloadLibrary">SDL_GL_UnloadLibrary - SDL Wiki</a>
 <hr>
 
+<h2><a name="SDL_GetClosestDisplayMode">SDL_GetClosestDisplayMode</a></h2>
+—v‹‚ÉÅ‚à‹ß‚¢ƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğŒŸõ‚·‚é
+<h3>\•¶</h3>
+<code>SDL_DisplayMode* SDL_GetClosestDisplayMode(int displayIndex, const SDL_DisplayMode* mode, SDL_DisplayMode* closest)
+</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_GetClosestDisplayMode">
+<tr><td>displayIndex</td><td>—v‹‚·‚éƒfƒBƒXƒvƒŒƒC‚ÌƒCƒ“ƒfƒbƒNƒX”Ô†</td></tr>
+<tr><td>mode</td><td>—v‹‚·‚éƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ‘ã“ü‚µ‚½<a href="#SDL_DisplayMode">SDL_DisplayMode\‘¢‘Ì</td></tr>
+<tr><td>closest</td><td>Å‚à‹ß‚¢—˜—p‰Â”\‚ÈƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ‘ã“ü‚·‚é<a href="#SDL_DisplayMode">SDL_DisplayMode\‘¢‘Ì</td></td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+¬Œ÷‚Ì‚Æ‚«closest‚Ö‚Ìƒ|ƒCƒ“ƒ^, —˜—p‰Â”\‚ÈƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ª‚È‚¢‚Æ‚«NULL‚ğ–ß‚·.
+‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+<h3>Ú×</h3>
+—˜—p‰Â”\‚ÈƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ªŒŸõ‚³‚ê, —v‹‚ÆÅ‚à‹ß‚¢ƒ‚[ƒh‚ªclosest‚É‘ã“ü‚³‚ê‚é.
+mode‚Ìformat‚Ærefresh_rate‚ª0‚Ìê‡, ‰Šú’l‚ÌƒfƒXƒNƒgƒbƒv‚Ìƒ‚[ƒh‚Æ‚È‚é.
+ƒ‚[ƒh‚Í, ƒTƒCƒY‚ğÅ—Dæ‚ÅŒŸõ‚µ, ƒsƒNƒZƒ‹Œ`®(F)‚ÍŸ‚Ì—Dæ“x‚Æ‚È‚é.
+‚»‚µ‚ÄÅŒã‚ÉXVüŠú‚ğƒ`ƒFƒbƒN‚·‚é.
+—˜—p‰Â”\‚Èƒ‚[ƒh‚ª—v‹‚É‘Î‚µ‚Ä¬‚³‚·‚¬‚éê‡, NULL‚ğ–ß‚·.
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_GetDisplayMode">SDL_GetDisplayMode</a><br>
+<a href="#SDL_GetNumDisplayModes">SDL_GetNumDisplayModes</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_GetClosestDisplayMode">SDL_GetClosestDisplayMode - SDL Wiki</a>
+<hr>
+
 </body>
 </html>
