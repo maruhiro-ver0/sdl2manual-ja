@@ -1066,7 +1066,7 @@ The video drivers are presented in the order in which they are normally checked 
 <tr><td>window</td><td>問い合わせるウィンドウ</td></tr>
 </table>
 <h3>戻り値</h3>
-ウィンドウの輝度を戻す. 0.0が完全な黒で, 1.0が通常の輝度である.
+ウィンドウの輝度を戻す. 0.0が完全に真っ暗で, 1.0が通常の輝度である.
 <h3>関連項目(関数)</h3>
 <a href="#SDL_SetWindowBrightness">SDL_SetWindowBrightness</a><br>
 <h3>SDL Wikiへのリンク</h3>
@@ -1088,6 +1088,26 @@ nameに関連付けた値を戻す
 <a href="#SDL_SetWindowData">SDL_SetWindowData</a><br>
 <h3>SDL Wikiへのリンク</h3>
 <a href="https://wiki.libsdl.org/SDL_GetWindowData">SDL_GetWindowData - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetWindowBrightness">SDL_SetWindowBrightness</a></h2>
+ウィンドウの輝度(ガンマ補正)を設定する
+<h3>構文</h3>
+<code>int SDL_SetWindowBrightness(SDL_Window* window, float brightness)
+</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SetWindowBrightness">
+<tr><td>window</td><td>変更するウィンドウ</td></tr>
+<tr><td>brightness</td><td>輝度(ガンマ補正) 0.0が完全に真っ暗で, 1.0が通常の輝度</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0を, 失敗のとき負の数のエラーコードを戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetWindowBrightness">SDL_GetWindowBrightness</a><br>
+<a href="#SDL_SetWindowGammaRamp">SDL_SetWindowGammaRamp</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SetWindowBrightness">SDL_SetWindowBrightness - SDL Wiki</a>
 <hr>
 
 <h2><a name="SDL_SetWindowData">SDL_SetWindowData</a></h2>
