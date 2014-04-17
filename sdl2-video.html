@@ -904,5 +904,30 @@ modeのformatとrefresh_rateが0の場合, 初期値のデスクトップのモードとなる.
 <a href="https://wiki.libsdl.org/SDL_GetCurrentVideoDriver">SDL_GetCurrentVideoDriver - SDL Wiki</a>
 <hr>
 
+<h2><a name="SDL_GetDesktopDisplayMode">SDL_GetDesktopDisplayMode</a></h2>
+Use this function to get information about the desktop display mode. 
+デスクトップのディスプレイモードの情報を得る
+<h3>構文</h3>
+<code>int SDL_GetDesktopDisplayMode(int displayIndex, SDL_DisplayMode* mode)
+</code>
+<h3>引数</h3>
+<table border="1" summary="">
+<tr><td>displayIndex</td><td>問い合わせるディスプレイの番号</td></tr>
+<tr><td>mode</td><td>現在のディスプレイモードを代入する<a href="#SDL_DisplayMode">SDL_DisplayMode</a>構造体</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+この関数と<a href="#SDL_GetCurrentDisplayMode">SDL_GetCurrentDisplayMode()</a>は, SDLがフルスクリーンで, かつ解像度を変えたとき異なる.
+その場合, この関数は現在のディスプレイモードではなく変える前のディスプレイモードを戻す.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetCurrentDisplayMode">SDL_GetCurrentDisplayMode</a><br>
+<a href="#SDL_GetDisplayMode">SDL_GetDisplayMode</a><br>
+<a href="#SDL_SetWindowDisplayMode">SDL_SetWindowDisplayMode</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GetDesktopDisplayMode">SDL_GetDesktopDisplayMode - SDL Wiki</a>
+<hr>
+
 </body>
 </html>
