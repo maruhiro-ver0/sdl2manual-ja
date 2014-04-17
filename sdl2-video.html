@@ -975,5 +975,22 @@ modeのformatとrefresh_rateが0の場合, 初期値のデスクトップのモードとなる.
 <a href="https://wiki.libsdl.org/SDL_GetDisplayMode">SDL_GetDisplayMode - SDL Wiki</a>
 <hr>
 
+<h2><a name="SDL_GetDisplayName">SDL_GetDisplayName</a></h2>
+ディスプレイの名前をUTF-8コードで得る
+<h3>構文</h3>
+<code>const char* SDL_GetDisplayName(int displayIndex)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_GetDisplayName">
+<tr><td>displayIndex</td><td>問い合わせるディスプレイの番号</td></tr>
+</table>
+<h3>戻り値</h3>
+ディスプレイの名前を, 不正なディスプレイ番号または失敗のときNULLを戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GetDisplayName">SDL_GetDisplayName - SDL Wiki</a>
+<hr>
+
 </body>
 </html>
