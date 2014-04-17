@@ -1074,7 +1074,7 @@ The video drivers are presented in the order in which they are normally checked 
 <hr>
 
 <h2><a name="SDL_GetWindowData">SDL_GetWindowData</a></h2>
-ウィンドウに関連付けられたデータポインタを得る
+ウィンドウに関連付けたデータポインタを回収する
 <h3>構文</h3>
 <code>void* SDL_GetWindowData(SDL_Window* window, const char* name)</code>
 <h3>引数</h3>
@@ -1083,11 +1083,32 @@ The video drivers are presented in the order in which they are normally checked 
 <tr><td>name</td><td>名前へのポインタ</td></tr>
 </table>
 <h3>戻り値</h3>
-nameに関連付けられた値を戻す
+nameに関連付けた値を戻す
 <h3>関連項目(関数)</h3>
 <a href="#SDL_SetWindowData">SDL_SetWindowData</a><br>
 <h3>SDL Wikiへのリンク</h3>
 <a href="https://wiki.libsdl.org/SDL_GetWindowData">SDL_GetWindowData - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetWindowData">SDL_SetWindowData</a></h2>
+ウィンドウに任意の名前のポインタを関連付ける
+<h3>構文</h3>
+<code>void* SDL_SetWindowData(SDL_Window* window, const char* name, void* userdata)
+</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SetWindowData">
+<tr><td>window</td><td>ポインタに関連付けられたウィンドウ</td></tr>
+<tr><td>name</td><td>名前へのポインタ</td></tr>
+<tr><td>userdata</td><td>関連付けるポインタ</td></tr>
+</table>
+<h3>戻り値</h3>
+nameの関連付ける前の値を戻す
+<h3>詳細</h3>
+nameは大文字小文字を区別する
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetWindowData">SDL_GetWindowData</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SetWindowData">SDL_SetWindowData - SDL Wiki</a>
 <hr>
 
 </body>
