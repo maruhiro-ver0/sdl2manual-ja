@@ -993,7 +993,7 @@ modeのformatとrefresh_rateが0の場合, 初期値のデスクトップのモードとなる.
 <hr>
 
 <h2><a name="SDL_GetNumDisplayModes">SDL_GetNumDisplayModes</a></h2>
-利用可能なディスプレイの数を得る
+利用可能なディスプレイモードの数を得る
 <h3>構文</h3>
 <code>int SDL_GetNumDisplayModes(int displayIndex)</code>
 <h3>引数</h3>
@@ -1011,6 +1011,19 @@ displayIndexは0から<a href="#SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays()<
 <a href="#SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays</a><br>
 <h3>SDL Wikiへのリンク</h3>
 <a href="https://wiki.libsdl.org/SDL_GetNumDisplayModes">SDL_GetNumDisplayModes - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays</a></h2>
+利用可能なディスプレイの数を得る
+<h3>構文</h3>
+<code>int SDL_GetNumVideoDisplays(void)</code>
+<h3>戻り値</h3>
+成功のとき1以上の数を, 失敗のとき負の数のエラーコードを戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetDisplayBounds">SDL_GetDisplayBounds</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays - SDL Wiki</a>
 <hr>
 
 </body>
