@@ -1289,6 +1289,23 @@ Returns the pixel format of the window on success or SDL_PIXELFORMAT_UNKNOWN on 
 <a href="https://wiki.libsdl.org/SDL_GetWindowPosition">SDL_GetWindowPosition - SDL Wiki</a>
 <hr>
 
+<h2><a name="SDL_GetWindowSize">SDL_GetWindowSize</a></h2>
+Use this function to get the size of a window's client area. 
+ウィンドウのクライアント領域のサイズを得る
+<h3>構文</h3>
+<code>void SDL_GetWindowSize(SDL_Window* window, int* w, int* h)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_GetWindowSize">
+<tr><td>window</td><td>問い合わせるウィンドウ</td></tr>
+<tr><td>x</td><td>ウィンドウの幅を代入するポインタ</td></tr>
+<tr><td>y</td><td>ウィンドウの高さを代入するポインタ</td></tr>
+</table>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_SetWindowSize">SDL_SetWindowSize</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GetWindowSize">SDL_GetWindowSize - SDL Wiki</a>
+<hr>
+
 <h2><a name="SDL_SetWindowBrightness">SDL_SetWindowBrightness</a></h2>
 ウィンドウの輝度(ガンマ補正)を設定する
 <h3>構文</h3>
