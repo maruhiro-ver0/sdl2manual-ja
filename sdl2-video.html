@@ -802,7 +802,7 @@ OpenGLƒŒƒ“ƒ_ƒŠƒ“ƒO‚ÅƒEƒBƒ“ƒhƒE‚ğXV‚·‚é
 <code>void SDL_GL_SwapWindow(SDL_Window* window)</code>
 <h3>ˆø”</h3>
 <table border="1" summary="SDL_GL_SwapWindow">
-<tr><td>window</td><td>•ÏX‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+<tr><td>window</td><td>İ’è‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
 </table>
 <h3>Ú×</h3>
 ‚±‚ÌŠÖ”‚Íƒ_ƒuƒ‹ƒoƒbƒtƒ@‚ÌOpenGLƒRƒ“ƒeƒLƒXƒg‚Åg‚¤(ƒfƒtƒHƒ‹ƒg).
@@ -1313,7 +1313,7 @@ Use this function to get the size of a window's client area.
 </code>
 <h3>ˆø”</h3>
 <table border="1" summary="SDL_SetWindowBrightness">
-<tr><td>window</td><td>•ÏX‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+<tr><td>window</td><td>İ’è‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
 <tr><td>brightness</td><td>‹P“x(ƒKƒ“ƒ}•â³) 0.0‚ªŠ®‘S‚É^‚ÁˆÃ‚Å, 1.0‚ª’Êí‚Ì‹P“x</td></tr>
 </table>
 <h3>–ß‚è’l</h3>
@@ -1449,7 +1449,7 @@ SDL_WINDOW_FULLSCREEN_DESKTOP‚É‚·‚é‚ÆƒfƒXƒNƒgƒbƒv‚Æ“¯‚¶ƒTƒCƒY‚É‚µ‚½uƒjƒZ‚Ìvƒtƒ
 <code>void SDL_SetWindowMaximumSize(SDL_Window* window, int max_w, int max_h)</code>
 <h3>ˆø”</h3>
 <table border="1" summary="SDL_SetWindowMaximumSize">
-<tr><td>window</td><td>•ÏX‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+<tr><td>window</td><td>İ’è‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
 <tr><td>max_w</td><td>ƒEƒBƒ“ƒhƒE‚ÌÅ‘å•‚ÌƒsƒNƒZƒ‹”</td></tr>
 <tr><td>max_h</td><td>ƒEƒBƒ“ƒhƒE‚ÌÅ‘å‚‚³‚ÌƒsƒNƒZƒ‹”</td></tr>
 </table>
@@ -1466,7 +1466,7 @@ SDL_WINDOW_FULLSCREEN_DESKTOP‚É‚·‚é‚ÆƒfƒXƒNƒgƒbƒv‚Æ“¯‚¶ƒTƒCƒY‚É‚µ‚½uƒjƒZ‚Ìvƒtƒ
 <code>void SDL_SetWindowMinimumSize(SDL_Window* window, int min_w, int min_h)</code>
 <h3>ˆø”</h3>
 <table border="1" summary="SDL_SetWindowMinimumSize">
-<tr><td>window</td><td>•ÏX‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+<tr><td>window</td><td>İ’è‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
 <tr><td>min_w</td><td>ƒEƒBƒ“ƒhƒE‚ÌÅ¬•‚ÌƒsƒNƒZƒ‹”</td></tr>
 <tr><td>min_h</td><td>ƒEƒBƒ“ƒhƒE‚ÌÅ¬‚‚³‚ÌƒsƒNƒZƒ‹”</td></tr>
 </table>
@@ -1493,6 +1493,22 @@ SDL_WINDOW_FULLSCREEN_DESKTOP‚É‚·‚é‚ÆƒfƒXƒNƒgƒbƒv‚Æ“¯‚¶ƒTƒCƒY‚É‚µ‚½uƒjƒZ‚Ìvƒtƒ
 <a href="#SDL_GetWindowPosition">SDL_GetWindowPosition</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_SetWindowPosition">SDL_SetWindowPosition - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetWindowSize">SDL_SetWindowSize</a></h2>
+ƒEƒBƒ“ƒhƒE‚ÌƒNƒ‰ƒCƒAƒ“ƒg—Ìˆæ‚ÌƒTƒCƒY‚ğİ’è‚·‚é
+<h3>\•¶</h3>
+<code>void SDL_SetWindowSize(SDL_Window* window, int w, int h)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_SetWindowSize">
+<tr><td>window</td><td>İ’è‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+<tr><td>w</td><td>ƒEƒBƒ“ƒhƒE‚Ì•‚ÌƒsƒNƒZƒ‹”</td></tr>
+<tr><td>h</td><td>ƒEƒBƒ“ƒhƒE‚Ì‚‚³‚ÌƒsƒNƒZƒ‹”</td></tr>
+</table>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_GetWindowSize">SDL_GetWindowSize</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_SetWindowSize">SDL_SetWindowSize - SDL Wiki</a>
 <hr>
 
 </body>
