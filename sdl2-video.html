@@ -11,7 +11,7 @@
 <body>
 <a href="index.html">目次</a> - <a href="sdl2-api.html">API(機能別)</a> - ディスプレイとウィンドウ
 <h1>ディスプレイとウィンドウ</h1>
-インクルードファイル: SDL_video.h
+インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_video.h">SDL_video.h</a>
 <h2>概要</h2>
 これらの関数はディスプレイとウィンドウを扱うためのものである.
 <h2>列挙体</h2>
@@ -1033,6 +1033,7 @@ SDLで利用可能なビデオドライバの数を得る
 <h3>引数</h3>
 <h3>戻り値</h3>
 成功のとき1以上の数を, 失敗のとき負の数のエラーコードを戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h3>関連項目(関数)</h3>
 <a href="#SDL_GetVideoDriver">SDL_GetVideoDriver</a><br>
 <h3>SDL Wikiへのリンク</h3>
@@ -1091,7 +1092,7 @@ nameに関連付けた値を戻す
 <hr>
 
 <h2><a name="SDL_GetWindowDisplayIndex">SDL_GetWindowDisplayIndex</a></h2>
-ウィンドウに関連付けられたディスプレイの番号を得る
+ウィンドウの存在するディスプレイの番号を得る
 <h3>構文</h3>
 <code>int SDL_GetWindowDisplayIndex(SDL_Window* window)</code>
 <h3>引数</h3>
@@ -1109,14 +1110,14 @@ nameに関連付けた値を戻す
 <hr>
 
 <h2><a name="SDL_GetWindowDisplayMode">SDL_GetWindowDisplayMode</a></h2>
-ウィンドウのフルスクリーン時に使うディスプレイモードを得る
+フルスクリーン時に使用するディスプレイモードを得る
 <h3>構文</h3>
 <code>int SDL_GetWindowDisplayMode(SDL_Window* window, SDL_DisplayMode* mode)
 </code>
 <h3>引数</h3>
 <table border="1" summary="SDL_GetWindowDisplayMode">
 <tr><td>window</td><td>問い合わせるウィンドウ</td></tr>
-<tr><td>mode</td><td>フルスクリーンで見えるディスプレイモードを代入する<a href="#SDL_DisplayMode">SDL_DisplayMode</a>構造体</td></tr>
+<tr><td>mode</td><td>フルスクリーン時に使用するディスプレイモードを代入する<a href="#SDL_DisplayMode">SDL_DisplayMode</a>構造体</td></tr>
 </table>
 <h3>戻り値</h3>
 成功のとき0を, 失敗のとき負の数のエラーコードを戻す.
@@ -1149,7 +1150,7 @@ nameに関連付けた値を戻す
 <hr>
 
 <h2><a name="SDL_SetWindowData">SDL_SetWindowData</a></h2>
-ウィンドウに任意の名前のポインタを関連付ける
+ウィンドウに任意の名前とポインタを関連付ける
 <h3>構文</h3>
 <code>void* SDL_SetWindowData(SDL_Window* window, const char* name, void* userdata)
 </code>
@@ -1170,22 +1171,45 @@ nameは大文字小文字を区別する
 <hr>
 
 <h2><a name="SDL_SetWindowDisplayMode">SDL_SetWindowDisplayMode</a></h2>
-ウィンドウのフルスクリーン時に使うディスプレイモードを設定する
+フルスクリーン時に使用するディスプレイモードを設定する
 <h3>構文</h3>
 <code>int SDL_SetWindowDisplayMode(SDL_Window* window, const SDL_DisplayMode* mode)</code>
 <h3>引数</h3>
 <table border="1" summary="SDL_SetWindowDisplayMode">
 <tr><td>window</td><td>設定するウィンドウ</td></tr>
-<tr><td>mode</td><td> 設定するディスプレイモードを代入した<a href="#SDL_DisplayMode">SDL_DisplayMode</a>, NULLのときデスクトップの色数と更新周期を使用する</td></tr>
+<tr><td>mode</td><td> 設定するディスプレイモードを代入した<a href="#SDL_DisplayMode">SDL_DisplayMode</a>構造体, NULLのときはデスクトップの色数と更新周期を使用する</td></tr>
 </table>
 <h3>戻り値</h3>
 成功のとき0を, 失敗のとき負の数のエラーコードを戻す.
 そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h3>関連項目(関数)</h3>
-<a href="#SDL_SetWindowDisplayMode">SDL_SetWindowDisplayMode</a><br>
+<a href="#SDL_GetWindowDisplayMode">SDL_GetWindowDisplayMode</a><br>
 <a href="#SDL_SetWindowFullscreen">SDL_SetWindowFullscreen</a><br>
 <h3>SDL Wikiへのリンク</h3>
 <a href="https://wiki.libsdl.org/SDL_SetWindowDisplayMode">SDL_SetWindowDisplayMode - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetWindowFullscreen">SDL_SetWindowFullscreen</a></h2>
+ウィンドウのフルスクリーン状態を設定する
+<h3>構文</h3>
+<code>int SDL_SetWindowFullscreen(SDL_Window* window, Uint32 flags)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SetWindowFullscreen">
+<tr><td>window</td><td>設定するウィンドウ</td></tr>
+<tr><td>flags</td><td>SDL_WINDOW_FULLSCREEN, SDL_WINDOW_FULLSCREEN_DESKTOP または 0 (詳細を参照すること)</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0を, 失敗のとき負の数のエラーコードを戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+flagsをSDL_WINDOW_FULLSCREENにするとビデオモードを変え「本当の」フルスクリーンになる.
+SDL_WINDOW_FULLSCREEN_DESKTOPにするとデスクトップと同じサイズにした「ニセの」フルスクリーンになる.
+0のときウィンドウモードになる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetWindowDisplayMode">SDL_GetWindowDisplayMode</a><br>
+<a href="#SDL_SetWindowDisplayMode">SDL_SetWindowDisplayMode</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SetWindowFullscreen">SDL_SetWindowFullscreen - SDL Wiki</a>
 <hr>
 
 </body>
