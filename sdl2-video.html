@@ -1306,6 +1306,183 @@ Use this function to get the size of a window's client area.
 <a href="https://wiki.libsdl.org/SDL_GetWindowSize">SDL_GetWindowSize - SDL Wiki</a>
 <hr>
 
+<h2><a name="SDL_GetWindowSurface">SDL_GetWindowSurface</a></h2>
+ƒEƒBƒ“ƒhƒE‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½SDLƒT[ƒtƒFƒCƒX‚ğ“¾‚é
+<h3>\•¶</h3>
+<code>SDL_Surface* SDL_GetWindowSurface(SDL_Window* window)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_GetWindowSurface">
+<tr><td>window</td><td>–â‚¢‡‚í‚¹‚éƒEƒBƒ“ƒhƒE</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+¬Œ÷‚Ì‚Æ‚«ƒEƒBƒ“ƒhƒE‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ƒT[ƒtƒFƒCƒX‚ğ, ¸”s‚Ì‚Æ‚«NULL‚ğ–ß‚·.
+‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+<h3>Ú×</h3>
+<p>
+•K—v‚È‚ç‚Î, V‚µ‚¢ƒT[ƒtƒFƒCƒX‚ÍƒEƒBƒ“ƒhƒE‚É“K‚µ‚½ƒtƒH[ƒ}ƒbƒg‚Å¶¬‚³‚ê‚é.
+ƒT[ƒtƒFƒCƒX‚ÍƒEƒBƒ“ƒhƒE‚ª”jŠü‚³‚ê‚½‚Æ‚«‰ğ•ú‚³‚ê‚é.
+</p>
+<p>
+‚±‚Ì‚±‚Æ‚ÍƒEƒBƒ“ƒhƒE‚Æ3D‚Ü‚½‚ÍƒŒƒ“ƒ_ƒŠƒ“ƒOAPI‚ÌŒ‹‚Ñ‚Â‚«‚Æ“¯‚¶‚Å‚Í‚È‚¢.
+</p>
+<p>
+‚±‚ÌŠÖ”‚Í<a href="#SDL_HINT_FRAMEBUFFER_ACCELERATION">SDL_HINT_FRAMEBUFFER_ACCELERATION</a>‚Ì‰e‹¿‚ğó‚¯‚é.
+</p>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_UpdateWindowSurface">SDL_UpdateWindowSurface</a><br>
+<a href="#SDL_UpdateWindowSurfaceRects">SDL_UpdateWindowSurfaceRects</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_GetWindowSurface">SDL_GetWindowSurface - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GetWindowTitle">SDL_GetWindowTitle</a></h2>
+ƒEƒBƒ“ƒhƒE‚Ìƒ^ƒCƒgƒ‹‚ğ“¾‚é
+<h3>\•¶</h3>
+<code>const char* SDL_GetWindowTitle(SDL_Window* window)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_GetWindowTitle">
+<tr><td>window</td><td>–â‚¢‡‚í‚¹‚éƒEƒBƒ“ƒhƒE</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+ƒEƒBƒ“ƒhƒE‚Ìƒ^ƒCƒgƒ‹‚ÌUTF-8•¶š—ñ, ƒ^ƒCƒgƒ‹‚ª‚È‚¢ê‡‚Í"".
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_SetWindowTitle">SDL_SetWindowTitle</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_GetWindowTitle">SDL_GetWindowTitle - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GetWindowWMInfo">SDL_GetWindowWMInfo</a></h2>
+ƒEƒBƒ“ƒhƒE‚ÉŠÖ‚·‚éƒhƒ‰ƒCƒoŒÅ—L‚Ìî•ñ‚ğ“¾‚é
+<h3>\•¶</h3>
+<code>SDL_bool SDL_GetWindowWMInfo(SDL_Window* window, SDL_SysWMinfo* info)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_GetWindowWMInfo">
+<tr><td>window</td><td>î•ñ‚ğ‹‚ß‚éƒEƒBƒ“ƒhƒE</td></tr>
+<tr><td>info</td><td>ƒEƒBƒ“ƒhƒE‚Ìî•ñ‚ğ‘‚«‚Ş<a href="sdl2-swm.html#SDL_SysWMinfo">SDL_SysWMinfo</a>\‘¢‘Ì (Ú×‚ğQÆ‚·‚é‚±‚Æ)</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+‚±‚ÌŠÖ”‚ªÀ‘•‚³‚ê‚Ä‚¢‚Ä, ‚©‚Âinfo\‘¢‘Ì‚Ìƒo[ƒWƒ‡ƒ“‚ª³‚µ‚¯‚ê‚ÎSDL_TRUE, î•ñ‚ª“¾‚ç‚ê‚È‚¯‚ê‚ÎSDL_FALSE‚ğ–ß‚·.
+‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+<h3>Ú×</h3>
+<p>
+<a href="sdl2-swm.html#SDL_SysWMinfo">SDL_SysWMinfo</a>‚ğ’è‹`‚·‚é‚½‚ßSDL_syswm.h‚ğƒCƒ“ƒNƒ‹[ƒh‚·‚é•K—v‚ª‚ ‚é.
+</p>
+<p>
+info\‘¢‘Ì‚ÍSDLƒo[ƒWƒ‡ƒ“‚ª‰Šú‰»‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚è, ‚»‚ê‚ª‚ ‚ê‚ÎƒEƒBƒ“ƒhƒE‚Ìî•ñ‚ª<a href="https://wiki.libsdl.org/SDL_GetWindowWMInfo#Code_Examples">ƒTƒ“ƒvƒ‹ƒR[ƒh</a>‚Ì‚æ‚¤‚É“¾‚ç‚ê‚é.
+</p>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_GetWindowWMInfo">SDL_GetWindowWMInfo - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_HideWindow">SDL_HideWindow</a></h2>
+ƒEƒBƒ“ƒhƒE‚ğ‰B‚·
+<h3>\•¶</h3>
+<code>void SDL_HideWindow(SDL_Window* window)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_HideWindow">
+<tr><td>window</td><td>‰B‚·ƒEƒBƒ“ƒhƒE</td></tr>
+</table>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_ShowWindow">SDL_ShowWindow</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_HideWindow">SDL_HideWindow - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_IsScreenSaverEnabled">SDL_IsScreenSaverEnabled</a></h2>
+Œ»İƒXƒNƒŠ[ƒ“ƒZ[ƒo[‚ª—LŒø‚©‚ğ–ß‚·
+<h3>\•¶</h3>
+<code>SDL_bool SDL_IsScreenSaverEnabled(void)</code>
+<h3>–ß‚è’l</h3>
+ƒXƒNƒŠ[ƒ“ƒZ[ƒo[‚ª—LŒø‚Ì‚Æ‚«SDL_TRUE, –³Œø‚Ì‚Æ‚«SDL_FALSE‚ğ–ß‚·.
+<h3>Ú×</h3>
+ƒfƒtƒHƒ‹ƒg‚Å‚ÍƒXƒNƒŠ[ƒ“ƒZ[ƒo[‚Í—LŒø‚Å‚ ‚é.
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_DisableScreenSaver">SDL_DisableScreenSaver</a><br>
+<a href="#SDL_EnableScreenSaver">SDL_EnableScreenSaver</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_IsScreenSaverEnabled">SDL_IsScreenSaverEnabled - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_MaximizeWindow">SDL_MaximizeWindow</a></h2>
+ƒEƒBƒ“ƒhƒE‚ğÅ‘å‰»‚·‚é
+<h3>\•¶</h3>
+<code>void SDL_MaximizeWindow(SDL_Window* window)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_MaximizeWindow">
+<tr><td>window</td><td>Å‘å‰»‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+</table>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_MinimizeWindow">SDL_MinimizeWindow</a><br>
+<a href="#SDL_RestoreWindow">SDL_RestoreWindow</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_MaximizeWindow">SDL_MaximizeWindow - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_MinimizeWindow">SDL_MinimizeWindow</a></h2>
+ƒEƒBƒ“ƒhƒE‚ğƒAƒCƒRƒ“‰»‚·‚é
+<h3>\•¶</h3>
+<code>void SDL_MinimizeWindow(SDL_Window* window)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_MinimizeWindow">
+<tr><td>window</td><td>Å¬‰»‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+</table>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_MaximizeWindow">SDL_MaximizeWindow</a><br>
+<a href="#SDL_RestoreWindow">SDL_RestoreWindow</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_MinimizeWindow">SDL_MinimizeWindow - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_RaiseWindow">SDL_RaiseWindow</a></h2>
+ƒEƒBƒ“ƒhƒE‚ğÅ‘O–Ê‚É‚µ‚Ä“ü—ÍƒtƒH[ƒJƒX‚ğ—^‚¦‚é
+<h3>\•¶</h3>
+<code>void SDL_RaiseWindow(SDL_Window* window)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_RaiseWindow">
+<tr><td>window</td><td>Å‘O–Ê‚É‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+</table>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_RaiseWindow">SDL_RaiseWindow - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_RestoreWindow">SDL_RestoreWindow</a></h2>
+Å‘å‰»‚Ü‚½‚ÍÅ¬‰»‚³‚ê‚½ƒEƒBƒ“ƒhƒE‚ğŒ³‚Ì‘å‚«‚³‚ÆˆÊ’u‚É–ß‚·
+<h3>\•¶</h3>
+<code>void SDL_RestoreWindow(SDL_Window* window)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_RestoreWindow">
+<tr><td>window</td><td>Œ³‚É–ß‚·ƒEƒBƒ“ƒhƒE</td></tr>
+</table>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_MaximizeWindow">SDL_MaximizeWindow</a><br>
+<a href="#SDL_MinimizeWindow">SDL_MinimizeWindow</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_RestoreWindow">SDL_RestoreWindow - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetWindowBordered">SDL_SetWindowBordered</a></h2>
+ƒEƒBƒ“ƒhƒE‚Ì˜g‚Ìó‘Ô‚ğİ’è‚·‚é
+<h3>\•¶</h3>
+<code>void SDL_SetWindowBordered(SDL_Window* window, SDL_bool bordered)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_SetWindowBordered">
+<tr><td>window</td><td>˜g‚Ìó‘Ô‚ğİ’è‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+<tr><td>bordered</td><td>SDL_FALSE‚Ì‚Æ‚«˜g‚ğæ‚èœ‚­, SDL_TRUE‚Ì‚Æ‚«˜g‚ğ‚Â‚¯‚é</td></tr>
+</table>
+<h3>Ú×</h3>
+<p>
+‚±‚ÌŠÖ”‚ÍSDL_WINDOW_BORDERLESSƒtƒ‰ƒO‚ğ•Ï‰»‚³‚¹, ÀÛ‚ÌƒEƒBƒ“ƒhƒE‚Ì˜g‚ğ•Ï‰»‚³‚¹‚é.
+ƒEƒBƒ“ƒhƒE‚Ì˜g‚ªŠù‚É‚»‚Ìó‘Ô‚Ìê‡‚Í‰½‚à‹N‚±‚ç‚È‚¢.
+</p>
+<p>
+ƒtƒ‹ƒXƒNƒŠ[ƒ“‚Ìê‡‚Í˜g‚Ìó‘Ô‚Í•Ï‚í‚ç‚È‚¢.
+</p>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_GetWindowFlags">SDL_GetWindowFlags</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_SetWindowBordered">SDL_SetWindowBordered - SDL Wiki</a>
+<hr>
+
 <h2><a name="SDL_SetWindowBrightness">SDL_SetWindowBrightness</a></h2>
 ƒEƒBƒ“ƒhƒE‚Ì‹P“x(ƒKƒ“ƒ}•â³)‚ğİ’è‚·‚é
 <h3>\•¶</h3>
@@ -1510,6 +1687,192 @@ SDL_WINDOW_FULLSCREEN_DESKTOP‚É‚·‚é‚ÆƒfƒXƒNƒgƒbƒv‚Æ“¯‚¶ƒTƒCƒY‚É‚µ‚½uƒjƒZ‚Ìvƒtƒ
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_SetWindowSize">SDL_SetWindowSize - SDL Wiki</a>
 <hr>
+
+<h2><a name="SDL_SetWindowTitle">SDL_SetWindowTitle</a></h2>
+ƒEƒBƒ“ƒhƒE‚Ìƒ^ƒCƒgƒ‹‚ğİ’è‚·‚é
+<h3>\•¶</h3>
+<code>void SDL_SetWindowTitle(SDL_Window* window, const char* title)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_SetWindowTitle">
+<tr><td>window</td><td>İ’è‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+<tr><td>title</td><td>ƒEƒBƒ“ƒhƒE‚Ìƒ^ƒCƒgƒ‹‚ÌUTF-8•¶š—ñ</td></tr>
+</table>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_GetWindowTitle">SDL_GetWindowTitle</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_SetWindowTitle">SDL_SetWindowTitle - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_ShowMessageBox">SDL_ShowMessageBox</a></h2>
+ƒ‚[ƒ_ƒ‹‚ÈƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ğ¶¬‚·‚é
+<h3>\•¶</h3>
+<code>int SDL_ShowMessageBox(const SDL_MessageBoxData* messageboxdata, int* buttonid)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_ShowMessageBox">
+<tr><td>messageboxdata</td><td>ƒ^ƒCƒgƒ‹, ƒeƒLƒXƒg, ‚»‚Ì‘¼‚ÌƒIƒvƒVƒ‡ƒ“‚ğŠÜ‚Ş<a href="#SDL_MessageBoxData">SDL_MessageBoxData</a>\‘¢‘Ì</td></tr>
+<tr><td>buttonid</td><td>ƒ†[ƒU‚ª‰Ÿ‚µ‚½ƒ{ƒ^ƒ“‚ÌID‚ğ‘ã“ü‚·‚éƒ|ƒCƒ“ƒ^</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+¬Œ÷‚Ì‚Æ‚«0, ¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ğ–ß‚·.
+‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+<h3>Ú×</h3>
+‚±‚ÌŠÖ”‚Í, eƒEƒBƒ“ƒhƒE‚ª¶¬‚³‚ê‚½ƒXƒŒƒbƒh, eƒEƒBƒ“ƒhƒE‚ª‚È‚¯‚ê‚ÎƒƒCƒ“ƒXƒŒƒbƒh‚ÅŒÄ‚Ô•K—v‚ª‚ ‚é.
+ƒ†[ƒU‚ªƒ{ƒ^ƒ“‚ğ‰Ÿ‚·, ‚Ü‚½‚ÍƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ğ•Â‚¶‚é‚Ü‚ÅƒXƒŒƒbƒh‚ÌÀs‚Í’â~‚³‚ê‚é.
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_ShowSimpleMessageBox">SDL_ShowSimpleMessageBox</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_ShowMessageBox">SDL_ShowMessageBox - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_ShowSimpleMessageBox">SDL_ShowSimpleMessageBox</a></h2>
+’Pƒ‚ÈƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ğ•\¦‚·‚é
+<h3>\•¶</h3>
+<code>int SDL_ShowSimpleMessageBox(Uint32 flags, const char* title, const char* message, SDL_Window* window)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_ShowSimpleMessageBox">
+<tr><td>flags</td><td><a href="#SDL_MessageBoxFlag">SDL_MessageBoxFlag</a>—ñ‹“‘Ì</td> (Ú×‚ğQÆ‚·‚é‚±‚Æ)</td></tr>
+<tr><td>title</td><td>ƒ^ƒCƒgƒ‹‚ÌUTF-8•¶š—ñ</td></tr>
+<tr><td>message</td><td>ƒƒbƒZ[ƒW‚ÌUTF-8•¶š—ñ</td></tr>
+<tr><td>window</td><td>eƒEƒBƒ“ƒhƒE, NULL‚Ì‚Æ‚«eƒEƒBƒ“ƒhƒE‚ğ‚½‚È‚¢</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+¬Œ÷‚Ì‚Æ‚«0, ¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ğ–ß‚·.
+‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+<h3>Ú×</h3>
+<p>
+flag‚ÍˆÈ‰º‚Ì’l‚Å‚ ‚é.
+<table border="1" summary="SDL_MessageBoxFlag">
+<tr><td>SDL_MESSAGEBOX_ERROR</td><td>ƒGƒ‰[ƒ_ƒCƒAƒƒO</td></tr>
+<tr><td>SDL_MESSAGEBOX_WARNING</td><td>Œxƒ_ƒCƒAƒƒO</td></tr>
+<tr><td>SDL_MESSAGEBOX_INFORMATION</td><td>î•ñƒ_ƒCƒAƒƒO</td></tr>
+</table>
+‚±‚ÌŠÖ”‚Í<a href="sdl2-init.html#SDL_Init">SDL_Init()</a>‚Ì‘O‚Å‚àŒÄ‚×‚é.
+‚±‚Ì‚±‚Æ‚ÍƒŒƒ“ƒ_ƒ‰[‚âOpenGLƒRƒ“ƒeƒLƒXƒg‚Ì¶¬‚Ì¸”s‚ğ•ñ‚·‚é‚Æ‚«‚É–ğ—§‚Â.
+</p>
+<p>
+X11‚Å‚Í, GTK+‚âQt‚Ì‚æ‚¤‚Èƒc[ƒ‹ƒLƒbƒg‚Å‚Í‚È‚­X11‚»‚Ì‚à‚Ì‚Åƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ğ•\¦‚·‚é.
+</p>
+<p>
+—˜—p‚Å‚«‚éƒrƒfƒI‚ª‚È‚­<a href="sdl2-init.html#SDL_Init">SDL_Init()</a>‚ª¸”s‚µ‚½ê‡, ‚±‚ÌŠÖ”‚à“¯‚¶——R‚Å¸”s‚·‚é‚±‚Æ‚É’ˆÓ‚·‚é•K—v‚ª‚ ‚é.
+‚±‚ê‚ª–â‘è‚É‚È‚é‚È‚ç‚Î, ‚±‚ÌŠÖ”‚Ì–ß‚è’l‚ğƒ`ƒFƒbƒN‚µ, ¸”s‚ğ–ß‚µ‚½‚È‚çstderr‚É‘‚«‚Ş‚±‚Æ.
+</p>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_ShowSimpleMessageBox">SDL_ShowSimpleMessageBox - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_ShowWindow">SDL_ShowWindow</a></h2>
+ƒEƒBƒ“ƒhƒE‚ğ•\¦‚·‚é
+<h3>\•¶</h3>
+<code>void SDL_ShowWindow(SDL_Window* window)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_ShowWindow">
+<tr><td>window</td><td>•\¦‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+</table>
+<h3>Ú×</h3>
+SDL1.2‚Å‚Í, win32‚È‚ç‚Î <code>BOOL WINAPI ShowWindow(_In_ HWND hWnd, _In_ int nCmdShow)</code> ‚ğg‚í‚È‚¯‚ê‚Î‚È‚ç‚È‚©‚Á‚½.
+<a href="#SDL_ShowWindow">SDL_ShowWindow()</a>‚Í‚»‚Ì‘ã‚í‚è‚Å‚ ‚é.
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_HideWindow">SDL_HideWindow</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_ShowWindow">SDL_ShowWindow - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_UpdateWindowSurface">SDL_UpdateWindowSurface</a></h2>
+ƒEƒBƒ“ƒhƒEƒT[ƒtƒFƒCƒX‚ğ‰æ–Ê‚ÉƒRƒs[‚·‚é
+<h3>\•¶</h3>
+<code>int SDL_UpdateWindowSurface(SDL_Window* window)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_UpdateWindowSurface">
+<tr><td>window</td><td>XV‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+¬Œ÷‚Ì‚Æ‚«0, ¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ğ–ß‚·.
+‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+<h3>Ú×</h3>
+<p>
+‚±‚ÌŠÖ”‚Í‰æ–Ê‚ÉƒT[ƒtƒFƒCƒX‚Ì•ÏX‚ğ”½‰f‚·‚é‚½‚ß‚Ég‚í‚ê‚é.
+</p>
+<p>
+‚±‚ÌŠÖ”‚ÍSDL1.2 API‚ÌSDL_Flip()‚Æ“™‰¿‚Å‚ ‚é.
+</p>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_GetWindowSurface">SDL_GetWindowSurface</a><br>
+<a href="#SDL_UpdateWindowSurfaceRects">SDL_UpdateWindowSurfaceRects</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_UpdateWindowSurface">SDL_UpdateWindowSurface - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_UpdateWindowSurfaceRects">SDL_UpdateWindowSurfaceRects</a></h2>
+ƒEƒBƒ“ƒhƒEƒT[ƒtƒFƒCƒX‚Ì—Ìˆæ‚ğ‰æ–Ê‚ÉƒRƒs[‚·‚é
+<h3>\•¶</h3>
+<code>int SDL_UpdateWindowSurfaceRects(SDL_Window* window, const SDL_Rect* rects, int numrects)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="">
+<tr><td>window</td><td>XV‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
+<tr><td>rects</td><td>ƒT[ƒtƒFƒCƒX‚ğƒRƒs[‚·‚é—Ìˆæ‚ğ•\‚·<a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a>\‘¢‘Ì‚Ì”z—ñ</td></tr>
+<tr><td>numrects</td><td>—Ìˆæ‚Ì”</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+¬Œ÷‚Ì‚Æ‚«0, ¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ğ–ß‚·.
+‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+<h3>Ú×</h3>
+<p>
+‚±‚ÌŠÖ”‚Í‰æ–Ê‚ÉƒT[ƒtƒFƒCƒX‚Ì•ÏX‚ğ”½‰f‚·‚é‚½‚ß‚Ég‚í‚ê‚é.
+</p>
+<p>
+‚±‚ÌŠÖ”‚ÍSDL1.2 API‚ÌSDL_UpdateRects()‚Æ“™‰¿‚Å‚ ‚é.
+</p>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_GetWindowSurface">SDL_GetWindowSurface</a><br>
+<a href="#SDL_UpdateWindowSurface">SDL_UpdateWindowSurface</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_UpdateWindowSurfaceRects">SDL_UpdateWindowSurfaceRects - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_VideoInit">SDL_VideoInit</a></h2>
+ƒrƒfƒIƒhƒ‰ƒCƒo‚ğ“Á’è‚µ‚ÄƒrƒfƒIƒTƒuƒVƒXƒeƒ€‚ğ‰Šú‰»‚·‚é
+<h3>\•¶</h3>
+<code>int SDL_VideoInit(const char* driver_name)</code>
+<h3>ˆø”</h3>
+<table border="1" summary="SDL_VideoInit">
+<tr><td>driver_name</td><td>‰Šú‰»‚·‚éƒrƒfƒIƒhƒ‰ƒCƒo‚Ì–¼‘O, NULL‚Ì‚Æ‚«ƒfƒtƒHƒ‹ƒg‚Ìƒhƒ‰ƒCƒo</td></tr>
+</table>
+<h3>–ß‚è’l</h3>
+¬Œ÷‚Ì‚Æ‚«0, ¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ğ–ß‚·.
+‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+<h3>Ú×</h3>
+<p>
+‚±‚ÌŠÖ”‚ÍƒEƒBƒ“ƒhƒEƒ}ƒl[ƒWƒƒ‚Æ‚ÌÚ‘±‚ğ\’z‚µ‚ÄƒrƒfƒIƒTƒuƒVƒXƒeƒ€“™‚ğ‰Šú‰»‚µ, —˜—p‚Å‚«‚éƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ÆƒsƒNƒZƒ‹ƒtƒH[ƒ}ƒbƒg‚ğŒˆ’è‚·‚é.
+‚µ‚©‚µ, ƒEƒBƒ“ƒhƒE‚ÆƒOƒ‰ƒtƒBƒbƒNƒ‚[ƒh‚Í‰Šú‰»‚µ‚È‚¢.
+</p>
+<p>
+‚à‚µ‚±‚ÌŠÖ”‚ğg‚¢, SDL_INIT_VIDEOƒtƒ‰ƒO‚ğ<a href="sdl2-init.html#SDL_Init">SDL_Init()</a>‚Å‚à<a href="sdl2-init.html">SDL_InitSubSystem()</a>‚Å‚àg‚í‚È‚¢‚Ì‚Å‚ ‚ê‚Î, <a href="sdl2-init.html#SDL_Quit">SDL_Quit()</a>‚ğŒÄ‚Ô‘O‚É<a href="#SDL_VideoQuit">SDL_VideoQuit()</a>‚ğŒÄ‚Ô•K—v‚ª‚ ‚é.
+</p>
+<p>
+‚±‚ÌŠÖ”‚Í‰½“xŒÄ‚ñ‚Å‚àˆÀ‘S‚Å‚ ‚é.
+<a href="#SDL_VideoInit">SDL_VideoInit()</a>‚ÍŠù‚ÉƒrƒfƒIƒTƒuƒVƒXƒeƒ€‚ª‰Šú‰»‚³‚ê‚Ä‚¢‚é‚Æ‚«<a href="#SDL_VideoQuit">SDL_VideoQuit()</a>‚ğ©•ª©g‚ÅŒÄ‚Ô‚½‚ß‚Å‚ ‚é.
+</p>
+<p>
+<a href="#SDL_GetNumVideoDrivers">SDL_GetNumVideoDrivers()</a>‚Æ<a href="#SDL_GetVideoDriver">SDL_GetVideoDriver()</a>‚Í“Á’è‚Ìdriver_name‚ğ’T‚·‚½‚ß‚Ég‚¦‚é.
+</p>
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_GetNumVideoDrivers">SDL_GetNumVideoDrivers</a><br>
+<a href="#SDL_GetVideoDriver">SDL_GetVideoDriver</a><br>
+<a href="#SDL_InitSubSystem">SDL_InitSubSystem</a><br>
+<a href="#SDL_VideoQuit">SDL_VideoQuit</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_VideoInit">SDL_VideoInit - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_VideoQuit">SDL_VideoQuit</a></h2>
+<h3>\•¶</h3>
+<code>void SDL_VideoQuit(void)</code>
+<h3>Ú×</h3>
+‚±‚ÌŠÖ”‚Í‘S‚Ä‚ÌƒEƒBƒ“ƒhƒE‚ğ•Â‚¶, Œ³‚ÌƒrƒfƒIƒ‚[ƒh‚É–ß‚·.
+<h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
+<a href="#SDL_VideoInit">SDL_VideoInit</a><br>
+<h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
+<a href="https://wiki.libsdl.org/SDL_VideoQuit">SDL_VideoQuit - SDL Wiki</a>
 
 </body>
 </html>
