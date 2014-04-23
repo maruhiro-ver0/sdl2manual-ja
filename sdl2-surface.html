@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="sdl2-api.html" title="1つ上">
+<title>SDL2.0 日本語リファレンス - ディスプレイとウィンドウ</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="sdl2-api.html">API(機能別)</a> - サーフェイスの生成と単純な描画
+<h1>サーフェイスの生成と単純な描画</h1>
+インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_surface.h">SDL_surface.h</a>
+<h2>概要</h2>
+これらの関数はサーフェイスの生成やビットマップ転送や点, 線, 長方形などの単純な描画を行う.
+<h2>構造体</h2>
+<ol>
+<li><a href="#SDL_Surface">SDL_Surface</a></li>
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="#SDL_BlitScaled">SDL_BlitScaled</a></li>
+<li><a href="#SDL_BlitSurface">SDL_BlitSurface</a></li>
+<li><a href="#SDL_ConvertPixels">SDL_ConvertPixels</a></li>
+<li><a href="#SDL_ConvertSurface">SDL_ConvertSurface</a></li>
+<li><a href="#SDL_ConvertSurfaceFormat">SDL_ConvertSurfaceFormat</a></li>
+<li><a href="#SDL_CreateRGBSurface">SDL_CreateRGBSurface</a></li>
+<li><a href="#SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</a></li>
+<li><a href="#SDL_FillRect">SDL_FillRect</a></li>
+<li><a href="#SDL_FillRects">SDL_FillRects</a></li>
+<li><a href="#SDL_FreeSurface">SDL_FreeSurface</a></li>
+<li><a href="#SDL_GetClipRect">SDL_GetClipRect</a></li>
+<li><a href="#SDL_GetColorKey">SDL_GetColorKey</a></li>
+<li><a href="#SDL_GetSurfaceAlphaMod">SDL_GetSurfaceAlphaMod</a></li>
+<li><a href="#SDL_GetSurfaceBlendMode">SDL_GetSurfaceBlendMode</a></li>
+<li><a href="#SDL_GetSurfaceColorMod">SDL_GetSurfaceColorMod</a></li>
+<li><a href="#SDL_LoadBMP">SDL_LoadBMP</a></li>
+<li><a href="#SDL_LoadBMP_RW">SDL_LoadBMP_RW</a></li>
+<li><a href="#SDL_LockSurface">SDL_LockSurface</a></li>
+<li><a href="#SDL_LowerBlit">SDL_LowerBlit</a></li>
+<li><a href="#SDL_LowerBlitScaled">SDL_LowerBlitScaled</a></li>
+<li><a href="#SDL_MUSTLOCK">SDL_MUSTLOCK</a></li>
+<li><a href="#SDL_SaveBMP">SDL_SaveBMP</a></li>
+<li><a href="#SDL_SaveBMP_RW">SDL_SaveBMP_RW</a></li>
+<li><a href="#SDL_SetClipRect">SDL_SetClipRect</a></li>
+<li><a href="#SDL_SetColorKey">SDL_SetColorKey</a></li>
+<li><a href="#SDL_SetSurfaceAlphaMod">SDL_SetSurfaceAlphaMod</a></li>
+<li><a href="#SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode</a></li>
+<li><a href="#SDL_SetSurfaceColorMod">SDL_SetSurfaceColorMod</a></li>
+<li><a href="#SDL_SetSurfacePalette">SDL_SetSurfacePalette</a></li>
+<li><a href="#SDL_SetSurfaceRLE">SDL_SetSurfaceRLE</a></li>
+<li><a href="#SDL_UnlockSurface">SDL_UnlockSurface</a></li>
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/CategorySurface">CategorySurface - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_Surface">SDL_Surface</a></h2>
+ソフトウェアピットマップ転送で使われるピクセルの集まりを含む構造体
+<h3>フィールド</h3>
+<table border="1" summary="SDL_Surface">
+<tr><td>Uint32</td><td>flags</td><td>(内部使用)</td></tr>
+<tr><td><a href="sdl2-pixels.html#SDL_PixelFormat">SDL_PixelFormat</a>*</td><td>format</td><td>サーフェイスに格納されたピクセルのフォーマット 詳細は<a href="sdl2-pixels.html#SDL_PixelFormat">SDL_PixelFormat</a>を参照すること (読取専用)</td></tr>
+<tr><td>int</td><td>w</td><td>幅のピクセル数 (読取専用)</td></tr>
+<tr><td>int</td><td>h</td><td>高さのピクセル数 (読取専用)</td></tr>
+<tr><td>int</td><td>pitch</td><td>幅のピクセルのbyte数 (読取専用)</td></tr>
+<tr><td>void*</td><td>pixels</td><td>実際のピクセルデータへのポインタ 詳細を参照すること (読取専用)</td></tr>
+<tr><td>void*</td><td>userdata</td><td>自由に利用できるポインタ (読み書き可能)</td></tr>
+<tr><td>int</td><td>locked</td><td>サーフェイスのロックを要求されたときに使う (内部使用)</td></tr>
+<tr><td>void*</td><td>lock_data</td><td>サーフェイスのロックを要求されたときに使う (内部で使用する)</td></tr>
+<tr><td><a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a></td><td>clip_rect</td><td>サーフェイスへのビットマップ転送のクリッピングで使われる<a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a>構造体 <a href="#SDL_SetClipRect">SDL_SetClipRect()</a>で設定できる (読取専用)</td></tr>
+<tr><td><a href="#SDL_BlitMap">SDL_BlitMap</a></td><td>map</td><td>他のサーフェイスへの高速転送マッピングの情報 (内部使用)</td></tr>
+<tr><td>int</td><td>refcount</td><td>アプリケーションから参照された回数</td></tr>
+</table>
+<h3>詳細</h3>
+ほとんどのサーフェイスはpixelsに直接アクセスできる.
+<a href="#SDL_SetSurfaceRLE">SDL_SetSurfaceRLE()</a>で最適化されたサーフェイスはpixelsにアクセスする前に<a href="#SDL_LockSurface">SDL_LockSurface()</a>でロックする必要がある.
+アクセスし終えたならばビットマップ転送する前に<a href="#SDL_UnlockSurface">SDL_UnlockSurface()</a>を呼ぶ必要がある.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_ConvertSurface">SDL_ConvertSurface</a><br>
+<a href="#SDL_CreateRGBSurface">SDL_CreateRGBSurface</a><br>
+<a href="#SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</a><br>
+<a href="#SDL_FillRect">SDL_FillRect</a><br>
+<a href="#SDL_FillRects">SDL_FillRects</a><br>
+<a href="#SDL_FreeSurface">SDL_FreeSurface</a><br>
+<a href="#SDL_GetClipRect">SDL_GetClipRect</a><br>
+<a href="#SDL_GetColorKey">SDL_GetColorKey</a><br>
+<a href="#SDL_GetSurfaceAlphaMod">SDL_GetSurfaceAlphaMod</a><br>
+<a href="#SDL_GetSurfaceBlendMode">SDL_GetSurfaceBlendMode</a><br>
+<a href="#SDL_GetSurfaceColorMod">SDL_GetSurfaceColorMod</a><br>
+<a href="#SDL_LoadBMP_RW">SDL_LoadBMP_RW</a><br>
+<a href="#SDL_LockSurface">SDL_LockSurface</a><br>
+<a href="#SDL_LowerBlit">SDL_LowerBlit</a><br>
+<a href="#SDL_MUSTLOCK">SDL_MUSTLOCK</a><br>
+<a href="#SDL_SaveBMP_RW">SDL_SaveBMP_RW</a><br>
+<a href="#SDL_SetClipRect">SDL_SetClipRect</a><br>
+<a href="#SDL_SetColorKey">SDL_SetColorKey</a><br>
+<a href="#SDL_SetSurfaceAlphaMod">SDL_SetSurfaceAlphaMod</a><br>
+<a href="#SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode</a><br>
+<a href="#SDL_SetSurfaceColorMod">SDL_SetSurfaceColorMod</a><br>
+<a href="#SDL_SetSurfacePalette">SDL_SetSurfacePalette</a><br>
+<a href="#SDL_BlitScaled">SDL_BlitScaled</a><br>
+<a href="#SDL_UnlockSurface">SDL_UnlockSurface</a><br>
+<a href="#SDL_BlitSurface">SDL_BlitSurface</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_Surface">SDL_Surface - SDL Wiki</a><br>
+<hr>
+
+<h2><a name="SDL_BlitScaled">SDL_BlitScaled</a></h2>
+サーフェイスを別のサーフェイスに拡大縮小してコピーする
+<h3>構文</h3>
+<code>int SDL_BlitScaled(SDL_Surface* src, const SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_BlitScaled">
+<tr><td>src</td><td>コピー元の<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>srcrect</td><td>コピー元の領域を表す<a href="#SDL_Rect">SDL_Rect</a>構造体. NULLのときサーフェイス全体</td></tr>
+<tr><td>dst</td><td>コピー先の<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>dstrect</td><td>コピー先の領域を表す<a href="#SDL_Rect">SDL_Rect</a>構造体. NULLのときサーフェイス全体</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+これは高レベルの拡大縮小ビットマップ転送関数である.
+この関数は内部で<a href="#SDL_LowerBlitScaled">SDL_LowerBlitScaled()</a>を呼んでいる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_BlitSurface">SDL_BlitSurface</a><br>
+<a href="#SDL_LowerBlitScaled">SDL_LowerBlitScaled</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_BlitScaled">SDL_BlitScaled - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_BlitSurface">SDL_BlitSurface</a></h2>
+サーフェイスを別のサーフェイスに高速にコピーする
+<h3>構文</h3>
+<code>int SDL_BlitSurface(SDL_Surface* src, const SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_BlitSurface">
+<tr><td>src</td><td>コピー元の<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>srcrect</td><td>コピー元の領域を表す<a href="#SDL_Rect">SDL_Rect</a>構造体. NULLのときサーフェイス全体</td></tr>
+<tr><td>dst</td><td>コピー先の<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>dstrect</td><td>コピー先の領域を表す<a href="#SDL_Rect">SDL_Rect</a>構造体. NULLのときサーフェイス全体</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+<p>
+SDLのビットマップ転送が内部でどのように行われるかを正確に理解していないならば, そしてどのように他のビットマップ転送関数を使うのか分からないならば<a href="#SDL_BlitSurface">SDL_BlitSurface()</a>を使うべきである.
+</p>
+<p>
+これは高レベルのビットマップ転送関数で, <a href="#SDL_LowerBlit">SDL_LowerBlit()</a>を呼ぶ前に領域の検証とクリッピングが行われる.
+</p>
+<p>
+このビットマップ転送関数はロックしたサーフェイスに対して呼んではならない.
+</p>
+<p>
+コピーされる領域のサイズはsrcrectの幅と高さで決まる.
+dstrectは位置のみで, 幅と高さは無視される.
+dstrectの座標が負の場合でも正しくクリッピングされる.
+</p>
+<p>
+srcrectがNULLのときサーフェイスの全体がコピーされる.
+destrectがNULLのときコピー先は(0,0) (左上)となる.
+</p>
+<p>
+全てのクリッピングが行われた後, 最後に転送された領域はdstrectに保存される. (srcrectは変化しない.)
+</p>
+<p>
+ブレンディングやカラーキーの定義の有無により転送は以下のようになる.
+<table border="1" summary="SDL_BlitSurface">
+<tr>
+<th>フォーマット</th>
+<th>コピー元サーフェイスのブレンドモード</th>
+<th colspan="2">転送</th>
+</tr>
+<tr>
+<td rowspan="2">RGBA→RGB</td>
+<td rowspan="1">SDL_BLENDMODE_BLEND</td>
+<td rowspan="1" colspan="2">アルファブレンド(コピー元のアルファチャネルとパー・サーフェイス・アルファが使われる). SDL_SRCCOLORKEYは無視される.</td>
+</tr>
+<tr>
+<td rowspan="1">SDL_BLENDMODE_NONE</td>
+<td rowspan="1" colspan="2">RGBがコピーされる. SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる.</td>
+</tr>
+<tr>
+<td rowspan="2">RGB→RGBA</td>
+<td rowspan="1">SDL_BLENDMODE_BLEND</td>
+<td rowspan="1">アルファブレンド(コピー元のパー・サーフェイス・アルファが使われる).</td>
+<td rowspan="2">SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる.</td>
+</tr>
+<tr>
+<td rowspan="1">SDL_BLENDMODE_NONE</td>
+<td rowspan="1">RGBがコピーされる. コピー先のアルファにはコピー元のパー・サーフェイス・アルファが設定される.</td>
+</tr>
+<tr>
+<td rowspan="2">RGBA→RGBA</td>
+<td rowspan="1">SDL_BLENDMODE_BLEND</td>
+<td rowspan="1" colspan="2">アルファブレンド(コピー元のアルファチャネルとパー・サーフェイス・アルファが使われる). SDL_SRCCOLORKEYは無視される.</td>
+</tr>
+<tr>
+<td rowspan="1">BLENDMODE_NONE</td>
+<td rowspan="1" colspan="2">RGBA全てがコピーされる. SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる. このときアルファは無視される.</td>
+</tr>
+<tr>
+<td rowspan="2">RGB→RGB</td>
+<td rowspan="1">SDL_BLENDMODE_BLEND</td>
+<td rowspan="1">アルファブレンド(コピー元のパー・サーフェイス・アルファが使われる).</td>
+<td rowspan="2" colspan="2">SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる.</td>
+</tr>
+<tr>
+<td rowspan="1">SDL_BLENDMODE_NONE</td>
+<td rowspan="1">RGBがコピーされる</td>
+</tr>
+</table>
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_BlitScaled">SDL_BlitScaled</a><br>
+<a href="#SDL_LowerBlit">SDL_LowerBlit</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_BlitSurface">SDL_BlitSurface - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_ConvertPixels">SDL_ConvertPixels</a></h2>
+あるフォーマットのピクセルの集まりを別のフォーバットに変換してコピーする
+<h3>構文</h3>
+<code>int SDL_ConvertPixels(int width, int height, Uint32 src_format, const void* src, int src_pitch, Uint32 dst_format, void* dst, int dst_pitch)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_ConvertPixels">
+<tr><td>width</td><td>幅のピクセル数</td></tr>
+<tr><td>height</td><td>高さのピクセル数</td></tr>
+<tr><td>src_format</td><td>コピー元のピクセルのフォーマット (詳細を参照すること)</td></tr>
+<tr><td>src</td><td>コピー元のピクセル</td></tr>
+<tr><td>src_pitch</td><td>コピー元の幅のbyte数</td></tr>
+<tr><td>dst_format</td><td>コピー先のピクセルのフォーマット (詳細を参照すること)</td></tr>
+<tr><td>dst</td><td>新しいピクセルを書き込むポインタ</td></tr>
+<tr><td>dst_pitch</td><td>コピー先の幅のbyte数</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+src_formatとdst_formatは<a href="sdl2-pixels.html#SDL_PixelFormatEnum">SDL_PixelFormatEnum</a>列挙体の1つである.
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_ConvertPixels">SDL_ConvertPixels - SDL Wiki</a>
+<hr>
+
+</body>
+</html>
