@@ -120,18 +120,18 @@
 <tr><td>SDL_BLENDMODE_NONE</td><td>ƒuƒŒƒ“ƒh‚µ‚È‚¢</td><td>dstRGBA = srcRGBA</td></tr>
 <tr><td>SDL_BLENDMODE_BLEND</td><td>ƒAƒ‹ƒtƒ@ƒuƒŒƒ“ƒfƒBƒ“ƒO</td><td>dstRGB = (srcRGB * srcA) + (dstRGB * (1 - srcA))<br>dstA = srcA + (dstA * (1 - srcA))</td></tr>
 <tr><td>SDL_BLENDMODE_ADD</td><td>‰ÁŽZƒuƒŒƒ“ƒfƒBƒ“ƒO</td><td>dstRGB = (srcRGB * srcA) + dstRGB<br>dstA = dstA</td></tr>
-<tr><td>SDL_BLENDMODE_MOD</td><td>color modulate</td><td>dstRGB = srcRGB * dstRGB<br>dstA = dstA</td></tr>
+<tr><td>SDL_BLENDMODE_MOD</td><td>ÏŽZƒuƒŒƒ“ƒfƒBƒ“ƒO</td><td>dstRGB = srcRGB * dstRGB<br>dstA = dstA</td></tr>
 </table>
 <h3>ŠÖ˜A€–Ú(\‘¢‘Ì)</h3>
-<a href="sdl2-render.html##SDL_RendererInfo">SDL_RendererInfo</a><br>
+<a href="sdl2-render.html#SDL_RendererInfo">SDL_RendererInfo</a><br>
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
-<a href="sdl2-render.html##SDL_GetRenderDrawBlendMode">SDL_GetRenderDrawBlendMode</a><br>
-<a href="sdl2-render.html##SDL_GetSurfaceBlendMode">SDL_GetSurfaceBlendMode</a><br>
-<a href="sdl2-render.html##SDL_GetTextureBlendMode">SDL_GetTextureBlendMode</a><br>
-<a href="sdl2-render.html##SDL_RenderCopy">SDL_RenderCopy</a><br>
-<a href="sdl2-render.html##SDL_SetRenderDrawBlendMode">SDL_SetRenderDrawBlendMode</a><br>
-<a href="sdl2-render.html##SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode</a><br>
-<a href="sdl2-render.html##SDL_SetTextureBlendMode">SDL_SetTextureBlendMode</a><br>
+<a href="sdl2-render.html#SDL_GetRenderDrawBlendMode">SDL_GetRenderDrawBlendMode</a><br>
+<a href="sdl2-render.html#SDL_GetSurfaceBlendMode">SDL_GetSurfaceBlendMode</a><br>
+<a href="sdl2-render.html#SDL_GetTextureBlendMode">SDL_GetTextureBlendMode</a><br>
+<a href="sdl2-render.html#SDL_RenderCopy">SDL_RenderCopy</a><br>
+<a href="sdl2-render.html#SDL_SetRenderDrawBlendMode">SDL_SetRenderDrawBlendMode</a><br>
+<a href="sdl2-render.html#SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode</a><br>
+<a href="sdl2-render.html#SDL_SetTextureBlendMode">SDL_SetTextureBlendMode</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_BlendMode">SDL_BlendMode - SDL Wiki</a><br>
 <hr>
@@ -327,7 +327,7 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚
 ƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ðŠÜ‚Þ\‘¢‘Ì
 <h3>ƒtƒB[ƒ‹ƒh</h3>
 <table border="1" summary="SDL_DisplayMode">
-<tr><td>Uint32</td><td>format</td><td>SDL_PixelFormatEnum‚Ì’l‚Ì1‚Â. Ú×‚ðŽQÆ‚·‚é‚±‚Æ</td></tr>
+<tr><td>Uint32</td><td>format</td><td><a href="sdl2-pixels.html#SDL_PixelFormatEnum">SDL_PixelFormatEnum</a>—ñ‹“‘Ì‚Ì’l‚Ì1‚Â. Ú×‚ðŽQÆ‚·‚é‚±‚Æ</td></tr>
 <tr><td>int</td><td>w</td><td>•</td></tr>
 <tr><td>int</td><td>h</td><td>‚‚³</td></tr>
 <tr><td>int</td><td>refresh_rate</td><td>XVŽüŠú(Hz), “Á’è‚Å‚«‚È‚¢ê‡‚Í0</td></tr>
@@ -352,15 +352,15 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <tr><td>Uint32</td><td>type</td><td>SDL_WINDOWEVENT</td></tr>
 <tr><td>Uint32</td><td>timestamp</td><td>ƒCƒxƒ“ƒg‚Ìƒ^ƒCƒ€ƒXƒ^ƒ“ƒv</td></tr>
 <tr><td>Uint32</td><td>windowID</td><td>ŠÖ˜A‚Ì‚ ‚éƒEƒBƒ“ƒhƒE</td></tr>
-<tr><td>Uint8</td><td>event</td><td><a href="#SDL_WindowEventID">SDL_WindowEventID</a></td></tr>
+<tr><td>Uint8</td><td>event</td><td><a href="#SDL_WindowEventID">SDL_WindowEventID</a>—ñ‹“‘Ì</td></tr>
 <tr><td>Sint32</td><td>data1</td><td>ƒCƒxƒ“ƒg‚É‚æ‚Á‚ÄˆÙ‚È‚éƒf[ƒ^</td></tr>
 <tr><td>Sint32</td><td>data2</td><td>ƒCƒxƒ“ƒg‚É‚æ‚Á‚ÄˆÙ‚È‚éƒf[ƒ^</td></tr>
 </table>
 <h3>Ú×</h3>
-<a href="#SDL_WindowEvent">SDL_WindowEvent</a>‚Í<a href="sdl-event.html#SDL_Event">SDL_Event</a>‹¤—p‘Ì‚Ìƒƒ“ƒo‚Ì1‚Â‚Å, ƒCƒxƒ“ƒg‚Ìtype‚ªSDL_WINDOWEVENT‚Ìê‡‚ÉŽg‚¤.
+<a href="#SDL_WindowEvent">SDL_WindowEvent</a>‚Í<a href="sdl2-event.html#SDL_Event">SDL_Event</a>‹¤—p‘Ì‚Ìƒƒ“ƒo‚Ì1‚Â‚Å, ƒCƒxƒ“ƒg‚Ìtype‚ªSDL_WINDOWEVENT‚Ìê‡‚ÉŽg‚¤.
 ƒCƒxƒ“ƒg‚ÌwindowƒtƒB[ƒ‹ƒh‚ðŒo—R‚µ‚ÄƒAƒNƒZƒX‚·‚é•K—v‚ª‚ ‚é.
 <h3>ŠÖ˜A€–Ú(—ñ‹“‘Ì)</h3>
-<a href="sdl-event.html#SDL_EventType">SDL_EventType</a><br>
+<a href="sdl2-event.html#SDL_EventType">SDL_EventType</a><br>
 <a href="#SDL_WindowEventID">SDL_WindowEventID</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_WindowEvent">SDL_WindowEvent - SDL Wiki</a><br>
@@ -373,17 +373,17 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <h3>ˆø”</h3>
 <table border="1" summary="SDL_CreateWindow">
 <tr><td>title</td><td>UTF-8‚ÅƒR[ƒh‰»‚³‚ê‚½ƒEƒBƒ“ƒhƒE‚Ìƒ^ƒCƒgƒ‹</td></tr>
-<tr><td>x</td><td>ƒEƒBƒ“ƒhƒE‚ÌXÀ•W, SDL_WINDOWPOS_CENTERED ‚Ü‚½‚Í SDL_WINDOWPOS_UNDEFINED</td></tr>
-<tr><td>y</td><td>ƒEƒBƒ“ƒhƒE‚ÌYÀ•W, SDL_WINDOWPOS_CENTERED ‚Ü‚½‚Í SDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>x</td><td>ƒEƒBƒ“ƒhƒE‚ÌXÀ•W, SDL_WINDOWPOS_CENTERED, ‚Ü‚½‚Í SDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>y</td><td>ƒEƒBƒ“ƒhƒE‚ÌYÀ•W, SDL_WINDOWPOS_CENTERED, ‚Ü‚½‚Í SDL_WINDOWPOS_UNDEFINED</td></tr>
 <tr><td>w</td><td>ƒEƒBƒ“ƒhƒE‚Ì•</td></tr>
 <tr><td>h</td><td>ƒEƒBƒ“ƒhƒE‚Ì‚‚³</td></tr>
-<tr><td>flags</td><td>0 ‚Ü‚½‚Í 1‚ÂˆÈã‚Ì<a href="#SDL_WindowFlags">SDL_WindowFlags</a>‚Ì˜_—˜a</td></tr>
+<tr><td>flags</td><td>0 ‚Ü‚½‚Í 1‚ÂˆÈã‚Ì<a href="#SDL_WindowFlags">SDL_WindowFlags</a>—ñ‹“‘Ì‚Ì˜_—˜a</td></tr>
 </table>
 <h3>–ß‚è’l</h3>
 <p>
 ¶¬‚³‚ê‚½ƒEƒBƒ“ƒhƒE‚ð–ß‚·.
 Ž¸”s‚Ì‚Æ‚«NULL‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 </p>
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_DestroyWindow">SDL_DestroyWindow</a><br>
@@ -405,8 +405,8 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚
 </table>
 <h3>–ß‚è’l</h3>
 <p>
-³í‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«-1‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«-1‚ð–ß‚·.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 </p>
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_CreateWindow">SDL_CreateWindow</a><br>
@@ -427,7 +427,7 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <p>
 ¶¬‚³‚ê‚½ƒEƒBƒ“ƒhƒE‚ð–ß‚·.
 Ž¸”s‚Ì‚Æ‚«NULL‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 </p>
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_DestroyWindow">SDL_DestroyWindow</a><br>
@@ -451,7 +451,7 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <hr>
 
 <h2><a name="SDL_DisableScreenSaver">SDL_DisableScreenSaver</a></h2>
-ƒXƒNƒŠ[ƒ“ƒZ[ƒo[‚Å‰æ–Ê‚ªØ‚è‘Ö‚í‚é‚±‚Æ‚ð–h‚®
+ƒXƒNƒŠ[ƒ“ƒZ[ƒo[‚ð–³Œø‚É‚·‚é
 <h3>\•¶</h3>
 <code>void SDL_DisableScreenSaver(void)</code>
 <h3>Ú×</h3>
@@ -464,7 +464,7 @@ OpenGL ES ƒo[ƒWƒ‡ƒ“1.0‚Æ1.1‚Ìcommon‚Æcommon liteƒvƒƒtƒ@ƒCƒ‹‚ð‹æ•Ê‚·‚é•û–@‚Í‚È‚
 <hr>
 
 <h2><a name="SDL_EnableScreenSaver">SDL_EnableScreenSaver</a></h2>
-ƒXƒNƒŠ[ƒ“ƒZ[ƒo[‚Å‰æ–Ê‚ªØ‚è‘Ö‚í‚é‚±‚Æ‚ð”F‚ß‚é
+ƒXƒNƒŠ[ƒ“ƒZ[ƒo[‚ð—LŒø‚É‚·‚é
 <h3>\•¶</h3>
 <code>void SDL_EnableScreenSaver(void)</code>
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
@@ -485,7 +485,7 @@ OpenGLƒvƒŠƒ~ƒeƒBƒu‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ÅŽg‚¤‚½‚ß‚ÉOpenGL/ES/ES2ƒeƒNƒXƒ`ƒƒ‚ðƒJƒŒƒ“ƒgƒRƒ
 <tr><td>texh</td><td>ƒeƒNƒXƒ`ƒƒ‚Ì‚‚³‚ð‘ã“ü‚·‚éfloatŒ^‚Ì•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^, •K—v‚È‚¢ê‡‚ÍNULL</td></tr>
 </table>
 <h3>–ß‚è’l</h3>
-³í‚Ì‚Æ‚«0, ‘€ì‚ª‘Î‰ž‚µ‚Ä‚¢‚È‚¢‚Æ‚«‚Í-1
+¬Œ÷‚Ì‚Æ‚«0, ‘€ì‚ª‘Î‰ž‚µ‚Ä‚¢‚È‚¢‚Æ‚«‚Í-1
 <h3>Ú×</h3>
 ’l‚ª“¾‚ç‚ê‚½‚È‚ç, texw‚Ætexh‚É‚Í“¾‚ç‚ê‚½ƒeƒNƒXƒ`ƒƒ‚É“K‚µ‚½•‚Æ‚‚³‚ª‘ã“ü‚³‚ê‚Ä‚¢‚é.
 ‚Ù‚Æ‚ñ‚Ç‚Ìê‡, —¼•û‚Ì’l‚Í1.0‚Å‚ ‚é.
@@ -508,7 +508,7 @@ OpenGLƒEƒBƒ“ƒhƒE‚ÅŽg‚¤‚½‚ß‚ÉOpenGLƒRƒ“ƒeƒLƒXƒg‚ð¶¬‚µ, ƒJƒŒƒ“ƒgƒRƒ“ƒeƒLƒXƒg‚É‚·
 </table>
 <h3>–ß‚è’l</h3>
 window‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½OpenGLƒRƒ“ƒeƒLƒXƒg, ƒGƒ‰[‚Ì‚Æ‚«NULL‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 V‚½‚ÉOpenGL‚ðŽg‚¤Windowsƒ†[ƒU[‚Í, —ðŽj“I‚È——R‚Å, OpenGLƒo[ƒWƒ‡ƒ“1.1‚Å’Ç‰Á‚³‚ê‚½GLŠÖ”‚ÍƒfƒtƒHƒ‹ƒg‚Å‚ÍŽg‚¦‚È‚¢‚±‚Æ‚É’ˆÓ‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢.
 ‚±‚ê‚ç‚ÌŠÖ”‚Í, OpenGLŠg’£‚ðˆµ‚¤ƒ‰ƒCƒuƒ‰ƒŠ, ‚Ü‚½‚Í<a href="#SDL_GL_GetProcAddress">SDL_GL_GetProcAddress()</a>‚Æ‚»‚ÌŠÖ˜A‚ÌŠÖ”‚ÅŽÀs’†‚É“Ç‚Ýž‚Þ‚±‚Æ‚ª‚Å‚«‚é.
@@ -568,8 +568,8 @@ OpenGLƒRƒ“ƒeƒLƒXƒg‚ðíœ‚·‚é
 <tr><td>value</td><td>Œ»Ý‚Ìattr‚Ì’l‚ð‘ã“ü‚·‚é•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^</td></tr>
 </table>
 <h3>–ß‚è’l</h3>
-³í‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ð–ß‚·.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GL_ResetAttributes">SDL_GL_ResetAttributes</a><br>
 <a href="#SDL_GL_SetAttribute">SDL_GL_SetAttribute</a><br>
@@ -583,7 +583,7 @@ OpenGLƒRƒ“ƒeƒLƒXƒg‚ðíœ‚·‚é
 <code>SDL_GLContext SDL_GL_GetCurrentContext(void)</code>
 <h3>–ß‚è’l</h3>
 “®ì’†‚ÌƒJƒŒƒ“ƒgƒRƒ“ƒeƒLƒXƒg‚ð–ß‚·. Ž¸”s‚Ì‚Æ‚«NULL‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GL_MakeCurrent">SDL_GL_MakeCurrent</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
@@ -596,7 +596,7 @@ OpenGLƒRƒ“ƒeƒLƒXƒg‚ðíœ‚·‚é
 <code>SDL_Window* SDL_GL_GetCurrentWindow(void)</code>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«“®ì’†‚ÌOpenGL‚ð, Ž¸”s‚Ì‚Æ‚«NULL‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_GL_GetCurrentWindow">SDL_GL_GetCurrentWindow - SDL Wiki</a>
 <hr>
@@ -676,7 +676,7 @@ OpenGL‚ÌŠÖ”‚ðŒŸõ‚·‚é‚Ì‚Í‚¢‚­‚Â‚©‚Ì“ï“_‚ª‚ ‚è, ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Í“Á‚É’ˆÓ‚ð—v‚·
 <code>int SDL_GL_GetSwapInterval(void)</code>
 <h3>Ú×</h3>
 ‚’¼‹Aü“¯Šú‚ª‘¶Ý‚µ‚È‚¢‚Æ‚«0, ƒoƒbƒtƒ@ŒðŠ·‚ª‚’¼‹Aü‚Å“¯Šú‚·‚é‚Æ‚«1, ‚’¼‹Aü“¯Šú‚É‘Î‰ž‚µ‚Ä‚¢‚È‚¢‚Æ‚«-1‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GL_SetSwapInterval">SDL_GL_SetSwapInterval</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
@@ -693,7 +693,7 @@ OpenGLƒ‰ƒCƒuƒ‰ƒŠ‚ð“®“I‚É“Ç‚Ýž‚Þ
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 <p>
 ƒrƒfƒIƒhƒ‰ƒCƒo‚ð‰Šú‰»‚µ‚½Œã‚¾‚ªOpenGLƒEƒBƒ“ƒhƒE‚ð¶¬‚·‚é‘O‚És‚¤•K—v‚ª‚ ‚é.
@@ -721,7 +721,7 @@ OpenGLƒRƒ“ƒeƒLƒXƒg‚ðOpenGLƒEƒBƒ“ƒhƒE‚ÉƒŒƒ“ƒ_ƒŠƒ“ƒO‚·‚é‚æ‚¤‚ÉÝ’è‚·‚é
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GL_CreateContext">SDL_GL_CreateContext</a><br>
@@ -752,7 +752,7 @@ OpenGLƒRƒ“ƒeƒLƒXƒg‚Ì‘®«‚ð‘S‚ÄŒ³‚Ì’l‚ÉƒŠƒZƒbƒg‚·‚é
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 <p>
 ‚±‚ÌŠÖ”‚ÍOpenGL‘®«attr‚Ì’l‚ðvalue‚ÉÝ’è‚·‚é.
@@ -779,7 +779,7 @@ attr‚Í<a href="#SDL_GLattr">SDL_GLattr</a>—ñ‹“‘Ì‚Ì’l‚Ì1‚Â‚Å‚ ‚é.
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ý’è‚µ‚½ŒðŠ·ƒCƒ“ƒ^[ƒoƒ‹‚ª‘Î‰ž‚µ‚Ä‚¢‚È‚¢ê‡‚Í-1‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 <p>
 ˆê•”‚Ìˆ—Œn‚Å‚Íinterval‚É-1‚ðŽw’è‚·‚é‚±‚Æ‚Ålate swap tearing‚ª—LŒø‚É‚È‚é.
@@ -819,7 +819,7 @@ OpenGLƒvƒŠƒ~ƒeƒBƒu‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ÅŽg‚Á‚Ä‚¢‚éOpenGL/ES/ES2ƒeƒNƒXƒ`ƒƒ‚ðƒJƒŒƒ“ƒgƒRƒ
 <tr><td>texture</td><td>ƒJƒŒƒ“ƒgOpenGL/ES/ES2ƒRƒ“ƒeƒLƒXƒg‚©‚çƒAƒ“ƒoƒCƒ“ƒh‚·‚éƒeƒNƒXƒ`ƒƒ</td></tr>
 </table>
 <h3>–ß‚è’l</h3>
-³í‚Ì‚Æ‚«0, ‘€ì‚ª‘Î‰ž‚µ‚Ä‚¢‚È‚¢‚Æ‚«‚Í-1
+¬Œ÷‚Ì‚Æ‚«0, ‘€ì‚ª‘Î‰ž‚µ‚Ä‚¢‚È‚¢‚Æ‚«‚Í-1
 <h3>Ú×</h3>
 ‚±‚ê‚ç‚ÌŠÖ”‚ÌŽg—p–@‚Í<a hreg="#SDL_GL_BindTexture">SDL_GL_BindTexture()</a>‚ðŽQÆ‚·‚é‚±‚Æ
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
@@ -852,11 +852,11 @@ OpenGLƒvƒŠƒ~ƒeƒBƒu‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ÅŽg‚Á‚Ä‚¢‚éOpenGL/ES/ES2ƒeƒNƒXƒ`ƒƒ‚ðƒJƒŒƒ“ƒgƒRƒ
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«closest‚Ö‚Ìƒ|ƒCƒ“ƒ^, —˜—p‰Â”\‚ÈƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ª‚È‚¢‚Æ‚«NULL‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 —˜—p‰Â”\‚ÈƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ªŒŸõ‚³‚ê, —v‹‚ÆÅ‚à‹ß‚¢ƒ‚[ƒh‚ªclosest‚É‘ã“ü‚³‚ê‚é.
 mode‚Ìformat‚Ærefresh_rate‚ª0‚Ìê‡, ‰Šú’l‚ÌƒfƒXƒNƒgƒbƒv‚Ìƒ‚[ƒh‚Æ‚È‚é.
-ƒ‚[ƒh‚Í, ƒTƒCƒY‚ðÅ—Dæ‚ÅŒŸõ‚µ, ƒsƒNƒZƒ‹Œ`Ž®(F)‚ÍŽŸ‚Ì—Dæ“x‚Æ‚È‚é.
+ƒ‚[ƒh‚Í, ƒTƒCƒY‚ðÅ—Dæ‚ÅŒŸõ‚µ, ƒsƒNƒZƒ‹Œ`Ž®‚ÍŽŸ‚Ì—Dæ“x‚Æ‚È‚é.
 ‚»‚µ‚ÄÅŒã‚ÉXVŽüŠú‚ðƒ`ƒFƒbƒN‚·‚é.
 —˜—p‰Â”\‚Èƒ‚[ƒh‚ª—v‹‚É‘Î‚µ‚Ä¬‚³‚·‚¬‚éê‡, NULL‚ð–ß‚·.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
@@ -877,7 +877,7 @@ mode‚Ìformat‚Ærefresh_rate‚ª0‚Ìê‡, ‰Šú’l‚ÌƒfƒXƒNƒgƒbƒv‚Ìƒ‚[ƒh‚Æ‚È‚é.
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 ‚±‚ÌŠÖ”‚Æ<a href="#SDL_GetDesktopDisplayMode">SDL_GetDesktopDisplayMode()</a>‚Í, SDL‚ªƒtƒ‹ƒXƒNƒŠ[ƒ“‚Å, ‚©‚Â‰ð‘œ“x‚ð•Ï‚¦‚½‚Æ‚«ˆÙ‚È‚é.
 ‚»‚Ìê‡, ‚±‚ÌŠÖ”‚ÍŒ»Ý‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ð–ß‚·‚ª, <a href="#SDL_GetDesktopDisplayMode">SDL_GetDesktopDisplayMode()</a>‚Í‚»‚Ì‚Ü‚Ü‚Ì’l‚ð–ß‚·.
@@ -916,7 +916,7 @@ mode‚Ìformat‚Ærefresh_rate‚ª0‚Ìê‡, ‰Šú’l‚ÌƒfƒXƒNƒgƒbƒv‚Ìƒ‚[ƒh‚Æ‚È‚é.
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 ‚±‚ÌŠÖ”‚Æ<a href="#SDL_GetCurrentDisplayMode">SDL_GetCurrentDisplayMode()</a>‚Í, SDL‚ªƒtƒ‹ƒXƒNƒŠ[ƒ“‚Å, ‚©‚Â‰ð‘œ“x‚ð•Ï‚¦‚½‚Æ‚«ˆÙ‚È‚é.
 ‚»‚Ìê‡, ‚±‚ÌŠÖ”‚ÍŒ»Ý‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚Å‚Í‚È‚­•Ï‚¦‚é‘O‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ð–ß‚·.
@@ -940,7 +940,7 @@ mode‚Ìformat‚Ærefresh_rate‚ª0‚Ìê‡, ‰Šú’l‚ÌƒfƒXƒNƒgƒbƒv‚Ìƒ‚[ƒh‚Æ‚È‚é.
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
@@ -960,7 +960,7 @@ mode‚Ìformat‚Ærefresh_rate‚ª0‚Ìê‡, ‰Šú’l‚ÌƒfƒXƒNƒgƒbƒv‚Ìƒ‚[ƒh‚Æ‚È‚é.
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 ƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ÍŽŸ‚Ì‡ˆÊ‚Å•À‚ñ‚Å‚¢‚é
 <ul>
@@ -985,7 +985,7 @@ mode‚Ìformat‚Ærefresh_rate‚ª0‚Ìê‡, ‰Šú’l‚ÌƒfƒXƒNƒgƒbƒv‚Ìƒ‚[ƒh‚Æ‚È‚é.
 </table>
 <h3>–ß‚è’l</h3>
 ƒfƒBƒXƒvƒŒƒC‚Ì–¼‘O‚ð, •s³‚ÈƒfƒBƒXƒvƒŒƒC”Ô†‚Ü‚½‚ÍŽ¸”s‚Ì‚Æ‚«NULL‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
@@ -1002,7 +1002,7 @@ mode‚Ìformat‚Ærefresh_rate‚ª0‚Ìê‡, ‰Šú’l‚ÌƒfƒXƒNƒgƒbƒv‚Ìƒ‚[ƒh‚Æ‚È‚é.
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«1ˆÈã‚Ì”‚ð, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 displayIndex‚Í0‚©‚ç<a href="#SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays()</a>-1‚Ì”ÍˆÍ‚Å‚ ‚é•K—v‚ª‚ ‚é.
 ‚±‚ÌŠÖ”‚Åƒ}ƒ‹ƒ`ƒfƒBƒXƒvƒŒƒC‚É‘Î‰ž‚Å‚«‚é.
@@ -1019,7 +1019,7 @@ displayIndex‚Í0‚©‚ç<a href="#SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays()<
 <code>int SDL_GetNumVideoDisplays(void)</code>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«1ˆÈã‚Ì”‚ð, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GetDisplayBounds">SDL_GetDisplayBounds</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
@@ -1033,7 +1033,7 @@ SDL‚Å—˜—p‰Â”\‚ÈƒrƒfƒIƒhƒ‰ƒCƒo‚Ì”‚ð“¾‚é
 <h3>ˆø”</h3>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«1ˆÈã‚Ì”‚ð, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GetVideoDriver">SDL_GetVideoDriver</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
@@ -1101,7 +1101,7 @@ name‚ÉŠÖ˜A•t‚¯‚½’l‚ð–ß‚·
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«ƒEƒBƒ“ƒhƒE‚Ì’†S‚Ì‚ ‚éƒfƒBƒXƒvƒŒƒC‚Ì”Ô†‚ð, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GetDisplayBounds">SDL_GetDisplayBounds</a><br>
 <a href="#SDL_GetNumVideoDisplays">SDL_GetNumVideoDisplays</a><br>
@@ -1121,7 +1121,7 @@ name‚ÉŠÖ˜A•t‚¯‚½’l‚ð–ß‚·
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0‚ð, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_SetWindowDisplayMode">SDL_SetWindowDisplayMode</a><br>
 <a href="#SDL_SetWindowFullscreen">SDL_SetWindowFullscreen</a><br>
@@ -1162,7 +1162,7 @@ ID‚©‚çƒEƒBƒ“ƒhƒE‚ð“¾‚é
 </table>
 <h3>–ß‚è’l</h3>
 ID‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ƒEƒBƒ“ƒhƒE‚ð, ‘¶Ý‚µ‚È‚¯‚ê‚ÎNULL‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GetWindowID">SDL_GetWindowID</a><br>
@@ -1183,7 +1183,7 @@ ID‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ƒEƒBƒ“ƒhƒE‚ð, ‘¶Ý‚µ‚È‚¯‚ê‚ÎNULL‚ð–ß‚·.
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0‚ð, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_SetWindowGammaRamp">SDL_SetWindowGammaRamp</a><br>
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
@@ -1257,7 +1257,7 @@ ID‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ƒEƒBƒ“ƒhƒE‚ð, ‘¶Ý‚µ‚È‚¯‚ê‚ÎNULL‚ð–ß‚·.
 <hr>
 
 <h2><a name="SDL_GetWindowPixelFormat">SDL_GetWindowPixelFormat</a></h2>
-ƒEƒBƒ“ƒhƒE‚ÌƒsƒNƒZƒ‹ƒtƒH[ƒ}ƒbƒg‚ð“¾‚é
+ƒEƒBƒ“ƒhƒE‚ÌƒsƒNƒZƒ‹Œ`Ž®‚ð“¾‚é
 <h3>\•¶</h3>
 <code>Uint32 SDL_GetWindowPixelFormat(SDL_Window* window)</code>
 <h3>ˆø”</h3>
@@ -1266,8 +1266,8 @@ ID‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ƒEƒBƒ“ƒhƒE‚ð, ‘¶Ý‚µ‚È‚¯‚ê‚ÎNULL‚ð–ß‚·.
 </table>
 <h3>–ß‚è’l</h3>
 Returns the pixel format of the window on success or SDL_PIXELFORMAT_UNKNOWN on failure; call SDL_GetError() for more information. 
-¬Œ÷‚Ì‚Æ‚«window‚ÌƒsƒNƒZƒ‹ƒtƒH[ƒ}ƒbƒg, Ž¸”s‚Ì‚Æ‚«SDL_PIXELFORMAT_UNKNOWN‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+¬Œ÷‚Ì‚Æ‚«window‚ÌƒsƒNƒZƒ‹Œ`Ž®, Ž¸”s‚Ì‚Æ‚«SDL_PIXELFORMAT_UNKNOWN‚ð–ß‚·.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h3>
 <a href="https://wiki.libsdl.org/SDL_GetWindowPixelFormat">SDL_GetWindowPixelFormat - SDL Wiki</a>
 <hr>
@@ -1316,10 +1316,10 @@ Use this function to get the size of a window's client area.
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«ƒEƒBƒ“ƒhƒE‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ƒT[ƒtƒFƒCƒX‚ð, Ž¸”s‚Ì‚Æ‚«NULL‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 <p>
-•K—v‚È‚ç‚Î, V‚µ‚¢ƒT[ƒtƒFƒCƒX‚ÍƒEƒBƒ“ƒhƒE‚É“K‚µ‚½ƒtƒH[ƒ}ƒbƒg‚Å¶¬‚³‚ê‚é.
+•K—v‚È‚ç‚Î, V‚µ‚¢ƒT[ƒtƒFƒCƒX‚ÍƒEƒBƒ“ƒhƒE‚É“K‚µ‚½ƒsƒNƒZƒ‹Œ`Ž®‚Å¶¬‚³‚ê‚é.
 ƒT[ƒtƒFƒCƒX‚ÍƒEƒBƒ“ƒhƒE‚ª”jŠü‚³‚ê‚½‚Æ‚«‰ð•ú‚³‚ê‚é.
 </p>
 <p>
@@ -1362,7 +1362,7 @@ Use this function to get the size of a window's client area.
 </table>
 <h3>–ß‚è’l</h3>
 ‚±‚ÌŠÖ”‚ªŽÀ‘•‚³‚ê‚Ä‚¢‚Ä, ‚©‚Âinfo\‘¢‘Ì‚Ìƒo[ƒWƒ‡ƒ“‚ª³‚µ‚¯‚ê‚ÎSDL_TRUE, î•ñ‚ª“¾‚ç‚ê‚È‚¯‚ê‚ÎSDL_FALSE‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 <p>
 <a href="sdl2-swm.html#SDL_SysWMinfo">SDL_SysWMinfo</a>‚ð’è‹`‚·‚é‚½‚ßSDL_syswm.h‚ðƒCƒ“ƒNƒ‹[ƒh‚·‚é•K—v‚ª‚ ‚é.
@@ -1495,7 +1495,7 @@ info\‘¢‘Ì‚ÍSDLƒo[ƒWƒ‡ƒ“‚ª‰Šú‰»‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚è, ‚»‚ê‚ª‚ ‚ê‚ÎƒEƒBƒ“ƒhƒE‚Ì
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0‚ð, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GetWindowBrightness">SDL_GetWindowBrightness</a><br>
 <a href="#SDL_SetWindowGammaRamp">SDL_SetWindowGammaRamp</a><br>
@@ -1535,7 +1535,7 @@ name‚Í‘å•¶Žš¬•¶Žš‚ð‹æ•Ê‚·‚é
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0‚ð, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>ŠÖ˜A€–Ú(ŠÖ”)</h3>
 <a href="#SDL_GetWindowDisplayMode">SDL_GetWindowDisplayMode</a><br>
 <a href="#SDL_SetWindowFullscreen">SDL_SetWindowFullscreen</a><br>
@@ -1554,7 +1554,7 @@ name‚Í‘å•¶Žš¬•¶Žš‚ð‹æ•Ê‚·‚é
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0‚ð, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 flags‚ðSDL_WINDOW_FULLSCREEN‚É‚·‚é‚ÆƒrƒfƒIƒ‚[ƒh‚ð•Ï‚¦u–{“–‚Ìvƒtƒ‹ƒXƒNƒŠ[ƒ“‚É‚È‚é.
 SDL_WINDOW_FULLSCREEN_DESKTOP‚É‚·‚é‚ÆƒfƒXƒNƒgƒbƒv‚Æ“¯‚¶ƒTƒCƒY‚É‚µ‚½uƒjƒZ‚Ìvƒtƒ‹ƒXƒNƒŠ[ƒ“‚É‚È‚é.
@@ -1579,7 +1579,7 @@ SDL_WINDOW_FULLSCREEN_DESKTOP‚É‚·‚é‚ÆƒfƒXƒNƒgƒbƒv‚Æ“¯‚¶ƒTƒCƒY‚É‚µ‚½uƒjƒZ‚Ìvƒtƒ
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0‚ð, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 ƒrƒfƒIƒo[ƒhƒEƒFƒA‚Ì‚½‚ß‚ÌÔ, —Î, Âƒ`ƒƒƒlƒ‹‚ÌƒKƒ“ƒ}•ÏŠ·ƒe[ƒuƒ‹‚ðÝ’è‚·‚é.
 ‚»‚ê‚¼‚ê‚Ìƒe[ƒuƒ‹‚Í256—v‘f16bit‚Å, ƒ`ƒƒƒlƒ‹‚Ì“ü—Í‚Æo—Í‚ðƒ}ƒbƒsƒ“ƒO‚µ‚Ä‚¢‚é.
@@ -1661,8 +1661,8 @@ SDL_WINDOW_FULLSCREEN_DESKTOP‚É‚·‚é‚ÆƒfƒXƒNƒgƒbƒv‚Æ“¯‚¶ƒTƒCƒY‚É‚µ‚½uƒjƒZ‚Ìvƒtƒ
 <h3>ˆø”</h3>
 <table border="1" summary="SDL_SetWindowPosition">
 <tr><td>window</td><td>Ý’è‚·‚éƒEƒBƒ“ƒhƒE</td></tr>
-<tr><td>x</td><td>ƒEƒBƒ“ƒhƒE‚ÌxÀ•W, ‚Ü‚½‚ÍSDL_WINDOWPOS_CENTERED, ‚Ü‚½‚ÍSDL_WINDOWPOS_UNDEFINED</td></tr>
-<tr><td>y</td><td>ƒEƒBƒ“ƒhƒE‚ÌyÀ•W, ‚Ü‚½‚ÍSDL_WINDOWPOS_CENTERED, ‚Ü‚½‚ÍSDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>x</td><td>ƒEƒBƒ“ƒhƒE‚ÌxÀ•W, SDL_WINDOWPOS_CENTERED, ‚Ü‚½‚Í SDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>y</td><td>ƒEƒBƒ“ƒhƒE‚ÌyÀ•W, SDL_WINDOWPOS_CENTERED, ‚Ü‚½‚Í SDL_WINDOWPOS_UNDEFINED</td></tr>
 </table>
 <h3>Ú×</h3>
 ƒEƒBƒ“ƒhƒE‚ÌÀ•W‚ÌŠî“_‚ÍƒfƒBƒXƒvƒŒƒC‚Ì¶ã‚Å‚ ‚é.
@@ -1714,7 +1714,7 @@ SDL_WINDOW_FULLSCREEN_DESKTOP‚É‚·‚é‚ÆƒfƒXƒNƒgƒbƒv‚Æ“¯‚¶ƒTƒCƒY‚É‚µ‚½uƒjƒZ‚Ìvƒtƒ
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 ‚±‚ÌŠÖ”‚Í, eƒEƒBƒ“ƒhƒE‚ª¶¬‚³‚ê‚½ƒXƒŒƒbƒh, eƒEƒBƒ“ƒhƒE‚ª‚È‚¯‚ê‚ÎƒƒCƒ“ƒXƒŒƒbƒh‚ÅŒÄ‚Ô•K—v‚ª‚ ‚é.
 ƒ†[ƒU‚ªƒ{ƒ^ƒ“‚ð‰Ÿ‚·, ‚Ü‚½‚ÍƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ð•Â‚¶‚é‚Ü‚ÅƒXƒŒƒbƒh‚ÌŽÀs‚Í’âŽ~‚³‚ê‚é.
@@ -1737,7 +1737,7 @@ SDL_WINDOW_FULLSCREEN_DESKTOP‚É‚·‚é‚ÆƒfƒXƒNƒgƒbƒv‚Æ“¯‚¶ƒTƒCƒY‚É‚µ‚½uƒjƒZ‚Ìvƒtƒ
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 <p>
 flag‚ÍˆÈ‰º‚Ì’l‚Å‚ ‚é.
@@ -1787,7 +1787,7 @@ SDL1.2‚Å‚Í, win32‚È‚ç‚Î <code>BOOL WINAPI ShowWindow(_In_ HWND hWnd, _In_ int nC
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 <p>
 ‚±‚ÌŠÖ”‚Í‰æ–Ê‚ÉƒT[ƒtƒFƒCƒX‚Ì•ÏX‚ð”½‰f‚·‚é‚½‚ß‚ÉŽg‚í‚ê‚é.
@@ -1814,7 +1814,7 @@ SDL1.2‚Å‚Í, win32‚È‚ç‚Î <code>BOOL WINAPI ShowWindow(_In_ HWND hWnd, _In_ int nC
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 <p>
 ‚±‚ÌŠÖ”‚Í‰æ–Ê‚ÉƒT[ƒtƒFƒCƒX‚Ì•ÏX‚ð”½‰f‚·‚é‚½‚ß‚ÉŽg‚í‚ê‚é.
@@ -1839,10 +1839,10 @@ SDL1.2‚Å‚Í, win32‚È‚ç‚Î <code>BOOL WINAPI ShowWindow(_In_ HWND hWnd, _In_ int nC
 </table>
 <h3>–ß‚è’l</h3>
 ¬Œ÷‚Ì‚Æ‚«0, Ž¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-‚»‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+‚±‚Ì‚Æ‚«<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
 <h3>Ú×</h3>
 <p>
-‚±‚ÌŠÖ”‚ÍƒEƒBƒ“ƒhƒEƒ}ƒl[ƒWƒƒ‚Æ‚ÌÚ‘±‚ð\’z‚µ‚ÄƒrƒfƒIƒTƒuƒVƒXƒeƒ€“™‚ð‰Šú‰»‚µ, —˜—p‚Å‚«‚éƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ÆƒsƒNƒZƒ‹ƒtƒH[ƒ}ƒbƒg‚ðŒˆ’è‚·‚é.
+‚±‚ÌŠÖ”‚ÍƒEƒBƒ“ƒhƒEƒ}ƒl[ƒWƒƒ‚Æ‚ÌÚ‘±‚ð\’z‚µ‚ÄƒrƒfƒIƒTƒuƒVƒXƒeƒ€“™‚ð‰Šú‰»‚µ, —˜—p‚Å‚«‚éƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ÆƒsƒNƒZƒ‹Œ`Ž®‚ðŒˆ’è‚·‚é.
 ‚µ‚©‚µ, ƒEƒBƒ“ƒhƒE‚ÆƒOƒ‰ƒtƒBƒbƒNƒ‚[ƒh‚Í‰Šú‰»‚µ‚È‚¢.
 </p>
 <p>
