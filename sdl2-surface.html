@@ -13,7 +13,7 @@
 <h1>サーフェイスの生成と単純な描画</h1>
 インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_surface.h">SDL_surface.h</a>
 <h2>概要</h2>
-これらの関数はサーフェイスの生成やビットマップ転送や点, 線, 長方形などの単純な描画を行う.
+これらの関数はサーフェイスの生成, ピクセルマップ転送, 点・線・長方形などの単純な描画を行う.
 <h2>構造体</h2>
 <ol>
 <li><a href="#SDL_Surface">SDL_Surface</a></li>
@@ -57,11 +57,11 @@
 <hr>
 
 <h2><a name="SDL_Surface">SDL_Surface</a></h2>
-ソフトウェアピットマップ転送で使われるピクセルの集まりを含む構造体
+ソフトウェア転送で使われるピクセルの集合を持つ構造体
 <h3>フィールド</h3>
 <table border="1" summary="SDL_Surface">
 <tr><td>Uint32</td><td>flags</td><td>(内部使用)</td></tr>
-<tr><td><a href="sdl2-pixels.html#SDL_PixelFormat">SDL_PixelFormat</a>*</td><td>format</td><td>サーフェイスに格納されたピクセルのフォーマット 詳細は<a href="sdl2-pixels.html#SDL_PixelFormat">SDL_PixelFormat</a>を参照すること (読取専用)</td></tr>
+<tr><td><a href="sdl2-pixels.html#SDL_PixelFormat">SDL_PixelFormat</a>*</td><td>format</td><td>サーフェイスに格納されたピクセル形式 詳細は<a href="sdl2-pixels.html#SDL_PixelFormat">SDL_PixelFormat</a>を参照すること (読取専用)</td></tr>
 <tr><td>int</td><td>w</td><td>幅のピクセル数 (読取専用)</td></tr>
 <tr><td>int</td><td>h</td><td>高さのピクセル数 (読取専用)</td></tr>
 <tr><td>int</td><td>pitch</td><td>幅のピクセルのbyte数 (読取専用)</td></tr>
@@ -69,14 +69,14 @@
 <tr><td>void*</td><td>userdata</td><td>自由に利用できるポインタ (読み書き可能)</td></tr>
 <tr><td>int</td><td>locked</td><td>サーフェイスのロックを要求されたときに使う (内部使用)</td></tr>
 <tr><td>void*</td><td>lock_data</td><td>サーフェイスのロックを要求されたときに使う (内部で使用する)</td></tr>
-<tr><td><a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a></td><td>clip_rect</td><td>サーフェイスへのビットマップ転送のクリッピングで使われる<a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a>構造体 <a href="#SDL_SetClipRect">SDL_SetClipRect()</a>で設定できる (読取専用)</td></tr>
+<tr><td><a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a></td><td>clip_rect</td><td>サーフェイスへのピクセルマップ転送のクリッピングで使われる<a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a>構造体 <a href="#SDL_SetClipRect">SDL_SetClipRect()</a>で設定できる (読取専用)</td></tr>
 <tr><td><a href="#SDL_BlitMap">SDL_BlitMap</a></td><td>map</td><td>他のサーフェイスへの高速転送マッピングの情報 (内部使用)</td></tr>
 <tr><td>int</td><td>refcount</td><td>アプリケーションから参照された回数</td></tr>
 </table>
 <h3>詳細</h3>
 ほとんどのサーフェイスはpixelsに直接アクセスできる.
 <a href="#SDL_SetSurfaceRLE">SDL_SetSurfaceRLE()</a>で最適化されたサーフェイスはpixelsにアクセスする前に<a href="#SDL_LockSurface">SDL_LockSurface()</a>でロックする必要がある.
-アクセスし終えたならばビットマップ転送する前に<a href="#SDL_UnlockSurface">SDL_UnlockSurface()</a>を呼ぶ必要がある.
+アクセスし終えたならばピクセルマップ転送する前に<a href="#SDL_UnlockSurface">SDL_UnlockSurface()</a>を呼ぶ必要がある.
 <h3>関連項目(関数)</h3>
 <a href="#SDL_ConvertSurface">SDL_ConvertSurface</a><br>
 <a href="#SDL_CreateRGBSurface">SDL_CreateRGBSurface</a><br>
@@ -120,9 +120,9 @@
 </table>
 <h3>戻り値</h3>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h3>詳細</h3>
-これは高レベルの拡大縮小ビットマップ転送関数である.
+これは高レベルの拡大縮小ピクセルマップ転送関数である.
 この関数は内部で<a href="#SDL_LowerBlitScaled">SDL_LowerBlitScaled()</a>を呼んでいる.
 <h3>関連項目(関数)</h3>
 <a href="#SDL_BlitSurface">SDL_BlitSurface</a><br>
@@ -144,16 +144,16 @@
 </table>
 <h3>戻り値</h3>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h3>詳細</h3>
 <p>
-SDLのビットマップ転送が内部でどのように行われるかを正確に理解していないならば, そしてどのように他のビットマップ転送関数を使うのか分からないならば<a href="#SDL_BlitSurface">SDL_BlitSurface()</a>を使うべきである.
+SDLのピクセルマップ転送が内部でどのように行われるかを正確に理解していないならば, そしてどのように他のピクセルマップ転送関数を使うのか分からないならば<a href="#SDL_BlitSurface">SDL_BlitSurface()</a>を使うべきである.
 </p>
 <p>
-これは高レベルのビットマップ転送関数で, <a href="#SDL_LowerBlit">SDL_LowerBlit()</a>を呼ぶ前に領域の検証とクリッピングが行われる.
+これは高レベルのピクセルマップ転送関数で, 内部で<a href="#SDL_LowerBlit">SDL_LowerBlit()</a>を呼ぶ前に領域の検証とクリッピングが行われる.
 </p>
 <p>
-このビットマップ転送関数はロックしたサーフェイスに対して呼んではならない.
+このピクセルマップ転送関数はロックしたサーフェイスに対して呼んではならない.
 </p>
 <p>
 コピーされる領域のサイズはsrcrectの幅と高さで決まる.
@@ -171,7 +171,7 @@ destrectがNULLのときコピー先は(0,0) (左上)となる.
 ブレンディングやカラーキーの定義の有無により転送は以下のようになる.
 <table border="1" summary="SDL_BlitSurface">
 <tr>
-<th>フォーマット</th>
+<th>形式</th>
 <th>コピー元サーフェイスのブレンドモード</th>
 <th colspan="2">転送</th>
 </tr>
@@ -223,27 +223,334 @@ destrectがNULLのときコピー先は(0,0) (左上)となる.
 <hr>
 
 <h2><a name="SDL_ConvertPixels">SDL_ConvertPixels</a></h2>
-あるフォーマットのピクセルの集まりを別のフォーバットに変換してコピーする
+ある形式のピクセルの集まりを別の形式に変換してコピーする
 <h3>構文</h3>
 <code>int SDL_ConvertPixels(int width, int height, Uint32 src_format, const void* src, int src_pitch, Uint32 dst_format, void* dst, int dst_pitch)</code>
 <h3>引数</h3>
 <table border="1" summary="SDL_ConvertPixels">
 <tr><td>width</td><td>幅のピクセル数</td></tr>
 <tr><td>height</td><td>高さのピクセル数</td></tr>
-<tr><td>src_format</td><td>コピー元のピクセルのフォーマット (詳細を参照すること)</td></tr>
+<tr><td>src_format</td><td>コピー元のピクセル形式 (詳細を参照すること)</td></tr>
 <tr><td>src</td><td>コピー元のピクセル</td></tr>
 <tr><td>src_pitch</td><td>コピー元の幅のbyte数</td></tr>
-<tr><td>dst_format</td><td>コピー先のピクセルのフォーマット (詳細を参照すること)</td></tr>
+<tr><td>dst_format</td><td>コピー先のピクセル形式 (詳細を参照すること)</td></tr>
 <tr><td>dst</td><td>新しいピクセルを書き込むポインタ</td></tr>
 <tr><td>dst_pitch</td><td>コピー先の幅のbyte数</td></tr>
 </table>
 <h3>戻り値</h3>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-そのとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h3>詳細</h3>
 src_formatとdst_formatは<a href="sdl2-pixels.html#SDL_PixelFormatEnum">SDL_PixelFormatEnum</a>列挙体の1つである.
 <h3>SDL Wikiへのリンク</h3>
 <a href="https://wiki.libsdl.org/SDL_ConvertPixels">SDL_ConvertPixels - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_ConvertSurface">SDL_ConvertSurface</a></h2>
+既存のサーフェイスを指定のピクセル形式に変換して新しい転送のために最適化されたサーフェイスを生成する
+<h3>構文</h3>
+<code>SDL_Surface* SDL_ConvertSurface(SDL_Surface* src, const SDL_PixelFormat* fmt, Uint32 flags)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_ConvertSurface">
+<tr><td>src</td><td>変換元のサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>fmt</td><td>最適化の対象の形式の<a href="sdl2-pixels.html#SDL_PixelFormat">SDL_PixelFormat</a>構造体</td></tr>
+<tr><td>flags</td><td>未使用 常に0にすること</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき生成された新しいサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>, 失敗のときNULLを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+この関数は繰り返し転送される画像を最適化するために使われる.
+元のサーフェイスを変換すると新しいサーフェイスが生成される.
+新しい最適化されたサーフェイスは高速な転送元として使うことができる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_CreateRGBSurface">SDL_CreateRGBSurface</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_ConvertSurface">SDL_ConvertSurface - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_ConvertSurfaceFormat">SDL_ConvertSurfaceFormat</a></h2>
+既存のサーフェイスを指定のピクセル形式に変換して新しいサーフェイスを生成する
+<h3>構文</h3>
+<code>SDL_Surface* SDL_ConvertSurfaceFormat(SDL_Surface* src, Uint32 pixel_format, Uint32 flags)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_ConvertSurfaceFormat">
+<tr><td>src</td><td>変換元のサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>pixel_format</td><td><a href="sdl2-pixels.html#SDL_PixelFormatEnum">SDL_PixelFormatEnum</a>列挙体の値の1つ</td></tr>
+<tr><td>flags</td><td>未使用 常に0にすること</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき新しいサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体, 失敗のときNULLを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_ConvertSurface">SDL_ConvertSurface</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_ConvertSurfaceFormat">SDL_ConvertSurfaceFormat - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_CreateRGBSurface">SDL_CreateRGBSurface</a></h2>
+新しいRGBサーフェイスを生成する
+<h3>構文</h3>
+<code>SDL_Surface* SDL_CreateRGBSurface(Uint32 flags, int width, int height, int depth, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_CreateRGBSurface">
+<tr><td>flags</td><td>未使用 常に0にすること</td></tr>
+<tr><td>width</td><td>サーフェイスの幅</td></tr>
+<tr><td>height</td><td>サーフェイスの高さ</td></tr>
+<tr><td>depth</td><td>サーフェイスのビット深度 (詳細を参照すること)</td></tr>
+<tr><td>Rmask</td><td>ピクセルのRマスク</td></tr>
+<tr><td>Gmask</td><td>ピクセルのGマスク</td></tr>
+<tr><td>Bmask</td><td>ピクセルのBマスク</td></tr>
+<tr><td>Amask</td><td>ピクセルのAマスク</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき新しいサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体, 失敗のときNULLを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+<p>
+depthは4または8で, 空のパレットが生成される.
+depthが8以上のとき, 引数の[RGBA]maskを使ったピクセル形式が設定される.
+</p>
+<p>
+[RGBA]maskはピクセルの色を指定するためのビットマスクとして使われる.
+例えば, RmaskがFF0000ならば赤のデータは最上位バイトに格納される.
+RGBマスクを0にすると, 深度に基づいたデフォルトの値になる.
+(例: <code>SDL_CreateRGBSurface(0,w,h,32,0,0,0,0);</code>)
+しかし, Amaskを0にするとアルファマスクは0になる.
+</p>
+<p>
+アルファマスク付きサーフェイスのブレンドモードの初期値は <code>SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_BLEND)</code> である.
+</p>
+<p>
+<a href="#SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode()</a>で別のブレンドモードに変えることができる.
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</a><br>
+<a href="#SDL_FreeSurface">SDL_FreeSurface</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_CreateRGBSurface">SDL_CreateRGBSurface - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</a></h2>
+既存のピクセルデータから新しいRGBサーフェイスを生成する
+<h3>構文</h3>
+<code>SDL_Surface* SDL_CreateRGBSurfaceFrom(void* pixels, int width, int height, int depth, int pitch, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_CreateRGBSurfaceFrom">
+<tr><td>pixels</td><td>既存のピクセルデータへのポインタ</td></tr>
+<tr><td>width</td><td>サーフェイスの幅</td></tr>
+<tr><td>height</td><td>サーフェイスの高さ</td></tr>
+<tr><td>depth</td><td>サーフェイスのビット深度 (詳細を参照すること)</td></tr>
+<tr><td>pitch</td><td>幅のbyte数</td></tr>
+<tr><td>Rmask</td><td>ピクセルのRマスク</td></tr>
+<tr><td>Gmask</td><td>ピクセルのGマスク</td></tr>
+<tr><td>Bmask</td><td>ピクセルのBマスク</td></tr>
+<tr><td>Amask</td><td>ピクセルのAマスク</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき新しいサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体, 失敗のときNULLを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+<p>
+depthは4または8で, 空のパレットが生成される.
+depthが8以上のとき, 引数の[RGBA]maskを使ったピクセル形式が設定される.
+</p>
+<p>
+[RGBA]maskはピクセルの色を指定するためのビットマスクとして使われる.
+例えば, RmaskがFF0000ならば赤のデータは最上位バイトに格納される.
+RGBマスクを0にすると, 深度に基づいたデフォルトの値になる.
+(例: <code>SDL_CreateRGBSurface(0,w,h,32,0,0,0,0);</code>)
+しかし, Amaskを0にするとアルファマスクは0になる.
+</p>
+<p>
+アルファマスク付きサーフェイスのブレンドモードの初期値は <code>SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_BLEND)</code> である.
+</p>
+<p>
+新しいピクセルデータは生成されない.
+ピクセルデータは自動的には扱われない.
+つまり, サーフェイスを解放した後はピクセルデータも解放する必要がある.
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_CreateRGBSurface">SDL_CreateRGBSurface</a><br>
+<a href="#SDL_FreeSurface">SDL_FreeSurface</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_FillRect">SDL_FillRect</a></h2>
+指定の色で高速に塗りつぶした長方形を描く
+<h3>構文</h3>
+<code>int SDL_FillRect(SDL_Surface* dst, const SDL_Rect* rect, Uint32 color)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_FillRect">
+<tr><td>dst</td><td>描画するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>rect</td><td>塗りつぶされる領域を表す<a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a>構造体. NULLのときサーフェイス全体</td></tr>
+<tr><td>color</td><td>塗りつぶす色 (詳細を参照すること)</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+<p>
+colorはサーフェイスのピクセル形式である必要がある.
+<a href="sdl2-pixels.html#SDL_MapRGB">SDL_MapRGB()</a>または<a href="sdl2-pixels.html#SDL_MapRGBA">SDL_MapRGBA()</a>で生成することができる.
+色にアルファ値があっても, 単にそのアルファ値が書き込まれる.
+ブレンディングは行われない.
+</p>
+<p>
+サーフェイスにクリッピング領域が設定されていれば(<a href="#SDL_SetClipRect">SDL_SetClipRect()</a>で設定する), この関数はクリッピング領域とrectにしたがって塗りつぶす.
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_FillRects">SDL_FillRects</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_FillRect">SDL_FillRect - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_FillRects">SDL_FillRects</a></h2>
+指定の色で高速に塗りつぶした長方形を複数描く
+<h3>構文</h3>
+<code>int SDL_FillRects(SDL_Surface* dst, const SDL_Rect* rects, int count, Uint32 color)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_FillRects">
+<tr><td>dst</td><td>描画するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>rect</td><td>塗りつぶされる領域を表す<a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a>構造体の配列</td></tr>
+<tr><td>count</td><td>塗りつぶされる領域の配列の個数</td></tr>
+<tr><td>color</td><td>塗りつぶす色 (詳細を参照すること)</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+<p>
+colorはサーフェイスのピクセル形式である必要がある.
+<a href="sdl2-pixels.html#SDL_MapRGB">SDL_MapRGB()</a>または<a href="sdl2-pixels.html#SDL_MapRGBA">SDL_MapRGBA()</a>で生成することができる.
+色にアルファ値があっても, 単にそのアルファ値が書き込まれる.
+ブレンディングは行われない.
+</p>
+<p>
+サーフェイスにクリッピング領域が設定されていれば(<a href="#SDL_SetClipRect">SDL_SetClipRect()</a>で設定する), この関数はクリッピング領域とrectsにしたがって塗りつぶす.
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_FillRect">SDL_FillRect</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_FillRects">SDL_FillRects - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_FreeSurface">SDL_FreeSurface</a></h2>
+RGBサーフェイスを解放する
+<h3>構文</h3>
+<code>void SDL_FreeSurface(SDL_Surface* surface)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_FreeSurface">
+<tr><td>surface</td><td>解放するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+</table>
+<h3>詳細</h3>
+<a href="#SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom()</a>で生成したサーフェイスの場合でもピクセルデータは解放されない.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_CreateRGBSurface">SDL_CreateRGBSurface</a><br>
+<a href="#SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</a><br>
+<a href="#SDL_LoadBMP">SDL_LoadBMP</a><br>
+<a href="#SDL_LoadBMP_RW">SDL_LoadBMP_RW</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_FreeSurface">SDL_FreeSurface - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GetClipRect">SDL_GetClipRect</a></h2>
+サーフェイスのクリッピング領域を得る
+<h3>構文</h3>
+<code>void SDL_GetClipRect(SDL_Surface* surface, SDL_Rect* rect)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_GetClipRect">
+<tr><td>surface</td><td>クリッピング領域が設定されたサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>rect</td><td>クリッピング領域を代入する<a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a>構造体のポインタ (詳細を参照すること)</td></tr>
+</table>
+<h3>詳細</h3>
+surfaceが転送先のとき, クリッピング領域の内側のみに描画される.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_BlitSurface">DL_BlitSurface</a><br>
+<a href="#SDL_SetClipRect">SDL_SetClipRect</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GetClipRect">SDL_GetClipRect - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GetColorKey">SDL_GetColorKey</a></h2>
+サーフェイスのカラーキー(透過ピクセル)を得る
+<h3>構文</h3>
+<code>int SDL_GetColorKey(SDL_Surface* surface, Uint32* key)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_GetColorKey">
+<tr><td>surface</td><td>問い合わせるサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>key</td><td>透過ピクセルへのポインタ</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+surfaceでカラーキーが無効の場合もこの関数は-1を戻す.
+<h3>詳細</h3>
+カラーキーはsurfaceのピクセル形式で, <a href="sdl2-pixels.html#SDL_MapRGB">SDL_MapRGB()</a>で生成できる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_BlitSurface">SDL_BlitSurface</a><br>
+<a href="#SDL_SetColorKey">SDL_SetColorKey</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GetColorKey">SDL_GetColorKey - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GetSurfaceAlphaMod">SDL_GetSurfaceAlphaMod</a></h2>
+ピクセル転送で使われる追加のアルファ値を得る
+<h3>構文</h3>
+<code>int SDL_GetSurfaceAlphaMod(SDL_Surface* surface, Uint8* alpha)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_GetSurfaceAlphaMod">
+<tr><td>surface</td><td>問い合わせるサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>alpha</td><td>現在のアルファ値を代入するポインタ</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetSurfaceColorMod">SDL_GetSurfaceColorMod</a><br>
+<a href="#SDL_SetSurfaceAlphaMod">SDL_SetSurfaceAlphaMod</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GetSurfaceAlphaMod">SDL_GetSurfaceAlphaMod - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GetSurfaceBlendMode">SDL_GetSurfaceBlendMode</a></h2>
+ピクセル転送で使われるブレンドモードを得る
+<h3>構文</h3>
+<code>int SDL_GetSurfaceBlendMode(SDL_Surface* surface, SDL_BlendMode* blendMode)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_GetSurfaceBlendMode">
+<tr><td>surface</td><td>問い合わせるサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>blendMode</td><td>現在のブレンドモードを代入する<a href="#SDL_BlendMode">SDL_BlendMode</a>列挙体のポインタ</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GetSurfaceBlendMode">SDL_GetSurfaceBlendMode - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_GetSurfaceColorMod">SDL_GetSurfaceColorMod</a></h2>
+ピクセル転送時に積算される追加の色を得る
+<h3>構文</h3>
+<code>int SDL_GetSurfaceColorMod(SDL_Surface* surface, Uint8* r, Uint8* g, Uint8* b)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_GetSurfaceColorMod">
+<tr><td>surface</td><td>問い合わせるサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>r</td><td>現在の赤色を代入するポインタ</td></tr>
+<tr><td>g</td><td>現在の緑色を代入するポインタ</td></tr>
+<tr><td>b</td><td>現在の青色を代入するポインタ</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetSurfaceAlphaMod">SDL_GetSurfaceAlphaMod</a><br>
+<a href="#SDL_SetSurfaceColorMod">SDL_SetSurfaceColorMod</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_GetSurfaceColorMod">SDL_GetSurfaceColorMod - SDL Wiki</a>
 <hr>
 
 </body>
