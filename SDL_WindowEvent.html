@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
+<title>SDL_WindowEvent</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_WindowEvent
+<h1>SDL_WindowEvent</h1>
+ウィンドウの状態が変化した場合のイベントのデータを含む構造体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_WindowEvent">
+<tr><td>Uint32</td><td>type</td><td>SDL_WINDOWEVENT</td></tr>
+<tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
+<tr><td>Uint32</td><td>windowID</td><td>関連のあるウィンドウ</td></tr>
+<tr><td>Uint8</td><td>event</td><td><a href="SDL_WindowEventID.html">SDL_WindowEventID</a>列挙体</td></tr>
+<tr><td>Sint32</td><td>data1</td><td>イベントによって異なるデータ</td></tr>
+<tr><td>Sint32</td><td>data2</td><td>イベントによって異なるデータ</td></tr>
+</table>
+<h2>詳細</h2>
+<a href="SDL_WindowEvent.html">SDL_WindowEvent</a>は<a href="SDL_Event.html">SDL_Event</a>共用体のメンバの1つで, イベントのtypeがSDL_WINDOWEVENTの場合に使う.
+イベントのwindowフィールドを経由してアクセスする必要がある.
+<h2>関連項目(列挙体)</h2>
+<a href="SDL_EventType.html">SDL_EventType</a><br>
+<a href="SDL_WindowEventID.html">SDL_WindowEventID</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_WindowEvent">SDL_WindowEvent - SDL Wiki</a><br>
+</body>
+</html>
