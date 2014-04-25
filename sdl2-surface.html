@@ -122,7 +122,7 @@
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h3>詳細</h3>
-これは高レベルの拡大縮小ピクセルマップ転送関数である.
+これはパブリックな拡大縮小ピクセルマップ転送関数である.
 この関数は内部で<a href="#SDL_LowerBlitScaled">SDL_LowerBlitScaled()</a>を呼んでいる.
 <h3>関連項目(関数)</h3>
 <a href="#SDL_BlitSurface">SDL_BlitSurface</a><br>
@@ -150,7 +150,7 @@
 SDLのピクセルマップ転送が内部でどのように行われるかを正確に理解していないならば, そしてどのように他のピクセルマップ転送関数を使うのか分からないならば<a href="#SDL_BlitSurface">SDL_BlitSurface()</a>を使うべきである.
 </p>
 <p>
-これは高レベルのピクセルマップ転送関数で, 内部で<a href="#SDL_LowerBlit">SDL_LowerBlit()</a>を呼ぶ前に領域の検証とクリッピングが行われる.
+これはパブリックなピクセルマップ転送関数で, 内部で<a href="#SDL_LowerBlit">SDL_LowerBlit()</a>を呼ぶ前に領域の検証とクリッピングが行われる.
 </p>
 <p>
 このピクセルマップ転送関数はロックしたサーフェイスに対して呼んではならない.
@@ -539,9 +539,9 @@ surfaceでカラーキーが無効の場合もこの関数は-1を戻す.
 <h3>引数</h3>
 <table border="1" summary="SDL_GetSurfaceColorMod">
 <tr><td>surface</td><td>問い合わせるサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
-<tr><td>r</td><td>現在の赤色を代入するポインタ</td></tr>
-<tr><td>g</td><td>現在の緑色を代入するポインタ</td></tr>
-<tr><td>b</td><td>現在の青色を代入するポインタ</td></tr>
+<tr><td>r</td><td>転送時に赤に積算される値を代入するポインタ</td></tr>
+<tr><td>g</td><td>転送時に緑に積算される値を代入するポインタ</td></tr>
+<tr><td>b</td><td>転送時に青に積算される値を代入するポインタ</td></tr>
 </table>
 <h3>戻り値</h3>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
@@ -551,6 +551,368 @@ surfaceでカラーキーが無効の場合もこの関数は-1を戻す.
 <a href="#SDL_SetSurfaceColorMod">SDL_SetSurfaceColorMod</a><br>
 <h3>SDL Wikiへのリンク</h3>
 <a href="https://wiki.libsdl.org/SDL_GetSurfaceColorMod">SDL_GetSurfaceColorMod - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_LoadBMP">SDL_LoadBMP</a></h2>
+BMPファイルをサーフェイスに読み込む
+<h3>構文</h3>
+<code>SDL_Surface* SDL_LoadBMP(const char* file)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_LoadBMP">
+<tr><td>file</td><td>BMPイメージファイル</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき新しいサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体, 失敗のときNULLを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+新しいサーフェイスは<a href="#SDL_FreeSurface">SDL_FreeSurface()</a>で解放する必要がある.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_FreeSurface">SDL_FreeSurface</a><br>
+<a href="#SDL_LoadBMP_RW">SDL_LoadBMP_RW</a><br>
+<a href="#SDL_SaveBMP">SDL_SaveBMP</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_LoadBMP">SDL_LoadBMP - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_LoadBMP_RW">SDL_LoadBMP_RW</a></h2>
+シーク可能なSDLデータストリーム(メモリまたはファイル)からBMP形式をサーフェイスに読み込む
+<h3>構文</h3>
+<code>SDL_Surface* SDL_LoadBMP_RW(SDL_RWops* src, int freesrc)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_LoadBMP_RW">
+<tr><td>src</td><td>データストリーム</td></tr>
+<tr><td>freesrc</td><td>0以外のとき読み終えたときストリームを閉じる</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき新しいサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体, 失敗のときNULLを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+新しいサーフェイスは<a href="#SDL_FreeSurface">SDL_FreeSurface()</a>で解放する必要がある.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_FreeSurface">SDL_FreeSurface</a><br>
+<a href="#SDL_LoadBMP">SDL_LoadBMP</a><br>
+<a href="#SDL_SaveBMP_RW">SDL_SaveBMP_RW</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_LoadBMP_RW">SDL_LoadBMP_RW - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_LockSurface">SDL_LockSurface</a></h2>
+ピクセル領域に直接アクセスできるように設定する
+<h3>構文</h3>
+<code>int SDL_LockSurface(SDL_Surface* surface)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_LockSurface">
+<tr><td>surface</td><td>ロックするサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+<p>
+<a href="#SDL_LockSurface">SDL_LockSurface()</a>と<a href="#SDL_UnlockSurface">SDL_UnlockSurface()</a>の間で, surface->formatに格納されたピクセル形式でsurface->pixelの読み込みと書き込みができる.
+サーフェイスへのアクセスを終えたなら, <a href="#SDL_UnlockSurface">SDL_UnlockSurface()</a>を呼んでロックを解放する必要がある.
+</p>
+<p>
+全てのサーフェイスがロックを必要としているとは限らない
+<a href="#SDL_MUSTLOCK">SDL_MUSTLOCK(surface)</a>が0ならば, いつでもサーフェイスに読み書き可能で, サーフェイスのピクセル形式は変化しない.
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_MUSTLOCK">SDL_MUSTLOCK</a><br>
+<a href="#SDL_UnlockSurface">SDL_UnlockSurface</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_LockSurface">SDL_LockSurface - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_LowerBlit">SDL_LowerBlit</a></h2>
+低レベルサーフェイス転送のみを行う
+<h3>構文</h3>
+<code>int SDL_LowerBlit(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_LowerBlit">
+<tr><td>src</td><td>コピー元の<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>srcrect</td><td>コピー元の領域を表す<a href="#SDL_Rect">SDL_Rect</a>構造体. NULLのときサーフェイス全体</td></tr>
+<tr><td>dst</td><td>コピー先の<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>dstrect</td><td>コピー先の領域を表す<a href="#SDL_Rect">SDL_Rect</a>構造体</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+これは半プライベートな関数で, 入力が既にクリッピングされているとみなして低レベルサーフェイス転送を行う.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_BlitSurface">SDL_BlitSurface</a><br>
+<a href="#SDL_UpperBlit">SDL_UpperBlit</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_LowerBlit">SDL_LowerBlit - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_LowerBlitScaled">SDL_LowerBlitScaled</a></h2>
+低レベル拡大縮小サーフェイス転送のみを行う
+<h3>構文</h3>
+<code>int SDL_LowerBlitScaled(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_LowerBlitScaled">
+<tr><td>src</td><td>コピー元の<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>srcrect</td><td>コピー元の領域を表す<a href="#SDL_Rect">SDL_Rect</a>構造体</td></tr>
+<tr><td>dst</td><td>コピー先の<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>dstrect</td><td>コピー先の領域を表す<a href="#SDL_Rect">SDL_Rect</a>構造体</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+これは半プライベートな関数で, 入力が既にクリッピングされているとみなして低レベルサーフェイス転送を行う.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_BlitScaled">SDL_BlitScaled</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_LowerBlitScaled">SDL_LowerBlitScaled - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_MUSTLOCK">SDL_MUSTLOCK</a></h2>
+アクセスのためにサーフェイスをロックする必要があるかを調べる
+<h3>構文</h3>
+<code>SDL_bool SDL_MUSTLOCK(SDL_Surface* surface)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_MUSTLOCK">
+<tr><td>surface</td><td>問い合わせるサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+</table>
+<h3>戻り値</h3>
+ロックする必要があるときSDL_TRUE. 必要ないときSDL_FALSEを戻す.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_LockSurface">SDL_LockSurface</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_MUSTLOCK">SDL_MUSTLOCK - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SaveBMP">SDL_SaveBMP</a></h2>
+サーフェイスをBMPファイルとして保存する
+<h3>構文</h3>
+<code>int SDL_SaveBMP(SDL_Surface* surface, const char* file)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SaveBMP">
+<tr><td>surface</td><td>BMPファイルとして保存するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>file</td><td>保存するファイル</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_LoadBMP">SDL_LoadBMP</a><br>
+<a href="#SDL_SaveBMP_RW">SDL_SaveBMP_RW</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SaveBMP">SDL_SaveBMP - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SaveBMP_RW">SDL_SaveBMP_RW</a></h2>
+サーフェイスをシーク可能なSDLストリーム(メモリまたはファイル)にBMP形式で書き込む
+<h3>構文</h3>
+<code>int SDL_SaveBMP_RW(SDL_Surface* surface, SDL_RWops* dst, int freedst)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SaveBMP_RW">
+<tr><td>surface</td><td>保存するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>dst</td><td>データストリーム</td></tr>
+<tr><td>freedst</td><td>0以外のとき書き終えたときストリームを閉じる</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_LoadBMP_RW">SDL_LoadBMP_RW</a><br>
+<a href="#SDL_SaveBMP">SDL_SaveBMP</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SaveBMP_RW">SDL_SaveBMP_RW - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetClipRect">SDL_SetClipRect</a></h2>
+Use this function to set the clipping rectangle for a surface. 
+サーフェイスのクリッピング領域を設定する
+<h3>構文</h3>
+<code>SDL_bool SDL_SetClipRect(SDL_Surface* surface, const SDL_Rect* rect)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SetClipRect">
+<tr><td>surface</td><td>クリッピング領域を設定するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></td></tr>
+<tr><td>rect</td><td>クリッピングする領域を表す<a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a>構造体. NULLのときクリッピングを無効にする</td></tr>
+</table>
+<h3>戻り値</h3>
+領域がサーフェイスの内側にあるときSDL_TRUE, 転送が完全にクリッピングされてしまうときSDL_FALSEを戻す.
+<h3>詳細</h3>
+<p>
+surfaceが転送先のとき, クリッピング領域の内側のみに描画される.
+</p>
+<p>
+転送元と転送先の端で自動的にクリッピングされることに注意すること.
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#"></a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SetClipRect">SDL_SetClipRect - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetColorKey">SDL_SetColorKey</a></h2>
+サーフェイスのカラーキー(透過ピクセル)を設定する
+<h3>構文</h3>
+<code>int SDL_SetColorKey(SDL_Surface* surface, int flag, Uint32 key)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SetColorKey">
+<tr><td>surface</td><td>設定するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>flag</td><td>SDL_TRUEのときカラーキーを有効にする, SDL_FALSEのときカラーキーを無効にする</td></tr>
+<tr><td>key</td><td>透過ピクセル</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+<p>
+カラーキーはsurfaceのピクセル形式で, <a href="sdl2-pixels.html#SDL_MapRGB">SDL_MapRGB()</a>で生成できる.
+</p>
+<p>
+RLEアクセラレーションを使うと透過ピクセルが水平方向に長い画像の転送が大幅に高速化される.
+詳細は<a href="SDL_SetSurfaceRLE">SDL_SetSurfaceRLE()</a>を参照すること.
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_BlitSurface">SDL_BlitSurface</a><br>
+<a href="#SDL_GetColorKey">SDL_GetColorKey</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SetColorKey">SDL_SetColorKey - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetSurfaceAlphaMod">SDL_SetSurfaceAlphaMod</a></h2>
+ピクセル転送で使われる追加のアルファ値を設定する
+<h3>構文</h3>
+<code>int SDL_SetSurfaceAlphaMod(SDL_Surface* surface, Uint8 alpha)
+</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SetSurfaceAlphaMod">
+<tr><td>surface</td><td>設定するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>alpha</td><td>転送時に積算されるアルファ値</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+<p>
+サーフェイスが転送されるとき, 転送元のアルファ値は, このアルファ値によって次の式に従い修正される.
+</p>
+<p>
+srcA = srcA * (alpha / 255)
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#"></a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SetSurfaceAlphaMod">SDL_SetSurfaceAlphaMod - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode</a></h2>
+ピクセル転送で使われるブレンドモードを設定する
+<h3>構文</h3>
+<code>int SDL_SetSurfaceBlendMode(SDL_Surface* surface, SDL_BlendMode blendMode)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SetSurfaceBlendMode">
+<tr><td>surface</td><td>設定するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>blendMode</td><td>転送で使われるブレンドモードの<a href="#SDL_BlendMode">SDL_BlendMode</a>列挙体 (詳細を参照すること)</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+サーフェイスを他のサーフェイスやテクスチャにブレンディングなしで転送するためには, 転送元のサーフェイスのブレンドモードはSDL_BLENDMODE_NONEに設定されている必要がある.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetSurfaceBlendMode">SDL_GetSurfaceBlendMode</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetSurfaceColorMod">SDL_SetSurfaceColorMod</a></h2>
+ピクセル転送時に積算される追加の色を設定する
+<h3>構文</h3>
+<code>int SDL_SetSurfaceColorMod(SDL_Surface* surface, Uint8 r, Uint8 g, Uint8 b)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SetSurfaceColorMod">
+<tr><td>surface</td><td>設定するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>r</td><td>転送時に赤に積算される値</td></tr>
+<tr><td>g</td><td>転送時に緑に積算される値</td></tr>
+<tr><td>b</td><td>転送時に青に積算される値</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+<p>
+サーフェイスが転送されるとき, 転送元のそれぞれの色チャネルは, これらの値によって次の式に従い修正される.
+</p>
+<p>
+srcC = srcC * (color / 255)
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_GetSurfaceColorMod">SDL_GetSurfaceColorMod</a><br>
+<a href="#SDL_SetSurfaceAlphaMod">SDL_SetSurfaceAlphaMod</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SetSurfaceColorMod">SDL_SetSurfaceColorMod - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetSurfacePalette">SDL_SetSurfacePalette</a></h2>
+サーフェイスで使われるパレットを設定する
+<h3>構文</h3>
+<code>int SDL_SetSurfacePalette(SDL_Surface* surface, SDL_Palette* palette)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SetSurfacePalette">
+<tr><td>surface</td><td>設定するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>palette</td><td>サーフェイスで使われるパレットの<a href="sdl2-pixels.html#SDL_Palette">SDL_Palette</a>構造体</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+1つのパレットを複数のサーフェイスで共有することは可能である.
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SetSurfacePalette">SDL_SetSurfacePalette - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_SetSurfaceRLE">SDL_SetSurfaceRLE</a></h2>
+サーフェイスにRLEアクセラレーションのヒントを設定する
+<h3>構文</h3>
+<code>int SDL_SetSurfaceRLE(SDL_Surface* surface, int flag)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_SetSurfaceRLE">
+<tr><td>surface</td><td>最適化するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+<tr><td>flag</td><td>0のとき無効, 0以外のときRLEアクセラレーションを有効にする</td></tr>
+</table>
+<h3>戻り値</h3>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h3>詳細</h3>
+RLEが有効のとき, カラーキーとアルファブレンディングの転送は速くなる.
+しかし, ピクセル領域に直接アクセスする前にサーフェイスをロックことが必要になる.
+<h3>関連項目(関数)</h3>
+<a href="#SDL_BlitSurface">SDL_BlitSurface</a><br>
+<a href="#SDL_LockSurface">SDL_LockSurface</a><br>
+<a href="#SDL_UnlockSurface">SDL_UnlockSurface</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_SetSurfaceRLE">SDL_SetSurfaceRLE - SDL Wiki</a>
+<hr>
+
+<h2><a name="SDL_UnlockSurface">SDL_UnlockSurface</a></h2>
+ピクセル領域に直接アクセスした後にロックを解放する
+<h3>構文</h3>
+<code>void SDL_UnlockSurface(SDL_Surface* surface)</code>
+<h3>引数</h3>
+<table border="1" summary="SDL_UnlockSurface">
+<tr><td>surface</td><td>ロックを解放するサーフェイスの<a href="#SDL_Surface">SDL_Surface</a>構造体</td></tr>
+</table>
+<h3>戻り値</h3>
+<h3>詳細</h3>
+<p>
+<a href="#SDL_LockSurface">SDL_LockSurface()</a>と<a href="#SDL_UnlockSurface">SDL_UnlockSurface()</a>の間で, surface->formatに格納されたピクセル形式でsurface->pixelの読み込みと書き込みができる.
+サーフェイスへのアクセスを終えたなら, <a href="#SDL_UnlockSurface">SDL_UnlockSurface()</a>を呼んでロックを解放する必要がある.
+</p>
+<p>
+全てのサーフェイスがロックを必要としているとは限らない
+<a href="#SDL_MUSTLOCK">SDL_MUSTLOCK(surface)</a>が0ならば, いつでもサーフェイスに読み書き可能で, サーフェイスのピクセル形式は変化しない.
+</p>
+<h3>関連項目(関数)</h3>
+<a href="#SDL_LockSurface">SDL_LockSurface</a><br>
+<h3>SDL Wikiへのリンク</h3>
+<a href="https://wiki.libsdl.org/SDL_UnlockSurface">SDL_UnlockSurface - SDL Wiki</a>
 <hr>
 
 </body>
