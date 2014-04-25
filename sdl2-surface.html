@@ -13,7 +13,7 @@
 <h1>サーフェイスの生成と単純な描画</h1>
 インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_surface.h">SDL_surface.h</a>
 <h2>概要</h2>
-これらの関数はサーフェイスの生成, ピクセルマップ転送, 点・線・長方形などの単純な描画を行う.
+これらの関数はサーフェイスの生成, ピクセル転送, 点・線・長方形などの単純な描画を行う.
 <h2>構造体</h2>
 <ol>
 <li><a href="#SDL_Surface">SDL_Surface</a></li>
@@ -61,7 +61,7 @@
 <h3>フィールド</h3>
 <table border="1" summary="SDL_Surface">
 <tr><td>Uint32</td><td>flags</td><td>(内部使用)</td></tr>
-<tr><td><a href="sdl2-pixels.html#SDL_PixelFormat">SDL_PixelFormat</a>*</td><td>format</td><td>サーフェイスに格納されたピクセル形式 詳細は<a href="sdl2-pixels.html#SDL_PixelFormat">SDL_PixelFormat</a>を参照すること (読取専用)</td></tr>
+<tr><td><a href="sdl2-pixels.html#SDL_PixelFormat">SDL_PixelFormat</a>*</td><td>format</td><td>サーフェイスに格納されたピクセル形式 詳細は<a href="sdl2-pixels.html#SDL_PixelFormat">SDL_PixelFormat</a>列挙体を参照すること (読取専用)</td></tr>
 <tr><td>int</td><td>w</td><td>幅のピクセル数 (読取専用)</td></tr>
 <tr><td>int</td><td>h</td><td>高さのピクセル数 (読取専用)</td></tr>
 <tr><td>int</td><td>pitch</td><td>幅のピクセルのbyte数 (読取専用)</td></tr>
@@ -69,14 +69,14 @@
 <tr><td>void*</td><td>userdata</td><td>自由に利用できるポインタ (読み書き可能)</td></tr>
 <tr><td>int</td><td>locked</td><td>サーフェイスのロックを要求されたときに使う (内部使用)</td></tr>
 <tr><td>void*</td><td>lock_data</td><td>サーフェイスのロックを要求されたときに使う (内部で使用する)</td></tr>
-<tr><td><a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a></td><td>clip_rect</td><td>サーフェイスへのピクセルマップ転送のクリッピングで使われる<a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a>構造体 <a href="#SDL_SetClipRect">SDL_SetClipRect()</a>で設定できる (読取専用)</td></tr>
+<tr><td><a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a></td><td>clip_rect</td><td>サーフェイスへのピクセル転送のクリッピングで使われる<a href="sdl2-rect.html#SDL_Rect">SDL_Rect</a>構造体 <a href="#SDL_SetClipRect">SDL_SetClipRect()</a>で設定できる (読取専用)</td></tr>
 <tr><td><a href="#SDL_BlitMap">SDL_BlitMap</a></td><td>map</td><td>他のサーフェイスへの高速転送マッピングの情報 (内部使用)</td></tr>
 <tr><td>int</td><td>refcount</td><td>アプリケーションから参照された回数</td></tr>
 </table>
 <h3>詳細</h3>
 ほとんどのサーフェイスはpixelsに直接アクセスできる.
 <a href="#SDL_SetSurfaceRLE">SDL_SetSurfaceRLE()</a>で最適化されたサーフェイスはpixelsにアクセスする前に<a href="#SDL_LockSurface">SDL_LockSurface()</a>でロックする必要がある.
-アクセスし終えたならばピクセルマップ転送する前に<a href="#SDL_UnlockSurface">SDL_UnlockSurface()</a>を呼ぶ必要がある.
+アクセスし終えたならばピクセル転送する前に<a href="#SDL_UnlockSurface">SDL_UnlockSurface()</a>を呼ぶ必要がある.
 <h3>関連項目(関数)</h3>
 <a href="#SDL_ConvertSurface">SDL_ConvertSurface</a><br>
 <a href="#SDL_CreateRGBSurface">SDL_CreateRGBSurface</a><br>
@@ -122,7 +122,7 @@
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h3>詳細</h3>
-これはパブリックな拡大縮小ピクセルマップ転送関数である.
+これはパブリックな拡大縮小ピクセル転送関数である.
 この関数は内部で<a href="#SDL_LowerBlitScaled">SDL_LowerBlitScaled()</a>を呼んでいる.
 <h3>関連項目(関数)</h3>
 <a href="#SDL_BlitSurface">SDL_BlitSurface</a><br>
@@ -147,13 +147,13 @@
 このとき<a href="sdl2-error.html#SDL_GetError">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h3>詳細</h3>
 <p>
-SDLのピクセルマップ転送が内部でどのように行われるかを正確に理解していないならば, そしてどのように他のピクセルマップ転送関数を使うのか分からないならば<a href="#SDL_BlitSurface">SDL_BlitSurface()</a>を使うべきである.
+SDLのピクセル転送が内部でどのように行われるかを正確に理解していないならば, そしてどのように他のピクセル転送関数を使うのか分からないならば<a href="#SDL_BlitSurface">SDL_BlitSurface()</a>を使うべきである.
 </p>
 <p>
-これはパブリックなピクセルマップ転送関数で, 内部で<a href="#SDL_LowerBlit">SDL_LowerBlit()</a>を呼ぶ前に領域の検証とクリッピングが行われる.
+これはパブリックなピクセル転送関数で, 内部で<a href="#SDL_LowerBlit">SDL_LowerBlit()</a>を呼ぶ前に領域の検証とクリッピングが行われる.
 </p>
 <p>
-このピクセルマップ転送関数はロックしたサーフェイスに対して呼んではならない.
+このピクセル転送関数はロックしたサーフェイスに対して呼んではならない.
 </p>
 <p>
 コピーされる領域のサイズはsrcrectの幅と高さで決まる.
@@ -913,7 +913,6 @@ RLEが有効のとき, カラーキーとアルファブレンディングの転送は速くなる.
 <a href="#SDL_LockSurface">SDL_LockSurface</a><br>
 <h3>SDL Wikiへのリンク</h3>
 <a href="https://wiki.libsdl.org/SDL_UnlockSurface">SDL_UnlockSurface - SDL Wiki</a>
-<hr>
 
 </body>
 </html>
