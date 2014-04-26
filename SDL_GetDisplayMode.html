@@ -10,22 +10,23 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GetDisplayMode
+<hr>
 <h1>SDL_GetDisplayMode</h1>
-指定したディスプレイモードの情報を得る
+利用可能なディスプレイモードの一覧からディスプレイモードを得る
 <h2>構文</h2>
 <code>int SDL_GetDisplayMode(int displayIndex, int modeIndex, SDL_DisplayMode* mode)
 </code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GetDisplayMode">
-<tr><td>displayIndex</td><td>問い合わせるディスプレイの番号</td></tr>
-<tr><td>modeIndex</td><td>問い合わせるディスプレイモードの番号</td></tr>
-<tr><td>mode</td><td>modeIndexのディスプレイモードを代入する<a href="SDL_DisplayMode.html">SDL_DisplayMode</a>構造体</td></tr>
+<tr><td>displayIndex</td><td>調査するディスプレイの番号</td></tr>
+<tr><td>modeIndex</td><td>ディスプレイモードの番号</td></tr>
+<tr><td>mode</td><td>modeIndexのディスプレイモードを代入する<a href="SDL_DisplayMode.html">SDL_DisplayMode</a>のポインタ</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
-ディスプレイモードは次の順位で並んでいる
+ディスプレイモードの一覧は次の順位で並んでいる
 <ul>
 <li>色数 多い→少ない
 <li>幅 大きい→小さい
@@ -36,5 +37,6 @@
 <a href="SDL_GetNumDisplayModes.html">SDL_GetNumDisplayModes</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetDisplayMode">SDL_GetDisplayMode - SDL Wiki</a>
+<hr>
 </body>
 </html>

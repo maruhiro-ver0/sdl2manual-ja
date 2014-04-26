@@ -10,6 +10,7 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_SetWindowGammaRamp
+<hr>
 <h1>SDL_SetWindowGammaRamp</h1>
 ウィンドウのガンマランプを設定する
 <h2>構文</h2>
@@ -23,14 +24,15 @@
 </table>
 <h2>戻り値</h2>
 成功のとき0を, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 ビデオバードウェアのための赤, 緑, 青チャネルのガンマ変換テーブルを設定する.
 それぞれのテーブルは256要素16bitで, チャネルの入力と出力をマッピングしている.
-入力は配列のインデックス, 出力はそのインデックスの16bitガンマ値で, 出力カラーの精度で伸縮される.
+入力は配列の添え字, 出力は添え字の16bitガンマ値で, 出力カラーの精度で伸縮される.
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetWindowGammaRamp.html">SDL_GetWindowGammaRamp</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_SetWindowGammaRamp">SDL_SetWindowGammaRamp - SDL Wiki</a>
+<hr>
 </body>
 </html>

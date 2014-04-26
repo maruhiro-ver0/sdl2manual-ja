@@ -10,13 +10,14 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryPixels.html">ピクセル形式と変換</a> - SDL_MapRGBA
+<hr>
 <h1>SDL_MapRGBA</h1>
-RGBAの4つの値から与えられたピクセル形式のピクセル値を求める
+RGBAの4つの値から指定のピクセル形式のピクセル値を求める
 <h2>構文</h2>
 <code>Uint32 SDL_MapRGBA(const SDL_PixelFormat* format, Uint8 r, Uint8 g, Uint8 b,Uint8 a)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_MapRGBA">
-<tr><td>format</td><td>ピクセルのフォーマットを記述した<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>構造体</td></tr>
+<tr><td>format</td><td>ピクセルの<a href="SDL_PixelFormat.html">SDL_PixelFormat</a></td></tr>
 <tr><td>r</td><td>0～255の赤チャネルの値</td></tr>
 <tr><td>g</td><td>0～255の緑チャネルの値</td></tr>
 <tr><td>b</td><td>0～255の青チャネルの値</td></tr>
@@ -35,7 +36,7 @@ RGBAの4つの値から与えられたピクセル形式のピクセル値を求める
 ピクセル形式がパレットならば, パレットの中で最も近い色の添え字を戻す.
 </p>
 <p>
-ピクセル形式のbpp(色の深度)が32bpp未満ならば, 戻り値の使われない上位ビットは考慮しなくても安全である.
+ピクセル形式のbpp(ビット深度)が32bpp未満ならば, 戻り値の使われない上位ビットは考慮しなくても安全である.
 (例: 16bpp形式の戻り値はUint16とみなしてよい. 8bpp形式もUint8とみなしてよい.)
 </p>
 <h2>関連項目(関数)</h2>
@@ -44,5 +45,6 @@ RGBAの4つの値から与えられたピクセル形式のピクセル値を求める
 <a href="#SDL_MapRGB.html">SDL_MapRGB</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_MapRGBA">SDL_MapRGBA - SDL Wiki</a>
+<hr>
 </body>
 </html>

@@ -10,24 +10,26 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_WindowEvent
+<hr>
 <h1>SDL_WindowEvent</h1>
-ウィンドウの状態が変化した場合のイベントのデータを含む構造体
+ウィンドウの状態が変化した場合のイベントのデータの構造体
 <h2>フィールド</h2>
 <table border="1" summary="SDL_WindowEvent">
 <tr><td>Uint32</td><td>type</td><td>SDL_WINDOWEVENT</td></tr>
 <tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
 <tr><td>Uint32</td><td>windowID</td><td>関連のあるウィンドウ</td></tr>
-<tr><td>Uint8</td><td>event</td><td><a href="SDL_WindowEventID.html">SDL_WindowEventID</a>列挙体</td></tr>
+<tr><td>Uint8</td><td>event</td><td><a href="SDL_WindowEventID.html">SDL_WindowEventID</a></td></tr>
 <tr><td>Sint32</td><td>data1</td><td>イベントによって異なるデータ</td></tr>
 <tr><td>Sint32</td><td>data2</td><td>イベントによって異なるデータ</td></tr>
 </table>
 <h2>詳細</h2>
-<a href="SDL_WindowEvent.html">SDL_WindowEvent</a>は<a href="SDL_Event.html">SDL_Event</a>共用体のメンバの1つで, イベントのtypeがSDL_WINDOWEVENTの場合に使う.
+<a href="SDL_WindowEvent.html">SDL_WindowEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバの1つで, イベントのtypeがSDL_WINDOWEVENTの場合に使う.
 イベントのwindowフィールドを経由してアクセスする必要がある.
 <h2>関連項目(列挙体)</h2>
 <a href="SDL_EventType.html">SDL_EventType</a><br>
 <a href="SDL_WindowEventID.html">SDL_WindowEventID</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_WindowEvent">SDL_WindowEvent - SDL Wiki</a><br>
+<hr>
 </body>
 </html>

@@ -10,22 +10,24 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GetDisplayBounds
+<hr>
 <h1>SDL_GetDisplayBounds</h1>
-ディスプレイの表示領域を位置が0,0の主ディスプレイとしたときの表示領域を得る
+主ディスプレイの位置を(0,0)とした場合の指定のディスプレイの表示領域を得る
 <h2>構文</h2>
 <code>int SDL_GetDisplayBounds(int displayIndex, SDL_Rect* rect)
 </code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GetDisplayBounds">
-<tr><td>displayIndex</td><td>問い合わせるディスプレイの番号</td></tr>
-<tr><td>rect</td><td>ディスプレイ領域を代入する<a href="SDL_Rect.html">SDL_Rect</a>構造体</td></tr>
+<tr><td>displayIndex</td><td>陵さするディスプレイの番号</td></tr>
+<tr><td>rect</td><td>ディスプレイの表示領域を代入する<a href="SDL_Rect.html">SDL_Rect</a>ポインタ</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetNumVideoDisplays.html">SDL_GetNumVideoDisplays</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetDisplayBounds">SDL_GetDisplayBounds - SDL Wiki</a>
+<hr>
 </body>
 </html>

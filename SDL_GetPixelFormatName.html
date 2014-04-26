@@ -10,17 +10,20 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryPixels.html">ピクセル形式と変換</a> - SDL_GetPixelFormatName
+<hr>
 <h1>SDL_GetPixelFormatName</h1>
-ユーザが読めるピクセル形式の名前を得る
+ピクセル形式のユーザが読める名前を得る
 <h2>構文</h2>
 <code>const char* SDL_GetPixelFormatName(Uint32 format)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GetPixelFormatName">
-<tr><td>format</td><td>問い合わせるピクセル形式</td></tr>
+<tr><td>format</td><td><a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a>の値の1つ</td></tr>
 </table>
 <h2>戻り値</h2>
-ユーザが読むことができるピクセル形式の名前, ピクセル形式が不明の場合は"SDL_PIXELFORMAT_UNKNOWN"を戻す.
+ピクセル形式のユーザが読める名前を戻す.
+ピクセル形式が不明の場合は"SDL_PIXELFORMAT_UNKNOWN"を戻す.
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetPixelFormatName">SDL_GetPixelFormatName - SDL Wiki</a>
+<hr>
 </body>
 </html>

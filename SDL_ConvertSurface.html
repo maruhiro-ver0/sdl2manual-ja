@@ -10,26 +10,28 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_ConvertSurface
+<hr>
 <h1>SDL_ConvertSurface</h1>
-既存のサーフェイスを指定のピクセル形式に変換して新しい転送のために最適化されたサーフェイスを生成する
+特定のピクセル形式へのコピーに最適化されたサーフェイスを既存のサーフェイスから生成する
 <h2>構文</h2>
 <code>SDL_Surface* SDL_ConvertSurface(SDL_Surface* src, const SDL_PixelFormat* fmt, Uint32 flags)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_ConvertSurface">
-<tr><td>src</td><td>変換元のサーフェイスの<a href="SDL_Surface.html">SDL_Surface</a>構造体</td></tr>
-<tr><td>fmt</td><td>最適化の対象の形式の<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>構造体</td></tr>
+<tr><td>src</td><td>変換する既存の<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
+<tr><td>fmt</td><td>最適化の対象の<a href="SDL_PixelFormat.html">SDL_PixelFormat</a></td></tr>
 <tr><td>flags</td><td>未使用 常に0にすること</td></tr>
 </table>
 <h2>戻り値</h2>
-成功のとき生成された新しいサーフェイスの<a href="SDL_Surface.html">SDL_Surface</a>, 失敗のときNULLを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+成功のとき生成された<a href="SDL_Surface.html">SDL_Surface</a>, 失敗のときNULLを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
-この関数は繰り返し転送される画像を最適化するために使われる.
+この関数は繰り返しコピーされる画像を最適化するために使われる.
 元のサーフェイスを変換すると新しいサーフェイスが生成される.
-新しい最適化されたサーフェイスは高速な転送元として使うことができる.
+新しい最適化されたサーフェイスは高速なコピー元として使える.
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateRGBSurface.html">SDL_CreateRGBSurface</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_ConvertSurface">SDL_ConvertSurface - SDL Wiki</a>
+<hr>
 </body>
 </html>

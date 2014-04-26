@@ -10,16 +10,17 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_FreeSurface
+<hr>
 <h1>SDL_FreeSurface</h1>
 RGBサーフェイスを解放する
 <h2>構文</h2>
 <code>void SDL_FreeSurface(SDL_Surface* surface)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_FreeSurface">
-<tr><td>surface</td><td>解放するサーフェイスの<a href="SDL_Surface.html">SDL_Surface</a>構造体</td></tr>
+<tr><td>surface</td><td>解放する<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
 </table>
 <h2>詳細</h2>
-<a href="SDL_CreateRGBSurfaceFrom.html">SDL_CreateRGBSurfaceFrom()</a>で生成したサーフェイスの場合でもピクセルデータは解放されない.
+<a href="SDL_CreateRGBSurfaceFrom.html">SDL_CreateRGBSurfaceFrom()</a>で生成したサーフェイスの場合はピクセルデータは解放されない.
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateRGBSurface.html">SDL_CreateRGBSurface</a><br>
 <a href="SDL_CreateRGBSurfaceFrom.html">SDL_CreateRGBSurfaceFrom</a><br>
@@ -27,5 +28,6 @@ RGBサーフェイスを解放する
 <a href="SDL_LoadBMP_RW.html">SDL_LoadBMP_RW</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_FreeSurface">SDL_FreeSurface - SDL Wiki</a>
+<hr>
 </body>
 </html>

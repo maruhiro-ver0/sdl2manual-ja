@@ -10,26 +10,28 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_LowerBlit
+<hr>
 <h1>SDL_LowerBlit</h1>
-低レベルサーフェイス転送のみを行う
+低レベルのサーフェイスのコピーのみを行う
 <h2>構文</h2>
 <code>int SDL_LowerBlit(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_LowerBlit">
-<tr><td>src</td><td>コピー元の<a href="SDL_Surface.html">SDL_Surface</a>構造体</td></tr>
-<tr><td>srcrect</td><td>コピー元の領域を表す<a href="SDL_Rect.html">SDL_Rect</a>構造体. NULLのときサーフェイス全体</td></tr>
-<tr><td>dst</td><td>コピー先の<a href="SDL_Surface.html">SDL_Surface</a>構造体</td></tr>
-<tr><td>dstrect</td><td>コピー先の領域を表す<a href="SDL_Rect.html">SDL_Rect</a>構造体</td></tr>
+<tr><td>src</td><td>コピー元の<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
+<tr><td>srcrect</td><td>コピー元の領域の<a href="SDL_Rect.html">SDL_Rect</a>. NULLのときサーフェイス全体</td></tr>
+<tr><td>dst</td><td>コピー先の<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
+<tr><td>dstrect</td><td>コピー先の領域の<a href="SDL_Rect.html">SDL_Rect</a></td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
-これは半プライベートな関数で, 入力が既にクリッピングされているとみなして低レベルサーフェイス転送を行う.
+これは半プライベートな関数で, 入力が既にクリップされているとみなして低レベルのサーフェイスのコピーを行う.
 <h2>関連項目(関数)</h2>
 <a href="SDL_BlitSurface.html">SDL_BlitSurface</a><br>
 <a href="SDL_UpperBlit.html">SDL_UpperBlit</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_LowerBlit">SDL_LowerBlit - SDL Wiki</a>
+<hr>
 </body>
 </html>

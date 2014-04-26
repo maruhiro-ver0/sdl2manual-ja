@@ -10,14 +10,15 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_BlendMode
+<hr>
 <h1>SDL_BlendMode</h1>
 <a href="SDL_RenderCopy.html">SDL_RenderCopy()</a>と描画操作で使われるブレンドモードの列挙体
 <h2>値</h2>
 <table border="1" summary="SDL_BlendMode">
 <tr><td>SDL_BLENDMODE_NONE</td><td>ブレンドしない</td><td>dstRGBA = srcRGBA</td></tr>
-<tr><td>SDL_BLENDMODE_BLEND</td><td>アルファブレンディング</td><td>dstRGB = (srcRGB * srcA) + (dstRGB * (1 - srcA))<br>dstA = srcA + (dstA * (1 - srcA))</td></tr>
-<tr><td>SDL_BLENDMODE_ADD</td><td>加算ブレンディング</td><td>dstRGB = (srcRGB * srcA) + dstRGB<br>dstA = dstA</td></tr>
-<tr><td>SDL_BLENDMODE_MOD</td><td>積算ブレンディング</td><td>dstRGB = srcRGB * dstRGB<br>dstA = dstA</td></tr>
+<tr><td>SDL_BLENDMODE_BLEND</td><td>αブレンド</td><td>dstRGB = (srcRGB * srcA) + (dstRGB * (1 - srcA))<br>dstA = srcA + (dstA * (1 - srcA))</td></tr>
+<tr><td>SDL_BLENDMODE_ADD</td><td>加算ブレンド</td><td>dstRGB = (srcRGB * srcA) + dstRGB<br>dstA = dstA</td></tr>
+<tr><td>SDL_BLENDMODE_MOD</td><td>積算ブレンド</td><td>dstRGB = srcRGB * dstRGB<br>dstA = dstA</td></tr>
 </table>
 <h2>関連項目(構造体)</h2>
 <a href="SDL_RendererInfo.html">SDL_RendererInfo</a><br>
@@ -31,5 +32,6 @@
 <a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_BlendMode">SDL_BlendMode - SDL Wiki</a><br>
+<hr>
 </body>
 </html>

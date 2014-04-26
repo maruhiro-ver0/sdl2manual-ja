@@ -10,18 +10,19 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_ShowMessageBox
+<hr>
 <h1>SDL_ShowMessageBox</h1>
 モーダルなメッセージボックスを生成する
 <h2>構文</h2>
 <code>int SDL_ShowMessageBox(const SDL_MessageBoxData* messageboxdata, int* buttonid)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_ShowMessageBox">
-<tr><td>messageboxdata</td><td>タイトル, テキスト, その他のオプションを含む<a href="SDL_MessageBoxData.html">SDL_MessageBoxData</a>構造体</td></tr>
+<tr><td>messageboxdata</td><td>タイトル, テキスト, その他のオプションを含む<a href="SDL_MessageBoxData.html">SDL_MessageBoxData</a></td></tr>
 <tr><td>buttonid</td><td>ユーザが押したボタンのIDを代入するポインタ</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 この関数は, 親ウィンドウが生成されたスレッド, 親ウィンドウがなければメインスレッドで呼ぶ必要がある.
 ユーザがボタンを押す, またはメッセージボックスを閉じるまでスレッドの実行は停止される.
@@ -29,5 +30,6 @@
 <a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_ShowMessageBox">SDL_ShowMessageBox - SDL Wiki</a>
+<hr>
 </body>
 </html>

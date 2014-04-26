@@ -10,23 +10,25 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_SetSurfaceBlendMode
+<hr>
 <h1>SDL_SetSurfaceBlendMode</h1>
-ピクセル転送で使われるブレンドモードを設定する
+コピー時のブレンドモードを設定する
 <h2>構文</h2>
 <code>int SDL_SetSurfaceBlendMode(SDL_Surface* surface, SDL_BlendMode blendMode)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_SetSurfaceBlendMode">
-<tr><td>surface</td><td>設定するサーフェイスの<a href="SDL_Surface.html">SDL_Surface</a>構造体</td></tr>
-<tr><td>blendMode</td><td>転送で使われるブレンドモードの<a href="SDL_BlendMode.html">SDL_BlendMode</a>列挙体 (詳細を参照すること)</td></tr>
+<tr><td>surface</td><td>設定する<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
+<tr><td>blendMode</td><td>コピー時の<a href="SDL_BlendMode.html">SDL_BlendMode</a> (詳細を参照すること)</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
-サーフェイスを他のサーフェイスやテクスチャにブレンディングなしで転送するためには, 転送元のサーフェイスのブレンドモードはSDL_BLENDMODE_NONEに設定されている必要がある.
+サーフェイスを他のサーフェイスやテクスチャにブレンドなしでコピーするためには, コピー元のサーフェイスのブレンドモードがSDL_BLENDMODE_NONEに設定されている必要がある.
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetSurfaceBlendMode.html">SDL_GetSurfaceBlendMode</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_SetSurfaceBlendMode">SDL_SetSurfaceBlendMode - SDL Wiki</a>
+<hr>
 </body>
 </html>

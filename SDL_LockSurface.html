@@ -10,17 +10,18 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_LockSurface
+<hr>
 <h1>SDL_LockSurface</h1>
 ピクセル領域に直接アクセスできるように設定する
 <h2>構文</h2>
 <code>int SDL_LockSurface(SDL_Surface* surface)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_LockSurface">
-<tr><td>surface</td><td>ロックするサーフェイスの<a href="SDL_Surface.html">SDL_Surface</a>構造体</td></tr>
+<tr><td>surface</td><td>ロックする<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 <p>
 <a href="SDL_LockSurface.html">SDL_LockSurface()</a>と<a href="SDL_UnlockSurface.html">SDL_UnlockSurface()</a>の間で, surface->formatに格納されたピクセル形式でsurface->pixelの読み込みと書き込みができる.
@@ -35,5 +36,6 @@
 <a href="SDL_UnlockSurface.html">SDL_UnlockSurface</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_LockSurface">SDL_LockSurface - SDL Wiki</a>
+<hr>
 </body>
 </html>

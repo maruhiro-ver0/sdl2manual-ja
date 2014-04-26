@@ -10,17 +10,18 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GL_LoadLibrary
+<hr>
 <h1>SDL_GL_LoadLibrary</h1>
 OpenGLライブラリを動的に読み込む
 <h2>構文</h2>
 <code>int SDL_GL_LoadLibrary(const char* path)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GL_LoadLibrary">
-<tr><td>path</td><td>環境に依存するOpenGLライブラリの名前の, NULLのときデフォルトのOpenGLライブラリを開く</td></tr>
+<tr><td>path</td><td>環境に依存するOpenGLライブラリの名前, NULLのときデフォルトのOpenGLライブラリを開く</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 <p>
 ビデオドライバを初期化した後だがOpenGLウィンドウを生成する前に行う必要がある.
@@ -34,5 +35,6 @@ OpenGLライブラリを動的に読み込む
 <a href="SDL_GL_UnloadLibrary.html">SDL_GL_UnloadLibrary</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GL_LoadLibrary">SDL_GL_LoadLibrary - SDL Wiki</a>
+<hr>
 </body>
 </html>

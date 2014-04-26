@@ -10,6 +10,7 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_CreateRGBSurface
+<hr>
 <h1>SDL_CreateRGBSurface</h1>
 新しいRGBサーフェイスを生成する
 <h2>構文</h2>
@@ -20,30 +21,28 @@
 <tr><td>width</td><td>サーフェイスの幅</td></tr>
 <tr><td>height</td><td>サーフェイスの高さ</td></tr>
 <tr><td>depth</td><td>サーフェイスのビット深度 (詳細を参照すること)</td></tr>
-<tr><td>Rmask</td><td>ピクセルのRマスク</td></tr>
-<tr><td>Gmask</td><td>ピクセルのGマスク</td></tr>
-<tr><td>Bmask</td><td>ピクセルのBマスク</td></tr>
-<tr><td>Amask</td><td>ピクセルのAマスク</td></tr>
+<tr><td>Rmask</td><td>ピクセルの赤マスク</td></tr>
+<tr><td>Gmask</td><td>ピクセルの緑マスク</td></tr>
+<tr><td>Bmask</td><td>ピクセルの青マスク</td></tr>
+<tr><td>Amask</td><td>ピクセルのαマスク</td></tr>
 </table>
 <h2>戻り値</h2>
-成功のとき新しいサーフェイスの<a href="SDL_Surface.html">SDL_Surface</a>構造体, 失敗のときNULLを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+成功のとき生成された<a href="SDL_Surface.html">SDL_Surface</a>, 失敗のときNULLを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 <p>
-depthは4または8で, 空のパレットが生成される.
-depthが8以上のとき, 引数の[RGBA]maskを使ったピクセル形式が設定される.
+depthが4または8のとき, 空のパレットが生成される.
+depthが8を超えるとき, 引数の[RGBA]maskを使ったピクセル形式が設定される.
 </p>
 <p>
 [RGBA]maskはピクセルの色を指定するためのビットマスクとして使われる.
-例えば, RmaskがFF0000ならば赤のデータは最上位バイトに格納される.
-RGBマスクを0にすると, 深度に基づいたデフォルトの値になる.
+例えば, RmaskがFF0000ならば, 赤のデータは最上位バイトに格納される.
+[RGB]maskを0にすると, ビット深度に基づいたデフォルトの値になる.
 (例: <code>SDL_CreateRGBSurface(0,w,h,32,0,0,0,0);</code>)
-しかし, Amaskを0にするとアルファマスクは0になる.
+しかし, Amaskを0にすると, αマスクは0になる.
 </p>
 <p>
-アルファマスク付きサーフェイスのブレンドモードの初期値は <code>SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_BLEND)</code> である.
-</p>
-<p>
+αマスク付きサーフェイスのブレンドモードの初期値は <code>SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_BLEND)</code> である.
 <a href="SDL_SetSurfaceBlendMode.html">SDL_SetSurfaceBlendMode()</a>で別のブレンドモードに変えることができる.
 </p>
 <h2>関連項目(関数)</h2>
@@ -51,5 +50,6 @@ RGBマスクを0にすると, 深度に基づいたデフォルトの値になる.
 <a href="SDL_FreeSurface.html">SDL_FreeSurface</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_CreateRGBSurface">SDL_CreateRGBSurface - SDL Wiki</a>
+<hr>
 </body>
 </html>

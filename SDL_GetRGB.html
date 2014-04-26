@@ -10,20 +10,21 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryPixels.html">ピクセル形式と変換</a> - SDL_GetRGB
+<hr>
 <h1>SDL_GetRGB</h1>
-指定した形式のピクセルのRGB値を得る
+指定のピクセルのRGB値を得る
 <h2>構文</h2>
 <code>void SDL_GetRGB(Uint32 pixel, const SDL_PixelFormat* format, Uint8* r, Uint8* g, Uint8* b)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GetRGB">
 <tr><td>pixel</td><td>ピクセル値</td></tr>
-<tr><td>format</td><td>ピクセルのフォーマットを記述した<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>構造体</td></tr>
+<tr><td>format</td><td><a href="SDL_PixelFormat.html">SDL_PixelFormat</a></td></tr>
 <tr><td>r</td><td>赤チャネルの値を代入するポインタ</td></tr>
 <tr><td>g</td><td>緑チャネルの値を代入するポインタ</td></tr>
 <tr><td>b</td><td>青チャネルの値を代入するポインタ</td></tr>
 </table>
 <h2>詳細</h2>
-RGBチャネルが8bitより少ないピクセル形式でも0～255の範囲に変換される.
+RGBチャネルが8bit未満のピクセル形式でも0～255の範囲に変換される.
 (例: 16bit RGB565形式の真っ白のピクセルは [0xf8, 0xfc, 0xf8] ではなく [0xff, 0xff, 0xff] を戻す.)
 <h2>関連項目(関数)</h2>
 <a href="#SDL_GetRGBA.html">SDL_GetRGBA</a><br>
@@ -31,5 +32,6 @@ RGBチャネルが8bitより少ないピクセル形式でも0～255の範囲に変換される.
 <a href="#SDL_MapRGBA.html">SDL_MapRGBA</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetRGB">SDL_GetRGB - SDL Wiki</a>
+<hr>
 </body>
 </html>

@@ -10,23 +10,25 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GetWindowDisplayMode
+<hr>
 <h1>SDL_GetWindowDisplayMode</h1>
-フルスクリーン時に使用するディスプレイモードを得る
+フルスクリーン時のディスプレイモードを得る
 <h2>構文</h2>
 <code>int SDL_GetWindowDisplayMode(SDL_Window* window, SDL_DisplayMode* mode)
 </code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GetWindowDisplayMode">
-<tr><td>window</td><td>問い合わせるウィンドウ</td></tr>
-<tr><td>mode</td><td>フルスクリーン時に使用するディスプレイモードを代入する<a href="SDL_DisplayMode.html">SDL_DisplayMode</a>構造体</td></tr>
+<tr><td>window</td><td>調査するウィンドウ</td></tr>
+<tr><td>mode</td><td>フルスクリーン時のディスプレイモードを代入する<a href="SDL_DisplayMode.html">SDL_DisplayMode</a>のポインタ</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0を, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>関連項目(関数)</h2>
 <a href="SDL_SetWindowDisplayMode.html">SDL_SetWindowDisplayMode</a><br>
 <a href="SDL_SetWindowFullscreen.html">SDL_SetWindowFullscreen</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetWindowDisplayMode">SDL_GetWindowDisplayMode - SDL Wiki</a>
+<hr>
 </body>
 </html>

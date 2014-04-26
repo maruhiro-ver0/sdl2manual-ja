@@ -10,24 +10,26 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GetNumDisplayModes
+<hr>
 <h1>SDL_GetNumDisplayModes</h1>
 利用可能なディスプレイモードの数を得る
 <h2>構文</h2>
 <code>int SDL_GetNumDisplayModes(int displayIndex)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GetNumDisplayModes">
-<tr><td>displayIndex</td><td>問い合わせるディスプレイの番号</td></tr>
+<tr><td>displayIndex</td><td>調査するディスプレイの番号</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき1以上の数を, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 displayIndexは0から<a href="SDL_GetNumVideoDisplays.html">SDL_GetNumVideoDisplays()</a>-1の範囲である必要がある.
-この関数でマルチディスプレイに対応できる.
+これでマルチディスプレイに対応できる.
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetDisplayMode.html">SDL_GetDisplayMode</a><br>
 <a href="SDL_GetNumVideoDisplays.html">SDL_GetNumVideoDisplays</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetNumDisplayModes">SDL_GetNumDisplayModes - SDL Wiki</a>
+<hr>
 </body>
 </html>

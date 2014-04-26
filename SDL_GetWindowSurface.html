@@ -10,21 +10,22 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GetWindowSurface
+<hr>
 <h1>SDL_GetWindowSurface</h1>
-ウィンドウに関連付けられたSDLサーフェイスを得る
+ウィンドウのSDLサーフェイスを得る
 <h2>構文</h2>
 <code>SDL_Surface* SDL_GetWindowSurface(SDL_Window* window)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GetWindowSurface">
-<tr><td>window</td><td>問い合わせるウィンドウ</td></tr>
+<tr><td>window</td><td>調査するウィンドウ</td></tr>
 </table>
 <h2>戻り値</h2>
-成功のときウィンドウに関連付けられたサーフェイスを, 失敗のときNULLを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+成功のときウィンドウのサーフェイスを, 失敗のときNULLを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 <p>
-必要ならば, 新しいサーフェイスはウィンドウに適したピクセル形式で生成される.
-サーフェイスはウィンドウが破棄されたとき解放される.
+もし生成されることが必要ならば, 新しいサーフェイスはウィンドウに最適なピクセル形式で生成される.
+このサーフェイスはウィンドウが破棄されたとき解放される.
 </p>
 <p>
 このことはウィンドウと3DまたはレンダリングAPIの結びつきと同じではない.
@@ -37,5 +38,6 @@
 <a href="SDL_UpdateWindowSurfaceRects.html">SDL_UpdateWindowSurfaceRects</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetWindowSurface">SDL_GetWindowSurface - SDL Wiki</a>
+<hr>
 </body>
 </html>

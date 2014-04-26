@@ -10,22 +10,24 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_GetSurfaceAlphaMod
+<hr>
 <h1>SDL_GetSurfaceAlphaMod</h1>
-ピクセル転送で使われる追加のアルファ値を得る
+コピー時のα値の修正値を得る
 <h2>構文</h2>
 <code>int SDL_GetSurfaceAlphaMod(SDL_Surface* surface, Uint8* alpha)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GetSurfaceAlphaMod">
-<tr><td>surface</td><td>問い合わせるサーフェイスの<a href="SDL_Surface.html">SDL_Surface</a>構造体</td></tr>
-<tr><td>alpha</td><td>現在のアルファ値を代入するポインタ</td></tr>
+<tr><td>surface</td><td>調査する<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
+<tr><td>alpha</td><td>修正量を代入するポインタ</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetSurfaceColorMod.html">SDL_GetSurfaceColorMod</a><br>
 <a href="SDL_SetSurfaceAlphaMod.html">SDL_SetSurfaceAlphaMod</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetSurfaceAlphaMod">SDL_GetSurfaceAlphaMod - SDL Wiki</a>
+<hr>
 </body>
 </html>

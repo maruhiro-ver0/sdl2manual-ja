@@ -10,49 +10,50 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_BlitSurface
+<hr>
 <h1>SDL_BlitSurface</h1>
 サーフェイスを別のサーフェイスに高速にコピーする
 <h2>構文</h2>
 <code>int SDL_BlitSurface(SDL_Surface* src, const SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_BlitSurface">
-<tr><td>src</td><td>コピー元の<a href="SDL_Surface.html">SDL_Surface</a>構造体</td></tr>
-<tr><td>srcrect</td><td>コピー元の領域を表す<a href="SDL_Rect.html">SDL_Rect</a>構造体. NULLのときサーフェイス全体</td></tr>
-<tr><td>dst</td><td>コピー先の<a href="SDL_Surface.html">SDL_Surface</a>構造体</td></tr>
-<tr><td>dstrect</td><td>コピー先の領域を表す<a href="SDL_Rect.html">SDL_Rect</a>構造体. NULLのときサーフェイス全体</td></tr>
+<tr><td>src</td><td>コピー元の<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
+<tr><td>srcrect</td><td>コピー元の領域の<a href="SDL_Rect.html">SDL_Rect</a>. NULLのときサーフェイス全体</td></tr>
+<tr><td>dst</td><td>コピー先の<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
+<tr><td>dstrect</td><td>コピー先の領域の<a href="SDL_Rect.html">SDL_Rect</a>. NULLのときサーフェイス全体</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 <p>
-SDLのピクセル転送が内部でどのように行われるかを正確に理解していないならば, そしてどのように他のピクセル転送関数を使うのか分からないならば<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>を使うべきである.
+SDLのサーフェイスのコピーが内部でどのように行われるかを正確に理解していないならば, そしてどのように他のコピー関数を使うのか分からないならば<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>を使うべきである.
 </p>
 <p>
-これはパブリックなピクセル転送関数で, 内部で<a href="SDL_LowerBlit.html">SDL_LowerBlit()</a>を呼ぶ前に領域の検証とクリッピングが行われる.
+これはパブリックなコピー関数で, 内部で<a href="SDL_LowerBlit.html">SDL_LowerBlit()</a>を呼ぶ前に領域の検証とクリップを行っている.
 </p>
 <p>
-このピクセル転送関数はロックしたサーフェイスに対して呼んではならない.
+この関数はロックしたサーフェイスに対して呼んではならない.
 </p>
 <p>
 コピーされる領域のサイズはsrcrectの幅と高さで決まる.
 dstrectは位置のみで, 幅と高さは無視される.
-dstrectの座標が負の場合でも正しくクリッピングされる.
+dstrectの座標が負の場合でも正しくクリップされる.
 </p>
 <p>
 srcrectがNULLのときサーフェイスの全体がコピーされる.
 destrectがNULLのときコピー先は(0,0) (左上)となる.
 </p>
 <p>
-全てのクリッピングが行われた後, 最後に転送された領域はdstrectに保存される. (srcrectは変化しない.)
+全てのクリップが行われた後, 最後にコピーされた領域はdstrectに保存される. (srcrectは変化しない.)
 </p>
 <p>
-ブレンディングやカラーキーの定義の有無により転送は以下のようになる.
+ブレンドやカラーキーの定義の有無によりコピーは以下のようになる.
 <table border="1" summary="SDL_BlitSurface">
 <tr>
 <th>形式</th>
 <th>コピー元サーフェイスのブレンドモード</th>
-<th colspan="2">転送</th>
+<th colspan="2">コピー</th>
 </tr>
 <tr>
 <td rowspan="2">RGBA→RGB</td>
@@ -99,5 +100,6 @@ destrectがNULLのときコピー先は(0,0) (左上)となる.
 <a href="SDL_LowerBlit.html">SDL_LowerBlit</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_BlitSurface">SDL_BlitSurface - SDL Wiki</a>
+<hr>
 </body>
 </html>

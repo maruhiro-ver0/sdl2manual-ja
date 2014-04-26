@@ -10,6 +10,7 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_CreateWindowAndRenderer
+<hr>
 <h1>SDL_CreateWindowAndRenderer</h1>
 ウィンドウとデフォルトのレンダラを生成する
 <h2>構文</h2>
@@ -18,19 +19,20 @@
 <table border="1" summary="SDL_CreateWindowAndRenderer">
 <tr><td>width</td><td>ウィンドウの幅</td></tr>
 <tr><td>height</td><td>ウィンドウの高さ</td></tr>
-<tr><td>window_flags</td><td>ウィンドウを生成するときに使われるフラグ (<a href="SDL_CreateWindow.html">SDL_CreateWindow</a>を参照すること)</td></tr>
+<tr><td>window_flags</td><td>ウィンドウを生成するときに使うフラグ (<a href="SDL_CreateWindow.html">SDL_CreateWindow</a>を参照すること)</td></tr>
 <tr><td>window</td><td>生成されたウィンドウを代入するポインタ, 失敗のときはNULL</td></tr>
 <tr><td>renderer</td><td>生成されたレンダラを代入するポインタ, 失敗のときはNULL</td></tr>
 </table>
 <h2>戻り値</h2>
 <p>
 成功のとき0, 失敗のとき-1を戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateWindow.html">SDL_CreateWindow</a><br>
 <a href="SDL_CreateRenderer.html">SDL_CreateRenderer</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_CreateWindowAndRenderer">SDL_CreateWindowAndRenderer - SDL Wiki</a>
+<hr>
 </body>
 </html>

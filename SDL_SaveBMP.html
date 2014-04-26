@@ -10,22 +10,24 @@
 </head>
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_SaveBMP
+<hr>
 <h1>SDL_SaveBMP</h1>
 サーフェイスをBMPファイルとして保存する
 <h2>構文</h2>
 <code>int SDL_SaveBMP(SDL_Surface* surface, const char* file)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_SaveBMP">
-<tr><td>surface</td><td>BMPファイルとして保存するサーフェイスの<a href="SDL_Surface.html">SDL_Surface</a>構造体</td></tr>
+<tr><td>surface</td><td>BMPファイルとして保存する<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
 <tr><td>file</td><td>保存するファイル</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
-このとき<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>関連項目(関数)</h2>
 <a href="SDL_LoadBMP.html">SDL_LoadBMP</a><br>
 <a href="SDL_SaveBMP_RW.html">SDL_SaveBMP_RW</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_SaveBMP">SDL_SaveBMP - SDL Wiki</a>
+<hr>
 </body>
 </html>
