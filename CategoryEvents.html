@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>SDL2.0 日本語リファレンス - イベント処理</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - イベント処理
+<hr>
+<h1>イベント処理</h1>
+インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_events.h">SDL_events.h</a>
+<h2>概要</h2>
+<p>
+イベントを扱うとアプリケーションはユーザの入力を受け取ることができる.
+イベントは以下のような呼び出しで初期化する(ビデオのみ).
+</p>
+<p>
+<code>SDL_Init(SDL_INIT_VIDEO);</code>
+</p>
+<p>
+(詳細は<a href="CategoryInit.html">初期化と終了</a>と<a href="SDL_Init.html">SDL_Init()</a>を参照すること.)
+</p>
+<p>
+内部では, SDLは全ての未処理のイベントをキューに入れている.
+通常は<a href="SDL_PollEvent.html">SDL_PollEvent()</a>や<a href="SDL_PeepEvents.html">SDL_PeepEvents()</a>や<a href="SDL_WaitEvent.html">SDL_WaitEvent()</a>のような関数で未処理の入力イベントを監視し取り扱う.
+</p>
+<p>
+イベントキューは<a href="SDL_Event.html">SDL_Event</a>の列で構成されていて, その1つ1つが未処理のイベントである.
+<a href="SDL_Event.html">SDL_Event</a>は<a href="SDL_PollEvent.html">SDL_PollEvent()</a>でキューから取り出され, そこに格納された情報はアプリケーションで処理される.
+</p>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_EventType.html">SDL_EventType</a></li>
+<li><a href="SDL_WindowEventID.html">SDL_WindowEventID</a></li>
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a></li>
+<li><a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a></li>
+<li><a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a></li>
+<li><a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a></li>
+<li><a href="SDL_DropEvent.html">SDL_DropEvent</a></li>
+<li><a href="SDL_Event.html">SDL_Event</a></li>
+<li><a href="SDL_Finger.html">SDL_Finger</a></li>
+<li><a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a></li>
+<li><a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a></li>
+<li><a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a></li>
+<li><a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a></li>
+<li><a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a></li>
+<li><a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a></li>
+<li><a href="SDL_MouseButtonEvent.html">SDL_MouseButtonEvent</a></li>
+<li><a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a></li>
+<li><a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a></li>
+<li><a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a></li>
+<li><a href="SDL_QuitEvent.html">SDL_QuitEvent</a></li>
+<li><a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a></li>
+<li><a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a></li>
+<li><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a></li>
+<li><a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a></li>
+<li><a href="SDL_UserEvent.html">SDL_UserEvent</a></li>
+<li><a href="SDL_WindowEvent.html">SDL_WindowEven</a></li>
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_AddEventWatch.html">SDL_AddEventWatch</a></li>
+<li><a href="SDL_DelEventWatch.html">SDL_DelEventWatch</a></li>
+<li><a href="SDL_EventState.html">SDL_EventState</a></li>
+<li><a href="SDL_FilterEvents.html">SDL_FilterEvents</a></li>
+<li><a href="SDL_FlushEvent.html">SDL_FlushEvent</a></li>
+<li><a href="SDL_FlushEvents.html">SDL_FlushEvents</a></li>
+<li><a href="SDL_GetEventFilter.html">SDL_GetEventFilter</a></li>
+<li><a href="SDL_GetNumTouchDevices.html">SDL_GetNumTouchDevices</a></li>
+<li><a href="SDL_GetNumTouchFingers.html">SDL_GetNumTouchFingers</a></li>
+<li><a href="SDL_GetTouchDevice.html">SDL_GetTouchDevice</a></li>
+<li><a href="SDL_GetTouchFinger.html">SDL_GetTouchFinger</a></li>
+<li><a href="SDL_HasEvent.html">SDL_HasEvent</a></li>
+<li><a href="SDL_HasEvents.html">SDL_HasEvents</a></li>
+<li><a href="SDL_LoadDollarTemplates.html">SDL_LoadDollarTemplates</a></li>
+<li><a href="SDL_PeepEvents.html">SDL_PeepEvents</a></li>
+<li><a href="SDL_PollEvent.html">SDL_PollEvent</a></li>
+<li><a href="SDL_PumpEvents.html">SDL_PumpEvents</a></li>
+<li><a href="SDL_PushEvent.html">SDL_PushEvent</a></li>
+<li><a href="SDL_QuitRequested.html">SDL_QuitRequested</a></li>
+<li><a href="SDL_RecordGesture.html">SDL_RecordGesture</a></li>
+<li><a href="SDL_RegisterEvents.html">SDL_RegisterEvents</a></li>
+<li><a href="SDL_SaveAllDollarTemplates.html">SDL_SaveAllDollarTemplates</a></li>
+<li><a href="SDL_SaveDollarTemplate.html">SDL_SaveDollarTemplate</a></li>
+<li><a href="SDL_SetEventFilter.html">SDL_SetEventFilter</a></li>
+<li><a href="SDL_WaitEvent.html">SDL_WaitEvent</a></li>
+<li><a href="SDL_WaitEventTimeout.html">SDL_WaitEventTimeout</a></li>
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/CategoryEvents">Event Handling - SDL Wiki</a>
+<hr>
+</body>
+</html>
