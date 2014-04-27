@@ -58,7 +58,7 @@ destrectがNULLのときコピー先は(0,0) (左上)となる.
 <tr>
 <td rowspan="2">RGBA→RGB</td>
 <td rowspan="1">SDL_BLENDMODE_BLEND</td>
-<td rowspan="1" colspan="2">アルファブレンド(コピー元のアルファチャネルとパー・サーフェイス・アルファが使われる). SDL_SRCCOLORKEYは無視される.</td>
+<td rowspan="1" colspan="2">αブレンド(コピー元のαチャネルとパー・サーフェイス・アルファが使われる). SDL_SRCCOLORKEYは無視される.</td>
 </tr>
 <tr>
 <td rowspan="1">SDL_BLENDMODE_NONE</td>
@@ -67,26 +67,26 @@ destrectがNULLのときコピー先は(0,0) (左上)となる.
 <tr>
 <td rowspan="2">RGB→RGBA</td>
 <td rowspan="1">SDL_BLENDMODE_BLEND</td>
-<td rowspan="1">アルファブレンド(コピー元のパー・サーフェイス・アルファが使われる).</td>
+<td rowspan="1">αブレンド(コピー元のパー・サーフェイス・アルファが使われる).</td>
 <td rowspan="2">SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる.</td>
 </tr>
 <tr>
 <td rowspan="1">SDL_BLENDMODE_NONE</td>
-<td rowspan="1">RGBがコピーされる. コピー先のアルファにはコピー元のパー・サーフェイス・アルファが設定される.</td>
+<td rowspan="1">RGBがコピーされる. コピー先のαにはコピー元のパー・サーフェイス・アルファが設定される.</td>
 </tr>
 <tr>
 <td rowspan="2">RGBA→RGBA</td>
 <td rowspan="1">SDL_BLENDMODE_BLEND</td>
-<td rowspan="1" colspan="2">アルファブレンド(コピー元のアルファチャネルとパー・サーフェイス・アルファが使われる). SDL_SRCCOLORKEYは無視される.</td>
+<td rowspan="1" colspan="2">αブレンド(コピー元のαチャネルとパー・サーフェイス・アルファが使われる). SDL_SRCCOLORKEYは無視される.</td>
 </tr>
 <tr>
 <td rowspan="1">BLENDMODE_NONE</td>
-<td rowspan="1" colspan="2">RGBA全てがコピーされる. SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる. このときアルファは無視される.</td>
+<td rowspan="1" colspan="2">RGBA全てがコピーされる. SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる. このときαは無視される.</td>
 </tr>
 <tr>
 <td rowspan="2">RGB→RGB</td>
 <td rowspan="1">SDL_BLENDMODE_BLEND</td>
-<td rowspan="1">アルファブレンド(コピー元のパー・サーフェイス・アルファが使われる).</td>
+<td rowspan="1">αブレンド(コピー元のパー・サーフェイス・アルファが使われる).</td>
 <td rowspan="2" colspan="2">SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる.</td>
 </tr>
 <tr>
