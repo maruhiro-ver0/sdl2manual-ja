@@ -112,9 +112,9 @@ OSは即時の反応を必要としていて, イベントを送信した後に短い時間でプロセスを終了さ
 <tr><td>SDL_APP_TERMINATING</td><td>アプリケーションがOSによって終了されようとしている</td><td>applicationWillTerminate()</td><td>onDestroy()</td></tr>
 <tr><td>SDL_APP_LOWMEMORY</td><td>アプリケーションの空きメモリが少ない. 可能ならメモリを解放する必要がある</td><td>applicationDidReceiveMemoryWarning()</td><td>onLowMemory()</td></tr>
 <tr><td>SDL_APP_WILLENTERBACKGROUND</td><td>アプリケーションが裏側へ回ろうとしている</td><td>applicationWillResignActive()</td><td>onPause()</td></tr>
-<tr><td>SDL_APP_DIDENTERBACKGROUND</td><td>アプリケーションが裏側へ回った. CPU時間の割り当てを得られないかもしれない</td><td>applicationDidEnterBackground()</td><td>onPause()</td></tr>
+<tr><td>SDL_APP_DIDENTERBACKGROUND</td><td>アプリケーションが裏側へ回った. CPU時間が割り当てられないかもしれない</td><td>applicationDidEnterBackground()</td><td>onPause()</td></tr>
 <tr><td>SDL_APP_WILLENTERFOREGROUND</td><td>アプリケーションが前面に現れようとしている</td><td>applicationWillEnterForeground()</td><td>onResume()</td></tr>
-<tr><td>SDL_APP_DIDENTERFOREGROUND</td><td>アプリケーションが前面に現れた. 入出力が可能になった.</td><td>applicationDidBecomeActive()</td><td>onResume()</td></tr>
+<tr><td>SDL_APP_DIDENTERFOREGROUND</td><td>アプリケーションが前面に現れた. ユーザとの対話が可能になった.</td><td>applicationDidBecomeActive()</td><td>onResume()</td></tr>
 </table>
 </p>
 <h2>関連項目(構造体)</h2>
