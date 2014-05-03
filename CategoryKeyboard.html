@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>SDL2.0 日本語リファレンス - キーボード</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - キーボード
+<hr>
+<h1>キーボード</h1>
+インクルードファイル:
+<a href="http://hg.libsdl.org/SDL/file/default/include/SDL_keyboard.h">SDL_keyboard.h</a>
+<a href="http://hg.libsdl.org/SDL/file/default/include/SDL_keycode.h">SDL_keycode.h</a>
+<a href="http://hg.libsdl.org/SDL/file/default/include/SDL_scancode.h">SDL_scancode.h</a>
+<h2>概要</h2>
+<p>
+ここに分類される関数は, キーボードの入力を扱うものである.
+</p>
+<p>
+SDLにはキーを表す異なる値 - スキャンコードとキーコードがある.
+</p>
+<p>
+<a href="SDL_Scancode.html">SDL_Scancode</a>の値はキーボード上のキーの物理的な位置を表すために使う.
+この型の値はキーボードのキーを表し, <a href="SDL_Event.html">SDL_Event</a>のkey.keysym.scancodeフィールドなどで使われる.
+<a href="SDL_Scancode.html">SDL_Scancode</a>の値はUSBの標準(<a href="http://www.usb.org/developers/docs/">http://www.usb.org/developers/docs/</a>)に基づいている.
+スキャンコードの定数は, キーの名前の先頭にSDL_SCANCODE_をつけたものである. (例: SDL_SCANCODE_SPACE)
+</p>
+<p>
+<a href="SDL_Keycode.html">SDL_Keycode</a>の値は, 現在のキーボードレイアウトにマッピングされ, <a href="SDL_Scancode.html">SDL_Scancode</a>と一対一の関係にある.
+この型の値はキーボードの文字を表し, <a href="SDL_Event.html">SDL_Event</a>のthe key.keysym.symフィールドなどで使われる.
+<a href="SDL_Keycode.html">SDL_Keycode</a>の値は, 修飾キーを押さずにそのキーを押した文字のUnicodeの値に基づいている.文字でないキーはスキャンコードの最上位ビットを立てた(0x8000000との論理和)値である.
+キーコードの定数は, キーの文字(小文字)の先頭にSDLK_をつけたものである. (例: SDLK_SPACE)
+</p>
+<p>
+2つの値の主な違いは, OSが物理的なキーを別の仮想キーに割り当てているときに現れる.
+例えば, 標準的なQWERTYキーボードをドイツのQWERTZレイアウトに割り当てると, "Y"キーのスキャンコードはSDL_SCANCODE_Yだが, キーコードはSDLK_zとなる.
+どちらのコードを使うかはアプリケーションによる.
+操作がレイアウトによる(例えば"WASD"キーを左手で扱う方向キーとする)場合はスキャンコードが適しているが, 操作が文字による(例えば"I"がアイテムを意味する)場合はキーコードのほうがよい.
+</p>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_Keycode.html">SDL_Keycode</a></li>
+<li><a href="SDL_Keymod.html">SDL_Keymod</a></li>
+<li><a href="SDL_Scancode.html">SDL_Scancode</a></li>
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_Keysym.html">SDL_Keysym</a></li>
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_GetKeyFromName.html">SDL_GetKeyFromName</a></li>
+<li><a href="SDL_GetKeyFromScancode.html">SDL_GetKeyFromScancode</a></li>
+<li><a href="SDL_GetKeyName.html">SDL_GetKeyName</a></li>
+<li><a href="SDL_GetKeyboardFocus.html">SDL_GetKeyboardFocus</a></li>
+<li><a href="SDL_GetKeyboardState.html">SDL_GetKeyboardState</a></li>
+<li><a href="SDL_GetModState.html">SDL_GetModState</a></li>
+<li><a href="SDL_GetScancodeFromKey.html">SDL_GetScancodeFromKey</a></li>
+<li><a href="SDL_GetScancodeFromName.html">SDL_GetScancodeFromName</a></li>
+<li><a href="SDL_GetScancodeName.html">SDL_GetScancodeName</a></li>
+<li><a href="SDL_HasScreenKeyboardSupport.html">SDL_HasScreenKeyboardSupport</a></li>
+<li><a href="SDL_IsScreenKeyboardShown.html">SDL_IsScreenKeyboardShown</a></li>
+<li><a href="SDL_IsTextInputActive.html">SDL_IsTextInputActive.html</a></li>
+<li><a href="SDL_SetModState.html">SDL_SetModState</a></li>
+<li><a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect</a></li>
+<li><a href="SDL_StartTextInput.html">SDL_StartTextInput</a></li>
+<li><a href="SDL_StopTextInput.html">SDL_StopTextInput</a></li>
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/CategoryKeyboard">Keyboard Support - SDL Wiki</a>
+<hr>
+</body>
+</html>
