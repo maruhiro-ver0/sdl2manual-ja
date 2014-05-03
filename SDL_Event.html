@@ -32,11 +32,11 @@
 <tr><td><a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a></td><td>cbutton</td><td>ゲームコントローラーボタンイベントの情報</td></tr>
 <tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a></td><td>cdevice</td><td>ゲームコントローラー接続イベントの情報</td></tr>
 <tr><td><a href="SDL_QuitEvent.html">SDL_QuitEvent</a></td><td>quit</td><td>終了要求イベントの情報</td></tr>
-<tr><td><a href="SDL_UserEvent.html">SDL_UserEvent</a></td><td>user</td><td>カスタムイベントの情報</td></tr>
+<tr><td><a href="SDL_UserEvent.html">SDL_UserEvent</a></td><td>user</td><td>アプリケーション定義イベントの情報</td></tr>
 <tr><td><a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a></td><td>syswm</td><td>システム依存ウィンドウイベントの情報</td></tr>
 <tr><td><a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a></td><td>tfinger</td><td>タッチイベントの情報</td></tr>
-<tr><td><a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a></td><td>mgesture</td><td>マルチフィンガージェスチャーの情報</td></tr>
-<tr><td><a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a></td><td>dgesture</td><td>マルチフィンガージェスチャーの情報</td></tr>
+<tr><td><a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a></td><td>mgesture</td><td>マルチタッチジェスチャーイベントの情報</td></tr>
+<tr><td><a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a></td><td>dgesture</td><td>複雑なジェスチャーイベントの情報</td></tr>
 <tr><td><a href="SDL_DropEvent.html">SDL_DropEvent</a></td><td>drop</td><td>ドラッグ&amp;ドロップイベントの情報</td></tr>
 </table>
 <h2>詳細</h2>
@@ -55,8 +55,8 @@ SDLで使われる全てのイベント構造体の共用体である.
 </p>
 <h3><a name="reading">キューからイベントを読み込む</a></h3>
 <p>
-<href="SDL_PollEvent.html">SDL_PollEvent()</a>または<a href="SDL_PeepEvents.html">SDL_PeepEvents()</a>でキューからイベントを得られる.
-<href="SDL_PollEvent.html">SDL_PollEvent()</a>を例に説明する.
+<a href="SDL_PollEvent.html">SDL_PollEvent()</a>または<a href="SDL_PeepEvents.html">SDL_PeepEvents()</a>でキューからイベントを得られる.
+<a href="SDL_PollEvent.html">SDL_PollEvent()</a>を例に説明する.
 </p>
 <p>
 まず始めに, 空の<a href="SDL_Event.html">SDL_Event</a>を生成する.
@@ -67,7 +67,7 @@ SDL_Event test_event;
 </code>
 </p>
 <p>
-<href="SDL_PollEvent.html">SDL_PollEvent()</a>はイベントを読み込み, キューから削除する.
+<a href="SDL_PollEvent.html">SDL_PollEvent()</a>はイベントを読み込み, キューから削除する.
 もしキューにイベントがなければ0を, あれば1を戻す.
 whileループを使い, 全てのイベントを処理する.
 </p>
@@ -79,8 +79,8 @@ while(SDL_PollEvent(&test_event)) {
 </code>
 </p>
 <p>
-<href="SDL_PollEvent.html">SDL_PollEvent()</a>は引数の<a href="SDL_Event.html">SDL_Event</a>へのポインタにイベント情報を代入する.
-<href="SDL_PollEvent.html">SDL_PollEvent()</a>はイベントをキューから取り除き, その後test_eventに書き込む.
+<a href="SDL_PollEvent.html">SDL_PollEvent()</a>は引数の<a href="SDL_Event.html">SDL_Event</a>へのポインタにイベント情報を代入する.
+<a href="SDL_PollEvent.html">SDL_PollEvent()</a>はイベントをキューから取り除き, その後test_eventに書き込む.
 しかし, test_eventのtypeメンバにはイベントの種類も書き込まれている.
 よって, 種類に応じてイベントを処理するためにはswitch文を使う.
 </p>
