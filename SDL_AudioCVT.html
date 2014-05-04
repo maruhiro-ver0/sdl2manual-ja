@@ -18,12 +18,12 @@
 <tr><td>int</td><td>needed</td><td>変換できるとき1が設定される</td></tr>
 <tr><td><a href="SDL_AudioFormat">SDL_AudioFormat</a></td><td>src_format</td><td>変換前の形式</td></tr>
 <tr><td><a href="SDL_AudioFormat">SDL_AudioFormat</a></td><td>dst_format</td><td>変換後の形式</td></tr>
-<tr><td>double</td><td>rate_incr</td><td>変換後の増加率</td></tr>
-<tr><td>Uint8*</td><td>buf</td><td>変換前後の音声データのバッファ (詳細を参照すること)</td></tr>
+<tr><td>double</td><td>rate_incr</td><td>変換後の長さの増加率</td></tr>
+<tr><td>Uint8*</td><td>buf</td><td>変換で使う音声データのバッファ (詳細を参照すること)</td></tr>
 <tr><td>int</td><td>len</td><td>変換前の音声バッファの長さ (詳細を参照すること)</td></tr>
 <tr><td>int</td><td>len_cvt</td><td>変換後の音声バッファの長さ</td></tr>
-<tr><td>int</td><td>len_mult</td><td>bufはlen*len_mult以上でなければならない (詳細を参照すること)</td></tr>
-<tr><td>double</td><td>len_radio</td><td>lenが指定されれば, 最終的な長さはlen*len_ratioとなる (詳細を参照すること)</td></tr>
+<tr><td>int</td><td>len_mult</td><td>bufの長さはlen*len_mult以上でなければならない (詳細を参照すること)</td></tr>
+<tr><td>double</td><td>len_radio</td><td>与えられた変換前のlenに対して, 最終的な変換後の長さはlen*len_ratioとなる (詳細を参照すること)</td></tr>
 <tr><td>SDL_AudioFilter[10]</td><td>filters</td><td>フィルタリスト (内部で使用)</td></tr>
 <tr><td>int</td><td>filter_index</td><td>現在の変換関数 (内部で使用)</td></tr>
 </table>
