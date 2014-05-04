@@ -12,7 +12,6 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryAudio.html">再生と録音</a> - SDL_BuildAudioCVT
 <hr>
 <h1>SDL_BuildAudioCVT</h1>
-Use this function to initialize an SDL_AudioCVT structure for conversion.
 変換のための<a href="SDL_AudioCVT.html">SDL_AudioCVT</a>構造体を初期化する
 <h2>構文</h2>
 <code>int SDL_BuildAudioCVT(SDL_AudioCVT* cvt, SDL_AudioFormat src_format, Uint8 src_channels, int src_rate, SDL_AudioFormat dst_format, Uint8 dst_channels, int dst_rate)</code>
@@ -27,7 +26,7 @@ Use this function to initialize an SDL_AudioCVT structure for conversion.
 <tr><td>dst_rate</td><td>変換後の周波数(1秒あたりのサンプルフレーム数)</td></tr>
 </table>
 <h2>戻り値</h2>
-音声が変換されたとき1, 変換の必要がないとき0, 失敗のとき負の数のエラーコードを戻す.
+音声が変換されるとき1, 変換の必要がないとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 <p>
