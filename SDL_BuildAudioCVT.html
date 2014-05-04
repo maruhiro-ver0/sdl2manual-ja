@@ -33,11 +33,11 @@
 音声データを変換する前に, <a href="SDL_AudioCVT.html">SDL_AudioCVT</a>の変換前と変換後を初期化する必要がある.
 </p>
 <p>
-この関数は<a href="SDL_AudioCVT.html">SDL_AudioCVT</a>のフィールドを0にする.
-よって, アプリケーションがバッファに書き込む前に, この関数を呼ぶ必要がある.
+この関数は<a href="SDL_AudioCVT.html">SDL_AudioCVT</a>の全フィールドを0にする.
+よって, 音声データをバッファに書き込む前に, この関数を呼ぶ必要がある.
 </p>
 <p>
-一度この関数が成功を戻せば(そして変換の必要があれば), アプリケーションは<a href="SDL_AudioCVT.html">SDL_AudioCVT</a>の残りのフィールドに値を書き込める. 
+一度この関数が成功を戻せば(そして変換の必要があれば), <a href="SDL_AudioCVT.html">SDL_AudioCVT</a>の残りのフィールドに値を書き込める. 
 この段階で確保すべきバッファの長さがわかるためである.
 そして, <a href="SDL_ConvertAudio.html">SDL_ConvertAudio()</a>を呼べば変換は完了する.
 </p>
