@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAudio.html" title="1つ上">
+<title>SDL_AudioFormat</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryAudio.html">再生と録音</a> - SDL_AudioFormat
+<hr>
+<h1>SDL_AudioFormat</h1>
+音声形式の列挙体
+<h2>値</h2>
+<h3>ビットの意味</h3>
+<p>
+<a href="SDL_AudioFormat.html">SDL_AudioFormat</a>(16bit)の各ビットの意味は次の通りである.
+<pre>
+ +------------1ならサンプリングデータは符号あり
+ |
+ |        +-------------1ならビッグエンディアン
+ |        |
+ |        |           +---------1なら浮動小数点
+ |        |           |
+ |        |           |  +----ビットサイズ----+
+ |        |           |  |                    |
+15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0 
+</pre>
+</p>
+<p>
+指定のないビットは常に0である. しかし, 将来のバージョンでは使うかもしれない.
+特定のビットを調査するマクロもある.
+</p>
+<h3>音声形式のマクロ</h3>
+<table border="1" summary="">
+<tr><td>SDL_AUDIO_MASK_BITSIZE</td><td>(0xFF)</td></tr>
+<tr><td>SDL_AUDIO_MASK_DATATYPE</td><td>(1&lt;&lt8)</td></tr>
+<tr><td>SDL_AUDIO_MASK_ENDIAN</td><td>(1&lt;&lt12)</td></tr>
+<tr><td>SDL_AUDIO_MASK_SIGNED</td><td>(1&lt;&lt15)</td></tr>
+<tr><td>SDL_AUDIO_MASK_BITSIZE(x)</td><td>(x &amp; SDL_AUDIO_MASK_BITSIZE)</td></tr>
+<tr><td>SDL_AUDIO_MASK_ISFLOAT(x)</td><td>(x &amp; SDL_AUDIO_MASK_DATATYPE)</td></tr>
+<tr><td>SDL_AUDIO_MASK_ISBIGENDIAN(x)</td><td>(x &amp; SDL_AUDIO_MASK_ENDIAN)</td></tr>
+<tr><td>SDL_AUDIO_MASK_ISSIGNED(x)</td><td>(x &amp; SDL_AUDIO_MASK_SIGNED)</td></tr>
+<tr><td>SDL_AUDIO_MASK_ISINT(x)</td><td>(!SDL_AUDIO_ISFLOAT(x))</td></tr>
+<tr><td>SDL_AUDIO_MASK_ISLITTLEENDIAN(x)</td><td>(!SDL_AUDIO_ISBIGENDIAN(x))</td></tr>
+<tr><td>SDL_AUDIO_MASK_ISUNSIGNED(x)</td><td>(!SDL_AUDIO_ISSIGNED(x))</td></tr>
+</table>
+<h3>音声形式の値</h3>
+<table border="1" summary="">
+<tr><td colspan="2" align="center">8bit</td></tr>
+<tr><td>AUDIO_S8</td><td>8bit符号ありサンプリング</td></tr>
+<tr><td>AUDIO_U8</td><td>8bit符号なしサンプリング</td></tr>
+<tr><td colspan="2" align="center">16bit</td></tr>
+<tr><td>AUDIO_S16LSB</td><td>16bit符号ありリトルエンディアンサンプリング</td></tr>
+<tr><td>AUDIO_S16MSB</td><td>16bit符号ありビッグエンディアンサンプリング</td></tr>
+<tr><td>AUDIO_S16SYS</td><td>16bit符号ありシステムと同じバイト順サンプリング</td></tr>
+<tr><td>AUDIO_S16</td><td>AUDIO_S16LSB</td></tr>
+<tr><td>AUDIO_U16LSB</td><td>16bit符号なしリトルエンディアンサンプリング</td></tr>
+<tr><td>AUDIO_U16MSB</td><td>16bit符号なしビッグエンディアンサンプリング</td></tr>
+<tr><td>AUDIO_U16SYS</td><td>16bit符号なしシステムと同じバイト順サンプリング</td></tr>
+<tr><td>AUDIO_U16</td><td>AUDIO_S16LSB</td></tr>
+<tr><td colspan="2" align="center">32bit</td></tr>
+<tr><td>AUDIO_S32LSB</td><td>32bit整数リトルエンディアンサンプリング</td></tr>
+<tr><td>AUDIO_S32MSB</td><td>32bit整数ビッグエンディアンサンプリング</td></tr>
+<tr><td>AUDIO_S32SYS</td><td>32bit整数システムと同じバイト順サンプリング</td></tr>
+<tr><td>AUDIO_S32</td><td>AUDIO_S32LSB</td></tr>
+<tr><td colspan="2" align="center">浮動小数点</td></tr>
+<tr><td>AUDIO_F32LSB</td><td>32bit浮動小数点リトルエンディアンサンプリング</td></tr>
+<tr><td>AUDIO_F32MSB</td><td>32bit浮動小数点ビッグエンディアンサンプリング</td></tr>
+<tr><td>AUDIO_F32SYS</td><td>32bit浮動小数点システムと同じバイト順サンプリング</td></tr>
+<tr><td>AUDIO_F32</td><td>AUDIO_F32LSB</td></tr>
+</table>
+<h2>詳細</h2>
+データ形式の思い込みに注意すること.
+例えば, SDL_AUDIO_ISFLOATのみチェックして, 32bitデータを想定すると, 後のバージョンで64bit浮動小数点が追加されたとき問題が発生する.
+<h2>関連項目(構造体)</h2>
+<a href="SDL_AudioCVT.html">SDL_AudioCVT</a><br>
+<a href="SDL_AudioSpec.html">SDL_AudioSpec</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_BuildAudioCVT.html">SDL_BuildAudioCVT</a><br>
+<a href="SDL_MixAudioFormat.html">SDL_MixAudioFormat</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_AudioFormat">SDL_AudioFormat</a><br>
+<hr>
+</body>
+</html>
