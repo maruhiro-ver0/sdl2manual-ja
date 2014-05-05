@@ -22,10 +22,7 @@
 </table>
 <h2>戻り値</h2>
 この関数はオーディオデバイスを要求したパラメータで開く. 成功のとき0を戻し, 実際のハードウェアのパラメータをobtainedの示すポインタに書き込む.
-
-If obtained is NULL, the audio data passed to the callback function will be guaranteed to be in the requested format, and will be automatically converted to the actual hardware audio format if necessary.
 obtainedがNULLの場合, コールバック関数に渡される音声データは要求した形式であることが保証されている. そして必要ならば実際のハードウェアの音声形式に自動的に変換される.
-
 obtainedがNULLの場合, desiredのフィールドが書き換えられる.
 この関数はオーディオデバイスを開く, またはオーディオスレッドの設定に失敗したとき, 負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
