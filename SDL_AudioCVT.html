@@ -16,8 +16,8 @@
 <h2>フィールド</h2>
 <table border="1" summary="SDL_AudioCVT">
 <tr><td>int</td><td>needed</td><td>変換できるとき1が設定される</td></tr>
-<tr><td><a href="SDL_AudioFormat">SDL_AudioFormat</a></td><td>src_format</td><td>変換前の形式</td></tr>
-<tr><td><a href="SDL_AudioFormat">SDL_AudioFormat</a></td><td>dst_format</td><td>変換後の形式</td></tr>
+<tr><td><a href="SDL_AudioFormat.html">SDL_AudioFormat</a></td><td>src_format</td><td>変換前の形式</td></tr>
+<tr><td><a href="SDL_AudioFormat.html">SDL_AudioFormat</a></td><td>dst_format</td><td>変換後の形式</td></tr>
 <tr><td>double</td><td>rate_incr</td><td>変換後の長さの増加率</td></tr>
 <tr><td>Uint8*</td><td>buf</td><td>変換で使う音声データのバッファ (詳細を参照すること)</td></tr>
 <tr><td>int</td><td>len</td><td>変換前の音声バッファの長さ (詳細を参照すること)</td></tr>
@@ -30,8 +30,8 @@
 <h2>詳細</h2>
 <p>
 <a href="SDL_AudioCVT.html">SDL_AudioCVT</a>は音声データを異なる形式に変換するために使う.
-<a href="SDL_AudioCVT.html">SDL_AudioCVT</a>は<a href="SDL_BuildAudioCVT.html">SDL_BuildAudioCVT()</a>で初期化し,
-実際の変換は<a href="SDL_ConvertAudio.html">SDL_ConvertAudio()</a>で行う.
+<a href="SDL_BuildAudioCVT.html">SDL_BuildAudioCVT()</a>は<a href="SDL_AudioCVT.html">SDL_AudioCVT</a>を初期化し,
+実際の変換は<a href="SDL_ConvertAudio.html">SDL_ConvertAudio()</a>が行う.
 アプリケーションはこれら2つの関数の呼び出しの間で適切な長さのバッファを設定する必要がある.
 </p>
 <p>
