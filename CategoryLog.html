@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>SDL2.0 日本語リファレンス - ログ</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - ログ
+<hr>
+<h1>ログ</h1>
+インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_log.h">SDL_log.h</a>
+<h2>概要</h2>
+<p>
+ここに分類される関数は, 種別と優先度つきの簡単なログメッセージを扱うものである.
+</p>
+<p>
+デフォルトのログの属性には次のものがある.
+<table border="1" summary="log priorities">
+<tr><td>SDL_LOG_CATEGORY_APPLICATION</td><td>SDL_LOG_PRIORITY_INFO</td></tr>
+<tr><td>SDL_LOG_CATEGORY_ASSERT</td><td>SDL_LOG_PRIORITY_WARN</td></tr>
+<tr><td>SDL_LOG_CATEGORY_TEST</td><td>SDL_LOG_PRIORITY_VERBOSE</td></tr>
+<tr><td>その他</td><td>SDL_LOG_PRIORITY_CRITICAL</td></tr>
+</table>
+</p>
+<p>
+デバッグ時は次のようにして呼ぶ.
+</p>
+<p>
+<code>SDL_LogSetAllPriority(SDL_LOG_PRIORITY_WARN);</a>
+</p>
+<p>
+各環境のメッセージの出力先は次の通りである.
+<table border="1" summary="platforms">
+<tr><td>Windows</td><td>デバッグ出力ストリーム</td></tr>
+<tr><td>Android</td><td>ログ出力</td></tr>
+<tr><td>その他</td><td>標準エラー出力 (stderr)</td></tr>
+</table>
+</p>
+<p>
+メッセージは最大長(4096byte)で切られる.
+</p>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_LOG_CATEGORY.html">SDL_LOG_CATEGORY</a></li>
+<li><a href="SDL_LogPriority.html">SDL_LogPriority</a></li>
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_Log.html">SDL_Log</a></li>
+<li><a href="SDL_LogCritical.html">SDL_LogCritical</a></li>
+<li><a href="SDL_LogDebug.html">SDL_LogDebug</a></li>
+<li><a href="SDL_LogError.html">SDL_LogError</a></li>
+<li><a href="SDL_LogGetOutputFunction.html">SDL_LogGetOutputFunction</a></li>
+<li><a href="SDL_LogGetPriority.html">SDL_LogGetPriority</a></li>
+<li><a href="SDL_LogInfo.html">SDL_LogInfo.html</a></li>
+<li><a href="SDL_LogMessage.html">SDL_LogMessage.html</a></li>
+<li><a href="SDL_LogMessageV.html">SDL_LogMessageV.html</a></li>
+<li><a href="SDL_LogResetPriorities.html">SDL_LogResetPriorities.html</a></li>
+<li><a href="SDL_LogSetAllPriority.html">SDL_LogSetAllPriority</a></li>
+<li><a href="SDL_LogSetOutputFunction.html">SDL_LogSetOutputFunction</a></li>
+<li><a href="SDL_LogSetPriority.html">SDL_LogSetPriority</a></li>
+<li><a href="SDL_LogVerbose.html">SDL_LogVerbose</a></li>
+<li><a href="SDL_LogWarn.html">SDL_LogWarn</a></li>
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/CategoryLog">Log Handling - SDL Wiki</a>
+<hr>
+</body>
+</html>
