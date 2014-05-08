@@ -15,11 +15,12 @@
 インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_log.h">SDL_log.h</a>
 <h2>概要</h2>
 <p>
-ここに分類される関数は, 分類と属性のついた簡単なログメッセージを扱うものである.
+ここに分類される関数は, 分類と優先度のついた簡単なログメッセージを扱うものである.
 </p>
 <p>
-デフォルトのログの属性は次の通りである.
+デフォルトのログ分類の優先度は次の通りである.
 <table border="1" summary="log priorities">
+<tr><th>分類</th><th>優先度</th></tr>
 <tr><td>SDL_LOG_CATEGORY_APPLICATION</td><td>SDL_LOG_PRIORITY_INFO</td></tr>
 <tr><td>SDL_LOG_CATEGORY_ASSERT</td><td>SDL_LOG_PRIORITY_WARN</td></tr>
 <tr><td>SDL_LOG_CATEGORY_TEST</td><td>SDL_LOG_PRIORITY_VERBOSE</td></tr>
@@ -35,6 +36,7 @@ SDLをデバッグするときは, 次のように呼ぶとよいだろう.
 <p>
 各環境のメッセージの出力先は次の通りである.
 <table border="1" summary="platforms">
+<tr><th>環境</th><th>出力先</th></tr>
 <tr><td>Windows</td><td>デバッグ出力ストリーム</td></tr>
 <tr><td>Android</td><td>ログ出力</td></tr>
 <tr><td>その他</td><td>標準エラー出力 (stderr)</td></tr>
