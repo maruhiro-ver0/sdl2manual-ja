@@ -18,16 +18,16 @@
 ここに分類される関数は, 分類と属性のついた簡単なログメッセージを扱うものである.
 </p>
 <p>
-デフォルトのログの属性には次のものがある.
+デフォルトのログの属性は次の通りである.
 <table border="1" summary="log priorities">
 <tr><td>SDL_LOG_CATEGORY_APPLICATION</td><td>SDL_LOG_PRIORITY_INFO</td></tr>
 <tr><td>SDL_LOG_CATEGORY_ASSERT</td><td>SDL_LOG_PRIORITY_WARN</td></tr>
 <tr><td>SDL_LOG_CATEGORY_TEST</td><td>SDL_LOG_PRIORITY_VERBOSE</td></tr>
-<tr><td>その他</td><td>SDL_LOG_PRIORITY_CRITICAL</td></tr>
+<tr><td>その他全て</td><td>SDL_LOG_PRIORITY_CRITICAL</td></tr>
 </table>
 </p>
 <p>
-デバッグ時は次のようにして呼ぶ.
+SDLをデバッグするときは, 次のように呼ぶとよいだろう.
 </p>
 <p>
 <code>SDL_LogSetAllPriority(SDL_LOG_PRIORITY_WARN);</code>
