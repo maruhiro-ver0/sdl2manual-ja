@@ -12,22 +12,22 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryLog.html">ログ</a> - SDL_LogPriority
 <hr>
 <h1>SDL_LogPriority</h1>
-あらかじめ定義されたログの優先度の列挙体
+あらかじめ定義されたログの重要度の列挙体
 <h2>値</h2>
 <table border="1" summary="SDL_LogPriority">
-<tr><td>SDL_LOG_PRIORITY_VERBOSE</td><td></td></tr>
-<tr><td>SDL_LOG_PRIORITY_DEBUG</td><td></td></tr>
-<tr><td>SDL_LOG_PRIORITY_INFO</td><td></td></tr>
-<tr><td>SDL_LOG_PRIORITY_WARN</td><td></td></tr>
-<tr><td>SDL_LOG_PRIORITY_ERROR</td><td></td></tr>
-<tr><td>SDL_LOG_PRIORITY_CRITICAL</td><td></td></tr>
+<tr><td>SDL_LOG_PRIORITY_VERBOSE</td><td>重要度 低</td></tr>
+<tr><td>SDL_LOG_PRIORITY_DEBUG</td><td>↑</td></tr>
+<tr><td>SDL_LOG_PRIORITY_INFO</td><td>｜</td></tr>
+<tr><td>SDL_LOG_PRIORITY_WARN</td><td>｜</td></tr>
+<tr><td>SDL_LOG_PRIORITY_ERROR</td><td>↓</td></tr>
+<tr><td>SDL_LOG_PRIORITY_CRITICAL</td><td>重要度 高</td></tr>
 <tr><td>SDL_NUM_LOG_PRIORITIES</td><td>(内部で使用)</td></tr>
 </table>
 <h2>詳細</h2>
 <p>
-デフォルトのログ分類の優先度は次の通りである.
+デフォルトのログ分類の重要度は次の通りである.
 <table border="1" summary="log priorities">
-<tr><th>分類</th><th>優先度</th></tr>
+<tr><th>分類</th><th>重要度</th></tr>
 <tr><td>SDL_LOG_CATEGORY_APPLICATION</td><td>SDL_LOG_PRIORITY_INFO</td></tr>
 <tr><td>SDL_LOG_CATEGORY_ASSERT</td><td>SDL_LOG_PRIORITY_WARN</td></tr>
 <tr><td>SDL_LOG_CATEGORY_TEST</td><td>SDL_LOG_PRIORITY_VERBOSE</td></tr>
@@ -35,7 +35,7 @@
 </table>
 </p>
 <p>
-デバッグ時は次のようにして呼ぶ.
+SDLをデバッグするときは, 次のように呼ぶとよいだろう.
 </p>
 <p>
 <code>SDL_LogSetAllPriority(SDL_LOG_PRIORITY_WARN);</code>
