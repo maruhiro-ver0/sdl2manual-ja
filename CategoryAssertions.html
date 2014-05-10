@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>SDL2.0 日本語リファレンス - アサーション</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - アサーション
+<hr>
+<h1>アサーション</h1>
+インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_assert.h">SDL_assert.h</a>
+<h2>概要</h2>
+<p>
+ここに分類される関数は, アサーション(検証)に関するものである.
+</p>
+<p>
+SDL_assert() 対 標準assert()マクロの議論と, 実装に関する技術的な説明は, <a href="https://plus.google.com/+RyanGordon/posts/KzV6sLdALX7">RyanのGoogle+の投稿</a>にある.
+</p>
+<p>
+SDL_ASSERT_LEVELは, コンパイル中に関数を生成するか選択することで, どのアサーションが有効になるかに影響する.
+(詳細は下記.)
+</p>
+<p>
+SDL_ASSERT_LEVELは自分で設定できる.
+もし設定されなければ, SDL_ASSERT_LEVELはデバッグ時は2で, リリース時は1となる.
+</p>
+<p>
+次の表は, それぞれのSDL_ASSERT_LEVELの設定と, SDL_assert関数に与える影響の対応である.
+<table border="1" summary="SDL_ASSERT_LEVEL">
+<tr><th>SDL_ASSERT_LEVEL</th><th>説明</th><th>関数</th><th>有効・無効</th></tr>
+<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">0</em></td><td rowspan="3">全てのアサーションは無効になる</td><td>SDL_assert</td><td>無効</td></tr>
+<tr><td>SDL_assert_release</td><td>無効</td></td>
+<tr><td>SDL_assert_paranoid</td><td>無効</td></td>
+<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">1</em></td><td rowspan="3">リリース用 (デフォルト)</td><td>SDL_assert</td><td>無効</td></tr>
+<tr><td>SDL_assert_release</td><td><em style="font-style:normal;font-weight:bold">有効</em></td></td>
+<tr><td>SDL_assert_paranoid</td><td>無効</td></td>
+<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">2</em></td><td rowspan="3">デバッグ用 (デフォルト)</td><td>SDL_assert</td><td><em style="font-style:normal;font-weight:bold">有効</em></td></tr>
+<tr><td>SDL_assert_release</td><td><em style="font-style:normal;font-weight:bold">有効</em></td></td>
+<tr><td>SDL_assert_paranoid</td><td>無効</td></td>
+<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">3</em></td><td rowspan="3">厳格なチェック用</td><td>SDL_assert</td><td><em style="font-style:normal;font-weight:bold">有効</em></td></tr>
+<tr><td>SDL_assert_release</td><td><em style="font-style:normal;font-weight:bold">有効</em></td></td>
+<tr><td>SDL_assert_paranoid</td><td><em style="font-style:normal;font-weight:bold">有効</em></td></td>
+</table>
+</p>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_assert_state.html">SDL_assert_state</a></li>
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_assert_data.html">SDL_assert_data</a></li>
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_GetAssertionHandler.html">SDL_GetAssertionHandler</a></li>
+<li><a href="SDL_GetAssertionReport.html">SDL_GetAssertionReport</a></li>
+<li><a href="SDL_GetDefaultAssertionHandler.html">SDL_GetDefaultAssertionHandler</a></li>
+<li><a href="SDL_ResetAssertionReport.html">SDL_ResetAssertionReport</a></li>
+<li><a href="SDL_SetAssertionHandler.html">SDL_SetAssertionHandler</a></li>
+<li><a href="SDL_TriggerBreakpoint.html">SDL_TriggerBreakpoint</a></li>
+<li><a href="SDL_assert.html">SDL_assert</a></li>
+<li><a href="SDL_assert_paranoid.html">SDL_assert_paranoid</a></li>
+<li><a href="SDL_assert_release.html">SDL_assert_release</a></li>
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/CategoryAssertions">Assertions - SDL Wiki</a>
+<hr>
+</body>
+</html>
