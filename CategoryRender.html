@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>SDL2.0 日本語リファレンス - 2Dレンダリング</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - 2Dレンダリング
+<hr>
+<h1>2Dレンダリング</h1>
+インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_render.h">SDL_render.h</a>
+<h2>概要</h2>
+<p>
+この分類の関数は, アクセラレータを使った2Dレンダリングを行うものである.
+</p>
+<p>
+このAPIは次の描画の機能を持つ.
+<ul>
+<li>1ピクセルの点
+<li>1ピクセルの直線
+<li>塗りつぶした長方形
+<li>テクスチャーイメージ
+</ul>
+これらは全て不透明, ブレンド, αモードで描画できる.
+</p>
+<p>
+テクスチャーイメージは, 薄い色の追加またはαモジュレーションを適応できる.
+また, 線形補完による拡大, 回転, 反転も可能である.
+</p>
+<p>
+パーティクルエフェクトや3Dのようなさらに進んだ機能は, SDLのOpenGL/Direct3Dや, 数多くある3Dエンジンを使う必要がある.
+</p>
+<p>
+詳細は<a href="https://bugzilla.libsdl.org/show_bug.cgi?id=1995">このバグ</a>を参照すること.
+</p>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_RendererFlags.html">SDL_RendererFlags</a></li>
+<li><a href="SDL_RendererFlip.html">SDL_RendererFlip</a></li>
+<li><a href="SDL_TextureAccess.html">SDL_TextureAccess</a></li>
+<li><a href="SDL_TextureModulate.html">SDL_TextureModulate/a></li>
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_RendererInfo.html">SDL_RendererInfo</a></li>
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_CreateRenderer.html">SDL_CreateRenderer</a></li>
+<li><a href="SDL_CreateSoftwareRenderer.html">SDL_CreateSoftwareRenderer</a></li>
+<li><a href="SDL_CreateTexture.html">SDL_CreateTexture</a></li>
+<li><a href="SDL_CreateTextureFromSurface.html">SDL_CreateTextureFromSurface</a></li>
+<li><a href="SDL_CreateWindowAndRenderer.html">SDL_CreateWindowAndRenderer</a></li>
+<li><a href="SDL_DestroyRenderer.html">SDL_DestroyRenderer</a></li>
+<li><a href="SDL_DestroyTexture.html">SDL_DestroyTexture</a></li>
+<li><a href="SDL_GetNumRenderDrivers.html">SDL_GetNumRenderDrivers</a></li>
+<li><a href="SDL_GetRenderDrawBlendMode.html">SDL_GetRenderDrawBlendMode</a></li>
+<li><a href="SDL_GetRenderDrawColor.html">SDL_GetRenderDrawColor</a></li>
+<li><a href="SDL_GetRenderDriverInfo.html">SDL_GetRenderDriverInfo</a></li>
+<li><a href="SDL_GetRenderTarget.html">SDL_GetRenderTarget</a></li>
+<li><a href="SDL_GetRenderer.html">SDL_GetRenderer</a></li>
+<li><a href="SDL_GetRendererInfo.html">SDL_GetRendererInfo</a></li>
+<li><a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize</a></li>
+<li><a href="SDL_GetTextureAlphaMod.html">SDL_GetTextureAlphaMod</a></li>
+<li><a href="SDL_GetTextureBlendMode.html">SDL_GetTextureBlendMode</a></li>
+<li><a href="SDL_GetTextureColorMod.html">SDL_GetTextureColorMod</a></li>
+<li><a href="SDL_LockTexture.html">SDL_LockTexture.html</a></li>
+<li><a href="SDL_QueryTexture.html">SDL_QueryTexture</a></li>
+<li><a href="SDL_RenderClear.html">SDL_RenderClear</a></li>
+<li><a href="SDL_RenderCopy.html">SDL_RenderCopy</a></li>
+<li><a href="SDL_RenderCopyEx.html">SDL_RenderCopyEx</a></li>
+<li><a href="SDL_RenderDrawLine.html">SDL_RenderDrawLine</a></li>
+<li><a href="SDL_RenderDrawLines.html">SDL_RenderDrawLines</a></li>
+<li><a href="SDL_RenderDrawPoint.html">SDL_RenderDrawPoint</a></li>
+<li><a href="SDL_RenderDrawPoints.html">SDL_RenderDrawPoints</a></li>
+<li><a href="SDL_RenderDrawRect.html">SDL_RenderDrawRect</a></li>
+<li><a href="SDL_RenderDrawRects.html">SDL_RenderDrawRects</a></li>
+<li><a href="SDL_RenderFillRect.html">SDL_RenderFillRect</a></li>
+<li><a href="SDL_RenderFillRects.html">SDL_RenderFillRects</a></li>
+<li><a href="SDL_RenderGetClipRect.html">SDL_RenderGetClipRect</a></li>
+<li><a href="SDL_RenderGetLogicalSize.html">SDL_RenderGetLogicalSize</a></li>
+<li><a href="SDL_RenderGetScale.html">SDL_RenderGetScale</a></li>
+<li><a href="SDL_RenderGetViewport.html">SDL_RenderGetViewport</a></li>
+<li><a href="SDL_RenderPresent.html">SDL_RenderPresent</a></li>
+<li><a href="SDL_RenderReadPixels.html">SDL_RenderReadPixels</a></li>
+<li><a href="SDL_RenderSetClipRect.html">SDL_RenderSetClipRect</a></li>
+<li><a href="SDL_RenderSetLogicalSize.html">SDL_RenderSetLogicalSize</a></li>
+<li><a href="SDL_RenderSetScale.html">SDL_RenderSetScale</a></li>
+<li><a href="SDL_RenderSetViewport.html">SDL_RenderSetViewport</a></li>
+<li><a href="SDL_RenderTargetSupported.html">SDL_RenderTargetSupported</a></li>
+<li><a href="SDL_SetRenderDrawBlendMode.html">SDL_SetRenderDrawBlendMode</a></li>
+<li><a href="SDL_SetRenderDrawColor.html">SDL_SetRenderDrawColor</a></li>
+<li><a href="SDL_SetRenderTarget.html">SDL_SetRenderTarget</a></li>
+<li><a href="SDL_SetTextureAlphaMod.html">SDL_SetTextureAlphaMod</a></li>
+<li><a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode</a></li>
+<li><a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod</a></li>
+<li><a href="SDL_UnlockTexture.html">SDL_UnlockTexture</a></li>
+<li><a href="SDL_UpdateTexture.html">SDL_UpdateTexture</a></li>
+<li><a href="SDL_UpdateYUVTexture.html">SDL_UpdateYUVTexture</a></li>
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/CategoryRender">2D Accelerated Rendering - SDL Wiki</a>
+<hr>
+</body>
+</html>
