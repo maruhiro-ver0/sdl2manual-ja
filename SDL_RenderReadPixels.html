@@ -12,16 +12,16 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_RenderReadPixels
 <hr>
 <h1>SDL_RenderReadPixels</h1>
-現在のレンダリングの対象のピクセルを読み込む
+現在のレンダリングの対象のピクセルデータを読み込む
 <h2>構文</h2>
 <code>int SDL_RenderReadPixels(SDL_Renderer* renderer, const SDL_Rect* rect, Uint32 format, void* pixels, int pitch)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_RenderReadPixels">
 <tr><td>renderer</td><td>レンダリングコンテキスト</td></tr>
 <tr><td>rect</td><td>読み込む領域の<a href="SDL_Rect.html">SDL_Rect</a>. NULLのときレンダリング対象全体</td></tr>
-<tr><td>format</td><td>ピクセルの<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>. 0のときレンダリング対象と同じ形式</td></tr>
-<tr><td>pixels</td><td>ピクセルを代入するポインタ</td></tr>
-<tr><td>pitch</td><td>ピクセルの水平方向のバイト数</td></tr>
+<tr><td>format</td><td>ピクセルデータの<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>. 0のときレンダリング対象と同じ形式</td></tr>
+<tr><td>pixels</td><td>ピクセルデータを代入するポインタ</td></tr>
+<tr><td>pitch</td><td>ピクセルデータの水平方向のバイト数</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
