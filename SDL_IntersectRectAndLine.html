@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryRect.html" title="1つ上">
+<title>SDL_IntersectRectAndLine</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRect.html">領域</a> - SDL_IntersectRectAndLine
+<hr>
+<h1>SDL_IntersectRectAndLine</h1>
+長方形と直線の交点を求める
+<h2>構文</h2>
+<code>SDL_bool SDL_IntersectRectAndLine(const SDL_Rect* rect, int* X1, int* Y1, int* X2, int* Y2)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_IntersectRectAndLine">
+<tr><td>rect</td><td>交点を求める長方形の<a href="SDL_Rect.html">SDL_Rect</a></td></tr>
+<tr><td>X1</td><td>直線の始点のX座標</td></tr>
+<tr><td>Y1</td><td>直線の始点のY座標</td></tr>
+<tr><td>X2</td><td>直線の終点のX座標</td></tr>
+<tr><td>Y2</td><td>直線の終点のY座標</td></tr>
+</table>
+<h2>戻り値</h2>
+交点があるときSDL_TRUE, ないときSDL_FALSEを戻す.
+<h2>詳細</h2>
+この関数は長方形で直線をクリップするときに使う.
+直線が長方形の中にある, または交点がない場合は, 端点の座標は変わらない.
+直線が長方形の片方または両方が交わると, 長方形でクリップされた新しい値がX1, Y1, X2, Y2に必要ならば代入される.
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_IntersectRectAndLine">SDL_IntersectRectAndLine - SDL Wiki</a>
+<hr>
+</body>
+</html>
