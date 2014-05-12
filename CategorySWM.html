@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>SDL2.0 日本語リファレンス - 環境依存ウィンドウ</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - 環境依存ウィンドウ
+<hr>
+<h1>環境依存ウィンドウ</h1>
+インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_syswm.h">SDL_syswm.h</a>
+<h2>概要</h2>
+<p>
+ここに分類される関数は, さらに踏み込んだ環境依存ウィンドウ管理タスクのためのものである.
+</p>
+<p>
+アプリケーションは, <a href="SDL_SysWMmsg.html">SDL_SysWMmsg</a>構造体を使って, ウィンドウマネージャ固有の情報を報告するイベントSDL_SYSWMEVENTにアクセスできる.
+これはSDLが扱わないウィンドウイベントが発生するといつでも報告される.
+このイベントはデフォルトでは無視されるが, <a href="SDL_EventState.html">SDL_EventState()</a>で有効にできる.
+</p>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_SYSWM_TYPE.html">SDL_SYSWM_TYPE</a></li>
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a></li>
+<li><a href="SDL_SysWMmsg.html">SDL_SysWMmsg</a></li>
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_GetWindowWMInfo.html">SDL_GetWindowWMInfo</a></li>
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/CategorySWM">Platform-specific Window Management - SDL Wiki</a>
+<hr>
+</body>
+</html>
