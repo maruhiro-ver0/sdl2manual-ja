@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryMouse.html" title="1つ上">
+<title></title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryMouse.html">マウス</a> - SDL_CreateCursor
+<hr>
+<h1>SDL_CreateCursor</h1>
+指定のビットマップデータとマスク(MSB形式)からマウスカーソルを生成する
+(注意: SDL2.0.0以降では<a href="SDL_CreateSystemCursor.html">SDL_CreateSystemCursor()</a>が使える. この関数を使えば11のシステムカーソルから選べる.)
+<h2>構文</h2>
+<code>SDL_Cursor* SDL_CreateCursor(const Uint8* data, const Uint8* mask, int w, int h, int hot_x, int hot_y)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_CreateCursor">
+<tr><td>data</td><td>カーソルの各ピクセルの色 (詳細を参照すること)</td></tr>
+<tr><td>mask</td><td>カーソルの書くピクセルのマスク (詳細を参照すること)</td></tr>
+<tr><td>w</td><td>カーソルの幅 (詳細を参照すること)</td></tr>
+<tr><td>h</td><td>カーソルの高さ (wと同じ?)</td></tr>
+<tr><td>hot_x</td><td>カーソルの左上の実際のカーソルからの相対位置のX座標???</td></tr>
+<tr><td>hot_y</td><td>カーソルの左上の実際のカーソルからの相対位置のY座標???</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき指定の引数で新しく生成されたカーソル, 失敗のときNULLを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>詳細</h2>
+<p>
+カーソルの幅(w)は8の倍数の必要がある.
+</p>
+<p>
+生成されるカーソルの黒と白は次の表に従う.
+<table border="1" summary="SDL_CreateCursor">
+<tr><th>data</th><th>mask</th><th>スクリーン上の結果</th></tr>
+<tr><td>0</td><td>1</td><td>白</td></tr>
+<tr><td>1</td><td>1</td><td>黒</td></tr>
+<tr><td>0</td><td>0</td><td>透明</td></tr>
+<tr><td>1</td><td>0</td><td>可能なら反転, 不可能なら黒</td></tr>
+</table>
+</p>
+<p>
+この関数で生成されたカーソルは<a href="SDL_FreeCursor.html">SDL_FreeCursor()</a>で解放する必要がある.
+</p>
+<p>
+色のついたカーソルが必要ならば, この関数は向いていない.
+代わりに, 通常のカーソルを<a href="SDL_ShowCursor.html">SDL_ShowCursor()</a>で隠し, メインループで<a href="SDL_Surface.html">SDL_Surface()</a>をカーソルの位置に描く必要がある.
+(訳者注: これは古い説明で, <a href="SDL_CreateColorCursor.html">SDL_CreateColorCursor()</a>を使えば可能なはず.)
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_FreeCursor.html">SDL_FreeCursor</a><br>
+<a href="SDL_SetCursor.html">SDL_SetCursor</a><br>
+<a href="SDL_ShowCursor.html">SDL_ShowCursor</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_CreateCursor">SDL_CreateCursor - SDL Wiki</a>
+<hr>
+</body>
+</html>
