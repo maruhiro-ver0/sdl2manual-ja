@@ -15,22 +15,22 @@
 条件効果のテンプレートの構造体
 <h2>フィールド</h2>
 <table border="1" summary="SDL_HapticCondition">
-<tr><td colspan="3">ヘッダ</td></tr>
+<tr><td colspan="3" align="center">ヘッダ</td></tr>
 <tr><td>Uint16</td><td>type</td><td>この構造体で扱う効果の1つ (詳細を参照すること)</td></tr>
 <tr><td><a href="SDL_HapticDirection.html">SDL_HapticDirection</a></td><td>direction</td><td>無効 (詳細を参照すること)</td></tr>
-<tr><td colspan="3">再生</td></tr>
+<tr><td colspan="3" align="center">再生</td></tr>
 <tr><td>Uint32</td><td>length</td><td>継続時間(ミリ秒)</td></tr>
 <tr><td>Uint16</td><td>delay</td><td>効果が始まるまでの待ち時間</td></tr>
-<tr><td colspan="3">トリガ</td></tr>
+<tr><td colspan="3" align="center">トリガ</td></tr>
 <tr><td>Uint16</td><td>button</td><td>効果を引き起こすボタン</td></tr>
 <tr><td>Uint16</td><td>interval</td><td>効果を再び引き起こす時間</td></tr>
-<tr><td colspan="3">条件</td></tr>
+<tr><td colspan="3" align="center">条件</td></tr>
 <tr><td>Uint16</td><td>right_sat</td><td>ジョイスティックが正の方向の場合の強さ</td></tr>
 <tr><td>Uint16</td><td>left_sat</td><td>ジョイスティックが負の方向の場合の強さ</td></tr>
 <tr><td>Sint16</td><td>right_coeff</td><td>正の方向の強さの増加速度</td></tr>
 <tr><td>Sint16</td><td>left_coeff</td><td>負の方向の強さの増加速度</td></tr>
-<tr><td>Uint16</td><td>deadband</td><td>size of the dead zone (units)?</td></tr>
-<tr><td>Sint16</td><td>center</td><td>position of the dead zone</td></tr>
+<tr><td>Uint16</td><td>deadband</td><td>不感域のサイズ</td></tr>
+<tr><td>Sint16</td><td>center</td><td>不感域の位置</td></tr>
 </table>
 <h2>詳細</h2>
 <p>

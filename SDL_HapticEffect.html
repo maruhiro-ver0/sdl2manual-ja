@@ -16,10 +16,10 @@
 <h2>フィールド</h2>
 <table border="1" summary="SDL_HapticEffect">
 <tr><td>Uint16</td><td>type</td><td>効果の種類</td></tr>
-<tr><td><a href="SDL_HapticConstant.html">SDL_HapticConstant</a></td><td>constand</td><td>固定効果</td></tr>
+<tr><td><a href="SDL_HapticConstant.html">SDL_HapticConstant</a></td><td>constand</td><td>一定効果</td></tr>
 <tr><td><a href="SDL_HapticPeriodic.html">SDL_HapticPeriodic</a></td><td>periodic</td><td>周期効果</td></tr>
 <tr><td><a href="SDL_HapticCondition.html">SDL_HapticCondition</a></td><td>condition</td><td>条件効果</td></tr>
-<tr><td><a href="SDL_HapticRamp.html">SDL_HapticRamp</a></td><td>ramp</td><td>傾斜効果</td></tr>
+<tr><td><a href="SDL_HapticRamp.html">SDL_HapticRamp</a></td><td>ramp</td><td>増減効果</td></tr>
 <tr><td><a href="SDL_HapticLeftRight.html">SDL_HapticLeftRight</a></td><td>leftright</td><td>左右効果</td></tr>
 <tr><td><a href="SDL_HapticCustom.html">SDL_HapticCustom</a></td><td>custom</td><td>カスタム効果</td></tr>
 </table>
@@ -27,13 +27,13 @@
 <p>
 この共用体に含まれる全ての構造体には次の項目がある.
 <table border="1" summary="">
-<tr><td colspan="3">再生 (この要目は全ての効果にある)</td></tr>
+<tr><td colspan="3" align="center">再生 (この要目は全ての効果にある)</td></tr>
 <tr><td>Uint32</td><td>length</td><td>継続時間(ミリ秒)</td></tr>
 <tr><td>Uint16</td><td>delay</td><td>効果が始まるまでの待ち時間</td></tr>
-<tr><td colspan="3">トリガ (この要目は全ての効果にある)</td></tr>
+<tr><td colspan="3" align="center">トリガ (この要目は全ての効果にある)</td></tr>
 <tr><td>Uint16</td><td>button</td><td>効果を引き起こすボタン</td></tr>
 <tr><td>Uint16</td><td>interval</td><td>効果を再び引き起こす時間</td></tr>
-<tr><td colspan="3">エンベロープ (この要目はconditionを除く全ての効果にある)</td></tr>
+<tr><td colspan="3" align="center">エンベロープ (この要目はconditionを除く全ての効果にある)</td></tr>
 <tr><td>Uint16</td><td>attack_length</td><td>立ち上がりの継続時間</td></tr>
 <tr><td>Uint16</td><td>attack_level</td><td>立ち上がりの強さ</td></tr>
 <tr><td>Uint16</td><td>fade_length</td><td>立ち下げの継続時間</td></tr>
@@ -59,7 +59,7 @@ SDL_HAPTIC_RAMPの継続時間はSDL_HAPTIC_INFINITYに対応していない.
 attack_lengthとfade_levelの両方が0ならば, エンベロープは使われない. どちらかが0を超えていれば使われる.
 </p>
 <p>
-固定効果のエンベロープの時間は次のようである.<br>
+一定効果のエンベロープの時間は次のようである.<br>
 <pre>
 強さ
 ^
