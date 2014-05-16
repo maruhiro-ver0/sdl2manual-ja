@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>SDL2.0 日本語リファレンス - 力覚フィードバック</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - 力覚フィードバック
+<hr>
+<h1>力覚フィードバック</h1>
+インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_haptic.h">SDL_haptic.h</a>
+<h2>概要</h2>
+<p>
+SDLハプティックサブシステムはハプティック装置(力覚装置)を扱う.
+</p>
+<p>
+基本的な使い方は次の通りである.
+<ol>
+<li>サブシステム(SDL_INIT_HAPTIC)を初期化する
+<li>ハプティック装置を開く
+<ol>
+<li><a href="SDL_HapticOpen.html">SDL_HapticOpen()</a>で番号を指定して開く
+<li><a href="SDL_HapticOpenFromJoystick.html">SDL_HapticOpenFromJoystick()</a>でジョイスティックを開く
+</ol>
+<li>効果(<a href="SDL_HapticEffect.html">SDL_HapticEffect</a>)を生成する
+<li>効果を<a href="SDL_HapticNewEffect.html">SDL_HapticNewEffect()</a>でアップロードする
+<li>効果を<a href=" SDL_HapticRunEffect.html">SDL_HapticRunEffect()</a>で再生する
+<li>(任意) 効果を<a href="SDL_HapticDestroyEffect.html">SDL_HapticDestroyEffect()</a>で解放する
+<li>ハプティック装置を<a href="SDL_HapticClose.html">SDL_HapticClose()</a>で閉じる
+</ol>
+</p>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_HapticCondition.html">SDL_HapticCondition</a></li>
+<li><a href="SDL_HapticConstant.html">SDL_HapticConstant</a></li>
+<li><a href="SDL_HapticCustom.html">SDL_HapticCustom</a></li>
+<li><a href="SDL_HapticDirection.html">SDL_HapticDirection</a></li>
+<li><a href="SDL_HapticEffect.html">SDL_HapticEffect</a></li>
+<li><a href="SDL_HapticLeftRight.html">SDL_HapticLeftRight</a></li>
+<li><a href="SDL_HapticPeriodic.html">SDL_HapticPeriodic</a></li>
+<li><a href="SDL_HapticRamp.html">SDL_HapticRamp</a></li>
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_HapticClose.html">SDL_HapticClose</a></li>
+<li><a href="SDL_HapticDestroyEffect.html">SDL_HapticDestroyEffect</a></li>
+<li><a href="SDL_HapticEffectSupported.html">SDL_HapticEffectSupported</a></li>
+<li><a href="SDL_HapticGetEffectStatus.html">SDL_HapticGetEffectStatus</a></li>
+<li><a href="SDL_HapticIndex.html">SDL_HapticIndex</a></li>
+<li><a href="SDL_HapticName.html">SDL_HapticName</a></li>
+<li><a href="SDL_HapticNewEffect.html">SDL_HapticNewEffect</a></li>
+<li><a href="SDL_HapticNumAxes.html">SDL_HapticNumAxes</a></li>
+<li><a href="SDL_HapticNumEffects.html">SDL_HapticNumEffects</a></li>
+<li><a href="SDL_HapticNumEffectsPlaying.html">SDL_HapticNumEffectsPlaying</a></li>
+<li><a href="SDL_HapticOpen.html">SDL_HapticOpen</a></li>
+<li><a href="SDL_HapticOpenFromJoystick.html">SDL_HapticOpenFromJoystick</a></li>
+<li><a href="SDL_HapticOpenFromMouse.html">SDL_HapticOpenFromMouse</a></li>
+<li><a href="SDL_HapticOpened.html">SDL_HapticOpened</a></li>
+<li><a href="SDL_HapticPause.html">SDL_HapticPause</a></li>
+<li><a href="SDL_HapticQuery.html">SDL_HapticQuery</a></li>
+<li><a href="SDL_HapticRumbleInit.html">SDL_HapticRumbleInit</a></li>
+<li><a href="SDL_HapticRumblePlay.html">SDL_HapticRumblePlay</a></li>
+<li><a href="SDL_HapticRumbleStop.html">SDL_HapticRumbleStop</a></li>
+<li><a href="SDL_HapticRumbleSupported.html">SDL_HapticRumbleSupported</a></li>
+<li><a href="SDL_HapticRunEffect.html">SDL_HapticRunEffect</a></li>
+<li><a href="SDL_HapticSetAutocenter.html">SDL_HapticSetAutocenter</a></li>
+<li><a href="SDL_HapticSetGain.html">SDL_HapticSetGain</a></li>
+<li><a href="SDL_HapticStopAll.html">DL_HapticStopAll</a></li>
+<li><a href="SDL_HapticStopEffect.html">SDL_HapticStopEffect</a></li>
+<li><a href="SDL_HapticUnpause.html">SDL_HapticUnpause</a></li>
+<li><a href="SDL_HapticUpdateEffect.html">SDL_HapticUpdateEffect</a></li>
+<li><a href="SDL_JoystickIsHaptic.html">SDL_JoystickIsHaptic</a></li>
+<li><a href="SDL_MouseIsHaptic.html">SDL_MouseIsHaptic</a></li>
+<li><a href="SDL_NumHaptics.html">SDL_NumHaptics</a></li>
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/CategoryForceFeedback">Force Feedback Support - SDL Wiki</a>
+<hr>
+</body>
+</html>
