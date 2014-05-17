@@ -25,18 +25,26 @@
 <tr><td>Uint16</td><td>button</td><td>効果を引き起こすボタン</td></tr>
 <tr><td>Uint16</td><td>interval</td><td>効果を再び引き起こす時間</td></tr>
 <tr><td colspan="3" align="center">条件</td></tr>
-<tr><td>Uint16</td><td>right_sat</td><td>ジョイスティックが正の方向の場合の強さ</td></tr>
-<tr><td>Uint16</td><td>left_sat</td><td>ジョイスティックが負の方向の場合の強さ</td></tr>
-<tr><td>Sint16</td><td>right_coeff</td><td>正の方向の強さの増加速度</td></tr>
-<tr><td>Sint16</td><td>left_coeff</td><td>負の方向の強さの増加速度</td></tr>
-<tr><td>Uint16</td><td>deadband</td><td>不感域のサイズ</td></tr>
-<tr><td>Sint16</td><td>center</td><td>不感域の位置</td></tr>
+<tr><td>Uint16[]</td><td>right_sat</td><td>ジョイスティックの正方向の強さ</td></tr>
+<tr><td>Uint16[]</td><td>left_sat</td><td>ジョイスティックの負方向の強さ</td></tr>
+<tr><td>Sint16[]</td><td>right_coeff</td><td>正方向の強さの増加速度</td></tr>
+<tr><td>Sint16[]</td><td>left_coeff</td><td>負方向の強さの増加速度</td></tr>
+<tr><td>Uint16[]</td><td>deadband</td><td>不感域のサイズ</td></tr>
+<tr><td>Sint16[]</td><td>center</td><td>不感域の位置</td></tr>
 </table>
 <h2>詳細</h2>
 <p>
-directionは現在は内部で条件として扱われている.
-条件効果は特定のメンバに3つのパラメータを持っている.
-始めにX軸を参照し, 2番目にY軸を参照し, 最後にZ軸を参照する.
+<table border="1" summary="type">
+<tr><td>SDL_HAPTIC_SPRING</td><td>効果は位置に基づく</td></tr>
+<tr><td>SDL_HAPTIC_DAMPER</td><td>効果は速度に基づく</td></tr>
+<tr><td>SDL_HAPTIC_INERTIA</td><td>効果は加速度に基づく</td></tr>
+<tr><td>SDL_HAPTIC_FRICTION</td><td>効果は運動に基づく</td></tr>
+</table>
+</p>
+<p>
+directionは内部で条件として扱われている.
+条件のメンバ(right_sat, left_sat, right_coeff, leftcoeff, deadband, center)には3つのパラメータがある(要素数3の配列である).
+[0]がX軸, [1]がY軸, [2]がZ軸を表す.
 右は軸の正の方向を表し, 左は軸の負の方向を表す.
 方向の正と負は<a href="SDL_HapticDirection.html">SDL_HapticDirection</a>の図を参照すること.
 </p>
