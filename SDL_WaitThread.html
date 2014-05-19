@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryThread.html" title="1つ上">
+<title>SDL_WaitThread</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryThread.html">スレッド</a> - SDL_WaitThread
+<hr>
+<h1>SDL_WaitThread</h1>
+スレッドが終了するまで待つ
+<h2>構文</h2>
+<code>void SDL_WaitThread(SDL_Thread* thread, int* status)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_WaitThread">
+<tr><td>thread</td><td><a href="SDL_CreateThread.html">SDL_CreateThread()</a>で開始されたスレッドのSDL_Threadポインタ</td></tr>
+<tr><td>status</td><td>スレッド関数がreturnで戻した値を代入する整数の変数へのポインタ</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+スレッドの終了を待つ.
+デタッチされていないスレッドは, この関数で消滅するまで(「ゾンビ」のように)残る.
+これを行わないとリソースリークを引き起こす.
+</p>
+<p>
+この関数でスレッドが消滅すると, そのSDL_Threadは使えなくなるので再び参照してはならない.
+1つのスレッドの終了を<a href="SDL_WaitThread.html">SDL_WaitThread()</a>で待つのは, 別の1つのスレッドのみにしたほうがよい.
+</p>
+<p>
+スレッド関数の戻り値は, statusがNULLでなければ, statusの領域に書き込まれる.
+</p>
+<p>
+デタッチされたスレッドに対して<a href="SDL_WaitThread.html">SDL_WaitThread()</a>を呼んではならない.
+<a href="SDL_WaitThread.html">SDL_WaitThread()</a>か<a href="SDL_DetachThread.html">SDL_DetachThread()</a>のどちらかであり, 両方を使ってはならない. さもなくば, その動作は未定義のものになる.
+</p>
+<p>
+引数をNULLとしても安全である.
+その場合は無視される.
+</p>
+<p>
+threadポインタはこの関数で解放されるため, その後は使えないので注意すること.
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_CreateThread.html">SDL_CreateThread</a><br>
+<a href="SDL_DetachThread.html">SDL_DetachThread</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_WaitThread">SDL_WaitThread - SDL Wiki</a>
+<hr>
+</body>
+</html>
