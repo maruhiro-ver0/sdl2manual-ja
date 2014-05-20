@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>SDL2.0 日本語リファレンス - </title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - 同期プリミティブ
+<hr>
+<h1>同期プリミティブ</h1>
+インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_mutex.h">SDL_mutex.h</a>
+<h2>概要</h2>
+<p>
+この分類の関数は, マルチスレッドプログラミングのためのスレッド同期プリミティブ(同期基本機構)を提供するものである.
+</p>
+<p>
+SDLでは3つのプリミティブが使える.
+<ul>
+<li>mutex(相互排他)
+<li>セマフォ
+<li>条件変数
+</ul>
+</p>
+<p>
+SDLのmutexは再帰的なmutexとして実装されているので, 同じmutexを呼ぶことでロックとアンロックをネストすることができる.
+</p>
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_CondBroadcast.html">SDL_CondBroadcast</a></li>
+<li><a href="SDL_CondSignal.html">SDL_CondSignal</a></li>
+<li><a href="SDL_CondWait.html">SDL_CondWait</a></li>
+<li><a href="SDL_CondWaitTimeout.html">SDL_CondWaitTimeout</a></li>
+<li><a href="SDL_CreateCond.html">SDL_CreateCond</a></li>
+<li><a href="SDL_CreateMutex.html">SDL_CreateMutex</a></li>
+<li><a href="SDL_CreateSemaphore.html">SDL_CreateSemaphore</a></li>
+<li><a href="SDL_DestroyCond.html">SDL_DestroyCond</a></li>
+<li><a href="SDL_DestroyMutex.html">SDL_DestroyMutex</a></li>
+<li><a href="SDL_DestroySemaphore.html">SDL_DestroySemaphore</a></li>
+<li><a href="SDL_LockMutex.html">SDL_LockMutex</a></li>
+<li><a href="SDL_SemPost.html">SDL_SemPost</a></li>
+<li><a href="SDL_SemTryWait.html">SDL_SemTryWait</a></li>
+<li><a href="SDL_SemValue.html">SDL_SemValue</a></li>
+<li><a href="SDL_SemWait.html">SDL_SemWait</a></li>
+<li><a href="SDL_SemWaitTimeout.html">SDL_SemWaitTimeout</a></li>
+<li><a href="SDL_TryLockMutex.html">SDL_TryLockMutex</a></li>
+<li><a href="SDL_UnlockMutex.html">SDL_UnlockMutex</a></li>
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/CategoryMutex">Thread Synchronization Primitives - SDL Wiki</a>
+<hr>
+</body>
+</html>
