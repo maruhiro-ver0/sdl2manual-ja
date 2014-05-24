@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>SDL2.0 日本語リファレンス - バイト順と交換</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - バイト順と交換
+<hr>
+<h1>バイト順と交換</h1>
+インクルードファイル: <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_endian.h">SDL_endian.h</a>
+<h2>概要</h2>
+<p>
+ここにはエンディアンを扱う関数が分類されている.
+</p>
+<p>
+エンディアンは2つ - ビッグとリトルがある.
+<ul>
+<li>SDL_LIL_ENDIANのバイト順は1234で, 下位の桁の数字が先頭に来る
+<li>SDL_LIL_ENDIANのバイト順は4321で, 上位の桁の数字が先頭に来る
+</ul>
+</p>
+<p>
+例: DE AD BE EF というバイト列があるとする.
+<dl>
+<dt>リトルエンディアンとして読むと, 下位のバイトから読むので, 次の値になる:
+<dd>0xEFBEADDE 
+<dt>ビッグエンディアンとして読むと, 上位のバイトから読むので, 次の値になる:
+<dd>0xDEADBEEF
+</dl>
+</p>
+<p>
+SDL_BYTEORDERはコンパイル時のバイト順を表すマクロである.
+<ul>
+<li>SDL_BYTEORDERがSDL_LIL_ENDIANならばバイト順はx86やx64などのリトルエンディアンである.
+<li>SDL_BYTEORDERがSDL_BIG_ENDIANならばバイト順はPowerPCなどのビッグエンディアンである.
+</ul>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_Swap16.html">SDL_Swap16</a></li>
+<li><a href="SDL_Swap32.html">SDL_Swap32</a></li>
+<li><a href="SDL_Swap64.html">SDL_Swap64</a></li>
+<li><a href="SDL_SwapBE16.html">SDL_SwapBE16</a></li>
+<li><a href="SDL_SwapBE32.html">SDL_SwapBE32</a></li>
+<li><a href="SDL_SwapBE64.html">SDL_SwapBE64</a></li>
+<li><a href="SDL_SwapFloat.html">SDL_SwapFloat</a></li>
+<li><a href="SDL_SwapFloatBE.html">SDL_SwapFloatBE</a></li>
+<li><a href="SDL_SwapFloatLE.html">SDL_SwapFloatLE</a></li>
+<li><a href="SDL_SwapLE16.html">SDL_SwapLE16</a></li>
+<li><a href="SDL_SwapLE32.html">SDL_SwapLE32</a></li>
+<li><a href="SDL_SwapLE64.html">SDL_SwapLE64</a></li>
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/CategoryEndian">Byte Order and Byte Swapping - SDL Wiki</a>
+<hr>
+</body>
+</html>
