@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryEndian.html" title="1つ上">
+<title>SDL_GetPowerInfo</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryPower.html">電源管理</a> - SDL_GetPowerInfo
+<hr>
+<h1>SDL_GetPowerInfo</h1>
+現在の電源の詳細を得る
+<h2>構文</h2>
+<code>SDL_PowerState SDL_GetPowerInfo(int* secs, int* pct)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_GetPowerInfo">
+<tr><td>secs</td><td>バッテリーの残り秒数. NULLを渡すと無視できる. -1のとき値を特定できない, またはバッテリーで動作していない</td></tr>
+<tr><td>pct</td><td>残バッテリーの割合(0～100). バッテリーの残り秒数. NULLを渡すと無視できる. -1のとき値を特定できない, またはバッテリーで動作していない</td></tr>
+</table>
+<h2>戻り値</h2>
+バッテリーの状態を戻す.
+値は<a href="SDL_PowerState.html">SDL_PowerState</a>を参照すること.
+状態がわからない, またはバッテリーで動作していない場合は, 両方の引数に-1が代入される.
+<h2>詳細</h2>
+<p>
+バッテリー状態を絶対的な真実ととらえてはならない.
+バッテリー(特に衰えたバッテリー)は不安定で, 報告された値はハードウェアの報告を元にした推定量でしかない.
+古くなったバッテリーは報告よりも早く電力を失ったり, 20%ほど残っていると報告されても完全に失われているなどということは珍しいことではない.
+<p>
+</p>
+バッテリーの状態は常に変化している.
+電源状態を得るときは, 定期的にこの関数を呼ぶ必要がある. そして数秒の間安定するまでは変化を無視したほうがよいかもしれない.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_GetPowerInfo">SDL_GetPowerInfo - SDL Wiki</a>
+<hr>
+</body>
+</html>
