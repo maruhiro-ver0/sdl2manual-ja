@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryFileSystem.html" title="1つ上">
+<title>SDL_GetPrefPath</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryFileSystem.html">ファイルシステム</a> - SDL_GetBasePath
+<hr>
+<h1>SDL_GetPrefPath</h1>
+「プリファレンスディレクトリ」を得る. そこにアプリケーションは個人のファイル(設定やゲームの保存など)を書き込む. このディレクトリはユーザとアプリケーションごとに固有である.
+<h2>構文</h2>
+<code>char* SDL_GetPrefPath(const char* org, const char* app)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_GetPrefPath">
+<tr><td>org</td><td>組織名</td></tr>
+<tr><td>app</td><td>アプリケーション名</td></tr>
+</table>
+<h2>戻り値</h2>
+<p>
+環境に依存した記述のユーザディレクトリのUTF-8文字列を戻す. 問題がある(ディレクトリの作成に失敗など)のときNULLを戻す.
+</p>
+<p>
+パス名の末尾には, パスの区切り文字(Windowsならば'\', 他の環境ならば'/')があることが保障されている.
+</p>
+<p>
+戻されたポインタはアプリケーションが管理する必要がある.
+使った後はポインタに対して<a href="SDL_free.html">SDL_free()</a>を呼ぶこと.
+</p>
+<h2>詳細</h2>
+<p>
+この関数が戻した場所のみ安全にファイルを書き込めるとみなすべきである.
+(書き込めるであろう<a href="SDL_GetBasePath.html">SDL_GetBasePath()</a>やその親ディレクトリには書き込むべきでない.)
+</p>
+<p>
+orgとappはディレクトリの名前の一部になる. 次のルールに従うべきである.
+<ul>
+<li>この関数を使う全てのアプリケーションは, (大文字小文字も)同じorgを使う.
+<li>アプリケーションごとに違うappを使う. 一度決めたappは変更しない.
+<li>UTF-8でエンコードする限りUnicodeは使える. しかし...
+<li>...使うのはアルファベット, 数字, 空白のみにする. "Game Name 2: Bad Guy's Revenge!" のように記号を含めるのは避ける. "Game Name 2" で十分である.
+</ul>
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_GetBasePath.html">SDL_GetBasePath</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_GetPrefPath">SDL_GetPrefPath - SDL Wiki</a>
+<hr>
+</body>
+</html>
