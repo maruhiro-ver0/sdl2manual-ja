@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_image">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>始めに</title>
+</head>
+<body>
+<a href="index.html">SDL_image</a> - 始めに
+<hr>
+<h1>2.始めに</h1>
+<p>
+既にSDL_imageを入手し, システムにインストールしていることを前提とする.
+SDL_imageのソースコードアーカイブに含まれるREADME文書は, コンパイルとインストールの手助けになるだろう.
+少なくとも, SDL_imageが使う画像ライブラリのソースコードのありかを知ることができる.
+他のほとんどの形式はSDL_imageに組み込まれている.
+</p>
+<p>
+一般的なUNIX-like環境と同様に, 以下の組み合わせでインストールする:
+</p>
+<p>
+./configure<br>
+make<br>
+make install<br>
+</p>
+<p>
+SDL_imageは以下の形式の読み込みと展開に対応している:
+</p>
+<p>
+<dl>
+<dt>TGA</dt>
+<dd>TrueVision Targa (.tgaである必要がある)</dd>
+<dt>BMP</dt>
+<dd>Windowsビットマップ (.bmp)</dd>
+<dt>PNM</dt>
+<dd>Portable Anymap (.pnm)<br>.pbm = Portable BitMap (2値)<br>.pgm = Portable GreyMap (256グレースケール)<br>.ppm = Portable PixMap (フルカラー)<br></dd>
+<dt>XPM</dt>
+<dd>ソースコードに直接 #include で組み込める X11 Pixmap (.xpm)<br>2値画像のXBM(X11 Bitmap)とは別の形式である.</dd>
+<dt>XCF</dt>
+<dd>GIMPの保存形式 (.xcf) (XCF = eXperimental Computing Facility?)<br>この形式は常に変化している. よって今日までGIMPのXCFに対応したライブラリは存在しない. このローダーでもXCFファイルは高い確率で失敗する. GIMPで読み込んだ後に対応した画像形式に変換するほうがよい.</dd>
+<dt>PCX</dt>
+<dd>ZSoft IBM PC ペイントブラシ (.pcx)</dd>
+<dt>GIF</dt>
+<dd>CompuServe Graphics Interchange Format (.gif) </dd>
+<dt>JPG</dt>
+<dd>Joint Photographic Experts Group JFIF 形式 (.jpg または .jpeg) </dd>
+<dt>TIF</dt>
+<dd>Tagged Image File Format (.tif または .tiff) </dd>
+<dt>LBM</dt>
+<dd>
+Interleaved Bitmap (.lbm または .iff) FORM : ILBM または PBM(圧縮ビットマップ)<br>HAM6, HAM8, そして 24bit形式には対応していない.</dd>
+<dt>PNG</dt>
+<dd>Portable Network Graphics (.png)</dd>
+</dl>
+サンプルコードが必要ならば, 次の場所でダウンロードできる:<br>
+<a href="http://www.jonatkins.org/SDL_image/">http://www.jonatkins.org/SDL_image/</a>
+</p>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/SDL_image/docs/SDL_image_2.html#SEC2">2.Getting Started</a>
+<hr>
+</body>
+</html>
