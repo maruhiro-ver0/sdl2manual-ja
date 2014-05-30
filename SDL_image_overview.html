@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_image">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>概要</title>
+</head>
+<body>
+<a href="index.html">SDL_image</a> - 概要
+<hr>
+<h1>1.概要</h1>
+<h2>私について少し</h2>
+<p>
+今この文章(の原文)を書いている私は, レイセオンに勤めるプログラマである.
+私はSolaris, Linux, WindowsのC/C++で, 通信, ネットワーク, GUI, その他タスク一般など様々な種類のプログラムを作成している.
+</p>
+<p>
+気軽に連絡して欲しい: JonathanCAtkins@gmail.com
+</p>
+<p>
+irc.freenode.netの#SDLチャネルのLIMとしてIRCもよく使っている.
+</p>
+<h2>なぜあなたに必要か?</h2>
+<p>
+画像はあらゆるユーザインターフェースの基礎である.
+カラフルで愉快な姿の画像は, 子供の頃の私たちが, 巨大なエイリアンを打ち落としドット絵のお姫様を救おうとしていたとき, 何時間も見ていたものである.
+今こそ私たちが思い出に残る画像を作る番だ.
+このすばらしい画像をSDLのプログラムに取り込み, そして画像を自在に扱い, 何より様々な形式に困らないためにはどうすればよいか?
+SDL_imageはこれらを全て簡単にしてくれる.
+この文書は絵を描く助けにはならない.
+しかし, あなたのゲームに画像を取り込むための機能に関する情報は得られる.
+さあ今すぐ正義の棒人間を作るのだ. 誰かがあなたの美術の能力の無さを埋めてくれるかもしれない.
+少なくともあなたのコードに画像を取り込むために苦労する必要はなくなるだろう.
+</p>
+<p>
+以下はSDL_imageのソースアーカイブのREADMEを正確さのために修正したものである.
+</p>
+<h2>README</h2>
+<p>
+SDL_image 1.2
+</p>
+<p>
+このライブラリの最新バージョンは以下の場所で入手できる:<br>
+SDL_image Homepage
+</p>
+<p>
+これは様々な形式の画像をSDLサーフェイスとして読み込むシンプルなライブラリである.
+このライブラリは, ICO(アイコン), CUR(カーソル), BMP, PNM(PPM/PGM/PBM), XPM, LBM(IFF ILBM), PCX, GIF, JPEG, PNG, TGA, TIFF, そしてXVサムネイル形式に対応している.
+</p>
+<p>
+<pre>
+API:
+#include "SDL_image.h"
+
+	SDL_Surface *IMG_Load(const char *file);
+または
+	SDL_Surface *IMG_Load_RW(SDL_RWops *src, int freesrc);
+または
+	SDL_Surface *IMG_LoadTyped_RW(SDL_RWops *src, int freesrc, char *type);
+</pre>
+</p>
+<p>
+typeは形式を示す文字列である(例: "PNG", "pcx").
+IMG_Load_RWではTGA画像は読み込めないので注意すること.
+</p>
+<p>
+<pre>
+XPM画像からサーフェイスを生成するCのソースコード:
+
+	SDL_Surface *IMG_ReadXPMFromArray(char **xpm);
+
+サンプルプログラム'showimage'はshowimage.cにある.
+</pre>
+</p>
+<p>
+<pre>
+JPEGに対応するためにはJPEGライブラリが必要である:
+    IJG Homepage
+PNGに対応するためにはPNGライブラリが必要である:
+    PNG Homepage
+  そしてZlibライブラリも必要である.
+    Zlib Homepage
+TIFFに対応するためにはTIFFライブラリが必要である:
+    SGI TIFF FTP Site
+</pre>
+</p>
+<p>
+もしこれらのライブラリが標準でない場所にインストールされているならば, configureスクリプトにこれらのパスを追加できる.<br>
+例: sh ./configure CPPFLAGS="-I/somewhere/include" LDFLAGS="-L/somewhere/lib"<br>
+共有ライブラリを正常に動作させるために, /somewhere/libをLD_LIBRARY_PATHに追加する必要があるかもしれない.
+</p>
+<p>
+このライブラリはGNU Library General Public Licenseのもとにある. 詳細は"COPYING"を参照すること.
+当然, 画像ローダーは別のライセンスのもとにある. それぞれの画像ローダーのソースファイルを参照すること.
+</p>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/SDL_image/docs/SDL_image_1.html#SEC1">1.Overview</a>
+<hr>
+</body>
+</html>
