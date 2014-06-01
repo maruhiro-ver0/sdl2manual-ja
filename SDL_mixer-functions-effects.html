@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions.html" title="1つ上">
+<title>効果</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - 4.6効果
+<hr>
+<h1>4.6 効果</h1>
+これらの関数は効果のためにある.
+効果は効果音だけではない.
+効果は全てSDL_mixerに組み込まれた, またはあなたが作成した後処理のルーチンである.
+効果はそれぞれのチャネル, または最終的に音楽を含む全てのチャネルをミキシングされたストリームに適応できる.
+<h2>登録</h2>
+<ol>
+<li><a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>
+<li><a href="Mix_UnregisterEffect.html">Mix_UnregisterEffect</a>
+<li><a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a>
+<li><a href="Mix_SetPostMix.html">Mix_SetPostMix</a>
+</ol>
+<h2>組み込み</h2>
+<ol>
+<li><a href="Mix_SetPanning.html">Mix_SetPanning</a>
+<li><a href="Mix_SetDistance.html">Mix_SetDistance</a>
+<li><a href="Mix_SetPosition.html">Mix_SetPosition</a>
+<li><a href="Mix_SetReverseStereo.html">Mix_SetReverseStereo</a>
+</ol>
+組み込まれた処理: Mix_SetPanning, Mix_SetPosition, Mix_SetDistance, Mix_SetReverseStereoはMIX_EFFECTSMAXSPEEDが定義されていれば全て環境変数の影響を受ける.
+もし環境変数が定義されていれば, 処理速度を上げるために, これらの処理はより多くのメモリを使うか効果の質を下げる.
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_75.html#SEC75">4.6 Effects</a>
+<hr>
+</body>
+</html>
