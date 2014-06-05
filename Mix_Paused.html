@@ -5,31 +5,36 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
 <link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-samples.html" title="1つ上">
-<title></title>
+<link rel="parent" href="SDL_mixer-functions-channels.html" title="1つ上">
+<title>Mix_Paused</title>
 </head>
 <body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-channels.html">4.3チャネル</a> - 
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-channels.html">4.3チャネル</a> - Mix_Paused
 <hr>
-<h1></h1>
+<h1>Mix_Paused</h1>
 <p>
-<code>
-</code>
+<code>int Mix_Paused(int channel)</code>
 </p>
 <p>
 <dl>
-<dt></dt><dd></dd>
-<dt></dt><dd></dd>
+<dt>channel</dt><dd>一時停止中か否か調査するチャネル. -1のとき一時停止中のチャネル数を求める</dd>
 </dl>
 </p>
 <p>
+channelが一時停止中か否かを調べる.
 </p>
 <p>
+メモ: チャネルが一時停止後に終了したかはチェックしない. これは奇妙に思えるかもしれない.
+</p>
+<p>
+戻り値: 一時停止中でなければ0, 引数に-1を渡したならば一時停止中のチャネル数, チャネルを指定して一時停止中ならば1を戻す.
 </p>
 <h2>参照</h2>
-<a href=".html"></a>
+<a href="Mix_Playing.html">Mix_Playing</a>,
+<a href="Mix_Pause.html">Mix_Pause</a>,
+<a href="Mix_Resume.html">Mix_Resume</a>
 <h2>原文へのリンク</h2>
-<a href=""></a>
+<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_39.html#SEC39">4.3.14 Mix_Paused</a>
 <hr>
 </body>
 </html>
