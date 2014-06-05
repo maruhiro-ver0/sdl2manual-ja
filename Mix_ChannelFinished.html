@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions-channels.html" title="1つ上">
+<title>Mix_ChannelFinished</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-channels.html">4.3チャネル</a> - Mix_ChannelFinished
+<hr>
+<h1>Mix_ChannelFinished</h1>
+<p>
+<code>void Mix_ChannelFinished(void (*channel_finished)(int channel))</code>
+</p>
+<p>
+<dl>
+<dt>channel_finished</dt><dd>チャネルでの再生が終了とき呼ばれる関数</dd>
+</dl>
+</p>
+<p>
+チャネルでの再生が終了したとき, 指定したchannel_finished関数が呼ばれる.
+引数のchannelは終了したチャネル番号である.
+<p>
+</p>
+メモ: コールバック関数内でSDL_mixerの関数やSDL_LockAudioを決して呼んではならない.
+</p>
+<h2>参照</h2>
+<a href="Mix_HaltChannel.html">Mix_HaltChannel</a>,
+<a href="Mix_ExpireChannel.html">Mix_ExpireChannel</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_37.html#SEC37">4.3.12 Mix_ChannelFinished</a>
+<hr>
+</body>
+</html>
