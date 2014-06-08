@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-types.html" title="1つ上">
+<title>Mix_MusicType</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-types.html">5.型</a> - Mix_MusicType
+<hr>
+<h1>Mix_MusicType</h1>
+<p>
+<code>
+<pre>
+typedef enum {
+    MUS_NONE,
+    MUS_CMD,
+    MUS_WAV,
+    MUS_MOD,
+    MUS_MID,
+    MUS_OGG,
+    MUS_MP3, /* SMPEGを使用 */
+    MUS_MP3_MAD,
+    MUS_FLAC
+} Mix_MusicType;
+</pre>
+</code>
+</p>
+<p>
+<a href="Mix_GetMusicType.html">Mix_GetMusicType</a>の戻り値はこの列挙体の値である.
+音楽が再生中でなければMUS_NONEが戻される.
+外部プレイヤーで再生中ならばMUS_CMDが戻される.
+その他は名前の通りである.
+</p>
+<h2>参照</h2>
+<a href="Mix_GetMusicType.html">Mix_GetMusicType</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_87.html#SEC87">5.3 Mix_MusicType</a>
+<hr>
+</body>
+</html>

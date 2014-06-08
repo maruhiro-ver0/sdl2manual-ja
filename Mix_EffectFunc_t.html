@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-types.html" title="1つ上">
+<title>Mix_EffectFunc_t</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-types.html">5.型</a> - Mix_EffectFunc_t
+<hr>
+<h1>Mix_EffectFunc_t</h1>
+<p>
+<code>typedef void (*Mix_EffectFunc_t)(int chan, void *stream, int len, void *udata);</code>
+</p>
+<p>
+<dl>
+<dt>channel</dt><dd>エフェクトを登録するチャネル番号. MIX_CHANNEL_POSTとするとミキシングの後の処理</dd>
+<dt>stream</dt><dd>現在処理中のサンプリング音声のバッファ</dd>
+<dt>len</dt><dd>streamのバイト長</dd>
+<dt>udata</dt><dd>エフェクト処理関数を登録するとき<a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>に渡したユーザデータのポインタ</dd>
+</dl>
+</p>
+<p>
+これはエフェクト関数のプロトタイプである.
+これらの関数はサンプリング音声チャンクにエフェクト処理を適用するとき使われる.
+チャネルでサンプリング音声を再生すると, 登録されたエフェクト関数が呼ばれる.
+それぞれのエフェクトでlenバイトのstreamが読み込まれ修正される.
+udataは, チャネルにエフェクト関数を登録するとき設定され, エフェクトの状態を保持するために使える.
+</p>
+<h2>参照</h2>
+<a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>,
+<a href="Mix_UnregisterEffect.html">Mix_UnregisterEffect</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_89.html#SEC89">5.5 Mix_EffectFunc_t</a>
+<hr>
+</body>
+</html>

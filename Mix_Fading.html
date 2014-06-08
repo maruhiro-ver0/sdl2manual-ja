@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-types.html" title="1つ上">
+<title>Mix_Fading</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-types.html">5.型</a> - Mix_Fading
+<hr>
+<h1>Mix_Fading</h1>
+<p>
+<code>
+<pre>
+typedef enum {
+    MIX_NO_FADING,
+    MIX_FADING_OUT,
+    MIX_FADING_IN
+} Mix_Fading;
+</pre>
+</code>
+</p>
+<p>
+<a href="Mix_FadingMusic.html">Mix_FadingMusic</a>と<a href="Mix_FadingChannel.html">Mix_FadingChannel</a>の戻り値はこの列挙体の値である.
+問い合わせたチャネルがフェーディング中でなければMIX_NO_FADINGが戻される.
+その他は名前の通りである.
+</p>
+<h2>参照</h2>
+<a href="Mix_FadingChannel.html">Mix_FadingChannel</a>,
+<a href="Mix_FadingMusic.html">Mix_FadingMusic</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_88.html#SEC88">5.4 Mix_Fading</a>
+<hr>
+</body>
+</html>
