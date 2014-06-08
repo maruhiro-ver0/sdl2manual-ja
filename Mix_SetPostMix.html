@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions-effects.html" title="1つ上">
+<title>Mix_SetPostMix</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-effects.html">4.6エフェクト</a> - Mix_SetPostMix
+<hr>
+<h1>Mix_SetPostMix</h1>
+<p>
+<code>void Mix_SetPostMix(void (*mix_func)(void *udata, Uint8 *stream, int len), void *arg)</code>
+</p>
+<p>
+<dl>
+<dt>mix_func</dt><dd>後処理を行う関数のポインタ. NULLのとき後処理を削除する</dd>
+<dt>arg</dt><dd>
+特に同時に複数のチャネルを扱えるように作る場合は, 処理関数が状態データを保存する場所として使うとよい.
+必要なければNULLにできる.
+</dd>
+</dl>
+</p>
+<p>
+ミキシング後のエフェクト処理関数mix_funcをフックする.
+読み込んだデータを単に表示する処理や, ストリームにエコーをつける処理などを行える.
+多くの処理関数は状態データの領域を確保する必要がある. その場合はargポインタに保存するとよい.
+この処理関数はオーディオデバイスを閉じる, またはmix_funcをNULLにするまで使い終えることはない.
+この関数は1つのミキシング後の処理関数しか設定できない.
+<a href="Mix_RegisterEffect.html">Mix_RegisterEffect(MIX_CHANNEL_POST, mix_func, NULL, arg)</a>を使えば複数のミキシング後処理関数を使える.
+このミキシング後処理関数は, <a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>で登録した全てのミキシング処理関数の後に呼ばれる.
+</p>
+<h2>参照</h2>
+<a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_79.html#SEC79">4.6.4 Mix_SetPostMix</a>
+<hr>
+</body>
+</html>
