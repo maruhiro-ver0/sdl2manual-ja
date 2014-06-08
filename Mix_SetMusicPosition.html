@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
+<title>Mix_SetMusicPosition</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_SetMusicPosition
+<hr>
+<h1>Mix_SetMusicPosition</h1>
+<p>
+<code>int Mix_SetMusicPosition(double position)</code>
+</p>
+<p>
+<dl>
+<dt>position</dt><dd>再生を始める位置</dd>
+</dl>
+</p>
+<p>
+再生を開始する位置を設定する. 値の意味は音楽形式によって異なる. 以下の一覧の音楽のみ有効である.
+<dl>
+<dt>MOD</dt><dd>再生モジュールによってUint16にキャストされパターン番号として使われる. 0にすると巻き戻しと同じ動作となる</dd>
+<dt>OGG</dt><dd>音楽の先頭からposition秒の位置に移動する</dd>
+<dt>MP3</dt><dd>ストリームの現在からposition秒の位置へ移動する. 必要ならばこの関数の前に<a href="Mix_RewindMusic.html">Mix_RewindMusic</a>を呼ぶのがよいかもしれない. 負の数は無効なので巻き戻すことはできない.</dd>
+</dl>
+</p>
+<p>
+戻り値: 成功のとき0, この関数に対応していない形式のときは-1
+</p>
+<h2>参照</h2>
+<a href="Mix_FadeInMusicPos.html">Mix_FadeInMusicPos</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_65.html#SEC65">4.5.13 Mix_SetMusicPosition</a>
+<hr>
+</body>
+</html>

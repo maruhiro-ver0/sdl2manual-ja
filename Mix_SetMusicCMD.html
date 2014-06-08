@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
+<title>Mix_SetMusicCMD</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_SetMusicCMD
+<hr>
+<h1>Mix_SetMusicCMD</h1>
+<p>
+<code>int Mix_SetMusicCMD(const char *command)</code>
+</p>
+<p>
+<dl>
+<dt>command</dt><dd>
+システムの音楽を再生するコマンド.
+コマンドラインのファイル名を除く完全なコマンドである必要がある. ファイル名はその後に追加される.
+NULLのとき外部コマンドの使用を止め, 内部の音楽再生機能に戻す
+</dd>
+</dl>
+</p>
+<p>
+音楽の再生で使うコマンドラインのプレイヤーを設定する
+再生中の音楽は全て停止する.
+再生する音楽ファイルは<a href="Mix_LoadMUS.html">Mix_LoadMUS</a>で設定する. このファイル名はコマンドラインの最後に追加される.
+これにより複数の音楽ファイルを再生できる.
+このコマンドは, 停止のときSIGTERM, 一時停止のときSIGSTOP, 一時停止解除のときSIGCONTを受け取る.
+コマンドのプログラムはSDL_mixerの関数が正しく動作するようにこれらのシグナルを処理する必要がある.
+外部プレイヤーの場合は, <a href="Mix_VolumeMusic.html">Mix_VolumeMusic</a>は無効で, <a href="Mix_GetError.html">Mix_GetError</a>はエラーコードが設定される.
+音楽のボリュームは対応していればプレイヤーのコマンドで設定する必要がある.
+音楽プレイヤーのプロセスが終了したとき再びコマンドを呼ぶことでループする.
+コマンドによる音楽の再生はフォークされたプロセスで行われる.
+NULLを設定すると内部音楽プレイヤーを使う.
+</p>
+<p>
+メモ: 外部で再生された音楽はSDL_mixerではミキシングできず, 後処理フックでは扱えない.
+</p>
+<p>
+メモ: ドライバがオーディオデバイスの複数オープンに対応していない場合, 外部コマンドによる音楽の再生はできない. SDL_mixerがすでにサンプリング音声のためにオーディオデバイスを開いているためである.
+</p>
+<p>
+メモ: コマンドのない環境もあるため注意する必要がある.
+</p>
+<p>
+戻り値: 成功のとき0, メモリがないなど失敗のとき-1
+</p>
+<h2>参照</h2>
+<a href="Mix_PlayMusic.html">Mix_PlayMusic</a>,
+<a href="Mix_VolumeMusic.html">Mix_VolumeMusic</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_66.html#SEC66">4.5.14 Mix_SetMusicCMD</a>
+<hr>
+</body>
+</html>
