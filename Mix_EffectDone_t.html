@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-types.html" title="1つ上">
+<title>Mix_EffectDone_t</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-types.html">5.型</a> - Mix_EffectDone_t
+<hr>
+<h1>Mix_EffectDone_t</h1>
+<p>
+<code>typedef void (*Mix_EffectDone_t)(int chan, void *udata);</code>
+</p>
+<p>
+<dl>
+<dt>channel</dt><dd>エフェクトを登録するチャネル番号. MIX_CHANNEL_POSTとするとミキシングの後の処理</dd>
+<dt>udata</dt><dd>エフェクト処理関数を登録するとき<a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>に渡したユーザデータのポインタ</dd>
+</dl>
+</p>
+<p>
+これはエフェクト関数のプロトタイプである.
+この関数はチャネルが再生を終えた, 停止した, 解放されたとき呼ばれる.
+登録を削除した場合もこの関数は呼ばれる.
+その場合, エフェクト関数は内部の変数のリセットやメモリの解放を行うとよいかもしれない.
+この呼び出しの後, エフェクト関数は解放される.
+</p>
+<h2>参照</h2>
+<a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>,
+<a href="Mix_UnregisterEffect.html">Mix_UnregisterEffect</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_90.html#SEC90">5.6 Mix_EffectDone_t</a>
+<hr>
+</body>
+</html>
