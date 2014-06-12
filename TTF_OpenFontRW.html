@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_OpenFontRW</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-management.html">3.2管理</a> - TTF_OpenFontRW
+<hr>
+<h1>TTF_OpenFontRW</h1>
+<p>
+<code>TTF_Font *TTF_OpenFontRW(SDL_RWops *src, int freesrc, int ptsize)</code>
+</p>
+<p>
+<dl>
+<dt>src</dt><dd>読み込み元の<a href="SDL_RWops.html">SDL_RWops</a>のポインタ. フォントはここから読み込まれる</dd>
+<dt>freesrc</dt><dd>0でないときsrcを使い終わると自動的に閉じ解放される. 致命的でないエラーが発生した場合も同じ</dd>
+<dt>ptsize</dt><dd>フォントのポイントサイズ(72DPI). これは基本的には高さのピクセル数に変換される</dd>
+</dl>
+</p>
+<p>
+フォントを使うためにsrcからptsizeサイズとして読み込む.
+これは実際には <code>TTF_OpenFontIndexRW(src, freesrc, ptsize, 0)</code> である.
+この関数ではTTFとFONファイルを読み込める. 
+<a href="SDL_RWops.html">SDL_RWops</a>の使い方は詳しく説明しないが, ほとんどのデータ元から読み込むことができる.
+</p>
+<p>
+メモ: srcはNULLをチェックしない. 扱いには気をつけること.
+</p>
+<p>
+戻り値: <a href="TTF_Font.html">TTF_Font</a>へのポインタ. 失敗のときNULL
+</p>
+<h2>参照</h2>
+<a href="TTF_OpenFontIndexRW.html">TTF_OpenFontIndexRW</a>,
+<a href="TTF_OpenFont.html">TTF_OpenFont</a>,
+<a href="TTF_CloseFont.html">TTF_CloseFont</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_15.html#SEC15">3.2.2 TTF_OpenFontRW</a>
+<hr>
+</body>
+</html>

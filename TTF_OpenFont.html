@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_OpenFont</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-management.html">3.2管理</a> - TTF_OpenFont
+<hr>
+<h1>TTF_OpenFont</h1>
+<p>
+<code>TTF_Font *TTF_OpenFont(const char *file, int ptsize)</code>
+</p>
+<p>
+<dl>
+<dt>file</dt><dd>読み込むフォントのファイル名</dd>
+<dt>ptsize</dt><dd>フォントのポイントサイズ(72DPI). これは基本的には高さのピクセル数に変換される</dd>
+</dl>
+</p>
+<p>
+フォントを使うためにfileをptsizeサイズとして読み込む.
+これは実際には <code>TTF_OpenFontIndex(file, ptsize, 0)</code> である.
+この関数ではTTFとFONファイルを読み込める.
+</p>
+<p>
+戻り値: <a href="TTF_Font.html">TTF_Font</a>へのポインタ. 失敗のときNULL
+</p>
+<h2>参照</h2>
+<a href="TTF_OpenFontIndex.html">TTF_OpenFontIndex</a>,
+<a href="TTF_OpenFontRW.html">TTF_OpenFontRW</a>,
+<a href="TTF_CloseFont.html">TTF_CloseFont</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_14.html#SEC14">3.2.1 TTF_OpenFont</a>
+<hr>
+</body>
+</html>
