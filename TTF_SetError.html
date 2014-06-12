@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-general.html" title="1つ上">
+<title>TTF_SetError</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-general.html">3.1一般</a> - TTF_SetError
+<hr>
+<h1>TTF_SetError</h1>
+<p>
+<code>void TTF_SetError(const char *fmt, ...)</code>
+</p>
+<p>
+これは実際には<a href="SDL_SetError.html">SDL_SetError</a>のマクロで, <a href="TTF_GetError.html">TTF_GetError</a>(または<a href="SDL_GetError.html">SDL_GetError</a>)で獲得するエラーメッセージを設定する.
+この関数はprintfのように振舞うが, メッセージの長さにSDL_ERRBUFIZE(1024)バイトの制限がある. 
+フォーマット形式は以下のもののみ対応する: %s, %d, %f, %p
+フラグ, 精度, 桁数には対応していない. 詳細はSDLのドキュメントに書かれている.
+</p>
+<h2>参照</h2>
+<a href="TTF_GetError.html">TTF_GetError</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_11.html#SEC11">3.1.5 TTF_SetError</a>
+<hr>
+</body>
+</html>
