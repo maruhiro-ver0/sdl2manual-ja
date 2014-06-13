@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_GetFontStyle</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_GetFontStyle
+<hr>
+<h1>TTF_GetFontStyle</h1>
+<p>
+<code>int TTF_GetFontStyle(TTF_Font *font)</code>
+</p>
+<p>
+<dl>
+<dt>font</dt><dd>スタイルを得る読み込まれたフォント</dd>
+</dl>
+</p>
+<p>
+読み込まれたフォントのレンダリングスタイルを得る.
+</p>
+<p>
+メモ: この関数にNULLを渡すと異常終了する.
+</p>
+<p>
+戻り値: 次のスタイルを表すビットマスクの論理和:<br>
+TTF_STYLE_BOLD<br>
+TTF_STYLE_ITALIC<br>
+TTF_STYLE_UNDERLINE<br>
+TTF_STYLE_STRIKETHROUGH<br>
+スタイルが設定されていなければTTF_STYLE_NORMALを戻す.
+</p>
+<h2>参照</h2>
+<a href="TTF_SetFontStyle.html">TTF_SetFontStyle</a>,
+<a href="SDL_ttf-defines.html">5.定義</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_21.html#SEC21">3.3.2 TTF_GetFontStyle</a>
+<hr>
+</body>
+</html>
