@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_FontDescent</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_FontDescent
+<hr>
+<h1>TTF_FontDescent</h1>
+<p>
+<code>int TTF_FontDescent(const TTF_Font *font)</code>
+</p>
+<p>
+<dl>
+<dt>font</dt><dd>ディセント(ベースラインの下部の高さ)を得るフォント</dd>
+</dl>
+</p>
+<p>
+フォントの全グリフの中のディセントの最大ピクセル数を得る.
+これはベースラインからフォントの下までの距離と言い換えられる.
+これはグリフのmaxyメトリックと組み合わせ, 画面にグリフをコピーする領域のy座標を求めることで, グリフを個々にbottomからの相対位置に描画するとき使える.
+</p>
+<p>
+<code>
+rect.y = bottom - TTF_FontDescent(font) - glyph_metric.maxy;
+</code>
+</p>
+<p>
+メモ: この関数にNULLを渡すと異常終了する.
+</p>
+<p>
+戻り値: 指定のフォントの全てのグリフの中で最大のディセントのピクセル数
+</p>
+<h2>参照</h2>
+<a href="TTF_FontHeight.html">TTF_FontHeight</a>,
+<a href="TTF_FontAscent.html">TTF_FontAscent</a>,
+<a href="TTF_FontLineSkip.html">TTF_FontLineSkip</a>,
+<a href="TTF_GlyphMetrics.html">TTF_GlyphMetrics</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_31.html#SEC31">3.3.12 TTF_FontDescent</a>
+<hr>
+</body>
+</html>
