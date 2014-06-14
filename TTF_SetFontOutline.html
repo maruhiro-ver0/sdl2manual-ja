@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_SetFontOutline</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_SetFontOutline
+<hr>
+<h1>TTF_SetFontOutline</h1>
+<p>
+<code>void TTF_SetFontOutline(TTF_Font *font, int outline)</code>
+</p>
+<p>
+<dl>
+<dt>font</dt><dd>アウトラインサイズを得るフォント</dd>
+<dt>outline</dt><dd>設定するアウトラインサイズのピクセル数. 0のときアウトライン設定を解除する</dd>
+</dl>
+</p>
+<p>
+フォントのアウトライン幅ピクセル数を設定する.
+</p>
+<p>
+メモ: この関数にNULLを渡すと異常終了する.
+</p>
+<p>
+メモ: この関数を呼ぶと, アウトラインサイズが変わらない場合でも, 以前のレンダリングされたグリフの内部キャッシュが消去される.
+まず<a href="TTF_GetFontOutline.html">TTF_GetFontOutline</a>を呼んで現在のアウトラインサイズをチェックしたほうがよい.
+</p>
+<h2>参照</h2>
+<a href="TTF_GetFontOutline.html">TTF_GetFontOutline</a>,
+<a href="TTF_SetFontStyle.html">TTF_SetFontStyle</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_24.html#SEC24">3.3.5 TTF_SetFontOutline</a>
+<hr>
+</body>
+</html>
