@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="index.html#SDL_net" title="1つ上">
+<title>概要</title>
+</head>
+<body>
+<a href="index.html#SDL_net">目次</a> - 1.概要
+<hr>
+<h1>1.概要</h1>
+<h2>私について少し</h2>
+<p>
+今この文章(の原文)を書いている私は, レイセオンに勤めるプログラマである.
+私はSolaris, Linux, WindowsのC/C++で, 通信, ネットワーク, GUI, その他タスク一般など様々な種類のプログラムを作成している.
+ネットワークのコードも仕事と自由時間で約8年間書いている.
+ネットワークプログラミングについて学ぶべきことはいくつもある.
+しかし, 最も混沌とした情報転送のチャネルとしか呼べないような通信するものを作る楽しみは時として無視するには惜しい.
+私が少しコーディングしたSDL_netは完全にプロジェクトと呼べるものになった.
+SDL_netはネットワークプログラミングをBSDソケットをそのまま使うよりも簡単で移植しやすいものにする.
+自分のコードを最終的には移植しやすく小規模で煩わしくないものにできたことを幸せに思っている.
+SDL_netは単純すぎると思われるときがある. しかし最終的には, SDL_netでできないことは, するだけの価値がないと判断した.
+もちろん価値が低いと思われるものについても行うつもりであり, そうしている.
+例えばWebサーバライブラリやIRCクライアントライブラリである.
+しかし, 何であれ私はそれらを作ることを楽しんでいる!
+ゲームの作成でも, 学校の課題でも, つまらないアプリケーションを作るときでさえ, 私の意見ではほとんどの場合でSDL_netはよい選択となりうる.
+もしマルチキャストやTCP/IPv4以外のネットワークに興味があるならば, SDL_netは適さない.
+それ以外の人は, ぜひ楽しく, そして今までプレーできなかった人とも遊べるような移植しやすいネットワークゲームをもっと作って欲しい.
+私も日の目を見る前の構想のドキュメントとアプリケーションとゲームを楽しみながら書き続けるつもりだ.
+</p>
+<p>
+気軽に連絡して欲しい: JonathanCAtkins@gmail.com
+</p>
+<p>
+irc.freenode.netの#SDLチャネルのLIMとしてIRCもよく使っている.
+</p>
+<p>
+以下はSDL_netのソースアーカイブのREADMEである.
+</p>
+<h2>README</h2>
+<p>
+SDL_net 1.2
+</p>
+<p>
+このライブラリの最新版は次の場所にある:<br>
+<a href="http://www.libsdl.org/projects/SDL_net/">SDL_net Homepage</a>
+</p>
+<p>
+これはSDLと共に使用するネットワークライブラリである.
+GNU Library General Public License の下で利用できる.
+APIはSDL_net.hファイルに書かれている.
+このライブラリはUNIX, Windows, and BeOS. MacOSに対応している.
+</p>
+<p>
+デモプログラムはチャットのクライアントとサーバである. チャットクライアントには以下のシンプルなGUIライブラリが必要である:<br>
+<a href="http://www.libsdl.org/projects/GUIlib/">GUIlib Homepage</a><br>
+チャットクライアントはサーバにTCPで接続し, 自分自身を登録する.
+サーバは接続中のクライアントの一覧を送り返す. そして他のクライアントの接続状態を更新し続ける.
+クライアントのそれぞれの行のテキストはUDPで送られたそれぞれのクライアントである.
+</p>
+<p>
+チャットプログラムを書きたいかは重要ではなく, ネットワークライブラリの基本的な使い方のデモであることに注意して欲しい.
+</p>
+<p>
+楽しんでください!
+</p>
+<p>
+-Sam Lantinga と Roy Wood
+</p>
+<p>
+<a href="http://www.ecst.csuchico.edu/~beej/guide/net/">Beej's Guide to Network Programming</a>も参考にするとよいかもしれない. ここにはBSDソケットを使ったネットワークプログラミングの解説がある.
+その知識はSDL_netにも応用できる.
+</p>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_1.html#SEC1">1. Overview</a>
+<hr>
+</body>
+</html>
