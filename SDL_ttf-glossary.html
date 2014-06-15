@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="index.html#SDL_mixer" title="1つ上">
+<title>用語</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - 7.用語
+<hr>
+<h1>7.用語</h1>
+<h2>バイト順(Byte Order)</h2>
+<p>
+ビッグエンディアン(MSB)とは, 最上位バイトがメモリの先に来ることを意味する.
+SparcやMotorola 68kはMSB順である.
+(SDLではSDL_BYTEORDER==SDL_BIG_ENDIANと定義される.)
+</p>
+<p>
+リトルエンディアン(LSB)とは, 最下位バイトがメモリの先に来ることを意味する.
+IntelやAMDはLSB順である.
+(SDLではSDL_BYTEORDER==SDL_LIL_ENDIANと定義される.)
+</p>
+<h2>LATIN1</h2>
+<p>
+Latin-1とは, 0から127までの文字を定義したASCIIを拡張したものである.
+Latin-1では国際的な記号が後ろに追加され, 255までの文字が定義されている.
+</p>
+<p>
+<a href="http://www.unicode.org/charts/PDF/U0080.pdf">ISO 8859-1 (Latin-1) Unicode Table (pdf)</a>
+</p>
+<p align="center">
+<img src="latin-1.png" alt="LATIN-1">
+</p>
+<h2>ヒンティング(Hinting)</h2>
+<p>
+フォントヒンティングとは, アウトラインフォントをビットマップにして画面に表示するときに与えられる調整の方法である.
+画面の解像度が低いとき, アンチエイリアスを使う場合も使わない場合も, 人にとって明瞭で読みやすいテキストを表示するためにはヒンティングは重要である.
+</p>
+<h2>カーニング(Kerning)</h2>
+<p>
+カーニングとは, 文字間の空白を調整する処理のことで, これは個々の2つの文字によって異なる.
+ある文字は他の文字より間隔が狭くなることもある.
+カーニングを行わなければ, メトリックのadvanceを使うと全ての文字の組み合わせで空白は一定になる.
+この場合, 文字間の空白は最大のものが必要になる.
+現在SDL_ttfでは文字間のカーニングを得る方法はない. しかし, 個々にグリフをレンダリングしないで文字列をレンダリングするならば正しいカーニングが行われるはずである.
+</p>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_58.html#SEC58">6. Glossary</a>
+<hr>
+</body>
+</html>
