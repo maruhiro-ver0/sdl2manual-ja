@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-render.html" title="1つ上">
+<title>TTF_RenderGlyph_Blended</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-render.html">3.4レンダラー</a> - TTF_RenderGlyph_Blended
+<hr>
+<h1>TTF_RenderGlyph_Blended</h1>
+<p>
+<code>SDL_Surface *TTF_RenderGlyph_Blended(TTF_Font *font, const Uint16 *text, SDL_Color fg)</code>
+</p>
+<p>
+<dl>
+<dt>font</dt><dd>グリフをレンダリングするフォント</dd>
+<dt>ch</dt><dd>レンダリングするUNICODE文字</dd>
+<dt>fg</dt><dd>レンダリングするテキストの色. ピクセルは透明色とこの色でブレンドされ, アンチエイリアスされたグリフが描かれる</dd>
+</p>
+<p>
+UNICODE文字chを, fontと色fgで新しく生成したサーフェイスに混合(Blended)モードでレンダリングする.
+呼び出し側(あなたのことだ!)が戻されたサーフェイスを解放しなければならない.
+</p>
+<p>
+メモ: この関数のfontにNULLを渡すと異常終了する.
+</p>
+<p>
+戻り値: 生成された<a href="SDL_Surface.html">SDL_Surface</a>. グリフがフォントにないなど失敗のときNULL
+</p>
+<h2>参照</h2>
+<a href="TTF_RenderGlyph_Solid.html">TTF_RenderGlyph_Solid</a>,
+<a href="TTF_RenderGlyph_Shaded.html">TTF_RenderGlyph_Shaded</a>,
+<a href="TTF_RenderText_Blended.html">TTF_RenderText_Blended</a>,
+<a href="TTF_RenderUTF8_Blended.html">TTF_RenderUTF8_Blended</a>,
+<a href="TTF_GlyphMetrics.html">TTF_GlyphMetrics</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_54.html#SEC54">3.4.12 TTF_RenderGlyph_Blended</a>
+<hr>
+</body>
+</html>
