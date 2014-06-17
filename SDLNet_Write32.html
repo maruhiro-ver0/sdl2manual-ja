@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_net-functions-general.html" title="1つ上">
+<title>SDLNet_Write32</title>
+</head>
+<body>
+<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-general.html">3.1一般</a> - SDLNet_Write32
+<hr>
+<h1>SDLNet_Write32</h1>
+<p>
+<code>void SDLNet_Write32(Uint32 value, void *area)</code>
+</p>
+<p>
+<dl>
+<dt>value</dt><dd>バッファに書き込む32bitの値</dd>
+<dt>area</dt><dd>値を書き込むデータバッファへのポインタ</dd>
+</dl>
+</p>
+<p>
+16bit(32bitシステムならlong型)をデータバッファにネットワーク順に書き込む.
+これはネットワーク上で2つのシステムが対話するときバイト順の相違を避ける助けになる.
+値の符号の有無は影響しない.
+ポインタはバッファの先頭でなくてもよいが, 少なくとも現在のポインタを含む4byteの空きが必要である.
+</p>
+<h2>参照</h2>
+<a href="SDLNet_Read32.html">SDLNet_Read32</a>,
+<a href="SDLNet_Write16.html">SDLNet_Write16</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_12.html#SEC12">3.1.6 SDLNet_Write32</a>
+<hr>
+</body>
+</html>
