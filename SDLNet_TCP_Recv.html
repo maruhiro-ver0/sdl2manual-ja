@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_net-functions-tcp_sockets.html" title="1つ上">
+<title>SDLNet_TCP_Recv</title>
+</head>
+<body>
+<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-tcp_sockets.html">3.3TCPソケット</a> - SDLNet_TCP_Recv
+<hr>
+<h1>SDLNet_TCP_Recv</h1>
+<p>
+<code>int SDLNet_TCP_Recv(TCPsocket sock, void *data, int maxlen)</code>
+</p>
+<p>
+<dl>
+<dt>sock</dt><dd>利用可能な接続された<a href="TCPsocket.html">TCPsocket</a></dd>
+<dt>data</dt><dd>sockから受信したデータを書き込むバッファへのポインタ</dd>
+<dt>maxlen</dt><dd>読み込んだデータを書き込むdataの最大長(バイト数)</dd>
+</dl>
+</p>
+<p>
+ソケットsockから, <em>ちょうど</em>maxlenバイトのデータを受信し, dataが示すメモリに書き込む.
+この関数はサーバのソケットでは使えない.
+エラーまたは接続が閉じられない限り, maxlenバイトのバッファを読み込む.
+相手の送信より多く読もうとすると, 要求の長さが満たされるか相手が切断するまで待つ.
+アプリケーションによっては1byteずつ受信する必要がある. 例えば, 送信側がテキストをまとめて送る場合でも, 受信側は1行ずつ読みたいだろう.
+この場合は, 複数の行や1行に満たないテキストが無秩序に含まれるテキストを読む代わりに, 改行するためのコードを自分自身で見つけたいはずだ.
+</p>
+<p>
+戻り値: 受信したバイト数.
+エラーが発生した, またはリモート側が接続を閉じた場合は0以下
+</p>
+<h2>参照</h2>
+<a href="SDLNet_TCP_Send.html">SDLNet_TCP_Send</a>,
+<a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept</a>,
+<a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open</a>,
+<a href="SDLNet_TCP_GetPeerAddress.html">SDLNet_TCP_GetPeerAddress</a>,
+<a href="SDLNet_TCP_Close.html">SDLNet_TCP_Close</a>,
+<a href="TCPsocket.html">TCPsocket</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_24.html#SEC24">3.3.6 SDLNet_TCP_Recv</a>
+<hr>
+</body>
+</html>
