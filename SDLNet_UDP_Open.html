@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_net-functions-udp_sockets.html" title="1つ上">
+<title>SDLNet_UDP_Open</title>
+</head>
+<body>
+<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-udp_sockets.html">3.4UDPソケット</a> - SDLNet_UDP_Open
+<hr>
+<h1>SDLNet_UDP_Open</h1>
+<p>
+<code>UDPsocket SDLNet_UDP_Open(Uint16 port)</code>
+</p>
+<p>
+<dl>
+<dt>port</dt><dd>
+UDPパケットを受信するポート番号 (ネイティブのバイト順).
+ほとんどのサーバは使うポート番号がわかっているので, クライアントは簡単にサーバと通信できる.
+この値を0にすると, 使われていない不特定の番号を開くことができる. これはほとんどの場合UDPパケットをここから送信するために使う.
+</dd>
+</dl>
+</p>
+<p>
+UDPパケットの送信かつ/または受信のためにソケットを開く.
+portが0でなければその番号が使われ, 0のとき自動的に付けられたポート番号を開く.
+TCPソケットとは違い, このソケットは接続にリモートホストのIPを必要としない. UDPポートはTCPポートとは違い, 実際には接続しないためである.
+このソケットは, 単に生成すればその後は直接送受信できるようになる.
+</p>
+<p>
+戻り値: 成功のとき利用可能な<a href="UDPsocket.html">UDPsocket</a>. ソケットを生成できない, またはportが0でないとき要求したポートを割り当てられないなど失敗のときNULL
+</p>
+<p>
+サーバだけでなくクライアントも特定のポートを開くことができる.
+しかし, 指定のポートはサーバなどの他のプロセスが既に使っていることがある.
+そのような場合はソケットを開けない. そしてプログラムはどうすることもできなくなるだろう. よって, ポート番号として0を渡して, 空いた番号を使うほうがよい.
+そうすればクライアントは常にポートを使える.
+クライアントはサーバに返すポートを知らせることができ, サーバはどこに返すかを知るためには単に受け取ったパケットを見ればよい.
+</p>
+<h2>参照</h2>
+<a href="SDLNet_UDP_Close.html">SDLNet_UDP_Close</a>,
+<a href="UDPsocket.html">UDPsocket</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_26.html#SEC26">3.4.1 SDLNet_UDP_Open</a>
+<hr>
+</body>
+</html>
