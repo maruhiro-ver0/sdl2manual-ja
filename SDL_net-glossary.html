@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="index.html#SDL_net" title="1つ上">
+<title>用語</title>
+</head>
+<body>
+<a href="index.html#SDL_net">目次</a> - 6.用語
+<hr>
+<h1>6.用語</h1>
+<h2>バイト順</h2>
+<p>
+ネットワークバイト順とは, ビッグエンディアン(MSB)とも呼ばれ, 最上位バイトがメモリの先に来ることを意味する.
+SparcやMotorola 68kはMSB順である.
+(SDLではSDL_BYTEORDER==SDL_BIG_ENDIANと定義される.)
+</p>
+<p>
+リトルエンディアン(LSB)とは, 最下位バイトがメモリの先に来ることを意味する.
+IntelやAMDはLSB順である.
+(SDLではSDL_BYTEORDER==SDL_LIL_ENDIANと定義される.)
+</p>
+<p>
+例えばネットワークアドレスの 1.2.3.4 は常に { 0x01 0x02 0x03 0x04 } の順序で格納される.
+</p>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_56.html#SEC56">6. Glossary</a>
+<hr>
+</body>
+</html>
