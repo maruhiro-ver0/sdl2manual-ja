@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_net-functions-socket_sets.html" title="1つ上">
+<title>SDLNet_DelSocket</title>
+</head>
+<body>
+<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-socket_sets.html">3.6ソケットセット</a> - SDLNet_DelSocket
+<hr>
+<h1>SDLNet_DelSocket</h1>
+<p>
+<code>int SDLNet_DelSocket(SDLNet_SocketSet set, SDLNet_GenericSocket sock)</code><br>
+<code>int SDLNet_TCP_DelSocket(SDLNet_SocketSet set, TCPsocket sock)</code><br>
+<code>int SDLNet_UDP_DelSocket(SDLNet_SocketSet set, UDPsocket sock)</code>
+</p>
+<p>
+<dl>
+<dt>set</dt><dd>ソケットセットから削除するソケット</dd>
+<dt>sock</dt><dd>setから削除するソケット</dd>
+</dl>
+</p>
+<p>
+ソケットをソケットセットから削除する.
+ソケットセットで監視しているソケットを閉じる前に使う必要がある.
+この関数はソケットを閉じない.
+TCPまたはUDPソケットで適切なマクロを呼ぶ必要がある.
+汎用ソケット関数はTCPとUDPのマクロを呼んでいる.
+</p>
+<p>
+戻り値: 成功のときset内のソケットの数, 失敗のとき-1
+</p>
+<h2>参照</h2>
+<a href="SDLNet_AddSocket.html">SDLNet_AddSocket</a>,
+<a href="SDLNet_FreeSocketSet.html">SDLNet_FreeSocketSet</a>,
+<a href="SDLNet_SocketSet.html">SDLNet_SocketSet</a>,
+<a href="UDPsocket.html">UDPsocket</a>,
+<a href="TCPsocket.html">TCPsocket</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_45.html#SEC45">3.6.4 SDLNet_DelSocket</a>
+<hr>
+</body>
+</html>
