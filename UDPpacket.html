@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_net-types.html" title="1つ上">
+<title>UDPpacket</title>
+</head>
+<body>
+<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-types.html">4.型</a> - UDPpacket
+<hr>
+<h1>UDPpacket</h1>
+<p>
+<code>
+<pre>
+typedef struct {
+    int channel;          /* パケットの送信/受信チャネル */
+    Uint8 *data;          /* パケットデータ */
+    int len;              /* パケットデータの長さ */
+    int maxlen;           /* データバッファの長さ */
+    int status;           /* 送信後の状態 */
+    IPaddress address;    /* 受信/送信したパケットの元/先アドレス */
+} UDPpacket;
+</pre>
+</code>
+</p>
+<p>
+<dl>
+<dt>channel</dt><dd>
+このパケットの(ソフトウェア)チャネル番号.
+これはパケットの優先順位としても使われる.
+チャネルが割り当てられていないとき-1
+</dd>
+<dt>data</dt><dd>
+このパケットのデータ. これが主役である
+</dd>
+<dt>len</dt><dd>
+dataの意味のあるバイト数
+</dd>
+<dt>maxlen</dt><dd>
+データバッファのサイズだが, 意味のある長さより長くてもよい.
+これは送信側のパケット生成のみで使われる.
+</dd>
+<dt>status</dt><dd>
+送信したバイト数. エラーのとき-1.
+これは受信パケットでは使われない
+</dd>
+<dt>address</dt><dd>
+送信で使われる解決された<a href="IPaddress.html">IPaddress</a>, または受信したパケットの送信元
+</dd>
+</dl>
+</p>
+<p>
+この構造体は<a href="UDPsockets.html">UDPsockets</a>送受信で使われる.
+パケットの送受信設定と状態を追跡する助けにもなる.
+チャネルは優先順位付けやパケットデータの種類分けを助けるためにある.
+</p>
+<h2>参照</h2>
+<a href="SDL_net-functions-udp_packets.html">UDPパケット関数</a>,
+<a href="UDPsocket.html">UDPsocket</a>,
+<a href="IPaddress.html">IPaddress</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_52.html#SEC52">4.4 UDPpacket</a>
+<hr>
+</body>
+</html>
