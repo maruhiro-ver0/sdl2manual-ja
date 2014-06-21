@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_net-functions-udp_sockets.html" title="1つ上">
+<title>SDLNet_UDP_Send</title>
+</head>
+<body>
+<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-udp_sockets.html">3.4UDPソケット</a> - SDLNet_UDP_Send
+<hr>
+<h1>SDLNet_UDP_Send</h1>
+<p>
+<code>int SDLNet_UDP_Send(UDPsocket sock, int channel, UDPpacket *packet)</code>
+</p>
+<p>
+<dl>
+<dt>sock</dt><dd><a href="UDPsocket.html">UDPsocket</a></dd>
+<dt>channel</dt><dd>パケットを送信するチャネル</dd>
+<dt>packet</dt><dd>送信するパケット</dd>
+</dl>
+</p>
+<p>
+packetを指定のsockソケットを使って, 指定のchannelまたはパケットのアドレスに送信する.
+channelが-1でなければ, パケットはチャネルにバインドされた全てのアドレスに送信される.
+ソケットsockのチャネルが送り先にバインドされていなければ, パケットはどこへも送信されない!
+channelが-1ならば, 送り先としてパケットのアドレスが使われる.
+<em>パケットのフィールドlenに送信するパケットの長さを設定することを忘れてはならない!</em>
+メモ: packet->channelにはこの関数に渡したチャネルが設定される.
+メモ: パケットの最大サイズは, 中間経路のMTU(Maximum Transfer Unit)で制限される.
+小さいもので250byte(一部のPPP), 大きいもので1500byte(イーサネット)になりうる.
+パケットの制限を超えたものは断片化され, 断片が失われるとパケット全体を破棄しなければならなくなり, 通信の信頼性が低下する.
+</p>
+<p>
+戻り値: 送信した送信先の数. 失敗のとき0. チャネルは複数の送信先を指定できる. その場合は複数のパケットを送信するので, 成功のとき常に1を戻すとみなしてはならない.
+残念ながら, チャネルにバインドされた送信先の数を得る方法はない.
+よって, チャネルにバインドしたとき記憶するか, 0を戻したとき全てのチャネルで失敗したとみなすしかない.
+</p>
+<h2>参照</h2>
+<a href="SDLNet_UDP_Bind.html">SDLNet_UDP_Bind</a>,
+<a href="SDLNet_UDP_SendV.html">SDLNet_UDP_SendV</a>,
+<a href="SDLNet_UDP_Recv.html">SDLNet_UDP_Recv</a>,
+<a href="SDLNet_UDP_RecvV.html">SDLNet_UDP_RecvV</a>,
+<a href="UDPpacket.html">UDPpacket</a>,
+<a href="UDPsocket.html">UDPsocket</a>
+<h2>原文へのリンク</h2>
+<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_31.html#SEC31">3.4.6 SDLNet_UDP_Send</a>
+<hr>
+</body>
+</html>
