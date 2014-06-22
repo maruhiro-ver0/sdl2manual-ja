@@ -19,6 +19,20 @@
 <table border="1" summary="SDL_CloseAudioDevice">
 <tr><td>dev</td><td><a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>で開いたオーディオデバイスのID</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+extern SDL_AudioSpec want;
+SDL_AudioDeviceID devid = SDL_OpenAudioDevice(NULL, 0, &want, NULL, 0);
+if (devid > 0) {
+    SDL_PauseAudioDevice(devid, 0);
+    SDL_Delay(5000);  // オーディオコールバックを5秒間実行させる
+    SDL_CloseAudioDevice(devid);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 アプリケーションは必要がなくなった開かれたオーディオデバイスを閉じなければならない.

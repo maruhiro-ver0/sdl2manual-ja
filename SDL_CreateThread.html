@@ -24,6 +24,70 @@
 <h2>戻り値</h2>
 成功のとき新しいスレッドオブジェクトへの不透明ポインタ(opaque pointer), 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include &lt;stdio.h&gt;
+#include "SDL_thread.h"
+#include "SDL_timer.h"
+
+int TestThread(void *ptr);
+
+int main(int argc, char *argv[])
+{
+    SDL_Thread *thread;
+    int         threadReturnValue;
+
+    printf("\nSDL_CreateThreadの簡単なテスト:");
+
+    // Simply create a thread
+    thread = SDL_CreateThread(TestThread, "TestThread", (void *)NULL);
+
+    if (NULL == thread) {
+        printf("\nSDL_CreateThread 失敗: %s\n", SDL_GetError());
+    } else {
+        SDL_WaitThread(thread, &threadReturnValue);
+        printf("\nスレッドの戻り値: %d", threadReturnValue);
+    }
+
+    return 0;
+}
+
+// とても簡単なスレッド - 50ms間隔で0から9までカウントする
+int TestThread(void *ptr)
+{
+    int cnt;
+
+    for (cnt = 0; cnt &lt; 10; ++cnt) {
+        printf("\nスレッドカウンタ: %d", cnt);
+        SDL_Delay(50);
+    }
+
+    return cnt;
+}
+</pre>
+</code>
+</p>
+<p>
+出力:
+<code>
+<pre>
+SDL_CreateThreadの簡単なテスト:
+スレッドカウンタ: 0
+スレッドカウンタ: 1
+スレッドカウンタ: 2
+スレッドカウンタ: 3
+スレッドカウンタ: 4
+スレッドカウンタ: 5
+スレッドカウンタ: 6
+スレッドカウンタ: 7
+スレッドカウンタ: 8
+スレッドカウンタ: 9
+スレッドの戻り値: 10
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 <a href="SDL_CreateThread.html">SDL_CreateThread()</a>は, グローバルメモリ, シグナルハンドラ, ファイルディスクリプタ等の全てを親と共有する新しいスレッドを生成し, 関数fnにvoidポインタのdataを渡し実行する.

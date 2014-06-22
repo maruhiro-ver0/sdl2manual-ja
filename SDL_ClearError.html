@@ -13,6 +13,18 @@
 <hr>
 <h1>SDL_ClearError</h1>
 エラーメッセージを消去する
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+const char *error = SDL_GetError();
+if (*error) {
+    printf("SDL_Error : %s\n", error);
+    SDL_ClearError();
+}
+</pre>
+<code>
+</p>
 <h2>構文</h2>
 <code>void SDL_ClearError(void)</code>
 <h2>関連項目(関数)</h2>

@@ -27,6 +27,20 @@
 <tr><td>SDL_AudioFilter[10]</td><td>filters</td><td>フィルタリスト (内部で使用)</td></tr>
 <tr><td>int</td><td>filter_index</td><td>現在の変換関数 (内部で使用)</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<pre>
+// 1024 ステレオ 48000Hzのサンプルフレームバッファを, 32bit浮動小数点から16bit整数に変換する
+SDL_AudioCVT cvt;
+SDL_BuildAudioCVT(&cvt, AUDIO_F32, 2, 48000, AUDIO_S16, 2, 48000);
+SDL_assert(cvt.needed); // 明らかにこれは必要である
+cvt.len = 1024 * 2 * 4;  // 1024 ステレオ 32bit浮動小数点のサンプルフレームバッファ
+cvt.buf = (Uint8 *) SDL_malloc(cvt.len * cvt.len_mult);
+// ここで32bit浮動小数点のデータをcvt.dataに読み込む
+SDL_ConvertAudio(cvt);
+// cvt.bufにはcvt.len_cvtバイトの変換されたデータが書き込まれている
+</pre>
+</p>
 <h2>詳細</h2>
 <p>
 <a href="SDL_AudioCVT.html">SDL_AudioCVT</a>は音声データを異なる形式に変換するために使う.

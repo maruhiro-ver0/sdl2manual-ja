@@ -24,6 +24,83 @@
 <h2>戻り値</h2>
 成功のときタイマID, 失敗のとき0を戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* タイマを開始する; 下のコールバックは時間が経過すると実行される */
+
+delay = (33 / 10) * 10;  /* 10ミリ秒単位で切り捨てる */
+my_timer_id = SDL_AddTimer(delay, my_callbackfunc, my_callback_param);
+
+...
+
+Uint32 my_callbackfunc(Uint32 interval, void *param)
+{
+    SDL_Event event;
+    SDL_UserEvent userevent;
+
+    /* この例では, コールバックでSDL_USEREVENTイベントをキューに入れている.
+    このコールバック関数は一定の周期で再び呼ばれる */
+
+    userevent.type = SDL_USEREVENT;
+    userevent.code = 0;
+    userevent.data1 = NULL;
+    userevent.data2 = NULL;
+
+    event.type = SDL_USEREVENT;
+    event.user = userevent;
+
+    SDL_PushEvent(&event);
+    return(interval);
+}
+</pre>
+</code>
+</p>
+<p>
+userevent.data1に実行する関数のアドレス, userevent.data2にその引数を与え, イベントループでそれを扱うと, SDLのマルチスレッドの問題を避けられる.
+<br>
+<code>
+<pre>
+/* 上のコードと同じ */
+Uint32 my_callbackfunc(Uint32 interval, void *param)
+{
+    SDL_Event event;
+    SDL_UserEvent userevent;
+
+    /* この例では, コールバックでSDL_USEREVENTイベントをキューに入れている.
+    このコールバック関数は一定の周期で再び呼ばれる */
+
+    userevent.type = SDL_USEREVENT;
+    userevent.code = 0;
+    userevent.data1 = &my_function;
+    userevent.data2 = param;
+
+    event.type = SDL_USEREVENT;
+    event.user = userevent;
+
+    SDL_PushEvent(&event);
+    return(interval);
+}
+
+/* イベントループ */
+SDL_Event event;
+while (SDL_PollEvent (&event))
+{
+    switch(event.type)
+    {
+        case SDL_USEREVENT: {
+            /* タイマでこの関数を呼びたいところだが, マルチスレッドの問題のためできない */
+            void (*p) (void*) = event.user.data1;
+            p(event.user.data2);
+            break;
+        }
+        /* ... */
+    }
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数を使う場合, <a href="SDL_Init.html">SDL_Init()</a>にSDL_INIT_TIMERを渡している必要がある.
@@ -33,7 +110,7 @@
 コールバック関数が0を戻すと, タイマはキャンセルされる.
 </p>
 <p>
-コールバック関数は別スレッドで実行される. メインスレッドでタイマコールバックを処理する方法が必要ならば<a href="https://wiki.libsdl.org/SDL_AddTimer#Code_Examples">サンプルコード</a>を参照すること.
+コールバック関数は別スレッドで実行される. メインスレッドでタイマコールバックを処理する方法が必要ならばサンプルコードを参照すること.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_RemoveTimer.html">SDL_RemoveTimer</a><br>

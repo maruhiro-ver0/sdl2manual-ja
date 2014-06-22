@@ -22,6 +22,40 @@
 <h2>戻り値</h2>
 新しいセマフォを戻す. 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+セマフォの典型的な使い方:
+<code>
+<pre>
+SDL_atomic_t done;
+SDL_sem *sem;
+
+SDL_AtomicSet(&done, 0);
+sem = SDL_CreateSemaphore(0);
+.
+.
+Thread A:
+    while (!SDL_AtomicGet(&done)) {
+        add_data_to_queue();
+        SDL_SemPost(sem);
+    }
+
+Thread B:
+    while (!SDL_AtomicGet(&done)) {
+        SDL_SemWait(sem);
+        if (data_available()) {
+            get_data_from_queue();
+        }
+    }
+.
+.
+SDL_AtomicSet(&done, 1);
+SDL_SemPost(sem);
+wait_for_threads();
+SDL_DestroySemaphore(sem);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数は新しいセマフォを生成し, initial_valueの値で初期化する.
 セマフォの待機操作でアトミック(不可分)にセマフォの値を1減算する. もしセマフォの値が0ならば待機する.

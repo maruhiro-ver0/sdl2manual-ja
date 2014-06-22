@@ -24,6 +24,49 @@
 <h2>戻り値</h2>
 成功のときレンダリングコンテキスト, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+
+int main(int argc, char *argv[]) {
+    SDL_Window *win = NULL;
+    SDL_Renderer *renderer = NULL;
+    SDL_Texture *bitmapTex = NULL;
+    SDL_Surface *bitmapSurface = NULL;
+    int posX = 100, posY = 100, width = 320, height = 240;
+
+    win = SDL_CreateWindow("Hello World", posX, posY, width, height, 0);
+
+    renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
+
+    bitmapSurface = SDL_LoadBMP("img/hello.bmp");
+    bitmapTex = SDL_CreateTextureFromSurface(renderer, bitmapSurface);
+    SDL_FreeSurface(bitmapSurface);
+
+    while (1) {
+        SDL_Event e;
+        if (SDL_PollEvent(&e)) {
+            if (e.type == SDL_QUIT) {
+                break;
+            }
+        }
+
+        SDL_RenderClear(renderer);
+        SDL_RenderCopy(renderer, bitmapTex, NULL, NULL);
+        SDL_RenderPresent(renderer);
+    }
+
+    SDL_DestroyTexture(bitmapTex);
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(win);
+
+    return 0;
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateSoftwareRenderer.html">SDL_CreateSoftwareRenderer</a><br>
 <a href="SDL_DestroyRenderer.html">SDL_DestroyRenderer</a><br>

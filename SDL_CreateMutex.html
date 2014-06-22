@@ -18,6 +18,29 @@
 <h2>戻り値</h2>
 初期化されアンロックされたmutexを戻す. 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_mutex *mutex;
+
+mutex = SDL_CreateMutex();
+if (!mutex) {
+    fprintf(stderr, "mutexを生成できなかった\n");
+    return;
+}
+
+if (SDL_LockMutex(mutex) == 0) {
+    /* ここでmutexがロックされている間の処理をする */
+    SDL_UnlockMutex(mutex);
+} else {
+    fprintf(stderr, "mutexをロックできなかった\n");
+}
+
+SDL_DestroyMutex(mutex);
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_DestroyMutex.html">SDL_DestroyMutex</a><br>
 <a href="SDL_LockMutex.html">SDL_LockMutex</a><br>

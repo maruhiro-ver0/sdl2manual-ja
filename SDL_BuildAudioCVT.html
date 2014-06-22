@@ -28,6 +28,22 @@
 <h2>戻り値</h2>
 音声が変換されるとき1, 変換の必要がないとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// 1024 ステレオ 48000Hzのサンプルフレームバッファを, 32bit浮動小数点から16bit整数に変換する
+SDL_AudioCVT cvt;
+SDL_BuildAudioCVT(&cvt, AUDIO_F32, 2, 48000, AUDIO_S16, 2, 48000);
+SDL_assert(cvt.needed); // 明らかにこれは必要である
+cvt.len = 1024 * 2 * 4;  // 1024 ステレオ 32bit浮動小数点のサンプルフレームバッファ
+cvt.buf = (Uint8 *) SDL_malloc(cvt.len * cvt.len_mult);
+// ここで32bit浮動小数点のデータをcvt.dataに読み込む
+SDL_ConvertAudio(cvt);
+// cvt.bufにはcvt.len_cvtバイトの変換されたデータが書き込まれている
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 音声データを変換する前に, <a href="SDL_AudioCVT.html">SDL_AudioCVT</a>の変換前と変換後を初期化する必要がある.

@@ -15,6 +15,23 @@
 <a href="SDL_AudioInit.html">SDL_AudioInit()</a>で初期化したオーディオデバイスを終了する
 <h2>構文</h2>
 <code>void SDL_AudioQuit(void)</code>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+int i;
+
+for (i = 0; i &lt; SDL_GetNumAudioDrivers(); ++i) {
+    const char* driver_name = SDL_GetAudioDriver(i);
+    if (SDL_AudioInit(driver_name)) {
+        printf("オーディオドライバの初期化に失敗した: %s\n", driver_name);
+        continue;
+    }
+    SDL_AudioQuit();
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数は内部で使われる.
 特定のオーディオドライバを使う特別な必要性がない限り, この関数を使うべきではない.

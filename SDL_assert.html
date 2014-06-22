@@ -19,6 +19,15 @@
 <table border="1" summary="SDL_assert">
 <tr><td>condition</td><td>発生の条件</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_assert(1 == 0);  // アサーションが引き起こされる
+SDL_assert(1 == 1);  // アサーションは引き起こされない
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数はSDL_ASSERT_LEVELが2か3のとき有効に, それ以外のとき無効になる.
 詳細は<a href="CategoryAssertions.html">アサーション</a>を参照すること.

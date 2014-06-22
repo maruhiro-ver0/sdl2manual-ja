@@ -22,6 +22,23 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+int i;
+
+for (i = 0; i &lt; SDL_GetNumAudioDrivers(); ++i) {
+    const char* driver_name = SDL_GetAudioDriver(i);
+    if (SDL_AudioInit(driver_name)) {
+        printf("オーディオドライバの初期化に失敗した: %s\n", driver_name);
+        continue;
+    }
+    SDL_AudioQuit();
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数は内部で使われる.
 特定のオーディオドライバを使う特別な必要性がない限り, この関数を使うべきではない.

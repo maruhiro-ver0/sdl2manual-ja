@@ -24,6 +24,34 @@ jobject型のAndroidアプリケーションのアクティビティクラスのインスタンスを戻す.
 この関数が戻したjobjectはローカルリファレンスで, 呼び出し側が解放する必要がある.
 JavaネイティブインターフェースのPushLocalFrame(), PopLocalFrame(), DeleteLocalRef()関数を参照すること. (<a href="http://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/functions.html">Oracleのドキュメント</a>にある)
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// Javaのアクティビティのインスタンスの void MyActivity.showHome() メソッドを呼ぶ
+void showHome(void)
+{
+    // JNI環境を得る
+    JNIEnv* env = (JNIEnv*)SDL_AndroidGetJNIEnv();
+
+    // SDLActivityのJavaインスタンスを得る
+    jobject activity = (jobject)SDL_AndroidGetActivity();
+
+    // アクティビティのJavaクラスを検索する. SDLActivityかそのサブクラスである必要がある
+    jclass clazz( env->GetObjectClass(activity) );
+
+    // メソッドのIDを得る
+    jmethodID method_id = env->GetMethodID( clazz, "showHome", "()V" );
+
+    // Javaメソッドを実際に呼ぶ
+    env->CallVoidMethod( activity, method_id );
+    
+    // ローカル参照を解放する
+    env->DeleteLocalRef(activity);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数はjobject型を戻すが, 戻り値の関数プロトタイプはvoid*で定義されている.
 SDLのヘッダにはjni.hがインクルードされていないためである.

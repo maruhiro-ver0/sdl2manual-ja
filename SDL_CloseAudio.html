@@ -15,6 +15,19 @@
 オーディオデバイスを閉じるための古い関数. 新しいプログラムは代わりに<a href="SDL_CloseAudioDevice.html">SDL_CloseAudioDevice()</a>を使う方がよい
 <h2>構文</h2>
 <code>void SDL_CloseAudio(void)</code>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+extern SDL_AudioSpec want;
+if (SDL_OpenAudio(&want, NULL) == 0) {
+    SDL_PauseAudio(0);
+    SDL_Delay(5000);  // オーディオコールバックを5秒間実行させる
+    SDL_CloseAudio();
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数は

@@ -23,6 +23,40 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+条件変数の典型的な使い方:
+<code>
+<pre>
+SDL_bool condition = SDL_FALSE;
+SDL_mutex *lock;
+SDL_cond *cond;
+
+lock = SDL_CreateMutex();
+cond = SDL_CreateCond();
+.
+.
+Thread A:
+    SDL_LockMutex(lock);
+    while (!condition) {
+        SDL_CondWait(cond, lock);
+    }
+    SDL_UnlockMutex(lock);
+
+Thread B:
+    SDL_LockMutex(lock);
+    ...
+    condition = SDL_TRUE;
+    ...
+    SDL_CondSignal(cond);
+    SDL_UnlockMutex(lock);
+.
+.
+SDL_DestroyCond(cond);
+SDL_DestroyMutex(lock);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数はmutexのロックを解除し, 別のスレッドが<a href="SDL_CondSignal.html">SDL_CondSignal()</a>か<a href="SDL_CondBroadcast.html">SDL_CondBroadcast()</a>を呼んで条件変数condを通知するまで待つ.

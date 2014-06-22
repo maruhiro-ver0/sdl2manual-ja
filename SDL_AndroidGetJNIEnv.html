@@ -18,6 +18,34 @@ Android‚ÌŒ»Ý‚ÌƒXƒŒƒbƒh‚ÌJavaƒlƒCƒeƒBƒuƒCƒ“ƒ^[ƒtƒF[ƒXƒIƒuƒWƒFƒNƒg(JNIEnv)‚ð“¾‚
 <h2>–ß‚è’l</h2>
 Œ»ÝƒAƒ^ƒbƒ`‚µ‚Ä‚¢‚éƒXƒŒƒbƒh‚ÌJavaƒlƒCƒeƒBƒuƒCƒ“ƒ^[ƒtƒF[ƒXƒIƒuƒWƒFƒNƒg(JNIEnv)‚ð–ß‚·.
 Ž¸”s‚Ì‚Æ‚«0‚ð–ß‚·.
+<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<p>
+<code>
+<pre>
+// Java‚ÌƒAƒNƒeƒBƒrƒeƒB‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ì void MyActivity.showHome() ƒƒ\ƒbƒh‚ðŒÄ‚Ô
+void showHome(void)
+{
+    // JNIŠÂ‹«‚ð“¾‚é
+    JNIEnv* env = (JNIEnv*)SDL_AndroidGetJNIEnv();
+
+    // SDLActivity‚ÌJavaƒCƒ“ƒXƒ^ƒ“ƒX‚ð“¾‚é
+    jobject activity = (jobject)SDL_AndroidGetActivity();
+
+    // ƒAƒNƒeƒBƒrƒeƒB‚ÌJavaƒNƒ‰ƒX‚ðŒŸõ‚·‚é. SDLActivity‚©‚»‚ÌƒTƒuƒNƒ‰ƒX‚Å‚ ‚é•K—v‚ª‚ ‚é
+    jclass clazz( env->GetObjectClass(activity) );
+
+    // ƒƒ\ƒbƒh‚ÌID‚ð“¾‚é
+    jmethodID method_id = env->GetMethodID( clazz, "showHome", "()V" );
+
+    // Javaƒƒ\ƒbƒh‚ðŽÀÛ‚ÉŒÄ‚Ô
+    env->CallVoidMethod( activity, method_id );
+    
+    // ƒ[ƒJƒ‹ŽQÆ‚ð‰ð•ú‚·‚é
+    env->DeleteLocalRef(activity);
+}
+</pre>
+</code>
+</p>
 <h2>Ú×</h2>
 ‚±‚ÌŠÖ”‚ÍJNIEnvŒ^‚ð–ß‚·‚ª, –ß‚è’l‚ÌŠÖ”ƒvƒƒgƒ^ƒCƒv‚Ívoid*‚Å’è‹`‚³‚ê‚Ä‚¢‚é.
 SDL‚Ìƒwƒbƒ_‚É‚Íjni.j‚ªƒCƒ“ƒNƒ‹[ƒh‚³‚ê‚Ä‚¢‚È‚¢‚½‚ß‚Å‚ ‚é.

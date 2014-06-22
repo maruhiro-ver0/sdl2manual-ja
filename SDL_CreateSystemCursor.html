@@ -39,6 +39,16 @@ idの値は
 <h2>戻り値</h2>
 成功のときカーソル, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Cursor* cursor;
+cursor = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
+SDL_SetCursor(cursor);
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_FreeCursor.html">SDL_FreeCursor</a><br>
 <h2>SDL Wikiへのリンク</h2>
