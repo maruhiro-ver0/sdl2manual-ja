@@ -24,6 +24,18 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Rect r;
+if (SDL_GetDisplayBounds(0, &r) != 0) {
+    SDL_Log("SDL_GetDisplayBounds 失敗: %s", SDL_GetError());
+    return 1;
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetNumVideoDisplays.html">SDL_GetNumVideoDisplays</a><br>
 <h2>SDL Wikiへのリンク</h2>

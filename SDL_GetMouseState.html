@@ -23,6 +23,16 @@ Use this function to retrieve the current state of the mouse.
 </table>
 <h2>戻り値</h2>
 現在のボタンのビットマスクを戻す
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_PumpEvents();
+if(SDL_GetMouseState(NULL, NULL)&SDL_BUTTON(1))
+    printf("マウスボタン1(左)が押された\n");
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 現在のボタンの状態は, 戻り値のビットマスクで, SDL_BUTTON(X)マクロでチェックできる (通常はX=1が左, 2が中央, 3が右).
 そして, 選択したフォーカスのあるウィンドウからの相対座標はxとyに代入される.

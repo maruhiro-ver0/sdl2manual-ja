@@ -25,6 +25,17 @@
 <p>
 文字列は静的に確保されているので, アプリケーションは解放してはならない.
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+if (SDL_Init(SDL_INIT_EVERYTHING) &lt; 0) {
+    // 回復できないエラー. ここで終了処理を行う
+    printf("SDL_Init 失敗: %s\n", SDL_GetError());
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼ぶ前に複数のエラーが発生する可能性がある.
 この場合, 最後のエラーメッセージのみ戻す.

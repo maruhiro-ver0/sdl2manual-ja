@@ -23,6 +23,47 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// SDL2のSDL_GetCurrentDisplayMode()を使う
+
+#include "SDL.h"
+#include &lt;stdio.h&gt;
+
+int main(int argc, char* argv[]){
+
+  int i;
+
+  // 代入されるディスプレイモード構造体を宣言する
+  SDL_DisplayMode current;
+
+  SDL_Init(SDL_INIT_VIDEO); 
+
+  // 全てのディスプレイの現在のディスプレイモードを得る
+  for(i = 0; i &lt; SDL_GetNumVideoDisplays(); ++i){
+  
+    int should_be_zero = SDL_GetCurrentDisplayMode(i, &current);
+
+    if(should_be_zero != 0)
+      // エラー発生...
+      printf("ビデオディスプレイ #%d のディスプレイモードを得られなかった: %s", i, SDL_GetError());
+
+    else 
+      // 成功, 現在のディスプレイモードを表示する
+      printf("ディスプレイ #%d: 現在のディスプレイモードは %dx%dpx @ %dhz\n", i, current.w, current.h, current.refresh_rate);
+
+  }
+ 
+  // 終了処理してプログラムを終了する
+  SDL_Quit();     
+  return 0;   
+ 
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数と<a href="SDL_GetDesktopDisplayMode.html">SDL_GetDesktopDisplayMode()</a>は, SDLがフルスクリーンで, かつ解像度を変えたとき異なる.
 その場合, この関数は現在のディスプレイモードを戻すが, <a href="SDL_GetDesktopDisplayMode.html">SDL_GetDesktopDisplayMode()</a>は変更前のディスプレイモードを戻す.

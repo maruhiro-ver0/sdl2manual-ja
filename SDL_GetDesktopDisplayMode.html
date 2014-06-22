@@ -24,6 +24,18 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_DisplayMode dm;
+if (SDL_GetDesktopDisplayMode(0, &dm) != 0) {
+    SDL_Log("SDL_GetDesktopDisplayMode 失敗: %s", SDL_GetError());
+    return 1;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数と<a href="SDL_GetCurrentDisplayMode.html">SDL_GetCurrentDisplayMode()</a>は, SDLがフルスクリーンで, かつ解像度を変えたとき異なる.
 その場合, この関数は現在のディスプレイモードではなく, 変更前のディスプレイモードを戻す.
