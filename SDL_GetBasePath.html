@@ -21,6 +21,24 @@
 失敗またはこの関数が実装されていない環境の場合NULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+char *data_path = NULL;
+
+void InitializeDataPath() {
+    char *base_path = SDL_GetBasePath();
+    if (base_path) {
+        data_path = SDL_strdup(base_path);
+        SDL_free(base_path);
+    } else {
+        data_path = SDL_strdup("./");
+    }
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数は速い必要はない. それにも関わらず速さが必要ならば, 最初に呼んだときに文字列を保存する必要がある.

@@ -22,6 +22,25 @@
 <h2>戻り値</h2>
 成功のときゲームコントローラー識別子, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* 利用可能な最初のコントローラーを開く */
+SDL_GameController *controller = NULL;
+for (int i = 0; i &lt; SDL_NumJoysticks(); ++i) {
+    if (SDL_IsGameController(i)) {
+        controller = SDL_GameControllerOpen(i);
+        if (controller) {
+            break;
+        } else {
+            fprintf(stderr, "ゲームコントローラー%dを開けなかった: %s\n", i, SDL_GetError());
+        }
+    }
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 device_indexは<a href="SDL_JoystickOpen.html">SDL_JoystickOpen()</a>の引数のjoystick_indexと同じである.
 <h2>関連項目(関数)</h2>

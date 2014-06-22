@@ -17,6 +17,37 @@
 <code>SDL_AudioStatus SDL_GetAudioStatus(void)</code>
 <h2>戻り値</h2>
 <a href="SDL_AudioStatus.html">SDL_AudioStatus</a>の値の1つを戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+void printStatus(void)
+{
+    switch (SDL_GetAudioStatus())
+    {
+        case SDL_AUDIO_STOPPED: printf("停止中\n"); break;
+        case SDL_AUDIO_PLAYING: printf("再生中\n"); break;
+        case SDL_AUDIO_PAUSED: printf("一時停止中\n"); break;
+        default: printf("???"); break;
+    }
+}
+
+extern SDL_AudioSpec desired;
+extern SDL_AudioSpec obtained;
+
+// device starts paused
+if (SDL_OpenAudio(&desired, &obtained) == 0) {
+     printStatus();  // 「一時停止中」が表示される
+     SDL_PauseAudio(0);
+     printStatus();  // 「再生中」が表示される
+     SDL_PauseAudio(1);
+     printStatus();  // 「一時停止中」が表示される
+     SDL_CloseAudio();
+     printStatus();  // 「停止中」が表示される
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数は

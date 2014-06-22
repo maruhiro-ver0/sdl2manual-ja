@@ -17,6 +17,20 @@
 <code>const char* SDL_GetCurrentAudioDriver(void)</code>
 <h2>戻り値</h2>
 現在のオーディオドライバの名前を戻す. 初期化されたドライバがない場合はNULLを戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+const char* driver_name = SDL_GetCurrentAudioDriver();
+
+if (driver_name) {
+    printf("オーディオサブシステムは初期化されている; ドライバ = %s.\n", driver_name);
+} else {
+    printf("オーディオサブシステムは初期化されていない\n");
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 戻された文字列は内部の静的メモリへのポインタで, 無効になることはない.
 オーディオサブシステムを終了し, 新しいドライバを初期化した場合も同様である.

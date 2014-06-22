@@ -25,6 +25,50 @@
 <h2>戻り値</h2>
 成功のときclosestへのポインタ, 利用可能なディスプレイモードがないときNULLを戻す.
 <a href="SDL_GetError.html.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// SDL2のSDL_GetClosestDisplayMode()を使う
+
+#include "SDL.h"
+#include &lt;stdio.h&gt;
+
+int main(int argc, char* argv[]) {
+
+    // 代入される構造体を宣言する
+    SDL_DisplayMode target, closest;
+
+    SDL_Init(SDL_INIT_VIDEO);
+
+    // 要求する解像度等を設定する
+    target.w = 600;
+    target.h = 500;
+    target.format = 0;  // 無視される
+    target.refresh_rate = 0; // 無視される
+    target.driverdata   = 0; // 0で初期化する
+    printf("Requesting: \t%dx%dpx @ %dhz \n", target.w, target.h, target.refresh_rate);
+
+    // ディスプレイモードをSDL_GetClosestDisplayに参照呼び出しで渡す
+    // そして戻り値がNULLでないかチェックする
+    if (SDL_GetClosestDisplayMode(0, &target, &closest) == NULL)
+
+        // 戻り値がNULLならば, 一致するモードが見つからなかった
+        printf("\nNo suitable display mode was found!\n\n");
+
+    else
+        // その他ならば, 最も近いディスプレイモードが使える
+        // SDL_DisplayMode構造体をアクセスして受け取った値を見る
+        printf("  Received: \t%dx%dpx @ %dhz \n", closest.w, closest.h, closest.refresh_rate);
+
+    // 終了処理を行いプログラムを終了する
+    SDL_Quit();
+    return 0;
+
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 利用可能なディスプレイモードが検索され, 要求と最も近いモードがclosestに代入される.
 modeのformatとrefresh_rateが0の場合, デスクトップのモードとなる.

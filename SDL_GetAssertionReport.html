@@ -18,6 +18,21 @@
 <h2>戻り値</h2>
 失敗した全てのアサーションのリストを戻す. リストが空の場合NULLを戻す.
 このメモリは編集または解放してはならない.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+const SDL_assert_data *item = SDL_GetAssertionReport();
+while (item) {
+     printf("'%s', %s (%s:%d), %u 回引き起こされた, 常に無視するか: %s.\n",
+          item->condition, item->function, item->filename,
+          item->linenum, item->trigger_count,
+          item->always_ignore ? "はい" : "いいえ");
+     item = item->next;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数は, 最後に<a href="SDL_ResetAssertionReport.html">SDL_ResetAssertionReport()</a>を呼んでから, またはプログラムを開始してから発生した全てのアサーションを戻す.
 <h2>関連項目(関数)</h2>
