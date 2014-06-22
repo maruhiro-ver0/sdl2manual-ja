@@ -19,6 +19,14 @@ OpenGLプロファイルの列挙体
 <tr><td>SDL_GL_CONTEXT_PROFILE_COMPATIBILITY</td><td>Open GL 互換プロファイル - 廃止された機能は許可される</td></tr>
 <tr><td>SDL_GL_CONTEXT_PROFILE_ES</td><td>Open GL プロファイル - OpenGLのサブセット機能のみ使える</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この列挙体は<a href="SDL_GL_SetAttribute.html">SDL_GL_SetAttribute</a>で<a href="SDL_GLattr.html">SDL_GL_CONTEXT_PROFILE_MASK</a>と組み合わせて使う.
 <a href="SDL_GLattr.html">SDL_GL_CONTEXT_PROFILE_MASK</a>は論理和で複数設定できるが, プロファイルは排他的であり, <a href="SDL_GL_SetAttribute.html">SDL_GL_SetAttribute</a>は1つしか受け付けない.

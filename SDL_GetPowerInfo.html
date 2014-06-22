@@ -24,6 +24,28 @@
 バッテリーの状態を戻す.
 値は<a href="SDL_PowerState.html">SDL_PowerState</a>を参照すること.
 状態がわからない, またはバッテリーで動作していない場合は, 両方の引数に-1が代入される.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+int secs, pct; 
+if (SDL_GetPowerInfo(&secs, &pct) == SDL_POWERSTATE_ON_BATTERY) {
+    printf("バッテリーで動作中: ");
+    if (secs == -1) {
+        printf("(残り時間 不明)\n");
+    } else {
+        printf("(残り時間 %d 秒)\n", secs);
+    }
+
+    if (pct == -1) {
+        printf("(残バッテリー率 不明)\n");
+    } else {
+        printf("(残バッテリー率 %d パーセント)\n", pct);
+    }
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 バッテリー状態を絶対的な真実ととらえてはならない.

@@ -23,6 +23,22 @@
 選択したジョイスティックの実装から得た名前を戻す.
 名前が見つからなければNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* 全ての接続されたジョイスティックの名前を表示する */
+int num_joy, i;
+num_joy = SDL_NumJoysticks();
+printf("%d のジョイスティックを検知した\n", num_joy);
+for(i = 0; i &lt; num_joy; i++)
+{
+    SDL_Joystick *joystick = SDL_JoystickOpen(i);
+    printf("%s\n", SDL_JoystickName(joystick));
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_JoystickOpen.html">SDL_JoystickOpen</a><br>
 <a href="SDL_JoystickNameForIndex.html">SDL_JoystickNameForIndex</a><br>

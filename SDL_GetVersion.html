@@ -19,6 +19,20 @@
 <table border="1" summary="SDL_GetVersion">
 <tr><td>ver</td><td>バージョンを代入する<a href="SDL_Version-structure.html">SDL_version</a></td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_version compiled;
+SDL_version linked;
+
+SDL_VERSION(&compiled);
+SDL_GetVersion(&linked);
+printf("コンパイルしたSDLのバージョンは %d.%d.%d ...\n", compiled.major, compiled.minor, compiled.patch);
+printf("しかし, リンクしたSDLのバージョンは %d.%d.%d\n", linked.major, linked.minor, linked.patch);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 もし動的リンクライブラリを使っているならば, 実行時のバージョンは新しいことも古いこともありうることに注意すること.

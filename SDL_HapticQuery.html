@@ -22,6 +22,17 @@
 <h2>戻り値</h2>
 対応する機能の一覧をビットの論理和で戻す. 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+extern SDL_Haptic *haptic;
+if (SDL_HapticQuery(haptic) & SDL_HAPTIC_CONSTANT) {
+    printf("ハプティック効果は一定効果(constant haptic effect)である!");
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_HapticEffectSupported.html">SDL_HapticEffectSupported</a><br>
 <a href="SDL_HapticNumEffects.html">SDL_HapticNumEffects</a><br>

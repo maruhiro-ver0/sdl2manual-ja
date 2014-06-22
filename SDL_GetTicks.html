@@ -17,6 +17,25 @@ SDLが初期化されてから経過した時間をミリ秒で得る
 <code>Uint32 SDL_GetTicks(void)</code>
 <h2>戻り値</h2>
 SDLが初期化されてから経過した時間を32bit符号なし整数で戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+unsigned int lastTime = 0, currentTime;
+while (!quit) {
+    // ここで処理を行う
+    // ...
+
+    // 1秒に1回報告する
+    currentTime = SDL_GetTicks();
+    if (currentTime > lastTime + 1000) {
+        printf("報告: %d\n", variable);
+        lastTime = currentTime;
+    }
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この値はプログラムが実行されてから約49日で巻き戻る.
 <h2>関連項目(関数)</h2>

@@ -18,6 +18,29 @@
 <tr><td>Uint8</td><td>type</td><td>座標系の種類 (詳細を参照すること)</td></tr>
 <tr><td>Sint32[]</td><td>dir</td><td>方向 (詳細を参照すること)</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+力を南からかける場合の全ての表現の例(力を南からかける場合, ユーザは力に対抗してスティックを引くことになる):
+<code>
+<pre>
+SDL_HapticDirection direction;
+
+// 直交座標
+direction.type = SDL_HAPTIC_CARTESIAN; // 直交座標を使う
+direction.dir[0] = 0; // X軸
+direction.dir[1] = 1; // Y軸
+// デバイスは2次元なので, 3つ目のパラメータは必要ない
+
+// 極座標
+direction.type = SDL_HAPTIC_POLAR; // 極座標を使う
+direction.dir[0] = 18000; // 極座標は最初のパラメータのみ使う
+
+// 球面座標
+direction.type = SDL_HAPTIC_SPHERICAL; // 球面座標を使う
+direction.dir[0] = 9000; // 2次元なのでこれ以上パラメータは必要ない
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 ハプティックデバイスの基本方位は, デバイスの位置と相対的である.

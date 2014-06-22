@@ -22,6 +22,19 @@
 <h2>戻り値</h2>
 対応しているときSDL_TRUE, 対応していないときSDL_FALSE, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+extern SDL_Haptic* dev;
+if (SDL_HapticRumbleSupported(dev)) {
+    SDL_HapticRumbleInit(dev);
+    SDL_HapticRumblePlay(dev, 1.0f, 3000);
+    SDL_Delay(3000);
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_HapticRumbleInit.html">SDL_HapticRumbleInit</a><br>
 <a href="SDL_HapticRumblePlay.html">SDL_HapticRumblePlay</a><br>

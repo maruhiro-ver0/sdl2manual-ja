@@ -20,6 +20,14 @@ OpenGLコンテキストの列挙体
 <tr><td>SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG</td><td>詳細を参照すること</td></tr>
 <tr><td>SDL_GL_CONTEXT_RESET_ISOLATION_FLAG</td><td>詳細を参照すること</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この列挙体は<a href="SDL_GL_SetAttribute.html">SDL_GL_SetAttribute</a>で<a href="SDL_GLattr.html">SDL_GL_CONTEXT_FLAGS</a>と組み合わせて使う.
 フラグを論理和で複数設定できる.

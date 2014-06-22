@@ -28,6 +28,18 @@
 <p>
 戻り値は-32768～32767の範囲である.
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+extern SDL_Joystick* joy1;
+Sint16 x_move, y_move;
+
+x_move = SDL_JoystickGetAxis(joy1, 0);
+y_move = SDL_JoystickGetAxis(joy1, 1);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 今日のジョイスティックでは, 通常, X軸が0, Y軸が1である.

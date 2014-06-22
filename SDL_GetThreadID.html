@@ -21,6 +21,51 @@
 </table>
 <h2>戻り値</h2>
 指定のスレッドのスレッドIDを戻す. threadがNULLの場合は現在のスレッドのスレッドIDを戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include &lt;stdio.h&gt;
+#include "SDL_thread.h"
+#include "SDL_timer.h"
+
+int TestThread(void *ptr);
+
+int main(int argc, char *argv[])
+{
+    SDL_Thread *thread;
+    int         threadReturnValue;
+
+    printf("\nSDL_CreateThreadの簡単なテスト:");
+
+    // Simply create a thread
+    thread = SDL_CreateThread(TestThread, "TestThread", (void *)NULL);
+
+    if (NULL == thread) {
+        printf("\nSDL_CreateThread 失敗: %s\n", SDL_GetError());
+    } else {
+        SDL_WaitThread(thread, &threadReturnValue);
+        printf("\nスレッドの戻り値: %d", threadReturnValue);
+    }
+
+    return 0;
+}
+
+// とても簡単なスレッド - 50ms間隔で0から9までカウントする
+int TestThread(void *ptr)
+{
+    int cnt;
+
+    for (cnt = 0; cnt &lt; 10; ++cnt) {
+        printf("\nスレッドカウンタ: %d", cnt);
+        SDL_Delay(50);
+    }
+
+    return cnt;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 このスレッドIDはOSによって報告される.
 スレッドに対応していない環境の場合は, 戻り値は常に0である.

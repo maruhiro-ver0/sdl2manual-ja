@@ -24,6 +24,38 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Window *window;
+SDL_GLContext context;
+
+SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 5);
+SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 5);
+SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 5);
+SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
+SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
+window = SDL_CreateWindow("OpenGL Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
+if (!window) {
+    fprintf(stderr, "ウィンドウを生成できなかった: %s\n", SDL_GetError());
+    return;
+}
+
+context = SDL_GL_CreateContext(window);
+if (!context) {
+    fprintf(stderr, "コンテキストを生成できなかった: %s\n", SDL_GetError());
+    return;
+}
+
+printf("赤のサイズ: %d, 緑のサイズ: %d, 青のサイズ: %d\n",
+    SDL_GL_GetAttribute(SDL_GL_RED_SIZE),
+    SDL_GL_GetAttribute(SDL_GL_GREEN_SIZE),
+    SDL_GL_GetAttribute(SDL_GL_BLUE_SIZE));
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数はOpenGL属性attrの値をvalueに設定する.

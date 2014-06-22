@@ -23,6 +23,18 @@
 指定のジョイスティックがゲームコントローラーインターフェースに対応していればSDL_TRUE, 対応していないまたはデバイス番号が範囲外のときSDL_FALSEを戻す.
 <h2>詳細</h2>
 device_indexは<a href="SDL_JoystickOpen.html">SDL_JoystickOpen()</a>の引数のjoystick_indexと同じである.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+for (int i = 0; i &lt; SDL_NumJoysticks(); ++i) {
+    if (SDL_IsGameController(i)) {
+        printf("ジョイスティック %d はゲームコントローラーインターフェースに対応している!\n", i);
+    }
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GameControllerNameForIndex.html">SDL_GameControllerNameForIndex</a><br>
 <a href="SDL_GameControllerOpen.html">SDL_GameControllerOpen</a><br>

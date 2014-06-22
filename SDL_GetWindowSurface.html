@@ -22,6 +22,43 @@
 <h2>戻り値</h2>
 成功のときウィンドウのサーフェイスを, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h" // SDLヘッダをインクルードする
+
+int main(int argc, char* argv[])
+{
+    SDL_Surface *screen; // SDL2でも同じ. 古いコードを持ってくることができる
+    SDL_Window *window;
+    SDL_Surface *image;
+
+    SDL_Init(SDL_INIT_VIDEO); // ビデオを初期化する
+
+    // 普通にウィンドウを生成する
+    window = SDL_CreateWindow("SDL2 Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+
+    // しかし, 代わりにレンダラーを生成する. これで画面に直接描画できる
+    screen = SDL_GetWindowSurface(window);
+
+    // ここは古いコードと同じである
+    image = SDL_LoadBMP("box.bmp"); // loads image
+    SDL_BlitSurface(image, NULL, screen, NULL); // blit it to the screen
+    SDL_FreeSurface(image);
+
+    // これはSDL_Flipのように働く
+    SDL_UpdateWindowSurface(window);
+
+    // 2秒間表示する
+    SDL_Delay(2000);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return 0;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 もし生成されることが必要ならば, 新しいサーフェイスはウィンドウに最適なピクセル形式で生成される.

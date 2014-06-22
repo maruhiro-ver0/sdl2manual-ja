@@ -31,6 +31,25 @@
 戻されたポインタはアプリケーションが管理する必要がある.
 使った後はポインタに対して<a href="SDL_free.html">SDL_free()</a>を呼ぶこと.
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+char *pref_path = NULL;
+
+void InitializePrefPath() {
+    char *base_path = SDL_GetPrefPath("My Company", "My Awesome SDL 2 Game");
+    if (base_path) {
+        pref_path = SDL_strdup(base_path);
+        SDL_free(base_path);
+    } else {
+        /* Do something to disable writing in-game */
+        /* ゲームで情報を書かないようにする処理をここに書く */
+    }
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数が戻した場所のみ安全にファイルを書き込めるとみなすべきである.

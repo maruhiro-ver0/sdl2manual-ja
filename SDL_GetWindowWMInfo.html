@@ -23,6 +23,53 @@
 <h2>戻り値</h2>
 この関数が実装されていて, かつinfo構造体のバージョンが正しければSDL_TRUE, 情報が得られなければSDL_FALSEを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+#include "SDL_syswm.h"
+
+int main(int argc, char *argv[]) {
+  SDL_Window* window;
+  SDL_SysWMinfo info;
+
+  SDL_Init(0);
+
+  window = SDL_CreateWindow("", 0, 0, 0, 0, SDL_WINDOW_HIDDEN);
+
+  SDL_VERSION(&info.version); // info構造体をSDLのバージョンで初期化する
+
+  if(SDL_GetWindowWMInfo(window,&info)) { // この関数は成功のとき真を戻す
+    // success
+    const char *subsystem = "不明なシステム!";
+    switch(info.subsystem) {
+      case SDL_SYSWM_UNKNOWN:   break;
+      case SDL_SYSWM_WINDOWS:   subsystem = "Microsoft Windows(TM)";  break;
+      case SDL_SYSWM_X11:       subsystem = "X Window System";        break;
+      case SDL_SYSWM_DIRECTFB:  subsystem = "DirectFB";               break;
+      case SDL_SYSWM_COCOA:     subsystem = "Apple OS X";             break;
+      case SDL_SYSWM_UIKIT:     subsystem = "UIKit";                  break;
+    }
+
+    SDL_Log("このプログラムは SDL バージョン %d.%d.%d の %s で動作している\n", 
+        (int)info.version.major,
+        (int)info.version.minor,
+        (int)info.version.patch,
+        subsystem);
+  } else {
+    // 呼び出し失敗
+    SDL_LogError(SDL_LOG_CATEGORY_ERROR, "ウィンドウの情報を得られなかった: %s\n", SDL_GetError());
+  }
+
+  SDL_DestroyWindow(window);
+  SDL_Quit();
+
+  return 0;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 <a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>を定義するためSDL_syswm.hをインクルードする必要がある.

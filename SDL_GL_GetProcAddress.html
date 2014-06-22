@@ -22,6 +22,21 @@
 <h2>戻り値</h2>
 その名前のOpenGL関数へのポインタを戻す.
 戻されたポインタはその関数に適したシグニチャでキャストする必要がある.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+typedef void (APIENTRY * GL_ActiveTextureARB_Func)(unsigned int);
+GL_ActiveTextureARB_Func glActiveTextureARB_ptr = 0;
+
+/* 関数のポインタを得る */
+glActiveTextureARB_ptr=(GL_ActiveTextureARB_Func) SDL_GL_GetProcAddress("glActiveTextureARB");
+
+/* 正しく関数を呼べるようにするのはあなたの責任である! */
+glActiveTextureARB_ptr(GL_TEXTURE0_ARB);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 GLライブラリを実行中に<a href="SDL_GL_LoadLibrary.html">SDL_GL_LoadLibrary()</a>で読み込んだならば, 全てのGL関数はこの方法で読み出さなければならない.

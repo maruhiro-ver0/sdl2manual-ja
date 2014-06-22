@@ -22,6 +22,38 @@
 <h2>戻り値</h2>
 成功のときジョイスティックの識別子, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Joystick *joy;
+
+// ジョイスティックサブシステムを初期化する
+SDL_InitSubSystem(SDL_INIT_JOYSTICK);
+
+// ジョイスティックが存在するかチェックする
+if (SDL_NumJoysticks() &gt; 0) {
+    // ジョイスティックを開く
+    joy = SDL_JoystickOpen(0);
+
+    if (joy) {
+        printf("ジョイスティック 0 を開いた\n");
+        printf("名前: %s\n", SDL_JoystickNameForIndex(0));
+        printf("軸の数: %d\n", SDL_JoystickNumAxes(joy));
+        printf("ボタンの数: %d\n", SDL_JoystickNumButtons(joy));
+        printf("ボールの数: %d\n", SDL_JoystickNumBalls(joy));
+    } else {
+        printf("ジョイスティック 0 を開けなかった\n");
+    }
+
+    // 開いたなら閉じる
+    if (SDL_JoystickGetAttached(joy)) {
+        SDL_JoystickClose(joy);
+    }
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 device_indexはSDLによって認識されたN番目のジョイスティックを意味する.

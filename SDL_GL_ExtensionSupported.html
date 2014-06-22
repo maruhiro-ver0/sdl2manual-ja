@@ -21,6 +21,18 @@
 </table>
 <h2>戻り値</h2>
 拡張に対応していればSDL_TRUE, していなければSDL_FALSEを戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+    if (SDL_GL_ExtensionSupported("GL_EXT_framebuffer_blit")) {
+        draw_to_the_screen_with_framebuffer_blit();   // 速い!
+    } else {
+        draw_to_the_screen_with_a_textured_quad();  // 遅い!
+    }
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数はカレントコンテキストで動作する.

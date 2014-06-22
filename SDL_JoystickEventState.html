@@ -23,6 +23,16 @@
 <h2>戻り値</h2>
 有効のとき1, 無効のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+printf("%d\n", SDL_JoystickEventState(SDL_QUERY));  /* 1が表示される */
+printf("%d\n", SDL_JoystickEventState(SDL_IGNORE)); /* 0が表示される */
+printf("%d\n", SDL_JoystickEventState(SDL_QUERY));  /* 0が表示される */
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 ジョイスティックイベントが無効のときジョイスティックの状態を得るには, <a href="SDL_JoystickUpdate.html">SDL_JoystickUpdate()</a>を自分で呼び, 状態を手動でチェックする必要がある.

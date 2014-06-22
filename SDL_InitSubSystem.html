@@ -22,6 +22,30 @@
 <h2>戻り値</h2>
 成功のとき0, エラーのとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* ジョイスティックとビデオを分けて初期化する */
+SDL_Init(SDL_INIT_VIDEO);
+
+SDL_Window* window = SDL_CreateWindow("A Window", 
+    SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480,
+    SDL_WINDOW_FULLSCREEN);
+SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
+
+/* ここでビデオの処理を行う */
+
+/* ジョイスティックサブシステムを初期化する */
+SDL_InitSubSystem(SDL_INIT_JOYSTICK);
+
+/* ここでビデオとジョイスティックの処理を行う */
+
+/* 両方のシステムを終了する */
+SDL_Quit();
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 <a href="SDL_Init.html">SDL_Init()</a>で初期化した後でも<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>で未初期化のサブシステムを初期化することができる.
