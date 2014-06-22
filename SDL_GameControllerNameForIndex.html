@@ -21,6 +21,22 @@
 </table>
 <h2>戻り値</h2>
 ゲームコントローラーの実装から得た名前を戻す. 名前がないまたはjoystick_indexが範囲外の場合NULLを戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+for (int i = 0; i %lt; SDL_NumJoysticks(); ++i) {
+    const char *name = SDL_GameControllerNameForIndex(i);
+    if (name) {
+        printf("Joystick %i has game controller name '%s'\n", i, name);
+        printf("ジョイスティック %d はゲームコントローラ名 '%s' を持つ\n", i, name);
+    } else {
+        printf("ジョイスティック %d にはゲームコントローラ名がない\n", i);
+    }
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 device_indexは<a href="SDL_JoystickOpen.html">SDL_JoystickOpen()</a>の引数のjoystick_indexと同じである.
 <h2>関連項目(関数)</h2>

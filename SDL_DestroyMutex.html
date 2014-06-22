@@ -19,6 +19,29 @@ mutexを破棄する
 <table border="1" summary="SDL_DestroyMutex">
 <tr><td>mutex</td><td>破棄するmutex</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_mutex *mutex;
+
+mutex = SDL_CreateMutex();
+if (!mutex) {
+    fprintf(stderr, "mutexを生成できなかった\n");
+    return;
+}
+
+if (SDL_LockMutex(mutex) == 0) {
+    /* ここでmutexがロックされている間の処理をする */
+    SDL_UnlockMutex(mutex);
+} else {
+    fprintf(stderr, "mutexをロックできなかった\n");
+}
+
+SDL_DestroyMutex(mutex);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 必要なくなったmutexはこの関数を呼んで破棄する必要がある.
 mutexを破棄しないと, システムメモリやリソースのリークを引き起こすことがある.

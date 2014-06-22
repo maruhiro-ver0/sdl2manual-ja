@@ -24,6 +24,17 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Surface *s = NULL; // サーフェイスを宣言する
+
+s = SDL_CreateRGBSurface(SDL_HWSURFACE, width, height, 32, 0, 0, 0, 0); // サーフェイスを生成する
+SDL_FillRect(s, NULL, SDL_MapRGB(s->format, 255, 0, 0)) // サーフェイスを赤色で塗りつぶす
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 colorは対象のサーフェイスのピクセル形式である必要がある.

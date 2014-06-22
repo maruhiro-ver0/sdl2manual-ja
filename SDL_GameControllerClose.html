@@ -19,6 +19,24 @@
 <table border="1" summary="SDL_GameControllerClose">
 <tr><td>gamecontroller</td><td><a href="SDL_GameControllerOpen.html">SDL_GameControllerOpen()</a>で開いたゲームコントローラー</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* 全てのコントローラーを開こうとする */
+for (int i = 0; i &lt; SDL_NumJoysticks(); ++i) {
+    if (SDL_IsGameController(i)) {
+        SDL_GameController *controller = SDL_GameControllerOpen(i);
+        if (controller) {
+            SDL_GameControllerClose(controller);
+        } else {
+            fprintf(stderr, "ゲームコントローラ%dを開けなかった: %s\n", i, SDL_GetError());
+        }
+    }
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GameControllerOpen.html">SDL_GameControllerOpen</a><br>
 <h2>SDL Wikiへのリンク</h2>

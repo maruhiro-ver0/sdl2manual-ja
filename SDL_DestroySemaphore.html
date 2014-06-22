@@ -19,6 +19,40 @@
 <table border="1" summary="SDL_DestroySemaphore">
 <tr><td>sem</td><td>破棄するセマフォ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+セマフォの典型的な使い方:
+<code>
+<pre>
+SDL_atomic_t done;
+SDL_sem *sem;
+
+SDL_AtomicSet(&done, 0);
+sem = SDL_CreateSemaphore(0);
+.
+.
+Thread A:
+    while (!SDL_AtomicGet(&done)) {
+        add_data_to_queue();
+        SDL_SemPost(sem);
+    }
+
+Thread B:
+    while (!SDL_AtomicGet(&done)) {
+        SDL_SemWait(sem);
+        if (data_available()) {
+            get_data_from_queue();
+        }
+    }
+.
+.
+SDL_AtomicSet(&done, 1);
+SDL_SemPost(sem);
+wait_for_threads();
+SDL_DestroySemaphore(sem);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 待機中のスレッドのあるセマフォを破棄するのは安全ではない.
 <h2>関連項目(関数)</h2>

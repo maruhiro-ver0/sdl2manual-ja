@@ -23,6 +23,29 @@
 ゲームコントローラーのマッピング文字列を戻す.
 詳細は<a href="SDL_GameControllerAddMapping.html">SDL_GameControllerAddMapping()</a>を参照すること.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include &lt;stdio.h&gt; /* printf()のために必要 */
+
+/* ... */
+
+SDL_GameController *ctrl;
+int i;
+
+for (i = 0; i &lt; SDL_NumJoysticks(); ++i) {
+    if (SDL_IsGameController(i)) {
+        printf("\'%d\'番はジョイスティック互換のコントローラ, 名称は\'%s\'\n", i, SDL_GameControllerNameForIndex(i));
+        ctrl = SDL_GameControllerOpen(i);
+        printf("コントローラ %i は \"%s\" にマッピングされた\n", i, SDL_GameControllerMapping(ctrl));
+    } else {
+        printf("\'%d\'番はジョイスティックと非互換のコントローラ\n", i);
+    }
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GameControllerAddMapping.html">SDL_GameControllerAddMapping</a><br>
 <a href="SDL_GameControllerMappingForGUID.html">SDL_GameControllerMappingForGUID</a><br>

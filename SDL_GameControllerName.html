@@ -21,6 +21,24 @@
 </table>
 <h2>戻り値</h2>
 ゲームコントローラーの実装から得た名前を戻す. 名前がないまたはgamecontrollerが不正の場合NULLを戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_GameController *controller = NULL;
+for (int i = 0; i &lt; SDL_NumJoysticks(); ++i) {
+    controller = SDL_GameControllerOpen(i);
+    if (controller) {
+        break;
+    }
+}
+
+if (controller) {
+    printf("有効なコントローラを検知した. 名称: %s\n", SDL_GameControllerName(controller));
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 これは<a href=SDL_GameControllerNameForIndex.html">SDL_GameControllerNameForIndex()</a>と同じ名前である.
 しかし, (不安定な)デバイス番号の代わりに開いたゲームコントローラーを引数にする.

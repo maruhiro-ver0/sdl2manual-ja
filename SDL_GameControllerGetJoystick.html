@@ -24,6 +24,30 @@
 <h2>戻り値</h2>
 ジョイスティックオブジェクトを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include &lt;stdio.h&gt; /* printf()のために必要 */
+
+/* ... */
+
+SDL_GameController *ctrl;
+SDL_Joystick *joy;
+int i;
+
+for(i = 0; i &lt; SDL_NumJoysticks(); ++i) {
+    if (SDL_IsGameController(i)) {
+        printf("\'%d\'番はジョイスティック互換のコントローラ, 名称は\'%s\'\n", i, SDL_GameControllerNameForIndex(i));
+        ctrl = SDL_GameControllerOpen(i);
+        joy = SDL_GameControllerGetJoystick(ctrl);
+    } else {
+        printf("\'%d\'番はジョイスティックと非互換のコントローラ\n", i);
+    }
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数で, SDL_GameControllerでジョイスティック関数を使うためのSDL_Joystickを得ることができる.

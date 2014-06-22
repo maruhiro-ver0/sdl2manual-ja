@@ -19,6 +19,16 @@
 <table border="1" summary="SDL_DetachThread">
 <tr><td>thread</td><td><a href="SDL_CreateThread.html">SDL_CreateThread()</a>で開始されたスレッドのSDL_Threadポインタ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+extern int TestThread(void *ptr);
+SDL_Thread *thread = SDL_CreateThread(TestThread, "TestThread", (void *)NULL);
+SDL_DetachThread(thread);  /* 完了したとき自分で消滅するようになる */
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 あるスレッドが他のスレッドで<a href="SDL_WaitThread.html">SDL_WaitThread()</a>が呼ばれるまで残る必要がないとき「デタッチ」する.

@@ -22,6 +22,14 @@
 <h2>戻り値</h2>
 成功のとき追加したマッピングの数, 失敗のとき負の数を戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_GameControllerAddMappingsFromFile("gamecontrollerdb.txt");
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 異なる複数のデータベースファイルを読み込むために, この関数を複数回呼ぶことができる.

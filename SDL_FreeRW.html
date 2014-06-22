@@ -19,6 +19,21 @@
 <table border="1" summary="SDL_FreeRW">
 <tr><td>area</td><td>the SDL_RWops structure to be freed解放する<a href="SDL_RWops.html">SDL_RWops</a></td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* SDL_RWopsのcloseメソッドの実装 */
+void close_my_rwops(SDL_RWops *rw)
+{
+    if(rw != NULL) {
+        /* ここでリソースを解放する */
+        SDL_FreeRW(rw);
+    }
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 自分で<a href="SDL_RWops.html">SDL_RWops</a>の実装を提供するのでなければ, この関数を使う必要はない.

@@ -26,6 +26,16 @@
 -1 (SDL_QUERY)以外は, 引数と同じ値を戻す.
 -1 (SDL_QUERY)のときは, 現在の状態を戻す.
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+printf("%d\n", SDL_GameControllerEventState(SDL_QUERY));  /* 1が表示される */
+printf("%d\n", SDL_GameControllerEventState(SDL_IGNORE)); /* 0が表示される */
+printf("%d\n", SDL_GameControllerEventState(SDL_QUERY));  /* 0が表示される */
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 -1, 0, 1以外の引数は無効である. その場合は引数と同じ値を戻す.

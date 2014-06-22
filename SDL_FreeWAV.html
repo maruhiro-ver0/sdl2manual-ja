@@ -19,6 +19,24 @@
 <table border="1" summary="SDL_FreeWAV">
 <tr><td>audio_buf</td><td><a href="SDL_LoadWAV.html">SDL_LoadWAV()</a>または<a href="SDL_LoadWAV_RW.html">SDL_LoadWAV_RW()</a>で確保されたバッファへのポインタ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_AudioSpec wav_spec;
+Uint32 wav_length;
+Uint8 *wav_buffer;
+
+/* WAVを読み込む */
+if (SDL_LoadWAV("test.wav", &wav_spec, &wav_buffer, &wav_length) == NULL) {
+    fprintf(stderr, "test.wavを開けなかった: %s\n", SDL_GetError());
+} else {
+    /* ここでWAVデータを処理する. そしてその後... */
+    SDL_FreeWAV(wav_buffer);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <a href="SDL_LoadWAV.html">SDL_LoadWAV()</a>または<a href="SDL_LoadWAV_RW.html">SDL_LoadWAV_RW()</a>で開いたWAVEファイルは, 最終的に<a href="SDL_FreeWAV.html">SDL_FreeWAV</a>で解放する.
 この関数はNULLポインタで呼んでも安全である.
