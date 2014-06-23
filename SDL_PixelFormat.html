@@ -34,7 +34,102 @@
 <tr><td>int</td><td>refcount</td><td>(内部で使用)</td></tr>
 <tr><td>SDL_PixelFormat*</td><td>next</td><td>(内部で使用)</td></tr>
 </table>
-<h2>詳細</h2>
+<h2>サンプルコード</h2>
+<p>
+8bit形式は最も理解しやすい.
+8bit形式では, BitsPerPixelは8で, BytesPerPixelは1である.
+BytesPerPixelが1なので, 全てのピクセルはUint8で表され, その値はpalette->colorsの添え字である.
+よって8bitサーフェイスのピクセルの色は次のように得る:
+surface->pixelsから色の値を得る. そしてそれを添え字として<a href="SDL_Color.html">SDL_Color</a>構造体のsurface->format->palette->colorsを読む.
+以下のようになる:
+<code>
+<pre>
+SDL_Surface *surface;
+SDL_PixelFormat *fmt;
+SDL_Color *color;
+Uint8 index;
+
+.
+.
+
+/* ここでサーフェイスを生成する */
+.
+.
+fmt=surface->format;
+
+/* サーフェイスのビット深度をチェックする */
+if(fmt->BitsPerPixel!=8){
+  fprintf(stderr, "8bitサーフェイスではない\n");
+  return(-1);
+}
+
+/* サーフェイスをロックする */
+SDL_LockSurface(surface);
+
+/* 左上の角のピクセルを得る */
+index=*(Uint8 *)surface-&gt;pixels;
+color=fmt-&gt;palette-&gt;colors[index];
+
+/* サーフェイスのロックを解除する */
+SDL_UnlockSurface(surface);
+printf("Pixel Color-&gt; Red: %d, Green: %d, Blue: %d. Index: %d\n",
+          color-&gt;r, color-&gt;g, color-&gt;b, index);
+.
+.
+</pre>
+</code>
+</p>
+<p>
+8bitを超えるピクセルは別の考え方が必要になる.
+それらは"TrueColor"形式であり, 色情報はパレットではなくピクセル自身に格納されている.
+mask, shift, lossフィールドでどのように色をエンコードしているかわかる.
+maskフィールドでそれぞれの色要素を分離することができ, shiftフィールドはピクセル値のそれぞれの色要素が右から何ビット目かを知ることができ, そしてlossフィールドはこのピクセル値が8bitの色要素に対して何ビット失われているかを知ることができる.
+<code>
+<pre>
+/* 32bitピクセル値から色要素を得る */
+SDL_PixelFormat *fmt;
+SDL_Surface *surface;
+Uint32 temp, pixel;
+Uint8 red, green, blue, alpha;
+.
+.
+.
+fmt = surface->format;
+SDL_LockSurface(surface);
+pixel = *((Uint32*)surface->pixels);
+SDL_UnlockSurface(surface);
+
+/* 赤要素を得る */
+temp = pixel & fmt-&gt;Rmask;  /* 赤要素を分離する */
+temp = temp &gt;&gt; fmt->Rshift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Rloss;  /* 8bitフルまで拡張する */
+red = (Uint8)temp;
+
+/* 緑要素を得る */
+temp = pixel & fmt-&gt;Gmask;  /* 緑要素を分離する */
+temp = temp &gt;&gt; fmt-&gt;Gshift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Gloss;  /* 8bitフルまで拡張する */
+green = (Uint8)temp;
+
+/* 青要素を得る */
+temp = pixel & fmt-&gt;Bmask;  /* 青要素を分離する */
+temp = temp &gt;&gt; fmt-&gt;Bshift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Bloss;  /* 8bitフルまで拡張する */
+blue = (Uint8)temp;
+
+/* α要素を得る */
+temp = pixel & fmt-&gt;Amask;  /* α要素を分離する */
+temp = temp &gt;&gt; fmt-&gt;Ashift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Aloss;  /* 8bitフルまで拡張する */
+alpha = (Uint8)temp;
+
+printf("Pixel Color -&gt; R: %d,  G: %d,  B: %d,  A: %d\n", red, green, blue, alpha);
+.
+.
+.
+</pre>
+</code>
+</p><h2>詳細</h2>
 <p>
 この構造体のフィールドは全て読み取り専用である.
 </p>
@@ -58,7 +153,7 @@
 </p>
 <p>
 ピクセルのレベルを変えたいならば, SDLがどのように色情報を格納しているかを理解しなければならない.
-<a href="https://wiki.libsdl.org/SDL_PixelFormat#Code_Examples">サンプルコード</a>に詳細な情報がある.
+サンプルコードに詳細な情報がある.
 </p>
 <p>
 現代的なピクセル色空間の情報は以下のWikipediaの項目にある: <a href="http://en.wikipedia.org/wiki/RGBA_color_space">http://en.wikipedia.org/wiki/RGBA_color_space</a>
