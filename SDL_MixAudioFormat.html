@@ -23,6 +23,21 @@
 <tr><td>len</td><td>音声バッファのバイト長</td></tr>
 <tr><td>volume</td><td>0～128の範囲, SDL_MIX_MAXVOLUMEのとき最大ボリューム</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+void myAudioCallback(void *udata, Uint8 *stream, int len)
+{
+    extern SDL_AudioFormat deviceFormat;
+    extern const Uint8 *mixData;
+    SDL_memset(stream, 0, len);  // 無音にする
+    // 無音に対してあなたの音声データを50%のボリュームでミキシングする
+    SDL_MixAudioFormat(stream, mixData, deviceFormat, len, SDL_MIX_MAXVOLUME / 2);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 受け取った形式formatのバイト長lenの音声バッファsrcを, ボリュームの調整とオーバーフローのクリップを行い, ミキシングしてdstに書き込む.

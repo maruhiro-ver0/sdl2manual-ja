@@ -20,6 +20,17 @@
 <tr><td>dev</td><td><a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>で開いたオーディオデバイスのID</td></tr>
 <tr><td>pause_on</td><td>0以外のとき一時停止, 0のとき一時停止解除</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+extern SDL_AudioDeviceID devid;
+SDL_PauseAudioDevice(devid, 1);  // この関数から戻ったときオーディオコールバックは一時停止する
+SDL_Delay(5000);  // オーディオデバイスは5秒間無音
+SDL_PauseAudioDevice(devid, 0);  // オーディオコールバックが再び実行される
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数は指定のデバイスのコールバック処理を一時停止と一時停止の解除を行う.

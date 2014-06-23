@@ -35,6 +35,25 @@ WAVEファイルを開けない, 不明な形式, または壊れている場合はNULLを戻す.
 <p>
 アプリケーションが戻されたaudio_bufを使った後は, <a href="SDL_FreeWAV.html">SDL_FreeWAV()</a>を呼んで解放する必要がある.
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+extern SDL_RWops *myRWops;
+SDL_AudioSpec wav_spec;
+Uint32 wav_length;
+Uint8 *wav_buffer;
+
+/* WAVを読み込む */
+if (SDL_LoadWAV_RW(myRWops, 1, &wav_spec, &wav_buffer, &wav_length) == NULL) {
+    fprintf(stderr, "test.wavを読み込めなかった: %s\n", SDL_GetError());
+} else {
+    /* ここでWAVデータを処理する. そして... */
+    SDL_FreeWAV(wav_buffer);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 現在は無圧縮のMS-ADPCM WAVEに対応している.

@@ -34,6 +34,24 @@ WAVEファイルを開けない, 不明な形式, または壊れている場合はNULLを戻す.
 <p>
 アプリケーションが戻されたaudio_bufを使った後は, <a href="SDL_FreeWAV.html">SDL_FreeWAV()</a>を呼んで解放する必要がある.
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_AudioSpec wav_spec;
+Uint32 wav_length;
+Uint8 *wav_buffer;
+
+/* WAVを読み込む */
+if (SDL_LoadWAV("test.wav", &wav_spec, &wav_buffer, &wav_length) == NULL) {
+    fprintf(stderr, "test.wavを開けなかった: %s\n", SDL_GetError());
+} else {
+    /* ここでWAVを処理する. そして... */
+    SDL_FreeWAV(wav_buffer);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 <a href="SDL_LoadWAV.html">SDL_LoadWAV()</a>は<a href="SDL_LoadWAV_RW.html">SDL_LoadWAV_RW()</a>を呼び出すマクロである.

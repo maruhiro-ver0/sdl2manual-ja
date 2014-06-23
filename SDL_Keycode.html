@@ -310,6 +310,18 @@ SDL‚Ìƒ†[ƒU‚Í, SDL‚Í‚Ù‚Æ‚ñ‚Ç‚Ì(‘S‚Ä‚Ì?)ƒL[ƒ{[ƒh‚Å‚±‚ÌƒR[ƒh‚ğ¶¬‚µ‚È‚¢‚½‚ß, ‚
 <tr><td>")"</td><td>(‚È‚µ)</td><td>SDLK_RIGHTPAREN</td></tr>
 <tr><td>"_"</td><td>(‚È‚µ)</td><td>SDLK_UNDERSCORE</td></tr>
 </table>
+<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<p>
+<code>
+<pre>
+    //ƒL[‚Ì”z’u‚ªŠ·‚í‚Á‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN‚µ, •Ï‚í‚Á‚½ƒL[‚ğ•\¦‚·‚é
+    if(event-&gt;key.keysym.scancode != SDL_GetScancodeFromKey(event-&gt;key.keysym.sym))
+        printf("•¨—ƒL[ %s ‚Í %s ‚Æ‚µ‚ÄU•‘‚¤",
+        SDL_GetScancodeName(event-&gt;key.keysym.scancode),
+        SDL_GetKeyName(event-&gt;key.keysym.sym));
+</pre>
+</code>
+</p>
 <h2>Ú×</h2>
 <p>
 ‚±‚ÌŒ^(ƒL[ƒR[ƒh‚Ü‚½‚ÍƒL[ƒVƒ“ƒ{ƒ‹)‚Ì’l‚Í, Œ»İ‚ÌƒL[ƒ{[ƒhƒŒƒCƒAƒEƒg‚Éƒ}ƒbƒv‚³‚ê‚Ä‚¢‚é. ‚»‚µ‚Ä<a href="SDL_Scancode.html">SDL_Scancode</a>‚Æˆê‘Îˆê‚ÌŠÖŒW‚É‚ ‚é.

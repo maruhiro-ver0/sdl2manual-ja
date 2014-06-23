@@ -33,6 +33,33 @@
 SDL1.2との互換性のため, この関数が1を戻すことはない.
 そのIDは古い<a href="SDL_OpenAudio.html">SDL_OpenAudio()</a>のために予約されている.
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_AudioSpec want, have;
+SDL_AudioDeviceID dev;
+
+SDL_zero(want);
+want.freq = 48000;
+want.format = AUDIO_F32;
+want.channels = 2;
+want.samples = 4096;
+want.callback = MyAudioCallback;  // この関数はどこか別の場所に書く
+
+dev = SDL_OpenAudioDevice(NULL, 0, &want, &have, SDL_AUDIO_ALLOW_FORMAT_CHANGE);
+if (dev == 0) {
+    printf("オーディオを開けなかった: %s\n", SDL_GetError());
+} else {
+    if (have.format != want.format)  // we let this one thing change.
+        printf("32bit浮動小数点のオーディオ形式に対応していない\n");
+    SDL_PauseAudioDevice(dev, 0);  // 再生を開始する
+    SDL_Delay(5000);  // コールバックで音声を5秒間再生する
+    SDL_CloseAudioDevice(dev);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 <a href="SDL_OpenAudio.html">SDL_OpenAudio</a>は他の関数と違い, デバイスID 1として振舞う.

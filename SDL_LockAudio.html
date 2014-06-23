@@ -15,6 +15,28 @@
 オーディオデバイスをロックする古い関数. 新しいプログラムは代わりに<a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice()</a>を使う方がよい
 <h2>構文</h2>
 <code>void SDL_LockAudio(void)</code>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+void myAudioCallback(void *userdata, Uint8* stream, int len)
+{
+    printf("オーディオコールバック開始!\n");
+    SDL_memset(stream, 0, len);  // ただ沈黙のみ
+    printf("オーディオコールバック終了!\n");
+}
+
+// 実際には一度に2秒も止めないようにすること
+SDL_Delay(2000);  // コールバックは2秒間動作する
+SDL_LockAudio();
+printf("今からオーティオコールバックは動作しない!\n");
+SDL_Delay(2000);  // コールバックは2秒間動作しない
+printf("OK, アンロックした!\n");
+SDL_UnlockAudio();
+SDL_Delay(2000);  // コールバックは2秒間動作する
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数は

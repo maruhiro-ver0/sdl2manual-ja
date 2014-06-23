@@ -27,6 +27,29 @@ mutexをロックする
 <a href="SDL_DestroyMutex.html">SDL_DestroyMutex</a><br>
 <a href="SDL_TryLockMutex.html">SDL_TryLockMutex</a><br>
 <a href="SDL_UnlockMutex.html">SDL_UnlockMutex</a><br>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_mutex *mutex;
+
+mutex = SDL_CreateMutex();
+if (!mutex) {
+    fprintf(stderr, "mutexを生成できなかった\n");
+    return;
+}
+
+if (SDL_LockMutex(mutex) == 0) {
+    /* ここでmutexがロックされている間の処理を行う */
+    SDL_UnlockMutex(mutex);
+} else {
+    fprintf(stderr, "mutexをロックできなかった\n");
+}
+
+SDL_DestroyMutex(mutex);
+</pre>
+</code>
+</p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_LockMutex">SDL_LockMutex - SDL Wiki</a>
 <hr>

@@ -22,6 +22,17 @@
 <h2>戻り値</h2>
 オブジェクトハンドラへのポインタを戻す. 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL_loadso.h"
+
+// 動的にmylib.soを読み込む
+SDL_LoadObject("mylib.so");
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_LoadFunction.html">SDL_LoadFunction</a><br>
 <a href="SDL_UnloadObject.html">SDL_UnloadObject</a><br>

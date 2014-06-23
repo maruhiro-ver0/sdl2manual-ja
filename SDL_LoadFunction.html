@@ -23,6 +23,34 @@
 <h2>戻り値</h2>
 関数へのポインタを戻す. 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL_loadso.h"
+
+// 変数を宣言する
+void* myHandle = NULL;
+char* myFunctionName = "myFancyFunction";
+void (*myFancyFunction)(int anInt);
+
+// mylib.soを動的に読み込む
+myHandle = SDL_LoadObject("mylib.so");
+
+// mylib.soからエクスポートされた関数を読み込む
+// エクスポートされた関数のプロトタイプは次のようであるとする
+// void myFancyFunction(int anInt);
+myFancyFunction = (void (*)(int))SDL_LoadFunction(myHandle, myFunctionName);
+
+// myFancyFunctionに適当な値を渡す
+if (myFancyFunction != NULL) {
+    myFancyFunction(15);
+} else {
+    // ここでエラー処理を行う
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 関数へのポインタは<a href="SDL_UnloadObject.html">SDL_UnloadObject()</a>を読んだあとは無効となる.

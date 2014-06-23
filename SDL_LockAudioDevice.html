@@ -19,6 +19,28 @@
 <table border="1" summary="SDL_LockAudioDevice">
 <tr><td>dev</td><td>ロックするオーディオデバイスのID</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+void myAudioCallback(void *userdata, Uint8* stream, int len)
+{
+    printf("オーディオコールバック開始!\n");
+    SDL_memset(stream, 0, len);  // ただ沈黙のみ
+    printf("オーディオコールバック終了!\n");
+}
+
+// 実際には一度に2秒も止めないようにすること
+extern SDL_AudioDeviceID devid;
+SDL_Delay(2000);  // コールバックは2秒間動作する
+SDL_LockAudioDevice(devid);
+printf("今からオーティオコールバックは動作しない!\n");
+SDL_Delay(2000);  // コールバックは2秒間動作しない
+printf("OK, アンロックした!\n");
+SDL_UnlockAudioDevice(devid);
+SDL_Delay(2000);  // コールバックは2秒間動作する
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 これらのロック操作関数は, <a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>で設定したコールバック関数を停止する.

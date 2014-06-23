@@ -20,6 +20,18 @@
 <table border="1" summary="">
 <tr><td>x</td><td>最上位ビットを得る数値</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL_bits.h"
+
+if (bitmask) {
+    int index = SDL_MostSignificantBitIndex32(bitmask);
+}
+</pre>
+</code>
+</p>
 <h2>戻り値</h2>
 最上位ビットが何ビット目かを戻す. xが0のとき-1を戻す.
 <h2>SDL Wikiへのリンク</h2>
