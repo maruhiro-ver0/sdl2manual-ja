@@ -21,6 +21,16 @@
 <tr><td>SDL_POWERSTATE_CHARGING</td><td>接続されている. 充電中</td></tr>
 <tr><td>SDL_POWERSTATE_CHARGED</td><td>接続されている. 充電完了</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+if (SDL_GetPowerInfo(NULL, NULL) == SDL_POWERSTATE_ON_BATTERY) {
+    printf("アップデート前にノートPCを電源に接続してください\n");
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 全てのマシンにバッテリーがあるのではなく, 全ての環境がバッテリー状態を得られるのでもない.
 瞬間的にバッテリーの状態を得られないこともある.

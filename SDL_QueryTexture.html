@@ -29,6 +29,19 @@
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateTexture.html">SDL_CreateTexture</a><br>
 <a href="SDL_QueryTexturePixels.html">SDL_QueryTexturePixels</a><br>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Texture* source;
+
+// ここで読み込みなどを行う...
+
+int w, h;
+SDL_QueryTexture(source, NULL, NULL, &w, &h);
+</pre>
+</code>
+</p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_QueryTexture">SDL_QueryTexture - SDL Wiki</a>
 <hr>

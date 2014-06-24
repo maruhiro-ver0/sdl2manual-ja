@@ -20,6 +20,26 @@
 <tr><td>int</td><td>w</td><td>長方形の幅</td></tr>
 <tr><td>int</td><td>h</td><td>長方形の高さ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Rect srcrect;
+SDL_Rect dstrect;
+
+srcrect.x = 0;
+srcrect.y = 0;
+srcrect.w = 32;
+srcrect.h = 32;
+dstrect.x = 640/2;
+dstrect.y = 480/2;
+dstrect.w = 32;
+dstrect.h = 32;
+
+SDL_BlitSurface(src, &srcrect, dst, &dstrect);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <a href="SDL_Rect.html">SDL_Rect</a>はスクリーン上の長方形の領域を定義する.
 <a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>では転送の領域を定義し, 他のビデオ関数でも使われる.

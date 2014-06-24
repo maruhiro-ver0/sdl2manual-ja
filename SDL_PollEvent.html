@@ -21,6 +21,20 @@
 </table>
 <h2>戻り値</h2>
 未処理のイベントがある場合は1, ない場合は0を戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+while (1) {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+         // ここでイベントを処理する
+    }
+    // ここで別の処理(描画など)を行う
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 eventがNULLでない場合, イベントはキューから削除され, <a href="SDL_Event.html">SDL_Event</a>構造体のeventに代入される.

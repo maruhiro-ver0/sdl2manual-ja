@@ -18,6 +18,65 @@
 <tr><td>int</td><td>x</td><td>点のX座標</td></tr>
 <tr><td>int</td><td>y</td><td>点のY座標</td></tr>
 </table>
+<p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// サンプルプログラム:
+// コードの各所でSDL_Pointを使っている
+
+#include "SDL.h"
+#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+
+    SDL_Window *window;
+
+    SDL_Point window_position = {         //    ウィンドウの位置
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED
+    };
+    SDL_Point window_size = {640, 480};   //    ウィンドウのサイズ
+
+    SDL_Point mouse_position;             //    マウスの座標
+
+    SDL_Init(SDL_INIT_VIDEO);             //    SDL2を初期化する
+
+    // 次の設定でアプリケーションウィンドウを設定する
+    window = SDL_CreateWindow( 
+        "SDL_Point usage",                //    タイトル
+        window_position.x,                //    X座標の初期値
+        window_position.y,                //    Y座標の初期値
+        window_size.x,                    //    幅ピクセル数
+        window_size.y,                    //    高さピクセル数
+        SDL_WINDOW_OPENGL                 //    フラグ
+    );
+
+    // ウィンドウを生成できたかチェックする
+    if (window == NULL) {
+        printf("ウィンドウを生成できなかった: %s\n", SDL_GetError());
+        return 1;
+    }
+
+    SDL_GetMouseState(                    //    マウスのウィンドウ上の...
+        &mouse_position.x,                // ...座標を得る
+        &mouse_position.y
+    );
+
+    printf("マウスの位置: x=%d y=%d\n", //    マウスの位置を表示する
+         mouse_position.x, mouse_position.y
+    );
+
+    // ウィンドウを閉じて破棄する
+    SDL_DestroyWindow(window); 
+
+    // 終了処理
+    SDL_Quit();
+    return 0; 
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <a href="SDL_Point.html">SDL_Point</a>は1つの2次元上の点を定義する.
 点以外でも使えるが, サイズを持たない.
