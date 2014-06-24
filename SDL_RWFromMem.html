@@ -24,6 +24,16 @@
 新しい<a href="SDL_RWops.html">SDL_RWops</a>へのポインタを戻す.
 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+char bitmap[310000];
+SDL_RWops *rw = SDL_RWFromMem(bitmap, sizeof(bitmap));
+SDL_SaveBMP_RW(screen, rw, 1);  /* バッファデータのデータを放した後にSDL_RWopsが閉じる */
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数はサイズの決まったメモリを<a href="SDL_RWops.html">SDL_RWops</a>に設定する.
@@ -38,7 +48,6 @@
 ストリームを閉じても元のバッファは解放されない.
 </p>
 <p>
-If you need to make sure the RWops never writes to the memory buffer, you should use SDL_RWFromConstMem with a read-only buffer of memory instead. 
 メモリバッファに書き込まないようにしたいならば, 代わりに<a href="SDL_RWFromConstMem.html">SDL_RWFromConstMem()</a>を使って読込専用とすることができる.
 </p>
 <h2>関連項目(関数)</h2>

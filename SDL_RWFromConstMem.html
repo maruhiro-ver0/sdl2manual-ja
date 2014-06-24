@@ -24,6 +24,19 @@
 新しい<a href="SDL_RWops.html">SDL_RWops</a>へのポインタを戻す.
 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+char bitmap[] = {
+    66, 77, 86, 2, 0, 0, 0, 0 ...
+};
+SDL_RWops *rw = SDL_RWFromConstMem(bitmap, sizeof(bitmap));
+SDL_Surface *img = SDL_LoadBMP_RW(rw, 1); /* 自動的にSDL_RWopsを解放する */
+/* ここでimgを処理する */
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数はサイズの決まったメモリを<a href="SDL_RWops.html">SDL_RWops</a>に設定する.

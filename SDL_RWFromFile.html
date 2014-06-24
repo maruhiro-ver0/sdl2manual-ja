@@ -24,6 +24,16 @@
 生成した<a href="SDL_RWops.html">SDL_RWops</a>へのポインタを戻す.
 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_RWops *file = SDL_RWFromFile("myimage.bmp", "rb");
+SDL_Surface *image = SDL_LoadBMP_RW(file, 1); /* 1のとき自動的にSDL_RWopsを閉じる */
+/* ここでimageを処理する */
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 仮にSDLが背後でfopen()を使っていないとしても, mode文字列はCのライブラリのfopen()とほぼ同じである.

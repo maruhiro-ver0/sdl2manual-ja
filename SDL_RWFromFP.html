@@ -23,6 +23,17 @@
 <h2>戻り値</h2>
 生成した<a htef="SDL_RWops.htm">SDL_RWops</a>を戻す. 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+FILE *fp = fopen("myfile.dat", "rb");
+SDL_RWops *rw = SDL_RWFromFP(fp, SDL_TRUE);
+// ここでrwを処理する...
+SDL_RWclose(rw); /* この場合は自動的にfclose(fp)される */
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数はWindowsでは使えない. 動的リンクライブラリでアプリケーションが開いたファイルを扱えないためである.

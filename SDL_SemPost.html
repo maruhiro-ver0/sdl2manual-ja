@@ -29,6 +29,39 @@
 <a href="SDL_SemValue.html">SDL_SemValue</a><br>
 <a href="SDL_SemWait.html">SDL_SemWait</a><br>
 <a href="SDL_SemWaitTimeout.html">SDL_SemWaitTimeout</a><br>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_atomic_t done;
+SDL_sem *sem;
+
+SDL_AtomicSet(&done, 0);
+sem = SDL_CreateSemaphore(0);
+.
+.
+Thread A:
+    while (!SDL_AtomicGet(&done)) {
+        add_data_to_queue();
+        SDL_SemPost(sem);
+    }
+
+Thread B:
+    while (!SDL_AtomicGet(&done)) {
+        SDL_SemWait(sem);
+        if (data_available()) {
+            get_data_from_queue();
+        }
+    }
+.
+.
+SDL_AtomicSet(&done, 1);
+SDL_SemPost(sem);
+wait_for_threads();
+SDL_DestroySemaphore(sem);
+</pre>
+</code>
+</p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_SemPost">SDL_SemPost - SDL Wiki</a>
 <hr>

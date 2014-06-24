@@ -21,6 +21,22 @@
 </table>
 <h2>戻り値</h2>
 タイマを破棄したときSDL_TRUE, タイマがないときSDL_FALSEを戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+delay = (33 / 10) * 10;  /* 10ミリ秒単位で切り捨てる */
+
+...
+
+my_timer_id = SDL_AddTimer(delay, my_callbackfunc, my_callback_param);
+
+...
+
+SDL_RemoveTimer(my_timer_id);
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_AddTimer.html">SDL_AddTimer</a><br>
 <h2>SDL Wikiへのリンク</h2>

@@ -25,6 +25,21 @@
 <tr><td>Uint32</td><td>type</td><td>ストリームの種類 (詳細を参照すること)</td></tr>
 <tr><td>union</td><td>hidden</td><td>種類に固有のデータ (詳細を参照すること)</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_RWops *io = SDL_RWFromFile("username.txt", "rb");
+if (io != NULL) {
+    char name[256];
+    if (io->read(io, name, sizeof (name), 1) > 0) {
+        printf("こんにちは %s!\n", name);
+    }
+    io->close(io);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 <a href="SDL_RWops.html">SDL_RWops</a>は入出力を抽象化したものである.

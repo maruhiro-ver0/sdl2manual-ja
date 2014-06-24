@@ -15,6 +15,17 @@
 失敗したアサーションのリストを全て消去する
 <h2>構文</h2>
 <code>void SDL_ResetAssertionReport(void)</code>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_assert(1+1 == 3);  // アサーションを引き起こす
+printf("%p\n", SDL_GetAssertionReport());  // NULLでない
+SDL_ResetAssertionReport();
+printf("%p\n", SDL_GetAssertionReport());  // NULL
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数は, この時点までに発生したアサーションを全て消去する.
 この関数を呼んだ直後は<a href="SDL_GetAssertionReport.html">SDL_GetAssertionReport()</a>は何も戻さない.

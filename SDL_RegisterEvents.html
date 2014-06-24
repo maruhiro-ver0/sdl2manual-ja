@@ -21,6 +21,23 @@
 </table>
 <h2>戻り値</h2>
 成功のとき先頭のイベント番号, ユーザ定義イベントを確保できないとき(Uint32)-1を戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+Uint32 myEventType = SDL_RegisterEvents(1);
+if (myEventType != ((Uint32)-1)) {
+    SDL_Event event;
+    SDL_zero(event);
+    event.type = myEventType;
+    event.user.code = my_event_code;
+    event.user.data1 = significant_data;
+    event.user.data2 = 0;
+    SDL_PushEvent(&event);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 numeventsが0以下のとき, この関数は(Uint32)-1を戻す.
 <h2>関連項目(関数)</h2>

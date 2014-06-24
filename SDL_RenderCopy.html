@@ -25,6 +25,102 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+#define SHAPE_SIZE 16
+
+int main(int argc, char *argv[])
+{
+  SDL_Window* Main_Window;
+  SDL_Renderer* Main_Renderer;
+  SDL_Surface* Loading_Surf;
+  SDL_Texture* Background_Tx;
+  SDL_Texture* BlueShapes;
+
+  /* レンダリングする(テクスチャ内の)コピー元と(画面の)コピー先の領域 */
+  SDL_Rect SrcR;
+  SDL_Rect DestR;
+
+  SrcR.x = 0;
+  SrcR.y = 0;
+  SrcR.w = SHAPE_SIZE;
+  SrcR.h = SHAPE_SIZE;
+
+  DestR.x = 640 / 2 - SHAPE_SIZE / 2;
+  DestR.y = 580 / 2 - SHAPE_SIZE / 2;
+  DestR.w = SHAPE_SIZE;
+  DestR.h = SHAPE_SIZE;
+
+
+  /* レンダリングの前にウィンドウをレンダラーを生成する */
+  Main_Window = SDL_CreateWindow("SDL_RenderCopy Example",
+  SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 580, 0);
+  Main_Renderer = SDL_CreateRenderer(Main_Window, -1, SDL_RENDERER_ACCELERATED);
+
+  /* 背景画像を読み込む. SDL_LoadBMPはサーフェイスを戻すので,
+  それを高速にコピーできるテクスチャに変換する */
+  Loading_Surf = SDL_LoadBMP("Background.bmp");
+  Background_Tx = SDL_CreateTextureFromSurface(Main_Renderer, Loading_Surf);
+  SDL_FreeSurface(Loading_Surf);  // we got the texture now -&gt; free surface
+
+  /* 追加のテクスチャを読み込む */
+  Loading_Surf = SDL_LoadBMP("Blueshapes.bmp");
+  BlueShapes = SDL_CreateTextureFromSurface(Main_Renderer, Loading_Surf);
+  SDL_FreeSurface(Loading_Surf);
+
+  /* ここが最も関心のある部分である.
+  Blueshapes.bmpの選択された部分を画面の中央にレンダリングする */
+  int i;
+  int n;
+  for(i=0;i&lt;2;i++)
+  {
+    for(n=0;n&lt;4;n++)
+    {
+      SrcR.x = SHAPE_SIZE * (n % 2);
+      if(n &gt; 1)
+      {
+        SrcR.y = SHAPE_SIZE;
+      }
+      else
+      {
+        SrcR.y = 0;
+      }
+
+      /* 背景をレンダリングする. NULLはコピー元とコピー先がデフォルトであることを意味する */
+      SDL_RenderCopy(Main_Renderer, Background_Tx, NULL, NULL);
+
+      /* 図形をレンダリングしてアニメーションにする */
+      SDL_RenderCopy(Main_Renderer, BlueShapes, &SrcR, &DestR);  
+      SDL_RenderPresent(Main_Renderer);
+      SDL_Delay(500);
+    }
+  }
+
+
+  /* このレンダラーは大きなキャンバスのようなものである:
+  RenderCopyで画像を加えると, その度に上書きされる.
+  新しいデータがどのようにブレンドされるかは変更できる.
+  あなたの「絵」が完成すれば, それをSDL_RenderPresentを使って見せることができる */
+
+  /* SDL 1.2のヒント: レンダラーが理解しづらいならば, 1.2のサーフェイスとコピーに置き換えて,
+  レンダラーはメインサーフェイス, SDL_RenderCopyはメインサーフェイスへのコピー,
+  SDL_RenderPresentは旧バージョンのSDL_Flip関数と考えればよいかもしれない */
+
+  SDL_DestroyTexture(BlueShapes);
+  SDL_DestroyTexture(Background_Tx);
+  SDL_DestroyRenderer(Main_Renderer);
+  SDL_DestroyWindow(Main_Window);
+  SDL_Quit();
+
+
+  return 0;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 テクスチャは<a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode()</a>で設定したブレンドモードでコピー先のテクスチャとブレンドされる.

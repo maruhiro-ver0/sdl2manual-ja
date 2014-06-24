@@ -25,6 +25,24 @@
 <h2>戻り値</h2>
 書き込んだオブジェクトの数を戻す. numよりも少ない場合はエラーである.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_RWops *rw = SDL_RWFromFile("hello.txt", "w");
+if(rw != NULL) {
+    const char *str = "Hello World";
+    size_t len = SDL_strlen(str);
+    if (SDL_RWwrite(rw, str, 1, len) != len) {
+        printf("文字列を全て書き込めなかった\n");
+    } else {
+        printf("%d 1-byte ブロック書き込んだ\n", len);
+    }
+    SDL_RWclose(rw);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 それぞれsizeバイトのちょうどnum個のオブジェクトをptrの領域からストリームに書き込む.

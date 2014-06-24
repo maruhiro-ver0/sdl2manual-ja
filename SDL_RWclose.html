@@ -22,6 +22,19 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_RWops *rw = SDL_RWFromFile("test.bin","r");
+if(rw != NULL) {
+    extern Uint8 buf[256];
+    SDL_RWread(rw, buf, sizeof (buf), 1);
+    SDL_RWclose(rw);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 ディスクへの書き込みに失敗した場合, この関数はエラーを報告するが, その場合でも<a href="SDL_RWops.html">SDL_RWops</a>は使えなくなるので注意すること.
 <a href="SDL_RWclose.html">SDL_RWclose</a>は実際には<a href="SDL_RWops.html">SDL_RWops</a>のcloseメソッドを呼ぶマクロである.

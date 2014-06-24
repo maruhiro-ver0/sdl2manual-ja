@@ -22,6 +22,50 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+
+int main(int argc, char* argv[])
+{
+        SDL_Window* window;
+        SDL_Renderer* renderer;
+
+        // SDLを初期化する
+        if (SDL_Init(SDL_INIT_VIDEO) &lt; 0)
+                return 1;
+
+        // 描画するウィンドウを生成する
+        window = SDL_CreateWindow("SDL_RenderClear",
+                        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+                        512, 512,
+                        0);
+
+        // ウィンドウへの描画で使うSDL_CreateRendererを生成する
+        renderer = SDL_CreateRenderer(window, -1, 0);
+
+        // 描画の色を選択する. ここでは赤を設定する
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+
+        // 選択した色で画面を消去する
+        SDL_RenderClear(renderer);
+
+        // 上の描画は全て裏側で行われている
+        // これで新たに表示され, ウィンドウが赤くなる
+        SDL_RenderPresent(renderer);
+
+        // ウィンドウを見せるために5秒待つ
+        SDL_Delay(5000);
+
+        // 全て終了する
+        SDL_Quit();
+        return 0;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数は描画領域を無視して全体を消去する.
 <h2>関連項目(関数)</h2>
