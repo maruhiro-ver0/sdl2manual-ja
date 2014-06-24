@@ -314,11 +314,11 @@ SDL‚Ìƒ†[ƒU‚Í, SDL‚Í‚Ù‚Æ‚ñ‚Ç‚Ì(‘S‚Ä‚Ì?)ƒL[ƒ{[ƒh‚Å‚±‚ÌƒR[ƒh‚ğ¶¬‚µ‚È‚¢‚½‚ß, ‚
 <p>
 <code>
 <pre>
-    //ƒL[‚Ì”z’u‚ªŠ·‚í‚Á‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN‚µ, •Ï‚í‚Á‚½ƒL[‚ğ•\¦‚·‚é
-    if(event-&gt;key.keysym.scancode != SDL_GetScancodeFromKey(event-&gt;key.keysym.sym))
-        printf("•¨—ƒL[ %s ‚Í %s ‚Æ‚µ‚ÄU•‘‚¤",
-        SDL_GetScancodeName(event-&gt;key.keysym.scancode),
-        SDL_GetKeyName(event-&gt;key.keysym.sym));
+//ƒL[‚Ì”z’u‚ªŠ·‚í‚Á‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN‚µ, •Ï‚í‚Á‚½ƒL[‚ğ•\¦‚·‚é
+if(event-&gt;key.keysym.scancode != SDL_GetScancodeFromKey(event-&gt;key.keysym.sym))
+    printf("•¨—ƒL[ %s ‚Í %s ‚Æ‚µ‚ÄU•‘‚¤",
+    SDL_GetScancodeName(event-&gt;key.keysym.scancode),
+    SDL_GetKeyName(event-&gt;key.keysym.sym));
 </pre>
 </code>
 </p>
