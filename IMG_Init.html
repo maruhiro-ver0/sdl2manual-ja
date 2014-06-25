@@ -44,6 +44,19 @@ flagsで指定したライブラリを読み込んで初期化する. 少なくとも読み込めれば(既に読み
 <p>
 戻り値: 初期化された全ての画像ローダーのビットマスク
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// JPGとPNG形式の画像を読み込めるようにする
+int flags=IMG_INIT_JPG|IMG_INIT_PNG;
+int initted=IMG_Init(flags);
+if(initted&amp;flags != flags) {
+    printf("IMG_Init: JPGとPNGの読み込みの初期化に失敗した!\n");
+    printf("IMG_Init: %s\n", IMG_GetError());
+    // ここでエラー処理を行う
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="IMG_Quit.html">IMG_Quit</a>
 <h2>原文へのリンク</h2>

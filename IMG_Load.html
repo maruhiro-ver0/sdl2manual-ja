@@ -39,6 +39,18 @@
 <p>
 戻り値: 新しいSDL_Surfaceへのポインタを戻す. 対応していない形式, ファイルの読み込みに失敗したときなどはNULLを戻す.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sample.pngをimageに読み込む
+SDL_Surface *image;
+image=IMG_Load("sample.png");
+if(!image) {
+    printf("IMG_Load: %s\n", IMG_GetError());
+    // ここでエラー処理を行う
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="IMG_Init.html">IMG_Init</a>,
 <a href="IMG_Load_RW.html">IMG_Load_RW</a>,

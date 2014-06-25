@@ -23,6 +23,15 @@
 フォーマット形式は以下のもののみ対応する: %s, %d, %f, %p<br>
 %.2fのような指定には対応していない. 詳細はSDLのドキュメントに書かれている.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+int myimagefunc(int i) {
+    IMG_SetError("myimagefunc is not implemented! %d was passed in.",i);
+    return(-1);
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="IMG_GetError.html">IMG_GetError</a>
 <h2>原文へのリンク</h2>

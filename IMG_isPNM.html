@@ -26,6 +26,18 @@
 <p>
 戻り値: 画像がPNMでSDL_ImageがPNM形式に対応していれば1, そうでなければ0.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sample.pnmがPNMかテストする
+SDL_RWops *rwop;
+rwop=SDL_RWFromFile("sample.pnm", "rb");
+if(IMG_isPNM(rwop))
+    printf("sample.pnmはPNMファイルである\n");
+else
+    printf("sample.pnmはPNMファイルでないか, PNMに対応していない\n");
+</pre>
+</code>
 <h2>参照</h2>
 <a href="IMG_LoadPNM_RW.html">IMG_LoadPNM_RW</a>,
 <a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a>

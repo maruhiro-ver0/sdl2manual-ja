@@ -26,6 +26,18 @@
 <p>
 戻り値: 画像がBMPでSDL_ImageがBMP形式に対応していれば1, そうでなければ0.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sample.bmpがBMPかテストする
+SDL_RWops *rwop;
+rwop=SDL_RWFromFile("sample.bmp", "rb");
+if(IMG_isBMP(rwop))
+    printf("sample.bmpはBMPファイルである\n");
+else
+    printf("sample.bmpはBMPファイルでないか, BMPに対応していない\n");
+</pre>
+</code>
 <h2>参照</h2>
 <a href="IMG_LoadBMP_RW.html">IMG_LoadBMP_RW</a>,
 <a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a>

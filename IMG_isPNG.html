@@ -26,6 +26,18 @@
 <p>
 戻り値: 画像がPNGでSDL_ImageがPNG形式に対応していれば1, そうでなければ0.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sample.pngがPNGかテストする
+SDL_RWops *rwop;
+rwop=SDL_RWFromFile("sample.png", "rb");
+if(IMG_isPNG(rwop))
+    printf("sample.pngはPNGファイルである\n");
+else
+    printf("sample.pngはPNGファイルでないか, PNGに対応していない\n");
+</pre>
+</code>
 <h2>参照</h2>
 <a href="IMG_LoadPNG_RW.html">IMG_LoadPNG_RW</a>,
 <a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a>

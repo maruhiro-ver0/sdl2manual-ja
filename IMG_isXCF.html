@@ -26,6 +26,18 @@
 <p>
 戻り値: 画像がXCFでSDL_ImageがXCF形式に対応していれば1, そうでなければ0.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sample.xcfがXCFかテストする
+SDL_RWops *rwop;
+rwop=SDL_RWFromFile("sample.xcf", "rb");
+if(IMG_isXCF(rwop))
+    printf("sample.xcfはXCFファイルである\n");
+else
+    printf("sample.xcfはXCFファイルでないか, XCFに対応していない\n");
+</pre>
+</code>
 <h2>参照</h2>
 <a href="IMG_LoadXCF_RW.html">IMG_LoadXCF_RW</a>,
 <a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a>

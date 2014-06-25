@@ -26,6 +26,18 @@
 <p>
 戻り値: 画像がGIFでSDL_ImageがGIF形式に対応していれば1, そうでなければ0.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sample.gifがGIFかテストする
+SDL_RWops *rwop;
+rwop=SDL_RWFromFile("sample.gif", "rb");
+if(IMG_isGIF(rwop))
+    printf("sample.gifはGIFファイルである\n");
+else
+    printf("sample.gifはGIFファイルでないか, GIFに対応していない\n");
+</pre>
+</code>
 <h2>参照</h2>
 <a href="IMG_LoadGIF_RW.html">IMG_LoadGIF_RW</a>,
 <a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a>

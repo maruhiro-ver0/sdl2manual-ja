@@ -26,6 +26,20 @@ GIF画像のsrcからをサーフェイスを生成する (SDL_imageライブラリがGIF形式に対応して
 <p>
 戻り値: 新しい<a href="SDL_Surface.html">SDL_Surface</a>へのポインタを戻す. GIFに対応していない, ファイルの読み込みに失敗したときなどはNULLを戻す.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sample.gifをimageに読み込む
+SDL_Surface *image;
+SDL_RWops *rwop;
+rwop=SDL_RWFromFile("sample.gif", "rb");
+image=IMG_LoadGIF_RW(rwop);
+if(!image) {
+    printf("IMG_LoadGIF_RW: %s\n", IMG_GetError());
+    // ここでエラー処理を行う
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a>,
 <a href="IMG_isGIF.html">IMG_isGIF</a>

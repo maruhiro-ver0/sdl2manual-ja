@@ -26,6 +26,18 @@
 <p>
 戻り値: 画像がJPGでSDL_ImageがJPG形式に対応していれば1, そうでなければ0.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sample.jpgがJPGかテストする
+SDL_RWops *rwop;
+rwop=SDL_RWFromFile("sample.jpg", "rb");
+if(IMG_isJPG(rwop))
+    printf("sample.jpgはJPGファイルである\n");
+else
+    printf("sample.jpgはJPGファイルでないか, JPGに対応していない\n");
+</pre>
+</code>
 <h2>参照</h2>
 <a href="IMG_LoadJPG_RW.html">IMG_LoadJPG_RW</a>,
 <a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a>

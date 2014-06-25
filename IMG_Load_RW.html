@@ -38,6 +38,18 @@ srcを読み込んでサーフェイスを生成する.
 <p>
 戻り値: 新しい<a href="SDL_Surface.html">SDL_Surface</a>へのポインタを戻す. 対応していない形式, ファイルの読み込みに失敗したときなどはNULLを戻す.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sample.pngをimageに読み込む
+SDL_Surface *image;
+image=IMG_Load_RW(SDL_RWFromFile("sample.png", "rb"), 1);
+if(!image) {
+    printf("IMG_Load_RW: %s\n", IMG_GetError());
+    // ここでエラー処理を行う
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="IMG_Init.html">IMG_Init</a>,
 <a href="IMG_Load.html">IMG_Load</a>,
