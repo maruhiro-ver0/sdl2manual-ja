@@ -22,6 +22,19 @@ SDLエラー文字列を設定する
 </table>
 <h2>戻り値</h2>
 常に-1を戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+int errorCode = 0;
+...
+errorCode = -37;
+...
+if (errorCode &lt; 0)
+    SDL_SetError("Something unexpected happened: Error Code %d", errorCode);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数を呼ぶと, 以前のエラーメッセージは上書きされる.
 <h2>関連項目(関数)</h2>

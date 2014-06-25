@@ -15,6 +15,22 @@
 SDL_Main()を使わないとき<a href="SDL_Init.html">SDL_Init()</a>の失敗を回避する
 <h2>構文</h2>
 <code>void SDL_SetMainReady(void)</code>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#define SDL_MAIN_HANDLED
+#include "SDL.h"
+
+int main(int argc, char *argv[])
+{
+    SDL_SetMainReady();
+    SDL_Init(SDL_INIT_VIDEO);
+    ...
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数はSDL_main.hで定義されていて, プリプロセッサがmain()をSDL_main()で再定義するときに使用される.

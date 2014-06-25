@@ -19,6 +19,20 @@ SDLのバージョンの構造体
 <tr><td>Uint8</td><td>minor</td><td>マイナーバージョン</td></tr>
 <tr><td>Uint8</td><td>patch</td><td>パッチレベル(アップデートバージョン)</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_version compiled;
+SDL_version linked;
+
+SDL_VERSION(&compiled);
+SDL_GetVersion(&linked);
+printf("コンパイルしたSDLのバージョンは %d.%d.%d ...\n", compiled.major, compiled.minor, compiled.patch);
+printf("しかし, リンクしたSDLのバージョンは %d.%d.%d\n", linked.major, linked.minor, linked.patch);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 バージョンは3つの値がある.
 <ul>

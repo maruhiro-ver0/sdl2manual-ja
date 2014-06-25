@@ -22,6 +22,23 @@
 <tr><td>void*</td><td>data1</td><td>ユーザ定義の情報へのポインタ</td></tr>
 <tr><td>void*</td><td>data2</td><td>ユーザ定義の情報へのポインタ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+Uint32 myEventType = SDL_RegisterEvents(1);
+if (myEventType != ((Uint32)-1)) {
+    SDL_Event event;
+    SDL_zero(event);
+    event.type = myEventType;
+    event.user.code = my_event_code;
+    event.user.data1 = significant_data;
+    event.user.data2 = 0;
+    SDL_PushEvent(&event);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 <a href="SDL_UserEvent.html">SDL_UserEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバである.

@@ -22,6 +22,62 @@
 <tr><td>Sint32</td><td>data1</td><td>イベントによって異なるデータ</td></tr>
 <tr><td>Sint32</td><td>data2</td><td>イベントによって異なるデータ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+void PrintEvent(const SDL_Event * event)
+{
+    if (event->type == SDL_WINDOWEVENT) {
+        switch (event->window.event) {
+        case SDL_WINDOWEVENT_SHOWN:
+            SDL_Log("ウィンドウ %d が見えるようになった", event->window.windowID);
+            break;
+        case SDL_WINDOWEVENT_HIDDEN:
+            SDL_Log("ウィンドウ %d が見えないようになった", event->window.windowID);
+            break;
+        case SDL_WINDOWEVENT_EXPOSED:
+            SDL_Log("ウィンドウ %d が現れた", event->window.windowID);
+            break;
+        case SDL_WINDOWEVENT_MOVED:
+            SDL_Log("ウィンドウ %d が %d,%d へ移動した", event->window.windowID, event->window.data1, event->window.data2);
+            break;
+        case SDL_WINDOWEVENT_RESIZED:
+            SDL_Log("ウィンドウ %d の大きさが %dx%d になった", event->window.windowID, event->window.data1, event->window.data2);
+            break;
+        case SDL_WINDOWEVENT_MINIMIZED:
+            SDL_Log("ウィンドウ %d が最小化された", event->window.windowID);
+            break;
+        case SDL_WINDOWEVENT_MAXIMIZED:
+            SDL_Log("ウィンドウ %d が最大化された", event->window.windowID);
+            break;
+        case SDL_WINDOWEVENT_RESTORED:
+            SDL_Log("ウィンドウ %d 通常の大きさと位置になった", event->window.windowID);
+            break;
+        case SDL_WINDOWEVENT_ENTER:
+            SDL_Log("マウスがウィンドウ %d に入った", event->window.windowID);
+            break;
+        case SDL_WINDOWEVENT_LEAVE:
+            SDL_Log("マウスがウィンドウ %d から出た", event->window.windowID);
+            break;
+        case SDL_WINDOWEVENT_FOCUS_GAINED:
+            SDL_Log("ウィンドウ %d がキーボードフォーカスを得た", event->window.windowID);
+            break;
+        case SDL_WINDOWEVENT_FOCUS_LOST:
+            SDL_Log("ウィンドウ %d がキーボードフォーカスを失った", event->window.windowID);
+            break;
+        case SDL_WINDOWEVENT_CLOSE:
+            SDL_Log("ウィンドウ %d が閉じた", event->window.windowID);
+            break;
+        default:
+            SDL_Log("ウィンドウ %d の不明なイベント %d", event->window.windowID, event->window.event);
+            break;
+        }
+    }
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <a href="SDL_WindowEvent.html">SDL_WindowEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバの1つで, イベントのtypeがSDL_WINDOWEVENTの場合に使う.
 イベントのwindowフィールドを経由してアクセスする必要がある.

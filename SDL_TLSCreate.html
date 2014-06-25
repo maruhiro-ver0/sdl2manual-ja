@@ -18,6 +18,32 @@
 <h2>戻り値</h2>
 新しく生成されたスレッド局所記憶IDを戻す.
 失敗のとき0を戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+static SDL_SpinLock tls_lock;
+static SDL_TLSID thread_local_storage;
+
+void SetMyThreadData(void *value)
+{
+    if (!thread_local_storage) {
+        SDL_AtomicLock(&tls_lock);
+        if (!thread_local_storage) {
+            thread_local_storage = SDL_TLSCreate();
+        }
+        SDL_AtomicUnLock(&tls_lock);
+    }
+    SDL_TLSSet(thread_local_storage, value);
+}
+
+void *GetMyThreadData(void)
+{
+    return SDL_TLSGet(thread_local_storage);
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_TLSGet.html">SDL_TLSGet</a><br>
 <a href="SDL_TLSSet.html">SDL_TLSSet</a><br>

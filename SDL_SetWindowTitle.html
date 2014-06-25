@@ -20,6 +20,54 @@
 <tr><td>window</td><td>設定するウィンドウ</td></tr>
 <tr><td>title</td><td>ウィンドウのタイトルのUTF-8文字列</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// dynamically setting a window title
+
+#include "SDL.h"
+
+int main(int argc, char* argv[]){
+
+    SDL_Window *window;
+    SDL_Event e;
+
+    const char *titles[] = { // ただのお遊びである. marqueeタグのようにアニメーションさせてユーザをイラつかせよう
+        "t", "thi", "this w", "this win", "this windo", "this window's", "this window's ti", "this window's title",
+        "chis window's title is", "chih window's title is ", "chih wandnw's title is ", "c  h wandnw'g title is ",
+        "c  h  a  nw'g titln is ", "c  h  a  n  g  i  n ig ", "c  h  a  n  g  i  n  g!", "", 
+        "c  h  a  n  g  i  n  g!", "", "c  h  a  n  g  i  n  g!", "c  h  a  n  g  i  n  g!"
+    };
+
+    SDL_Init(SDL_INIT_VIDEO); // SDL2を初期化する
+  
+    // ウィンドウを生成する
+    window = SDL_CreateWindow(
+        "This will surely be overwritten", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 320, 240, SDL_WINDOW_RESIZABLE
+    );
+
+    // メインループに入る. 何かキーを押すかXをクリックすると終了する
+    for( ; e.type!=SDL_QUIT&&e.type!=SDL_KEYDOWN; SDL_PollEvent(&e)){ 
+        static int i = 0, t = 0;
+
+        if(!(++t%9)){ // every 9th frame...
+            SDL_SetWindowTitle(window, titles[i]);             // ループで
+            if(++i >= sizeof(titles)/sizeof(titles[0])) i = 0; // タイトルの配列を通る
+        }
+
+    SDL_Delay(10);
+
+    }
+
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return 0;
+
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetWindowTitle.html">SDL_GetWindowTitle</a><br>
 <h2>SDL Wikiへのリンク</h2>

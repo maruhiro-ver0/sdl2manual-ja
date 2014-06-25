@@ -23,6 +23,17 @@
 </table>
 <h2>戻り値</h2>
 コンパイル時のバージョン少なくともX.Y.Zならば真を戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+if (! SDL_VERSION_ATLEAST(2,0,0)) {
+    SDL_Log("SDL_VERSION %d は 2.0.0以前である", SDL_MAJOR_VERSION);
+    return 1;
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_COMPILEDVERSION.html">SDL_COMPILEDVERSION</a><br>
 <a href="SDL_VERSIONNUM.html">SDL_VERSIONNUM</a><br>

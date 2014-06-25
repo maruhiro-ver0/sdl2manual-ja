@@ -22,6 +22,18 @@
 </table>
 <h2>戻り値</h2>
 AがBを超えていれば真を戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* 100ミリ秒待つならば, 次のようにすればよい: */
+Uint32 timeout = SDL_GetTicks() + 100;
+while (!SDL_TICKS_PASSED(SDL_GetTicks(), timeout)) {
+    /* ... ここで時間が経過するまでの処理を行う */
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetTicks.html">SDL_GetTicks</a><br>
 <h2>SDL Wikiへのリンク</h2>

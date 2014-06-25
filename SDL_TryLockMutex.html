@@ -22,7 +22,34 @@
 <h2>戻り値</h2>
 0, SDL_MUTEX_TIMEDOUT, または-1を戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
-<h2>詳細</h2>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+int status;
+SDL_mutex *mutex;
+
+mutex = SDL_CreateMutex();
+if (!mutex) {
+  fprintf(stderr, "mutexを生成できなかった\n");
+  return;
+}
+
+status = SDL_TryLockMutex(mutex);
+
+if (status == 0) {
+    printf("mutexをロックした\n");
+    SDL_UnlockMutex(mutex);
+} else if (status == SDL_MUTEX_TIMEDOUT) {
+    /* 今はmutexをロックできない */
+} else {
+    fprintf(stderr, "mutexをロックできなかった\n");
+}
+
+SDL_DestroyMutex(mutex)
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_LockMutex.html">SDL_LockMutex</a><br>
 <a href="SDL_UnlockMutex.html">SDL_UnlockMutex</a><br>

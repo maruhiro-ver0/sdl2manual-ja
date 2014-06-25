@@ -23,6 +23,41 @@
 <h2>戻り値</h2>
 待機操作に成功したとき0, 待ち時間内に待機操作に成功しなかったときSDL_MUTEX_TIMEDOUT, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_atomic_t done;
+SDL_sem *sem;
+
+SDL_AtomicSet(&done, 0);
+sem = SDL_CreateSemaphore(0);
+.
+.
+Thread A:
+    while (!SDL_AtomicGet(&done)) {
+        add_data_to_queue();
+        SDL_SemPost(sem);
+    }
+
+Thread B:
+    const Uint32 timeout = 1000; /* 1秒ごとに動作する */
+
+    while (!SDL_AtomicGet(&done)) {
+        if (SDL_SemWaitTimeout(sem, timeout) == 0 && data_available()) {
+            get_data_from_queue();
+        }
+        ... ここで他の処理を行う
+    }
+.
+.
+SDL_AtomicSet(&done, 1);
+SDL_SemPost(sem);
+wait_for_threads();
+SDL_DestroySemaphore(sem);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 セマフォsemの値が正になる, 割り込みが発生する, エラーが発生する, または待ち時間が経過するまでこの関数を呼んだスレッドを停止する.

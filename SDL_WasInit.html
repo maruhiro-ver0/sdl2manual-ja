@@ -19,6 +19,49 @@
 <table border="1" summary="SDL_WasInit">
 <tr><td>flags</td><td><a href="SDL_Init.html">SDL_Init()</a>と同じ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* 全てのサブシステムの初期化情報を得る */
+Uint32 subsystem_init;
+
+subsystem_init = SDL_WasInit(SDL_INIT_EVERYTHING);
+
+if (subsystem_init & SDL_INIT_VIDEO) {
+    printf("ビデオは初期化されている\n");
+} else {
+    printf("ビデオは初期化されていない\n");
+}
+</pre>
+</code>
+</p>
+<p>
+<code>
+<pre>
+/* 指定の1つのサブシステムのみチェックする */
+if (SDL_WasInit(SDL_INIT_VIDEO) != 0) {
+    printf("ビデオは初期化されている\n");
+} else {
+    printf("ビデオは初期化されていない\n");
+}
+</pre>
+</code>
+</p>
+<p>
+<code>
+<pre>
+/* 2つのサブシステムをチェックする */
+Uint32 subsystem_mask = SDL_INIT_VIDEO | SDL_INIT_AUDIO;
+
+if (SDL_WasInit(subsystem_mask) == subsystem_mask) {
+    printf("ビデオとオーディオは初期化されている\n");
+} else {
+    printf("ビデオとオーディオは初期化されていない\n");
+}
+</pre>
+</code>
+</p>
 <h2>戻り値</h2>
 <p>
 flagsが0のとき全ての初期化されたサブシステムのマスクを戻す.

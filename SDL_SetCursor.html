@@ -19,6 +19,19 @@
 <table border="1" summary="SDL_SetCursor">
 <tr><td>cursor</td><td>設定するマウスカーソル (詳細を参照すること)</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+int main(int argc, char** argv) {
+    SDL_ShowCursor(SDL_DISABLE);
+    ...
+    return 0;
+}
+/* カーソルを見えなくする */
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数は現在のマウスカーソルを指定したものにする.
 カーソルが非表示ならば, 表示された直後に変更される.

@@ -22,6 +22,43 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+#include &lt;stdio.h&gt; /* printf()のため */
+#include &lt;stdlib.h&gt; /* atexit()のため */
+
+SDL_bool videoinit = SDL_FALSE;
+
+void OnQuit(void) {
+    if (videoinit) {
+        SDL_VideoQuit();
+    }
+    SDL_Quit();
+}
+
+int main(int argc, char** argv) {
+    if (SDL_Init(0) != 0) {
+        printf("SDLの初期化に失敗した:  %s\n", SDL_GetError());
+        return 1;
+    }
+    atexit(OnQuit);
+
+    if (SDL_VideoInit(NULL) != 0) {
+        printf("SDLビデオの初期化に失敗した:  %s\n", SDL_GetError());
+        return 2;
+    }
+    videoinit = SDL_TRUE;
+
+    /* ... */
+
+    return 0;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数はウィンドウマネージャとの接続を構築してビデオサブシステム等を初期化し, 利用できるディスプレイモードとピクセル形式を決定する.

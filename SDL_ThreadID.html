@@ -17,6 +17,17 @@
 <code>SDL_threadID SDL_ThreadID(void)</code>
 <h2>戻り値</h2>
 現在のスレッドのIDを戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_threadID  threadID;
+
+// 現在のスレッドのIDを得る
+threadID = SDL_ThreadID();
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 このスレッドIDはOSによって報告される.

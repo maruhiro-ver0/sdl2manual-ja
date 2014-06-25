@@ -26,6 +26,21 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+SDL_Rect rectangle;
+
+rectangle.x = 0;
+rectangle.y = 0;
+rectangle.w = 50;
+rectangle.h = 50;
+SDL_RenderFillRect(renderer, &rectangle);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この関数で設定された色は, 描画, 長方形の塗りつぶし, 直線, 点, 消去で使われる.
