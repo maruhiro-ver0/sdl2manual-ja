@@ -32,6 +32,18 @@ WAVE, AIFF, RIFF, OGG, VOCファイルを読み込むことができる.
 <p>
 戻り値: サンプリング音声の<a href="Mix_Chunk.html">Mix_Chunk</a>へのポインタ. 失敗のときNULL
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sample.wavをサンプリング音声として読み込む
+Mix_Chunk *sample;
+sample=Mix_LoadWAV("sample.wav");
+if(!sample) {
+    printf("Mix_LoadWAV: %s\n", Mix_GetError());
+    // ここでエラーを処理する
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_LoadWAV_RW.html">Mix_LoadWAV_RW</a>,
 <a href="Mix_QuickLoad_WAV.html">Mix_QuickLoad_WAV</a>,

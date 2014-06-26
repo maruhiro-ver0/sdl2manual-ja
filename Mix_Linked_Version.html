@@ -20,6 +20,22 @@
 これは<a href="SDL_GetVersion.html">SDL_GetVersion</a>や<a href="SDL_VERSION.html">SDL_VERSION</a>と同じような機能を持つ.
 これらを使うと, 実行時のバージョンとコンパイル時のバージョンを比較できる.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+SDL_version compile_version;
+const SDL_version *link_version=Mix_Linked_Version();
+SDL_MIXER_VERSION(&compile_version);
+printf("コンパイル時のSDL_mixerのバージョン: %d.%d.%d\n", 
+        compile_version.major,
+        compile_version.minor,
+        compile_version.patch);
+printf("実行中のSDL_mixerのバージョン: %d.%d.%d\n", 
+        link_version->major,
+        link_version->minor,
+        link_version->patch);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_OpenAudio.html">Mix_OpenAudio</a>,
 <a href="Mix_QuerySpec.html">Mix_QuerySpec</a>

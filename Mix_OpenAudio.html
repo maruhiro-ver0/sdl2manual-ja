@@ -61,6 +61,21 @@ MIX_DEFAULT_FORMATはAUDIO_S16SYSと同じである.
 <p>
 戻り値: 成功のとき0, 失敗のとき-1
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// オーディオ対応でSDLを開始する
+if(SDL_Init(SDL_INIT_AUDIO)==-1) {
+    printf("SDL_Init: %s\n", SDL_GetError());
+    exit(1);
+}
+// 44.1KHz, 16bit符号あり, システムのバイト順, ステレオ, 1024byteチャンクで開く
+if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024)==-1) {
+    printf("Mix_OpenAudio: %s\n", Mix_GetError());
+    exit(2);
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_CloseAudio.html">Mix_CloseAudio</a>,
 <a href="Mix_QuerySpec.html">Mix_QuerySpec</a>,

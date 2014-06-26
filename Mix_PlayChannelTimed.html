@@ -30,6 +30,18 @@
 <p>
 戻り値: サンプリング音声を再生したチャネル. 失敗のとき-1
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 予約されていない最初のチャネルでサンプリング音声を0.5秒間再生する
+// Mix_Chunk *sample; // 読み込み済みとする
+if(Mix_PlayChannelTimed(-1, sample, -1 , 500)==-1) {
+    printf("Mix_PlayChannelTimed: %s\n",Mix_GetError());
+    // 致命的なエラーか, 空きチャネルがない
+    // その場合は新たに別のチャネルを確保することもできる...
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_PlayChannel.html">Mix_PlayChannel</a>,
 <a href="Mix_FadeInChannelTimed.html">Mix_FadeInChannelTimed</a>,

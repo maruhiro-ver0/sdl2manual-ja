@@ -29,6 +29,13 @@ channelが一時停止中か否かを調べる.
 <p>
 戻り値: 一時停止中でなければ0, 引数に-1を渡したならば一時停止中のチャネル数, チャネルを指定して一時停止中ならば1を戻す.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 全てのチャネルの一時停止状態を得る
+printf("%d つのチャネルが一時停止中である\n", Mix_Paused(-1));
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_Playing.html">Mix_Playing</a>,
 <a href="Mix_Pause.html">Mix_Pause</a>,

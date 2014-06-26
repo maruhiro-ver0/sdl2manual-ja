@@ -30,6 +30,18 @@ WAVE, MOD, MIDI, OGG, MP3, FLAC, ‚»‚µ‚ÄÄ¶ƒRƒ}ƒ“ƒh‚ðŽg‚¤‚È‚ç‚Î‚ ‚ç‚ä‚éƒtƒ@ƒCƒ‹‚
 <p>
 –ß‚è’l: <a href="Mix_Music.html">Mix_Music</a>‚Ö‚Ìƒ|ƒCƒ“ƒ^. Ž¸”s‚Ì‚Æ‚«NULL
 </p>
+<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<code>
+<pre>
+// MP3ƒtƒ@ƒCƒ‹"music.mp3"‚ð‰¹Šy‚Æ‚µ‚Ä“Ç‚Ýž‚Þ
+Mix_Music *music;
+music=Mix_LoadMUS("music.mp3");
+if(!music) {
+    printf("Mix_LoadMUS(\"music.mp3\"): %s\n", Mix_GetError());
+    // ‚±‚ê‚Í‹°‚ç‚­’v–½“I‚ÈƒGƒ‰[‚Å‚ ‚é
+}
+</pre>
+</code>
 <h2>ŽQÆ</h2>
 <a href="Mix_Music.html">Mix_Music</a>,
 <a href="Mix_SetMusicCMD.html">Mix_SetMusicCMD</a>,
