@@ -35,6 +35,19 @@ channel‚Åchunk‚ğÄ¶‚·‚é, channel‚ª-1‚È‚ç‚ÎÅ‰‚Ì—\–ñ‚³‚ê‚Ä‚¢‚È‚¢‹ó‚«ƒ`ƒƒƒlƒ‹‚Å
 <p>
 –ß‚è’l: ƒTƒ“ƒvƒŠƒ“ƒO‰¹º‚ğÄ¶‚µ‚½ƒ`ƒƒƒlƒ‹. ¸”s‚Ì‚Æ‚«-1
 </p>
+<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<code>
+<pre>
+// —\–ñ‚³‚ê‚Ä‚¢‚È‚¢Å‰‚Ì‹ó‚«ƒ`ƒƒƒlƒ‹‚Å3‰ñÄ¶‚·‚é
+// 1•bŠÔ‚ÅƒtƒF[ƒhƒCƒ“‚·‚é
+// Mix_Chunk *sample; // “Ç‚İ‚İÏ‚İ‚Æ‚·‚é
+if(Mix_FadeInChannel(-1, sample, 2, 1000)==-1) {
+    printf("Mix_FadeInChannel: %s\n",Mix_GetError());
+    // ’v–½“I‚ÈƒGƒ‰[‚©, ‹ó‚«ƒ`ƒƒƒlƒ‹‚ª‚È‚¢
+    // ‚»‚Ìê‡‚ÍV‚½‚É•Ê‚Ìƒ`ƒƒƒlƒ‹‚ğŠm•Û‚·‚é‚±‚Æ‚à‚Å‚«‚é...
+}
+</pre>
+</code>
 <h2>QÆ</h2>
 <a href="Mix_PlayChannel.html">Mix_PlayChannel</a>,
 <a href="Mix_FadeInChannelTimed.html">Mix_FadeInChannelTimed</a>,

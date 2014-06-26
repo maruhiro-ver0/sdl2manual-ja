@@ -29,6 +29,12 @@
 最初の再生はposistionで設定した位置から始まる. この値の意味は音楽ファイルの種類によって異なる. <a href="Mix_SetMusicPosition.html">Mix_SetMusicPosition</a>を参照すること.
 この関数を呼ぶ前に再生中の音楽が停止するかフェードアウトするまで待つ(ブロックされる).
 </p>
+// 音楽を2秒間でフェードインして無限に再生する.
+// Mix_Music *music; // 読み込み済みとする
+if(Mix_FadeInMusicPos(music, -1, 2000)==-1) {
+    printf("Mix_FadeInMusicPos: %s\n", Mix_GetError());
+    // 音楽がない. しかし多くのゲームは音楽がなくても中断しない...
+}
 <p>
 戻り値: 成功のとき0, 失敗のとき-1
 </p>

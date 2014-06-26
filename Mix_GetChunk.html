@@ -30,6 +30,13 @@ channelで最後に再生されたサンプリング音声チャンクへのポインタを得る.
 <p>
 戻り値: <a href="Mix_Chunk.html">Mix_Chunk</a>へのポインタ. チャネルが確保されていない, またはサンプリング音声をまだ再生していない場合はNULL
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// チャネル0で最後に使われたチャンクを得る
+printf("Mix_Chunk* で最後に使ったチャネル0のチャンクは: %08p\n", Mix_GetChunk(0));
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_Chunk.html">Mix_Chunk</a>,
 <a href="Mix_Playing.html">Mix_Playing</a>

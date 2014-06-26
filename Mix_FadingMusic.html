@@ -16,13 +16,28 @@
 <code>Mix_Fading Mix_FadingMusic()</code>
 </p>
 <p>
-音楽がフェードイン, アウト, フェードでないかを得る. 音楽が再生中, 一時停止中かは得られない. 別にテストする必要がある. 
+音楽がフェードイン, アウト, フェードしていないかを得る. 音楽が再生中, 一時停止中かは得られない. 別にテストする必要がある. 
 </p>
 <p>
 戻り値: フェード状態. エラーを戻すことはない 
 </p>
-<p>
-</p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 音楽のフェード状態をチェックする
+switch(Mix_FadingMusic()) {
+    case MIX_NO_FADING:
+        printf("フェードしていない\n");
+        break;
+    case MIX_FADING_OUT:
+        printf("フェードアウト\n");
+        break;
+    case MIX_FADING_IN:
+        printf("フェードイン\n");
+        break;
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_Fading.html">Mix_Fading</a>,
 <a href="Mix_PausedMusic.html">Mix_PausedMusic</a>,

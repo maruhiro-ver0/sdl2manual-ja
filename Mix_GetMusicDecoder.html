@@ -29,6 +29,15 @@
 この文字列はSDL_mixerライブラリが管理しているので, 修正や解放してはならない.
 これは<a href="Mix_CloseAudio.html">Mix_CloseAudio</a>を呼ぶまで有効である.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 利用可能な音楽デコーダーを表示する
+int i,max=Mix_GetNumMusicDecoders();
+for(i=0; i&lt;max; ++i)
+    printf("音楽デコーダー %d: %s\n",Mix_GetMusicDecoder(i));
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_GetNumMusicDecoders.html">Mix_GetNumMusicDecoders</a>,
 <a href="Mix_GetChunkDecoder.html">Mix_GetChunkDecoder</a>,

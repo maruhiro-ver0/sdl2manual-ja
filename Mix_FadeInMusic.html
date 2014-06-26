@@ -28,6 +28,17 @@
 この関数を呼ぶ前に再生中の音楽が停止するかフェードアウトするまで待つ(ブロックされる).
 この関数は<a href="Mix_FadeInMusicPos.html">Mix_FadeInMusicPos(music, loops, ms, 0)</a>と同じである.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 音楽を2秒間でフェードインして無限に再生する.
+// Mix_Music *music; // 読み込み済みとする
+if(Mix_FadeInMusic(music, -1, 2000)==-1) {
+    printf("Mix_FadeInMusic: %s\n", Mix_GetError());
+    // 音楽がない. しかし多くのゲームは音楽がなくても中断しない...
+}
+</pre>
+</code>
 <p>
 戻り値: 成功のとき0, 失敗のとき-1
 </p>

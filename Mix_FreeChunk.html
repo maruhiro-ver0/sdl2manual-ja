@@ -27,6 +27,15 @@ chunkが使うメモリとchunk自身を解放する.
 <p>
 メモ: 再生中にchunkを解放するべきではない...
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// サンプリング音声を解放する
+// Mix_Chunk *sample;
+Mix_FreeChunk(sample);
+sample=NULL; // 安全のため...
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_LoadWAV.html">Mix_LoadWAV</a>,
 <a href="Mix_LoadWAV_RW.html">Mix_LoadWAV_RW</a>,

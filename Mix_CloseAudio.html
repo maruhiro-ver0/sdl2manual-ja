@@ -24,6 +24,13 @@
 メモ: この関数は<a href="Mix_OpenAudio.html">Mix_OpenAudio</a>を呼んだ回数と同じだけ呼ばなければ何も行わない.
 <a href="Mix_QuerySpec.html">Mix_QuerySpec</a>でデバイスを完全に閉じるためにはMix_CloseAudioを何回呼ぶ必要があるかを知ることができる.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+Mix_CloseAudio();
+// ここで SDL_Quit(); してもよいし, しなくてもよい
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_OpenAudio.html">Mix_OpenAudio</a>
 <a href="Mix_QuerySpec.html">Mix_QuerySpec</a>

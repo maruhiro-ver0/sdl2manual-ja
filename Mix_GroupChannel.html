@@ -27,6 +27,15 @@
 <p>
 Returns: 成功のとき真(1), 指定のチャネルが無効のとき偽(0)
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// チャネル0をグループ1に加える
+if(!Mix_GroupChannel(0,1)) {
+    // 不正なチャネル, 恐らくチャネル1は確保されていない
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_GroupChannels.html">Mix_GroupChannels</a>,
 <a href="Mix_AllocateChannels.html">Mix_AllocateChannels</a>

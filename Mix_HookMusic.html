@@ -37,6 +37,29 @@ mix_funcのudataに渡す引数
 </p>
 メモ: コールバック関数内でSDL_mixerの関数やSDL_LockAudioを決して呼んではならない. 
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 音楽再生関数を作る
+// udataはintへのポインタを想定している
+void myMusicPlayer(void *udata, Uint8 *stream, int len)
+{
+    int i, pos=*(int*)udata;
+
+    // バッファに...うーん...音楽を書き込む
+    for(i=0; i&lt;len; i++)
+        stream[i]=(i+pos)&ff;
+
+    // 次回のためのudataを設定する
+    pos+=len;
+    *(int*)udata=pos;
+}
+...
+// myMusicPlayerで...うーん...音楽を再生する
+int music_pos=0;
+Mix_HookMusic(myMusicPlayer, &music_pos);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_SetMusicCMD.html">Mix_SetMusicCMD</a>,
 <a href="Mix_GetMusicHookData.html">Mix_GetMusicHookData</a>

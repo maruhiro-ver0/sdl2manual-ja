@@ -28,6 +28,37 @@ musicのファイル形式を得る.
 <p>
 戻り値: musicの形式. musicがNULLの場合は現在再生中の音楽の形式, 再生中でない場合はMUS_NONE
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 再生中の音楽の形式を表示する
+switch(Mix_GetMusicType(NULL))
+{
+    case MUS_NONE:
+    MUS_CMD:
+        printf("コマンドでの音楽を再生中\n");
+        break;
+    MUS_WAV:
+        printf("WAVE/RIFF形式の音楽を再生中\n");
+        break;
+    MUS_MOD:
+        printf("MOD形式の音楽を再生中\n");
+        break;
+    MUS_MID:
+        printf("MIDI形式の音楽を再生中\n");
+        break;
+    MUS_OGG:
+        printf("OGG形式の音楽を再生中\n");
+        break;
+    MUS_MP3:
+        printf("MP3形式の音楽を再生中\n");
+        break;
+    default:
+        printf("不明な形式の音楽を再生中\n");
+        break;
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_MusicType.html">Mix_MusicType</a>,
 <a href="Mix_SetPosition.html">Mix_SetPosition</a>

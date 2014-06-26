@@ -29,6 +29,16 @@
 <p>
 戻り値: 成功のとき1, 失敗のとき0
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 音楽を3秒間でフェードアウトさせる
+while(!Mix_FadeOutMusic(3000) && Mix_PlayingMusic()) {
+    // フェードアウトが完了するまで待つ
+    SDL_Delay(100);
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_HaltMusic.html">Mix_HaltMusic</a>,
 <a href="Mix_FadingMusic.html">Mix_FadingMusic</a>,

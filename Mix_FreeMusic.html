@@ -25,6 +25,15 @@
 musicの再生は停止する.
 musicがフェードアウト中ならば, この関数は完了するまで待つ(ブロックされる).
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 音楽を解放する
+Mix_Music *music;
+Mix_FreeMusic(music);
+music=NULL; // 解放したことを知らせるため...
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_LoadMUS.html">Mix_LoadMUS</a>
 <h2>原文へのリンク</h2>

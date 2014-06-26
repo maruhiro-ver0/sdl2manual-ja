@@ -21,12 +21,29 @@
 </dl>
 </p>
 <p>
-whichチャネルがフェードイン, アウト, フェードでないかを得る.
+whichチャネルがフェードイン, アウト, フェードしていないかを得る.
 チャネルが再生中, 一時停止中かは得られない. 別にテストする必要がある.
 </p>
 <p>
 戻り値: フェード状態. エラーを戻すことはない
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// チャネル0のフェード状態をチェックする
+switch(Mix_FadingChannel(0)) {
+    case MIX_NO_FADING:
+        printf("フェードしていない\n");
+        break;
+    case MIX_FADING_OUT:
+        printf("フェードアウト\n");
+        break;
+    case MIX_FADING_IN:
+        printf("フェードイン\n");
+        break;
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_Fading.html">Mix_Fading</a>,
 <a href="Mix_Playing.html">Mix_Playing</a>,

@@ -30,6 +30,13 @@ channelを現在のボリュームからmsミリ秒で徐々にフェードアウトさせる.
 <p>
 戻り値: フェードアウトを設定したチャネルの数
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 3秒間で全てのチャネルをフェードアウトさせる
+printf("%dつのチャネルでフェードアウトを開始した\n", Mix_FadeOutChannel(-1, 3000));
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_FadeInChannel.html">Mix_FadeInChannel</a>,
 <a href="Mix_FadeInChannelTimed.html">Mix_FadeInChannelTimed</a>,

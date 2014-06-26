@@ -28,6 +28,13 @@ tickミリ秒後にchannelの再生を停止する, -1のとき全チャネルを停止する.
 <p>
 戻り値: 再生中か否かに関わらず, 停止するように設定したチャネルの数
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 2秒後に全てのチャネルの再生を停止する
+Mix_ExpireChannel(-1, 2000);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_HaltChannel.html">Mix_HaltChannel</a>,
 <a href="Mix_FadeOutChannel.html">Mix_FadeOutChannel</a>,

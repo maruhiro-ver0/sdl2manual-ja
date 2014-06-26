@@ -30,6 +30,19 @@ NULLでこの関数を呼ぶとコールバックを取り除く.
 </p>
 <p>
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 音楽停止関数を作る
+void musicFinished()
+{
+    printf("Music stopped.\n");
+}
+...
+// 音楽が停止したときmusicFinishedを呼ぶ
+Mix_HookMusicFinished(musicFinished);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_HaltMusic.html">Mix_HaltMusic</a>,
 <a href="Mix_FadeOutMusic.html">Mix_FadeOutMusic</a>

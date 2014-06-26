@@ -26,6 +26,18 @@
 <p>
 戻り値: 成功のとき得られたチャネル. グループに使えるチャネルがない場合は-1
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// グループ1の最初の利用可能なチャネルを探す
+int channel;
+channel=Mix_GroupAvailable(1);
+if (channel==-1) {
+    // 利用可能なチャネルがない...
+    // ここで使用中の最も古いまたは新しいチャネルを探すとよいかもしれない...
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_GroupOldest.html">Mix_GroupOldest</a>,
 <a href="Mix_GroupNewer.html">Mix_GroupNewer</a>,
