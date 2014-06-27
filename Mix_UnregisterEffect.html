@@ -34,6 +34,16 @@ MIX_CHANNEL_POSTとするとミキシングの後の処理
 <p>
 戻り値: チャネルが不正, またはチャネルにエフェクト関数が登録されていないなど失敗のとき0(偽)
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// noEffectを後処理から削除する
+// これは後処理に登録された全てのnoEffectを削除する
+while(Mix_UnregisterEffect(MIX_CHANNEL_POST, noEffect));
+// エラーをチェックしてMix_GetError()を表示したいかもしれない
+// しかし, このループの後は必ず"No such effect registered"となる
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a>,
 <a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>

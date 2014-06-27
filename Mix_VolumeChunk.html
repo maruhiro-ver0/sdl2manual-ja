@@ -29,10 +29,20 @@ volumeをchunk->volumeに設定する.
 戻り値: 設定前のchunk->volume.
 volumeに負の数として渡すと, chunkのボリュームは現在のままとなる.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// サンプリング音声のボリュームを半分にする
+// Mix_Chunk *sample;
+int previous_volume;
+previous_volume=Mix_VolumeChunk(sample, MIX_MAX_VOLUME/2);
+printf("設定前のボリューム: %d\n", previous_volume);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_Chunk.html">Mix_Chunk</a>
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_23.html#SEC23">int Mix_VolumeChunk(Mix_Chunk *chunk, int volume)</a>
+<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_23.html#SEC23">5.1 Mix_Chunk</a>
 <hr>
 </body>
 </html>

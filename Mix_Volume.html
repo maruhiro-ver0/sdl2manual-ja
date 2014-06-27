@@ -32,6 +32,16 @@ channelを-1にすると一度に全てのチャネルを設定する.
 <p>
 戻り値: channelの現在のボリューム. もし-1ならば, ボリュームの平均値
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// チャネル1のボリュームを半分にする
+Mix_Volume(1,MIX_MAX_VOLUME/2);
+
+// 平均ボリュームを表示する
+printf("平均ボリュームは %d\n",Mix_Volume(-1,-1));
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_VolumeChunk.html">Mix_VolumeChunk</a>,
 <a href="Mix_VolumeMusic.html">Mix_VolumeMusic</a>

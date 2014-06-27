@@ -31,6 +31,31 @@
 もしデバイスが何度も開かれたならば, その回数を戻す.
 失敗の場合は値は設定されない.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 使用中のオーディオ形式を獲得し表示する
+int numtimesopened, frequency, channels;
+Uint16 format;
+numtimesopened=Mix_QuerySpec(&frequency, &format, &channels);
+if(!numtimesopened) {
+    printf("Mix_QuerySpec: %s\n",Mix_GetError());
+}
+else {
+    char *format_str="不明";
+    switch(format) {
+        case AUDIO_U8: format_str="8bit符号なし"; break;
+        case AUDIO_S8: format_str="8bit符号あり"; break;
+        case AUDIO_U16LSB: format_str="16bit符号なしリトルエンディアン"; break;
+        case AUDIO_S16LSB: format_str="16bit符号ありリトルエンディアン"; break;
+        case AUDIO_U16MSB: format_str="16bit符号なしビッグエンディアン"; break;
+        case AUDIO_S16MSB: format_str="16bit符号ありビッグエンディアン"; break;
+    }
+    printf("開いた回数=%d times  周波数=%dHz  形式=%s  チャネル数=%d",
+            numtimesopened, frequency, format_str, channels);
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_OpenAudio.html">Mix_OpenAudio</a>
 <h2>原文へのリンク</h2>

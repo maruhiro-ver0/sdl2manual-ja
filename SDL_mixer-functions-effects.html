@@ -18,17 +18,17 @@
 エフェクトはそれぞれのチャネル, または最終的に音楽を含む全てのチャネルを, ミキシングされたストリームに適応できる.
 <h2>登録</h2>
 <ol>
-<li><a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>
-<li><a href="Mix_UnregisterEffect.html">Mix_UnregisterEffect</a>
-<li><a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a>
-<li><a href="Mix_SetPostMix.html">Mix_SetPostMix</a>
+<li><a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a> - チャネルのエフェクトを設定する
+<li><a href="Mix_UnregisterEffect.html">Mix_UnregisterEffect</a> - チャネルのエフェクトを解除する
+<li><a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a> - チャネルの全てのエフェクトを解除する
+<li><a href="Mix_SetPostMix.html">Mix_SetPostMix</a> - 
 </ol>
-<h2>組み込み処理関数</h2>
+<h2>組み込みエフェクト</h2>
 <ol>
-<li><a href="Mix_SetPanning.html">Mix_SetPanning</a>
-<li><a href="Mix_SetDistance.html">Mix_SetDistance</a>
-<li><a href="Mix_SetPosition.html">Mix_SetPosition</a>
-<li><a href="Mix_SetReverseStereo.html">Mix_SetReverseStereo</a>
+<li><a href="Mix_SetPanning.html">Mix_SetPanning</a> - ステレオパン
+<li><a href="Mix_SetDistance.html">Mix_SetDistance</a> - 距離による減衰
+<li><a href="Mix_SetPosition.html">Mix_SetPosition</a> - 方向と距離
+<li><a href="Mix_SetReverseStereo.html">Mix_SetReverseStereo</a> - ステレオの左右の入れ替え
 </ol>
 組み込まれた処理: Mix_SetPanning, Mix_SetPosition, Mix_SetDistance, Mix_SetReverseStereoはMIX_EFFECTSMAXSPEEDが定義されていれば全て環境変数の影響を受ける.
 もし環境変数が定義されていれば, 処理速度を上げるために, これらの処理はより多くのメモリを使うかエフェクトの質を下げる.

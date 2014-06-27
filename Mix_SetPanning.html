@@ -39,6 +39,16 @@
 <p>
 戻り値: チャネルが不正, <a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>に失敗などのとき0(偽)
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// チャネル1を左半分パンする
+if(!Mix_SetPanning(1, 255, 127)) {
+    printf("Mix_SetPanning: %s\n", Mix_GetError());
+    // パンがない?
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_SetPosition.html">Mix_SetPosition</a>,
 <a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a>

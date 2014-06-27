@@ -44,6 +44,16 @@
 <p>
 戻り値: チャネルが不正, <a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>に失敗などのとき0(偽)
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// チャネル2を右後方の100単位距離にする
+if(!Mix_SetPosition(2, 135, 100)) {
+    printf("Mix_SetPosition: %s\n", Mix_GetError());
+    // 位置エフェクトがない?
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_SetPanning.html">Mix_SetPanning</a>,
 <a href="Mix_SetDistance.html">Mix_SetDistance</a>,

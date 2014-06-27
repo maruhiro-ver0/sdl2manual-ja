@@ -32,6 +32,19 @@ memの生のサンプリング音声データを読み込む.
 <p>
 戻り値: サンプリング音声の<a href="Mix_Chunk.html">Mix_Chunk</a>へのポインタ. 失敗のときNULL
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// メモリから生のサンプリング音声を高速に読み込む
+// Uint8 *raw; // 生データが書き込まれている
+               // またはプログラム内で書き込むとする...
+Mix_Chunk *raw_chunk;
+if(!(raw_chunk=Mix_QuickLoad_RAW(raw))) {
+    printf("Mix_QuickLoad_RAW: %s\n", Mix_GetError());
+    // ここでエラーを処理する
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_LoadWAV.html">Mix_LoadWAV</a>,
 <a href="Mix_QuickLoad_WAV.html">Mix_QuickLoad_WAV</a>,

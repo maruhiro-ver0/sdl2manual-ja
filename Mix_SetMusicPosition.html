@@ -31,6 +31,17 @@
 <p>
 戻り値: 成功のとき0, この関数に対応していない形式のときは-1
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 曲の先頭から1分の位置までとばす
+// MP3であることを想定している
+Mix_RewindMusic();
+if(Mix_SetMusicPosition(60.0)==-1) {
+    printf("Mix_SetMusicPosition: %s\n", Mix_GetError());
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_FadeInMusicPos.html">Mix_FadeInMusicPos</a>
 <h2>原文へのリンク</h2>

@@ -47,6 +47,21 @@ channelにエフェクトをつける後処理を行う処理関数fをフックする.
 <p>
 戻り値: チャネルが存在しないなど失敗のとき0(偽)
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 何もせず素通りする関数を作る
+void noEffect(int chan, void *stream, int len, void *udata)
+{
+    // ここにストリームの処理を書ける...
+}
+...
+// 何もしない後処理を登録する
+if(!Mix_RegisterEffect(MIX_CHANNEL_POST, noEffect, NULL, NULL)) {
+    printf("Mix_RegisterEffect: %s\n", Mix_GetError());
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_UnregisterEffect.html">Mix_UnregisterEffect</a>,
 <a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a>

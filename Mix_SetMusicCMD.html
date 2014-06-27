@@ -49,6 +49,22 @@ NULLを設定すると内部音楽プレイヤーを使う.
 <p>
 戻り値: 成功のとき0, メモリがないなど失敗のとき-1
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// mpg123で音楽を再生する
+Mix_Music *music=NULL;
+if(Mix_SetMusicCMD("mpg123 -q")==-1) {
+    perror("Mix_SetMusicCMD");
+} else {
+    // 適当なMP3ファイルを再生する
+    music=Mix_LoadMUS("music.mp3");
+    if(music) {
+        Mix_PlayMusic(music,1);
+    }
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_PlayMusic.html">Mix_PlayMusic</a>,
 <a href="Mix_VolumeMusic.html">Mix_VolumeMusic</a>

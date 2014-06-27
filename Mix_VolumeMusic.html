@@ -28,6 +28,14 @@ volumeが0以上のときボリュームを設定し, 設定前の値を戻す.
 <p>
 戻り値: 設定前のボリューム
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 音楽のボリュームを最大の1/2にして, それをチェックする
+printf("設定前のボリューム : %d\n", Mix_VolumeMusic(MIX_MAX_VOLUME/2));
+printf("現在のボリューム   : %d\n", Mix_VolumeMusic(-1));
+</pre>
+</code>
 <h2>参照</h2>
 <a href="Mix_FadeInMusic.html">Mix_FadeInMusic</a>,
 <a href="Mix_FadeOutMusic.html">Mix_FadeOutMusic</a>,
