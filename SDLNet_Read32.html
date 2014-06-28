@@ -26,6 +26,16 @@
 値の符号の有無は影響しない.
 ポインタはバッファの先頭でなくてもよいが, 少なくとも現在のポインタを含む4byteの空きが必要である.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// このホストで使うためにデータバッファから数値を得る
+//char *ptr; // このポインタにはデータを既に受信しているとする
+Uint32 number;
+number=SDLNet_Read32(ptr);
+// データはホストのバイト順になり使う準備ができた
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_Write32.html">SDLNet_Write32</a>,
 <a href="SDLNet_Read16.html">SDLNet_Read16</a>

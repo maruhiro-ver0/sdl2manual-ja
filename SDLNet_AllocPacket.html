@@ -27,6 +27,16 @@
 <p>
 戻り値: 新しい空の<a href="UPDpacket.html">UPDpacket</a>へのポインタ. メモリがないなど失敗のときNULL
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// ソケットセットを解放する
+//SDLNet_SocketSet set;
+
+SDLNet_FreeSocketSet(set);
+set=NULL; // これはこのセットが確保されていないことを記憶する助けになる
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_AllocPacketV.html">SDLNet_AllocPacketV</a>,
 <a href="SDLNet_ResizePacket.html">SDLNet_ResizePacket</a>,

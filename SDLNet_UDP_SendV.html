@@ -29,6 +29,22 @@ npackets個のpacketVを指定のsockソケットに送信する.
 <p>
 戻り値: 全パケットの送信した送信先の合計. 失敗のとき0
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// UDPsocketで10のパケット配列を送信する
+//UDPsocket udpsock;
+//UDPpacket **packetV;
+int numsent;
+
+numsent=SDLNet_UDP_SendV(udpsock, packetV, 10);
+if(!numsent) {
+    printf("SDLNet_UDP_SendV: %s\n", SDLNet_GetError());
+    // ここで送信に失敗した場合の処理を行う
+    // 恐らくチャネルにアドレスがバインドされていないだけである...
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_UDP_Bind.html">SDLNet_UDP_Bind</a>,
 <a href="SDLNet_UDP_Send.html">SDLNet_UDP_Send</a>,

@@ -35,6 +35,20 @@
 <p>
 戻り値: パケットを受信したとき1, パケットを受信しなかったとき0, 失敗のとき-1
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// UDPパケットの受信を待つ
+//UDPsocket udpsock;
+UDPpacket packet;
+int numrecv;
+
+numrecv=SDLNet_UDP_Recv(udpsock, &packet);
+if(numrecv) {
+    // ここでpacketを処理する
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_UDP_Bind.html">SDLNet_UDP_Bind</a>,
 <a href="SDLNet_UDP_Send.html">SDLNet_UDP_Send</a>,

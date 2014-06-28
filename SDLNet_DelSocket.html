@@ -33,6 +33,27 @@ TCPまたはUDPソケットで適切なマクロを呼ぶ必要がある.
 <p>
 戻り値: 成功のときset内のソケットの数, 失敗のとき-1
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// ソケットセットから2つのソケットを削除する
+//SDLNet_SocketSet set;
+//UDPsocket udpsock;
+//TCPsocket tcpsock;
+int numused;
+
+numused=SDLNet_UDP_DelSocket(set,udpsock);
+if(numused==-1) {
+    printf("SDLNet_DelSocket: %s\n", SDLNet_GetError());
+    // 恐らくソケットがセットされていない
+}
+numused=SDLNet_TCP_DelSocket(set,tcpsock);
+if(numused==-1) {
+    printf("SDLNet_DelSocket: %s\n", SDLNet_GetError());
+    // 恐らくソケットがセットされていない
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_AddSocket.html">SDLNet_AddSocket</a>,
 <a href="SDLNet_FreeSocketSet.html">SDLNet_FreeSocketSet</a>,

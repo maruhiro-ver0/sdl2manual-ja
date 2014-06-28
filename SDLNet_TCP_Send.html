@@ -29,6 +29,22 @@
 <p>
 戻り値: 送信したバイト数. クライアントが切断したなどエラーが発生した場合, lenより小さい場合がある
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sockでhelloを送信する
+//TCPsocket sock;
+int len,result;
+char *msg="Hello!";
+
+len=strlen(msg)+1; // 終端にはNUL文字がある
+result=SDLNet_TCP_Send(sock,msg,len);
+if(result&lt;len) {
+    printf("SDLNet_TCP_Send: %s\n", SDLNet_GetError());
+    // 恐らく現在は使えないだけなので, 切断するとよい
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_TCP_Recv.html">SDLNet_TCP_Recv</a>,
 <a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept</a>,

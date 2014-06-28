@@ -28,6 +28,47 @@ TCPでipのホストのポート番号に接続する.
 戻り値: 成功のとき, つまり接続がESTABLISHEDのとき, またはTCP接続を正常に待っているとき, 利用可能な<a href="TCPsocket.html">TCPsocket</a>.
 ソケットを生成できなかった, またはipのホストと/またはポート番号に接続できなかった場合など失敗のときNULL
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// TCPでlocalhostのポート9999に接続する (クライアント)
+IPaddress ip;
+TCPsocket tcpsock;
+
+if(SDLNet_ResolveHost(&ip,"localhost",9999)==-1) {
+    printf("SDLNet_ResolveHost: %s\n", SDLNet_GetError());
+    exit(1);
+}
+
+tcpsock=SDLNet_TCP_Open(&ip);
+if(!tcpsock) {
+    printf("SDLNet_TCP_Open: %s\n", SDLNet_GetError());
+    exit(2);
+}
+</pre>
+</code>
+<p>
+<p>
+<code>
+<pre>
+// ポート9999でLISTENするTCPソケットを生成する (サーバ)
+IPaddress ip;
+TCPsocket tcpsock;
+
+if(SDLNet_ResolveHost(&ip,NULL,9999)==-1) {
+    printf("SDLNet_ResolveHost: %s\n", SDLNet_GetError());
+    exit(1);
+}
+
+tcpsock=SDLNet_TCP_Open(&ip);
+if(!tcpsock) {
+    printf("SDLNet_TCP_Open: %s\n", SDLNet_GetError());
+    exit(2);
+}
+</pre>
+</code>
+<p>
 <h2>参照</h2>
 <a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept</a>,
 <a href="SDLNet_TCP_Close.html">SDLNet_TCP_Close</a>,

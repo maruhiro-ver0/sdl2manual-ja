@@ -34,6 +34,27 @@ TCPクライアントとサーバも同じソケットセットに共存できる.
 <p>
 戻り値: 設定に成功したソケットの数. 失敗のとき-1
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 2つのソケットをソケットセットに加える
+//SDLNet_SocketSet set;
+//UDPsocket udpsock;
+//TCPsocket tcpsock;
+int numused;
+
+numused=SDLNet_UDP_AddSocket(set,udpsock);
+if(numused==-1) {
+    printf("SDLNet_AddSocket: %s\n", SDLNet_GetError());
+    // ソケットセットをもっと大きくしてやり直す必要があるかもしれない...
+}
+numused=SDLNet_TCP_AddSocket(set,tcpsock);
+if(numused==-1) {
+    printf("SDLNet_AddSocket: %s\n", SDLNet_GetError());
+    // ソケットセットをもっと大きくしてやり直す必要があるかもしれない...
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_AllocSocketSet.html">SDLNet_AllocSocketSet</a>,
 <a href="SDLNet_DelSocket.html">SDLNet_DelSocket</a>,

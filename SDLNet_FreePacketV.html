@@ -24,6 +24,16 @@
 <a href="UDPpacket.html">UDPpacket</a>の配列をメモリから解放する.
 この関数を読んだ後にこの<a href="UDPpacket.html">UDPpacket</a>を使ってはならない.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// UDPpacket配列を解放する
+//UDPpacket **packetV;
+
+SDLNet_FreePacketV(packetV);
+packetV=NULL; // 解放されたことを知る助けになる
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_AllocPacketV.html">SDLNet_AllocPacketV</a>,
 <a href="SDLNet_AllocPacket.html">SDLNet_AllocPacket</a>,

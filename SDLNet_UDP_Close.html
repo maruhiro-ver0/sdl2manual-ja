@@ -24,6 +24,16 @@
 <a href="UDPsocket.html">UDPsocket</a>を停止し閉じて解放する.
 これを呼んだ後は, 新たに開かない限り<a href="UDPsocket.html">UDPsocket</a>を使ってはならない.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// UDPsocketのチャネル0の全てのアドレスのバインドを解除する
+//UDPsocket udpsock;
+
+SDLNet_UDP_Close(udpsock);
+udpsock=NULL; // これはこのUDPSocketが使えなくなったことを知る助けになる
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_UDP_Open.html">SDLNet_UDP_Open</a>,
 <a href="UDPsocket.html">UDPsocket</a>

@@ -40,6 +40,35 @@ TCPソケットとは違い, このソケットは接続にリモートホストのIPを必要としない. UDPポ
 そうすればクライアントは常にポートを使える.
 クライアントはサーバに返すポートを知らせることができ, サーバはどこに返すかを知るためには単に受け取ったパケットを見ればよい.
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+</pre>
+// ポート6666のUDPsocketを生成する (サーバ)
+UDPsocket udpsock;
+
+udpsock=SDLNet_UDP_Open(6666);
+if(!udpsock) {
+    printf("SDLNet_UDP_Open: %s\n", SDLNet_GetError());
+    exit(2);
+}
+</code>
+</p>
+<p>
+<code>
+<pre>
+// 不特定のポートのUDPsocketを生成する (クライアント)
+UDPsocket udpsock;
+
+udpsock=SDLNet_UDP_Open(0);
+if(!udpsock) {
+    printf("SDLNet_UDP_Open: %s\n", SDLNet_GetError());
+    exit(2);
+}
+</pre>
+</code>
+</p>
 <h2>参照</h2>
 <a href="SDLNet_UDP_Close.html">SDLNet_UDP_Close</a>,
 <a href="UDPsocket.html">UDPsocket</a>

@@ -29,6 +29,23 @@
 <p>
 戻り値: 新しい空の<a href="UPDpacket.html">UPDpacket</a>の配列へのポインタ. メモリがないなど失敗のときNULL
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 新しい1024byteを確保した10パケットのUDPpacket配列を生成する
+UDPpacket **packetV;
+
+packetV=SDLNet_AllocPacketV(10, 1024);
+if(!packetV) {
+    printf("SDLNet_AllocPacketV: %s\n", SDLNet_GetError());
+    // パケットを生成できなかった場合の処理を行わなければならないだろう
+}
+else {
+    // 新しいパケット配列の処理を行う
+    // 使い終わったらSDLNet_FreePacketVでこのパケット配列を解放する
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_AllocPacket.html">SDLNet_AllocPacket</a>,
 <a href="SDLNet_FreePacket.html">SDLNet_FreePacket</a>,

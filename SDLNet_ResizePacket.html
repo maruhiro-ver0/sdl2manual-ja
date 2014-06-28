@@ -28,6 +28,23 @@
 <p>
 戻り値: 新しいパケットのデータバッファのサイズ. 要求したサイズ未満なら失敗
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// UDPpacketのデータサイズを2048byteに変更する
+//UDPpacket *packet;
+int newsize;
+
+newsize=SDLNet_ResizePacket(packet, 2048);
+if(newsize&lt;2048) {
+    printf("SDLNet_ResizePacket: %s\n", SDLNet_GetError());
+    // 指定したサイズのバッファが得られなかった場合の処理を行う必要があるかもしれない
+}
+else {
+    // ここでサイズ変更後の処理を行う
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_AllocPacket.html">SDLNet_AllocPacket</a>,
 <a href="SDLNet_AllocPacketV.html">SDLNet_AllocPacketV</a>,

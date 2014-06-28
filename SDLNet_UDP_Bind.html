@@ -42,6 +42,21 @@ SDLNET_MAX_UDPADDRESSES–¢–‚ÌƒAƒhƒŒƒX‚ªŠ„‚è“–‚Ä‚ç‚ê‚½Å‰‚Ìƒ`ƒƒƒlƒ‹‚ğŒŸõ‚·‚é‚½‚
 –ß‚è’l: ƒoƒCƒ“ƒh‚³‚ê‚½ƒ`ƒƒƒlƒ‹”Ô†.
 ‹ó‚«ƒ`ƒƒƒlƒ‹‚ª‚È‚¢, Šù‚ÉSDLNET_MAX_UDPADDRESSES‚ÌƒAƒhƒŒƒX‚ªŠ„‚è“–‚Ä‚ç‚ê‚Ä‚¢‚é, ƒ`ƒƒƒlƒ‹”Ô†‚ªSDLNET_MAX_UDPCHANNELSˆÈã‚È‚Ç¸”s‚Ì‚Æ‚«-1ˆÈ‰º
 </p>
+<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<code>
+<pre>
+// ƒAƒhƒŒƒX‚ÆÅ‰‚Ì‹ó‚«ƒ`ƒƒƒlƒ‹‚ğƒoƒCƒ“ƒh‚·‚é
+//UDPsocket udpsock;
+//IPaddress *address;
+int channel;
+
+channel=SDLNet_UDP_Bind(udpsock, -1, address);
+if(channel==-1) {
+    printf("SDLNet_UDP_Bind: %s\n", SDLNet_GetError());
+    // ‚±‚±‚ÅƒoƒCƒ“ƒh‚É¸”s‚µ‚½‚Æ‚«‚Ìˆ—‚ğ‚¨‚±‚È‚¤
+}
+</pre>
+</code>
 <h2>QÆ</h2>
 <a href="SDLNet_UDP_Unbind.html">SDLNet_UDP_Unbind</a>,
 <a href="SDLNet_UDP_GetPeerAddress.html">SDLNet_UDP_GetPeerAddress</a>,

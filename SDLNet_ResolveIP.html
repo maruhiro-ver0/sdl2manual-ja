@@ -30,6 +30,18 @@ address->hostのIPv4アドレスを解決し, ホスト名の文字列を戻す.
 戻されたポインタを解放してはならない.
 この関数を呼ぶたびに以前のデータは新しい値に変わる. 長時間保持するためには別の領域にコピーする必要がある.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// ipaddressのアドレスのホスト名を解決する
+//IPaddress ipaddress;
+char *host;
+if(!(host=SDLNet_ResolveIP(&ipaddress))) {
+    printf("SDLNet_ResolveIP: %s\n", SDLNet_GetError());
+    exit(1);
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_ResolveHost.html">SDLNet_ResolveHost</a>,
 <a href="IPaddress.html">IPaddress</a>

@@ -33,6 +33,23 @@ channelが-1のとき, ソケットがバインドするローカルコンピュータのポート番号を戻す.
 戻された<a href="IPaddress.html">IPaddress</a>を解放してはならない.
 <p>
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// UDPsocketのチャネル0にバインドされたアドレスを得る
+//UDPsocket udpsock;
+IPaddress *address;
+
+address=SDLNet_UDP_GetPeerAddress(udpsock, 0);
+if(!address) {
+    printf("SDLNet_UDP_GetPeerAddress: %s\n", SDLNet_GetError());
+    // ここでアドレスを得られなかった場合の処理を行う
+}
+else {
+    // ここでaddress->hostとaddress->portの表示などをする
+}
+</pre>
+</code>
 <p>
 戻り値: 成功のとき<a href="IPaddress.html">IPaddress</a>へのポインタ.
 バインドされていないチャネルなど失敗のときNULL

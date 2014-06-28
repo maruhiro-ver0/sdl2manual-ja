@@ -27,6 +27,15 @@
 値の符号の有無は影響しない.
 ポインタはバッファの先頭でなくてもよいが, 少なくとも現在のポインタを含む4byteの空きが必要である.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// リモートホストに送信する準備としてデータバッファに値を書き込む
+char data[1024];
+Uint32 number=0xDEADBEEF;
+SDLNet_Write32(number,data);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_Read32.html">SDLNet_Read32</a>,
 <a href="SDLNet_Write16.html">SDLNet_Write16</a>

@@ -21,6 +21,22 @@
 これらを使うと, 実行時のバージョンとコンパイル時のバージョンを比較できる.
 これらの関数/マクロは, 使う前にライブラリを初期化する必要はない.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+SDL_version compile_version;
+const SDL_version *link_version=SDLNet_Linked_Version();
+SDL_NET_VERSION(&compile_version);
+printf("コンパイル時のSDL_netのバージョン: %d.%d.%d\n", 
+        compile_version.major,
+        compile_version.minor,
+        compile_version.patch);
+printf("実行中のSDL_netのバージョン: %d.%d.%d\n", 
+        link_version->major,
+        link_version->minor,
+        link_version->patch);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_Init.html">SDLNet_Init</a>
 <h2>原文へのリンク</h2>

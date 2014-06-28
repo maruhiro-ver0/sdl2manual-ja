@@ -30,6 +30,32 @@
 <p>
 戻り値: 活動中のとき0以外, 活動中でないとき0
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 無限に接続しようとする
+//SDLNet_SocketSet set;
+//TCPsocket serversock, client;
+int numready;
+
+numready=SDLNet_CheckSockets(set, 1000);
+if(numready==-1) {
+    printf("SDLNet_CheckSockets: %s\n", SDLNet_GetError());
+    // ほとんどの場合これはシステムエラーである. perrorがユーザの助けになるだろう
+    perror("SDLNet_CheckSockets");
+}
+else if(numready) {
+    printf("There are %d sockets with activity!\n",numready);
+    // SDLNet_SocketReadyで全てのソケットをチェックし活動中のものを扱う
+    if(SDLNet_SocketReady(serversock)) {
+        client=SDLNet_TCP_Accept(serversock);
+        if(client) {
+            // ここでclientを使う
+        }
+    }
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_CheckSockets.html">SDLNet_CheckSockets</a>,
 <a href="SDLNet_AddSocket.html">SDLNet_AddSocket</a>,

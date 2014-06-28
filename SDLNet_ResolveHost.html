@@ -43,6 +43,28 @@ NULLのとき, 全てのネットワークインターフェースは接続のためにINADDR_ANYを使ってLI
 <p>
 戻り値: 成功のとき0, アドレスが解決できないなど失敗のとき-1で, address.hostにINADDR_NONEが代入される.
 </p>
+<h2>サンプルコード</h2>
+<p>
+ポート1234の全てのインターフェースでLISTENする:
+<code>
+<pre>
+// ポート1234のサーバのIPaddressを生成する
+IPaddress ipaddress;
+SDLNet_ResolveHost(&ipaddress, NULL, 1234);
+</pre>
+</code>
+</p>
+<p>
+"host.domain.ext"のポート1234に接続するクライアント:
+<code>
+<pre>
+// ホスト名"host.domain.ext"のポート1234のIPaddressを生成する
+// これはクライアントで使われる
+IPaddress ipaddress;
+SDLNet_ResolveHost(&ipaddress, "host.domain.ext", 1234);
+</pre>
+</code>
+</p>
 <h2>参照</h2>
 <a href="SDLNet_ResolveIP.html">SDLNet_ResolveIP</a>,
 <a href="IPaddress.html">IPaddress</a>

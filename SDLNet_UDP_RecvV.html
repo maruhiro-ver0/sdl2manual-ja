@@ -30,6 +30,23 @@ packetVはNULL終端の配列である.
 <p>
 戻り値: 受信したパケットの数. パケットを受信しなかったとき0, 失敗のとき-1
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// UDPパケットの受信を待つ
+//UDPsocket udpsock;
+//UDPpacket **packetV;
+int numrecv, i;
+
+numrecv=SDLNet_UDP_RecvV(udpsock, &packetV);
+if(numrecv==-1) {
+    // エラーが発生した場合は単にSDL_GetErrorのメッセージを表示するだけでよいかもしれない
+}
+for(i=0; i&lt;numrecv; i++) {
+    // ここでpacketV[i]を処理する
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_UDP_Bind.html">SDLNet_UDP_Bind</a>,
 <a href="SDLNet_UDP_Send.html">SDLNet_UDP_Send</a>,

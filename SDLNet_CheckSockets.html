@@ -31,6 +31,25 @@
 <p>
 戻り値: 活動中のソケットの数. 失敗のとき-1. このとき意味のあるエラーメッセージは得られない. ソケットセットが空(チェックすべきものがない)のときも-1
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 1秒間ソケットの活動をチェックする
+//SDLNet_SocketSet set;
+int numready;
+
+numready=SDLNet_CheckSockets(set, 1000);
+if(numready==-1) {
+    printf("SDLNet_CheckSockets: %s\n", SDLNet_GetError());
+    // ほとんどの場合これはシステムエラーである. perrorがユーザの助けになるだろう
+    perror("SDLNet_CheckSockets");
+}
+else if(numready) {
+    printf("%d つのソケットが活動中!\n",numready);
+    // 全てのソケットをSDLNet_SocketReadyでチェックし, 活動中のものを数える
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_SocketReady.html">SDLNet_SocketReady</a>,
 <a href="SDLNet_AddSocket.html">SDLNet_AddSocket</a>,

@@ -34,6 +34,23 @@
 戻り値: 受信したバイト数.
 エラーが発生した, またはリモート側が接続を閉じた場合は0以下
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// sockからいくつかのテキストを受信する
+//TCPsocket sock;
+#define MAXLEN 1024
+int result;
+char msg[MAXLEN];
+
+result=SDLNet_TCP_Recv(sock,msg,MAXLEN);
+if(result%lt;=0) {
+    // エラーが発生した場合は無視することもできる
+    // 恐らく現在は使えないだけなので, 切断するとよい
+}
+printf("受信した: \"%s\"\n",msg);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="SDLNet_TCP_Send.html">SDLNet_TCP_Send</a>,
 <a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept</a>,

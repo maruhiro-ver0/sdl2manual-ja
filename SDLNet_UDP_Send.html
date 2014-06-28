@@ -38,6 +38,43 @@ channelが-1ならば, 送り先としてパケットのアドレスが使われる.
 残念ながら, チャネルにバインドされた送信先の数を得る方法はない.
 よって, チャネルにバインドしたとき記憶するか, 0を戻したとき全てのチャネルで失敗したとみなすしかない.
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// パケットチャネルchannelを使ってUDPsocketでパケットを送信する
+//UDPsocket udpsock;
+//UDPpacket *packet;
+int numsent;
+
+numsent=SDLNet_UDP_Send(udpsock, packet->channel, packet);
+if(!numsent) {
+    printf("SDLNet_UDP_Send: %s\n", SDLNet_GetError());
+    // ここで送信に失敗した場合の処理を行う
+    // 恐らくチャネルにアドレスがバインドされていないだけである...
+}
+</pre>
+</code>
+</p>
+<p>
+内部チャネルの設定で1つのパケットを送信する方法は次の通りである.
+最終的には実際にはSDLNet_UDP_Sendを呼んでいる.
+<code>
+<pre>
+// 内部チャネルで1つのパケットを送信する
+//UDPsocket udpsock;
+//UDPpacket *packet;
+int numsent;
+
+numsent=SDLNet_UDP_SendV(sock, &packet, 1);
+if(!numsent) {
+    printf("SDLNet_UDP_SendV: %s\n", SDLNet_GetError());
+    // ここで送信に失敗した場合の処理を行う
+    // 恐らくチャネルにアドレスがバインドされていないだけである...
+}
+</pre>
+</code>
+</p>
 <h2>参照</h2>
 <a href="SDLNet_UDP_Bind.html">SDLNet_UDP_Bind</a>,
 <a href="SDLNet_UDP_SendV.html">SDLNet_UDP_SendV</a>,
