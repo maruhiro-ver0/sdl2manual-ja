@@ -34,6 +34,20 @@ TTF_HINTING_MONO<br>
 TTF_HINTING_NONE<br>
 ヒンティングが設定されていないときはTTF_HINTING_NORMALを戻す.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込まれたフォントのヒンティングを得る
+//TTF_Font *font;
+int hinting=TTF_GetFontHinting(font);
+printf("フォントの現在のヒンティングは %s\n",
+        hinting==0?"Normal":
+        hinting==1?"Light":
+        hinting==2?"Mono":
+        hinting==3?"None":
+        "不明");
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_SetFontHinting.html">TTF_SetFontHinting</a>,
 <a href="SDL_ttf-defines.html">5.マクロ</a>,

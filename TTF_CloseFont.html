@@ -24,6 +24,15 @@
 fontが使用するメモリとfont自身をメモリから解放する.
 新しいフォントを読み込まない限り, 解放後にfontを使ってはならない.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// フォントを解放する
+// TTF_Font *font;
+TTF_CloseFont(font);
+font=NULL; // 安全のため...
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_OpenFont.html">TTF_OpenFont</a>,
 <a href="TTF_OpenFontRW.html">TTF_OpenFontRW</a>,

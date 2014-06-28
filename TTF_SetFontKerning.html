@@ -29,6 +29,19 @@ fontのカーニング(文字詰め)の有無を設定する.
 <p>
 メモ: この関数のfontにNULLを渡すと異常終了する.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込んだフォントのカーニングを無効にする
+//TTF_Font *font;
+TTF_SetFontKerning(font, 0);
+
+// ここでテキストをレンダリングする...
+
+// 読み込んだテキストのカーニングを戻す
+TTF_SetFontKerning(font, 1);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_GetFontKerning.html">TTF_GetFontKerning</a>,
 <a href="SDL_ttf-glossary.html">6.用語</a>,

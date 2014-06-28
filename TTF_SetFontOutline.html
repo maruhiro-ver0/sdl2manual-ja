@@ -31,6 +31,19 @@ fontのアウトラインの幅のピクセル数を設定する.
 メモ: この関数を呼ぶと, アウトラインの幅が変わらない場合でも, 以前のレンダリングされたグリフの内部キャッシュが消去される.
 まず<a href="TTF_GetFontOutline.html">TTF_GetFontOutline</a>を呼んで現在のアウトラインの幅をチェックしたほうがよい.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込んだフォントのアウトライン幅を1ピクセルに設定する
+//TTF_Font *font;
+TTF_SetFontOutline(font, 1);
+
+// ここでアウトライン設定されたテキストをレンダリングする...
+
+// 見込まれたフォントのアウトラインを通常に戻す
+TTF_SetFontOutline(font, 0);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_GetFontOutline.html">TTF_GetFontOutline</a>,
 <a href="TTF_SetFontStyle.html">TTF_SetFontStyle</a>

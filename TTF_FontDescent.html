@@ -36,6 +36,15 @@ rect.y = bottom - TTF_FontDescent(font) - glyph_metric.maxy;
 <p>
 戻り値: 指定のフォントの全てのグリフの中で最大のディセントのピクセル数
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込まれたフォントの最大ディセントを得る
+//TTF_Font *font;
+
+printf("フォントの最大ディセント: %d\n", TTF_FontDescent(font));
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_FontHeight.html">TTF_FontHeight</a>,
 <a href="TTF_FontAscent.html">TTF_FontAscent</a>,

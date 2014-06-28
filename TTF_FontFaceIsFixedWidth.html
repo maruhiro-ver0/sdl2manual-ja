@@ -31,6 +31,18 @@ fontが等幅フォントであるかを得る.
 <p>
 戻り値: 等幅フォントのとき0を超える値, 等幅フォントでないとき0
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込んだフォントが等幅かを得る
+//TTF_Font *font;
+
+if(TTF_FontFaceIsFixedWidth(font))
+    printf("このフォントは等幅である\n");
+else
+    printf("このフォントは等幅ではない\n");
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_FontFaces.html">TTF_FontFaces</a>,
 <a href="TTF_FontFaceFamilyName.html">TTF_FontFaceFamilyName</a>,

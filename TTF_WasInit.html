@@ -22,6 +22,15 @@ TrueTypeフォントAPIが初期化されたか調査する.
 <p>
 戻り値: 既に初期化されているとき1, 初期化されていないとき0
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+if(!TTF_WasInit() && TTF_Init()==-1) {
+    printf("TTF_Init: %s\n", TTF_GetError());
+    exit(1);
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_Init.html">TTF_Init</a>,
 <a href="TTF_Quit.html">TTF_Quit</a>

@@ -30,6 +30,17 @@ fontの現在のスタイルの名前を得る.
 <p>
 戻り値: 指定のフォントの現在のスタイルの名前. NULLもありうる
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// フォントフェイスのスタイル名を得る
+//TTF_Font *font;
+
+char *stylename=TTF_FontFaceStyleName(font);
+if(stylename)
+    printf("フォントのスタイル名: %s\n", stylename);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_FontFaces.html">TTF_FontFaces</a>,
 <a href="TTF_FontFaceIsFixedWidth.html">TTF_FontFaceIsFixedWidth</a>,

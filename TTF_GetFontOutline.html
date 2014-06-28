@@ -29,6 +29,15 @@ fontの現在のアウトラインの幅を得る.
 <p>
 戻り値: フォントに設定されたアウトラインの幅のピクセル数
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込まれたフォントのアウトライン幅を得る
+//TTF_Font *font;
+int outline=TTF_GetFontOutline(font);
+printf("フォントのアウトライン幅は %d ピクセル\n",outline);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_SetFontOutline.html">TTF_SetFontOutline</a>,
 <a href="TTF_GetFontStyle.html">TTF_GetFontStyle</a>

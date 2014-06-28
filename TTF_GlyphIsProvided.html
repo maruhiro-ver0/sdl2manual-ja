@@ -30,6 +30,17 @@ fontで指定のUNICODE文字chが使えるかテストする.
 <p>
 戻り値: fontのUNICODE文字chのグリフの番号. 定義されてない文字のとき0
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込まれたフォントのグリフ'g'をチェックする
+//TTF_Font *font;
+
+int index=TTF_GlyphIsProvided(font,'g');
+if(!index)
+    printf("フォントに'g'がない!\n");
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_GlyphMetrics.html">TTF_GlyphMetrics</a>
 <h2>原文へのリンク</h2>

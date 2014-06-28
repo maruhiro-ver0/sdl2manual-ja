@@ -49,6 +49,19 @@ fontのスタイルを設定する.
 また, 下線や取り消し線が生成されるサーフェイスの外に出てしまうかもしれない. その場合はスクリーンにコピーしても表示されない.
 この場合は, スタイルの設定ではなく自分自身で取り消し線や下線を描く必要がある.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込まれたフォントのスタイルをボールドのイタリックに設定する
+//TTF_Font *font;
+TTF_SetFontStyle(font, TTF_STYLE_BOLD|TTF_STYLE_ITALIC);
+
+// ここでボールド・イタリックのテキストをレンダリングする...
+
+// 読み込まれたフォントのスタイルを通常に戻す
+TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_GetFontStyle.html">TTF_GetFontStyle</a>,
 <a href="SDL_ttf-defines.html">5.マクロ</a>

@@ -36,6 +36,26 @@ UNICODE‚ÅƒGƒ“ƒR[ƒh‚³‚ê‚½text‚ð, font‚Æ‘OŒiFfg, ”wŒiFgb‚Å, V‚µ‚­¶¬‚µ‚½ƒT[ƒ
 <p>
 –ß‚è’l: ¶¬‚³‚ê‚½<a href="SDL_Surface.html">SDL_Surface</a>. Ž¸”s‚Ì‚Æ‚«NULL
 </p>
+<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<code>
+<pre>
+// UNICODEƒeƒLƒXƒg‚ð”’‚Ì”wŒi‚É•‚ÅƒuƒŒƒ“ƒh‚µ‚ÄV‚µ‚¢ƒT[ƒtƒFƒCƒX‚ÉƒŒƒ“ƒ_ƒŠƒ“ƒO‚·‚é
+// ‚»‚µ‚Ä‚»‚ê‚ð‰æ–Ê‚Ì¶ã‚ÉƒRƒs[‚·‚é
+// ‚»‚µ‚ÄƒeƒLƒXƒg‚ÌƒT[ƒtƒFƒCƒX‚ð‰ð•ú‚·‚é
+//SDL_Surface *screen;
+SDL_Color color={0,0,0}, bgcolor={0xff,0xff,0xff};
+SDL_Surface *text_surface;
+Uint16 text[]={'H','e','l','l','o',' ',
+               'W','o','r','l','d','!'};
+if(!(text_surface=TTF_RenderUNICODE_Shaded(font,text,color,bgcolor))) {
+    // ‚±‚±‚ÅƒGƒ‰[‚ðˆ—‚·‚é. ­‚È‚­‚Æ‚àTTF_GetError‚ð•\Ž¦‚µ‚½‚Ù‚¤‚ª‚æ‚¢
+} else {
+    SDL_BlitSurface(text_surface,NULL,screen,NULL);
+    // ‚±‚ê‚ÍÄ—˜—p‚Å‚«‚é. ‚µ‚©‚µ‚±‚±‚Å‚Í’Pƒ‰»‚Ì‚½‚ß‚É‚»‚¤‚µ‚È‚¢
+    SDL_FreeSurface(text_surface);
+}
+</pre>
+</code>
 <h2>ŽQÆ</h2>
 <a href="TTF_SizeUNICODE.html">TTF_SizeUNICODE</a>,
 <a href="TTF_RenderText_Shaded.html">TTF_RenderText_Shaded</a>,

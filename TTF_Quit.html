@@ -20,6 +20,13 @@ TrueTypeフォントAPIを終了する.
 この関数を呼んだ後は<a href="TTF_WasInit.html">TTF_WasInit</a>を除くSDL_ttfの関数を呼んではならない.
 無論, <a href="TTF_Init.html">TTF_Init</a>を再び呼べば使えるようになる.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+TTF_Quit();
+// ここで SDL_Quit(); してもよいし, しなくてもよい
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_Init.html">TTF_Init</a>,
 <a href="TTF_WasInit.html">TTF_WasInit</a>

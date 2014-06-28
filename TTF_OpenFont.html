@@ -29,6 +29,18 @@
 <p>
 戻り値: <a href="TTF_Font.html">TTF_Font</a>へのポインタ. 失敗のときNULL
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// font.ttfをサイズ16でfontに読み込む
+TTF_Font *font;
+font=TTF_OpenFont("font.ttf", 16);
+if(!font) {
+    printf("TTF_OpenFont: %s\n", TTF_GetError());
+    // ここでエラーを処理する
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_OpenFontIndex.html">TTF_OpenFontIndex</a>,
 <a href="TTF_OpenFontRW.html">TTF_OpenFontRW</a>,

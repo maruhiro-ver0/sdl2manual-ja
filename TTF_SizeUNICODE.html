@@ -37,6 +37,21 @@ fontを使ってUNICODEでエンコードされたtextのサーフェイス上のサイズを求める.
 <p>
 戻り値: 成功のとき0で, NULLでないwとhに適切な値が代入される. フォントにグリフがないなど失敗のとき-1
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込まれたフォントでテキストをレンダリングした場合の幅と高さを得る
+//TTF_Font *font;
+int w,h;
+Uint16 text[]={'H','e','l','l','o',' ',
+               'W','o','r','l','d','!'};
+if(TTF_SizeUNICODE(font,text,&w,&h)) {
+    // レンダリングできなかった. 少なくともTTF_GetErrorを表示したほうがよい
+} else {
+    printf("幅=%d 高さ=%d\n",w,h);
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_SizeText.html">TTF_SizeText</a>,
 <a href="TTF_SizeUTF8.html">TTF_SizeUTF8</a>,

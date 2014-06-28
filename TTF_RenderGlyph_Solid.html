@@ -32,6 +32,20 @@ UNICODE文字chを, fontと色fgで新しく生成したサーフェイスにベタ(Solid)モードでレン
 <p>
 戻り値: 生成された<a href="SDL_Surface.html">SDL_Surface</a>. グリフがフォントにないなど失敗のときNULL
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// ベタ塗りの黒で全てのASCII文字をレンダリングし格納する
+//SDL_Surface *screen;
+SDL_Color color={0,0,0};
+SDL_Surface *glyph_cache[128-20];
+Uint16 ch;
+for(ch=20; ch&lt;128; ++ch)
+    glyph_cache[ch-20]=TTF_RenderGlyph_Solid(font,ch,color);
+</pre>
+</code>
+あらかじめグリフメトリック(minx, miny, advance)で変換して格納すると, 直接画面にレンダリングするより速い.
+しかし, <a href="SDL_ttf-glossary.html">カーニング</a>は正確には行われない.
 <h2>参照</h2>
 <a href="TTF_RenderGlyph_Shaded.html">TTF_RenderGlyph_Shaded</a>,
 <a href="TTF_RenderGlyph_Blended.html">TTF_RenderGlyph_Blended</a>,

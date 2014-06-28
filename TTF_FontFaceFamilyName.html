@@ -30,6 +30,17 @@ fontの現在のファミリーの名前を得る.
 <p>
 戻り値: 指定のフォントの現在のファミリーの名前. NULLもありうる
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込まれたフォントのフェイスの名前を得る
+//TTF_Font *font;
+
+char *familyname=TTF_FontFaceFamilyName(font);
+if(familyname)
+    printf("フォントのファミリー名: %s\n", familyname);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_FontFaces.html">TTF_FontFaces</a>,
 <a href="TTF_FontFaceIsFixedWidth.html">TTF_FontFaceIsFixedWidth</a>,

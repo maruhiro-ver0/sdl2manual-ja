@@ -36,6 +36,25 @@ UTF-8‚ÅƒGƒ“ƒR[ƒh‚³‚ê‚½text‚ð, font‚Æ‘OŒiFfg, ”wŒiFgb‚Å, V‚µ‚­¶¬‚µ‚½ƒT[ƒtƒ
 <p>
 –ß‚è’l: ¶¬‚³‚ê‚½<a href="SDL_Surface.html">SDL_Surface</a>. Ž¸”s‚Ì‚Æ‚«NULL
 </p>
+<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+ASCII‚ÍUTF8‚ÆŒÝŠ·«‚ª‚ ‚é‚Ì‚Å, ‚±‚ÌƒTƒ“ƒvƒ‹‚Å‚ÍLATIN1‚Æ“¯‚¶ƒeƒLƒXƒg‚ðŽg‚Á‚Ä‚¢‚é. 
+<code>
+<pre>
+// UTF8ƒeƒLƒXƒg‚ð”’‚Ì”wŒi‚É•‚ÅƒuƒŒƒ“ƒh‚µ‚ÄV‚µ‚¢ƒT[ƒtƒFƒCƒX‚ÉƒŒƒ“ƒ_ƒŠƒ“ƒO‚·‚é
+// ‚»‚µ‚Ä‚»‚ê‚ð‰æ–Ê‚Ì¶ã‚ÉƒRƒs[‚·‚é
+// ‚»‚µ‚ÄƒeƒLƒXƒg‚ÌƒT[ƒtƒFƒCƒX‚ð‰ð•ú‚·‚é
+//SDL_Surface *screen;
+SDL_Color color={0,0,0}, bgcolor={0xff,0xff,0xff};
+SDL_Surface *text_surface;
+if(!(text_surface=TTF_RenderUTF8_Shaded(font,"Hello World!",color,bgcolor))) {
+    // ‚±‚±‚ÅƒGƒ‰[‚ðˆ—‚·‚é. ­‚È‚­‚Æ‚àTTF_GetError‚ð•\Ž¦‚µ‚½‚Ù‚¤‚ª‚æ‚¢
+} else {
+    SDL_BlitSurface(text_surface,NULL,screen,NULL);
+    // ‚±‚ê‚ÍÄ—˜—p‚Å‚«‚é. ‚µ‚©‚µ‚±‚±‚Å‚Í’Pƒ‰»‚Ì‚½‚ß‚É‚»‚¤‚µ‚È‚¢
+    SDL_FreeSurface(text_surface);
+}
+</pre>
+</code>
 <h2>ŽQÆ</h2>
 <a href="TTF_SizeUTF8.html">TTF_SizeUTF8</a>,
 <a href="TTF_RenderText_Shaded.html">TTF_RenderText_Shaded</a>,

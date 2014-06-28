@@ -35,6 +35,24 @@ LATIN1でエンコードされたtextを, fontと色fgで新しく生成したサーフェイスに混合(Ble
 <p>
 戻り値: 生成された<a href="SDL_Surface.html">SDL_Surface</a>. 失敗のときNULL
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 黒色で新しいサーフェイスにテキストをレンダリングする
+// そしてそれを画面の左上にコピーする
+// そしてテキストのサーフェイスを解放する
+//SDL_Surface *screen;
+SDL_Color color={0,0,0};
+SDL_Surface *text_surface;
+if(!(text_surface=TTF_RenderText_Blended(font,"Hello World!",color))) {
+    // ここでエラーを処理する. 少なくともTTF_GetErrorを表示したほうがよい
+} else {
+    SDL_BlitSurface(text_surface,NULL,screen,NULL);
+    // これは再利用できる. しかしここでは単純化のためにそうしない
+    SDL_FreeSurface(text_surface);
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_SizeText.html">TTF_SizeText</a>,
 <a href="TTF_RenderUTF8_Blended.html">TTF_RenderUTF8_Blended</a>,

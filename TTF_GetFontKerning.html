@@ -29,6 +29,16 @@ fontの現在のカーニング(文字詰め)の有無を得る.
 <p>
 戻り値: カーニングが無効のとき0, 有効のとき0以外. フォントを読み込んだ直後は1(有効)である.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込まれたフォントのカーニングを得る
+//TTF_Font *font;
+int kerning=TTF_GetFontKerning(font);
+printf("フォントの現在のカーニングは %s\n",
+        kerning==0?"無効":"有効");
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_SetFontKerning.html">TTF_SetFontKerning</a>,
 <a href="SDL_ttf-glossary.html">6.用語</a>,

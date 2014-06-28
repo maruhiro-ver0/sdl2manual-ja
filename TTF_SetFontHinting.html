@@ -40,6 +40,19 @@ fontのヒンティング(最適化のヒント)を設定する.
 メモ: この関数を呼ぶと, ヒンティングが変わらない場合でも, 以前のレンダリングされたグリフの内部キャッシュが消去される.
 まず<a href="TTF_GetFontHinting.html">TTF_GetFontHinting</a>を呼んで現在のヒンティングをチェックしたほうがよい.
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込んだフォントにモノクロレンダリングで最適化するヒンティングを設定する
+//TTF_Font *font;
+TTF_SetFontHinting(font, TTF_HINTING_MONO);
+
+// ここでモノクロでテキストをレンダリングする...
+
+// 読み込んだフォントのヒンティングを通常に戻す
+TTF_SetFontHinting(font, TTF_HINTING_NORMAL);
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_GetFontHinting.html">TTF_GetFontHinting</a>,
 <a href="SDL_ttf-defines.html">5.マクロ</a>,

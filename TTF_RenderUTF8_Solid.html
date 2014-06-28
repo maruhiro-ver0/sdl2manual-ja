@@ -35,6 +35,25 @@ UTF-8でエンコードされたtextを, fontと色fgで新しく生成したサーフェイスにベタ(Soli
 <p>
 戻り値: 生成された<a href="SDL_Surface.html">SDL_Surface</a>. 失敗のときNULL
 </p>
+<h2>サンプルコード</h2>
+ASCIIはUTF8と互換性があるので, このサンプルではLATIN1と同じテキストを使っている. 
+<code>
+<pre>
+// ベタ塗りの黒でUTF8テキストを新しいサーフェイスにレンダリングする
+// そしてそれを画面の左上にコピーする
+// そしてテキストのサーフェイスを解放する
+//SDL_Surface *screen;
+SDL_Color color={0,0,0};
+SDL_Surface *text_surface;
+if(!(text_surface=TTF_RenderUTF8_Solid(font,"Hello World!",color))) {
+    // ここでエラーを処理する. 少なくともTTF_GetErrorを表示したほうがよい
+} else {
+    SDL_BlitSurface(text_surface,NULL,screen,NULL);
+    // これは再利用できる. しかしここでは単純化のためにそうしない
+    SDL_FreeSurface(text_surface);
+}
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_SizeUTF8.html">TTF_SizeUTF8</a>,
 <a href="TTF_RenderText_Solid.html">TTF_RenderText_Solid</a>,

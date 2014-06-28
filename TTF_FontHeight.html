@@ -31,6 +31,14 @@ SDL_ttfは複数行を扱わないので, 行間はユーザが空けなければならない. 詳細は<a href
 <p>
 戻り値: 指定のフォントの全てのグリフの中で最大の高さのピクセル数
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込まれたフォントの最大高さを得る
+//TTF_Font *font;
+printf("フォントの最大高さ: %d\n", TTF_FontHeight(font));
+</pre>
+</code>
 <h2>参照</h2>
 <a href="TTF_FontAscent.html">TTF_FontAscent</a>,
 <a href="TTF_FontDescent.html">TTF_FontDescent</a>,

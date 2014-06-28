@@ -34,6 +34,19 @@
 <p>
 戻り値: <a href="TTF_Font.html">TTF_Font</a>へのポインタ. 失敗のときNULL
 </p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// font.ttfのフェイス0をサイズ16でfontに読み込む
+TTF_Font *font;
+font=TTF_OpenFontRW(SDL_RWFromFile("font.ttf"), 1, 16, 0);
+if(!font) {
+    printf("TTF_OpenFontIndexRW: %s\n", TTF_GetError());
+    // ここでエラーを処理する
+}
+</pre>
+</code>
+注意: SDL_RWFromFileが戻したポインタをチェックせずに使うのは危険である.
 <h2>参照</h2>
 <a href="TTF_OpenFontIndex.html">TTF_OpenFontIndex</a>,
 <a href="TTF_OpenFontRW.html">TTF_OpenFontRW</a>,
