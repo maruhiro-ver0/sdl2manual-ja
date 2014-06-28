@@ -17,15 +17,15 @@
 </p>
 <p>
 <dl>
-<dt>size</dt><dd>新しい<a href="UPDpacket.html">UPDpacket</a>で確保するデータバッファのバイト数. 0は不正</dd>
+<dt>size</dt><dd>新しい<a href="UDPpacket.html">UDPpacket</a>で確保するデータバッファのバイト数. 0は不正</dd>
 </dl>
 </p>
 <p>
-新しい<a href="UPDpacket.html">UPDpacket</a>をsizeバイトのデータバッファを(mallocで)確保して生成する.
+新しい<a href="UDPpacket.html">UDPpacket</a>をsizeバイトのデータバッファを(mallocで)確保して生成する.
 新しいパケットを使い終えたら<a href="SDLNet_FreePacket.html">SDLNet_FreePacket</a>で解放する必要がある.
 </p>
 <p>
-戻り値: 新しい空の<a href="UPDpacket.html">UPDpacket</a>へのポインタ. メモリがないなど失敗のときNULL
+戻り値: 新しい空の<a href="UDPpacket.html">UDPpacket</a>へのポインタ. メモリがないなど失敗のときNULL
 </p>
 <h2>サンプルコード</h2>
 <code>

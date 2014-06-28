@@ -17,17 +17,17 @@
 </p>
 <p>
 <dl>
-<dt>howmany</dt><dd>確保する<a href="UPDpacket.html">UPDpacket</a>の数</dd>
-<dt>size</dt><dd>新しいそれぞれの<a href="UPDpacket.html">UPDpacket</a>で確保するデータバッファのバイト数. 0は不正</dd>
+<dt>howmany</dt><dd>確保する<a href="UDPpacket.html">UDPpacket</a>の数</dd>
+<dt>size</dt><dd>新しいそれぞれの<a href="UDPpacket.html">UDPpacket</a>で確保するデータバッファのバイト数. 0は不正</dd>
 </dl>
 </p>
 <p>
-新しい<a href="UPDpacket.html">UPDpacket</a>の配列を生成し, それぞれsizeバイトのデータバッファを(mallocで)確保する.
+新しい<a href="UDPpacket.html">UDPpacket</a>の配列を生成し, それぞれsizeバイトのデータバッファを(mallocで)確保する.
 新しいパケットを使い終えたら<a href="SDLNet_FreePacketV.html">SDLNet_FreePacketV</a>で解放する必要がある.
 戻された配列は, NULLの終端があるため, 要素数は要求より1つ多い.
 </p>
 <p>
-戻り値: 新しい空の<a href="UPDpacket.html">UPDpacket</a>の配列へのポインタ. メモリがないなど失敗のときNULL
+戻り値: 新しい空の<a href="UDPpacket.html">UDPpacket</a>の配列へのポインタ. メモリがないなど失敗のときNULL
 </p>
 <h2>サンプルコード</h2>
 <code>
