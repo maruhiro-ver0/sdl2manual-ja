@@ -41,7 +41,7 @@ Thread A:
 
     while (!done) {
         SDL_LockMutex(lock);
-        while (!condition && SDL_CondWaitTimeout(cond, lock, timeout) == 0) {
+        while (!condition &amp;&amp; SDL_CondWaitTimeout(cond, lock, timeout) == 0) {
             continue;
         }
         SDL_UnlockMutex(lock);

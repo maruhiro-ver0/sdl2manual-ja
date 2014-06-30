@@ -44,7 +44,7 @@ ASCIIはUTF8と互換性があるので, このサンプルではLATIN1と同じテキストを使っている.
 // 読み込まれたフォントでテキストをレンダリングした場合の幅と高さを得る
 //TTF_Font *font;
 int w,h;
-if(TTF_SizeUTF8(font,"Hello World!",&w,&h)) {
+if(TTF_SizeUTF8(font,"Hello World!",&amp;w,&amp;h)) {
     // レンダリングできなかった. 少なくともTTF_GetErrorを表示したほうがよい
 } else {
     printf("幅=%d 高さ=%d\n",w,h);

@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     threadID = SDL_GetThreadID(thread);
 
     // スレッドの完了を待ち戻り値を得る
-    SDL_WaitThread(thread, &threadReturnValue);
+    SDL_WaitThread(thread, &amp;threadReturnValue);
     printf("\nスレッドの戻り値: %d", threadReturnValue);
 
     return 0;

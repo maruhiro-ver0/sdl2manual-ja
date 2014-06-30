@@ -47,19 +47,19 @@ int main(int argc, char* argv[]) {
     target.format = 0;  // 無視される
     target.refresh_rate = 0; // 無視される
     target.driverdata   = 0; // 0で初期化する
-    printf("Requesting: \t%dx%dpx @ %dhz \n", target.w, target.h, target.refresh_rate);
+    printf("要求: \t%dx%dpx @ %dhz \n", target.w, target.h, target.refresh_rate);
 
     // ディスプレイモードをSDL_GetClosestDisplayに参照呼び出しで渡す
     // そして戻り値がNULLでないかチェックする
-    if (SDL_GetClosestDisplayMode(0, &target, &closest) == NULL)
+    if (SDL_GetClosestDisplayMode(0, &amp;target, &amp;closest) == NULL)
 
         // 戻り値がNULLならば, 一致するモードが見つからなかった
-        printf("\nNo suitable display mode was found!\n\n");
+        printf("\n一致するディスプレイモードが見つからなかった!\n\n");
 
     else
         // その他ならば, 最も近いディスプレイモードが使える
         // SDL_DisplayMode構造体をアクセスして受け取った値を見る
-        printf("  Received: \t%dx%dpx @ %dhz \n", closest.w, closest.h, closest.refresh_rate);
+        printf("受信: \t%dx%dpx @ %dhz \n", closest.w, closest.h, closest.refresh_rate);
 
     // 終了処理を行いプログラムを終了する
     SDL_Quit();

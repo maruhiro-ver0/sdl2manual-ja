@@ -33,7 +33,7 @@
 <code>
 <pre>
 // 音楽を3秒間でフェードアウトさせる
-while(!Mix_FadeOutMusic(3000) && Mix_PlayingMusic()) {
+while(!Mix_FadeOutMusic(3000) &amp;&amp; Mix_PlayingMusic()) {
     // フェードアウトが完了するまで待つ
     SDL_Delay(100);
 }

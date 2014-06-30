@@ -50,7 +50,7 @@ NULLのとき, 全てのネットワークインターフェースは接続のためにINADDR_ANYを使ってLI
 <pre>
 // ポート1234のサーバのIPaddressを生成する
 IPaddress ipaddress;
-SDLNet_ResolveHost(&ipaddress, NULL, 1234);
+SDLNet_ResolveHost(&amp;ipaddress, NULL, 1234);
 </pre>
 </code>
 </p>
@@ -61,7 +61,7 @@ SDLNet_ResolveHost(&ipaddress, NULL, 1234);
 // ホスト名"host.domain.ext"のポート1234のIPaddressを生成する
 // これはクライアントで使われる
 IPaddress ipaddress;
-SDLNet_ResolveHost(&ipaddress, "host.domain.ext", 1234);
+SDLNet_ResolveHost(&amp;ipaddress, "host.domain.ext", 1234);
 </pre>
 </code>
 </p>

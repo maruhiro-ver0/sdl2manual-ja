@@ -29,7 +29,7 @@
 <code>
 <pre>
 int secs, pct; 
-if (SDL_GetPowerInfo(&secs, &pct) == SDL_POWERSTATE_ON_BATTERY) {
+if (SDL_GetPowerInfo(&amp;secs, &amp;pct) == SDL_POWERSTATE_ON_BATTERY) {
     printf("バッテリーで動作中: ");
     if (secs == -1) {
         printf("(残り時間 不明)\n");

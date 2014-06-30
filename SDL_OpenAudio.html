@@ -39,7 +39,7 @@ want.channels = 2;
 want.samples = 4096;
 want.callback = MyAudioCallback;  // この関数はどこか別の場所に書く
 
-if (SDL_OpenAudio(&want, &have) &lt; 0) {
+if (SDL_OpenAudio(&amp;want, &amp;have) &lt; 0) {
     printf("オーディオを開けなかった: %s\n", SDL_GetError());
 } else {
     if (have.format != want.format)

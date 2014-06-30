@@ -20,7 +20,7 @@
 <code>
 <pre>
 extern SDL_AudioSpec want;
-if (SDL_OpenAudio(&want, NULL) == 0) {
+if (SDL_OpenAudio(&amp;want, NULL) == 0) {
     SDL_PauseAudio(0);
     SDL_Delay(5000);  // オーディオコールバックを5秒間実行させる
     SDL_CloseAudio();

@@ -100,25 +100,25 @@ pixel = *((Uint32*)surface->pixels);
 SDL_UnlockSurface(surface);
 
 /* Ô—v‘f‚ğ“¾‚é */
-temp = pixel & fmt-&gt;Rmask;  /* Ô—v‘f‚ğ•ª—£‚·‚é */
+temp = pixel &amp; fmt-&gt;Rmask;  /* Ô—v‘f‚ğ•ª—£‚·‚é */
 temp = temp &gt;&gt; fmt->Rshift; /* 8bit‚Ü‚Å‰º‚ë‚· */
 temp = temp &lt;&lt; fmt-&gt;Rloss;  /* 8bitƒtƒ‹‚Ü‚ÅŠg’£‚·‚é */
 red = (Uint8)temp;
 
 /* —Î—v‘f‚ğ“¾‚é */
-temp = pixel & fmt-&gt;Gmask;  /* —Î—v‘f‚ğ•ª—£‚·‚é */
+temp = pixel &amp; fmt-&gt;Gmask;  /* —Î—v‘f‚ğ•ª—£‚·‚é */
 temp = temp &gt;&gt; fmt-&gt;Gshift; /* 8bit‚Ü‚Å‰º‚ë‚· */
 temp = temp &lt;&lt; fmt-&gt;Gloss;  /* 8bitƒtƒ‹‚Ü‚ÅŠg’£‚·‚é */
 green = (Uint8)temp;
 
 /* Â—v‘f‚ğ“¾‚é */
-temp = pixel & fmt-&gt;Bmask;  /* Â—v‘f‚ğ•ª—£‚·‚é */
+temp = pixel &amp; fmt-&gt;Bmask;  /* Â—v‘f‚ğ•ª—£‚·‚é */
 temp = temp &gt;&gt; fmt-&gt;Bshift; /* 8bit‚Ü‚Å‰º‚ë‚· */
 temp = temp &lt;&lt; fmt-&gt;Bloss;  /* 8bitƒtƒ‹‚Ü‚ÅŠg’£‚·‚é */
 blue = (Uint8)temp;
 
 /* ƒ¿—v‘f‚ğ“¾‚é */
-temp = pixel & fmt-&gt;Amask;  /* ƒ¿—v‘f‚ğ•ª—£‚·‚é */
+temp = pixel &amp; fmt-&gt;Amask;  /* ƒ¿—v‘f‚ğ•ª—£‚·‚é */
 temp = temp &gt;&gt; fmt-&gt;Ashift; /* 8bit‚Ü‚Å‰º‚ë‚· */
 temp = temp &lt;&lt; fmt-&gt;Aloss;  /* 8bitƒtƒ‹‚Ü‚ÅŠg’£‚·‚é */
 alpha = (Uint8)temp;

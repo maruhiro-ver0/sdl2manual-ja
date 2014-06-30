@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     if (NULL == thread) {
         printf("\nSDL_CreateThread 失敗: %s\n", SDL_GetError());
     } else {
-        SDL_WaitThread(thread, &threadReturnValue);
+        SDL_WaitThread(thread, &amp;threadReturnValue);
         printf("\nスレッドの戻り値: %d", threadReturnValue);
     }
 

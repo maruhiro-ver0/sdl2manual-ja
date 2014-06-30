@@ -60,7 +60,7 @@ int main(int argv, char** argc) {
 class InitError: public std::exception {
     public:
         InitError();
-        InitError(const std::string&);
+        InitError(const std::string&amp;);
         virtual ~InitError() throw();
         virtual const char* what() const throw();
     private:
@@ -69,7 +69,7 @@ class InitError: public std::exception {
 
 InitError::InitError():
   exception(), msg(SDL_GetError()) {}
-InitError::InitError(const std::string& m):
+InitError::InitError(const std::string&amp; m):
   exception(), msg(m) {}
 InitError::~InitError() throw() {}
 const char* InitError::what() const throw() {
@@ -104,7 +104,7 @@ int main(int argc, char **argv) {
         return 0;
     }
 
-    catch (const InitError& err) {
+    catch (const InitError&amp; err) {
         std::cerr
             &lt;&lt; "SDLÇÃèâä˙âªíÜÇ…ÉGÉâÅ[Ç™î≠ê∂ÇµÇΩ:  "
             &lt;&lt; err.what() &lt;&lt; std::endl;

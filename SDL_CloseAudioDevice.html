@@ -24,7 +24,7 @@
 <code>
 <pre>
 extern SDL_AudioSpec want;
-SDL_AudioDeviceID devid = SDL_OpenAudioDevice(NULL, 0, &want, NULL, 0);
+SDL_AudioDeviceID devid = SDL_OpenAudioDevice(NULL, 0, &amp;want, NULL, 0);
 if (devid > 0) {
     SDL_PauseAudioDevice(devid, 0);
     SDL_Delay(5000);  // オーディオコールバックを5秒間実行させる

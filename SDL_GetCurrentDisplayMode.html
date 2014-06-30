@@ -44,7 +44,7 @@ int main(int argc, char* argv[]){
   // 全てのディスプレイの現在のディスプレイモードを得る
   for(i = 0; i &lt; SDL_GetNumVideoDisplays(); ++i){
   
-    int should_be_zero = SDL_GetCurrentDisplayMode(i, &current);
+    int should_be_zero = SDL_GetCurrentDisplayMode(i, &amp;current);
 
     if(should_be_zero != 0)
       // エラー発生...

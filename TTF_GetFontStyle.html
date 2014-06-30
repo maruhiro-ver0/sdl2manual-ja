@@ -45,13 +45,13 @@ printf("フォントのスタイル:");
 if(style==TTF_STYLE_NORMAL)
     printf(" normal");
 else {
-    if(style&TTF_STYLE_BOLD)
+    if(style&amp;TTF_STYLE_BOLD)
         printf(" bold");
-    if(style&TTF_STYLE_ITALIC)
+    if(style&amp;TTF_STYLE_ITALIC)
         printf(" italic");
-    if(style&TTF_STYLE_UNDERLINE)
+    if(style&amp;TTF_STYLE_UNDERLINE)
         printf(" underline");
-    if(style&TTF_STYLE_STRIKETHROUGH)
+    if(style&amp;TTF_STYLE_STRIKETHROUGH)
         printf(" strikethrough");
 }
 printf("\n");

@@ -30,12 +30,12 @@
 SDL_atomic_t done;
 SDL_sem *sem;
 
-SDL_AtomicSet(&done, 0);
+SDL_AtomicSet(&amp;done, 0);
 sem = SDL_CreateSemaphore(0);
 .
 .
 Thread A:
-    while (!SDL_AtomicGet(&done)) {
+    while (!SDL_AtomicGet(&amp;done)) {
         add_data_to_queue();
         SDL_SemPost(sem);
     }
@@ -43,15 +43,15 @@ Thread A:
 Thread B:
     const Uint32 timeout = 1000; /* 1ïbÇ≤Ç∆Ç…ìÆçÏÇ∑ÇÈ */
 
-    while (!SDL_AtomicGet(&done)) {
-        if (SDL_SemWaitTimeout(sem, timeout) == 0 && data_available()) {
+    while (!SDL_AtomicGet(&amp;done)) {
+        if (SDL_SemWaitTimeout(sem, timeout) == 0 &amp;&amp; data_available()) {
             get_data_from_queue();
         }
         ... Ç±Ç±Ç≈ëºÇÃèàóùÇçsÇ§
     }
 .
 .
-SDL_AtomicSet(&done, 1);
+SDL_AtomicSet(&amp;done, 1);
 SDL_SemPost(sem);
 wait_for_threads();
 SDL_DestroySemaphore(sem);

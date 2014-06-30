@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
 
     /* ... ここでコンソールの処理を行う ... */
 
-    if (sdl_initialized && SDL_InitSubSystem(SDL_INIT_VIDEO)) {
+    if (sdl_initialized &amp;&amp; SDL_InitSubSystem(SDL_INIT_VIDEO)) {
         display_graph();
         SDL_QuitSubSystem(SDL_INIT_VIDEO);
     }

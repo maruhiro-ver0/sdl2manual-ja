@@ -31,7 +31,7 @@ OpenGLÉvÉäÉ~ÉeÉBÉuÇÃÉåÉìÉ_ÉäÉìÉOÇ≈égÇ§ÇΩÇﬂÇ…OpenGL/ES/ES2ÉeÉNÉXÉ`ÉÉÇÉJÉåÉìÉgÉRÉ
 <p>
 <code>
 <pre>
-void RocketSDLRenderInterfaceOpenGL::RenderGeometry(Rocket::Core::Vertex* vertices, int num_vertices, int* indices, int num_indices, const Rocket::Core::TextureHandle texture, const Rocket::Core::Vector2f& translation)
+void RocketSDLRenderInterfaceOpenGL::RenderGeometry(Rocket::Core::Vertex* vertices, int num_vertices, int* indices, int num_indices, const Rocket::Core::TextureHandle texture, const Rocket::Core::Vector2f&amp; translation)
 {
     // SDLÇÕÉVÉFÅ[É_Å[ÇégÇ§ÇÃÇ≈, Ç±Ç±Ç≈ÇÕñ≥å¯âªÇ∑ÇÈïKóvÇ™Ç†ÇÈ
     render_data.glUseProgramObjectARB(0);
@@ -47,7 +47,7 @@ void RocketSDLRenderInterfaceOpenGL::RenderGeometry(Rocket::Core::Vertex* vertic
     if(texture) {
         render_data.glEnableClientState(GL_TEXTURE_COORD_ARRAY);
         sdl_texture = (SDL_Texture *) texture;
-        SDL_GL_BindTexture(sdl_texture, &texw, &texh);
+        SDL_GL_BindTexture(sdl_texture, &amp;texw, &amp;texh);
     }
 
     for (int  i = 0; i &lt; num_vertices; i++) {
@@ -63,9 +63,9 @@ void RocketSDLRenderInterfaceOpenGL::RenderGeometry(Rocket::Core::Vertex* vertic
 
     render_data.glEnableClientState(GL_VERTEX_ARRAY);
     render_data.glEnableClientState(GL_COLOR_ARRAY);
-    render_data.glVertexPointer(2, GL_FLOAT, 0, &Positions[0]);
-    render_data.glColorPointer(4, GL_UNSIGNED_BYTE, 0, &Colors[0]);
-    render_data.glTexCoordPointer(2, GL_FLOAT, 0, &TexCoords[0]);
+    render_data.glVertexPointer(2, GL_FLOAT, 0, &amp;Positions[0]);
+    render_data.glColorPointer(4, GL_UNSIGNED_BYTE, 0, &amp;Colors[0]);
+    render_data.glTexCoordPointer(2, GL_FLOAT, 0, &amp;TexCoords[0]);
 
 
     render_data.glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
@@ -91,7 +91,7 @@ void RocketSDLRenderInterfaceOpenGL::RenderGeometry(Rocket::Core::Vertex* vertic
 <p>
 <code>
 <pre>
-void RocketSDLRenderInterfaceOpenGLES::RenderGeometry(Rocket::Core::Vertex* vertices, int num_vertices, int* indices, int num_indices, const Rocket::Core::TextureHandle texture, const Rocket::Core::Vector2f& translation)
+void RocketSDLRenderInterfaceOpenGLES::RenderGeometry(Rocket::Core::Vertex* vertices, int num_vertices, int* indices, int num_indices, const Rocket::Core::TextureHandle texture, const Rocket::Core::Vector2f&amp; translation)
 {
     render_data.glPushMatrix();
     render_data.glTranslatef(translation.x, translation.y, 0);
@@ -105,7 +105,7 @@ void RocketSDLRenderInterfaceOpenGLES::RenderGeometry(Rocket::Core::Vertex* vert
     if(texture) {
         render_data.glEnableClientState(GL_TEXTURE_COORD_ARRAY);
         sdl_texture = (SDL_Texture *) texture;
-        SDL_GL_BindTexture(sdl_texture, &texw, &texh);
+        SDL_GL_BindTexture(sdl_texture, &amp;texw, &amp;texh);
     }
 
     for (int  i = 0; i &lt; num_vertices; i++) {
@@ -126,9 +126,9 @@ void RocketSDLRenderInterfaceOpenGLES::RenderGeometry(Rocket::Core::Vertex* vert
 
     render_data.glEnableClientState(GL_VERTEX_ARRAY);
     render_data.glEnableClientState(GL_COLOR_ARRAY);
-    render_data.glVertexPointer(2, GL_FLOAT, 0, &Positions[0]);
-    render_data.glColorPointer(4, GL_UNSIGNED_BYTE, 0, &Colors[0]);
-    render_data.glTexCoordPointer(2, GL_FLOAT, 0, &TexCoords[0]);
+    render_data.glVertexPointer(2, GL_FLOAT, 0, &amp;Positions[0]);
+    render_data.glColorPointer(4, GL_UNSIGNED_BYTE, 0, &amp;Colors[0]);
+    render_data.glTexCoordPointer(2, GL_FLOAT, 0, &amp;TexCoords[0]);
 
     render_data.glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     render_data.glEnable(GL_BLEND);
@@ -158,7 +158,7 @@ void RocketSDLRenderInterfaceOpenGLES::RenderGeometry(Rocket::Core::Vertex* vert
     else render_data.glUseProgram(program_color_id);
     int width, height;
     SDL_Rect rvp;
-    SDL_RenderGetViewport(renderer, &rvp);
+    SDL_RenderGetViewport(renderer, &amp;rvp);
 
     GLfloat projection[4][4];
 
@@ -207,17 +207,17 @@ void RocketSDLRenderInterfaceOpenGLES::RenderGeometry(Rocket::Core::Vertex* vert
       newIndicies[i] = (unsigned short) indices[i];
     }
 
-    glVertexAttribPointer(ROCKETGLUE_ATTRIBUTE_POSITION, 2, GL_FLOAT, GL_FALSE, sizeof(Rocket::Core::Vertex), &vertices[0].position);
-    glVertexAttribPointer(ROCKETGLUE_ATTRIBUTE_COLOR, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Rocket::Core::Vertex), &vertices[0].colour);
+    glVertexAttribPointer(ROCKETGLUE_ATTRIBUTE_POSITION, 2, GL_FLOAT, GL_FALSE, sizeof(Rocket::Core::Vertex), &amp;vertices[0].position);
+    glVertexAttribPointer(ROCKETGLUE_ATTRIBUTE_COLOR, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Rocket::Core::Vertex), &amp;vertices[0].colour);
     render_data.glEnableVertexAttribArray(ROCKETGLUE_ATTRIBUTE_POSITION);
     render_data.glEnableVertexAttribArray(ROCKETGLUE_ATTRIBUTE_TEXCOORD);
     render_data.glEnableVertexAttribArray(ROCKETGLUE_ATTRIBUTE_COLOR);
 
     if (texture) {
         sdl_texture = (SDL_Texture *) texture;
-        SDL_GL_BindTexture(sdl_texture, &texw, &texh);
+        SDL_GL_BindTexture(sdl_texture, &amp;texw, &amp;texh);
         render_data.glUniform1i(u_texture, 0);
-        glVertexAttribPointer(ROCKETGLUE_ATTRIBUTE_TEXCOORD, 2, GL_FLOAT, GL_FALSE, sizeof(Rocket::Core::Vertex), &vertices[0].tex_coord);
+        glVertexAttribPointer(ROCKETGLUE_ATTRIBUTE_TEXCOORD, 2, GL_FLOAT, GL_FALSE, sizeof(Rocket::Core::Vertex), &amp;vertices[0].tex_coord);
     } else {
         render_data.glActiveTexture(GL_TEXTURE0);
         render_data.glDisable(GL_TEXTURE_2D);

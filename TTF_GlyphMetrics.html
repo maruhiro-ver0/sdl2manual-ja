@@ -67,10 +67,10 @@ TTF_GlyphMetrics('g'):
 //SDL_Surface *glyph,*screen;
 SDL_Rect rect;
 int minx,maxy,advance;
-TTF_GlyphMetrics(font,'g',&minx,NULL,NULL,&maxy,&advance);
+TTF_GlyphMetrics(font,'g',&amp;minx,NULL,NULL,&amp;maxy,&amp;advance);
 rect.x=X+minx;
 rect.y=Y+TTF_FontAscent(font)-maxy;
-SDL_BlitSurface(glyph,NULL,screen,&rect);
+SDL_BlitSurface(glyph,NULL,screen,&amp;rect);
 X+=advance;
 </pre>
 </p>
@@ -81,10 +81,10 @@ X+=advance;
 //SDL_Surface *glyph,*screen;
 SDL_Rect rect;
 int minx,maxy,advance;
-TTF_GlyphMetrics(font,'g',&minx,NULL,NULL,&maxy,&advance);
+TTF_GlyphMetrics(font,'g',&amp;minx,NULL,NULL,&amp;maxy,&amp;advance);
 rect.x=X+minx;
 rect.y=Y-maxy;
-SDL_BlitSurface(glyph,NULL,screen,&rect);
+SDL_BlitSurface(glyph,NULL,screen,&amp;rect);
 X+=advance;
 </pre>
 </p>

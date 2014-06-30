@@ -27,7 +27,7 @@
 <pre>
 // 1024 ステレオ 48000Hzのサンプルフレームバッファを, 32bit浮動小数点から16bit整数に変換する
 SDL_AudioCVT cvt;
-SDL_BuildAudioCVT(&cvt, AUDIO_F32, 2, 48000, AUDIO_S16, 2, 48000);
+SDL_BuildAudioCVT(&amp;cvt, AUDIO_F32, 2, 48000, AUDIO_S16, 2, 48000);
 SDL_assert(cvt.needed); // 明らかにこれは必要である
 cvt.len = 1024 * 2 * 4;  // 1024 ステレオ 32bit浮動小数点のサンプルフレームバッファ
 cvt.buf = (Uint8 *) SDL_malloc(cvt.len * cvt.len_mult);

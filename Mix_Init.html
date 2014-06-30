@@ -48,7 +48,7 @@ flagsで指定したライブラリを読み込んで初期化する. 少なくとも読み込めれば(既に読み
 // OGGとMOD形式のサンプリング音声/音楽ローダーを初期化する
 int flags=MIX_INIT_OGG|MIX_INIT_MOD;
 int initted=Mix_Init(flags);
-if(initted&flags != flags) {
+if(initted&amp;flags != flags) {
     printf("Mix_Init: 要求したOGGとMOD形式のローダーの初期化に失敗した!\n");
     printf("Mix_Init: %s\n", Mix_GetError());
     // ここでエラーを処理する

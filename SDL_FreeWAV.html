@@ -28,7 +28,7 @@ Uint32 wav_length;
 Uint8 *wav_buffer;
 
 /* WAVを読み込む */
-if (SDL_LoadWAV("test.wav", &wav_spec, &wav_buffer, &wav_length) == NULL) {
+if (SDL_LoadWAV("test.wav", &amp;wav_spec, &amp;wav_buffer, &amp;wav_length) == NULL) {
     fprintf(stderr, "test.wavを開けなかった: %s\n", SDL_GetError());
 } else {
     /* ここでWAVデータを処理する. そしてその後... */

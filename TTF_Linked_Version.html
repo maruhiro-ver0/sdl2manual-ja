@@ -26,7 +26,7 @@
 <pre>
 SDL_version compile_version;
 const SDL_version *link_version=TTF_Linked_Version();
-SDL_TTF_VERSION(&compile_version);
+SDL_TTF_VERSION(&amp;compile_version);
 printf("コンパイル時のSDL_ttfのバージョン: %d.%d.%d\n", 
         compile_version.major,
         compile_version.minor,

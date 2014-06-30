@@ -35,7 +35,7 @@ SDL_Joystick *joy;
 .
 .
 SDL_JoystickUpdate();
-if(SDL_JoystickGetBall(joy, 0, &delta_x, &delta_y)==-1)
+if(SDL_JoystickGetBall(joy, 0, &amp;delta_x, &amp;delta_y)==-1)
     printf("トラックボール読み込み失敗!\n");
 printf("トラックボール 移動量- X:%d, Y:%d\n", delta_x, delta_y);
 </pre>

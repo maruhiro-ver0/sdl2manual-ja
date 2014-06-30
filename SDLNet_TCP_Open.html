@@ -36,12 +36,12 @@ TCPでipのホストのポート番号に接続する.
 IPaddress ip;
 TCPsocket tcpsock;
 
-if(SDLNet_ResolveHost(&ip,"localhost",9999)==-1) {
+if(SDLNet_ResolveHost(&amp;ip,"localhost",9999)==-1) {
     printf("SDLNet_ResolveHost: %s\n", SDLNet_GetError());
     exit(1);
 }
 
-tcpsock=SDLNet_TCP_Open(&ip);
+tcpsock=SDLNet_TCP_Open(&amp;ip);
 if(!tcpsock) {
     printf("SDLNet_TCP_Open: %s\n", SDLNet_GetError());
     exit(2);
@@ -56,12 +56,12 @@ if(!tcpsock) {
 IPaddress ip;
 TCPsocket tcpsock;
 
-if(SDLNet_ResolveHost(&ip,NULL,9999)==-1) {
+if(SDLNet_ResolveHost(&amp;ip,NULL,9999)==-1) {
     printf("SDLNet_ResolveHost: %s\n", SDLNet_GetError());
     exit(1);
 }
 
-tcpsock=SDLNet_TCP_Open(&ip);
+tcpsock=SDLNet_TCP_Open(&amp;ip);
 if(!tcpsock) {
     printf("SDLNet_TCP_Open: %s\n", SDLNet_GetError());
     exit(2);

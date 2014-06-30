@@ -51,7 +51,7 @@ Uint32 my_callbackfunc(Uint32 interval, void *param)
     event.type = SDL_USEREVENT;
     event.user = userevent;
 
-    SDL_PushEvent(&event);
+    SDL_PushEvent(&amp;event);
     return(interval);
 }
 </pre>
@@ -73,19 +73,19 @@ Uint32 my_callbackfunc(Uint32 interval, void *param)
 
     userevent.type = SDL_USEREVENT;
     userevent.code = 0;
-    userevent.data1 = &my_function;
+    userevent.data1 = &amp;my_function;
     userevent.data2 = param;
 
     event.type = SDL_USEREVENT;
     event.user = userevent;
 
-    SDL_PushEvent(&event);
+    SDL_PushEvent(&amp;event);
     return(interval);
 }
 
 /* イベントループ */
 SDL_Event event;
-while (SDL_PollEvent (&event))
+while (SDL_PollEvent (&amp;event))
 {
     switch(event.type)
     {

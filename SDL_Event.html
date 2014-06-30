@@ -74,7 +74,7 @@ whileループを使い, 全てのイベントを処理する.
 <p>
 <code>
 <pre>
-while(SDL_PollEvent(&test_event)) {
+while(SDL_PollEvent(&amp;test_event)) {
 </pre>
 </code>
 </p>
@@ -138,7 +138,7 @@ user_event.type=SDL_USEREVENT;
 user_event.user.code=2;
 user_event.user.data1=NULL;
 user_event.user.data2=NULL;
-SDL_PushEvent(&user_event);
+SDL_PushEvent(&amp;user_event);
 </pre>
 </code>
 <h3><a name="table">イベントの種類と共用体のメンバの関係</a></h3>

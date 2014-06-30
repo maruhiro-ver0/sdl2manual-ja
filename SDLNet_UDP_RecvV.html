@@ -38,7 +38,7 @@ packetVはNULL終端の配列である.
 //UDPpacket **packetV;
 int numrecv, i;
 
-numrecv=SDLNet_UDP_RecvV(udpsock, &packetV);
+numrecv=SDLNet_UDP_RecvV(udpsock, &amp;packetV);
 if(numrecv==-1) {
     // エラーが発生した場合は単にSDL_GetErrorのメッセージを表示するだけでよいかもしれない
 }

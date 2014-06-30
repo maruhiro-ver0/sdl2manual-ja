@@ -48,7 +48,7 @@ void myMusicPlayer(void *udata, Uint8 *stream, int len)
 
     // バッファに...うーん...音楽を書き込む
     for(i=0; i&lt;len; i++)
-        stream[i]=(i+pos)&ff;
+        stream[i]=(i+pos)&amp;ff;
 
     // 次回のためのudataを設定する
     pos+=len;
@@ -57,7 +57,7 @@ void myMusicPlayer(void *udata, Uint8 *stream, int len)
 ...
 // myMusicPlayerで...うーん...音楽を再生する
 int music_pos=0;
-Mix_HookMusic(myMusicPlayer, &music_pos);
+Mix_HookMusic(myMusicPlayer, &amp;music_pos);
 </pre>
 </code>
 <h2>参照</h2>

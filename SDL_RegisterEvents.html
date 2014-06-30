@@ -33,7 +33,7 @@ if (myEventType != ((Uint32)-1)) {
     event.user.code = my_event_code;
     event.user.data1 = significant_data;
     event.user.data2 = 0;
-    SDL_PushEvent(&event);
+    SDL_PushEvent(&amp;event);
 }
 </pre>
 </code>

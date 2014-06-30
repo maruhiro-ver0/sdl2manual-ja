@@ -45,7 +45,7 @@ fontを使ってUNICODEでエンコードされたtextのサーフェイス上のサイズを求める.
 int w,h;
 Uint16 text[]={'H','e','l','l','o',' ',
                'W','o','r','l','d','!'};
-if(TTF_SizeUNICODE(font,text,&w,&h)) {
+if(TTF_SizeUNICODE(font,text,&amp;w,&amp;h)) {
     // レンダリングできなかった. 少なくともTTF_GetErrorを表示したほうがよい
 } else {
     printf("幅=%d 高さ=%d\n",w,h);

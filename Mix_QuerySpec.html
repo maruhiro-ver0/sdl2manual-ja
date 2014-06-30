@@ -37,7 +37,7 @@
 // 使用中のオーディオ形式を獲得し表示する
 int numtimesopened, frequency, channels;
 Uint16 format;
-numtimesopened=Mix_QuerySpec(&frequency, &format, &channels);
+numtimesopened=Mix_QuerySpec(&amp;frequency, &amp;format, &amp;channels);
 if(!numtimesopened) {
     printf("Mix_QuerySpec: %s\n",Mix_GetError());
 }

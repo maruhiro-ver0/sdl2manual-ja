@@ -36,7 +36,7 @@ address->hostのIPv4アドレスを解決し, ホスト名の文字列を戻す.
 // ipaddressのアドレスのホスト名を解決する
 //IPaddress ipaddress;
 char *host;
-if(!(host=SDLNet_ResolveIP(&ipaddress))) {
+if(!(host=SDLNet_ResolveIP(&amp;ipaddress))) {
     printf("SDLNet_ResolveIP: %s\n", SDLNet_GetError());
     exit(1);
 }

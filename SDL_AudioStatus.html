@@ -36,7 +36,7 @@ void printStatus(SDL_AudioDeviceID dev)
 
 // デバイスは一時停止中から始まる
 SDL_AudioDeviceID dev;
-dev = SDL_OpenAudioDevice(NULL, 0, &desired, &obtained, 0);  
+dev = SDL_OpenAudioDevice(NULL, 0, &amp;desired, &amp;obtained, 0);  
 if (dev != 0)
 {
      printStatus(dev);  // 「一時停止中」が表示される

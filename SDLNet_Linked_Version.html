@@ -26,7 +26,7 @@
 <pre>
 SDL_version compile_version;
 const SDL_version *link_version=SDLNet_Linked_Version();
-SDL_NET_VERSION(&compile_version);
+SDL_NET_VERSION(&amp;compile_version);
 printf("コンパイル時のSDL_netのバージョン: %d.%d.%d\n", 
         compile_version.major,
         compile_version.minor,

@@ -54,7 +54,7 @@ int main(int, char**)  {
   
   while (true)  {
     SDL_Event event;
-    while (SDL_PollEvent(&event))  {
+    while (SDL_PollEvent(&amp;event))  {
       switch (event.type)  {
         
         case SDL_WINDOWEVENT:  {
@@ -69,7 +69,7 @@ int main(int, char**)  {
               
               case SDL_WINDOWEVENT_CLOSE:  {
                 event.type = SDL_QUIT;
-                SDL_PushEvent(&event);
+                SDL_PushEvent(&amp;event);
                 break;
               }
               

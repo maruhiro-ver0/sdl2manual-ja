@@ -43,7 +43,7 @@ fontを使ってLATIN1でエンコードされたtextのサーフェイス上のサイズを求める.
 // 読み込まれたフォントでテキストをレンダリングした場合の幅と高さを得る
 //TTF_Font *font;
 int w,h;
-if(TTF_SizeText(font,"Hello World!",&w,&h)) {
+if(TTF_SizeText(font,"Hello World!",&amp;w,&amp;h)) {
     // レンダリングできなかった. 少なくともTTF_GetErrorを表示したほうがよい
 } else {
     printf("幅=%d 高さ=%d\n",w,h);

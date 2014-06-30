@@ -45,7 +45,7 @@ Uint32 wav_length;
 Uint8 *wav_buffer;
 
 /* WAV‚ğ“Ç‚İ‚Ş */
-if (SDL_LoadWAV_RW(myRWops, 1, &wav_spec, &wav_buffer, &wav_length) == NULL) {
+if (SDL_LoadWAV_RW(myRWops, 1, &amp;wav_spec, &amp;wav_buffer, &amp;wav_length) == NULL) {
     fprintf(stderr, "test.wav‚ğ“Ç‚İ‚ß‚È‚©‚Á‚½: %s\n", SDL_GetError());
 } else {
     /* ‚±‚±‚ÅWAVƒf[ƒ^‚ğˆ—‚·‚é. ‚»‚µ‚Ä... */

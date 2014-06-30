@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
       SDL_RenderCopy(Main_Renderer, Background_Tx, NULL, NULL);
 
       /* 図形をレンダリングしてアニメーションにする */
-      SDL_RenderCopy(Main_Renderer, BlueShapes, &SrcR, &DestR);  
+      SDL_RenderCopy(Main_Renderer, BlueShapes, &amp;SrcR, &amp;DestR);  
       SDL_RenderPresent(Main_Renderer);
       SDL_Delay(500);
     }

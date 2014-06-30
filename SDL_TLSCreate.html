@@ -28,11 +28,11 @@ static SDL_TLSID thread_local_storage;
 void SetMyThreadData(void *value)
 {
     if (!thread_local_storage) {
-        SDL_AtomicLock(&tls_lock);
+        SDL_AtomicLock(&amp;tls_lock);
         if (!thread_local_storage) {
             thread_local_storage = SDL_TLSCreate();
         }
-        SDL_AtomicUnLock(&tls_lock);
+        SDL_AtomicUnLock(&amp;tls_lock);
     }
     SDL_TLSSet(thread_local_storage, value);
 }
