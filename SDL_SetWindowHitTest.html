@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
+<title>SDL_SetWindowHitTest</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_SetWindowHitTest
+<hr>
+<h1>SDL_SetWindowHitTest</h1>
+ウィンドウの領域が特別な機能を持っているかを決めるコールバック関数を設定する
+<h2>構文</h2>
+<code>int SDL_SetWindowHitTest(SDL_Window* window, SDL_HitTest callback, void* callback_data)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_SetWindowHitTest">
+<tr><td>window</td><td>領域判定を設定するウィンドウ</td></tr>
+<tr><td>callback</td><td>領域判定のとき呼ばれる関数</td></tr>
+<tr><td>callback_data</td><td>callback関数に渡されるアプリケーション定義のデータのvoid*</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, 失敗(非対応を含む)のとき-1を戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>詳細</h2>
+<p>
+callbackの関数プロトタイプは
+</p>
+<p>
+<code>SDL_HitTestResult SDL_HitTest(SDL_Window* win, const SDL_Point* area, void* data)</code>
+</p>
+<p>
+SDL_HitTestは任意の関数名で, その引数は
+</p>
+<p>
+<table border="1" summary="SDL_HitTest">
+<tr><td>win</td><td>領域判定が設定されたウィンドウのSDL_Window</td></tr>
+<tr><td>area</td><td>判定する位置の<a href="SDL_Point.html">SDL_Point</a></td></tr>
+<tr><td>data</td><td>SDL_SetWindowHitTest()関数に渡したcallback_data</td></tr>
+</table>
+</p>
+<p>
+通常, ウィンドウはシステムウィンドウマネージャーが提供した装飾(タイトルバー, ウィンドウ枠など)でドラッグやサイズ変更を行う.
+しかし, 一部のアプリケーションではウィンドウ内部でドラッグしたい場合もある.
+例えば, 枠のないウィンドウのあらゆる部分でドラッグしたい場合や, タイトルバーをアプリケーションで描いている場合などである.
+</p>
+<p>
+この関数は, アプリケーションがウィンドウの特別な領域を決めるためのコールバック関数を設定する.
+このコールバック関数は, もしウィンドウの特別な領域として扱うためにOSに通知する必要があるとき, イベント処理中に実行される.
+このコールバック関数で「領域判断」を行う.
+</p>
+<p>
+特別な領域の場合, マウスによる入力はアプリケーションにはおそらく通知されない.
+OSは入力をウィンドウの移動やサイズ変更のために使い, アプリケーションには通知しないためである.
+</p>
+<p>
+コールバックをNULLにすると領域判定は無効になる. デフォルトでは無効である.
+</p>
+この機能に対応していない環境では無条件に-1を戻す.
+領域判定を無効にした場合も同様である.
+</p>
+<p>
+コールバック関数は常に呼ばれる可能性があり, その呼び出しは特定の操作を示すものではない.
+(例えば, WindowsではOSがウィンドウをドラッグするか否かを決定するときには確実に呼ばれる.
+しかし, 多くの別の理由でも呼ばれ, その中にはアプリケーションには無意味なものや, 調査した領域には実際にはマウスカーソルがない場合もある.)
+このコールバック関数は常に呼ばれる可能性があるため, 効率的でメモリの確保などがないようにする必要がある.
+</p>
+<h2>バージョン</h2>
+SDL 2.0.4以降
+<h2>関連項目(列挙体)</h2>
+<a href="SDL_HitTestResult.html">SDL_HitTestResult</a>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_SetWindowHitTest">SDL_SetWindowHitTest - SDL Wiki</a>
+<hr>
+</body>
+</html>
