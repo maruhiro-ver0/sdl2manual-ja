@@ -19,6 +19,69 @@
 <tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
 <tr><td>char*</td><td>file</td><td>ファイル名 <a href="SDL_free.html">SDL_free()</a>で解放する必要がある</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// サンプルプログラム:
+// SDL_DropEventの使い方
+
+#include "SDL.h"
+#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+    SDL_Window *window;
+    SDL_Event event;                        //  イベントハンドルの宣言
+    char* dropped_filedir;                  //  ドロップされたファイルとディレクトリへのポインタ
+
+    SDL_Init(SDL_INIT_VIDEO);               //  SDL2を初期化する
+
+    window = SDL_CreateWindow(  //  ウィンドウを生成する
+        "SDL_DropEventの使い方 このウィンドウにファイルをドロップしてください",
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
+        640,
+        480,
+        SDL_WINDOW_OPENGL
+    );
+
+    // ウィンドウの生成に成功したかチェックする
+    if (window == NULL) {
+        // ウィンドウが生成されなかったとき...
+        printf("ウィンドウを生成できなかった: %s\n", SDL_GetError());
+        return 1;
+    }
+
+    for(;;) {                               //  プログラムループ
+        while (SDL_PollEvent(&event)) {
+            switch (event.type) {
+                case (SDL_QUIT): {          //  終了の場合
+                    return 0;               //  終了処理は省略する
+                }
+
+                case (SDL_DROPFILE): {      //  ファイルがドロップされたとき
+                    dropped_filedir = event.drop.file;
+                    //  ドロップされたファイルとディレクトリを表示する
+                    SDL_ShowSimpleMessageBox(
+                        SDL_MESSAGEBOX_INFORMATION,
+                        "ウィンドウにドロップされたファイル",
+                        dropped_filedir,
+                        window
+                    );
+                    SDL_free(dropped_filedir);    //  dropped_filedirのメモリを解放する
+                    break;
+               }
+            }
+        }
+        SDL_Delay(0);
+    }
+
+    SDL_DestroyWindow(window);        //  ウィンドウを閉じて破棄する
+
+    SDL_Quit();                       //  終了処理
+    return 0;
+}
+</pre>
+</code>
 <h2>詳細</h2>
 <p>
 <a href="SDL_DropEvent.html">SDL_DropEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバで, typeがSDL_DROPFILEのとき報告される.

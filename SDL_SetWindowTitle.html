@@ -24,7 +24,7 @@
 <p>
 <code>
 <pre>
-// dynamically setting a window title
+// ウィンドウのタイトルを動的に設定する
 
 #include "SDL.h"
 
@@ -51,7 +51,7 @@ int main(int argc, char* argv[]){
     for( ; e.type!=SDL_QUIT&amp;&amp;e.type!=SDL_KEYDOWN; SDL_PollEvent(&amp;e)){ 
         static int i = 0, t = 0;
 
-        if(!(++t%9)){ // every 9th frame...
+        if(!(++t%9)){ // 9フレームごとに...
             SDL_SetWindowTitle(window, titles[i]);             // ループで
             if(++i >= sizeof(titles)/sizeof(titles[0])) i = 0; // タイトルの配列を通る
         }

@@ -72,6 +72,17 @@
 <tr><td>SDL_USEREVENT</td><td>ユーザ固有のイベント</td></tr>
 <tr><td>SDL_LASTEVENT</td><td>内部の配列の終端のみのため</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+SDL_Event e;
+while (SDL_PollEvent(&e)) {
+    if (e.type == SDL_KEYDOWN) {
+        SDL_Log("ユーザがキーを押した!");
+    }
+}
+</pre>
+</code>
 <h2>詳細</h2>
 <h3><a name="SDL_QUIT">SDL_QUIT</a></h3>
 <p>

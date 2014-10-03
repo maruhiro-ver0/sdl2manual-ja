@@ -21,6 +21,36 @@
 <tr><td>int</td><td>refresh_rate</td><td>更新周期(Hz), 特定できない場合は0</td></tr>
 <tr><td>void*</td><td>driverdata</td><td>ドライバ固有のデータ. 0で初期化する</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+    static int display_in_use = 0; /* 最初のディスプレイのみ */
+
+    int i, display_mode_count;
+    SDL_DisplayMode mode;
+    Uint32 f;
+
+    SDL_Log("SDL_GetNumVideoDisplays(): %i", SDL_GetNumVideoDisplays());
+    
+    display_mode_count = SDL_GetNumDisplayModes(display_in_use);
+    if (display_mode_count &lt; 1) {
+        SDL_Log("SDL_GetNumDisplayModes 失敗: %s", SDL_GetError());
+        return 1;
+    }
+    SDL_Log("SDL_GetNumDisplayModes: %i", display_mode_count);
+
+    for (i = 0; i &lt; display_mode_count; ++i) {
+        if (SDL_GetDisplayMode(display_in_use, i, &amp;mode) != 0) {
+            SDL_Log("SDL_GetDisplayMode 失敗: %s", SDL_GetError());
+            return 1;
+        }
+        f = mode.format;
+
+        SDL_Log("モード %i\tbpp %i\t%s\t%i x %i", i,
+        SDL_BITSPERPIXEL(f), SDL_GetPixelFormatName(f), mode.w, mode.h);
+    }
+</pre>
+</code>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetClosestDisplayMode.html">SDL_GetClosestDisplayMode</a><br>
 <a href="SDL_GetCurrentDisplayMode.html">SDL_GetCurrentDisplayMode</a><br>

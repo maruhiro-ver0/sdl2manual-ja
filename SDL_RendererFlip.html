@@ -23,12 +23,15 @@
 <p>
 <code>
 <pre>
+/* 一部のコンパイラの設定や言語(たとえばC++)ではキャストが必要である */
 SDL_RendererFlip flip = SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL;
 
 SDL_RenderCopyEx(renderer, texture, &amp;srcrect, &amp;dstrect, &amp;angle, &amp;center, flip);
 </pre>
 </code>
 </p>
+<h2>詳細</h2>
+対角線で反転(水平方向と垂直方向の両方)する場合は, 論理輪('|'演算子)を使うこと.
 <h2>関連項目(関数)</h2>
 <a href="SDL_RenderCopyEx.html">SDL_RenderCopyEx</a><br>
 <h2>SDL Wikiへのリンク</h2>

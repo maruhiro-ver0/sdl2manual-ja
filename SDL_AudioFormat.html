@@ -72,6 +72,18 @@
 <tr><td>AUDIO_F32SYS</td><td>32bit浮動小数点システムと同じバイト順サンプリング</td></tr>
 <tr><td>AUDIO_F32</td><td>AUDIO_F32LSB</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+extern SDL_AudioFormat fmt;
+if (SDL_AUDIO_ISFLOAT(fmt)) {
+    printf("浮動小数点データ\n");
+} else {
+    printf("整数データ\n");
+}
+printf("サンプルあたり%dビット\n", (int) SDL_AUDIO_BITSIZE(fmt));
+</pre>
+</code>
 <h2>詳細</h2>
 データ形式の思い込みに注意すること.
 例えば, SDL_AUDIO_ISFLOATのみチェックして, 32bitデータを想定すると, 後のバージョンで64bit浮動小数点が追加されたとき問題が発生する.
