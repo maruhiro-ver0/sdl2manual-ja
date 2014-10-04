@@ -33,6 +33,83 @@ SDLハプティックサブシステムはハプティックデバイス(力覚装置)を扱う.
 <li>ハプティックデバイスを<a href="SDL_HapticClose.html">SDL_HapticClose()</a>で閉じる
 </ol>
 </p>
+<h2>サンプルコード</h2>
+<h3>振動させる簡単な例</h3>
+<p>
+<code>
+<pre>
+SDL_Haptic *haptic;
+
+// デバイスを開く
+haptic = SDL_HapticOpen( 0 );
+if (haptic == NULL)
+   return -1;
+
+// 単純な振動で初期化する
+if (SDL_HapticRumbleInit( haptic ) != 0)
+   return -1;
+
+// 50%の強さで2秒間再生する
+if (SDL_HapticRumblePlay( haptic, 0.5, 2000 ) != 0)
+   return -1;
+SDL_Delay( 2000 );
+
+// 終了する
+SDL_HapticClose( haptic );
+</pre>
+</code>
+</p>
+<h3>完全なコード</h3>
+<p>
+<code>
+<pre>
+int test_haptic( SDL_Joystick * joystick ) {
+ SDL_Haptic *haptic;
+ SDL_HapticEffect effect;
+ int effect_id;
+
+ // デバイスを開く
+ haptic = SDL_HapticOpenFromJoystick( joystick );
+ if (haptic == NULL) return -1; // ジョイスティックにハプティックがない
+
+ // サイン波が可能か調べる
+ if ((SDL_HapticQuery(haptic) & SDL_HAPTIC_SINE)==0) {
+  SDL_HapticClose(haptic); // サイン効果がない
+  return -1;
+ }
+
+ // 効果を生成する
+ memset( &effect, 0, sizeof(SDL_HapticEffect) ); // 安全のためデフォルトを0にする
+ effect.type = SDL_HAPTIC_SINE;
+ effect.periodic.direction.type = SDL_HAPTIC_POLAR; // 極座標系
+ effect.periodic.direction.dir[0] = 18000; // 効果は南から来る
+ effect.periodic.period = 1000; // 1000ミリ秒
+ effect.periodic.magnitude = 20000; // 20000/32767 の強さ
+ effect.periodic.length = 5000; // 5秒間
+ effect.periodic.attack_length = 1000; // 1秒間で最大に達する
+ effect.periodic.fade_length = 1000; // 1秒間で停止する
+
+ // 効果をアップロードする
+ effect_id = SDL_HapticNewEffect( haptic, &effect );
+
+ // 効果をテストする
+ SDL_HapticRunEffect( haptic, effect_id, 1 );
+ SDL_Delay( 5000); // 効果が終わるまで待つ
+
+ // 効果を破棄する. これはデバイスを閉じても行われる
+ SDL_HapticDestroyEffect( haptic, effect_id );
+
+ // デバイスを閉じる
+ SDL_HapticClose(haptic);
+
+ return 0; // 成功
+}
+</pre>
+</code>
+</p>
+<p>
+このEdgar Simo Serraのblogにさらなる情報がある: <a href="http://bobbens.dyndns.org/journal/2010/sdl_haptic/">SDL Haptic In Depth</a>
+</p>
 <h2>構造体</h2>
 <ol>
 <li><a href="SDL_HapticCondition.html">SDL_HapticCondition</a></li>
