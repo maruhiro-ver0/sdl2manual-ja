@@ -24,6 +24,13 @@
 この関数はtypeが一致するイベントをキューから無条件に消去する.
 イベントの種類を範囲で指定したいならば, 代わりに<a href="SDL_FlushEvents.html">SDL_FlushEvents()</a>を使える.
 </p>
+<p>
+この関数を呼ばずに, 単にイベントループでイベントを無視してもよい.
+</p>
+<p>
+この関数は現在のイベントキューにのみ影響する.
+待ち状態にある全てのOSのイベントを消去したいならば, この関数を呼ぶ前に<a href="SDL_PumpEvents.html">SDL_PumpEvents()</a>をメインスレッドで呼ぶとよい.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_FlushEvents.html">SDL_FlushEvents</a><br>
 <h2>SDL Wikiへのリンク</h2>

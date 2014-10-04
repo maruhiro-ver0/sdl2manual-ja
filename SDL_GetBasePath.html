@@ -17,9 +17,17 @@
 <code>char* SDL_GetBasePath(void)</code>
 <h2>戻り値</h2>
 <p>
+Returns an absolute path in UTF-8 encoding to the application data directory. NULL will be returned on error or when the platform doesn't implement this functionality, call SDL_GetError() for more information.
 アプリケーションデータディレクトリのUTF-8の絶対パス名を戻す.
 失敗またはこの関数が実装されていない環境の場合NULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+</p>
+<p>
+戻されたパスは最後が区切り記号(Windowsなら'\', 他の環境なら'/')で終わっていることが保障されている.
+</p>
+<p>
+このポインタの管理はプログラマが行う.
+使い終わったら<a href="SDL_free.html">SDL_free()</a>を呼ぶ必要がある.
 </p>
 <h2>サンプルコード</h2>
 <p>

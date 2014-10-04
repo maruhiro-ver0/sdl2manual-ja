@@ -25,6 +25,10 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>詳細</h2>
+関数名と引数に反し, このメソッドは個々のウィンドウではなくディスプレイ全体のガンマランプを戻す.
+ウィンドウの中央があるディスプレイが対象となる.
+(このディスプレイ番号は<a href="SDL_GetWindowDisplayIndex.html">SDL_GetWindowDisplayIndex()</a>で得られる.)
 <h2>関連項目(関数)</h2>
 <a href="SDL_SetWindowGammaRamp.html">SDL_SetWindowGammaRamp</a><br>
 <h2>SDL Wikiへのリンク</h2>

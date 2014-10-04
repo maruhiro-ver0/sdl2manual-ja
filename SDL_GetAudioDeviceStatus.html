@@ -21,6 +21,37 @@
 </table>
 <h2>戻り値</h2>
 <a href="SDL_AudioStatus.html">SDL_AudioStatus</a>の値の1つを戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+void printStatus(SDL_AudioDeviceID dev)
+{
+    switch (SDL_GetAudioDeviceStatus(dev))
+    {
+        case SDL_AUDIO_STOPPED: printf("停止中\n"); break;
+        case SDL_AUDIO_PLAYING: printf("再生中\n"); break;
+        case SDL_AUDIO_PAUSED: printf("一時停止中\n"); break;
+        default: printf("???"); break;
+    }
+}
+
+// デバイスは一時停止から始まる
+SDL_AudioDeviceID dev;
+dev = SDL_OpenAudioDevice(NULL, 0, &desired, &obtained, 0);  
+if (dev != 0)
+{
+     printStatus(dev);  // 「一時停止中」が表示される
+     SDL_PauseAudioDevice(dev, 0);
+     printStatus(dev);  // 「再生中」が表示される
+     SDL_PauseAudioDevice(dev, 1);
+     printStatus(dev);  // 「一時停止中」が表示される
+     SDL_CloseAudioDevice(dev);
+     printStatus(dev);  // 「停止中」が表示される
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 開いたデバイスは, 通常は常に再生中か停止中である.
 デバイスがエラーを起こすといつでも停止中になる.

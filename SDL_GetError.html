@@ -36,6 +36,10 @@ if (SDL_Init(SDL_INIT_EVERYTHING) &lt; 0) {
 </pre>
 </code>
 </p>
+<p>
+メモ: このサンプルでは<a href="SDL_Init.html">SDL_Init()</a>を使っているが, <a href="SDL_GetError.html">SDL_GetError()</a>はエラーの調査を助けるためにあらゆるSDLの操作の失敗でエラーメッセージを提供している.
+SDL関数のそれぞれの項目を参照すること.
+</p>
 <h2>詳細</h2>
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼ぶ前に複数のエラーが発生する可能性がある.
 この場合, 最後のエラーメッセージのみ戻す.

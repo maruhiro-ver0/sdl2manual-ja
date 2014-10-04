@@ -13,7 +13,6 @@
 <hr>
 <h1>SDL_CreateCursor</h1>
 指定のビットマップデータとマスク(MSB形式)からマウスカーソルを生成する
-(注意: SDL2.0.0以降では<a href="SDL_CreateSystemCursor.html">SDL_CreateSystemCursor()</a>が使える. この関数を使えば11のシステムカーソルから選べる.)
 <h2>構文</h2>
 <code>SDL_Cursor* SDL_CreateCursor(const Uint8* data, const Uint8* mask, int w, int h, int hot_x, int hot_y)</code>
 <h2>引数</h2>
@@ -137,6 +136,7 @@ static SDL_Cursor *init_system_cursor(const char *image[])
 色のついたカーソルが必要ならば, この関数は向いていない.
 代わりに, 通常のカーソルを<a href="SDL_ShowCursor.html">SDL_ShowCursor()</a>で隠し, メインループで<a href="SDL_Surface.html">SDL_Surface()</a>をカーソルの位置に描く必要がある.
 (訳者注: これは古い説明で, <a href="SDL_CreateColorCursor.html">SDL_CreateColorCursor()</a>を使えば可能なはず.)
+SDL 2.0.0以降では<a href="SDL_CreateSystemCursor.html">SDL_CreateSystemCursor()</a>で既にある11のシステムカーソルが使える.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_FreeCursor.html">SDL_FreeCursor</a><br>

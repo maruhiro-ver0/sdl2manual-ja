@@ -28,10 +28,14 @@
 <p>
 <code>
 <pre>
-SDL_Surface *s = NULL; // サーフェイスを宣言する
+/* サーフェイスを宣言する */
+SDL_Surface *s = NULL;
 
-s = SDL_CreateRGBSurface(SDL_HWSURFACE, width, height, 32, 0, 0, 0, 0); // サーフェイスを生成する
-SDL_FillRect(s, NULL, SDL_MapRGB(s->format, 255, 0, 0)) // サーフェイスを赤色で塗りつぶす
+/* サーフェイスを生成する */
+s = SDL_CreateRGBSurface(SDL_HWSURFACE, width, height, 32, 0, 0, 0, 0);
+
+/* サーフェイスを赤色で塗りつぶす */
+SDL_FillRect(s, NULL, SDL_MapRGB(s->format, 255, 0, 0));
 </pre>
 </code>
 </p>

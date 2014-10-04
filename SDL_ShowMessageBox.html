@@ -23,6 +23,57 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+
+int main(int argc, char *argv[])
+{
+    const SDL_MessageBoxButtonData buttons[] = {
+        { /* .flags, .buttonid, .text */        0, 0, "いいえ" },
+        { SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT, 1, "はい" },
+        { SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 2, "キャンセル" },
+    };
+    const SDL_MessageBoxColorScheme colorScheme = {
+        { /* .colors (.r, .g, .b) */
+            /* [SDL_MESSAGEBOX_COLOR_BACKGROUND] */
+            { 255,   0,   0 },
+            /* [SDL_MESSAGEBOX_COLOR_TEXT] */
+            {   0, 255,   0 },
+            /* [SDL_MESSAGEBOX_COLOR_BUTTON_BORDER] */
+            { 255, 255,   0 },
+            /* [SDL_MESSAGEBOX_COLOR_BUTTON_BACKGROUND] */
+            {   0,   0, 255 },
+            /* [SDL_MESSAGEBOX_COLOR_BUTTON_SELECTED] */
+            { 255,   0, 255 }
+        }
+    };
+    const SDL_MessageBoxData messageboxdata = {
+        SDL_MESSAGEBOX_INFORMATION, /* .flags */
+        NULL, /* .window */
+        "example message box", /* .title */
+        "select a button", /* .message */
+        SDL_arraysize(buttons), /* .numbuttons */
+        buttons, /* .buttons */
+        &amp;colorScheme /* .colorScheme */
+    };
+    int buttonid;
+    if (SDL_ShowMessageBox(&amp;messageboxdata, &amp;buttonid) &lt; 0) {
+        SDL_Log("メッセージボックスの表示に失敗した");
+        return 1;
+    }
+    if (buttonid == -1) {
+        SDL_Log("選択されなかった");
+    } else {
+       SDL_Log("%sが選択された", buttons[buttonid].text);
+    }
+    return 0;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数は, 親ウィンドウが生成されたスレッド, 親ウィンドウがなければメインスレッドで呼ぶ必要がある.
 ユーザがボタンを押す, またはメッセージボックスを閉じるまでスレッドの実行は停止される.

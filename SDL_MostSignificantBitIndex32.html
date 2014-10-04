@@ -15,11 +15,13 @@
 32bitの値で設定されている最上位のビットが何ビット目かを得る.
 これは底が2の対数と同じである.
 <h2>構文</h2>
-<code></code>
+<code>int SDL_MostSignificantBitIndex32(Uint32 x)</code>
 <h2>引数</h2>
 <table border="1" summary="">
 <tr><td>x</td><td>最上位ビットを得る数値</td></tr>
 </table>
+<h2>戻り値</h2>
+最上位ビットが何ビット目かを戻す. xが0のとき-1を戻す.
 <h2>サンプルコード</h2>
 <p>
 <code>
@@ -32,8 +34,6 @@ if (bitmask) {
 </pre>
 </code>
 </p>
-<h2>戻り値</h2>
-最上位ビットが何ビット目かを戻す. xが0のとき-1を戻す.
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_MostSignificantBitIndex32">SDL_MostSignificantBitIndex32 - SDL Wiki</a>
 <hr>
