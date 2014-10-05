@@ -53,13 +53,21 @@
         exit(1);
     }
 
-    /* または, 指定のビット深度のデフォルトのマスクを使う */
-    surface = SDL_CreateRGBSurface(0,width,height,32,0,0,0,0);
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
+    
+    if (texture == NULL) {
+        fprintf(stderr, "CreateTextureFromSurface failed: %s\n", SDL_GetError());
+        exit(1);
+    }
+    
+    SDL_FreeSurface(surface);
+    surface = NULL;
+
 </pre>
 </code>
 </p>
 <h2>詳細</h2>
-サーフェイスを修正または解放してはならない.
+この関数はサーフェイスを修正/解放しない。
 このテクスチャの<a href="SDL_TextureAccess.html">SDL_TextureAccess</a>ヒントはSDL_TEXTUREACCESS_STATICである.
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateTexture.html">SDL_CreateTexture</a><br>
