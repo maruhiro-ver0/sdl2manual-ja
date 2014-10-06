@@ -17,7 +17,7 @@
 <table border="1" summary="SDL_EventType">
 <tr><td>SDL_FIRSTEVENT</td><td>(未使用)</td></tr>
 <tr><th colspan="2" align="center">アプリケーションのイベント</th></tr>
-<tr><td>SDL_QUIT</td><td>ユーザが終了を要求した (詳細を参照すること)</td></tr>
+<tr><td><a href="SDL_QuitEvent.html">SDL_QUIT</a></td><td>ユーザが終了を要求した (詳細を参照すること)</td></tr>
 <tr><th colspan="2" align="center">AndroidとiOSのイベント (詳細を参照すること)</th></tr>
 <tr><td>SDL_APP_TERMINATING</td><td>OSがアプリケーションを終了させようとしている</td></tr>
 <tr><td>SDL_APP_LOWMEMORY</td><td>空きメモリが少ない. 何かを解放する必要がある</td></tr>
@@ -26,45 +26,45 @@
 <tr><td>SDL_APP_WILLENTERFOREGROUND</td><td>アプリケーションが表へ現れようとしている</td></tr>
 <tr><td>SDL_APP_DIDENTERFOREGROUND</td><td>アプリケーションが表へ現れた</td></tr>
 <tr><th colspan="2" align="center">ウィンドウのイベント</th></tr>
-<tr><td>SDL_WINDOWEVENT</td><td>ウィンドウの状態が変わった</td></tr>
-<tr><td>SDL_SYSWMEVENT</td><td>システム固有のイベントが発生した</td></tr>
+<tr><td><a href="SDL_WindowEvent.html">SDL_WINDOWEVENT</a></td><td>ウィンドウの状態が変わった</td></tr>
+<tr><td><a href="SDL_SysWMEvent.html">SDL_SYSWMEVENT</a></td><td>システム固有のイベントが発生した</td></tr>
 <tr><th colspan="2" align="center">キーボードのイベント</th></tr>
-<tr><td>SDL_KEYDOWN</td><td>キーが押された</td></tr>
-<tr><td>SDL_KEYUP</td><td>キーが離された</td></tr>
-<tr><td>SDL_TEXTEDITING</td><td>キーボードでテキストを編集している</td></tr>
-<tr><td>SDL_TEXTINPUT</td><td>キーボードでテキストが入力された</td></tr>
+<tr><td><a href="SDL_KeyboardEvent.html">SDL_KEYDOWN</a></td><td>キーが押された</td></tr>
+<tr><td><a href="SDL_KeyboardEvent.html">SDL_KEYUP</a></td><td>キーが離された</td></tr>
+<tr><td><a href="SDL_TextEditingEvent.html">SDL_TEXTEDITING</a></td><td>キーボードでテキストを編集している</td></tr>
+<tr><td><a href="SDL_TextInputEvent.html">SDL_TEXTINPUT</a></td><td>キーボードでテキストが入力された</td></tr>
 <tr><th colspan="2" align="center">マウスのイベント</th></tr>
-<tr><td>SDL_MOUSEMOTION</td><td>マウスが動いた</td></tr>
-<tr><td>SDL_MOUSEBUTTONDOWN</td><td>マウスのボタンが押された</td></tr>
-<tr><td>SDL_MOUSEBUTTONUP</td><td>マウスのボタンが離された</td></tr>
-<tr><td>SDL_MOUSEWHEEL</td><td>マウスのホイールが動いた</td></tr>
+<tr><td><a href="SDL_MouseMotionEvent.html">SDL_MOUSEMOTION</a></td><td>マウスが動いた</td></tr>
+<tr><td><a href="SDL_MouseButtonEvent.html">SDL_MOUSEBUTTONDOWN</a></td><td>マウスのボタンが押された</td></tr>
+<tr><td><a href="SDL_MouseButtonEvent.html">SDL_MOUSEBUTTONUP</a></td><td>マウスのボタンが離された</td></tr>
+<tr><td><a href="SDL_MouseWheelEvent.html">SDL_MOUSEWHEEL</a></td><td>マウスのホイールが動いた</td></tr>
 <tr><th colspan="2" align="center">ジョイスティックのイベント</th></tr>
-<tr><td>SDL_JOYAXISMOTION</td><td>ジョイスティクが動いた</td></tr>
-<tr><td>SDL_JOYBALLMOTION</td><td>ジョイスティクのトラックボールが動いた</td></tr>
-<tr><td>SDL_JOYHATMOTION</td><td>ジョイスティックのハットが変わった</td></tr>
-<tr><td>SDL_JOYBUTTONDOWN</td><td>ジョイスティックのボタンが押された</td></tr>
-<tr><td>SDL_JOYBUTTONUP</td><td>ジョイスティックのボタンが離された</td></tr>
-<tr><td>SDL_JOYDEVICEADDED</td><td>ジョイスティックが接続された</td></tr>
-<tr><td>SDL_JOYDEVICEREMOVED</td><td>ジョイスティックが切断された</td></tr>
+<tr><td><a href="SDL_JoyAxisEvent.html">SDL_JOYAXISMOTION</a></td><td>ジョイスティクが動いた</td></tr>
+<tr><td><a href="SDL_JoyBallEvent.html">SDL_JOYBALLMOTION</a></td><td>ジョイスティクのトラックボールが動いた</td></tr>
+<tr><td><a href="SDL_JoyHatEvent.html">SDL_JOYHATMOTION</a></td><td>ジョイスティックのハットが変わった</td></tr>
+<tr><td><a href="SDL_JoyButtonEvent.html">SDL_JOYBUTTONDOWN</a></td><td>ジョイスティックのボタンが押された</td></tr>
+<tr><td><a href="SDL_JoyButtonEvent.html">SDL_JOYBUTTONUP</a></td><td>ジョイスティックのボタンが離された</td></tr>
+<tr><td><a href="SDL_JoyDeviceEvent.html">SDL_JOYDEVICEADDED</a></td><td>ジョイスティックが接続された</td></tr>
+<tr><td><a href="SDL_JoyDeviceEvent.html">SDL_JOYDEVICEREMOVED</a></td><td>ジョイスティックが切断された</td></tr>
 <tr><th colspan="2" align="center">コントローラーのイベント</th></tr>
-<tr><td>SDL_CONTROLLERAXISMOTION</td><td>コントローラーが動いた</td></tr>
-<tr><td>SDL_CONTROLLERBUTTONDOWN</td><td>コントローラーのボタンが押された</td></tr>
-<tr><td>SDL_CONTROLLERBUTTONUP</td><td>コントローラーのボタンが離された</td></tr>
-<tr><td>SDL_CONTROLLERDEVICEADDED</td><td>コントローラーが接続された</td></tr>
-<tr><td>SDL_CONTROLLERDEVICEREMOVED</td><td>コントローラーが切断された</td></tr>
-<tr><td>SDL_CONTROLLERDEVICEREMAPPED</td><td>コントローラーのマッピングが変わった</td></tr>
+<tr><td><a href="SDL_ControllerAxisEvent.html">SDL_CONTROLLERAXISMOTION</a></td><td>コントローラーが動いた</td></tr>
+<tr><td><a href="SDL_ControllerButtonEvent.html">SDL_CONTROLLERBUTTONDOWN</a></td><td>コントローラーのボタンが押された</td></tr>
+<tr><td><a href="SDL_ControllerButtonEvent.html">SDL_CONTROLLERBUTTONUP</a></td><td>コントローラーのボタンが離された</td></tr>
+<tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_CONTROLLERDEVICEADDED</a></td><td>コントローラーが接続された</td></tr>
+<tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_CONTROLLERDEVICEREMOVED</a></td><td>コントローラーが切断された</td></tr>
+<tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_CONTROLLERDEVICEREMAPPED</a></td><td>コントローラーのマッピングが変わった</td></tr>
 <tr><th colspan="2" align="center">タッチのイベント</th></tr>
-<tr><td>SDL_FINGERDOWN</td><td>デバイスに指をつけた</td></tr>
-<tr><td>SDL_FINGERUP</td><td>デバイスから指を離した</td></tr>
-<tr><td>SDL_FINGERMOTION</td><td>デバイス上で指を動かした</td></tr>
+<tr><td><a href="SDL_TouchFingerEvent.html">SDL_FINGERDOWN</a></td><td>デバイスに指をつけた</td></tr>
+<tr><td><a href="SDL_TouchFingerEvent.html">SDL_FINGERUP</a></td><td>デバイスから指を離した</td></tr>
+<tr><td><a href="SDL_TouchFingerEvent.html">SDL_FINGERMOTION</a></td><td>デバイス上で指を動かした</td></tr>
 <tr><th colspan="2" align="center">ジェスチャーのイベント</th></tr>
-<tr><td>SDL_DOLLARGESTURE</td><td></td></tr>
-<tr><td>SDL_DOLLARRECORD</td><td></td></tr>
-<tr><td>SDL_MULTIGESTURE</td><td></td></tr>
+<tr><td><a href="SDL_DollarGestureEvent.html">SDL_DOLLARGESTURE</a></td><td></td></tr>
+<tr><td><a href="SDL_DollarGestureEvent.html">SDL_DOLLARRECORD</a></td><td></td></tr>
+<tr><td><a href="SDL_MultiGestureEvent.html">SDL_MULTIGESTURE</a></td><td></td></tr>
 <tr><th colspan="2" align="center">クリップボードのイベント</th></tr>
 <tr><td>SDL_CLIPBOARDUPDATE</td><td>クリップボードが変わった</td></tr>
 <tr><th colspan="2" align="center">ドラッグ&amp;ドロップのイベント</th></tr>
-<tr><td>SDL_DROPFILE</td><td>ファイルをドロップした</td></tr>
+<tr><td><a href="SDL_DropEvent.html">SDL_DROPFILE</a></td><td>ファイルをドロップした</td></tr>
 <tr><th colspan="2" align="center">レンダラのイベント</th></tr>
 <tr><td>SDL_RENDER_TARGETS_RESET</td><td>レンダラの対象がリセットされコンテキストを更新する必要がある (SDL2.0.2以降)</td></tr>
 <tr><td>SDL_RENDER_DEVICE_RESET</td><td>デバイスがリセットされ全てのテクスチャを再生成する必要がある (SDL2.0.4以降)</td></tr>
