@@ -28,14 +28,14 @@ OpenGLの属性の列挙体
 <tr><td>SDL_GL_ACCUM_BLUE_SIZE</td><td>蓄積バッファの青チャネルの最小ビット数. デフォルトは0</td></tr>
 <tr><td>SDL_GL_ACCUM_ALPHA_SIZE</td><td>蓄積バッファのαチャネルの最小ビット数. デフォルトは0</td></tr>
 <tr><td>SDL_GL_STEREO</td><td>ステレオ3Dで出力するか. デフォルトはオフ</td></tr>
-<tr><td>SDL_GL_MULTISAMPLEBUFFERS</td><td>マルチサンプル アンチエイリアスで使うバッファの数. デフォルトは0. 詳細を参照すること</td></tr>
-<tr><td>SDL_GL_MULTISAMPLESAMPLES</td><td>マルチサンプル アンチエイリアスで使うピクセルの周辺のサンプル数. デフォルトは0. 詳細を参照すること</td></tr>
+<tr><td>SDL_GL_MULTISAMPLEBUFFERS</td><td>マルチサンプル アンチエイリアシングで使うバッファの数. デフォルトは0. 詳細を参照すること</td></tr>
+<tr><td>SDL_GL_MULTISAMPLESAMPLES</td><td>マルチサンプル アンチエイリアシングで使うピクセルの周辺のサンプル数. デフォルトは0. 詳細を参照すること</td></tr>
 <tr><td>SDL_GL_ACCELERATED_VISUAL</td><td>1を設定するとハードウェアアクセラレーション, 0を設定すると強制的にソフトウェアレンダリングを使う. デフォルトは両方を許可する</td></tr>
 <tr><td>SDL_GL_RETAINED_BACKING</td><td>未使用 (廃止)</td></tr>
 <tr><td>SDL_GL_CONTEXT_MAJOR_VERSION</td><td>OpenGLコンテキストのメジャーバージョン. 詳細を参照すること</td></tr>
 <tr><td>SDL_GL_CONTEXT_MINOR_VERSION</td><td>OpenGLコンテキストのマイナーバージョン. 詳細を参照すること</td></tr>
-<tr><td>SDL_GL_CONTEXT_FLAGS</td><td>0個以上のSDL_GLcontextFlag列挙体の要素. デフォルトは0</td></tr>
-<tr><td>SDL_GL_CONTEXT_PROFILE_MASK</td><td>OpenGLコンテキストの種類(Core, Compatibility, ES). SDL_GLprofile列挙体を参照すること. デフォルトは環境に依存する</td></tr>
+<tr><td>SDL_GL_CONTEXT_FLAGS</td><td>0個以上の<a href="SDL_GLcontextFlag.html">SDL_GLcontextFlag</a>列挙体の要素. デフォルトは0</td></tr>
+<tr><td>SDL_GL_CONTEXT_PROFILE_MASK</td><td>OpenGLコンテキストの種類(Core, Compatibility, ES). <a href="SDL_GLprofile.html">SDL_GLprofile</a>列挙体を参照すること. デフォルトは環境に依存する</td></tr>
 <tr><td>SDL_GL_SHARE_WITH_CURRENT_CONTEXT</td><td>OpenGLコンテキストのシェア. デフォルトは0</td></tr>
 <tr><td>SDL_GL_FRAMEBUFFER_SRGB_CAPABLE</td><td>sRGBの使用を要求する. デフォルトは0. (SDL 2.0.1以上)</td></tr>
 <tr><td>SDL_GL_CONTEXT_EGL</td><td>未使用 (廃止)</td></tr>
@@ -62,14 +62,14 @@ GLが要求された最小の属性を提供できない場合はコンテキストの生成は必ず失敗する.
 しかし, 設定された属性がちょうどであるかを知るためにはチェックしなければならない.
 </p>
 <p>
-マルチサンプル アンチエイリアシングはフルスクリーンのアンチエイリアシングである.
-マルチサンプル アンチエイリアシングはデフォルトではオフだが, <a href="SDL_GLattr.html">SDL_GL_MULTISAMPLEBUFFERS</a>を1, <a href="SDL_GLattr.html">SDL_GL_MULTISAMPLESAMPLES</a>を0以上にするとオンになる. よく使われる値は2と4である.
+<a href="http://en.wikipedia.org/wiki/Multisample_anti-aliasing">マルチサンプル アンチエイリアシング</a>はフルスクリーンのアンチエイリアシングである.
+マルチサンプル アンチエイリアシングはデフォルトではオフだが, SDL_GL_MULTISAMPLEBUFFERSを1, SDL_GL_MULTISAMPLESAMPLESを0以上にするとオンになる. よく使われる値は2と4である.
 </p>
 <p>
-<a href="SDL_GLattr.html">SDL_GL_CONTEXT_PROFILE_MASK</a>は生成されたコンテキストで決まる.
-<a href="SDL_GLattr.html">SDL_GL_CONTEXT_MAJOR_VERSION</a>と<a href="SDL_GLattr.html">SDL_GL_CONTEXT_MINOR_VERSION</a>も同じである.
+SDL_GL_CONTEXT_PROFILE_MASKは生成されたコンテキストで決まる.
+SDL_GL_CONTEXT_MAJOR_VERSIONとSDL_GL_CONTEXT_MINOR_VERSIONも同じである.
 これら3つの属性は最初のウィンドウが生成される前に設定する必要がある.
-そして, 通常は<a href="SDL_GLattr.html">SDL_GL_CONTEXT_PROFILE_MASK</a>の値は, 以前の設定で生成したウィンドウを全ての閉じるまでは変更できない.
+そして, 通常はSDL_GL_CONTEXT_PROFILE_MASKの値は, 以前の設定で生成したウィンドウを全ての閉じるまでは変更できない.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GL_GetAttribute.html">SDL_GL_GetAttribute</a><br>

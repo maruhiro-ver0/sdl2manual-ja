@@ -24,6 +24,23 @@
 <tr><td>SDL_AudioCallback</td><td>callback</td><td>オーディオデバイスが更なるデータを要求した場合に呼ぶ関数 (詳細を参照すること)</td></tr>
 <tr><td>void*</td><td>userdata</td><td>callbackに渡されるポインタ (SDLはそれ以外は無視する)</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_AudioSpec want, have;
+SDL_AudioDeviceID dev;
+
+SDL_zero(want);
+want.freq = 48000;
+want.format = AUDIO_F32;
+want.channels = 2;
+want.samples = 4096;
+want.callback = MyAudioCallback;  // 別の場所で関数を書く必要がある
+dev = SDL_OpenAudioDevice(NULL, 0, &want, &have, SDL_AUDIO_ALLOW_FORMAT_CHANGE);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 この構造体は<a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>と<a href="SDL_LoadWAV.html">SDL_LoadWAV()</a>で使われる.
@@ -33,7 +50,7 @@
 <p>
 freqは1秒間にオーディオデバイスに送信するサンプルフレームの数である.
 よく使われる値は11025, 22050, 44100, 48000で, 値が大きいほど音がよくなる.
-解像度の高いほどグラフィックがよくなるのと同じである.
+解像度が高いほどグラフィックがよくなるのと同じである.
 </p>
 <p>
 formatは1サンプルのサイズと型を決める.

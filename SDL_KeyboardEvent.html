@@ -24,11 +24,12 @@
 </table>
 <h2>詳細</h2>
 <p>
-<a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバで, SDL_JOYBUTTONDOWNまたはSDL_JOYBUTTONUPが報告されたときに使われる.
-eventのjbuttonフィールドからアクセスできる.
+<a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバで, SDL_KEYDOWN または SDL_KEYUPが報告されたときに使われる.
+eventのkeyフィールドからアクセスできる.
 </p>
 <p>
-SDL_JOYBUTTONDOWNとSDL_JOYBUTTONUPはユーザがジョイスティックのボタンを押したときと離したときに発生する.
+SDL_KEYDOWN と SDL_KEYUPはユーザがキーボードを押したときと離したときに発生する.
+押されたまたは離されたキーの情報はkeysymメンバにある.
 </p>
 <h2>関連項目(列挙体)</h2>
 <a href="SDL_EventType.html">SDL_EventType</a><br>
