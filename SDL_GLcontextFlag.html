@@ -29,8 +29,14 @@ SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
 </code>
 </p>
 <h2>詳細</h2>
+<p>
 この列挙体は<a href="SDL_GL_SetAttribute.html">SDL_GL_SetAttribute</a>で<a href="SDL_GLattr.html">SDL_GL_CONTEXT_FLAGS</a>と組み合わせて使う.
 フラグを論理和で複数設定できる.
+</p>
+<p>
+これらの値が何をするのかわからないならば, デフォルトのままでよいとみなし, これらのフラグを使うべきではない.
+全ての環境やGPUドライバで有効とは限らないだけでなく, OpenGLの機能と性能に重大な影響を及ぼしうる. そのため, これらのフラグは使う前によく検討する必要がある.
+</p>
 <h4>SDL_GL_CONTEXT_DEBUG_FLAG</h4>
 このフラグは, X11のGLX_ARB_create_context拡張のGLX_CONTEXT_DEBUG_BIT_ARB, WindowsのWGL_ARB_create_context拡張のWGL_CONTEXT_DEBUG_BIT_ARBにマップされている.
 他の環境では同様の機能がないため無視される.
