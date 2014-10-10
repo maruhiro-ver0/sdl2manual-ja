@@ -77,6 +77,10 @@ int main(int argc, char* argv[]) {
 </pre>
 </code>
 </p>
+<h2>詳細</h2>
+SDL_CreateWindow()ではSDL_WINDOW_SHOWNは無視される.
+SDL_WindowはSDL_WINDOW_HIDDENが設定されない限り表示される.
+SDL_WINDOW_SHOWNは<a href="SDL_GetWindowFlags.html">SDL_GetWindowFlags()</a>で問い合わせたとき使われる.
 <h2>関連項目(関数)</h2>
 <a href="SDL_DestroyWindow.html">SDL_DestroyWindow</a><br>
 <h2>SDL Wikiへのリンク</h2>

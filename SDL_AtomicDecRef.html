@@ -14,11 +14,13 @@
 <h1>SDL_AtomicDecRef</h1>
 参照カウントとしてのアトミック変数を1減らす
 <h2>構文</h2>
-<code>void SDL_AtomicIncRef(SDL_atomic_t* a)</code>
+<code>SDL_bool SDL_AtomicIncRef(SDL_atomic_t* a)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_AtomicDecRef">
 <tr><td>a</td><td>修正する<a href="SDL_atomic_t.html">SDL_atomic_t</a>へのポインタ</td></tr>
 </table>
+<h2>戻り値</h2>
+減産した後に0になればSDL_TRUE, そうでなければSDL_FALSEを戻す.
 <h2>関連項目(関数)</h2>
 <a href="SDL_AtomicAdd.html">SDL_AtomicAdd</a><br>
 <a href="SDL_AtomicDecRef.html">SDL_AtomicDecRef</a><br>

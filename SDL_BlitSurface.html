@@ -25,6 +25,12 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<code>
+<pre>
+SDL_BlitSurface(surface, &source_rect, temp_surface, NULL);
+</pre>
+</code>
 <h2>詳細</h2>
 <p>
 SDLのサーフェイスのコピーが内部でどのように行われるかを正確に理解していないならば, そしてどのように他のコピー関数を使うのか分からないならば<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>を使うべきである.
