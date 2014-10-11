@@ -19,7 +19,7 @@
 <table border="1" summary="SDL_JoystickEventState">
 <tr><td>state</td><td>SDL_QUERY, SDL_IGNORE, SDL_ENABLEの1つ</td></tr>
 </table>
-代わりに -1, 0, 1 でもよい.
+メモ: 代わりに -1, 0, 1 でもよい.
 <h2>戻り値</h2>
 有効のとき1, 無効のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
@@ -39,7 +39,7 @@ printf("%d\n", SDL_JoystickEventState(SDL_QUERY));  /* 0が表示される */
 </p>
 <p>
 メモ: ジョイスティックイベントは有効のままにしておくことを推奨する.
-注意: この関数を呼ぶと, SDLイベントキューの現在のイベントは全て削除される.
+警告: この関数を呼ぶと, SDLイベントキューの現在のイベントは全て削除される.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GameControllerEventState.html">SDL_GameControllerEventState</a><br>

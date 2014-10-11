@@ -11,7 +11,7 @@
 <body>
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryAudio.html">再生と録音</a> - SDL_LoadWAV_RW
 <hr>
-<h1>SDL_LoadWAV</h1>
+<h1>SDL_LoadWAV_RW</h1>
 データソースからWAVEを読み込む. freesrcが0以外のとき自動的に解放する
 <h2>構文</h2>
 <code>SDL_AudioSpec* SDL_LoadWAV_RW(SDL_RWops* src, int freesrc, SDL_AudioSpec* spec, Uint8** audio_buf, Uint32* audio_len)</code>
@@ -56,7 +56,7 @@ if (SDL_LoadWAV_RW(myRWops, 1, &amp;wav_spec, &amp;wav_buffer, &amp;wav_length) 
 </p>
 <h2>詳細</h2>
 <p>
-現在は無圧縮のMS-ADPCM WAVEに対応している.
+現在は無圧縮とMS-ADPCM WAVEに対応している.
 </p>
 <p>
 使った後は音声バッファを<a href="SDL_FreeWAV.html">SDL_FreeWAV()</a>で解放する必要がある.
