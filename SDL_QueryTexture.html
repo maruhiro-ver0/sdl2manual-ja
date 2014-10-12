@@ -19,12 +19,13 @@
 <table border="1" summary="SDL_QueryTexture">
 <tr><td>texture</td><td>調査するテクスチャ</td></tr>
 <tr><td>format</td><td>テクスチャの生の形式を代入するポインタ(<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>). 実際の形式とは異なることがある. しかし, ピクセルのコピーではこの形式が使われる.</td></tr>
-<tr><td>access</td><td>実際のアクセスを代入するポインタ(<a href="SDL_TextureAccess.html">SDL_TextureAccess</a>)</td></tr>
+<tr><td>access</td><td>実際のアクセスを代入するポインタ(<a href="SDL_TextureAccess.html">SDL_TextureAccess</a>の1つ)</td></tr>
 <tr><td>w</td><td>テクスチャの幅を代入するポインタ</td></tr>
 <tr><td>h</td><td>テクスチャの高さを代入するポインタ</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
 <h2>サンプルコード</h2>
 <p>
 <code>
@@ -38,7 +39,6 @@ SDL_QueryTexture(source, NULL, NULL, &amp;w, &amp;h);
 </pre>
 </code>
 </p>
-<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateTexture.html">SDL_CreateTexture</a><br>
 <h2>SDL Wikiへのリンク</h2>

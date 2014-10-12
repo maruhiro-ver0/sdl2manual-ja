@@ -22,6 +22,19 @@
 <h2>戻り値</h2>
 表示されているとき1, 非表示のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+int main(int argc, char** argv) {
+    SDL_ShowCursor(SDL_DISABLE);
+    ...
+    return 0;
+}
+/* カーソルを見えないようにする */
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 カーソルは始めは表示されているが, 非表示にもできる.
