@@ -28,7 +28,7 @@ WAVE, AIFF, RIFF, OGG, VOCファイルを読み込める.
 </p>
 <p>
 メモ: この関数の前に<a href="Mix_OpenAudio.html">Mix_OpenAudio</a>を呼ぶ必要がある.
-読み込むとデバイスの出力形式に変換される.
+出力の形式に合わせて音声が変換されるが, その変換は読み込み時に行われる.
 </p>
 <p>
 戻り値: サンプリング音声の<a href="Mix_Chunk.html">Mix_Chunk</a>へのポインタ. 失敗のときNULL

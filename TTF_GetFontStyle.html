@@ -43,16 +43,16 @@ int style;
 style=TTF_GetFontStyle(font);
 printf("フォントのスタイル:");
 if(style==TTF_STYLE_NORMAL)
-    printf(" normal");
+    printf(" 標準");
 else {
     if(style&amp;TTF_STYLE_BOLD)
-        printf(" bold");
+        printf(" ボールド");
     if(style&amp;TTF_STYLE_ITALIC)
-        printf(" italic");
+        printf(" イタリック");
     if(style&amp;TTF_STYLE_UNDERLINE)
-        printf(" underline");
+        printf(" 下線");
     if(style&amp;TTF_STYLE_STRIKETHROUGH)
-        printf(" strikethrough");
+        printf(" 取り消し線");
 }
 printf("\n");
 </pre>

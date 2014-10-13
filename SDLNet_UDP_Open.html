@@ -44,7 +44,6 @@ TCPソケットとは違い, このソケットは接続にリモートホストのIPを必要としない. UDPポ
 <p>
 <code>
 <pre>
-</pre>
 // ポート6666のUDPsocketを生成する (サーバ)
 UDPsocket udpsock;
 
@@ -53,6 +52,7 @@ if(!udpsock) {
     printf("SDLNet_UDP_Open: %s\n", SDLNet_GetError());
     exit(2);
 }
+</pre>
 </code>
 </p>
 <p>

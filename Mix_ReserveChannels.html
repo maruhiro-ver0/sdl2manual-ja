@@ -34,7 +34,7 @@
 <a href="Mix_FadeInChannelTimed.html">Mix_FadeInChannelTimed</a>
 </p>
 <p>
-戻り値: 予約したチャネルの数を戻す. 失敗することはない. しかし, 予約した数によっては設定より少なくなることはある.
+戻り値: 予約されたチャネルの数を戻す. 失敗することはないが, 渡した数より少ないことがある. それは確保したチャネルの数による.
 </p>
 <h2>サンプルコード</h2>
 <code>
@@ -43,10 +43,10 @@
 int reserved_count;
 reserved_count=Mix_ReserveChannels(8);
 if(reserved_count!=8) {
-    printf("%d つのチャネルを予約した\n",reserved_count);
     printf("8つ予約できなかった!\n");
     // これは致命的なエラーになりうる...
 }
+printf("%d つのチャネルを予約した\n",reserved_count);
 </pre>
 </code>
 <h2>参照</h2>

@@ -45,7 +45,7 @@ if(numready==-1) {
     perror("SDLNet_CheckSockets");
 }
 else if(numready) {
-    printf("There are %d sockets with activity!\n",numready);
+    printf("%d のソケットが活動中!\n",numready);
     // SDLNet_SocketReadyで全てのソケットをチェックし活動中のものを扱う
     if(SDLNet_SocketReady(serversock)) {
         client=SDLNet_TCP_Accept(serversock);

@@ -41,10 +41,10 @@ TTF_HINTING_NONE<br>
 //TTF_Font *font;
 int hinting=TTF_GetFontHinting(font);
 printf("フォントの現在のヒンティングは %s\n",
-        hinting==0?"Normal":
-        hinting==1?"Light":
-        hinting==2?"Mono":
-        hinting==3?"None":
+        hinting==0?"通常のヒンティング":
+        hinting==1?"明るいヒンティング":
+        hinting==2?"モノクロのヒンティング":
+        hinting==3?"ヒンティングなし":
         "不明");
 </pre>
 </code>

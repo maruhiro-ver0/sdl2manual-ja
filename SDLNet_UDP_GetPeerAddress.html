@@ -27,11 +27,15 @@
 </dd>
 </dl>
 </p>
+<p>
 チャネルに割り当てられたアドレスを得る.
 最初のアドレスのみ戻される.
 channelが-1のとき, ソケットがバインドするローカルコンピュータのポート番号を戻す. これはソケットを特定の番号で開いたときのみ意味がある.
 戻された<a href="IPaddress.html">IPaddress</a>を解放してはならない.
+</p>
 <p>
+戻り値: 成功のとき<a href="IPaddress.html">IPaddress</a>へのポインタ.
+バインドされていないチャネルなど失敗のときNULL
 </p>
 <h2>サンプルコード</h2>
 <code>
@@ -50,10 +54,6 @@ else {
 }
 </pre>
 </code>
-<p>
-戻り値: 成功のとき<a href="IPaddress.html">IPaddress</a>へのポインタ.
-バインドされていないチャネルなど失敗のときNULL
-</p>
 <h2>参照</h2>
 <a href="SDLNet_UDP_Bind.html">SDLNet_UDP_Bind</a>,
 <a href="SDLNet_UDP_Unbind.html">SDLNet_UDP_Unbind</a>,
