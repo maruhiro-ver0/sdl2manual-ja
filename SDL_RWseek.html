@@ -30,7 +30,7 @@
 SDL_RWops *rw = SDL_RWFromFile("myfile.bin","rb");
 if (rw != NULL) {
     /* ファイルの最後から0バイト目へシークする */
-    Sint64 length = SDL_RWseek(rw,0,SEEK_END);
+    Sint64 length = SDL_RWseek(rw,0,RW_SEEK_END);
     SDL_RWclose(rw);
     if (length &lt; 0) {
         printf("myfile.binをシークできなかった\n");
