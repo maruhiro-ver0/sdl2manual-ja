@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="FAQs.html" title="1つ上">
+<title>FAQ: 開発</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="FAQs.html">FAQ</a> - 開発
+<hr>
+<h1>FAQ:開発</h1>
+<h2>SDLはマルチスレッド対応か?</h2>
+SDLはシンプルな多環境対応のスレッド生成とmutexを使った同期を行う関数を提供している.
+SDLはオーディオと入力のサブシステムの実装のため内部でこれらを使っている.
+<h2>マルチスレッドでSDLビデオ関数を呼べるか?</h2>
+呼べない. ほとんどのグラフィックバックエンドはスレッドセーフではない. よって, SDLビデオ関数の呼び出しは, アプリケーションのメインスレッドからのみにする必要がある.
+<h2>SDLは3Dアクセラレーションに対応しているか?</h2>
+SDLは3Dアクセラレーションに対応している:
+<ul>
+<li>
+OpenGL APIまたはDirect3D APIを, SDLと組み合わせて, 2Dまたは3Dのグラフィックで使うことができる.
+<li>
+または, 2Dグラフィックに対して, SDL_Textureで, OpenGLまたはDirect3Dアクセラレーションを使ったSDLの2DアクセラレーションレンダーAPI(しかし, OpenGL/Direct3Dを直接使うよりは簡単で, それら両方に対応している)を使うこともできる.
+</ul>
+<h2>SDLはネットワークに対応しているか?</h2>
+ネットワークはSDLの範囲外である. しかし, SDLライブラリのページにあるシンプルな多環境対応のラッパー<a href="http://www.libsdl.org/projects/SDL_net/">SDL_net</a>を使えば可能である.
+シンプルなクライアント/サーバのチャットと, それを作成するためのシンプルなGUIライブラリも含まれている.
+<h2>SDLはPCX, JPG, PNG, ...に対応しているか?</h2>
+SDLのBMPとWAVローダーによる画像と音声ファイルの読み込みの簡単なサンプルがある.
+その他の形式は自分自身でリーダーを作成する必要がある.
+メインのライブラリを速く小さくするため, これらの追加のローダーは含まれていない.
+SDLライブラリのページにあるシンプルな画像読み込みライブラリ<a href="https://www.libsdl.org/projects/SDL_image/">SDL_image</a>を使えば, BMP, PCX, GIF, JPG, PNG, TGA画像をSDLサーフェイスに読み込むことができる.
+<h2>SDLはMP3, Ogg Vorbis, ...に対応しているか?</h2>
+SDLのBMPとWAVローダーによる画像と音声ファイルの読み込みの簡単なサンプルがある.
+その他の形式は自分自身でリーダーを作成する必要がある.
+メインのライブラリを速く小さくするため, これらの追加のローダーは含まれていない.
+SDLライブラリのページにあるシンプルな音声ライブラリ<a href="http://www.libsdl.org/projects/SDL_mixer/">SDL_mixer</a>を使えば多くの異なる音声形式を読み込める.
+<h2>SDLは文字列の描画に対応しているか?</h2>
+ゲームやオペレーティングシステムによって, 文字列の描画の種類や方法は大きく異なる.
+これをSDLライブラリの中核で扱う代わりに, SDLライブラリのページに文字列を描画するライブラリがいくつかある (例えば<a href="http://www.libsdl.org/projects/SDL_ttf/">SDL_ttf</a>).
+よくある方法には, ビットマップフォント, TrueTypeフォント, 画像の使用がある.
+<h2>SDLにはどのようなGUIがあるか?</h2>
+SDLライブラリのページにいくつかのGUIライブラリがある (例えば<a href="http://www.libsdl.org/projects/GUIlib/index.html">GUIlib</a>).
+SDLデモにはSDLとGTkを合わせて使うデモがあり, グラフィック出力をうまく扱えている(<a href="http://www.libsdl.org/projects/gtk-demo/">GTK-demo 1.2</a>).
+デモページにはKent MeinによるSDLとTcl/Tkを使うハックもある(<a href="http://www.libsdl.org/projects/tcl-demo/">TCL-demo 1.1</a>).
+SDLと合わせて使える他のGUIも入手できる.
+それらの多くにはドキュメントにどのようにツールキットを他のアプリケーションで使えるようにするかが書かれている.
+(訳者注: いずれもかなり古い)
+<h2>#includeは &lt;SDL.h&gt; と &lt;SDL/SDL.h&gt; のどちらが正しいか?</h2>
+<p>
+最も移植性の高いSDLヘッダのインクルードの方法は, ヘッダ名をダブルクオーテーションで囲む方法である:
+</p>
+<p>
+<code>
+#include "SDL.h"
+</code>
+</p>
+<h2>SDL_types.h内でSDL_DUMMY_ENUMアサーションが発生する</h2>
+「列挙体をintとする」オプションを有効にする必要がある:
+<ul>
+<li>フリーのBorlandコンパイラでは, コマンドラインに -b オプションを追加する.
+<li>Watcom C/C++では, コマンドラインに -ei を追加する.
+<li>AppleのMPW環境では, コマンドラインに -enum int を追加する.
+<li>CodeWarriorでは, プロジェクトのC/C++言語の設定メニューで"Enums Always Int"ボックスをチェックする.
+</ul>
+<h2>アクセラレータービデオカードがあるにも関わらずSDLはビデオメモリもアクセラレーションもないと報告する!</h2>
+<p>
+全てのディスプレイ対象がハードウェアアクセラレーションに対応しているわけではない.
+特にX11の場合は常にソフトウェアフレームバッファが使われる.
+アクセラレーションが使えない場合は, ビデオメモリは常に0と報告される.
+これは3Dアクセラレーションとは無関係で, 2Dアクセラレーションがオペレーティングシステムのビデオドライバで対応しているかの問題である.
+</p>
+<p>
+Linuxでハードウェアアクセラレーションを使いたいならば, DGAドライバ(X11のフルスクリーンのみ)またはフレームバッファコンソールドライバ(コンソールのフルスクリーンのみ)を使うこともできる.
+これらのドライバの詳細はLinux FAQを参照すること.
+</p>
+<p>
+Windowsでハードウェアアクセラレーションを使いたいならば, SDLがDirectX対応でビルドされていることを確認し, あなたのプログラムをフルスクリーンにすればよい.
+</p>
+<p>
+O'Reilly NetworkにはBob PendletonによるSDLが扱うハードウェアの優れた記事がある.
+</p>
+<h2>SDL_DOUBLEBUFを使っているがちらつく</h2>
+<p>
+もしウィンドウモードならば, フルスクリーンモードにする必要がある.
+フルスクリーンモードならば, ドライバが垂直帰線同期に対応していない可能性がある.
+NVidiaドライバでOpenGLを使っているならば, 垂直帰線同期をコントロールパネルまたは環境変数で有効にする必要がある.
+</p>
+<p>
+O'Reilly NetworkにはBob PendletonによるSDLが扱うハードウェアの優れた記事がある.
+</p>
+<h2>
+フルスクリーンモードのときマウスカーソルが消える!
+</h2>
+これはビデオメモリに直接アクセスしていて, ビデオドライバがハードウェアによるカーソルの重ね合わせに対応していないとき発生する.
+単純な解決方法は, スプライトとしてカーソルを生成し, マウスカーソルの位置にそれを描画することである.
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/FAQDevelopment">FAQ: Development - SDL Wiki</a>
+<hr>
+</body>
+</html>
