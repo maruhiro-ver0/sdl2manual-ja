@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="FAQs.html" title="1つ上">
+<title>FAQ: ライセンス</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="FAQs.html">FAQ</a> - ライセンス
+<hr>
+<h1>FAQ:ライセンス</h1>
+<h2>SDLのライセンスは?</h2>
+<p>
+SDL 2.0はzlibライセンス, SDL 1.2はGNU LGPLライセンスのもとで自由に使用できる.
+</p>
+<p>
+どちらもフリーのアプリケーションでも商用のアプリケーションでも使える.
+</p>
+<p>
+ライセンスの詳細は<a href="http://www.libsdl.org/license.php">http://www.libsdl.org/license.php</a>を参照すること.
+</p>
+<h2>SDLは商用アプリケーションで使えるか?</h2>
+<p>
+使える.
+</p>
+<p>
+SDL 2.0は静的リンクによる組み込みも, .dll(または.soやその他の動的リンク)によるリンクも自由にできる.
+</p>
+<p>
+SDL 1.2は, GNU LGPLライセンスによる以下のような制約がある:
+<ul>
+<li>動的リンク(.dllや.soやその他の動的にリンクされたデバイス)ならば, 何もする必要はない.
+<li>静的リンク(コンパイル時にSDLのソースコードをプロジェクトに含める)ならば, あなたのアプリケーションと別のバージョンのSDLを再リンクする何らかの方法を提供する必要がある.
+</ul>
+</p>
+<p>
+詳細は<a href="http://www.libsdl.org/license.php">http://www.libsdl.org/license.php</a>を参照すること.
+</p>
+<h2>SDLをアプリケーションに組み込んでもよいか?</h2>
+<p>
+組み込んでよい. しかし, SDL 1.2は静的リンクする場合はソースコードを公開するか, 別のバージョンのSDLと再リンクするためのツールとオブジェクトファイルを提供する必要がある.
+</p>
+<p>
+詳細は<a href="http://www.libsdl.org/license.php">http://www.libsdl.org/license.php</a>を参照すること.
+</p>
+<h2>SDLを使う場合, ライセンス料や使用料を払う必要があるか?</h2>
+必要ない. SDLは完全に無料で使うことができる.
+<h2>testディレクトリのコードを使ってよいか? サンプルはどうか?</h2>
+使ってよい. testディレクトリとドキュメント内のサンプルはpublic domainである.
+どのような目的でも使える.
+<h2>デモのコードを自分のアプリケーションで使ってよいか?</h2>
+デモにはそれぞれのライセンスがある.
+それぞれのデモのソースディレクトリの"COPYING"ファイルを参照すること.
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/FAQLicensing">FAQ:Licensing - FAQLicensing</a>
+<hr>
+</body>
+</html>

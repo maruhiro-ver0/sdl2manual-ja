@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="FAQs.html" title="1つ上">
+<title>FAQ: ユーザ</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="FAQs.html">FAQ</a> - ユーザ
+<hr>
+<h1>FAQ:ユーザ</h1>
+<h2>特定のビデオドライバを選択する方法は?</h2>
+環境変数 "SDL_VIDEODRIVER" に使用したいビデオドライバの名前を設定することができる.
+使用できるドライバは環境とSDLのコンパイル時のオプションによる.
+いくつかの環境の設定の一部:
+<ul>
+<li>Linux
+<ul>
+<li>x11 - (デフォルト) X11 ウィンドウシステムを使う
+<li>dga - フルスクリーン ハードウェア アクセラレーションとしてXFree86 DGA 2.0を使う
+<li>fbcon - フレームバッファ コンソールを使う
+<li>directfb - DirectFB API を使う
+<li>svgalib - SVGAlib API を使う
+<li>ggi - General Graphics Interface API を使う
+<li>aalib - Ascii Art library を使う
+</ul>
+<li>Win32
+<ul>
+<li>directx - (デフォルト) DirectDraw API を使う
+<li>windib - Win32 GDI を使う
+</ul>
+</ul>
+<h2>特定のオーディオドライバを選択する方法は?</h2>
+環境変数 "SDL_AUDIODRIVER" に使用したいオーディオドライバの名前を設定することができる.
+使用できるドライバは環境とSDLのコンパイル時のオプションによる.
+いくつかの環境の設定の一部:
+<ul>
+<li>Linux
+<ul>
+<li>dsp - (デフォルト) /dev/dsp を開き OSS API を使う
+<li>dma - OSS API で/dev/dspのDMAにアクセスする
+<li>esd - ESound オーディオデーモンに接続する
+<li>artsc - ARTS オーディオデーモンに接続する
+</ul>
+<li>Win32
+<ul>
+<li>dsound - (デフォルト) DirectSound API を使う
+<li>waveout - Win32 MultiMedia API を使う
+</ul>
+</ul>
+<h2>SDLではどのような環境変数が使えるか?</h2>
+Mattias Engdegardの作成したSDLが使用する環境変数の一部の一覧がある.
+これらの環境変数は公式に対応したものではなく, 変更や廃止される可能性があるので注意すること.
+<a href="ftp://ptah.lnf.kth.se/pub/misc/sdl-env-vars">ftp://ptah.lnf.kth.se/pub/misc/sdl-env-vars</a>
+<h2>なぜSDLはデフォルトでスクリーンセーバーを無効にするのか?</h2>
+<p>
+SDLを使った多くのアプリケーションはゲームやスクリーンセーバーやメディアプレイヤーで, ユーザは長時間何かを見ていたり, 通常はスクリーンセーバーの起動を防がないジョイスティックを操作していたりする.
+</p>
+<p>
+この動作は環境変数の設定 SDL_VIDEO_ALLOW_SCREENSAVER=1 で無効にできる.
+これはユーザが全てのSDLを使ったアプリケーションに対して設定でき, またコードでアプリケーションごとにできる.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/FAQUsingSDL">FAQ:Using SDL - SDL Wiki</a>
+<hr>
+</body>
+</html>
