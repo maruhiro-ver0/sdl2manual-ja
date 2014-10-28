@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="FAQs.html" title="1つ上">
+<title>FAQ: Mac OS X</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="FAQs.html">FAQ</a> - Mac OS X
+<hr>
+<h1>FAQ:Mac OS X</h1>
+<h2>何に対応しているか?</h2>
+<p>
+SDLはMac OS X 10.4以降のXcodeと古典的なUNIXスタイルのビルド環境に対応している.
+現在はXcodeのみSDLフレームワークを使ってビルドできる.
+UNIXスタイルの環境では古典的な共有または静的SDLライブラリで作成する.
+</p>
+<p>
+最新の情報は<a href="http://hg.libsdl.org/SDL/file/default/docs/README-platforms.md">http://hg.libsdl.org/SDL/file/default/docs/README-platforms.md</a>を参照すること.
+</p>
+<h2>
+XcodeとUNIXスタイルビルド環境は何が違う?
+</h2>
+<p>
+SDL開発パッケージにはフレームワークの形のSDLライブラリが含まれている.
+開発にXcodeを使いたいのであれば何も問題はない.
+しかし, configureスクリプトを使うアプリケーションは, ほとんどの場合, SDLはUNIXスタイルでインストールする必要がある.
+</p>
+<p>
+フレームワークをインストールする場合, 全てのSDLのファイル(ライブラリとヘッダ)は.framework bundleにまとめられていて, /Library/Frameworks/ または ~/Library/Frameworks/ にインストールされる.
+これでxcodeが認識できるようになる.
+しかし, SDLは使いたいがUNIXスタイルのビルド環境を使いたい場合は, 通常このSDLは認識できない.
+(configureスクリプトを手動で書き換えてフレームワークを使えるようにした例外がいくつかあるが, それは稀なことである.)
+</p>
+<p>
+UNIXスタイルでインストールする場合, SDLは /usr/local/bin, /usr/local/include, /usr/local/lib にインストールされる. (実際のパスは異なる場合がある. 例えばFink SDLパッケージはデフォルトでは /usr/local の代わりに /sw を使う.)
+この場合, 一般的なUNIXに対応したビルドシステムはこのSDLを認識できる.
+</p>
+<h2>UNIXスタイルのSDLをインストールする方法は?</h2>
+<p>
+ソースをコンパイルしてインストールする(通常は ./configure && make && make install procedure).
+または, ビルドされたパッケージをインストールする.
+例えば, FinkとMacPortsの両パッケージが適しているだろう.
+それぞれのサイトで詳細を知ることができる.
+</p>
+<p>
+アプリケーションに静的リンクするのであれば, どのようにSDLをインストールするのかはあまり問題にならない.
+-- 例えば, FinkからSDLをインストールしても, 静的にリンクするのであれば, ユーザはFinkからインストールする必要はない.
+</p>
+<h2>OpenGLアプリケーションをビルドする方法は?</h2>
+<p>
+Mac OS Xでは, OpenGLヘッダには次のようにアクセスする:
+</p>
+<p>
+<code>
+<pre>
+#include &lt;OpenGL/gl.h&gt;
+#include &lt;OpenGL/glext.h&gt;
+</pre>
+</code>
+</p>
+<p>
+ヘッダファイル"SDL_opengl.h"には, これらのヘッダが含まれていている.
+</p>
+<p>
+Xcodeを使うならば, OpenGL.frameworkをプロジェクトに追加する. コマンドラインに
+</p>
+<p>
+-framework OpenGL
+</p>
+<p>
+をMakefileのGCCまたはLDに加えること.
+</p>
+<h2>
+アプリケーションにSDLフレームワークを加える方法は?
+</h2>
+良い方法がここにある: <a href="http://overooped.com/post/42240519/properly-bundling-frameworks-in-your-application">Properly bundling .frameworks in your application package</a>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/FAQMacOSX">FAQ: Mac OS X - SDL Wiki</a>
+<hr>
+</body>
+</html>
