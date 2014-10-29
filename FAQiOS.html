@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="FAQs.html" title="1つ上">
+<title>FAQ: iOS</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="FAQs.html">FAQ</a> - iOS
+<hr>
+<h1>FAQ:iOS</h1>
+<h2>何に対応しているか?</h2>
+<p>
+SDLはiOS 3.1.3以降に対応している.
+</p>
+<p>
+最新の情報は<a href="http://hg.libsdl.org/SDL/file/default/docs/README-platforms.md">http://hg.libsdl.org/SDL/file/default/docs/README-platforms.md</a>を参照すること.
+</p>
+<h2>開発</h2>
+<h3>一般</h3>
+<h4>_class_getMeta関数でEXC_BAD_ACCESSが発生する. どうすればよいか?</h4>
+Xcodeメニューの Project → Edit Project Settings で, 下のLinkingセクションまでスクロールし, "Other Linker Flags" に -ObjC オプションを追加すること.
+もしターゲットにリンカの設定をしているならば, ターゲットを右クリックし, "Get Info"メニューオプションを選択して, このターゲットのレベルに加える必要がある.
+<h4>iOS 3.1の場合, アプリケーションがローディングスクリーンで終了するのはなぜか?</h4>
+おそらくこれらのデバイスはARMv7アーキテクチャではなくARMv6アーキテクチャを使っている.
+Xcodeメインプロジェクトウィンドウの "Active Architecture" をARMv6に変えて試してみること.
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/FAQiOS">FAQ: iOS - SDL Wiki</a>
+<hr>
+</body>
+</html>

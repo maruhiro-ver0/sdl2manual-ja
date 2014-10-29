@@ -13,8 +13,12 @@
 <hr>
 <h1>FAQ:Linux</h1>
 <h2>何に対応しているか?</h2>
+<p>
 SDLはGNU libcとカーネルバージョン2.6以上が認識する全てのハードウェアに対応している.
+</p>
+<p>
 最新の情報は<a href="http://hg.libsdl.org/SDL/file/default/docs/README-platforms.md">http://hg.libsdl.org/SDL/file/default/docs/README-platforms.md</a>を参照すること.
+</p>
 <h2>SDLを自分のプロジェクトに追加する方法は?</h2>
 <p>
 SDL 1.2ならば"sdl-config --cflags --libs", SDL 2.0ならば"sdl2-config --cflags --libs"の出力を, 例えば gcc -o test test.c `sdl-config --cflags --libs` のように追加すればよい.
@@ -65,7 +69,7 @@ SDL-devel RPMをインストールする必要がある: <a href="http://www.libsdl.org/downlo
 </code>
 </p>
 <p>
-rootで/sbin/ldconfigを実行する
+rootで/sbin/ldconfigを実行する.
 </p>
 <p>
 /usr/local/bin に実行パスが通っているか確認する:
