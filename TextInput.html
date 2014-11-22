@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="FAQs.html" title="1つ上">
+<title>TextInput</title>
+</head>
+<body>
+<a href="index.html">目次</a> - チュートリアル - TextInput
+<hr>
+<h1>TextInput</h1>
+<h2>なぜ?</h2>
+<p>
+なぜSDLにはテキスト入力APIが必要なのか?
+</p>
+<p>
+キーボードのキーを押せば, プログラムは文字イベントを受信する. そうではないのか?
+</p>
+<p>
+常にそのように単純なわけではない.
+1つの文字のために複数のキーが必要なことがあり, 1つのキーが複数の文字を生成することもある.
+</p>
+<p>
+テキスト入力は, 世界中のユーザを考慮するならば(そしてそうすべきだ), 見た目ほど単純ではない.
+中国語, 日本語, 韓国語などを見ればすぐにわかるだろう.
+これらのCJKと呼ばれる言語には数千の文字がある.
+</p>
+<p>
+一万を超えるキーのあるキーボードは存在し得ない.
+その解決法がソフトウェア インプット メソッドである.
+</p>
+<h2>用語</h2>
+<ul>
+<li>IME - インプット メソッド エディタ. ソフトウェア インプット メソッド. キー入力に割り込み, (最終的に)アプリケーションに出力する前に処理するために通常用いられるプログラム.
+<li>未変換テキスト - ユーザが現在入力しているテキスト. テキストはまだ入力を終えてなく(未確定), IMEがそれを編集している. 慣例的には, このテキストは背景が塗りつぶされているか, 下に破線が引かれている.
+<li>変換 - 未変換テキストの置き換え
+<li>変換候補リスト - あいまい性がある場合に用いられる変換候補の一覧.
+</ul>
+<h2>手順</h2>
+<table border="1">
+<tr><th>順序</th><th>説明</th><th>例</th></tr><tr>
+<td>1</td><td>ユーザはインプットメソッド(IME)を有効にする. 通常はホットキーまたはGUIでインプットメソッドを選択する.</td><td><img src="TextInput1.png" alt="step1"></td></tr>
+<td>2</td><td>ユーザは選択した言語で入力を開始する.</td><td><img src="TextInput2.png" alt="step2"></td></tr>
+<td>3</td><td>ユーザは望むところまで入力を続ける.</td><td><img src="TextInput3.png" alt="step3"></td></tr>
+<td>4</td><td>ユーザは変換候補リストを開き, 変換テキストを選択する. IMEが自動的に変換リストを開くようにすることもできる.</td><td><img src="TextInput4.png" alt="step4"></td></tr>
+<td>5</td><td>ユーザは変換を確定する. IMEはアプリケーションにテキストを渡す.</td><td><img src="TextInput5.png" alt="step5"></td></tr>
+</table>
+<p>
+全ての環境で同じであるわけではないが, 概要としてはこれで十分である.
+</p>
+<p>
+複数のスタイルのインプットメソッドについては<a href="http://www-archive.mozilla.org/projects/intl/input-method-spec.html">ここ</a>で読める.
+SDLは"on-the-spot"モードに対応している.
+これは実装のとき重要である: アプリケーションは未変換テキストを表示する必要がある.
+</p>
+<h2>SDL</h2>
+<p>
+SDLではどのようにしてテキスト入力を扱えばよいか?
+</p>
+<p>
+まずは例を示す:
+</p>
+<h3>例</h3>
+<code>
+<pre>
+#include "SDL.h"
+
+int main(int argc, char *argv[])
+{
+    InitVideo();
+    /* ... */
+
+    SDL_StartTextInput();
+    while (!done)
+    {
+        if (SDL_PollEvent(&event))
+        {
+            switch (event.type)
+            {
+                case SDL_TEXTINPUT:
+                    /* テキストの末尾に新しいテキストを追加する */
+                    strcat(text, event.text.text);
+                    break;
+                case SDL_TEXTEDITING:
+                    /*
+                    未変換テキストを更新する.
+                    カーソル位置を更新する.
+                    選択の長さを変換する(必要ならば).
+                    */
+                    composition = event.edit.text;
+                    cursor = event.edit.start;
+                    selection_len = event.edit.length;
+                    break;
+            }
+        }
+        Redraw();
+    }
+
+    SDL_Quit();
+
+    return 0;
+}
+</pre>
+</code>
+<h3>関数</h3>
+<ul>
+<li><a href="SDL_StartTextInput.html">SDL_StartTextInput</a>
+<li><a href="SDL_StopTextInput.html">SDL_StopTextInput</a>
+<li><a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect</a>
+</ul>
+<h3>イベント</h3>
+<ul>
+<li><a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a>
+<li><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a>
+</ul>
+<p>
+注意すべき重要な点は, アプリケーションは<a href="SDL_StartTextInput.html">SDL_StartTextInput</a>と<a href="SDL_StopTextInput.html">SDL_StopTextInput</a>でテキスト入力の可不可を自由に設定できることである.
+もし対応していれば, <a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect</a>は変換候補リストをどこに開くかを決める.
+</p>
+<p>
+アプリケーションは, 未変換テキストが変更された(または開始した)ならば, <a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a>イベントを受信する.
+このイベントには, 未変換テキストと, 未変換テキスト内のカーソルの位置が含まれている.
+もし対応していれば, 選択されたテキストの長さも含まれている.
+</p>
+<p>
+アプリケーションは, 変換が確定し(IMEではない)通常のテキスト入力に戻ったとき<a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a>イベントを受信する.
+このイベントの受信は, 変換の確定, または未変換テキストの入力が始まっていない(直接入力)ことを示している.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/Tutorials/TextInput">Text Input - SDL Wiki</a>
+<hr>
+</body>
+</html>
