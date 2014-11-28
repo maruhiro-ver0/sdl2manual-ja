@@ -18,6 +18,19 @@
 <tr><td>Uint32</td><td>type</td><td>SDL_QUIT</td></tr>
 <tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+SDL_Event e;
+for (;;) {
+    SDL_PollEvent(&amp;e);
+    if (e.type == SDL_QUIT) {
+        SDL_Log("プログラムは後 %i で終了する", e.quit.timestamp);
+        break;
+    }
+}
+</pre>
+</code>
 <h2>詳細</h2>
 <p>
 <a href="SDL_QuitEvent.html">SDL_QuitEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバで, SDL_QUITが報告されたときに使われる.

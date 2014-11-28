@@ -32,7 +32,7 @@
 #include "SDL_thread.h"
 #include "SDL_timer.h"
 
-int TestThread(void *ptr);
+static int TestThread(void *ptr);
 
 int main(int argc, char *argv[])
 {
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 }
 
 // とても簡単なスレッド - 50ms間隔で0から9までカウントする
-int TestThread(void *ptr)
+static int TestThread(void *ptr)
 {
     int cnt;
 

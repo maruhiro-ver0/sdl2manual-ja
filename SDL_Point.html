@@ -54,16 +54,16 @@ int main(int argc, char *argv[]) {
 
     // ウィンドウを生成できたかチェックする
     if (window == NULL) {
-        printf("ウィンドウを生成できなかった: %s\n", SDL_GetError());
+        SDL_Log("ウィンドウを生成できなかった: %s", SDL_GetError());
         return 1;
     }
 
     SDL_GetMouseState(                    //    マウスのウィンドウ上の...
-        &amp;mouse_position.x,                // ...座標を得る
+        &amp;mouse_position.x,            // ...座標を得る
         &amp;mouse_position.y
     );
 
-    printf("マウスの位置: x=%d y=%d\n", //    マウスの位置を表示する
+    SDL_Log("マウスの位置: x=%d y=%d",    //    マウスの位置を表示する
          mouse_position.x, mouse_position.y
     );
 

@@ -74,7 +74,7 @@ whileループを使い, 全てのイベントを処理する.
 <p>
 <code>
 <pre>
-while(SDL_PollEvent(&amp;test_event)) {
+while (SDL_PollEvent(&amp;test_event)) {
 </pre>
 </code>
 </p>
@@ -87,7 +87,7 @@ while(SDL_PollEvent(&amp;test_event)) {
 <p>
 <code>
 </pre>
-	switch(test_event.type) {
+	switch (test_event.type) {
 </pre>
 </code>
 </p>
@@ -134,10 +134,10 @@ typeメンバを設定し, 構造体のメンバに適切な情報を書き込めばよい.
 <pre>
 SDL_Event user_event;
 
-user_event.type=SDL_USEREVENT;
-user_event.user.code=2;
-user_event.user.data1=NULL;
-user_event.user.data2=NULL;
+user_event.type = SDL_USEREVENT;
+user_event.user.code = 2;
+user_event.user.data1 = NULL;
+user_event.user.data2 = NULL;
 SDL_PushEvent(&amp;user_event);
 </pre>
 </code>

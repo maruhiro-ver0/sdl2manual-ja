@@ -22,6 +22,12 @@
 </table>
 <h2>戻り値</h2>
 ヒントが設定されればSDL_TRUE, されなければSDL_FALSEを戻す.
+<h2>サンプルコード</h2>
+<code>
+<pre>
+SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+</pre>
+</code>
 <h2>詳細</h2>
 ヒントが既に設定されていれば, または環境変数が既に設定されていば, ヒントは設定されない.
 <a href="SDL_SetHintWithPriority.html">SDL_SetHintWithPriority()</a>で優先度をつけて上書きできる.

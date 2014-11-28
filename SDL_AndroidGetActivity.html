@@ -38,16 +38,23 @@ void showHome(void)
     jobject activity = (jobject)SDL_AndroidGetActivity();
 
     // アクティビティのJavaクラスを検索する. SDLActivityかそのサブクラスである必要がある
-    jclass clazz( env->GetObjectClass(activity) );
+    jclass clazz(env->GetObjectClass(activity));
 
     // メソッドのIDを得る
-    jmethodID method_id = env->GetMethodID( clazz, "showHome", "()V" );
+    jmethodID method_id = env->GetMethodID(clazz, "showHome", "()V");
 
     // Javaメソッドを実際に呼ぶ
-    env->CallVoidMethod( activity, method_id );
-    
+    env->CallVoidMethod(activity, method_id);
+
     // ローカル参照を解放する
     env->DeleteLocalRef(activity);
+    env->DeleteLocalRef(clazz);
+
+    // 注意(とAndroid用SDLの実装の詳細に関する記述):
+    // もしJava側が呼んだネイティブ関数から戻ると, ローカル参照は自動的に削除
+    // される. SDLではmain()それ自身がネイティブ関数はである. したがって, 参照
+    // は手動で削除しなければならない. そうしないとmain()から戻って(アプリケー
+    // ションが終了して)始めて参照が削除されるからである.
 }
 </pre>
 </code>

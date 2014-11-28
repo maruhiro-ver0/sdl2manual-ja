@@ -51,8 +51,8 @@ if (rw != NULL) {
 <p>
 <code>
 <pre>
-int buffer[10]
-SDL_RWread(rwop, buffer, sizeof(buffer), 4)
+int buffer[10];
+SDL_RWread(rwop, buffer, sizeof(buffer), 4);
 </pre>
 </code>
 32bit整数が保存されていることを想定している. 40byteのデータを読み込み, bufferに書き込む.
@@ -61,8 +61,8 @@ SDL_RWread(rwop, buffer, sizeof(buffer), 4)
 <p>
 <code>
 <pre>
-long buffer[10]
-SDL_RWread(rwop, buffer, sizeof(buffer), 8)
+long buffer[10];
+SDL_RWread(rwop, buffer, sizeof(buffer), 8);
 </pre>
 </code>
 64bit整数が保存されていることを想定している. 80byteのデータを読み込み, bufferに書き込む.

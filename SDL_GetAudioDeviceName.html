@@ -29,7 +29,7 @@
 int i, count = SDL_GetNumAudioDevices(0);
 
 for (i = 0; i &lt; count; ++i) {
-    printf("オーディオデバイス %d: %s\n", i, SDL_GetAudioDeviceName(i, 0));
+    SDL_Log("オーディオデバイス %d: %s", i, SDL_GetAudioDeviceName(i, 0));
 }
 </pre>
 </code>
