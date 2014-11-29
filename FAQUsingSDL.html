@@ -16,41 +16,48 @@
 環境変数 "SDL_VIDEODRIVER" に使用したいビデオドライバの名前を設定することができる.
 使用できるドライバは環境とSDLのコンパイル時のオプションによる.
 いくつかの環境の設定の一部:
-<ul>
-<li>Linux
-<ul>
-<li>x11 - (デフォルト) X11 ウィンドウシステムを使う
-<li>dga - フルスクリーン ハードウェア アクセラレーションとしてXFree86 DGA 2.0を使う
-<li>fbcon - フレームバッファ コンソールを使う
-<li>directfb - DirectFB API を使う
-<li>svgalib - SVGAlib API を使う
-<li>ggi - General Graphics Interface API を使う
-<li>aalib - Ascii Art library を使う
-</ul>
-<li>Win32
-<ul>
-<li>directx - (デフォルト) DirectDraw API を使う
-<li>windib - Win32 GDI を使う
-</ul>
-</ul>
+<h3>Linux</h3>
+<table border="1" summary="Linux">
+<tr><th>名称</th><th>説明</th><th>1.2</th><th>2.0</th></tr>
+<tr><td>x11</td><td>(デフォルト) X11 ウィンドウシステムを使う</td><td align="center">○</td><td align="center">○</td></tr>
+<tr><td>dga</td><td>フルスクリーン ハードウェア アクセラレーションとしてXFree86 DGA 2.0を使う</td><td align="center">○</td><td align="center">-</td></tr>
+<tr><td>fbcon</td><td>フレームバッファ コンソールを使う</td><td align="center">○</td><td align="center">-</td></tr>
+<tr><td>directfb</td><td>DirectFB API を使う</td><td align="center">○</td><td align="center">○</td></tr>
+<tr><td>svgalib</td><td>SVGAlib API を使う</td><td align="center">○</td><td align="center">-</td></tr>
+<tr><td>ggi</td><td>General Graphics Interface API を使う</td><td align="center">○</td><td align="center">-</td></tr>
+<tr><td>aalib</td><td>Ascii Art library を使う</td><td align="center">○</td><td align="center">-</td></tr>
+</table>
+<h3>Win32</h3>
+<table border="1" summary="Win32">
+<tr><th>名称</th><th>説明</th><th>1.2</th><th>2.0</th></tr>
+<tr><td>directx</td><td>(デフォルト) DirectDraw API を使う</td><td align="center">○</td><td align="center">-</td></tr>
+<tr><td>windib</td><td>Win32 GDI を使う</td><td align="center">○</td><td align="center">-</td></tr>
+<tr><td>window</td><td>SDLビデオドライバを使う</td><td align="center">-</td><td align="center">○</td></tr>
+</table>
 <h2>特定のオーディオドライバを選択する方法は?</h2>
 環境変数 "SDL_AUDIODRIVER" に使用したいオーディオドライバの名前を設定することができる.
 使用できるドライバは環境とSDLのコンパイル時のオプションによる.
 いくつかの環境の設定の一部:
-<ul>
-<li>Linux
-<ul>
-<li>dsp - (デフォルト) /dev/dsp を開き OSS API を使う
-<li>dma - OSS API で/dev/dspのDMAにアクセスする
-<li>esd - ESound オーディオデーモンに接続する
-<li>artsc - ARTS オーディオデーモンに接続する
-</ul>
-<li>Win32
-<ul>
-<li>dsound - (デフォルト) DirectSound API を使う
-<li>waveout - Win32 MultiMedia API を使う
-</ul>
-</ul>
+<h3>Linux</h3>
+<table border="1" summary="Linux">
+<tr><th>名称</th><th>説明</th><th>1.2</th><th>2.0</th></tr>
+<tr><td>dsp</td><td>(デフォルト) /dev/dsp を開き OSS API を使う</td><td align="center">○</td><td align="center">○</td></tr>
+<tr><td>dma</td><td>OSS API で/dev/dspのDMAにアクセスする</td><td align="center">○</td><td align="center">-</td></tr>
+<tr><td>esd</td><td>ESound オーディオデーモンに接続する</td><td align="center">○</td><td align="center">○</td></tr>
+<tr><td>artsc</td><td>ARTS オーディオデーモンに接続する</td><td align="center">○</td><td align="center">-</td></tr>
+<tr><td>pluse</td><td>PluseAudioを使う</td><td align="center">○</td><td align="center">-</td></tr>
+<tr><td>alsa</td><td>ALSA PCMオーディオを使う</td><td align="center">○</td><td align="center">○</td></tr>
+<tr><td>arts</td><td>Analog RealTime Synthesizerを使う</td><td align="center">○</td><td align="center">○</td></tr>
+<tr><td>pluseaudio</td><td>PulseAudioを使う</td><td align="center">-</td><td align="center">○</td></tr>
+</table>
+<h3>Win32</h3>
+<table border="1" summary="Win32">
+<tr><th>名称</th><th>説明</th><th>1.2</th><th>2.0</th></tr>
+<tr><td>dsound</td><td>(デフォルト) DirectSound API を使う</td><td align="center">○</td><td align="center">-</td></tr>
+<tr><td>waveout</td><td>Win32 MultiMedia API を使う</td><td align="center">○</td><td align="center">-</td></tr>
+<tr><td>directsound</td><td>DirectSoundを使う</td><td align="center">-</td><td align="center">○</td></tr>
+<tr><td>winmm</td><td>Windows Waveform Audioを使う</td><td align="center">-</td><td align="center">○</td></tr>
+</table>
 <h2>SDLではどのような環境変数が使えるか?</h2>
 Mattias Engdegardの作成したSDLが使用する環境変数の一部の一覧がある.
 これらの環境変数は公式に対応したものではなく, 変更や廃止される可能性があるので注意すること.
