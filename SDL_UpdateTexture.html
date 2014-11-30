@@ -20,7 +20,7 @@
 <tr><td>texture</td><td>更新するテクスチャ</td></tr>
 <tr><td>rect</td><td>テクスチャを更新する領域の<a href="SDL_Rect.html">SDL_Rect</a>. NULLのときテクスチャ全体</td></tr>
 <tr><td>pixels</td><td>生のピクセルデータ</td></tr>
-<tr><td>pitch</td><td>ピクセルデータの水平方向のバイト数</td></tr>
+<tr><td>pitch</td><td>ピクセルデータの水平方向のバイト数. ライン間のパッディングを含む</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
@@ -31,7 +31,7 @@
 <p>
 </p>
 この関数はストリーミングテクスチャで動作する.
-しかし, 最適化の観点からは, もし後でロックするならば, ピクセルを戻さない方がよい.
+しかし, 最適化の観点からはもし後でロックするならばピクセルを戻さない方がよい.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_LockTexture.html">SDL_LockTexture</a><br>
