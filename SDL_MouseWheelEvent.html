@@ -21,6 +21,7 @@
 <tr><td>Uint32</td><td>which</td><td>マウスインスタンスID, またはSDL_TOUCH_MOUSEID (詳細を参照すること)</td></tr>
 <tr><td>Sint32</td><td>x</td><td>水平方向のスクロール量. 正が右で, 負が左</td></tr>
 <tr><td>Sint32</td><td>y</td><td>垂直方向のスクロール量. 正が奥で, 負が手前</td></tr>
+<tr><td>Uint32</td><td>direction</td><td>SDL_MOUSEWHEEL_NORMALまたはSDL_MOUSEWHEEL_FLIPPED (SDL 2.0.4以降)</td></tr>
 </table>
 <h2>詳細</h2>
 <p>
@@ -37,6 +38,11 @@ SDL_MOUSEWHEELはユーザがマウスホイールを動かすと発生する.
 <p>
 whichは, 本物のマウスではなくタッチ入力デバイスのときSDL_TOUCH_MOUSEIDとなる.
 アプリケーションが既に<a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a>を扱っているならば, このイベントは無視したほうがよい.
+</p>
+<p>
+SDLはマウスホイールのスクロールの方向を全ての環境で正しく扱えるわけではない(SDL_MOUSEWHEEL_NORMAL).
+directionがSDL_MOUSEWHEEL_FLIPPEDのとき, xとyの値がそれぞれ逆になる.
+-1を掛けると元に戻る.
 </p>
 <h2>関連項目(列挙体)</h2>
 <a href="SDL_EventType.html">SDL_EventType</a><br>
