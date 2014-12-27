@@ -103,7 +103,7 @@ Mac OS X では, Command-Q (「アプリケーションを終了する」標準的なショートカット) 
 アプリケーションが完全に Command-Q を無視すると, Mac App Store の審査を通らないだろう.
 </p>
 <p>
-<a href="SDL_Init.html">SDL_Init</a>はSIGINT(キーボード割り込み)とSIGTERM(システム終了要求)のシグナルハンドラを設定する. もし, まだハンドラが存在しなくても, SQL_QUITイベントは発生する.
+POSIXシステムでは, <a href="SDL_Init.html">SDL_Init</a>はSIGINT(キーボード割り込み)とSIGTERM(システム終了要求)の<a href="http://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB_%28%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%29">シグナルハンドラ</a>を設定する. もし, まだハンドラが存在しなくても, SQL_QUITイベントは発生する.
 SQL_QUITイベントが発生しないようにする方法はない.
 しかし, アプリケーションでシグナルハンドラを設定すると, シグナル発生時の終了イベントの発生が上書きされる.
 </p>

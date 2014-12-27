@@ -26,7 +26,7 @@
 /* SDL_RWopsのcloseメソッドの実装 */
 void close_my_rwops(SDL_RWops *rw)
 {
-    if(rw != NULL) {
+    if (rw != NULL) {
         /* ここでリソースを解放する */
         SDL_FreeRW(rw);
     }

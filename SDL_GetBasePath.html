@@ -52,7 +52,7 @@ void InitializeDataPath() {
 この関数は速い必要はない. それにも関わらず速さが必要ならば, 最初に呼んだときに文字列を保存する必要がある.
 </p>
 <p>
-*Mac OS XとiOSの特別な仕様*
+<strong>Mac OS XとiOSの特別な仕様:</strong>
 アプリケーションが".app"バンドルされていれば, この関数はリソースディレクトリ(例: MyApp.app/Contents/Resources/)を戻す.
 この動作はInfo.plistにプロパティを追加して上書きできる.
 SDL_FILESYSTEM_BASE_DIR_TYPE 文字列キーに値を追加すると動作を変えられる.
