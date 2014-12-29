@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
+<title>SDL_HINT_WINRT_HANDLE_BACK_BUTTON</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_HINT_WINRT_HANDLE_BACK_BUTTON
+<hr>
+<h1>SDL_HINT_WINRT_HANDLE_BACK_BUTTON</h1>
+Windows Phoneのback-button-pressイベントをハンドルしたとするか否かの値を指定するヒント
+<h2>値</h2>
+<table border="1" summary="SDL_HINT_WINRT_HANDLE_BACK_BUTTON">
+<tr><td>1</td><td>ハンドルしたとする</td></tr>
+</table>
+<h2>デフォルト</h2>
+デフォルトではこのヒントは設定されず, アプリケーションは終了する.
+<h2>詳細</h2>
+<p>
+Windows Phoneデバイスには一般的に「戻る」ボタンがある.
+押されるとOSはback-button-pressイベントを発生させ, アプリが適切な方法でハンドルすることを期待する.
+アプリがこれらのイベントを明確に「ハンドルした」としなければ, OSはデフォルトのハンドルされないback-button-pressイベントの処理を行い, Windows Phose 8と8.1ではアプリを終了させる(そして前のアプリまたはデバイスのホームに切り替えようとする).
+</p>
+<p>
+SDL_HINT_WINRT_HANDLE_BACK_BUTTONヒントを"1"に設定すると, SDLはアプリにback-button-pressイベントが送られたときハンドルしたとする.
+</p>
+<p>
+内部では, Windows Phoneは戻るボタンイベントを特別なback-button-pressコールバック関数へパラメータとして送っている.
+起動するとすぐに(アプリの初期化中に)back-button-pressイベントに応答する必要のあるアプリはそのための1つまたは複数のコールバック関数を登録することを期待されている.
+戻るボタンが押されると, OSはこれらのコールバックを呼ぶ.
+もしアプリのコールバックから時間内にハンドルしたとして戻らなければ, またはコールバックを登録していなければ, OSはイベントがハンドルされなかったとして戻るボタンのデフォルトの動作(アプリの終了)を行う.
+</p>
+<p>
+SDLはWindows Phone OSに自身のback-button-pressコールバックを登録する.
+このコールバックは一対のキー押下イベント(SDL_KEYDOWNとSDL_KEYUP)を発生させる. それぞれのスキャンコードはSDL_SCANCODE_AC_BACKである. その後, このヒントSDL_HINT_WINRT_HANDLE_BACK_BUTTONの値をチェックする.
+もしヒントに"1"が設定されていれば, 戻るボタンのイベントのHandledプロパティに'true'が設定される.
+ヒントに別の値が設定されていれば, または何も設定されていなければ, SDLはイベントのHandledプロパティをそのままにする. (デフォルトではOSは'false'を設定する.)
+</p>
+<p>
+SDLアプリは, 戻るボタンを押す前にSDL_HINT_WINRT_HANDLE_BACK_BUTTONを設定することも, 戻るボタンが押されたときに設定することもできる.
+</p>
+<p>
+戻るボタンが押されたことを検知するためには, SDLアプリは<a href="SDL_AddEventWatch.html">SDL_AddEventWatch()</a>でコールバック関数を登録し, SDL_KEYDOWNイベントのスキャンコードSDL_SCANCODE_AC_BACKを待つ必要がある.
+(別の方法としてSDL_KEYUPイベントを待つこともできる. どちらのイベントでもよい.)
+このコールバックで設定されたSDL_HINT_WINRT_HANDLE_BACK_BUTTONの値は, OSの現在のback-button-pressイベントに適用される.
+</p>
+<p>
+Windows Phoneアプリの戻るボタンの詳細は次のMicrosoftデベロッパーサイトにある: <a href="http://msdn.microsoft.com/library/windows/apps/jj247550%28v=vs.105%29.aspx/">http://msdn.microsoft.com/library/windows/apps/jj247550%28v=vs.105%29.aspx/</a>
+</p>
+<h2>バージョン</h2>
+SDL 2.0.3以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_HINT_WINRT_HANDLE_BACK_BUTTON">SDL_HINT_WINRT_HANDLE_BACK_BUTTON - SDL Wiki</a><br>
+<hr>
+</body>
+</html>
