@@ -86,7 +86,7 @@ printf("サンプルあたり%dビット\n", (int) SDL_AUDIO_BITSIZE(fmt));
 </code>
 <h2>詳細</h2>
 データ形式の思い込みに注意すること.
-例えば, SDL_AUDIO_ISFLOATのみチェックして, 32bitデータを想定すると, 後のバージョンで64bit浮動小数点が追加されたとき問題が発生する.
+例えば, SDL_AUDIO_ISFLOAT()のチェックのみで32bitデータを想定すると, 後のバージョンで64bit浮動小数点が追加されたとき問題が発生する.
 <h2>関連項目(構造体)</h2>
 <a href="SDL_AudioCVT.html">SDL_AudioCVT</a><br>
 <a href="SDL_AudioSpec.html">SDL_AudioSpec</a><br>
