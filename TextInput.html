@@ -74,12 +74,9 @@ int main(int argc, char *argv[])
     /* ... */
 
     SDL_StartTextInput();
-    while (!done)
-    {
-        if (SDL_PollEvent(&event))
-        {
-            switch (event.type)
-            {
+    while (!done) {
+        if (SDL_PollEvent(&event)) {
+            switch (event.type) {
                 case SDL_TEXTINPUT:
                     /* テキストの末尾に新しいテキストを追加する */
                     strcat(text, event.text.text);
