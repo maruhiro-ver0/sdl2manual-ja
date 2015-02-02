@@ -43,8 +43,8 @@ int main(int argc, char* argv[])
     screen = SDL_GetWindowSurface(window);
 
     // ここは古いコードと同じである
-    image = SDL_LoadBMP("box.bmp"); // loads image
-    SDL_BlitSurface(image, NULL, screen, NULL); // blit it to the screen
+    image = SDL_LoadBMP("box.bmp"); // 画像を読み込む
+    SDL_BlitSurface(image, NULL, screen, NULL); // スクリーンに転送する
     SDL_FreeSurface(image);
 
     // これはSDL_Flipのように働く
@@ -63,6 +63,11 @@ int main(int argc, char* argv[])
 <p>
 もし生成されることが必要ならば, 新しいサーフェイスはウィンドウに最適なピクセル形式で生成される.
 このサーフェイスはウィンドウが破棄されたとき解放される.
+このサーフェイスを解放しようとしてはならない.
+</p>
+<p>
+このサーフェイスはウィンドウのサイズが変わると無効になる.
+サイズが変わった後は正しいサーフェイスを得るために再びこの関数を呼ぶ必要がある.
 </p>
 <p>
 このことはウィンドウと3DまたはレンダリングAPIの結びつきと同じではない.
