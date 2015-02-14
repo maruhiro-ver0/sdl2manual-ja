@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
     SDL_BlitSurface(image, NULL, screen, NULL); // スクリーンに転送する
     SDL_FreeSurface(image);
 
-    // これはSDL_Flipのように働く
+    // これはSDL 1.2のSDL_Flipのように働く
     SDL_UpdateWindowSurface(window);
 
     // 2秒間表示する
