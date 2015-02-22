@@ -22,6 +22,19 @@
 <h2>戻り値</h2>
 成功のとき1, イベントがフィルタされたまたは失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// Default Usage:
+SDL_Event sdlevent;
+sdlevent.type = SDL_KEYDOWN;
+sdlevent.key.keysym.sym = SDLK_1;
+
+SDL_PushEvent(&sdlevent);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 イベントキューは実際には双方向の通信チャネルとして使える.

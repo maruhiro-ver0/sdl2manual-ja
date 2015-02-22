@@ -29,7 +29,7 @@
 handlerの関数プロトタイプは
 </p>
 <p>
-<code>SDL_assert_state YourAssertionHandler(const SDL_assert_data* data, void* userdata)</code>
+<code>SDL_AssertState YourAssertionHandler(const SDL_assert_data* data, void* userdata)</code>
 </p>
 <p>
 YourAssertionHandlerは任意の関数名で, 引数は
@@ -37,7 +37,7 @@ YourAssertionHandlerは任意の関数名で, 引数は
 <tr><td>data</td><td>現在のアサーションを報告する<a href="SDL_assert_data.html">SDL_assert_data</a>へのポインタ</td></tr>
 <tr><td>userdata</td><td><a href="SDL_SetAssertionHandler.html">SDL_SetAssertionHandler()</a>に渡されたuserdata</td></tr>
 </table>
-このコールバック関数は, このアサーションの失敗をどのように扱うかを示す<a href="SDL_assert_state.html">SDL_assert_state</a>を戻す必要がある.
+このコールバック関数は, このアサーションの失敗をどのように扱うかを示す<a href="SDL_AssertState.html">SDL_AssertState</a>を戻す必要がある.
 </p>
 <p>
 このコールバック関数は, あらゆるスレッドから呼ばれる.

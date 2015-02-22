@@ -12,17 +12,7 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_RenderPresent
 <hr>
 <h1>SDL_RenderPresent</h1>
-<p>
 レンダリングの結果を画面に反映する
-</p>
-<p>
-SDLのレンダリング関数は背面バッファを操作する.
-つまり, <a href="SDL_RenderDrawLine.html">SDL_RenderDrawLine()</a>のようなレンダリング関数を呼んでも, 背景バッファに線が描かれるだけで, 直接画面には描かれない.
-グラフィックを描いた後, 背景バッファを画面に反映させる必要がある.
-</p>
-<p>
-よって, SDLレンダリングAPIを使う場合は, そのフレームを全て描き, そしてこの関数をフレームごとに呼んでユーザに見せる必要がある.
-</p>
 <h2>構文</h2>
 <code>void SDL_RenderPresent(SDL_Renderer* renderer)</code>
 <h2>引数</h2>
@@ -74,8 +64,18 @@ int main(int argc, char* argv[])
 </code>
 </p>
 <h2>詳細</h2>
+<p>
+SDLのレンダリング関数は背面バッファを操作する.
+つまり, <a href="SDL_RenderDrawLine.html">SDL_RenderDrawLine()</a>のようなレンダリング関数を呼んでも, 背景バッファに線が描かれるだけで, 直接画面には描かれない.
+グラフィックを描いた後, 背景バッファを画面に反映させる必要がある.
+</p>
+<p>
+よって, SDLレンダリングAPIを使う場合は, そのフレームを全て描き, そしてこの関数をフレームごとに呼んでユーザに見せる必要がある.
+</p>
+<p>
 背景バッファは反映した後は無効になると考える必要がある. つまり, 前のフレームのグラフィックが残っているとみなしてはならない.
 全てのピクセルを上書きする場合でも, 各フレームを描く前に<a href="SDL_RenderClear.html">SDL_RenderClear()</a>を呼んで背景バッファを初期化することを強く推奨する.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_RenderClear.html">SDL_RenderClear</a><br>
 <a href="SDL_RenderDrawLine.html">SDL_RenderDrawLine</a><br>
