@@ -15,7 +15,7 @@
 複雑なジェスチャーイベントの情報の構造体
 <h2>フィールド</h2>
 <table border="1" summary="SDL_DollarGestureEvent">
-<tr><td>Uint32</td><td>type</td><td>SDL_DOLLARGESTURE</td></tr>
+<tr><td>Uint32</td><td>type</td><td>SDL_DOLLARGESTURE または SDL_DOLLARRECORD</td></tr>
 <tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
 <tr><td>SDL_TouchID</td><td>touchId</td><td>タッチデバイスID</td></tr>
 <tr><td>SDL_GestureID</td><td>gestureId</td><td>ストロークに最も近いジェスチャーのユニークID</td></tr>
@@ -33,7 +33,10 @@ SDL_DollarGestureEventは<a href="SDL_Event.html">SDL_Event</a>のメンバで, typeが
 xとyは0.0から1.0の範囲である.
 </p>
 <p>
-詳細は <a href="http://hg.libsdl.org/SDL/file/default/docs/README-gesture.md">README-gesture.txt</a> を参照すること.
+SDL_DOLLARRECORDの場合のみtouchIdとgestureIdが有効である.
+</p>
+<p>
+詳細は <a href="http://hg.libsdl.org/SDL/file/default/docs/README-gesture.md">README-gesture.md</a> を参照すること.
 </p>
 <h2>関連項目(列挙体)</h2>
 <a href="SDL_EventType.html">SDL_EventType</a><br>
