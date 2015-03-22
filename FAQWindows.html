@@ -98,8 +98,8 @@ Windowsアプリケーションであるが, WinMain()の代わりにmain()を使わなければならない
 何らかの理由でWinMain()を使う必要があるならば, SDLが正しく動作するためにはWinMain()でどのような初期化が必要かをsrc/main/win32/SDL_main.cから見つけること.
 </p>
 <h4>"Undefined reference to 'WinMain@16'"が発生する</h4>
-Visual C++ではSDLmain.libをリンクする必要がある.
-Dev-C++を含むgcc環境では, "sdl-config --libs" の出力結果をリンクする必要がある. 通常は次のようである: -lmingw32 -lSDLmain -lSDL -mwindows
+Visual C++ではSDL2main.libをリンクする必要がある.
+Dev-C++を含むgcc環境では, "sdl-config --libs" の出力結果をリンクする必要がある. 通常は次のようである: -lmingw32 -lSDL2main -lSDL2 -mwindows
 <h4>様々な未定義のSDL関数がある...</h4>
 <p>
 gccでコンパイルしているならば, コマンドラインのあなたのソースコードの後にsdl-configの出力があることを確認する: gcc -o test test.c sdl-config --cflags --libs
