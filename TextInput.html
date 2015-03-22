@@ -68,15 +68,31 @@ SDLではどのようにしてテキスト入力を扱えばよいか?
 <pre>
 #include "SDL.h"
 
+extern void InitVideo();
+extern void Redraw();
+
+extern char *text;
+extern char *composition;
+extern Sint32 cursor;
+extern Sint32 selection_len;
+
 int main(int argc, char *argv[])
 {
+    SDL_bool done = SDL_FALSE;
+
     InitVideo();
     /* ... */
 
     SDL_StartTextInput();
     while (!done) {
+        SDL_Event event;
+
         if (SDL_PollEvent(&event)) {
             switch (event.type) {
+                case SDL_QUIT:
+                    /* 終了 */
+                    done = SDL_TRUE;
+                    break;
                 case SDL_TEXTINPUT:
                     /* テキストの末尾に新しいテキストを追加する */
                     strcat(text, event.text.text);
@@ -114,8 +130,8 @@ int main(int argc, char *argv[])
 <li><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a>
 </ul>
 <p>
-注意すべき重要な点は, アプリケーションは<a href="SDL_StartTextInput.html">SDL_StartTextInput</a>と<a href="SDL_StopTextInput.html">SDL_StopTextInput</a>でテキスト入力の可不可を自由に設定できることである.
-もし対応していれば, <a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect</a>は変換候補リストをどこに開くかを決める.
+注意すべき重要な点は, アプリケーションは<a href="SDL_StartTextInput.html">SDL_StartTextInput()</a>と<a href="SDL_StopTextInput.html">SDL_StopTextInput()</a>でテキスト入力の可不可を自由に設定できることである.
+もし対応していれば, <a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect()</a>は変換候補リストをどこに開くかを決める.
 </p>
 <p>
 アプリケーションは, 未変換テキストが変更された(または開始した)ならば, <a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a>イベントを受信する.
