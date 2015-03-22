@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryEvents.html" title="1つ上">
+<title>SDL_AudioDeviceEvent</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryEvents.html">イベント処理</a> - SDL_AudioDeviceEvent
+<hr>
+<h1>SDL_AudioDeviceEvent</h1>
+オーディオデバイスイベントの情報の構造体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_ControllerAxisEvent">
+<tr><td>Uint32</td><td>type</td><td>SDL_AUDIODEVICEADDED または SDL_AUDIODEVICEREMOVED</td></tr>
+<tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
+<tr><td>Uint32</td><td>which</td><td>SDL_AUDIODEVICEADDEDイベントのオーディオデバイス番号(次に<a href="SDL_GetNumAudioDevices.html">SDL_GetNumAudioDevices()</a>を呼ぶまで有効), SDL_AUDIODEVICEREMOVEDイベントのSDL_AudioDeviceID</td></tr>
+<tr><td>Uint8</td><td>iscapture</td><td>0のとき音声出力デバイス, 0以外のとき録音デバイス</td></tr>
+</table>
+<h2>バージョン</h2>
+SDL 2.0.4以降
+<h2>関連項目(列挙体)</h2>
+<a href="SDL_EventType.html">SDL_EventType</a><br>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_Event.html">SDL_Event</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_GetNumAudioDevices.html">SDL_GetNumAudioDevices</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_AudioDeviceEvent">SDL_AudioDeviceEvent - SDL Wiki</a><br>
+<hr>
+</body>
+</html>
