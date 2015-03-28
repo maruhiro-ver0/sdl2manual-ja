@@ -38,6 +38,7 @@ OpenGLの属性の列挙体
 <tr><td>SDL_GL_CONTEXT_PROFILE_MASK</td><td>OpenGLコンテキストの種類(Core, Compatibility, ES). <a href="SDL_GLprofile.html">SDL_GLprofile</a>列挙体を参照すること. デフォルトは環境に依存する</td></tr>
 <tr><td>SDL_GL_SHARE_WITH_CURRENT_CONTEXT</td><td>OpenGLコンテキストのシェア. デフォルトは0</td></tr>
 <tr><td>SDL_GL_FRAMEBUFFER_SRGB_CAPABLE</td><td>sRGBの使用を要求する. デフォルトは0. (SDL 2.0.1以上)</td></tr>
+<tr><td>SDL_GL_CONTEXT_RELEASE_BEHAVIOR</td><td>コンテキストをrelease behaviorに設定する. デフォルトは1 (SDL 2.0.4以上)</td></tr>
 <tr><td>SDL_GL_CONTEXT_EGL</td><td>未使用 (廃止)</td></tr>
 </table>
 <h2>サンプルコード</h2>
@@ -70,6 +71,9 @@ SDL_GL_CONTEXT_PROFILE_MASKは生成されたコンテキストで決まる.
 SDL_GL_CONTEXT_MAJOR_VERSIONとSDL_GL_CONTEXT_MINOR_VERSIONも同じである.
 これら3つの属性は最初のウィンドウが生成される前に設定する必要がある.
 そして, 通常はSDL_GL_CONTEXT_PROFILE_MASKの値は, 以前の設定で生成したウィンドウを全ての閉じるまでは変更できない.
+</p>
+<p>
+SDL_GL_CONTEXT_RELEASE_BEHAVIORにはSDL_GL_CONTEXT_RELEASE_BEHAVIOR_NONEまたはSDL_GL_CONTEXT_RELEASE_BEHAVIOR_FLUSHを設定できる.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GL_GetAttribute.html">SDL_GL_GetAttribute</a><br>
