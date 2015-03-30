@@ -17,11 +17,16 @@
 <code>void SDL_SetWindowGrab(SDL_Window* window, SDL_bool grabbed)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_SetWindowGrab">
-<tr><td>window</td><td>設定するウィンドウ</td></tr>
+<tr><td>window</td><td>入力グラブモードを設定するウィンドウ</td></tr>
 <tr><td>grabbed</td><td>SDL_TRUEのとき入力グラブを設定する, SDL_FALSEのとき設定しない</td></tr>
 </table>
 <h2>詳細</h2>
+<p>
 入力グラブが設定されると, マウスの動きはウィンドウ内に限定される.
+</p>
+<p>
+既に他のウィンドウが入力グラブされている状態で別のウィンドウの入力グラブを設定した場合, 元のウィンドウは入力グラブを失い, 後に設定したウィンドウが入力グラブを得る.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetGrabbedWindow.html">SDL_GetGrabbedWindow</a><br>
 <a href="SDL_GetWindowGrab.html">SDL_GetWindowGrab</a>
