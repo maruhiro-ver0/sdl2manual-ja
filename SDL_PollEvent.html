@@ -40,6 +40,9 @@ while (1) {
 eventがNULLでない場合, イベントはキューから削除され, <a href="SDL_Event.html">SDL_Event</a>構造体のeventに代入される.
 </p>
 <p>
+eventがNULLの場合, イベントがキューにある場合1を戻すが, イベントは削除されない.
+</p>
+<p>
 この関数は暗黙のうちに<a href="SDL_PumpEvents.html">SDL_PumpEvents()</a>を呼んでいる.
 この関数はビデオモードを設定したスレッドのみで呼べる.
 </p>
