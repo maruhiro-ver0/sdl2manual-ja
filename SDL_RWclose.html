@@ -26,22 +26,34 @@
 <p>
 <code>
 <pre>
+Uint8 buf[256];
 SDL_RWops *rw = SDL_RWFromFile("test.bin", "r");
 if (rw != NULL) {
-    extern Uint8 buf[256];
     SDL_RWread(rw, buf, sizeof (buf), 1);
     SDL_RWclose(rw);
 }
+// bufのデータを使う処理が続く...
 </pre>
 </code>
 </p>
 <h2>詳細</h2>
+<p>
+SDL_RWcloseは<a href="SDL_RWops.html">SDL_RWops</a>ストリームを閉じ終了処理を行う.
+ストリームが使う資源が解放され, <a href="SDL_RWops.html">SDL_RWops</a>自身も<a href="SDL_FreeRW.html">SDL_FreeRW()</a>で解放される.
+成功のとき0を戻す. ストリームの(ディスクなどへの)掃き出しに失敗した場合は-1を戻す.
+</p>
+<p>
 ディスクへの書き込みに失敗した場合, この関数はエラーを報告するが, その場合でも<a href="SDL_RWops.html">SDL_RWops</a>は使えなくなるので注意すること.
+</p>
 <a href="SDL_RWclose.html">SDL_RWclose</a>は実際には<a href="SDL_RWops.html">SDL_RWops</a>のcloseメソッドを呼ぶマクロである.
 <h2>関連項目(関数)</h2>
 <a href="SDL_RWread.html">SDL_RWread</a><br>
 <a href="SDL_RWseek.html">SDL_RWseek</a><br>
 <a href="SDL_RWwrite.html">SDL_RWwrite</a><br>
+<a href="SDL_RWFromFile.html">SDL_RWFromFile</a><br>
+<a href="SDL_RWFromFP.html">SDL_RWFromFP</a><br>
+<a href="SDL_RWFromMem.html">SDL_RWFromMem</a><br>
+<a href="SDL_RWFromConstMem.html">SDL_RWFromConstMem</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_RWclose">SDL_RWclose - SDL Wiki</a>
 <hr>
