@@ -40,6 +40,21 @@ if (io != NULL) {
 </pre>
 </code>
 </p>
+<p>
+次の例の動きは上と同じだが, マクロインターフェースを使っている. この書き方が推奨されている.
+<code>
+<pre>
+SDL_RWops *io = SDL_RWFromFile("username.txt", "rb");
+if (io != NULL) {
+    char name[256];
+    if (SDL_RWread(io, name, sizeof (name), 1) > 0) {
+        printf("こんにちは %s!\n", name);
+    }
+    SDL_RWclose(io);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 <a href="SDL_RWops.html">SDL_RWops</a>は入出力を抽象化したものである.
@@ -139,6 +154,11 @@ typeフィールドは次の値の1つである.
 <a href="SDL_RWFromMem.html">SDL_RWFromMem</a><br>
 <a href="SDL_RWFromConstMem.html">SDL_RWFromConstMem</a><br>
 <a href="SDL_FreeRW.html">SDL_FreeRW</a><br>
+<a href="SDL_RWread.html">SDL_RWread</a><br>
+<a href="SDL_RWwrite.html">SDL_RWwrite</a><br>
+<a href="SDL_RWseek.html">SDL_RWseek</a><br>
+<a href="SDL_RWtell.html">SDL_RWtell</a><br>
+<a href="SDL_RWclose.html">SDL_RWclose</a>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_RWops">SDL_RWops - SDL Wiki</a><br>
 <hr>
