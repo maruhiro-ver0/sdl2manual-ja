@@ -42,10 +42,17 @@ for (int i = 0; i &lt; SDL_NumJoysticks(); ++i) {
 </code>
 </p>
 <h2>詳細</h2>
+<p>
 device_indexは<a href="SDL_JoystickOpen.html">SDL_JoystickOpen()</a>の引数のjoystick_indexと同じである.
+</p>
+<p>
+引数のjoystick_indexは, そのシステムのN番目のゲームコントローラを表す.
+joystick_indexの値は, 後のコントローラーイベントでこのコントローラーを識別する値とは別である.
+代わりにジョイスティックのインスタンスID(SDL_JoystickID)が使われる.
+</p>
 <h2>関連項目(関数)</h2>
-<a href="SDL_IsGameController.html">SDL_IsGameController</a><br>
 <a href="SDL_GameControllerNameForIndex.html">SDL_GameControllerNameForIndex</a><br>
+<a href="SDL_IsGameController.html">SDL_IsGameController</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GameControllerOpen">SDL_GameControllerOpen - SDL Wiki</a>
 <hr>
