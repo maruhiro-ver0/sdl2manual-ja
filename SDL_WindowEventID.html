@@ -40,55 +40,55 @@
 int main(int, char**)  {
   int width = 640;
   int height = 480;
-  
+
   if (SDL_Init(SDL_INIT_VIDEO) != 0)  {
     return 1;
   }
   atexit(SDL_Quit);
-  
+
   SDL_Window* window = SDL_CreateWindow(
-    "Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 
+    "Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
     width, height, SDL_WINDOW_RESIZABLE
   );
   Uint32 windowID = SDL_GetWindowID(window);
-  
+
   while (1)  {
     SDL_Event event;
     while (SDL_PollEvent(&amp;event))  {
       switch (event.type)  {
-        
+
         case SDL_WINDOWEVENT:  {
           if (event.window.windowID == windowID)  {
             switch (event.window.event)  {
-              
+
               case SDL_WINDOWEVENT_SIZE_CHANGED:  {
                 width = event.window.data1;
                 height = event.window.data2;
                 break;
               }
-              
+
               case SDL_WINDOWEVENT_CLOSE:  {
                 event.type = SDL_QUIT;
                 SDL_PushEvent(&amp;event);
                 break;
               }
-              
+
             }
           }
           break;
         }
-        
+
         case SDL_QUIT:  {
           return 0;
         }
-        
+
         /* ... */
-        
+
       }
     }
-    
+
     /* ... */
-    
+
     SDL_Delay(1);
   }
 }
@@ -98,8 +98,8 @@ int main(int, char**)  {
 <h2>関連項目(構造体)</h2>
 <a href="SDL_WindowEvent.html">SDL_WindowEvent</a><br>
 <h2>関連項目(関数)</h2>
-<a href="SDL_GetWindowID.html">SDL_GetWindowID</a><br>
 <a href="SDL_GetWindowFromID.html">SDL_GetWindowFromID</a><br>
+<a href="SDL_GetWindowID.html">SDL_GetWindowID</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_WindowEventID">SDL_WindowEventID - SDL Wiki</a><br>
 <hr>
