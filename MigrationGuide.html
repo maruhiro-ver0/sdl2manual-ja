@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
+<style type="text/css">
+</style>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="index.html" title="1つ上">
+<title>SDL 1.2から2.0への移行</title>
+</head>
+<body>
+<a href="index.html">目次</a> - SDL 1.2から2.0への移行
+<hr>
+<h1>SDL 1.2から2.0への移行</h1>
+<h2>はじめに</h2>
+<p>
+幾年もの開発ののち, ついにSDL 2.0がリリースされた!
+</p>
+<p>
+私たちはその出来に満足し, SDL 1.2を使ったゲームはすぐに移行することを望んでいる.
+それは面倒だと思うかもしれない. この文書には新しいライブラリへの移行の方法を簡潔に書かれている.
+それは考えているよりは難しくないとわかるはずだ. 同等の関数に置き換えるか, 1.2の問題を避けるための工夫を行わないようにするだけの場合もあるだろう.
+</p>
+<p>
+SDL 2.0は, 新しい機能とSDL 1.2の経験が生かせる満足のいくものだと私たちは考えている.
+この文書はSDL2の全ての機能を扱うことを目指してはいない. それは多すぎるからだ. しかし, <em>すぐに</em>動かすために必要なものはそろっているはずだ.
+既にコードを移行したならば, 新しい項目をチェックすべきだ. あなたのアプリケーションで新しい機能を使いたくなるだろう.
+</p>
+<h3>新しい機能の概要</h3>
+SDL 2.0の主要な新機能:
+<ul>
+<li>完全な3Dハードウェアアクセラレーション
+<li>OpenGL 3.0以降の各プロフィール(core, compatibility, debug, robustなど)に対応
+<li>OpenGL ESに対応
+<li>複数のウィンドウに対応
+<li>マルチディスプレイに対応
+<li>複数のオーディオデバイスに対応
+<li>AndroidとiOSに対応
+<li>Emscriptenとネイティブクライアントに対応
+<li>Direct3D, OpenGL, OpenGL ESを使った, またはソフトウェアによるシンプルな2DレンダリングAPI
+<li>Windows, Mac OS X, Linuxでのフォースフィードバック
+<li>WindowsのXInputとXAudio2に対応
+<li>アトミック操作
+<li>電源管理(バッテリー残量など)
+<li>非矩形ウィンドウ
+<li>32bitオーディオ(整数と浮動小数点)
+<li>単純化されたゲームコントローラAPI(ジョイスティックAPIも継続して利用可能!)
+<li>タッチ(マルチタッチ, ジェスチャー)に対応
+<li>フルスクリーンの改良
+<li>キーボードの改良(スキャンコード対キーコードなど)
+<li>メッセージボックス
+<li>クリップボードに対応
+<li>基本的なドラッグ・アンド・ドロップに対応
+<li>厳密なUnicode入力とIMEに対応
+<li>強力なアサート(検証)マクロ
+<li>LGPLからzlibライセンスへ移行
+<li>多くの1.2の問題の解消
+<li>その他多数!
+</ul>
+<a href="https://wiki.libsdl.org/Introduction">Introduction</a>のページには, (1.2の機能を含む)SDLの全機能の一覧がある.
+<h3>さらなる情報を見つけるために</h3>
+情報を見つけるよい場所:
+<ul>
+<li>このwiki :-) <a href="https://wiki.libsdl.org/FrontPage">SDL Wiki</a>
+<li>SDLのtest/ディレクトリにあるテストプログラム (<a href="https://hg.libsdl.org/SDL/file/default/test">オンラインで閲覧</a>)
+<li>SDL<a href="http://lists.libsdl.org/listinfo.cgi/sdl-libsdl.org">メーリングリスト</a>
+</ul>
+<h2>SDL 1.2から SDL 2.0への移行</h2>
+<h3>いくつかの事実</h3>
+<p>
+SDL2への互換レイヤーはない.
+2.0のAPIに変更するならば, つじつまが合うように古い関数を変更や削除する必要がある.
+単に1.2のプログラムに2.0のヘッダをインクルードしたならば, 恐らくコンパイルに失敗するだろう.
+この文書では最も大きな変更点とつまずきやすい点を説明する.
+</p>
+<p>
+SDL_mainは存在しない! …たしかにWindowsではmain()とWinMain()の差を隠すための小さなコード片は存在する. しかし, 
+その中には初期化のためのコードはなく, 必ずしも使わなくてもよい.
+それはmainを乗っ取ることなくSDLが使えることを意味し, SDLを使ったプラグインや, スクリプト言語をSDLモジュールと共に使う場合に有利である.
+1.2のSDL_mainで行っていたことは, 今では全てSDL_Init()で行っている.
+</p>
+<p>
+SDL parachuteは, もはや存在しない.
+1.2でSDL_INIT_NOPARACHUTEと呼ばれていたものがデフォルトかつ唯一となった.
+これはメインスレッド以外がクラッシュしたとき問題を引き起こしていた. そしてアプリケーションが独自に設定したシグナル/例外ハンドラを阻害していた.
+さらに, 一部の環境ではクラッシュ時にフルスクリーンの後処理が行われていなかった.
+あなたは自分自身でクラッシュハンドラを導入するか, atexit()関数で<a href="SDL_Quit.html">SDL_Quit()</a>やそれと同等の関数を呼ぶ必要がある.
+なお, Unix環境では, SDLは今でもSIGINTを捕らえ<a href="SDL_EventType.html">SQL_QUIT</a>イベントに変換しているので注意すること.
+</p>
+<h3>ビデオ</h3>
+<h4>新しいビデオAPIでゲームを初期化する</h4>
+<p>
+1.2から最も劇的に変化したのはビデオAPIである.
+SDLのAPIが設計された1990年代の終わりから状況は大きく変化した.
+現在のハードウェアとOSの機能を扱うため, 古い1.2のビデオAPIの大半は完全に置き換えられた.
+</p>
+<p>
+心配することはない. 新しいAPIは強力で, 一度変化を理解すれば, 新しい仕様のAPIを1.2のゲームに組み込めるはずだ.
+その方法は後で説明する.
+</p>
+<p>
+幸いなことに, OpenGLを使っているならば, すべきことは多くない. 少数の関数をSDL2の等価なものに置き換えれば十分である.
+</p>
+<p>
+2Dグラフィックは, SDL1.2では「サーフェイス」と呼ばれるピクセルのメモリバッファが提供されていた.
+スクリーンそれ自体も「サーフェイス」で, 2Dレンダリングがソフトウェアで行われた. そして, サーフェイス間のコピー(転送 blit)を行う関数が提供され, 必要ならばサーフェイス間のピクセルの形式が変換されていた.
+それらはビデオRAMとGPUではなく, ほぼ全てシステムRAMとCPUで行われていた.
+SDL 2.0ではこれが変わった. ほぼ全てがハードウェアアクセラレーションで行われ, APIもそれを反映したものになった.
+</p>
+<p>
+2Dゲームならば, 3つのレンダリングの方法の1つに変更することになる.
+それらの方法について述べるが, まず基本的なことを説明する.
+</p>
+<p>
+SDL_SetVideoMode()を覚えているだろうか?
+それは完全に廃止された.
+SDL 2.0では複数のウィンドウが使える. そのためこの古い関数はもはや無意味である.
+</p>
+<p>
+よって, このような書き方は...
+<code>
+<pre>
+    SDL_WM_SetCaption("My Game Window", "game");
+    SDL_Surface *screen = SDL_SetVideoMode(640, 480, 0, SDL_FULLSCREEN | SDL_OPENGL);
+</pre>
+</code>
+</p>
+<p>
+このようになる
+<code>
+<pre>
+    SDL_Window *screen = <a href="SDL_CreateWindow.html" style="text-decoration:none;">SDL_CreateWindow</a>("My Game Window",
+                              SDL_WINDOWPOS_UNDEFINED,
+                              SDL_WINDOWPOS_UNDEFINED,
+                              640, 480,
+                              SDL_WINDOW_FULLSCREEN | SDL_WINDOW_OPENGL);
+</pre>
+</code>
+</p>
+<p>
+この置き換えは1.2とよく似ていることがわかるだろう.
+変わったのは, (必要ならば)複数のウィンドウが使えるようになったことと, より詳細に設定できるようになったことである.
+SDL_WM_SetCaption()も廃止された.
+それぞれのウィンドウがそれぞれのタイトルを持つようになったためである.
+(後で<a href="SDL_SetWindowTitle.html">SDL_SetWindowTitle()</a>で変更することもできる.)
+さらに, ウィンドウの位置も設定できるようになった.
+(<strong>SDL_WINDOWPOS_UNDEFINED</strong>を使えばシステムの決めた位置になる. <strong>SDL_WINDOWPOS_CENTERED</strong>を使うのもよい選択である.)
+</p>
+<p>
+ユーザがウィンドウを表示するディスプレイを指示することもできる: SDL2はマルチモニタも扱える.
+しかし, 今ここでは説明しない.
+</p>
+<p>
+これでウィンドウを画面に表示できるようになった. ここからはその扱いについて述べる.
+SDL2にも<a href="SDL_Surface.html">SDL_Surface</a>が存在する. しかし, 使えるならば, 本当に欲しいのは新しい<a href="SDL_Texture.html">SDL_Texture</a>のはずだ.
+<a href="SDL_Surface.html">SDL_Surface</a>では常にシステムのRAMを使い, そして常にCPUで操作される. その方法は取りたくないだろう.
+SDL2には新しいレンダリングAPIがある.
+これはシンプルな2Dゲームでの使用を意図している.
+しかし, 最も注目すべきなのは,
+ソフトウェアレンダリングからビデオRAMとGPUに移行したことである.
+そして, たとえソフトウェアレンダリングの結果を画面に転送するためだけに使う場合でも利点はある: 
+もし可能ならばOpenGLかDirect3Dが使われる. それにより高速に転送され, Steam Overlayが有効になり, 自由に拡大縮小できるようになる.
+</p>
+<p>
+初期設定は以下のようになる.
+</p>
+<p>
+SDL_SetVideoMode()は上で述べたように<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>になった.
+しかし, 解像度はどのように設定すればよいのだろうか?
+例えば, あなたのゲームが640×480でハードコードされていれば, 
+現在のモニタではフルスクリーンの解像度として設定できないかもしれない.
+そしてウィンドウモードならば, ハイエンドのモニタならばあなたのゲームは動く郵便切手のように見えてしまうだろう.
+SDL2ではよりよい解法がある.
+</p>
+<p>
+もうSDL_ListModes()を呼ぶ必要はない.
+同様の関数はSDL2にもある. (ループの中で<a href="SDL_GetDisplayMode.html">SDL_GetDisplayMode()</a>を<a href="SDL_GetNumDisplayModes.html">SDL_GetNumDisplayModes()</a>回呼ぶ.) しかし, 代わりに新しい仕様「フルスクリーンデスクトップ」を使うことができる. これはSDLに「画面全体を要求するが解像度は変えない」ことを指示するものである.
+例えば640×480のゲームならば, 次のようになる:
+</p>
+<p>
+<code>
+<pre>
+    SDL_Window *sdlWindow = <a href="SDL_CreateWindow.html" style="text-decoration:none;">SDL_CreateWindow</a>(title,
+                                 SDL_WINDOWPOS_UNDEFINED,
+                                 SDL_WINDOWPOS_UNDEFINED,
+                                 0, 0,
+                                 SDL_WINDOW_FULLSCREEN_DESKTOP);
+</pre>
+</code>
+</p>
+<p>
+640×480を指定しないことに注意すること...フルスクリーンデスクトップは画面全体のサイズになり, 指定したサイズは無視される.
+ゲームウィンドウはクリックして新しい解像度になるのを待たずにすぐに現れる.
+そして, デスクトップのサイズに拡大縮小するためにGPUが使われる. それはLCDの解像度を低く偽装するよりも高速で鮮明になる傾向にある.
+さらに他のウィンドウの大きさが変わることはない.
+</p>
+<p>
+次はレンダラーコンテキストが必要になる.
+<code>
+<pre>
+    SDL_Renderer *renderer = <a href="SDL_CreateRenderer.html" style="text-decoration:none;">SDL_CreateRenderer</a>(sdlWindow, -1, 0);
+</pre>
+</code>
+</p>
+<p>
+SDL_Rendererによってウィンドウへの描画の方法は隠蔽される.
+Direct3D, OpenGL, OpenGL ES, またはソフトウェアでレンダリングされるが,
+たとえSDLがどれを選んでもユーザはコードを同じように書ける. (ユーザがレンダリングの方法を強制的に決めることもできる.)
+ティアリング(tearing, 描画の最中にフレームが替わることで発生するちらつき)を軽減するために, 垂直同期を取る(sync-to-vblank)ことを強制したいならば, 3番目の引数の0を<strong>SDL_RENDERER_PRESENTVSYNC</strong>に変更すること.
+ウィンドウの生成時に<strong>SDL_WINDOW_OPENGL</strong>フラグを指定してはならない.
+もし<a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>がOpenGLを使うと決めたならば, そのときウィンドウはそれに合わせて更新される.
+</p>
+<p>
+その働きが理解できたならば,
+<a href="SDL_CreateWindowAndRenderer.html">SDL_CreateWindowAndRenderer()</a>で一まとめにすることもできる:
+<code>
+<pre>
+    SDL_Window *sdlWindow;
+    SDL_Renderer *sdlRenderer;
+    <a href="SDL_CreateWindowAndRenderer.html" style="text-decoration:none;">SDL_CreateWindowAndRenderer</a>(0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP, &sdlWindow, &sdlRenderer);
+</pre>
+</code>
+</p>
+<p>
+これらの関数が正常に実行されれば画面への描画の準備は整った.
+まず画面を黒で消去する.
+<code>
+<pre>
+    <a href="SDL_SetRenderDrawColor.html" style="text-decoration:none;">SDL_SetRenderDrawColor</a>(sdlRenderer, 0, 0, 0, 255);
+    <a href="SDL_RenderClear.html" style="text-decoration:none;">SDL_RenderClear</a>(sdlRenderer);
+    <a href="SDL_RenderPresent.html" style="text-decoration:none;">SDL_RenderPresent</a>(sdlRenderer);
+</pre>
+</code>
+</p>
+<p>
+この動作は予想できるだろう:
+描画を黒にする(赤, 緑, 青が全て0, αは最大値), 
+ウィンドウ全体をクリアする, 
+クリアしたウィンドウを画面に表示する.
+画面の更新のためにSDL_UpdateRect()やSDL_Flip()を使ったことがあるかもしれないが,
+レンダラーAPIでは<a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>が使われる.
+</p>
+<p>
+初期化で必要なことはまだある.
+<strong>SDL_WINDOW_FULLSCREEN_DESKTOP</strong>を指定したならば, 描画すべき画面の実際の大きさがわからない.
+だが, 幸いなことにそれは知る必要がない.
+1.2では, 例えば640×480を要求してもその通りになるとは限らず, 高い解像度の画面の中央に小さく画面が表示されることもあった.
+</p>
+<p>
+2.0ではレンダリングAPIを使うとこのようになる...
+<code>
+<pre>
+    <a href="SDL_SetHint.html" style="text-decoration:none;">SDL_SetHint</a>(<a href="SDL_HINT_RENDER_SCALE_QUALITY.html" style="text-decoration:none;">SDL_HINT_RENDER_SCALE_QUALITY</a>, "linear");  // 拡大縮小が滑らかになる
+    <a href="SDL_RenderSetLogicalSize.html" style="text-decoration:none;">SDL_RenderSetLogicalSize</a>(sdlRenderer, 640, 480);
+</pre>
+</code>
+</p>
+<p>
+...そして, このようにすべきた.
+この方法は論理的なレンダリングサイズを様々な目的に合わせて変えられる点で良い方法である. しかし, 最も重要なのは, 
+レンダリングサイズにシステムを合わせようとする代わりに, レンダリングサイズをシステムに合わせるようになったことである.
+1920x1200のモニタで640×480のアプリケーションを動かしても, SDLはGPUを使って拡大し画面全体に表示する.
+640×480と1920×1200では縦横比が異なるが, SDLはその点も考慮しており, 可能な限り拡大した後に黒帯を追加(letterboxing)する.
+</p>
+<p>
+ここから本当の描画が始まる.
+</p>
+<h4>ケース1: 画面全体を自分自身でレンダリングしたい場合</h4>
+<p>
+古いゲームには, アプリケーションが全てのピクセルを描画し, 最後にその結果を画面に転送するものがある.
+例えば, Doom, Duke Nukem 3Dなどがそうである.
+</p>
+<p>
+この場合は, 1つの<a href="SDL_Texture.html">SDL_Texture</a>が画面を表すようにする.
+640×480のゲーム用に生成してみよう:
+<code>
+<pre>
+    sdlTexture = <a href="SDL_CreateTexture.html" style="text-decoration:none;">SDL_CreateTexture</a>(sdlRenderer,
+                                   SDL_PIXELFORMAT_ARGB8888,
+                                   SDL_TEXTUREACCESS_STREAMING,
+                                   640, 480);
+</pre>
+</code>
+</p>
+<p>
+これはGPU上のテクスチャーを表している.
+このテクスチャのピクセルの更新を完了した後に, ウィンドウにテクスチャを描画し, 描画したものと画面を入れ替える.
+<strong>SDL_TEXTUREACCESS_STREAMING</strong>はSDLにテクスチャのコンテキストが周期的に変わることを知らせている.
+</p>
+<p>
+以前は<a href="SDL_Surface.html">SDL_Surface</a>に描画し, それからSDL_Flip()で画面に表示していただろう.
+現在では, ピクセルの書き込み先として, RAMに<a href="SDL_Surface.html">SDL_Surface</a>を生成するだけでなく, 単にmalloc()で確保したブロックを使うこともできる.
+理屈の上ではバッファにRGBAピクセルを書き込むことはできる. しかし, 変換が必要ならば次の方法でもよい.
+<code>
+<pre>
+    extern Uint32 *myPixels;  // surface->pixels や malloc()で確保したバッファなど
+</pre>
+</code>
+</p>
+<p>
+フレームの最後で次のようにテクスチャーを更新する:
+<code>
+<pre>
+    <a href="SDL_UpdateTexture.html" style="text-decoration:none;">SDL_UpdateTexture</a>(sdlTexture, NULL, myPixels, 640 * sizeof (Uint32));
+</pre>
+</code>
+</p>
+<p>
+これでピクセルがGPUメモリへと転送される.
+転送する領域としてNULLの部分にはみ出した領域を指定しても, 現在のハードウェアならば問題なくフレームバッファ内に収まるようになるはずだ.
+最後の引数はピッチ(ある行から次の行までのバイト数)だが, この例ではリニアなRGBAバッファなので, 単に640(幅)×4(R,G,B,A)である.
+</p>
+<p>
+これからテクスチャを画面に表示する:
+<code>
+<pre>
+    <a href="SDL_RenderClear.html" style="text-decoration:none;">SDL_RenderClear</a>(sdlRenderer);
+    <a href="SDL_RenderCopy.html" style="text-decoration:none;">SDL_RenderCopy</a>(sdlRenderer, sdlTexture, NULL, NULL);
+    <a href="SDL_RenderPresent.html" style="text-decoration:none;">SDL_RenderPresent</a>(sdlRenderer);
+</pre>
+</code>
+</p>
+<p>
+これだけだ.
+<a href="SDL_RenderClear.html">SDL_RenderClear()</a>は現在のビデオフレームバッファ(最後にSteam Overlayが書き込んだものも含む)を消去する.
+<a href="SDL_RenderCopy.html">SDL_RenderCopy()</a>はテクスチャのコンテキストをビデオフレームバッファにコピーする(さらに<a href="SDL_RenderSetLogicalSize.html">SDL_RenderSetLogicalSize()</a>によって中央で拡大縮小される).
+そして, <a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>は画面に表示する.
+</p>
+<h4>ケース2: 画面にサーフェイスをコピーしたい場合</h4>
+<p>
+ここでは, あなたのSDL1.2のゲームが多くのグラフィックをディスクからSDL_Surfaceに読み込んでいる場合について扱う.
+もしかするとSDL_HWSURFACEを指定してビデオRAM上に確保しようとしているかもしれない.
+読み込むのは一度で, 必要があるたびに何度もフレームバッファに転送するが, 変更されることはない.
+シンプルな2Dゲームはそうなっているはずだ.
+サーフェイスを「スプライト」と考えていて, バッファにピクセルを書き込まないならば, この項目はあなたに合っている.
+</p>
+<p>
+テクスチャ(GPUメモリ上のサーフェイス)を個々に生成する方法は, 大きな1つのテクスチャを生成するのと同じである:
+<code>
+<pre>
+    sdlTexture = <a href="SDL_CreateTexture.html" style="text-decoration:none;">SDL_CreateTexture</a>(sdlRenderer,
+                                   SDL_PIXELFORMAT_ARGB8888,
+                                   SDL_TEXTUREACCESS_STATIC,
+                                   myWidth, myHeight);
+</pre>
+</code>
+</p>
+<p>
+こうすれば期待した通りになるだろう.
+<strong>SDL_TEXTUREACCESS_STATIC</strong>を使うのは, 転送されるのは一度だけだからである.
+しかし, もっと便利な方法がある:
+<code>
+<pre>
+    sdlTexture = <a href="SDL_CreateTextureFromSurface.html" style="text-decoration:none;">SDL_CreateTextureFromSurface</a>(sdlRenderer, mySurface);
+</pre>
+</code>
+</p>
+<p>
+この方法の場合, 読み込みは今まで通り<a href="SDL_Surface.html">SDL_Surface</a>に対して行うが, 最後にそれをテクスチャに変換することになる.
+一度<a href="SDL_Texture.html">SDL_Texture</a>に変換すれば, 元のサーフェイスは解放してよい.
+</p>
+<p>
+1.2では, 多数の<a href="SDL_Surface.html">SDL_Surface</a>を確保し, それを<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>で画面のサーフェイスに転送してフレームバッファを構成し, 最後にSDL_Flip()で画面を更新していた.
+SDL 2.0では, 多数の<a href="SDL_Texture.html">SDL_Texture</a>を確保し, それを<a href="SDL_RenderCopy.html">SDL_RenderCopy()</a>でレンダラーに転送してフレームバッファを構成し, 最後に<a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>で画面を更新する.
+これは単純である.
+これらのテクスチャを変更しないならば, 高速に描画できるだろう.
+</p>
+<h4>ケース3: 両方を使いたい場合</h4>
+<p>
+フレームバッファへのサーフェイスの転送と, 個々のピクセルの変更の両方を行いたい場合は, やや複雑になる.
+Round trips(テクスチャからのデータの読み戻し)は非常に高コストである.
+一般的にはデータは常に一方通行が望ましい.
+恐らくこの場合最も良いのは, 最終的に画面に転送するまで全てソフトウェア内に止めておいて, 前の2つの方法を組み合わせる方法である.
+</p>
+<p>
+幸いなことに1.2の<a href="SDL_Surface.html">SDL_Surface</a> APIはほとんど使える. よって画面のサーフェイスを, これから...
+<code>
+<pre>
+    SDL_Surface *screen = SDL_SetVideoMode(640, 480, 32, 0);
+</pre>
+</code>
+</p>
+<p>
+...このようにする...
+<code>
+<pre>
+    // 16進数で書きたくなければ<a href="SDL_PixelFormatEnumToMasks.html">SDL_PixelFormatEnumToMasks()</a>を使うこと!
+    SDL_Surface *screen = <a href="SDL_CreateRGBSurface.html" style="text-decoration:none;">SDL_CreateRGBSurface</a>(0, 640, 480, 32,
+                                               0x00FF0000,
+                                               0x0000FF00,
+                                               0x000000FF,
+                                               0xFF000000);
+    SDL_Texture *sdlTexture = <a href="SDL_CreateTexture.html" style="text-decoration:none;">SDL_CreateTexture</a>(sdlRenderer,
+                                                SDL_PIXELFORMAT_ARGB8888,
+                                                SDL_TEXTUREACCESS_STREAMING,
+                                                640, 480);
+</pre>
+</code>
+</p>
+<p>
+...そして前の方法で転送とピクセルの変更を行い, このSDL_Surfaceのフレームバッファを構築する.
+一度画面のピクセルを得る準備をすれば, 最初の方法と同じようにすればよい.
+<code>
+<pre>
+    <a href="SDL_UpdateTexture.html" style="text-decoration:none;">SDL_UpdateTexture</a>(sdlTexture, NULL, screen->pixels, screen->pitch);
+    <a href="SDL_RenderClear.html" style="text-decoration:none;">SDL_RenderClear</a>(sdlRenderer);
+    <a href="SDL_RenderCopy.html" style="text-decoration:none;">SDL_RenderCopy</a>(sdlRenderer, sdlTexture, NULL, NULL);
+    <a href="SDL_RenderPresent.html" style="text-decoration:none;">SDL_RenderPresent</a>(sdlRenderer);
+</pre>
+</code>
+</p>
+<p>
+テクスチャの生成は高価で資源が限られているので注意すること: 
+<a href="SDL_CreateTextureFromSurface.html">SDL_CreateTextureFromSurface()</a>を毎フレーム呼んではならない.
+初期化でサーフェイスからテクスチャへの変換を一度だけ行うこと.
+</p>
+<p>
+レンダラーAPIにはもっと多くの機能があり, あなたのアプリケーションのコード: 拡大縮小, 線分の描画などと置き換えられるものもあるだろう.その機能を使えば, 
+個々のピクセルの操作を止めて全てGPU上に移すことができ, 
+あなたのプログラムを高速で単純にできるかもしれない.
+</p>
+<h4>その他のレンダラーAPI</h4>
+<p>
+いくつかの単純な効果はピクセルを直接操作しなくてもレンダラーAPIで実現できる.
+以下の内の一部は1.2のサーフェイスでも使える.
+</p>
+<ul>
+<li>αカラー: <a href="SDL_Color.html">SDL_Color</a>のメンバの4番目にα値が追加された. 1.2では<a href="SDL_Color.html">SDL_Color</a>のこの値(unusedという名前だった)は使われなかった. 2.0では必須である.
+<li>αブレンド: <a href="SDL_SetSurfaceAlphaMod.html">SDL_SetSurfaceAlphaMod()</a>と<a href="SDL_SetTextureAlphaMod.html">SDL_SetTextureAlphaMod()</a>をSDL_SetAlpha()の代わりに使うこと.
+サーフェイスのαブレンドは<a href="SDL_SetSurfaceBlendMode.html">SDL_SetSurfaceBlendMode()</a>, テクスチャのαブレンドは<a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode()</a>で設定できる.
+<li>カラーキー: <a href="SDL_SetColorKey.html">SDL_SetColorKey()</a>の引数に, SDL_TRUEをSDL_SRCCOLORKEYの代わりに渡すこと.
+<li>色変調: 一部のレンダラーは全体的な色の変調に対応した(srcC = srcC * color). 詳細は<a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod()</a>を参照すること.
+</ul>
+<p>
+<em>(以下未訳...)</em>
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/MigrationGuide">SDL 1.2 to 2.0 Migration Guide - SDL Wiki</a>
+<hr>
+</body>
+</html>
