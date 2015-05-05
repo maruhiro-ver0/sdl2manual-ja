@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
   DestR.h = SHAPE_SIZE;
 
 
-  /* レンダリングの前にウィンドウをレンダラーを生成する */
+  /* レンダリングの前にウィンドウとレンダラーを生成する */
   Main_Window = SDL_CreateWindow("SDL_RenderCopy Example",
   SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 580, 0);
   Main_Renderer = SDL_CreateRenderer(Main_Window, -1, SDL_RENDERER_ACCELERATED);
@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
   新しいデータがどのようにブレンドされるかは変更できる.
   あなたの「絵」が完成すれば, それをSDL_RenderPresentを使って見せることができる */
 
-  /* SDL 1.2のヒント: レンダラーが理解しづらいならば, 1.2のサーフェイスとコピーに置き換えて,
+  /* SDL 1.2ユーザへのヒント: レンダラーが理解しづらいならば, 1.2のサーフェイスとコピーに置き換えて,
   レンダラーはメインサーフェイス, SDL_RenderCopyはメインサーフェイスへのコピー,
   SDL_RenderPresentは旧バージョンのSDL_Flip関数と考えればよいかもしれない */
 
