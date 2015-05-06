@@ -433,8 +433,175 @@ Round trips(テクスチャからのデータの読み戻し)は非常に高コストである.
 <li>カラーキー: <a href="SDL_SetColorKey.html">SDL_SetColorKey()</a>の引数に, SDL_TRUEをSDL_SRCCOLORKEYの代わりに渡すこと.
 <li>色変調: 一部のレンダラーは全体的な色の変調に対応した(srcC = srcC * color). 詳細は<a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod()</a>を参照すること.
 </ul>
+<h3>OpenGL</h3>
 <p>
-<em>(以下未訳...)</em>
+OpenGLを直接つかっているならば移行は簡単である.
+SDL_SetVideoMode()を<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>と<a href="SDL_GL_CreateContext.html">SDL_GL_CreateContext()</a>に置き換える. そして, SDL_GL_SwapBuffers()を<a href="SDL_GL_SwapWindow.html">SDL_GL_SwapWindow(window)</a>に置き換える.
+これらのGLの呼び出しは全て等価である.
+</p>
+<p>
+もしSDL_GL_SetAttribute(SDL_GL_SWAP_CONTROL, x)を呼んでいるならば, これも置き換える.
+それは<a href="SDL_GL_SetSwapInterval.html">SDL_GL_SetSwapInterval(x)</a>になった. これで存在するGLコンテキストを変更できる.
+</p>
+<p>
+SDL 2.0はウィンドウ/フルスクリーンを切り替えられ, OpenGLウィンドウに戻ってもGLコンテキストは失われない(すばらしい!).
+これは<a href="SDL_SetWindowFullscreen.html">SDL_SetWindowFullscreen()</a>で実現できる.
+</p>
+<h3>入力</h3>
+<p>
+よい知らせはSDL 2.0ではUnicode入力ができるようになったこと,
+悪い知らせはこの変更のためにあなたのプログラムを少し修正しなければならないことである.
+</p>
+<p>
+1.2では, SDL_EnableUNICODE(1)を呼んでも, キーに関連付けられた文字を得るだけだった, 多くのアプリケーションは英語しか対応できなかった.
+これは英語圏の外ではうまく行かず, そしてアジア言語では<em>まったく</em>うまく行かない.
+</p>
+<p>
+国際化は困難であった.
+</p>
+<p>
+2.0ではここが変わった.
+SDL_EnableUNICODE()はなくなり, <a href="SDL_Keysym.html">SDL_Keysym</a>はUnicodeのフィールドになった.
+もはや<a href="SDL_EventType.html">SDL_KEYDOWN</a>イベントからは文字入力は得られない.
+現在では<a href="SDL_EventType.html">SDL_KEYDOWN</a>は101個のボタンのあるジョイスティックのように扱われる.
+テキスト入力は別の方法で行う.
+</p>
+<p>
+新しく<a href="SDL_EventType.html">SDL_TEXTINPUT</a>イベントが追加された.
+これはユーザが新しいテキストを入力するたびに発生する.
+このテキストはキーの押下とIME(これは複雑な複数のテキストを入力する有効な方法である)の両方で発生するので注意すること.
+このイベントは入力された1文字または複数文字の文字列を戻す.
+この文字列は常にUTF-8である.
+</p>
+<p>
+もし実際に押したキーを扱いたいならば, 今でも<a href="SDL_EventType.html">SDL_KEYDOWN</a>が使える.
+しかし, このシステムは1.2の頃から2つ: <a href="SDL_Keycode.html">キーコード</a>と<a href="SDL_Scancode.html">スキャンコード</a>に分かれた.
+</p>
+<p>
+<a href="SDL_Scancode.html">スキャンコード</a>はキーボードレイアウトに依存しない.
+これは, 実際にはヨーロッパのキーボードでもDvorakキーボードでも, 「ユーザはアメリカのQWERTYキーボードの"Q"の位置にあるキーを押した」として扱う.
+<a href="SDL_Scancode.html">スキャンコード</a>は常にキーの物理的な位置を扱う.
+</p>
+<p>
+<a href="SDL_Keycode.html">キーコード</a>はキーボードレイアウトに依存する.
+これは「ユーザは"Q"と書かれたキーを押した」として扱う.
+</p>
+<p>
+例えば, アメリカのQWERTYキーボードのCAPS LOCKキーから右2つ目のキーを押したとする.
+<a href="SDL_Scancode.html">スキャンコード</a>がSDL_SCANCODE_Sで, <a href="SDL_Keycode.html">キーコード</a>はSDLK_Sとなるだろう.
+Dvorakキーボードの同じキーならば, <a href="SDL_Scancode.html">スキャンコード</a>はSDL_SCANCODE_Sで, <a href="SDL_Keycode.html">キーコード</a>はSDLK_Oとなる.
+</p>
+<p>
+<a href="SDL_Keycode.html">キーコード</a>と<a href="SDL_Scancode.html">スキャンコード</a>は現在では32bitになったので注意すること.
+SDLK_LASTはなくなった.
+SDLキーとあなたのアプリケーション内部で必要なものを対応付けるために, プログラムで要素数がSDLK_LAST個のテーブルを使っているならば, それはもはや正しく動作しない.
+代わりにハッシュテーブルを使うべきだ.
+std::mapを使えば可能だろう.
+<a href="SDL_Scancode.html">スキャンコード</a>を<a href="SDL_Keycode.html">キーコード</a>の代わりに使うならば, <strong>SDL_NUM_SCANCODES</strong>を配列の要素数として使うことができる.
+その値は現在は512である.
+</p>
+<p>
+SDLModは<a href="SDL_Keymod.html">SDL_Keymod</a>になり, METAキー(Windowsキー)はGUIキーと呼ばれるようになった.
+</p>
+<p>
+SDL_GetKeyState()の名称は<a href="SDL_GetKeyboardState.html">SDL_GetKeyboardState()</a>に変更された.
+戻り値の配列の順序(添え字)は, <a href="SDL_Keycode.html">SDL_Keycode</a>から<a href="SDL_Scancode.html">SDL_SCANCODE_*</a>になった.
+</p>
+<p>
+次はマウス入力である.
+</p>
+<p>
+まず, マウスホイールはボタンとして扱われなくなった.
+これは間違いだった. SDL 2.0では適切に扱われる.
+SDL_MOUSEWHEELを参照すること.
+垂直, 水平両方のホイールに対応している. そして一部の環境にあるトラックパッドの2本指スクロールもホイール入力として扱われる.
+マウスホイールの操作をSDL_BUTTONDOWNイベントとして受け取ることはもうない. 4, 5番目のボタンも実際のマウスのボタンとして扱われる.
+</p>
+<p>
+もしあなたのゲームがマウスをある方向へずっと動かす必要がある, 
+例えばFPSでマウスカーソルが画面の外に出てしまうとプレイヤーが向きを変えられなくなるのを防ぐならば, 
+マウスカーソルを隠して入力グラブしていたかもしれない:
+<code>
+<pre>
+    SDL_ShowCursor(0);
+    SDL_WM_GrabInput(SDL_GRAB_ON);
+</pre>
+</code>
+</p>
+<p>
+SDL2ではこれは少し変わった. このようにして...
+<code>
+<pre>
+    SDL_SetRelativeMouseMode(SDL_TRUE);
+</pre>
+</code>
+後はSDLに任せればよい.
+</p>
+<h3>イベント</h3>
+<p>
+<a href="SDL_PushEvent.html">SDL_PushEvent()</a>の成功時の戻り値は0から1になった.
+</p>
+<p>
+イベントマスクは範囲を指定できるようになった:
+<code>
+<pre>
+    SDL_PeepEvents(&event, 1, SDL_GETEVENT, SDL_EVENTMASK(SDL_MOUSEBUTTONDOWN));
+</pre>
+</code>
+これはこのようになる:
+<code>
+<pre>
+    SDL_PeepEvents(&event, 1, SDL_GETEVENT, SDL_MOUSEBUTTONDOWN, SDL_MOUSEBUTTONDOWN);
+</pre>
+</code>
+</p>
+<h3>オーディオ</h3>
+<p>
+幸いなことに, 1.2とは一点を除き後方互換性がある.
+新しい機能を使いたいならばそれもできる. しかし, 恐らく変更なしにコンパイルし実行したいだろう.
+</p>
+<p>
+重要な唯一の違い: オーディオコールバックはバッファが完全に初期化された状態から始まら<strong>ない</strong>.
+よってバッファには全て書き込まなければならない.
+もし音声が足りなければ, コールバックで無音を書き込む必要がある.
+そうしないと, 同じ音の繰り返しや雑音が発生する.
+もし以前と同じように無条件に初期化したいならば, ただ <code>SDL_memset(stream, 0, len)</code> をコールバックの先頭に挿入すればよい.
+</p>
+<h3>ジョイスティック</h3>
+<p>
+<em>(未訳)</em>
+</p>
+<h3>スレッド</h3>
+<p>
+<em>(未訳)</em>
+</p>
+<h3>オーディオCD</h3>
+<p>
+<em>(未訳)</em>
+</p>
+<h3>対応から外れた環境</h3>
+<p>
+<em>(未訳)</em>
+</p>
+<h3>モバイル環境</h3>
+<p>
+<em>(未訳)</em>
+</p>
+<h3>RWops</h3>
+<p>
+<em>(未訳)</em>
+</p>
+<h3>アドオンライブラリ</h3>
+<p>
+<em>(未訳)</em>
+</p>
+<h3>変更された項目のまとめ</h3>
+<p>
+<em>(未訳)</em>
+</p>
+<h3>その他</h3>
+<p>
+<em>(未訳)</em>
 </p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/MigrationGuide">SDL 1.2 to 2.0 Migration Guide - SDL Wiki</a>
