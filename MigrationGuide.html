@@ -386,7 +386,7 @@ Round trips(テクスチャからのデータの読み戻し)は非常に高コストである.
 ...このようにする...
 <code>
 <pre>
-    // 16進数で書きたくなければ<a href="SDL_PixelFormatEnumToMasks.html">SDL_PixelFormatEnumToMasks()</a>を使うこと!
+    // 16進数で書きたくなければ<a href="SDL_PixelFormatEnumToMasks.html"  style="text-decoration:none;">SDL_PixelFormatEnumToMasks()</a>を使うこと!
     SDL_Surface *screen = <a href="SDL_CreateRGBSurface.html" style="text-decoration:none;">SDL_CreateRGBSurface</a>(0, 640, 480, 32,
                                                0x00FF0000,
                                                0x0000FF00,
@@ -461,7 +461,7 @@ SDL 2.0はウィンドウ/フルスクリーンを切り替えられ, OpenGLウィンドウに戻ってもGLコ
 </p>
 <p>
 2.0ではここが変わった.
-SDL_EnableUNICODE()はなくなり, <a href="SDL_Keysym.html">SDL_Keysym</a>はUnicodeのフィールドになった.
+SDL_EnableUNICODE()は廃止され, <a href="SDL_Keysym.html">SDL_Keysym</a>はUnicodeのフィールドになった.
 もはや<a href="SDL_EventType.html">SDL_KEYDOWN</a>イベントからは文字入力は得られない.
 現在では<a href="SDL_EventType.html">SDL_KEYDOWN</a>は101個のボタンのあるジョイスティックのように扱われる.
 テキスト入力は別の方法で行う.
@@ -569,15 +569,48 @@ SDL2ではこれは少し変わった. このようにして...
 </p>
 <h3>ジョイスティック</h3>
 <p>
-<em>(未訳)</em>
+ジョイスティックイベントはSDL_JoystickIDを持つようになった.
+これによりSDL 2.0ではジョイスティックのゲーム中の抜き差しを扱えるようになった.
+1.2で使っていたデバイス一覧の番号はデバイス一覧が変わると無効になっていた.
+</p>
+<p>
+SDL_JoystickIDはオープンしたSDL_Joystick*から次の呼び出しで得られる:
+<code>
+<pre>
+    SDL_JoystickID myID = <a href="SDL_JoystickInstanceID.html"  style="text-decoration:none;">SDL_JoystickInstanceID</a>(myOpenedStick);
+</pre>
+</code>
+</p>
+<p>
+そして, ジョイスティックのイベントのwhichフィールドとmyIDを比較すれば識別できる.
+ジョイスティックイベントを使いたくないならば, <a href="SDL_JoystickGetAxis.html">SDL_JoystickGetAxis()</a>とその仲間がSDL 1.2のように使える.
+</p>
+<p>
+新しいゲームコントローラーAPIもチェックすべきだ.
+それはすばらしいものだ.
+そして, 1.2APIで行っていた様々な工夫を, 新しいコードではより明快に解決できるかもしれない.
+それらはSDL_gamecontroller.hにある.
+ゲームコントローラーAPIはSteamのBig Pictureモードに適している:
+ほとんどのコントローラーを自動的に設定でき,
+そして手動で設定したい場合にはすばらしいユーザインターフェースがある.
+どちらの場合でも, SteamはあなたのSDLアプリケーションに設定を提供する.
 </p>
 <h3>スレッド</h3>
 <p>
-<em>(未訳)</em>
+SDL_KillThread()は廃止された.
+それは安全でなく, 信用できるものではなかった.
+最もよい書き換えは, フラグを設定しスレッドに終了を伝える方法である.
+スレッドはフラグを周期的に確認し, "kill"するスレッドが<a href="SDL_WaitThread.html">SDL_WaitThread()</a>を呼んで後処理を行う.
+</p>
+<p>
+<a href="SDL_CreateThread.html">SDL_CreateThread()</a>にはスレッドの名前の引数が追加された. これはデバッグ時の識別に使える.
+使わないのであれば, 追加の引数をNULLにすればよい.
 </p>
 <h3>オーディオCD</h3>
 <p>
-<em>(未訳)</em>
+1.2のCD APIは全て廃止された.
+置き換えは存在しない.
+SDL_mixerを使えばOgg Vorbisや他のオーディオファイル形式の音楽を再生できる.
 </p>
 <h3>対応から外れた環境</h3>
 <p>
