@@ -13,8 +13,8 @@
 <body>
 <a href="index.html">目次</a> - SDL 1.2から2.0への移行
 <hr>
-<h1>SDL 1.2から2.0への移行</h1>
-<h2>はじめに</h2>
+<h1 id="SDL_1.2_to_2.0_Migration_Guide">SDL 1.2から2.0への移行</h1>
+<h2 id="Introduction">はじめに</h2>
 <p>
 幾年もの開発ののち, ついにSDL 2.0がリリースされた!
 </p>
@@ -28,7 +28,7 @@ SDL 2.0は, 新しい機能とSDL 1.2の経験が生かせる満足のいくものだと私たちは考えてい
 この文書はSDL2の全ての機能を扱うことを目指してはいない. それは多すぎるからだ. しかし, <em>すぐに</em>動かすために必要なものはそろっているはずだ.
 既にコードを移行したならば, 新しい項目をチェックすべきだ. あなたのアプリケーションで新しい機能を使いたくなるだろう.
 </p>
-<h3>新しい機能の概要</h3>
+<h3 id="Overview_of_new_features">新しい機能の概要</h3>
 SDL 2.0の主要な新機能:
 <ul>
 <li>完全な3Dハードウェアアクセラレーション
@@ -60,15 +60,15 @@ SDL 2.0の主要な新機能:
 <li>その他多数!
 </ul>
 <a href="https://wiki.libsdl.org/Introduction">Introduction</a>のページには, (1.2の機能を含む)SDLの全機能の一覧がある.
-<h3>さらなる情報を見つけるために</h3>
+<h3 id="Looking_for_more_information">さらなる情報を見つけるために</h3>
 情報を見つけるよい場所:
 <ul>
 <li>このwiki :-) <a href="https://wiki.libsdl.org/FrontPage">SDL Wiki</a>
 <li>SDLのtest/ディレクトリにあるテストプログラム (<a href="https://hg.libsdl.org/SDL/file/default/test">オンラインで閲覧</a>)
 <li>SDL<a href="http://lists.libsdl.org/listinfo.cgi/sdl-libsdl.org">メーリングリスト</a>
 </ul>
-<h2>SDL 1.2から SDL 2.0への移行</h2>
-<h3>いくつかの事実</h3>
+<h2 id="Moving_from_SDL_1.2_to_2.0">SDL 1.2から SDL 2.0への移行</h2>
+<h3 id="Some_general_truths">いくつかの事実</h3>
 <p>
 SDL2への互換レイヤーはない.
 2.0のAPIに変更するならば, つじつまが合うように古い関数を変更や削除する必要がある.
@@ -89,8 +89,8 @@ SDL parachuteは, もはや存在しない.
 あなたは自分自身でクラッシュハンドラを導入するか, atexit()関数で<a href="SDL_Quit.html">SDL_Quit()</a>やそれと同等の関数を呼ぶ必要がある.
 なお, Unix環境では, SDLは今でもSIGINTを捕らえ<a href="SDL_EventType.html">SQL_QUIT</a>イベントに変換しているので注意すること.
 </p>
-<h3>ビデオ</h3>
-<h4>新しいビデオAPIでゲームを初期化する</h4>
+<h3 id="Video">ビデオ</h3>
+<h4 id="Setting_up_a_game_with_the_new_video_API">新しいビデオAPIでゲームを初期化する</h4>
 <p>
 1.2から最も劇的に変化したのはビデオAPIである.
 SDLのAPIが設計された1990年代の終わりから状況は大きく変化した.
@@ -267,7 +267,7 @@ Direct3D, OpenGL, OpenGL ES, またはソフトウェアでレンダリングされるが,
 <p>
 ここから本当の描画が始まる.
 </p>
-<h4>ケース1: 画面全体を自分自身でレンダリングしたい場合</h4>
+<h4 id="If_your_game_just_wants_to_get_fully-rendered_frames_to_the_screen">ケース1: 画面全体を自分自身でレンダリングしたい場合</h4>
 <p>
 古いゲームには, アプリケーションが全てのピクセルを描画し, 最後にその結果を画面に転送するものがある.
 例えば, Doom, Duke Nukem 3Dなどがそうである.
@@ -328,7 +328,7 @@ Direct3D, OpenGL, OpenGL ES, またはソフトウェアでレンダリングされるが,
 <a href="SDL_RenderCopy.html">SDL_RenderCopy()</a>はテクスチャのコンテキストをビデオフレームバッファにコピーする(さらに<a href="SDL_RenderSetLogicalSize.html">SDL_RenderSetLogicalSize()</a>によって中央で拡大縮小される).
 そして, <a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>は画面に表示する.
 </p>
-<h4>ケース2: 画面にサーフェイスをコピーしたい場合</h4>
+<h4 id="If_your_game_wants_to_blit_surfaces_to_the_screen">ケース2: 画面にサーフェイスをコピーしたい場合</h4>
 <p>
 ここでは, あなたのSDL1.2のゲームが多くのグラフィックをディスクからSDL_Surfaceに読み込んでいる場合について扱う.
 もしかするとSDL_HWSURFACEを指定してビデオRAM上に確保しようとしているかもしれない.
@@ -367,7 +367,7 @@ SDL 2.0では, 多数の<a href="SDL_Texture.html">SDL_Texture</a>を確保し, それを<a 
 これは単純である.
 これらのテクスチャを変更しないならば, 高速に描画できるだろう.
 </p>
-<h4>ケース3: 両方を使いたい場合</h4>
+<h4 id="If_your_game_wants_to_do_both">ケース3: 両方を使いたい場合</h4>
 <p>
 フレームバッファへのサーフェイスの転送と, 個々のピクセルの変更の両方を行いたい場合は, やや複雑になる.
 Round trips(テクスチャからのデータの読み戻し)は非常に高コストである.
@@ -421,7 +421,7 @@ Round trips(テクスチャからのデータの読み戻し)は非常に高コストである.
 個々のピクセルの操作を止めて全てGPU上に移すことができ, 
 あなたのプログラムを高速で単純にできるかもしれない.
 </p>
-<h4>その他のレンダラーAPI</h4>
+<h4 id="Other_Renderer_API_notes">その他のレンダラーAPI</h4>
 <p>
 いくつかの単純な効果はピクセルを直接操作しなくてもレンダラーAPIで実現できる.
 以下の内の一部は1.2のサーフェイスでも使える.
@@ -433,7 +433,7 @@ Round trips(テクスチャからのデータの読み戻し)は非常に高コストである.
 <li>カラーキー: <a href="SDL_SetColorKey.html">SDL_SetColorKey()</a>の引数に, SDL_TRUEをSDL_SRCCOLORKEYの代わりに渡すこと.
 <li>色変調: 一部のレンダラーは全体的な色の変調に対応した(srcC = srcC * color). 詳細は<a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod()</a>を参照すること.
 </ul>
-<h3>OpenGL</h3>
+<h3 id="OpenGL">OpenGL</h3>
 <p>
 OpenGLを直接つかっているならば移行は簡単である.
 SDL_SetVideoMode()を<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>と<a href="SDL_GL_CreateContext.html">SDL_GL_CreateContext()</a>に置き換える. そして, SDL_GL_SwapBuffers()を<a href="SDL_GL_SwapWindow.html">SDL_GL_SwapWindow(window)</a>に置き換える.
@@ -447,7 +447,7 @@ SDL_SetVideoMode()を<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>と<a h
 SDL 2.0はウィンドウ/フルスクリーンを切り替えられ, OpenGLウィンドウに戻ってもGLコンテキストは失われない(すばらしい!).
 これは<a href="SDL_SetWindowFullscreen.html">SDL_SetWindowFullscreen()</a>で実現できる.
 </p>
-<h3>入力</h3>
+<h3 id="Input">入力</h3>
 <p>
 よい知らせはSDL 2.0ではUnicode入力ができるようになったこと,
 悪い知らせはこの変更のためにあなたのプログラムを少し修正しなければならないことである.
@@ -537,7 +537,7 @@ SDL2ではこれは少し変わった. このようにして...
 </code>
 後はSDLに任せればよい.
 </p>
-<h3>イベント</h3>
+<h3 id="Events">イベント</h3>
 <p>
 <a href="SDL_PushEvent.html">SDL_PushEvent()</a>の成功時の戻り値は0から1になった.
 </p>
@@ -555,7 +555,7 @@ SDL2ではこれは少し変わった. このようにして...
 </pre>
 </code>
 </p>
-<h3>オーディオ</h3>
+<h3 id="Audio">オーディオ</h3>
 <p>
 幸いなことに, 1.2とは一点を除き後方互換性がある.
 新しい機能を使いたいならばそれもできる. しかし, 恐らく変更なしにコンパイルし実行したいだろう.
@@ -567,7 +567,7 @@ SDL2ではこれは少し変わった. このようにして...
 そうしないと, 同じ音の繰り返しや雑音が発生する.
 もし以前と同じように無条件に初期化したいならば, ただ <code>SDL_memset(stream, 0, len)</code> をコールバックの先頭に挿入すればよい.
 </p>
-<h3>ジョイスティック</h3>
+<h3 id="Joysticks">ジョイスティック</h3>
 <p>
 ジョイスティックイベントはSDL_JoystickIDを持つようになった.
 これによりSDL 2.0ではジョイスティックのゲーム中の抜き差しを扱えるようになった.
@@ -595,7 +595,7 @@ SDL_JoystickIDはオープンしたSDL_Joystick*から次の呼び出しで得られる:
 そして手動で設定したい場合にはすばらしいユーザインターフェースがある.
 どちらの場合でも, SteamはあなたのSDLアプリケーションに設定を提供する.
 </p>
-<h3>スレッド</h3>
+<h3 id="Threads">スレッド</h3>
 <p>
 SDL_KillThread()は廃止された.
 それは安全でなく, 信用できるものではなかった.
@@ -606,35 +606,132 @@ SDL_KillThread()は廃止された.
 <a href="SDL_CreateThread.html">SDL_CreateThread()</a>にはスレッドの名前の引数が追加された. これはデバッグ時の識別に使える.
 使わないのであれば, 追加の引数をNULLにすればよい.
 </p>
-<h3>オーディオCD</h3>
+<h3 id="Audio_CDs">オーディオCD</h3>
 <p>
 1.2のCD APIは全て廃止された.
 置き換えは存在しない.
-SDL_mixerを使えばOgg Vorbisや他のオーディオファイル形式の音楽を再生できる.
+<a href="index.html#SDL_mixer">SDL_mixer</a>を使えば<a href="http://www.vorbis.com/">Ogg Vorbis</a>や他のオーディオファイル形式の音楽を再生できる.
 </p>
-<h3>対応から外れた環境</h3>
+<h3 id="Dead_platforms">対応から外れた環境</h3>
 <p>
-<em>(未訳)</em>
+OS/2やMac OS 9などの古い環境は切り捨てられた.
+対応の環境は次の通りである: Windows(XP以降), Linux, Mac OS X, iOS, Android.
+HaikuやSony PSPでは動作するが, 重視されておらず対応は完全ではない.
+誰かがパッチを送れば対応環境は追加されるだろうが, この新しいバージョンへの移行が古い友に別れを告げるときだと考えている.
 </p>
-<h3>モバイル環境</h3>
+<h3 id="Mobile_platforms">モバイル環境</h3>
 <p>
-<em>(未訳)</em>
+ずっと前からSDL 1.2の非公式なiOSとAndroid版は存在していた.
+現在ではSDLはこれらの環境に正式に対応している. そして, 2.0 APIはこれらによく適合している.
+ほとんどのアドバイスはこの文書の他の部分に書かれているが, いくつか注意すべきことがある.
 </p>
-<h3>RWops</h3>
 <p>
-<em>(未訳)</em>
+最初に, モバイル端末のみのイベントがいくつか存在する.
+言い換えると, iPhone後の世界のモバイル端末のOSが行うような方法に対応している.
+私たちは最初は既に存在するSDLイベントに対応付けようとした(例えば「アプリケーションが背後へ移った」をデスクトップアプリケーションがフォーカスを失ったことにする等).
+しかし, 実際にはそれよりも緊急の問題である: 
+多くの場合これらのイベントにはすぐに反応しなければならない. そしてそうしなければOSはアプリケーションを終了させてしまう.
 </p>
-<h3>アドオンライブラリ</h3>
 <p>
-<em>(未訳)</em>
+よって, 私たちは一部のAndroidとiOS固有のSDLイベントを追加した.
+それらはSDLイベントフィルタを設定してOSが報告するとすぐに捕らえられるようにすべきである.
+なぜならば, 次の<a href="SDL_PollEvent.html">SDL_PollEvent()</a>まで待つと遅すぎるからである.
 </p>
-<h3>変更された項目のまとめ</h3>
 <p>
-<em>(未訳)</em>
+例えば, iOSのapplicationWillResignActive()に対応したSDL_APP_WILLENTERBACKGROUNDがあるが, もしこのイベントを受け取った後に画面に描画すると, iOSはあなたのプロセスを終了させてしまう.
+よって, これはすぐに捕らえなければならない:
+<code>
+<pre>
+    int SDLCALL myEventFilter(void *userdata, SDL_Event * event)
+    {
+        if (event->type == SDL_APP_WILLENTERBACKGROUND) {
+            // ここで資源を解放する. 前面に戻るまで何も描画してはならない!
+        }
+        // その他の処理
+        return 1;
+    }
+
+    // 初期化処理...
+
+    // イベントが発生するとすぐにmyEventFilter(data, event)を呼ぶようにする
+    SDL_AddEventWatch(myEventFilter, data);
+</pre>
+</code>
 </p>
-<h3>その他</h3>
 <p>
-<em>(未訳)</em>
+次に, マウス入力イベントへの変換だけでなく, 実際のタッチイベントも存在する.
+タッチの追跡やマルチタッチ, 複雑なジェスチャーも行える.
+望むならばこれらを使うことができる.
+これらの関数はSDL_touch.hを参照し, SDL_events.h内のSDL_Finger*を見ること.
+</p>
+<p>
+そのほかにも, スクリーンキーボードを表示する<a href="SDL_StartTextInput.html">SDL_StartTextInput()</a>の様な, モバイル環境に適した関数がある.
+これらも活用すること.
+</p>
+<p>
+付け加えると, AndroidとiOS固有の関数もあり, 一般的なAPIでは操作できない環境固有の機能を操作できる.
+それらの関数はSDL_system.hを参照すること.
+</p>
+<h3 id="RWops">RWops</h3>
+<p>
+<a href="SDL_RWread.html">SDL_RWread()</a>と<a href="SDL_RWwrite.html">SDL_RWwrite()</a>はエラーのとき-1ではなく0を戻すようになった.
+</p>
+<p>
+自分自身でSDL_RWopsを実装するならば, 関数のシグニチャを変えなければならない.
+大きなファイルを扱うために, 関数の型はintからSint64とsize_tになった.
+多くの場合, シグニチャを変えれば以前と同じように動くが, 
+もしこれらの制限のために処理をあきらめていたならば, よい解決策になるだろう.
+呼び出しているアプリケーションは変更された戻り値にあわせる必要がある.
+</p>
+<p>
+RWopsにもsizeメソッドが存在するようになった.
+それは<a href="SDL_RWsize.html">SDL_RWsize()</a>の呼び出しである.
+これは, RWopsにストリームのサイズをアプリケーションに0byteから最後までシークさせることなくサイズを報告するものである.
+言い換えると, シークせずにストリームの全サイズを得られるようになった.
+dこれを行えないストリームならば-1を戻す.
+</p>
+<h3 id="Add-on_libraries">拡張ライブラリ</h3>
+<p>
+公式の拡張ライブラリであるSDL_image, SDL_ttf, SDL_mixer, SDL_netはSDL 2.0に対応し, <a href="index.html#SDL_image">SDL2_image</a>, <a href="index.html#SDL_ttf">SDL2_ttf</a>, <a href="index.html#SDL_mixer">SDL2_mixer</a>, <a href="index.html#SDL_net">SDL2_net</a>となった.
+必要ならば<a href="https://hg.libsdl.org/">mercurialリポジトリ</a>から最新版をダウンロードできる.
+もちろんあなたのプログラムをmakeするときは, リンクをSDL_imageではなくSDL2_imageに変更する必要がある.
+</p>
+<p>
+これらのライブラリは以降は1.2をサポートしない. そして1.2との互換性は新しいバージョンのどの時点かで失われるだろう.
+</p>
+<p>
+<a href="http://cms.ferzkopp.net/index.php/software/13-sdl-gfx">SDL_gfx</a>も2.0.21(2010年5月)以降は2.0でコンパイルできる.
+</p>
+<h3 id="Summary_of_some_renamed_or_replaced_things">名称変更と置き換えのまとめ</h3>
+<p>
+<ul>
+<li>SDL_SetVideoMode(): 代わりに<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>を使うこと. (OpenGLではなく古典的な2Dレンダリングを使いたいならば, <a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>と共に使う.)
+<li>SDL_ListModes(): 代わりに<a href="SDL_GetDisplayMode.html">SDL_GetDisplayMode()</a>/<a href="SDL_GetNumDisplayModes.html">SDL_GetNumDisplayModes()</a>を使うこと.
+<li>SDL_UpdateRect()/SDL_Flip(): 代わりに<a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>を使うこと.
+<li>SDL_Surface/2Dレンダリング: サーフェイスは全て存在する. しかし, SDL_Surfaceを使うのではなく, 可能ならばSDL_Textureを<a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>と共に使うことを推奨する.
+<li>
+SDL_VideoInfo: 代わりに<a href="SDL_GetRendererInfo.html">SDL_GetRendererInfo()</a>/<a href="SDL_GetRenderDriverInfo.html">SDL_GetRenderDriverInfo()</a>を使うこと.
+<li>SDL_GetCurrentVideoDisplay(): 代わりに<a href="SDL_GetWindowDisplayIndex.html">SDL_GetWindowDisplayIndex()</a>を使うこと.
+<li>SDL_VIDEORESIZEイベント: 新しい<a href="SDL_WindowEvent.html">SDL_WINDOWEVENT_RESIZE</a>と等価である.
+</ul>
+</p>
+<h3 id="Other_stuff">その他</h3>
+<p>
+SDL 2.0には, 新しく興味深い膨大な1.2にはなかった機能がある.
+ここでは1.2のプログラムを2.0で実行できるようにする説明のみを行ったが, 
+望むものがあるが, 現在でもできるのか, しなくてもよくなったのかをドキュメントを調べるべきである.
+例えば, 全てのゲームのこのようなコードは, メッセージボックス関数に置き換えられる:
+<code>
+<pre>
+   #if USING_SDL
+   fprintf(stderr, "MSGBOX: %s\n%s\n", title, text);   // ああ, ううむ
+   #endif
+</pre>
+</code>
+この場合は<a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox()</a>が使えるようになった.
+</p>
+<p>
+最初に戻って<a href="#Overview_of_new_features">新しい機能の概要</a>をチェックしてみよう!
 </p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/MigrationGuide">SDL 1.2 to 2.0 Migration Guide - SDL Wiki</a>
