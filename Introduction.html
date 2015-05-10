@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
+<style type="text/css">
+</style>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="Introduction.html" title="1つ上">
+<title>SDL 2.0の概要</title>
+</head>
+<body>
+<a href="index.html">目次</a> - 概要
+<hr>
+<h1>SDL 2.0の概要</h1>
+<h2>1. SDLの概要</h2>
+<h3>1.1 SDLとは何か?</h3>
+<p>
+Simple DirectMedia Layer (SDL) はオーディオ, キーボード, マウス, ジョイスティック, OpenGLやDirect3D経由のグラフィックハードウェアへの低レベルアクセスを提供する開発ライブラリである.
+動画再生, エミュレータ, そして<a href="http://valvesoftware.com/">Valve</a>の入賞作や<a href="https://www.humblebundle.com/">Humble Bundle</a>の数多くの作品を含む有名なゲームでも使われている.
+</p>
+<p>
+SDLはWindows, Mac OS X, Linux, iOS, そしてAndroidに公式に対応している.
+他の環境に対応したソースコードも存在する.
+</p>
+<p>
+最新の対応環境については<a href="https://wiki.libsdl.org/Installation">インストール</a>のページを確認すること.
+</p>
+<p>
+SDLはCで書かれていて, ネイティブのC++で使うことができる. そしてC#やPythonなどの他の言語のバインドも存在する.
+</p>
+<p>
+最新の対応言語は<a href="http://www.libsdl.org/languages.php">http://www.libsdl.org/languages.php</a>を確認すること.
+</p>
+<p>
+SDL 2.0 は<a href="http://www.gzip.org/zlib/zlib_license.html">zlib license</a>の下で配布される.
+このライセンスの下でSDLはあらゆるソフトウェアで自由に使える.
+</p>
+<h3>1.2 SDLで何ができるか?</h2>
+<p>
+以下がSDLが可能なことの一覧である. 1.2から2.0への変更点を知りたいならば<a href="MigrationGuide.html">SDL 1.2から2.0への移行</a>を参照すること.
+</p>
+<h4>ビデオ</h4>
+<ul>
+<li>3Dグラフィック:
+<ul>SDLは3DグラフィックとしてOpenGL APIやDirect3D APIと混合で使うことができる
+</ul>
+<li>アクセラレータを使用する2DレンダラーAPI:
+<ul>
+<li>簡単な回転, 拡大縮小, アルファブレンディングを行える. これらは全て現在の3D APIによるアクセラレーションを使っている
+<li>アクセラレーションはOpenGLとDirect3Dに対応している. これらが使えない場合はソフトウェアで行われる
+</ul>
+<li>複数のウィンドウの生成と管理
+</ul>
+<h4>入力イベント</h4>
+<ul>
+<li>以下の処理のためのイベントとAPI:
+<ul>
+<li>アプリケーションとウィンドウの状態の変化
+<li>マウス入力
+<li>キーボード入力
+<li>ジョイスティックとゲームコントローラー入力
+<li>マルチタッチ ジェスチャー
+</ul>
+<li>イベントは全て<a href="SDL_EventState.html">SDL_EventState()</a>で有効化/無効化できる
+<li>イベントは全て内部キューに送られる前にユーザが生成したフィルタ関数を通すことができる
+<li>イベントキューはスレッドセーフである
+</ul>
+<h4>力覚フィードバック</h4>
+<ul>
+<li>Windows, Mac OS X, Linuxでは力覚フィードバックに対応している
+</ul>
+<h4>オーディオ</h4>
+<ul>
+<li>8bitと16bit, モノラル/ステレオ/5.1サラウンドの音声再生をハードウェアが対応していなければ最適に変換して行う
+<li>音声は独立したスレッドでコールバックとして処理する
+<li>ソフトウェアオーディオミキサーを生成するために設計されているが, <a href="index.html#SDL_mixer">SDL_mixer</a>ライブラリを使えば完全な音声/音楽の出力を行える
+</ul>
+<h4>抽象化されたファイルI/O</h4>
+<ul>
+<li>汎用的な抽象化されたオープン, データの読み込みと書き込み
+<li>ファイルとメモリが組み込まれている
+</ul>
+<h4>共有ライブラリ</h4>
+<ul>
+<li>共有ライブラリ(WindowsならばDLL, Mac OS Xならば.dylib, Linuxならば.so)の読み込み
+<li>共有ライブラリの関数の探索
+</ul>
+<h4>スレッド</h4>
+<ul>
+<li>シンプルなスレッド生成API
+<li>シンプルなスレッドローカル領域API
+<li>相互排他(mutex), セマフォ, 条件変数 
+<li>ロックしないプログラミングのためのアトミック操作
+</ul>
+<h4>タイマ</h4>
+<ul>
+<li>ミリ秒単位の経過時間の獲得
+<li>ミリ秒単位のウェイト
+<li>別スレッドで定期的にコードを動作させるタイマの生成
+<li>プロファイリングのための高分解能カウンタ
+</ul>
+<h4>CPU仕様の検査</h4>
+<ul>
+<li>CPU数の獲得
+<li>CPU仕様と対応する命令の検査
+</ul>
+<h4>エンディアン非依存</h4>
+<ul>
+<li>システムのエンディアンの検査
+<li>データの高速スワップルーチン
+<li>指定のエンディアンでのデータの読み書き
+</ul>
+<h4>電源管理</h4>
+<ul>
+<li>電源状態の獲得
+</ul>
+<h3>1.3 SDLが使える環境は?</h3>
+<h4>Windows</h4>
+<ul>
+<li>表示にWin32 APIとハードウェアアクセラレーションのためにDirect3Dを使用する
+<li>音声にDirectSoundとXAudio2を使用する
+</ul>
+<h4>Mac OS X</h4>
+<ul>
+<li>表示にCocoaとハードウェアアクセラレーションのためにOpenGLを使用する
+<li>音声にCore Audioを使用する
+</ul>
+<h4>Linux</h4>
+<ul>
+<li>表示にX11とハードウェアアクセラレーションのためにOpenGLを使用する
+<li>音声にALSA, OSS, PulseAudio APIを使用する
+</ul>
+<h4>iOS</h4>
+<ul>
+<li>表示にUIKitとハードウェアアクセラレーションのためにOpenGL ES 2.0を使用する
+<li>音声にCore Audioを使用する
+</ul>
+<h4>Android</h4>
+<ul>表示にJNIインターフェースとハードウェアアクセラレーションのためにOpenGL ES 1.1と2.0を使用する
+<li>音声にJNIオーディオコールバックを使用する
+<li><a href="https://wiki.libsdl.org/Android">Android</a>を参照すること
+</ul>
+<h2>2. SDLの入手とインストール</h2>
+<p>
+ここで<a href="https://wiki.libsdl.org/SourceCode">ソースコード</a>の入手と<a href="https://wiki.libsdl.org/Installation">ビルド・インストール</a>を行える.
+</p>
+<h2>3. SDL 1.2から2.0への移行</h2>
+<p>
+以前SDL 1.2を使っていて, SDL 2.0を使いたいならば, あなたのコードのいくつかのAPIを合うように変更する必要がある.
+</p>
+<p>
+「SDL 1.2から2.0への移行」には異なる機能の一覧や古いコードをSDL 2.0に合わせる方法がある.
+<ul>
+<li><a href="MigrationGuide.html">SDL 1.2から2.0への移行</a>
+</ul>
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/Introduction">Introduction to SDL 2.0 - SDL Wiki</a>
+<hr>
+</body>
+</html>
