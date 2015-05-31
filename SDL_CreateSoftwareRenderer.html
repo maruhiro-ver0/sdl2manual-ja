@@ -38,7 +38,7 @@ DrawChessBoard(SDL_Renderer * renderer)
         int row = 0,column = 0,x = 0;
         SDL_Rect rect, darea;
 
-        /* Get the Size of drawing surface */
+        /* 描画するサーフェイスのサイズを得る */
         SDL_RenderGetViewport(renderer, &darea);
 
         for( ; row &lt; 8; row++)
@@ -78,8 +78,8 @@ loop()
         
         DrawChessBoard(renderer);
         
-        /* Got everything on rendering surface,
-           now Update the drawing image on window screen */
+        /* レンダリングサーフェイスの処理が完了したならば, 
+           ウィンドウを描いた画像で更新する */
         SDL_UpdateWindowSurface(window);
 }
 
@@ -88,10 +88,10 @@ main(int argc, char *argv[])
 {
         SDL_Surface *surface;
 
-        /* Enable standard application logging */
+        /* 通常のアプリケーションログを有効にする */
         SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
 
-        /* Initialize SDL */
+        /* SDLを初期化する */
         if(SDL_Init(SDL_INIT_VIDEO) != 0)
         {
                 SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDL_Init fail : %s\n", SDL_GetError());
@@ -99,27 +99,27 @@ main(int argc, char *argv[])
         }
 
 
-        /* Create window and renderer for given surface */
-        window = SDL_CreateWindow("Chess Board", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+        /* 指定のサーフェイスのウィンドウとレンダラーを生成する */
+        window = SDL_CreateWindow("チェス盤", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
         if(!window)
         {
-                SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Window creation fail : %s\n",SDL_GetError());
+                SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "ウィンドウの生成に失敗した : %s\n",SDL_GetError());
                 return 1;
         }       
         surface = SDL_GetWindowSurface(window);
         renderer = SDL_CreateSoftwareRenderer(surface);
         if(!renderer)
         {
-                SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Render creation for surface fail : %s\n",SDL_GetError());
+                SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "サーフェイスのレンダラーの生成に失敗した : %s\n",SDL_GetError());
                 return 1;
         }
 
-        /* Clear the rendering surface with the specified color */
+        /* レンダリングサーフェイスを指定の色で消去する */
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderClear(renderer);
 
 
-        /* Draw the Image on rendering surface */
+        /* レンダリングサーフェイスに画像を描画する */
         done = 0;
 
         while (!done) {
