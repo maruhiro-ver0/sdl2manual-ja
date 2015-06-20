@@ -23,10 +23,6 @@
 メモ: ウィンドウの生成, レンダリング, イベントの受信をメインスレッド以外でできることを期待してはならない.
 環境に依存した例外や複雑な副作用が<a href="http://lists.libsdl.org/listinfo.cgi/sdl-libsdl.org">メーリングリスト</a>や<a href="https://forums.libsdl.org/viewtopic.php?t=5973">フォーラム</a>で報告されている.
 </p>
-<p>
-メモ: SDL_Initを呼ぶ前にスレッド生成や同期を行うのは避けること.
-一部の環境(例:Windows)ではSDLの初期化の前でも正しく動作するが, そうでない環境(例:Linux)もある.
-</p>
 <h2>列挙体</h2>
 <ol>
 <li><a href="SDL_ThreadPriority.html">SDL_ThreadPriority</a></li>
