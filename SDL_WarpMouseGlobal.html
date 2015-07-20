@@ -14,15 +14,21 @@
 <h1>SDL_WarpMouseGlobal</h1>
 画面上の指定された座標にマウスを移動させる
 <h2>構文</h2>
-<code>void SDL_WarpMouseGlobal(int x, int y)</code>
+<code>int SDL_WarpMouseGlobal(int x, int y)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_WarpMouseGlobal">
 <tr><td>x</td><td>X座標</td></tr>
 <tr><td>y</td><td>Y座標</td></tr>
 </table>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 <p>
 この関数はマウス移動イベントを発生させる.
+</p>
+<p>
+一般的に, この関数に失敗するのは対応していない場合である.
 </p>
 <h2>バージョン</h2>
 SDL 2.0.4以降
