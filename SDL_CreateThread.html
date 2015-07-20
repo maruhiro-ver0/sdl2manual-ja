@@ -32,7 +32,18 @@
 #include "SDL_thread.h"
 #include "SDL_timer.h"
 
-static int TestThread(void *ptr);
+// とても簡単なスレッド - 50ms間隔で0から9までカウントする
+static int TestThread(void *ptr)
+{
+    int cnt;
+
+    for (cnt = 0; cnt &lt; 10; ++cnt) {
+        printf("\nスレッドカウンタ: %d", cnt);
+        SDL_Delay(50);
+    }
+
+    return cnt;
+}
 
 int main(int argc, char *argv[])
 {
@@ -58,19 +69,6 @@ int main(int argc, char *argv[])
     printf("\nスレッドの戻り値: %d", threadReturnValue);
 
     return 0;
-}
-
-// とても簡単なスレッド - 50ms間隔で0から9までカウントする
-static int TestThread(void *ptr)
-{
-    int cnt;
-
-    for (cnt = 0; cnt &lt; 10; ++cnt) {
-        printf("\nスレッドカウンタ: %d", cnt);
-        SDL_Delay(50);
-    }
-
-    return cnt;
 }
 </pre>
 </code>
