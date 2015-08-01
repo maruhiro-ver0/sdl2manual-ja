@@ -90,15 +90,16 @@ int main(int argc, char *argv[]) {
 イベントのdropフィールドからアクセスできる.
 </p>
 <p>
-このイベントはデフォルトでは無効になっている.
-<a href="SDL_EventState.html">SDL_EventState()</a>で有効にできる.
+このイベントはデフォルトで有効である.
+<a href="SDL_EventState.html">SDL_EventState()</a>で無効にできる.
 </p>
 <p>
-もしこのイベントを有効にしたならば, イベントのfilenameは解放する必要がある.
+もしこのイベントを有効にしたならば, イベントでfilenameを解放する必要がある.
 </p>
 <h3>Mac OS X </h3>
 SDLアプリケーションでドラッグ&amp;ドロップを有効にするためには, 必ずinfo.plistファイルも編集しなければならない.
-例えば, 全てのドキュメントタイプで有効にするためには, ドキュメントタイプに "public.data" mime type を追加する必要がある.
+<strong>Document Types</strong>を追加/修正すること.
+例えば, 全てのドキュメントタイプで有効にするためには, Document Types に "public.data" mime type を追加する必要がある.
 <h2>関連項目(列挙体)</h2>
 <a href="SDL_EventType.html">SDL_EventType</a><br>
 <h2>関連項目(構造体)</h2>
