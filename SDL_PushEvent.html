@@ -49,7 +49,7 @@ eventはキューに入れたいイベント構造体へのポインタである.
 この関数はスレッドセーフで, 別のスレッドから安全に呼べる.
 </p>
 <p>
-メモ: <a href="SDL_PushEvent.html">SDL_PushEvent()</a>または<a href="SDL_PeepEvents.html">SDL_PeepEvents()</a>でキューに入れられたイベントは, イベントフィルタには届かない.
+メモ: <a href="SDL_PushEvent.html">SDL_PushEvent()</a>でキューに入れられたイベントはイベントフィルタを通過するが, <a href="SDL_PeepEvents.html">SDL_PeepEvents()</a>の場合は通過しない.
 </p>
 <p>
 アプリケーション固有のイベントの種類の値は, 別のイベントと衝突しないために<a href="SDL_RegisterEvents.html">SDL_RegisterEvents()</a>で得る必要がある.
