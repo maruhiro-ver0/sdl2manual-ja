@@ -27,6 +27,10 @@
 成功のとき生成されたテクスチャへのポインタを戻す.
 レンダリングコンテキストが使えない, formatが対応していない, wまたはhが範囲外のとき0を戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>詳細</h2>
+<p>
+テクスチャを生成する前に<a href="SDL_HINT_RENDER_SCALE_QUALITY.html">SDL_HINT_RENDER_SCALE_QUALITY</a>を設定することでテクスチャの拡大方法を設定できる.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateTextureFromSurface.html">SDL_CreateTextureFromSurface</a><br>
 <a href="SDL_DestroyTexture.html">SDL_DestroyTexture</a><br>
