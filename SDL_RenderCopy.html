@@ -60,11 +60,11 @@ int main(int argc, char *argv[])
   SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 580, 0);
   Main_Renderer = SDL_CreateRenderer(Main_Window, -1, SDL_RENDERER_ACCELERATED);
 
-  /* 背景画像を読み込む. SDL_LoadBMPはサーフェイスを戻すので,
+  /* 背景画像を読み込む. SDL_LoadBMP()はサーフェイスを戻すので,
   それを高速にコピーできるテクスチャに変換する */
   Loading_Surf = SDL_LoadBMP("Background.bmp");
   Background_Tx = SDL_CreateTextureFromSurface(Main_Renderer, Loading_Surf);
-  SDL_FreeSurface(Loading_Surf);  // we got the texture now -&gt; free surface
+  SDL_FreeSurface(Loading_Surf);  /* テクスチャは得られた -&gt; サーフェイスを解放する */
 
   /* 追加のテクスチャを読み込む */
   Loading_Surf = SDL_LoadBMP("Blueshapes.bmp");
@@ -101,13 +101,13 @@ int main(int argc, char *argv[])
 
 
   /* このレンダラーは大きなキャンバスのようなものである:
-  RenderCopyで画像を加えると, その度に上書きされる.
+  RenderCopy()で画像を加えると, その度に上書きされる.
   新しいデータがどのようにブレンドされるかは変更できる.
-  あなたの「絵」が完成すれば, それをSDL_RenderPresentを使って見せることができる */
+  あなたの「絵」が完成すれば, それをSDL_RenderPresent()を使って見せることができる */
 
   /* SDL 1.2ユーザへのヒント: レンダラーが理解しづらいならば, 1.2のサーフェイスとコピーに置き換えて,
-  レンダラーはメインサーフェイス, SDL_RenderCopyはメインサーフェイスへのコピー,
-  SDL_RenderPresentは旧バージョンのSDL_Flip関数と考えればよいかもしれない */
+  レンダラーはメインサーフェイス, SDL_RenderCopy()はメインサーフェイスへのコピー,
+  SDL_RenderPresent()は旧バージョンのSDL_Flip()関数と考えればよいかもしれない */
 
   SDL_DestroyTexture(BlueShapes);
   SDL_DestroyTexture(Background_Tx);
@@ -132,10 +132,10 @@ int main(int argc, char *argv[])
 テクスチャのα値は<a href="SDL_SetTextureAlphaMod.html">SDL_SetTextureAlphaMod()</a>で設定したα値の影響を受ける.
 </p>
 <h2>関連項目(関数)</h2>
+<a href="SDL_RenderCopyEx.html">SDL_RenderCopyEx</a><br>
 <a href="SDL_SetTextureAlphaMod.html">SDL_SetTextureAlphaMod</a><br>
 <a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode</a><br>
 <a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod</a><br>
-<a href="SDL_RenderCopyEx.html">SDL_RenderCopyEx</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_RenderCopy">SDL_RenderCopy - SDL Wiki</a>
 <hr>
