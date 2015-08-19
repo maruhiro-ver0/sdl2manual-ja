@@ -25,11 +25,11 @@
 <p>
 <code>
 <pre>
-delay = (33 / 10) * 10;  /* 10ミリ秒単位で切り捨てる */
+Uint32 delay = (33 / 10) * 10;  /* 10ミリ秒単位で切り捨てる */
 
 ...
 
-my_timer_id = SDL_AddTimer(delay, my_callbackfunc, my_callback_param);
+SDL_TimerID my_timer_id = SDL_AddTimer(delay, my_callbackfunc, my_callback_param);
 
 ...
 
