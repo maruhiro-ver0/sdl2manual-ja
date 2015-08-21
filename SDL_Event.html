@@ -145,7 +145,7 @@ SDL_PushEvent(&amp;user_event);
 </code>
 <h3><a name="table">イベントの種類と共用体のメンバの関係</a></h3>
 <table border="1" summary="table">
-<tr><th>イベントの種類(typeメンバ)</th><th>イベント構造体</th><th>イベントフィールド</th></tr>
+<tr><th>イベントの種類(typeメンバ)</th><th>イベント構造体</th><th>SDL_Eventフィールド</th></tr>
 <tr><td>SDL_AUDIODEVICEADDED<br>SDL_AUDIODEVICEREMOVED</td><td><a href="SDL_AudioDeviceEvent.html">SDL_AudioDeviceEvent</a></td><td>adevice</td></tr>
 <tr><td>SDL_CONTROLLERAXISMOTION</td><td><a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a></td><td>caxis</td></tr>
 <tr><td>SDL_CONTROLLERBUTTONDOWN<br>SDL_CONTROLLERBUTTONUP</td><td><a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a></td><td>cbutton</td></tr>
@@ -169,6 +169,7 @@ SDL_PushEvent(&amp;user_event);
 <tr><td>SDL_TEXTINPUT</td><td><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a></td><td>text</td></tr>
 <tr><td>SDL_USEREVENT</td><td><a href="SDL_UserEvent.html">SDL_UserEvent</a></td><td>user</td></tr>
 <tr><td>SDL_WINDOWEVENT</td><td><a href="SDL_WindowEvent.html">SDL_WindowEvent</a></td><td>window</td></tr>
+<tr><td>その他のイベント</td><td>SDL_CommonEvent</td><td>なし. <a href="https://wiki.libsdl.org/SDL_EventType">type</a>フィールドを使うこと</td></tr>
 </table>
 <p>
 <h2>関連項目(列挙体)</h2>
