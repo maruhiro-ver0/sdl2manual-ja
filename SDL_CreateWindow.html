@@ -83,8 +83,13 @@ SDL_CreateWindow()ではSDL_WINDOW_SHOWNは無視される.
 SDL_WindowはSDL_WINDOW_HIDDENが設定されない限り表示される.
 SDL_WINDOW_SHOWNは<a href="SDL_GetWindowFlags.html">SDL_GetWindowFlags()</a>で問い合わせたとき使われる.
 </p>
-</p>
+<p>
 AppleのOS Xでは, Info.plistのNSHighResolutionCapableプロパティは<strong>必ず</strong>YESでなければならない. そうしなければ高DPI OpenGL キャンバスを受信できない.
+</p>
+<p>
+フルスクリーンの設定をした場合, 幅と高さの引数である<strong>w</strong>と<strong>h</strong>は使われない.
+しかし, 不正なサイズの引数(例えば大きすぎる)の場合は失敗する.
+全ての環境でのウィンドウサイズの事実上の限界は16384×16384である.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateWindowFrom.html">SDL_CreateWindowFrom</a><br>
