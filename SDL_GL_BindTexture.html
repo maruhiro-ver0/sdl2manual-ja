@@ -243,13 +243,25 @@ void RocketSDLRenderInterfaceOpenGLES::RenderGeometry(Rocket::Core::Vertex* vert
 </code>
 </p>
 <h2>詳細</h2>
+<p>
 値が得られたなら, texwとtexhには得られたテクスチャに適した幅と高さが代入されている.
 ほとんどの場合, 両方の値は1.0である.
 しかし, the GL_ARB_texture_rectangle拡張に対応した環境では, これらの値はテクスチャの生成のために使われた実際のピクセル数の幅と高さである.
 このことはOpenGLにテクスチャの座標を与える場合に考慮する必要がある.
+</p>
+<p>
+<a href="SDL_Texture.html">SDL_Texture</a>を生成するためにはレンダラーが必要である. よって, 
+この関数では
+あなた自身のOpenGLコンテキストではなく, <a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>で生成した暗黙のOpenGLコンテキストを使うしかない.
+もしあなたのOpenGLコンテキストを扱う必要があるならば, テクスチャを読み込むメソッドを自分自身で書かなければならない.
+</p>
+<p>
+さらに, SDLはRGBテクスチャをBGR順(つまり逆にして)アップロードし, シェーダーの段階でカラーチャネルを並び替える.
+よって, アップロードされたテクスチャはカラーチャネルが逆になっているので注意すること.
+</p>
 <h2>関連項目(関数)</h2>
-<a href="SDL_GL_UnbindTexture.html">SDL_GL_UnbindTexture</a><br>
 <a href="SDL_GL_MakeCurrent.html">SDL_GL_MakeCurrent</a><br>
+<a href="SDL_GL_UnbindTexture.html">SDL_GL_UnbindTexture</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GL_BindTexture">SDL_GL_BindTexture - SDL Wiki</a>
 <hr>
