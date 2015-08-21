@@ -38,6 +38,36 @@ if (rw != NULL) {
 </pre>
 </code>
 </p>
+<p>
+ファイルを読み込む完全なコードは次の通りである. (サイズが得られると仮定している) (<a href="https://gitlab.com/wikibooks-opengl/modern-tutorials/blob/master/common-sdl2/shader_utils.cpp">OpenGL WikiBook</a>より):
+<code>
+<pre>
+char* file_read(const char* filename) {
+        SDL_RWops *rw = SDL_RWFromFile(filename, "rb");
+        if (rw == NULL) return NULL;
+
+        Sint64 res_size = SDL_RWsize(rw);
+        char* res = (char*)malloc(res_size + 1);
+
+        Sint64 nb_read_total = 0, nb_read = 1;
+        char* buf = res;
+        while (nb_read_total &lt; res_size && nb_read != 0) {
+                nb_read = SDL_RWread(rw, buf, 1, (res_size - nb_read_total));
+                nb_read_total += nb_read;
+                buf += nb_read;
+        }
+        SDL_RWclose(rw);
+        if (nb_read_total != res_size) {
+                free(res);
+                return NULL;
+        }
+
+        res[nb_read_total] = '\0';
+        return res;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 それぞれsizeバイトの最大num個のオブジェクトを読み込みptrポインタへ書き込む.
