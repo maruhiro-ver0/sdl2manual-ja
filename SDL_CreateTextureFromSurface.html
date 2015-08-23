@@ -21,7 +21,7 @@
 <tr><td>surface</td><td>テクスチャで使うピクセルデータを持つ<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
 </table>
 <h2>戻り値</h2>
-成功のとき生成されたテクスチャ, 失敗のとき0を戻す.
+成功のとき生成されたテクスチャ, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
 <h2>サンプルコード</h2>
 <p>
@@ -48,7 +48,7 @@
 
     surface = SDL_CreateRGBSurface(0, width, height, 32,
                                    rmask, gmask, bmask, amask);
-    if(surface == NULL) {
+    if (surface == NULL) {
         fprintf(stderr, "CreateRGBSurface 失敗: %s\n", SDL_GetError());
         exit(1);
     }
