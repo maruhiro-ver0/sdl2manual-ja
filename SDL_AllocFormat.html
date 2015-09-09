@@ -20,8 +20,14 @@
 <tr><td>pixel_format</td><td><a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a>の値の1つ</td></tr>
 </table>
 <h2>戻り値</h2>
+<p>
 成功のとき生成された<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+</p>
+<p>
+戻された構造体は, (新しく確保された領域ではなく)共通のグローバルな領域なので, 変更してはならない. 特にパレットはそうである.
+"Blit combination not supported" のような不可解なエラーが発生するだろう.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_FreeFormat.html">SDL_FreeFormat</a><br>
 <h2>SDL Wikiへのリンク</h2>
