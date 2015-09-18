@@ -19,6 +19,16 @@ APK拡張ファイルのメインファイルのバージョンを指定するヒント
 </table>
 <h2>デフォルト</h2>
 デフォルトではこのヒントは設定されない.
+<h2>詳細</h2>
+<p>
+このヒントは<a href="SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION</a>と共に使う必要がある.
+</p>
+<p>
+これらのヒントが設定されれば, <a href="SDL_RWFromFile.html">SDL_RWFromFile()</a>は与えられた相対パスが内部ストレージになければ拡張ファイルを検索しそれを使う.
+</p>
+<p>
+デフォルトではこのヒントは設定されておらず, APK拡張ファイルは検索されない.
+</p>
 <h2>バージョン</h2>
 SDL 2.0.4以降
 <h2>SDL Wikiへのリンク</h2>
