@@ -38,20 +38,20 @@ SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
 全ての環境やGPUドライバで有効とは限らないだけでなく, OpenGLの機能と性能に重大な影響を及ぼしうる. そのため, これらのフラグは使う前によく検討する必要がある.
 </p>
 <h4>SDL_GL_CONTEXT_DEBUG_FLAG</h4>
-このフラグは, X11のGLX_ARB_create_context拡張のGLX_CONTEXT_DEBUG_BIT_ARB, WindowsのWGL_ARB_create_context拡張のWGL_CONTEXT_DEBUG_BIT_ARBにマップされている.
+このフラグは, X11の<a href="https://www.opengl.org/registry/specs/ARB/glx_create_context.txt">GLX_ARB_create_context</a>拡張のGLX_CONTEXT_DEBUG_BIT_ARB, Windowsの<a href="https://www.opengl.org/registry/specs/ARB/wgl_create_context.txt">WGL_ARB_create_context</a>拡張のWGL_CONTEXT_DEBUG_BIT_ARBにマップされている.
 他の環境では同様の機能がないため無視される.
 このフラグは, パフォーマンスの低下の可能性のより詳しい情報を開発者に知らせるためにGLを"debug"モードにする.
 (GLの実装はこのフラグが存在しても, 別のことをしているかもしれないし, していないかもしれない.)
 <h4>SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG</h4>
-このフラグは, X11のGLX_ARB_create_context拡張のGLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB, WindowsのWGL_ARB_create_context拡張のWGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARBにマップされている.
+このフラグは, X11の<a href="https://www.opengl.org/registry/specs/ARB/glx_create_context.txt">GLX_ARB_create_context</a>拡張のGLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB, Windowsの<a href="https://www.opengl.org/registry/specs/ARB/wgl_create_context.txt">WGL_ARB_create_context</a>拡張のWGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARBにマップされている.
 他の環境では同様の機能がないため無視される.
 このフラグはGLを"forward compatible"モードにして, 廃止された関数に対応せず, 可能ならばパフォーマンスを高め, GL 3.0以降のコンテキストのみ適用する.
 <h4>SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG</h4>
-このフラグは, X11ではGLX_ARB_create_context_robustness拡張のGLX_CONTEXT_ROBUST_ACCESS_BIT_ARB, WindowsではWGL_ARB_create_context_robustness拡張のWGL_CONTEXT_ROBUST_ACCESS_BIT_ARBにマップされている.
+このフラグは, X11では<a href="https://www.opengl.org/registry/specs/ARB/glx_create_context_robustness.txt">GLX_ARB_create_context_robustness</a>拡張のGLX_CONTEXT_ROBUST_ACCESS_BIT_ARB, Windowsでは<a href="https://www.opengl.org/registry/specs/ARB/wgl_create_context_robustness.txt">WGL_ARB_create_context_robustness</a>拡張のWGL_CONTEXT_ROBUST_ACCESS_BIT_ARBにマップされている.
 他の環境では同様の機能がないため無視される.
 このフラグはGLコンテキストがGL_ARB_robustness―通常より安全なAPI(snprintf()とsprint()のようなもの)を提供するモードに対応しているかを問い合わせる.
 <h4>SDL_GL_CONTEXT_RESET_ISOLATION_FLAG</h4>
-このフラグは, X11ではGLX_ARB_robustness_isolation拡張のGLX_CONTEXT_RESET_ISOLATION_BIT_ARB, WindowsではWGL_ARB_create_context_robustness拡張のWGL_CONTEXT_RESET_ISOLATION_BIT_ARBにマップされている.
+このフラグは, X11では<a href="https://www.opengl.org/registry/specs/ARB/glx_robustness_isolation.txt">GLX_ARB_robustness_isolation</a>拡張のGLX_CONTEXT_RESET_ISOLATION_BIT_ARB, Windowsでは<a href="https://www.opengl.org/registry/specs/ARB/wgl_robustness_isolation.txt">WGL_ARB_robustness_isolation</a>拡張のWGL_CONTEXT_RESET_ISOLATION_BIT_ARBにマップされている.
 他の環境では同様の機能がないため無視される.
 このフラグはドライバまたはハードウェアが失敗したときGLがすべきことを保障させる.
 <h2>関連項目(列挙体)</h2>
