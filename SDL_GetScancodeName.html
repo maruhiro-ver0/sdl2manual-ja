@@ -23,7 +23,14 @@
 スキャンコード名へのポインタを戻す.
 スキャンコードの名前がなければ, この関数は空の文字列("")を戻す.
 <h2>詳細</h2>
+<p>
 詳細は<a href="SDL_Scancode.html">SDL_Scancode</a>を参照すること.
+</p>
+<p>
+注意: この名前は環境によって異なる場合がある. 例えばSDL_SCANCODE_LGUIの名前は, Linuxでは"Left GUI"だが, Windowsでは"Left Windows"である. また, SDL_SCANCODE_NONUSBACKSLASHのような一部のスキャンコードには名前がない.
+同じ名前を持つスキャンコードもある. 例えばSDL_SCANCODE_RETURNとSDL_SCANCODE_RETURN2はどちらも"Return"である.
+よって, この関数は複数の環境に対応した文字列とスキャンコードの双方向のマッピングには適していない.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetScancodeFromKey.html">SDL_GetScancodeFromKey</a><br>
 <a href="SDL_GetScancodeFromName.html">SDL_GetScancodeFromName</a><br>
