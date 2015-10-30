@@ -38,7 +38,7 @@ obtainedがNULLの場合, desiredのフィールドが書き換えられる.
 <pre>
 SDL_AudioSpec want, have;
 
-SDL_zero(want);
+SDL_memset(&want, 0, sizeof(want)); /* または SDL_zero(want); */
 want.freq = 48000;
 want.format = AUDIO_F32;
 want.channels = 2;
