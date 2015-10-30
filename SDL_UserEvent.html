@@ -29,7 +29,7 @@
 Uint32 myEventType = SDL_RegisterEvents(1);
 if (myEventType != ((Uint32)-1)) {
     SDL_Event event;
-    SDL_zero(event);
+    SDL_memset(&event, 0, sizeof(event)); /* ‚Ü‚½‚Í SDL_zero(event); */
     event.type = myEventType;
     event.user.code = my_event_code;
     event.user.data1 = significant_data;
