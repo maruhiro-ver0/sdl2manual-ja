@@ -40,7 +40,7 @@ SDL1.2との互換性のため, この関数が1を戻すことはない.
 SDL_AudioSpec want, have;
 SDL_AudioDeviceID dev;
 
-SDL_zero(want);
+SDL_memset(&want, 0, sizeof(want)); /* または SDL_zero(want); */
 want.freq = 48000;
 want.format = AUDIO_F32;
 want.channels = 2;
@@ -51,8 +51,9 @@ dev = SDL_OpenAudioDevice(NULL, 0, &amp;want, &amp;have, SDL_AUDIO_ALLOW_FORMAT_
 if (dev == 0) {
     printf("オーディオを開けなかった: %s\n", SDL_GetError());
 } else {
-    if (have.format != want.format)  // we let this one thing change.
+    if (have.format != want.format) { // 要求と変わったか?
         printf("32bit浮動小数点のオーディオ形式に対応していない\n");
+    }
     SDL_PauseAudioDevice(dev, 0);  // 再生を開始する
     SDL_Delay(5000);  // コールバックで音声を5秒間再生する
     SDL_CloseAudioDevice(dev);
