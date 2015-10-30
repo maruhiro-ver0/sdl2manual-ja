@@ -13,7 +13,6 @@
 <hr>
 <h1>SDL_UnlockTexture</h1>
 必要なら変更をビデオメモリに反映されるためにテクスチャをアンロックする.
-<em>警告:</em> この関数を使う前に<a href="https://bugzilla.libsdl.org/show_bug.cgi?id=1586">Bug No. 1586</a>を参照すること!
 <h2>構文</h2>
 <code>void SDL_UnlockTexture(SDL_Texture* texture)
 </code>
@@ -21,6 +20,8 @@
 <table border="1" summary="SDL_UnlockTexture">
 <tr><td>texture</td><td><a href="SDL_LockTexture.html">SDL_LockTexture()</a>でロックしたテクスチャ</td></tr>
 </table>
+<h2>詳細</h2>
+<em>警告:</em> この関数を使う前に<a href="https://bugzilla.libsdl.org/show_bug.cgi?id=1586">SDL bug #1586</a>を参照すること!
 <h2>関連項目(関数)</h2>
 <a href="SDL_LockTexture.html">SDL_LockTexture</a><br>
 <h2>SDL Wikiへのリンク</h2>
