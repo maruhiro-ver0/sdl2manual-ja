@@ -31,7 +31,7 @@
 SDL_AudioSpec want, have;
 SDL_AudioDeviceID dev;
 
-SDL_zero(want);
+SDL_memset(&want, 0, sizeof(want)); /* ‚Ü‚½‚Í SDL_zero(want); */
 want.freq = 48000;
 want.format = AUDIO_F32;
 want.channels = 2;
