@@ -28,6 +28,53 @@
 成功のとき0, 失敗のとき-1を戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 </p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+int main(int argc, char *argv[])
+{
+        SDL_Window *window;
+        SDL_Renderer *renderer;
+        SDL_Surface *surface;
+        SDL_Texture *texture;
+        SDL_Event event;
+
+        if (SDL_Init(SDL_INIT_VIDEO) &lt; 0) {
+                SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDLを初期化できなかった: %s\n", SDL_GetError());
+                return 3;
+        }
+
+        if(SDL_CreateWindowAndRenderer(320,240,SDL_WINDOW_RESIZABLE,&amp;window,&amp;renderer)) {
+                SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "ウィンドウとレンダラーを生成できなかった: %s\n", SDL_GetError());
+                return 3;
+        }
+
+        surface = SDL_LoadBMP("sample.bmp");
+        texture = SDL_CreateTextureFromSurface(renderer, surface);
+        SDL_FreeSurface(surface);
+        while(1) {
+
+                SDL_PollEvent(&amp;event);
+                if(event.type == SDL_QUIT)
+                        break;
+                SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
+                SDL_RenderClear(renderer);
+                SDL_RenderCopy(renderer, texture, NULL, NULL);
+                SDL_RenderPresent(renderer);
+        }
+
+        SDL_DestroyTexture(texture);
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+
+        SDL_Quit();
+
+        return 0;
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateRenderer.html">SDL_CreateRenderer</a><br>
 <a href="SDL_CreateWindow.html">SDL_CreateWindow</a><br>
