@@ -12,14 +12,14 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GL_GetDrawableSize
 <hr>
 <h1>SDL_GL_GetDrawableSize</h1>
-(glViewportで使うために)ウィンドウ内の描画領域のサイズを得る
+(glViewportで使うために)ウィンドウ内の描画領域のサイズのピクセル数を得る
 <h2>構文</h2>
 <code>void SDL_GL_GetDrawableSize(SDL_Window* window, int* w, int* h)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GL_GetDrawableSize">
 <tr><td>window</td><td>描画領域のサイズを求めるウィンドウ</td></tr>
-<tr><td>w</td><td>幅を代入する変数へのポインタ, NULLでもよい</td></tr>
-<tr><td>h</td><td>高さを代入する変数へのポインタ, NULLでもよい</td></tr>
+<tr><td>w</td><td>幅のピクセル数を代入する変数へのポインタ, NULLでもよい</td></tr>
+<tr><td>h</td><td>高さのピクセル数を代入する変数へのポインタ, NULLでもよい</td></tr>
 </table>
 <h2>詳細</h2>
 高DPI描画領域のレンダリングの場合, 例えば高DPI(AppleではRetinaと呼ばれる)に対応した環境で<a href="SDL_WindowFlags.html">SDL_WINDOW_ALLOW_HIGHDPI</a>で生成したウィンドウでは, この関数の値と<a href="SDL_GetWindowSize.html">SDL_GetWindowSize()</a>の値はおそらく異なる.
