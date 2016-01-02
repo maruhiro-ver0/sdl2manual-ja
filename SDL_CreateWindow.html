@@ -18,8 +18,8 @@
 <h2>引数</h2>
 <table border="1" summary="SDL_CreateWindow">
 <tr><td>title</td><td>UTF-8文字列のウィンドウのタイトル</td></tr>
-<tr><td>x</td><td>ウィンドウのX座標, SDL_WINDOWPOS_CENTERED, または SDL_WINDOWPOS_UNDEFINED</td></tr>
-<tr><td>y</td><td>ウィンドウのY座標, SDL_WINDOWPOS_CENTERED, または SDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>x</td><td>ウィンドウのスクリーン上のX座標, SDL_WINDOWPOS_CENTERED, または SDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>y</td><td>ウィンドウのスクリーン上のY座標, SDL_WINDOWPOS_CENTERED, または SDL_WINDOWPOS_UNDEFINED</td></tr>
 <tr><td>w</td><td>ウィンドウの幅</td></tr>
 <tr><td>h</td><td>ウィンドウの高さ</td></tr>
 <tr><td>flags</td><td>0 または 1つ以上の<a href="SDL_WindowFlags.html">SDL_WindowFlags</a>列挙体の論理和</td></tr>
@@ -85,6 +85,10 @@ SDL_WINDOW_SHOWNは<a href="SDL_GetWindowFlags.html">SDL_GetWindowFlags()</a>で問
 </p>
 <p>
 AppleのOS Xでは, Info.plistのNSHighResolutionCapableプロパティは<strong>必ず</strong>YESでなければならない. そうしなければ高DPI OpenGL キャンバスを受信できない.
+</p>
+<p>
+もし高DPIに対応した環境(iOSやOS X)でSDL_WINDOW_ALLOW_HIGHDPIを指定してウィンドウを生成した場合ならば, スクリーン座標のウィンドウサイズは, ピクセル数のウィンドウサイズと異なる場合がある.
+<a href="SDL_GL_GetDrawableSize.html">SDL_GL_GetDrawableSize()</a>または<a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize()</a>でピクセル数のクライアントサイズを得ることができる.
 </p>
 <p>
 フルスクリーンの設定をした場合, 幅と高さの引数である<strong>w</strong>と<strong>h</strong>は使われない.
