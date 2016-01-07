@@ -17,7 +17,7 @@
 <table border="1" summary="SDL_DropEvent">
 <tr><td>Uint32</td><td>type</td><td>SDL_DROPFILE</td></tr>
 <tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
-<tr><td>char*</td><td>file</td><td>ファイル名 <a href="SDL_free.html">SDL_free()</a>で解放する必要がある</td></tr>
+<tr><td>char*</td><td>file</td><td>ファイル名 SDL_free()で解放する必要がある</td></tr>
 </table>
 <h2>サンプルコード</h2>
 <code>
@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
 <a href="SDL_EventState.html">SDL_EventState()</a>で無効にできる.
 </p>
 <p>
-もしこのイベントを有効にしたならば, イベントでfilenameを解放する必要がある.
+もしこのイベントを有効にしたならば, イベントでSDL_free()を使ってfilenameを解放する必要がある.
 </p>
 <h3>Mac OS X </h3>
 SDLアプリケーションでドラッグ&amp;ドロップを有効にするためには, 必ずinfo.plistファイルも編集しなければならない.
