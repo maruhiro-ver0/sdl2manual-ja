@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="index.html" title="1つ上">
+<title>SDL 2.0の履歴</title>
+</head>
+<body>
+<a href="index.html">目次</a> - SDL 2.0の履歴
+<hr>
+<h1>SDL 2.0の履歴</h1>
+<h2>2.0.4の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>Emscriptenを使ったwebアプリケーションに対応. 詳細は<a href="https://hg.libsdl.org/SDL/file/e2343ac4788e/docs/README-emscripten.md">docs/README-emscripten.md</a>を参照すること
+<li>Native Client (NaCl)を使ったwebアプリケーションに対応. 詳細は<a href="https://hg.libsdl.org/SDL/file/e2343ac4788e/docs/README-nacl.md">docs/README-nacl.md</a>を参照すること
+<li>コールバックを使わずにオーディオキューにデータを送信するAPIの追加:
+<ul>
+<li><a href="SDL_QueueAudio.html">SDL_QueueAudio()</a>, <a href="SDL_GetQueuedAudioSize.html">SDL_GetQueuedAudioSize()</a>, <a href="SDL_ClearQueuedAudio.html">SDL_ClearQueuedAudio()</a>
+</ul>
+<li><a href="SDL_AudioDeviceEvent.html">オーディオデバイス ホットプラグ(活線挿抜)に対応するイベント</a>の追加:
+<ul>
+<li>SDL_AUDIODEVICEADDED, SDL_AUDIODEVICEREMOVED
+</ul>
+<li><a href="SDL_PointInRect.html">SDL_PointInRect()</a>の追加
+<li>AVX2対応を検知する<a href="SDL_HasAVX2.html">SDL_HasAVX2()</a>の追加
+<li>SDLウィンドウの一部分を標準的なウィンドウの装飾(例えばドラッグエリアやサイズ変更エリア)のように扱えるようにする<a href="SDL_SetWindowHitTest.html">SDL_SetWindowHitTest()</a>の追加
+<li>いかなる場合でも入力グラブのあるウィンドウを得られる<a href="SDL_GetGrabbedWindow.html">SDL_GetGrabbedWindow()</a>の追加
+<li>レンダラーのクリップが有効か否かを知らせる<a href="SDL_RenderIsClipEnabled.html">SDL_RenderIsClipEnabled()</a>の追加
+<li>ウィンドウ内にマウスがない場合でもイベントを得られるようにする<a href="SDL_CaptureMouse.html">SDL_CaptureMouse()</a>の追加
+<li>SDLウィンドウの外にマウスカーソルを移動させる<a href="SDL_WarpMouseGlobal.html">SDL_WarpMouseGlobal()</a>の追加
+<li>SDLウィンドウの外のマウスの状態を得る<a href="SDL_GetGlobalMouseState.html">SDL_GetGlobalMouseState()</a>の追加
+<li>マウスホイールイベントに, フリップされている(方向が逆になっている)か否かを知らせる<a href="SDL_MouseWheelEvent.html">directionフィールド</a>の追加
+<li><a href="SDL_GLattr.html">GL_CONTEXT_RELEASE_BEHAVIOR GLアトリビュート</a>([WGL|GLX]_ARB_context_flush_control extensionにマップされる)の追加
+<li>一部の環境でOpenGL ESバージョンの選択を認めるEGL_KHR_create_contextに対応
+<li>OpenGLとOpenGL ES 2.0レンダラーのNV12とNV21 YUVテクスチャーに対応
+<li>様々なSoCで使われるVivanteビデオドライバの追加
+<li>D3Dデバイスが失われAndroidイベントループがGLESコンテキストを再生成したときに発生する<a href="SDL_EventType.html">SDL_RENDER_DEVICE_RESETイベント</a>の追加
+<li>SDL組み込みのシグナルハンドラを無効にする<a href="SDL_HINT_NO_SIGNAL_HANDLERS.html">SDL_HINT_NO_SIGNAL_HANDLERSヒント</a>の追加
+<li>SDLスレッドのスタックサイズを設定する<a href="SDL_HINT_THREAD_STACK_SIZE.html">SDL_HINT_THREAD_STACK_SIZEヒント</a>の追加
+<li>stdlibルーチンにSDL_sqrtf(), SDL_tan(), SDL_tanf()を追加
+<li>標準的でないチャンクを用いたWAVとBMPファイルの対応の改良
+<li>名称を<a href="SDL_assert_data.html">SDL_assert_data</a>からSDL_AssertDataに, SDL_assert_stateから<a href="SDL_AssertState.html">SDL_AssertState</a>に変更
+<li>マウスカーソルが見えないときウィンドウを操作できないようにする<a href="SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN.html">SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDENヒント</a>の追加
+<li>ディスプレイのDPI情報を得る<a href="SDL_GetDisplayDPI.html">SDL_GetDisplayDPI()</a>の追加
+<li>ジョイスティックのバッテリーレベルを得る<a href="SDL_JoystickCurrentPowerLevel.html">SDL_JoystickCurrentPowerLevel()</a>の追加
+<li>イベントのインスタンスIDからSDL_Joystick*を得る<a href="SDL_JoystickFromInstanceID.html">SDL_JoystickFromInstanceID()</a>の追加
+<li>イベントのインスタンスIDからSDL_GameController*を得る<a href="SDL_GameControllerFromInstanceID.html">SDL_GameControllerFromInstanceID()</a>の追加
+<li>(訳者による追記) 日本語106/109キーボードの一部キーが有効になった
+<ul>
+<li>_キー(右Shiftの左) = SDL_SCANCODE_INTERNATIONAL1
+<li>カタカナひらがなキー = SDL_SCANCODE_INTERNATIONAL2
+<li>\キー(Backspaceの左) = SDL_SCANCODE_INTERNATIONAL3
+<li>変換キー = SDL_SCANCODE_INTERNATIONAL4
+<li>無変換キー = SDL_SCANCODE_INTERNATIONAL5
+</ul>
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>Windows Phone 8.1とWindows 10/UWP (Universal Windows Platform)に対応
+<li>タイマ分解能は1ミリ秒がデフォルトとなった. これは<a href="SDL_HINT_TIMER_RESOLUTION.html">SDL_HINT_TIMER_RESOLUTIONヒント</a>で変更できる
+<li>SDLmainはCランタイムに依存しなくなった. これによりDebugとReleaseのどちらでも同じ.libを使えるようになった
+<li>ウィンドウメッセージのたびにTranslateMessage()の前に呼ばれる関数を設定する<a href="SDL_SetWindowsMessageHook.html">SDL_SetWindowsMessageHook()</a>の追加
+<li><a href="SDL_PumpEvents.html">SDL_PumpEvents()</a>でウィンドウメッセージループを処理するか否かを設定する<a href="SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP.html">SDL_HINT_WINDOWS_ENABLE_MESSAGELOOPヒント</a>の追加
+<li><a href="SDL_Event.html">マウスイベント</a>のwhichフィールドがSDL_TOUCH_MOUSEIDであるかで本当のマウスかタッチイベントかを判別できるようになった
+<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>はウィンドウHDCを持つようになった
+<li>Unicodeコマンドラインオプションに対応
+<li>ALTと何らかのキーの同時押しによるビープ音の抑制
+<li><a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect()</a>はOSが表示したIMEの表示位置を変えるようになった
+<li>ALT+F4キーによる<a href="SDL_WindowEventID.html">SDL_WINDOWEVENT_CLOSEイベント</a>の発生を抑制する<a href="SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4.html">SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4ヒント</a>の追加
+<li>XInputデバイスで古い軸とボタンのマッピングを使う<a href="SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING.html">SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPINGヒント</a>の追加 (将来的には廃止)
+</ul>
+<h3>Mac OS X</h3>
+<ul>
+<li>ドラッグ&amp;ドロップの実装
+<li>ジョイスティック ホットプラグ検知の改良
+<li><a href="SDL_WindowEvent.html">SDL_WINDOWEVENT_EXPOSEDウィンドウイベント</a>が適切な状況で発生するようになった
+<li>相対マウスモードでアプリケーションのフォーカスが失われた/得られた場合の動作の修正
+<li>Spacesフルスクリーンモードへの/からの移行に関連するバグの修正
+<li>ディスプレイモードのリフレッシュレートの修正
+<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>はARC-compatibleとなった
+<li>フォーカスしようとするアプリケーションがバックグラウンドプロセスになることを抑制する<a href="SDL_HINT_MAC_BACKGROUND_APP.html">SDL_HINT_MAC_BACKGROUND_APPヒント</a>の追加
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>MirとWaylandを使うビルドにデフォルトで対応
+<li>IBus IMEに対応
+<li><a href="SDL_TextEditingEvent.html">SDL_TEXTEDITINGイベント</a>を送信する代わりにIBusがテキスト編集に使うか否かを制御する<a href="SDL_HINT_IME_INTERNAL_EDITING.html">SDL_HINT_IME_INTERNAL_EDITINGヒント</a>の追加
+<li>_NET_WM_PINGプロトコルを無効にする<a href="SDL_HINT_VIDEO_X11_NET_WM_PING.html">SDL_HINT_VIDEO_X11_NET_WM_PINGヒント</a>の追加
+<li>Pulseaudioを使った複数オーディオデバイスに対応
+<li>相対マウスモードでのマウスイベントの重複の修正
+</ul>
+<h3>iOS</h3>
+<ul>
+<li>iOS 8に対応
+<li><a href="SDL_WindowFlags.html">SDL_WINDOW_ALLOW_HIGHDPIウィンドウフラグ</a>が有効になり高DPIに対応した. <a href="SDL_GL_GetDrawableSize.html">SDL_GL_GetDrawableSize()</a>または<a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize()</a>でウィンドウの解像度をピクセル数で得られる
+<li><a href="SDL_GetWindowSize.html">SDL_GetWindowSize()</a>とディスプレイモードサイズは, ピクセル数ではなく, 「DPIに依存しないポイント数」/「画面座標」座標空間となった (OS Xの挙動と一致)
+<li>iPhone 6 Plus ネイティブ解像度に対応
+<li>MFiゲームコントローラに対応
+<li><a href="SDL_HINT_ACCELEROMETER_AS_JOYSTICK.html">SDL_HINT_ACCELEROMETER_AS_JOYSTICKヒント</a>に対応
+<li>iOS 7+でのsRGB OpenGL ESに対応
+<li><a href="SDL_DisableScreenSaver.html">SDL_DisableScreenSaver()</a>, <a href="SDL_EnableScreenSaver.html">SDL_EnableScreenSaver()</a>, <a href="SDL_HINT_VIDEO_ALLOW_SCREENSAVER.html">SDL_HINT_VIDEO_ALLOW_SCREENSAVERヒント</a>に対応
+<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>はウィンドウのアクティブGLESビューが使うOpenGL ESフレームバッファとカラーバッファを持つようになった
+<li>様々な回転と方向に関する問題の修正
+<li>メモリリークの修正
+</ul>
+<h3>Android</h3>
+<ul>
+<li>タッチイベントがマウスイベントとして扱われないようにする<a href="SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH.html">SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCHヒント</a>の追加
+<li><a href="SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSIONヒント</a>と<a href="SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSIONヒント</a>の追加
+<li><a href="SDL_DisableScreenSaver.html">SDL_DisableScreenSaver()</a>, <a href="SDL_EnableScreenSaver.html">SDL_EnableScreenSaver()</a>, <a href="SDL_HINT_VIDEO_ALLOW_SCREENSAVER.html">SDL_HINT_VIDEO_ALLOW_SCREENSAVERヒント</a>に対応
+<li><a href="SDL_ShowMessageBox.html">SDL_ShowMessageBox()</a>と<a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox()</a>に対応
+</ul>
+<h3>Raspberry Pi</h3>
+<ul>
+<li>Raspberry Pi 2に対応
+</ul>
+<h2>原文へのリンク</h2>
+<a href="https://hg.libsdl.org/SDL/file/e2343ac4788e/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
+<hr>
+</body>
+</html>
