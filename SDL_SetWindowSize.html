@@ -18,12 +18,12 @@
 <h2>引数</h2>
 <table border="1" summary="SDL_SetWindowSize">
 <tr><td>window</td><td>設定するウィンドウ</td></tr>
-<tr><td>w</td><td>スクリーン座標のウィンドウの幅のピクセル数. 0より大きい必要がある</td></tr>
-<tr><td>h</td><td>スクリーン座標ウィンドウの高さのピクセル数. 0より大きい必要がある</td></tr>
+<tr><td>w</td><td>スクリーン座標系でのウィンドウの幅のピクセル数. 0より大きい必要がある</td></tr>
+<tr><td>h</td><td>スクリーン座標系でのウィンドウの高さのピクセル数. 0より大きい必要がある</td></tr>
 </table>
 <h2>詳細</h2>
 <p>
-もし高DPIに対応した環境(iOSやOS X)でSDL_WINDOW_ALLOW_HIGHDPIを指定してウィンドウを生成した場合ならば, スクリーン座標のウィンドウサイズは, ピクセル数のウィンドウサイズと異なる場合がある.
+もし高DPIに対応した環境(iOSやOS X)でSDL_WINDOW_ALLOW_HIGHDPIを指定してウィンドウを生成した場合ならば, スクリーン座標系のウィンドウサイズは, ピクセル数のウィンドウサイズと異なる場合がある.
 <a href="SDL_GL_GetDrawableSize.html">SDL_GL_GetDrawableSize()</a>または<a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize()</a>でピクセル数のクライアントサイズを得ることができる.
 </p>
 <h2>関連項目(関数)</h2>
