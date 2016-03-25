@@ -28,8 +28,8 @@ SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
 </code>
 </p>
 <h2>詳細</h2>
-この列挙体は<a href="SDL_GL_SetAttribute.html">SDL_GL_SetAttribute</a>で<a href="SDL_GLattr.html">SDL_GL_CONTEXT_PROFILE_MASK</a>と組み合わせて使う.
-<a href="SDL_GLattr.html">SDL_GL_CONTEXT_PROFILE_MASK</a>は論理和で複数設定できるが, プロファイルは排他的であり, <a href="SDL_GL_SetAttribute.html">SDL_GL_SetAttribute</a>は1つしか受け付けない.
+この列挙体は<a href="SDL_GL_SetAttribute.html">SDL_GL_SetAttribute()</a>で<a href="SDL_GLattr.html">SDL_GL_CONTEXT_PROFILE_MASK</a>と組み合わせて使う.
+<a href="SDL_GLattr.html">SDL_GL_CONTEXT_PROFILE_MASK</a>は論理和で複数設定できるが, プロファイルは排他的であり, <a href="SDL_GL_SetAttribute.html">SDL_GL_SetAttribute()</a>は1つしか受け付けない.
 <a href="SDL_GLattr.html">SDL_GL_CONTEXT_PROFILE_MASK</a>属性を0にするとプロファイルはSDLが選択する.
 OpenGLのプロファイルはバージョンと詳細に関連付けられているため, <a href="SDL_GLattr.html">SDL_GL_CONTEXT_MAJOR_VERSION</a>と<a href="SDL_GLattr.html">SDL_GL_CONTEXT_MINOR_VERSION</a>属性は必ず一緒に使う必要がある.
 OpenGL ES バージョン1.0と1.1のcommonとcommon liteプロファイルを区別する方法はない.
