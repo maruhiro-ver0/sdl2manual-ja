@@ -96,7 +96,7 @@ main(int argc, char *argv[])
 
 
     /* 指定のサーフェイスのウィンドウとレンダラーを生成する */
-    window = SDL_CreateWindow("チェス盤", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("チェス盤", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
     if (!window) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "ウィンドウの生成に失敗した : %s\n",SDL_GetError());
         return 1;
