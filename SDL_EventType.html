@@ -18,7 +18,7 @@
 <tr><td>SDL_FIRSTEVENT</td><td>(未使用)</td></tr>
 <tr><th colspan="2" align="center">アプリケーションのイベント</th></tr>
 <tr><td><a href="SDL_QuitEvent.html">SDL_QUIT</a></td><td>ユーザが終了を要求した (詳細を参照すること)</td></tr>
-<tr><th colspan="2" align="center">AndroidとiOSのイベント (詳細を参照すること)</th></tr>
+<tr><th colspan="2" align="center">Android, iOS, WinRTのイベント (詳細を参照すること)</th></tr>
 <tr><td>SDL_APP_TERMINATING</td><td>OSがアプリケーションを終了させようとしている</td></tr>
 <tr><td>SDL_APP_LOWMEMORY</td><td>空きメモリが少ない. 何かを解放する必要がある</td></tr>
 <tr><td>SDL_APP_WILLENTERBACKGROUND</td><td>アプリケーションが裏側へ回ろうとしている</td></tr>
@@ -111,9 +111,9 @@ POSIXシステムでは, <a href="SDL_Init.html">SDL_Init</a>はSIGINT(キーボード割り込
 SQL_QUITイベントが発生しないようにする方法はない.
 しかし, アプリケーションでシグナルハンドラを設定すると, シグナル発生時の終了イベントの発生が上書きされる.
 </p>
-<h3><a name="Android and iOs">AndroidとiOSのイベント</a></h3>
+<h3><a name="Android_iOS_and_WinRT_Event">Android, iOS, WinRTのイベント</a></h3>
 <p>
-「AndroidとiOSのイベント」に分類されるのは, 通常のデスクトップアプリケーションとは別の要求が存在するモバイルまたは組み込みデバイス用のイベントである.
+「Android, iOS, WinRTのイベント」に分類されるのは, 通常のデスクトップアプリケーションとは別の要求が存在するモバイルまたは組み込みデバイス用のイベントである.
 これらのイベントはイベントフィルタで処理する必要がある.
 OSは即時の反応を必要としていて, イベントを送信した後に短い時間でプロセスを終了させる.
 よって, もしSDLイベントキューで処理すると遅すぎるだろう.
@@ -122,14 +122,14 @@ OSは即時の反応を必要としていて, イベントを送信した後に短い時間でプロセスを終了さ
 </p>
 <p>
 イベントは以下のように対応している
-<table border="1" summary="Android and iOS events">
-<tr><th>SDLイベント</th><th>発生条件</th><th>iOS</th><th>Android</th></tr>
-<tr><td>SDL_APP_TERMINATING</td><td>アプリケーションがOSによって終了されようとしている</td><td>applicationWillTerminate()</td><td>onDestroy()</td></tr>
-<tr><td>SDL_APP_LOWMEMORY</td><td>アプリケーションの空きメモリが少ない. 可能ならメモリを解放する必要がある</td><td>applicationDidReceiveMemoryWarning()</td><td>onLowMemory()</td></tr>
-<tr><td>SDL_APP_WILLENTERBACKGROUND</td><td>アプリケーションが裏側へ回ろうとしている</td><td>applicationWillResignActive()</td><td>onPause()</td></tr>
-<tr><td>SDL_APP_DIDENTERBACKGROUND</td><td>アプリケーションが裏側へ回った. CPU時間が割り当てられないかもしれない</td><td>applicationDidEnterBackground()</td><td>onPause()</td></tr>
-<tr><td>SDL_APP_WILLENTERFOREGROUND</td><td>アプリケーションが前面に現れようとしている</td><td>applicationWillEnterForeground()</td><td>onResume()</td></tr>
-<tr><td>SDL_APP_DIDENTERFOREGROUND</td><td>アプリケーションが前面に現れた. ユーザとの対話が可能になった.</td><td>applicationDidBecomeActive()</td><td>onResume()</td></tr>
+<table border="1" summary="Android_iOS_and_WinRT_Event">
+<tr><th>SDLイベント</th><th>発生条件</th><th>iOS</th><th>Android</th><th>WinRT</th></tr>
+<tr><td>SDL_APP_TERMINATING</td><td>アプリケーションがOSによって終了されようとしている</td><td>applicationWillTerminate()</td><td>onDestroy()</td><td>OnExiting()</td></tr>
+<tr><td>SDL_APP_LOWMEMORY</td><td>アプリケーションの空きメモリが少ない. 可能ならメモリを解放する必要がある</td><td>applicationDidReceiveMemoryWarning()</td><td>onLowMemory()</td><td>-</td></tr>
+<tr><td>SDL_APP_WILLENTERBACKGROUND</td><td>アプリケーションが裏側へ回ろうとしている</td><td>applicationWillResignActive()</td><td>onPause()</td><td>OnSuspending()</td></tr>
+<tr><td>SDL_APP_DIDENTERBACKGROUND</td><td>アプリケーションが裏側へ回った. CPU時間が割り当てられないかもしれない</td><td>applicationDidEnterBackground()</td><td>onPause()</td><td>OnSuspending()</td></tr>
+<tr><td>SDL_APP_WILLENTERFOREGROUND</td><td>アプリケーションが前面に現れようとしている</td><td>applicationWillEnterForeground()</td><td>onResume()</td><td>OnResuming()</td></tr>
+<tr><td>SDL_APP_DIDENTERFOREGROUND</td><td>アプリケーションが前面に現れた. ユーザとの対話が可能になった.</td><td>applicationDidBecomeActive()</td><td>onResume()</td><td>OnResuming()</td></tr>
 </table>
 </p>
 <h2>関連項目(構造体)</h2>
