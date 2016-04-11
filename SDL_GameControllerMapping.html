@@ -21,33 +21,47 @@
 </table>
 <h2>戻り値</h2>
 ゲームコントローラーのマッピング文字列を戻す.
-詳細は<a href="SDL_GameControllerAddMapping.html">SDL_GameControllerAddMapping()</a>を参照すること.
+NULLのときマッピングは使えない.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
 <h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
-#include &lt;stdio.h&gt; /* printf()のために必要 */
+#include "SDL.h"
 
 /* ... */
 
 SDL_GameController *ctrl;
 int i;
 
+SDL_Init(SDL_INIT_GAMECONTROLLER);
+
 for (i = 0; i &lt; SDL_NumJoysticks(); ++i) {
     if (SDL_IsGameController(i)) {
-        printf("\'%d\'番はジョイスティック互換のコントローラ, 名称は\'%s\'\n", i, SDL_GameControllerNameForIndex(i));
+        char *mapping;
+        SDL_Log("\'%d\'番はジョイスティック互換のコントローラ, 名称は\'%s\'", i, SDL_GameControllerNameForIndex(i));
         ctrl = SDL_GameControllerOpen(i);
-        printf("コントローラ %i は \"%s\" にマッピングされた\n", i, SDL_GameControllerMapping(ctrl));
+        mapping = SDL_GameControllerMapping(ctrl);
+        SDL_Log("コントローラ %i は \"%s\" にマッピングされた", i, mapping);
+        SDL_free(mapping);
     } else {
-        printf("\'%d\'番はジョイスティックと非互換のコントローラ\n", i);
+        SDL_Log("\'%d\'番はジョイスティックと非互換のコントローラ", i);
     }
 }
 </pre>
 </code>
 </p>
 <h2>詳細</h2>
+<p>
 戻された文字列はSDL_Free()で解放する必要がある.
+</p>
+<p>
+マッピングの詳細は<a href="SDL_GameControllerAddMapping.html">SDL_GameControllerAddMapping()</a>のページにある.
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GameControllerAddMapping.html">SDL_GameControllerAddMapping</a><br>
 <a href="SDL_GameControllerMappingForGUID.html">SDL_GameControllerMappingForGUID</a><br>
