@@ -41,7 +41,7 @@ int main()
         SDL_Event event;
         SDL_Rect r;
         if (SDL_Init(SDL_INIT_VIDEO) &lt; 0) {
-                SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDL‚ð‰Šú‰»‚Å‚«‚È‚©‚Á‚½: %s\n", SDL_GetError());
+                SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDL‚ð‰Šú‰»‚Å‚«‚È‚©‚Á‚½: %s", SDL_GetError());
                 return 3;
         }
 
