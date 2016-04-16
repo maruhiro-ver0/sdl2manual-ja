@@ -117,6 +117,9 @@ static SDL_Cursor *init_system_cursor(const char *image[])
 </p>
 <h2>詳細</h2>
 <p>
+maskはMSB形式である.
+</p>
+<p>
 カーソルの幅(w)は8の倍数の必要がある.
 </p>
 <p>
@@ -135,7 +138,9 @@ static SDL_Cursor *init_system_cursor(const char *image[])
 <p>
 色のついたカーソルが必要ならば, この関数は向いていない.
 代わりに, 通常のカーソルを<a href="SDL_ShowCursor.html">SDL_ShowCursor()</a>で隠し, メインループで<a href="SDL_Surface.html">SDL_Surface()</a>をカーソルの位置に描く必要がある.
-(訳者注: これは古い説明で, <a href="SDL_CreateColorCursor.html">SDL_CreateColorCursor()</a>を使えば可能なはず.)
+</p>
+<p>
+または, <a href="SDL_CreateColorCursor.html">SDL_CreateColorCursor()</a>を使ってもよい.
 </p>
 <p>
 SDL 2.0.0以降では<a href="SDL_CreateSystemCursor.html">SDL_CreateSystemCursor()</a>で既にある11のシステムカーソルが使える.
