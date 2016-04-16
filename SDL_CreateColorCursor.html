@@ -24,10 +24,81 @@
 <h2>戻り値</h2>
 成功のとき新しく生成されたカーソル, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
-<h2>詳細</h2>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+
+int
+main(int argc, char *argv[])
+{
+    SDL_Window *window = NULL;
+    SDL_Renderer *renderer = NULL;
+    SDL_Surface *surface = NULL;
+    SDL_Cursor *cursor = NULL;
+    SDL_bool error = SDL_TRUE;
+
+    if (SDL_Init(SDL_INIT_VIDEO) &lt; 0) {
+        goto exit;
+    }
+    if (SDL_CreateWindowAndRenderer(640, 480, 0, &window, &renderer) &lt; 0) {
+        goto exit;
+    }
+    surface = SDL_LoadBMP((1 &lt; argc) ? argv[1] : "cursor.bmp");
+    if (!surface) {
+        goto exit;
+    }
+    cursor = SDL_CreateColorCursor(surface, 0, 0);
+    if (!cursor) {
+        goto exit;
+    }
+
+    SDL_SetCursor(cursor);
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+    while (SDL_TRUE) {
+        SDL_Event event;
+        while (SDL_PollEvent(&event)) {
+            switch (event.type) {
+            case SDL_MOUSEBUTTONUP:
+            case SDL_QUIT:
+                error = SDL_FALSE;
+                goto exit;
+            }
+        }
+        SDL_RenderClear(renderer);
+        SDL_RenderPresent(renderer);
+    }
+
+exit:
+    if (error) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "%s", SDL_GetError());
+    }
+    if (cursor) {
+        SDL_FreeCursor(cursor);
+    }
+    if (surface) {
+        SDL_FreeSurface(surface);
+    }
+    if (renderer) {
+        SDL_DestroyRenderer(renderer);
+    }
+    if (window) {
+        SDL_DestroyWindow(window);
+    }
+    SDL_Quit();
+    return error;
+}
+</pre>
+</code>
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateCursor.html">SDL_CreateCursor</a><br>
 <a href="SDL_FreeCursor.html">SDL_FreeCursor</a><br>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
+</p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_CreateColorCursor">SDL_CreateColorCursor - SDL Wiki</a>
 <hr>
