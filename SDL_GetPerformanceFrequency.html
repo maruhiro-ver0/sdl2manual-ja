@@ -37,7 +37,7 @@ ticktock(Uint32 interval, void *param)
 static Uint32 SDLCALL
 callback(Uint32 interval, void *param)
 {
-    SDL_Log("タイマ %d : パラメータ = %d\n", interval, (int) (uintptr_t) param);
+    SDL_Log("タイマ %d : パラメータ = %d", interval, (int) (uintptr_t) param);
     return interval;
 }
 
@@ -53,7 +53,7 @@ main(int argc, char *argv[])
     SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
 
     if (SDL_Init(SDL_INIT_TIMER) &lt; 0) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDLを初期化できなかった: %s\n", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDLを初期化できなかった: %s", SDL_GetError());
         return (1);
     }
 
@@ -68,7 +68,7 @@ main(int argc, char *argv[])
     t1 = SDL_AddTimer(desired, ticktock, NULL);
 
     /* 10秒間待つ */
-    SDL_Log("10秒間待つ\n");
+    SDL_Log("10秒間待つ");
     SDL_Delay(10 * 1000);
 
     /* タイマを停止する */
@@ -76,27 +76,27 @@ main(int argc, char *argv[])
 
     /* 結果を表示する */
     if (ticks) {
-        SDL_Log("タイマ分解能: 要求 = %d ms, 実際 = %f ms\n",
+        SDL_Log("タイマ分解能: 要求 = %d ms, 実際 = %f ms",
                 desired, (double) (10 * 1000) / ticks);
     }
 
     /* 複数のタイマのテスト */
-    SDL_Log("複数のタイマのテスト...\n");
+    SDL_Log("複数のタイマのテスト...");
     t1 = SDL_AddTimer(100, callback, (void *) 1);
     if (!t1)
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"タイマ1を生成できなかった: %s\n", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"タイマ1を生成できなかった: %s", SDL_GetError());
     t2 = SDL_AddTimer(50, callback, (void *) 2);
     if (!t2)
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"タイマ2を生成できなかった: %s\n", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"タイマ2を生成できなかった: %s", SDL_GetError());
     t3 = SDL_AddTimer(233, callback, (void *) 3);
     if (!t3)
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"タイマ3を生成できなかった: %s\n", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"タイマ3を生成できなかった: %s", SDL_GetError());
 
     /* 10秒間待つ */
-    SDL_Log("10秒間待つ\n");
+    SDL_Log("10秒間待つ");
     SDL_Delay(10 * 1000);
 
-    SDL_Log("タイマ1を削除し, さらに5秒間待つ\n");
+    SDL_Log("タイマ1を削除し, さらに5秒間待つ");
     SDL_RemoveTimer(t1);
 
     SDL_Delay(5 * 1000);
@@ -109,21 +109,25 @@ main(int argc, char *argv[])
         ticktock(0, NULL);
     }
     now = SDL_GetPerformanceCounter();
-    SDL_Log("100万回のticktock関数の呼び出しには %f ms を要した\n", (double)((now - start)*1000) / SDL_GetPerformanceFrequency());
+    SDL_Log("100万回のticktock関数の呼び出しには %f ms を要した", (double)((now - start)*1000) / SDL_GetPerformanceFrequency());
 
-    SDL_Log("1秒あたりの高分解能カウンタ: %"PRIu64"\n", (unsigned long long) SDL_GetPerformanceFrequency());
+    SDL_Log("1秒あたりの高分解能カウンタ: %"SDL_PRIu64"", (unsigned long long) SDL_GetPerformanceFrequency());
     start32 = SDL_GetTicks();
     start = SDL_GetPerformanceCounter();
     SDL_Delay(1000);
     now = SDL_GetPerformanceCounter();
     now32 = SDL_GetTicks();
-    SDL_Log("SDL_Delay(1000) = %d ms, 高分解能では %f\n", (now32-start32), (double)((now - start)*1000) / SDL_GetPerformanceFrequency());
+    SDL_Log("SDL_Delay(1000) = %d ms, 高分解能では %f", (now32-start32), (double)((now - start)*1000) / SDL_GetPerformanceFrequency());
 
     SDL_Quit();
     return (0);
 }
 </pre>
 </code>
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetPerformanceCounter.html">SDL_GetPerformanceCounter</a><br>
