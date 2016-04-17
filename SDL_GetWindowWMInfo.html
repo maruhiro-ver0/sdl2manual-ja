@@ -62,14 +62,14 @@ int main(int argc, char *argv[]) {
 #endif
     }
 
-    SDL_Log("このプログラムは SDL バージョン %d.%d.%d の %s で動作している\n", 
+    SDL_Log("このプログラムは SDL バージョン %d.%d.%d の %s で動作している", 
         (int)info.version.major,
         (int)info.version.minor,
         (int)info.version.patch,
         subsystem);
   } else {
     // 呼び出し失敗
-    SDL_LogError(SDL_LOG_CATEGORY_ERROR, "ウィンドウの情報を得られなかった: %s\n", SDL_GetError());
+    SDL_LogError(SDL_LOG_CATEGORY_ERROR, "ウィンドウの情報を得られなかった: %s", SDL_GetError());
   }
 
   SDL_DestroyWindow(window);
@@ -86,6 +86,10 @@ int main(int argc, char *argv[]) {
 </p>
 <p>
 info構造体はSDLバージョンが初期化されている必要があり, それがあればウィンドウの情報がサンプルコードのように得られる.
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
 </p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetWindowWMInfo">SDL_GetWindowWMInfo - SDL Wiki</a>
