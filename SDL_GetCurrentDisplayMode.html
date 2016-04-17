@@ -47,11 +47,11 @@ int main(int argc, char* argv[])
 
     if(should_be_zero != 0)
       // エラー発生...
-      printf("ビデオディスプレイ #%d のディスプレイモードを得られなかった: %s", i, SDL_GetError());
+      SDL_Log("ビデオディスプレイ #%d のディスプレイモードを得られなかった: %s", i, SDL_GetError());
 
     else 
       // 成功, 現在のディスプレイモードを表示する
-      printf("ディスプレイ #%d: 現在のディスプレイモードは %dx%dpx @ %dhz\n", i, current.w, current.h, current.refresh_rate);
+      SDL_Log("ディスプレイ #%d: 現在のディスプレイモードは %dx%dpx @ %dhz", i, current.w, current.h, current.refresh_rate);
 
   }
  
