@@ -22,9 +22,6 @@
 <a href="SDL_ClearError.html">SDL_ClearError()</a>を呼んだ場合を除けば, メッセージはSDL関数がエラーを報告した場合のみ変わる.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼ぶかどうかは, SDL関数の戻り値を確認して決める必要がある.
 </p>
-<p>
-文字列は静的に確保されているので, アプリケーションは解放してはならない.
-</p>
 <h2>サンプルコード</h2>
 <p>
 <code>
@@ -41,8 +38,13 @@ if (SDL_Init(SDL_INIT_EVERYTHING) &lt; 0) {
 SDL関数のそれぞれの項目を参照すること.
 </p>
 <h2>詳細</h2>
+<p>
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼ぶ前に複数のエラーが発生する可能性がある.
 この場合, 最後のエラーメッセージのみ戻す.
+</p>
+<p>
+文字列は静的に確保されているので, アプリケーションは解放してはならない.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_ClearError.html">SDL_ClearError</a><br>
 <a href="SDL_SetError.html">SDL_SetError</a><br>
