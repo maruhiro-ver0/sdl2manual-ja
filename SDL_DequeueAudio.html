@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAudio.html" title="1つ上">
+<title>SDL_DequeueAudio</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryAudio.html">再生と録音</a> - SDL_DequeueAudio
+<hr>
+<h1>SDL_DequeueAudio</h1>
+コールバックではない録音デバイスからキューされた音声データを取り出す
+<h2>構文</h2>
+<code>Uint32 SDL_DequeueAudio(SDL_AudioDeviceID dev, void* data, Uint32 len)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_DequeueAudio">
+<tr><td>dev</td><td>音声データを取り出す音声デバイスのID</td></tr>
+<tr><td>data</td><td>音声データのコピー先へのポインタ</td></tr>
+<tr><td>len</td><td>dataのバイト長(サンプル数ではない!)</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき取り出されたキューのバイト長を戻す. 要求より短いこともある.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>詳細</h2>
+<p>
+コールバックではない再生デバイスに音声データを送信したいならば, この関数ではなく<a href="SDL_QueueAudio.html">SDL_QueueAudio()</a>を使うこと.
+SDL_DequeueAudio()を再生デバイスに対して使うと, 常に0を戻すだろう.
+</p>
+<p>
+SDLには音声データをデバイスから受け取る2つの方法がある.
+録音デバイスが音声を受け取るたびにSDLがコールバック関数を呼ぶ方法(引きの方法)と, 
+コールバックを使わずにあなたがこの関数を定期的に呼んで音声データを受け取る方法(押しの方法)である.
+</p>
+<p>
+キューできるデータの量にはアドレス空間以外の制限はない.
+デバイスから送られたデータは, アプリケーションが何もしなくても, 必要に応じてキューにためられる.
+これは, 定期的にキューから取り出さなければ, いずれはメモリを使い果たすことを意味する.
+</p>
+<p>
+録音デバイスを一時停止するとデータをキューしない.
+つまり, もししばらくの時間録音したくないならば, <a href="SDL_PauseAudioDevice.html">SDL_PauseAudioDevice()</a>で録音デバイスを止めてデータがキューされないようにすればよい.
+これは, 例えばステージのロード中などで有用である.
+一時停止を解除すると, 一時停止中のデータは破棄され, その時点から音声データのキューを開始する.
+</p>
+<p>
+この関数はスレッドセーフである. しかし, 一度に2つのスレッドから1つのデバイスのキューに対して取り出そうとした場合, どちらが先に取り出すかははわからない.
+</p>
+<p>
+アプリケーション提供のコールバック関数が使うデバイスのキューから音声データを取り出してはならない.
+その場合はエラーを戻す.
+コールバック関数を使うか, この関数で音声をキューから取り出すかのどちらかで, 両方を行ってはならない.
+</p>
+<p>
+キューする前に<a href="SDL_LockAudio.html">SDL_LockAudio()</a>を呼んではならない. この関数の内部でSDLはロックを扱っている.
+</p>
+<h2>バージョン</h2>
+この関数はSDL 2.0.4 (stable)以降で<strong>不安定な</strong>バージョンが使える.
+<h2>関連項目(関数)</h2>
+<a href="SDL_ClearQueuedAudio.html">SDL_ClearQueuedAudio</a><br>
+<a href="SDL_GetQueuedAudioSize.html">SDL_GetQueuedAudioSize</a>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_DequeueAudio">SDL_DequeueAudio - SDL Wiki</a>
+<hr>
+</body>
+</html>
