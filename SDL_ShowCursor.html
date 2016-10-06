@@ -17,10 +17,10 @@
 <code>int SDL_ShowCursor(int toggle)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_ShowCursor">
-<tr><td>toggle</td><td>1のとき表示, 0のとき非表示, -1のとき現在の状態を調査する</td></tr>
+<tr><td>toggle</td><td>SDL_ENABLEのとき表示, SDL_DISABLEのとき非表示, SDL_QUERYのとき現在の状態を調査する</td></tr>
 </table>
 <h2>戻り値</h2>
-表示されているとき1, 非表示のとき0, 失敗のとき負の数のエラーコードを戻す.
+表示されているときSDL_ENABLE, 非表示のときSDL_DISABLE, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
 <h2>サンプルコード</h2>
 <p>
@@ -43,6 +43,14 @@ SDL_ENABLEを渡すと表示され, SDL_DISABLEを渡すと非表示になる.
 <p>
 SDL_QUERYを渡すと現在のカーソルの状態を得られる.
 SDL_DISABLEまたはSDL_ENABLEのいずれかが戻る.
+</p>
+<p>
+toggleは次の値のいずれかである:
+<table>
+<tr><td>-1</td><td>SDL_QUERY</td><td>カーソルの現在の可視状態を戻す</td></tr>
+<tr><td>0</td><td>SDL_DISABLE</td><td>カーソルを見えないようにする (さらに現在のカーソルの可視状態を戻す)</td></tr>
+<tr><td>1</td><td>SDL_ENABLE</td><td>カーソルを見えるようにする (さらに現在のカーソルの可視状態を戻す)</td></tr>
+</table>
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateCursor.html">SDL_CreateCursor</a><br>
