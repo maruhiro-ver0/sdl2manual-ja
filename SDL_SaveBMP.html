@@ -23,6 +23,12 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>詳細</h2>
+<p>
+24bit, 32bit, 8bitパレットフォーマットのサーフェイスは, そのままBMPファイルとして保存される.
+8bit以上のその他のRGB形式は, 24bitに変換される. また, αマスクやカラーキーがある場合は, 保存する前に32bitに変換される.
+1bitと4bitのYUVとパレット形式には対応していない.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_LoadBMP.html">SDL_LoadBMP</a><br>
 <a href="SDL_SaveBMP_RW.html">SDL_SaveBMP_RW</a><br>
