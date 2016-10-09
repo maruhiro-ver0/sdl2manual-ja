@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategorySurface.html" title="1つ上">
+<title>SDL_CreateRGBSurfaceWithFormatFrom</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_CreateRGBSurfaceWithFormatFrom
+<hr>
+<h1>SDL_CreateRGBSurfaceWithFormatFrom</h1>
+既存のピクセルデータから新しいRGBサーフェイスを生成する
+<h2>構文</h2>
+<code>SDL_Surface* SDL_CreateRGBSurfaceWithFormatFrom(void* pixels, int width, int height, int depth, int pitch, Uint32 format)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_CreateRGBSurfaceWithFormatFrom">
+<tr><td>pixels</td><td>既存のピクセルデータへのポインタ</td></tr>
+<tr><td>width</td><td>サーフェイスの幅</td></tr>
+<tr><td>height</td><td>サーフェイスの高さ</td></tr>
+<tr><td>depth</td><td>サーフェイスのビット深度</td></tr>
+<tr><td>pitch</td><td>pixelsの水平方向のバイト数</td></tr>
+<tr><td>format</td><td>サーフェイスのフォーマット</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき生成された<a href="SDL_Surface.html">SDL_Surface</a>, 失敗のときNULLを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>詳細</h2>
+<p>
+メモリを確保できなかったときはNULLを戻す.
+</p>
+<h2>バージョン</h2>
+<p>
+この関数はSDL 2.0.5以降で使える.
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_CreateRGBSurfaceWithFormat.html">SDL_CreateRGBSurfaceWithFormat</a><br>
+<a href="SDL_FreeSurface.html">SDL_FreeSurface</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_CreateRGBSurfaceWithFormatFrom">SDL_CreateRGBSurfaceWithFormatFrom - SDL Wiki</a>
+<hr>
+</body>
+</html>
