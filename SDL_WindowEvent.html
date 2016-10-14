@@ -72,6 +72,14 @@ void PrintEvent(const SDL_Event * event)
         case SDL_WINDOWEVENT_CLOSE:
             SDL_Log("ウィンドウ %d が閉じた", event->window.windowID);
             break;
+#if SDL_VERSION_ATLEAST(2, 0, 5)
+        case SDL_WINDOWEVENT_TAKE_FOCUS:
+            SDL_Log("ウィンドウ %d がフォーカスを与えられた", event->window.windowID);
+            break;
+        case SDL_WINDOWEVENT_HIT_TEST:
+            SDL_Log("ウィンドウ %d が特殊なヒットテストを行った", event->window.windowID);
+            break;
+#endif
         default:
             SDL_Log("ウィンドウ %d の不明なイベント %d", event->window.windowID, event->window.event);
             break;
