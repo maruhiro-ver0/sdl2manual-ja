@@ -15,9 +15,10 @@
 ドラッグ&amp;ドロップイベントの情報の構造体
 <h2>フィールド</h2>
 <table border="1" summary="SDL_DropEvent">
-<tr><td>Uint32</td><td>type</td><td>SDL_DROPFILE</td></tr>
+<tr><td>Uint32</td><td>type</td><td>SDL_DROPFILE, SDL_DROPTEXT, SDL_DROPBEGIN, または SDL_DROPCOMPLETE</td></tr>
 <tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
-<tr><td>char*</td><td>file</td><td>ファイル名 SDL_free()で解放する必要がある</td></tr>
+<tr><td>char*</td><td>file</td><td>ファイル名. SDL_free()で解放する必要がある. SDL_DROPBEGIN, SDL_DROPCOMPLETEのときはNULL</td></tr>
+<tr><td>Uint32</td><td>windowID</td><td>もしあればドロップしたウィンドウ</td></tr>
 </table>
 <h2>サンプルコード</h2>
 <code>
@@ -86,20 +87,25 @@ int main(int argc, char *argv[]) {
 </code>
 <h2>詳細</h2>
 <p>
-<a href="SDL_DropEvent.html">SDL_DropEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバで, typeがSDL_DROPFILEのとき報告される.
+<a href="SDL_DropEvent.html">SDL_DropEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバで, typeがSDL_DROPFILE, SDL_DROPTEXT, SDL_DROPBEGIN, またはSDL_DROPCOMPLETEのとき報告される.
 イベントのdropフィールドからアクセスできる.
 </p>
 <p>
-このイベントはデフォルトで有効である.
+これらのイベントはデフォルトで有効である.
 <a href="SDL_EventState.html">SDL_EventState()</a>で無効にできる.
 </p>
 <p>
-もしこのイベントを有効にしたならば, イベントでSDL_free()を使ってfilenameを解放する必要がある.
+もしこれらのイベントを有効にしたならば, イベントでSDL_free()を使ってfilenameを解放する必要がある.
+</p>
+<p>
+SDL_DROPTEXT, SDL_DROPBEGIN, そしてSDL_DROPCOMPLETEはSDL 2.0.5以降で使える.
 </p>
 <h3>Mac OS X </h3>
 SDLアプリケーションでドラッグ&amp;ドロップを有効にするためには, 必ずinfo.plistファイルも編集しなければならない.
 <strong>Document Types</strong>を追加/修正すること.
 例えば, 全てのドキュメントタイプで有効にするためには, Document Types に "public.data" mime type を追加する必要がある.
+<h2>バージョン</h2>
+SDL 2.0.0以降
 <h2>関連項目(列挙体)</h2>
 <a href="SDL_EventType.html">SDL_EventType</a><br>
 <h2>関連項目(構造体)</h2>
