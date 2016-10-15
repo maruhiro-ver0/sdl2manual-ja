@@ -58,12 +58,30 @@
 <tr><td>SDL_PIXELFORMAT_ABGR8888</td><td></td></tr>
 <tr><td>SDL_PIXELFORMAT_BGRA8888</td><td></td></tr>
 <tr><td>SDL_PIXELFORMAT_ARGB2101010</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGBA32</td><td>現在の環境のRGBA順のバイト配列の色データのエイリアス (SDL 2.0.5以降)</td></tr>
+<tr><td>SDL_PIXELFORMAT_ARGB32</td><td>現在の環境のARGB順のバイト配列の色データのエイリアス (SDL 2.0.5以降)</td></tr>
+<tr><td>SDL_PIXELFORMAT_BGRA32</td><td>現在の環境のBGRA順のバイト配列の色データのエイリアス (SDL 2.0.5以降)</td></tr>
+<tr><td>SDL_PIXELFORMAT_ABGR32</td><td>現在の環境のABGR順のバイト配列の色データのエイリアス (SDL 2.0.5以降)</td></tr>
 <tr><td>SDL_PIXELFORMAT_YV12</td><td>均等モード: Y + V + U (3プレーン)</td></tr>
 <tr><td>SDL_PIXELFORMAT_IYUV</td><td>均等モード: Y + U + V (3プレーン)</td></tr>
 <tr><td>SDL_PIXELFORMAT_YUY2</td><td>圧縮モード: Y0+U0+Y1+V0 (1プレーン)</td></tr>
 <tr><td>SDL_PIXELFORMAT_UYVY</td><td>圧縮モード: U0+Y0+V0+Y1 (1プレーン)</td></tr>
 <tr><td>SDL_PIXELFORMAT_YVYU</td><td>圧縮モード: Y0+V0+Y1+U0 (1プレーン)</td></tr>
 </table>
+<h3>SDL_PIXELFORMAT_*32 エイリアス</h3>
+<p>
+SDL_PIXELFORMAT_RGBA32は, ビッグエンディアンではSDL_PIXELFORMAT_RGBA8888, リトルエンディアンではSDL_PIXELFORMAT_ABGR8888のエイリアスで, (SDL_PIXELFORMAT_RGB24でRGB順のバイト配列とするのと同じように) ピクセルをRGBA順のバイト配列で指定できる.
+</p>
+<p>
+しかし, これは単なるエイリアスで, 実際の値はエイリアス先の値と同じである.
+よって, SDL_GetPixelFormatName(SDL_PIXELFORMAT_RGBA32) は環境に依存したエイリアス元の名前を戻す. (例えば"SDL_PIXELFORMAT_ABGR8888")
+</p>
+<p>
+SDL_PIXELFORMAT_ARGB32, SDL_PIXELFORMAT_BGRA32, SDL_PIXELFORMAT_ABGR32も同様である. (当然, エイリアス先のピクセル形式だけは異なる.)
+</p>
+<p>
+SDL_PIXELFORMAT_*32エイリアスはSDL 2.0.5以降で使える.
+</p>
 <h2>詳細</h2>
 <p>
 ピクセル形式の種類は以下の値である
@@ -133,6 +151,7 @@
 <a href="SDL_PixelFormatEnumToMasks.html">SDL_PixelFormatEnumToMasks</a><br>
 <a href="SDL_QueryTexture.html">SDL_QueryTexture</a><br>
 <a href="SDL_RenderReadPixels.html">SDL_RenderReadPixels</a><br>
+<a href="SDL_GetPixelFormatName.html">SDL_GetPixelFormatName</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_PixelFormatEnum">SDL_PixelFormatEnum</a><br>
 <hr>
