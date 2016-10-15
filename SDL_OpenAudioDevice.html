@@ -45,17 +45,17 @@ want.freq = 48000;
 want.format = AUDIO_F32;
 want.channels = 2;
 want.samples = 4096;
-want.callback = MyAudioCallback;  // この関数はどこか別の場所に書く
+want.callback = MyAudioCallback;  /* この関数はどこか別の場所に書く */
 
 dev = SDL_OpenAudioDevice(NULL, 0, &amp;want, &amp;have, SDL_AUDIO_ALLOW_FORMAT_CHANGE);
 if (dev == 0) {
-    printf("オーディオを開けなかった: %s\n", SDL_GetError());
+    SDL_Log("オーディオを開けなかった: %s", SDL_GetError());
 } else {
-    if (have.format != want.format) { // 要求と変わったか?
-        printf("32bit浮動小数点のオーディオ形式に対応していない\n");
+    if (have.format != want.format) { /* 要求と変わったか? */
+        SDL_Log("32bit浮動小数点のオーディオ形式に対応していない");
     }
-    SDL_PauseAudioDevice(dev, 0);  // 再生を開始する
-    SDL_Delay(5000);  // コールバックで音声を5秒間再生する
+    SDL_PauseAudioDevice(dev, 0); /* 再生を開始する */
+    SDL_Delay(5000); /* コールバックで音声を5秒間再生する */
     SDL_CloseAudioDevice(dev);
 }
 </pre>
@@ -67,9 +67,9 @@ if (dev == 0) {
 さらにこの関数は1を戻さないため, 古い関数と衝突することはない.
 </p>
 <p>
-SDL2.0はまだ録音に対応していないので注意すること.
+SDL 2.0.5以前のSDL 2.0は録音に対応していない.
 よって, iscaptureが0以外のとき, この関数は失敗する.
-将来, 録音が実装されたときは, この値を0以外にできる.
+SDL 2.0.5からは録音が実装され, この値を0以外にできる.
 </p>
 <p>
 deviceをNULLにすると, 最も適したデフォルトを要求したことになる. (そしてそれは<a href="SDL_OpenAudio.html">SDL_OpenAudio()</a>の選択するデバイスと同じである.)
@@ -103,6 +103,10 @@ allowed_changesは次のフラグの論理和である.
 <p>
 多くの場合, コールバック関数は別のスレッドで実行される.
 <a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice()</a>で完全に再生を止めなくても, コールバック関数と他のスレッドの競合状態を避けることができる.
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_CloseAudioDevice.html">SDL_CloseAudioDevice</a><br>
