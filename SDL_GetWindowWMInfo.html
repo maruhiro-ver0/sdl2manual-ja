@@ -38,10 +38,10 @@ int main(int argc, char *argv[]) {
 
   window = SDL_CreateWindow("", 0, 0, 0, 0, SDL_WINDOW_HIDDEN);
 
-  SDL_VERSION(&info.version); // info構造体をSDLのバージョンで初期化する
+  SDL_VERSION(&info.version); /* info構造体をSDLのバージョンで初期化する */
 
-  if(SDL_GetWindowWMInfo(window,&info)) { // この関数は成功のとき真を戻す
-    // 成功
+  if(SDL_GetWindowWMInfo(window,&info)) { /* この関数は成功のとき真を戻す */
+    /* 成功 */
     const char *subsystem = "不明なシステム!";
     switch(info.subsystem) {
       case SDL_SYSWM_UNKNOWN:   break;
@@ -60,6 +60,9 @@ int main(int argc, char *argv[]) {
 #if SDL_VERSION_ATLEAST(2, 0, 4)
       case SDL_SYSWM_ANDROID:   subsystem = "Android";                break;
 #endif
+#if SDL_VERSION_ATLEAST(2, 0, 5)
+      case SDL_SYSWM_VIVANTE:   subsystem = "Vivante";                break;
+#endif
     }
 
     SDL_Log("このプログラムは SDL バージョン %d.%d.%d の %s で動作している", 
@@ -68,7 +71,7 @@ int main(int argc, char *argv[]) {
         (int)info.version.patch,
         subsystem);
   } else {
-    // 呼び出し失敗
+    /* 呼び出し失敗 */
     SDL_LogError(SDL_LOG_CATEGORY_ERROR, "ウィンドウの情報を得られなかった: %s", SDL_GetError());
   }
 
