@@ -43,15 +43,15 @@ want.freq = 48000;
 want.format = AUDIO_F32;
 want.channels = 2;
 want.samples = 4096;
-want.callback = MyAudioCallback;  // この関数はどこか別の場所に書く
+want.callback = MyAudioCallback; /* この関数はどこか別の場所に書く */
 
 if (SDL_OpenAudio(&amp;want, &amp;have) &lt; 0) {
-    printf("オーディオを開けなかった: %s\n", SDL_GetError());
+    SDL_Log("オーディオを開けなかった: %s", SDL_GetError());
 } else {
     if (have.format != want.format)
-        printf("32bit浮動小数点のオーディオ形式に対応していない\n");
-    SDL_PauseAudio(0);  // 再生を開始する
-    SDL_Delay(5000);  // コールバックで音声を5秒間再生する
+        SDL_Log("32bit浮動小数点のオーディオ形式に対応していない");
+    SDL_PauseAudio(0); /* 再生を開始する */
+    SDL_Delay(5000); /* コールバックで音声を5秒間再生する */
     SDL_CloseAudio();
 }
 </pre>
@@ -59,8 +59,8 @@ if (SDL_OpenAudio(&amp;want, &amp;have) &lt; 0) {
 </p>
 <h2>詳細</h2>
 <p>
-この関数はSDL1.2との互換性のために残されている.
-しかし, SDL2の新しい関数よりもやや簡単に使えるという理由もある.
+この関数はSDL 1.2との互換性のために残されている.
+しかし, SDL 2.0の新しい関数よりもやや簡単に使えるという理由もある.
 オーディオデバイスを開く, 新しくより強力な推奨される方法は, <a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>を使うことである.
 </p>
 <p>
