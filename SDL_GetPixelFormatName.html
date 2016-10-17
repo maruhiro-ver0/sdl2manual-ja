@@ -19,6 +19,19 @@
 <table border="1" summary="SDL_GetPixelFormatName">
 <tr><td>format</td><td><a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a>の値の1つ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Surface* surface = ...; // どこかで生成したサーフェイス
+SDL_PixelFormat* pixelFormat = surface->format;
+Uint32 pixelFormatEnum = pixelFormat->format;
+const char* surfacePixelFormatName = SDL_GetPixelFormatName(pixelFormatEnum);
+printf("このサーフェイスのピクセル形式は %s\n", surfacePixelFormatName);
+// "このサーフェイスのピクセル形式は SDL_PIXELFORMAT_ABGR8888" のように表示される
+</pre>
+</code>
+</p>
 <h2>戻り値</h2>
 ユーザが読めるピクセル形式の名前を戻す.
 ピクセル形式が不明の場合は"SDL_PIXELFORMAT_UNKNOWN"を戻す.
