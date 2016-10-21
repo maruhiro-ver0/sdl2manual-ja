@@ -54,13 +54,13 @@
 
     surface = SDL_CreateRGBSurface(0, width, height, 32,
                                    rmask, gmask, bmask, amask);
-    if(surface == NULL) {
-        fprintf(stderr, "CreateRGBSurface 失敗: %s\n", SDL_GetError());
+    if (surface == NULL) {
+        SDL_Log("CreateRGBSurface 失敗: %s", SDL_GetError());
         exit(1);
     }
 
     /* または, 指定のビット深度のデフォルトのマスクを使う */
-    surface = SDL_CreateRGBSurface(0,width,height,32,0,0,0,0);
+    surface = SDL_CreateRGBSurface(0, width, height, 32, 0, 0, 0, 0);
 </pre>
 </code>
 </p>
@@ -81,8 +81,8 @@ depthが8を超えるとき, 引数の[RGBA]maskを使ったピクセル形式が設定される.
 <a href="SDL_SetSurfaceBlendMode.html">SDL_SetSurfaceBlendMode()</a>で別のブレンドモードに変えることができる.
 </p>
 <h2>関連項目(関数)</h2>
-<a href="SDL_CreateRGBSurfaceWithFormat.html">SDL_CreateRGBSurfaceWithFormat</a><br>
 <a href="SDL_CreateRGBSurfaceFrom.html">SDL_CreateRGBSurfaceFrom</a><br>
+<a href="SDL_CreateRGBSurfaceWithFormat.html">SDL_CreateRGBSurfaceWithFormat</a><br>
 <a href="SDL_FreeSurface.html">SDL_FreeSurface</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_CreateRGBSurface">SDL_CreateRGBSurface - SDL Wiki</a>
