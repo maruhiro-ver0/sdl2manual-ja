@@ -39,8 +39,8 @@
 
     SDL_Surface* surf;
     surf = SDL_CreateRGBSurfaceWithFormat(0, width, height, 32, SDL_PIXELFORMAT_RGBA32);
-    if(surf == NULL) {
-        fprintf(stderr, "CreateRGBSurface Ž¸”s: %s\n", SDL_GetError());
+    if (surf == NULL) {
+        SDL_Log("SDL_CreateRGBSurfaceWithFormat() Ž¸”s: %s", SDL_GetError());
         exit(1);
     }
 </pre>
