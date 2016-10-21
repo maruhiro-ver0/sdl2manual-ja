@@ -27,7 +27,7 @@ SDL_Surface* surface = ...; // どこかで生成したサーフェイス
 SDL_PixelFormat* pixelFormat = surface->format;
 Uint32 pixelFormatEnum = pixelFormat->format;
 const char* surfacePixelFormatName = SDL_GetPixelFormatName(pixelFormatEnum);
-printf("このサーフェイスのピクセル形式は %s\n", surfacePixelFormatName);
+SDL_Log("このサーフェイスのピクセル形式は %s", surfacePixelFormatName);
 // "このサーフェイスのピクセル形式は SDL_PIXELFORMAT_ABGR8888" のように表示される
 </pre>
 </code>
@@ -35,6 +35,10 @@ printf("このサーフェイスのピクセル形式は %s\n", surfacePixelFormatName);
 <h2>戻り値</h2>
 ユーザが読めるピクセル形式の名前を戻す.
 ピクセル形式が不明の場合は"SDL_PIXELFORMAT_UNKNOWN"を戻す.
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
+</p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetPixelFormatName">SDL_GetPixelFormatName - SDL Wiki</a>
 <hr>
