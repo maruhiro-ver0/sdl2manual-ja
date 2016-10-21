@@ -12,6 +12,74 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.0.5の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>一部の環境で録音に対応した
+<li>キューから録音された音声を回収する<a href="SDL_DequeueAudio.html">SDL_DequeueAudio()</a>の追加
+<li>テキストをドラッグ&amp;ドロップしたとき発生する<a href="SDL_EventType.html">SDL_DROPTEXTイベント</a>の追加
+<li>複数の項目をドラッグ&amp;ドロップしたとき発生する<a href="SDL_EventType.html">SDL_DROPBEGINイベント</a>, <a href="SDL_EventType.html">SDL_DROPCOMPLETEイベント</a>の追加
+<li>デフォルトではクリックしてウィンドウをフォーカスしたときSDLアプリケーションにはイベントが伝わらないようになった. <a href="SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH.html">SDL_HINT_MOUSE_FOCUS_CLICKTHROUGHヒント</a>を"1"にするとウィンドウのクリックイベントが伝わるようになる
+<li>αチャネルのあるサーフェイスをBMPとして保存すると, αチャネルに対応した新しいBMP形式で保存される. <a href="SDL_HINT_BMP_SAVE_LEGACY_FORMAT.html">SDL_HINT_BMP_SAVE_LEGACY_FORMATヒント</a>を"1"にすると古い形式になる.
+<li>ヒントの真偽値を得る<a hef="SDL_GetHintBoolean.html">SDL_GetHintBoolean()</a>の追加
+<li>レンダラーの拡大を, スムーズに行うか, ビューポートサイズの整数倍にするかを設定する<a href="SDL_RenderSetIntegerScale.html">SDL_RenderSetIntegerScale()</a>の追加
+<li>ピクセル形式を指定してSDLサーフェイスを生成する<a href="SDL_CreateRGBSurfaceWithFormat.html">SDL_CreateRGBSurfaceWithFormat()</a>と<a href="SDL_CreateRGBSurfaceWithFormatFrom.html">SDL_CreateRGBSurfaceWithFormatFrom()</a>の追加
+<li>ウィンドウが使える領域を戻す<a href="SDL_GetDisplayUsableBounds.html">SDL_GetDisplayUsableBounds()</a>の追加. 例えば, Mac OS Xではメニューバーとドックは領域から引かれる
+<li>ウィンドウのクライアント領域の周りにある枠のサイズを戻す<a href="SDL_GetWindowBordersSize.html">SDL_GetWindowBordersSize()</a>の追加
+<li>SDL_HITTEST_NORMALでは行われないヒットテストで発生する<a href="SDL_WindowEventID.html">SDL_WINDOWEVENT_HIT_TESTイベント</a>の追加 (例: タイトルバーやウィンドウ枠)
+<li>ウィンドウのサイズを変えられるかを設定する<a href="SDL_SetWindowResizable.html">SDL_SetWindowResizable()</a>の追加
+<li>ウィンドウの不透明度を設定/獲得する<a href="SDL_SetWindowOpacity.html">SDL_SetWindowOpacity()</a>と<a href="SDL_GetWindowOpacity.html">SDL_GetWindowOpacity()</a>の追加
+<li>あるウィンドウが他のウィンドウに対してモーダルであるかを設定する<a href="SDL_SetWindowModalFor.html">SDL_SetWindowModalFor()</a>の追加
+<li><a href="SDL_MixAudioFormat.html">SDL_MixAudioFormat()</a>が<a href="SDL_AudioFormat.html">AUDIO_U16LSB</a>と<a href="SDL_AudioFormat.html">AUDIO_U16MSB</a>に対応
+<li>OpenGLレンダラーを使った場合, テクスチャを読み戻すとき画像が反転する問題の修正
+<li>OpenGLレンダラーを使った場合のSDL_BLENDMODE_NONEでのテクスチャの色変調の問題の修正
+<li>いくつかの場合でカラーキーのα値が無視される不具合の修正
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>スレッドに名前を付けたときデバッガ例外が発生することを防ぐ<a href="SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING.html">SDL_HINT_WINDOWS_DISABLE_THREAD_NAMINGヒント</a>の追加. この例外はデバッガ下で.NETアプリケーションを実行するとき問題を引き起こす
+<li>Windowsも<a href="SDL_HINT_THREAD_STACK_SIZE.html">SDL_HINT_THREAD_STACK_SIZEヒント</a>に対応
+<li>XBoxのコントローラのトリガが開始時に自動的に引かれる問題の修正
+<li>実行ファイルの最初のアイコンをウィンドウのアイコンのデフォルトとする
+<li>SDLがCライブラリ対応でビルドされたとき, SDLログメッセージが重複して表示される問題の修正
+<li>SDLウィンドウがフォーカスを失ったときデッドキーをリセットする. よって, SDLアプリケーションで押されたデッドキーは他のアプリケーションの文字入力に影響しない
+</ul>
+<h3>Mac OS X</h3>
+<ul>
+<li>ダミービデオドライバの選択の問題の修正
+<li>Caps Lockキーイベントは, 押したときに押した/離したイベントがペアで発生するのではなく, 押したときに押したイベント, 離したときに離したイベントが発生するようになった
+<li>Mac OS X 10.12でのマウスホイールイベントの問題の修正
+<li>音声ドライバは, 新しいバージョンのMac OS Xでより高い互換性のあるAVFoundationを使うように更新した
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>Fcitx IMEに対応
+<li>SDLウィンドウがフォーカスを求めているかをウィンドウマネージャが尋ねたとき発生する<a href="SDL_WindowEventID.html">SDL_WINDOWEVENT_TAKE_FOCUSイベント</a>の追加
+<li>更新周期は切捨てではなく四捨五入となった. 例えば59.94Hzは, 59Hzではなく, 四捨五入され60Hzとなる
+<li>Raspberry Piのスクリーンタッチに初期対応
+</ul>
+<h3>OpenBSD</h3>
+<ul>
+<li>OpenBSDでも<a href="SDL_GetBasePath.html">SDL_GetBasePath()</a>に対応
+</ul>
+<h3>iOS</h3>
+<ul>
+<li>iOS 8以降の動的ロードオブジェクトに対応
+</ul>
+<h3>tvOS</h3>
+<ul>
+<li>Apple TVに対応
+<li>Apple TV remoteのジョイスティックの軸を自動的に回転方向に合わせるかを設定する<a href="SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION.html">SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATIONヒント</a>の追加
+</ul>
+<h3>Android</h3>
+<ul>
+<li>Androidスクリーンの解像度が変わったときウィンドウのサイズが変わらない問題の修正
+<li>加速度で伝えられたジョイスティックのZ軸を正しくなるように修正
+</ul>
+<h3>Emscripten (webブラウザ上で動作)</h3>
+<ul>
+<li>多数の不具合修正と実装
+</ul>
 <h2>2.0.4の変更点</h2>
 <h3>全般</h3>
 <ul>
@@ -119,7 +187,7 @@
 <li>Raspberry Pi 2に対応
 </ul>
 <h2>原文へのリンク</h2>
-<a href="https://hg.libsdl.org/SDL/file/e2343ac4788e/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
+<a href="https://hg.libsdl.org/SDL/file/007dfe83abf8/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
 <hr>
 </body>
 </html>
