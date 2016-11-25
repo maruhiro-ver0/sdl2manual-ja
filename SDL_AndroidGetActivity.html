@@ -14,7 +14,7 @@
 <h1>SDL_AndroidGetActivity</h1>
 AndroidアプリケーションでアクティビティクラスのJavaインスタンスを得る
 <h2>構文</h2>
-<code>void* SDL_AndroidGetActivity(void)</code>
+<code>void* SDL_AndroidGetActivity()</code>
 <h2>戻り値</h2>
 <p>
 jobject型のAndroidアプリケーションのアクティビティクラスのインスタンスを戻す.
@@ -31,7 +31,7 @@ JavaネイティブインターフェースのPushLocalFrame(), PopLocalFrame(), DeleteLocalRe
 #include "SDL.h"
 #include &lt;jni.h&gt;
 
-// このサンプルはC++である必要がある
+// このサンプルはC++と "void showHome()" という名前のJavaカスタムメソッドが必要である
 
 // Javaのアクティビティのインスタンスの void MyActivity.showHome() メソッドを呼ぶ
 void showHome(void)
