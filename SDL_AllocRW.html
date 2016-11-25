@@ -22,19 +22,27 @@
 <p>
 <code>
 <pre>
+#include "stdlib.h"
+#include "SDL.h"
+
 /* これらの関数はSDL_RWops内のポインタ以外で使ってはならない */
-static int myseekfunc(SDL_RWops *context, int offset, int whence)
+static Sint64 mysizefunc(SDL_RWops * context)
+{
+    return -1;
+}
+
+static Sint64 myseekfunc(SDL_RWops *context, Sint64 offset, int whence)
 {
     return SDL_SetError("この種類のSDL_RWopsはシークできない");
 }
 
-static int myreadfunc(SDL_RWops *context, void *ptr, int size, int maxnum)
+static size_t myreadfunc(SDL_RWops *context, void *ptr, size_t size, size_t maxnum)
 {
     SDL_memset(ptr,0,size*maxnum);
     return maxnum;
 }
 
-static int mywritefunc(SDL_RWops *context, const void *ptr, int size, int num)
+static size_t mywritefunc(SDL_RWops *context, const void *ptr, size_t size, size_t num)
 {
     return num;
 }
@@ -56,6 +64,7 @@ SDL_RWops *MyCustomRWop()
     SDL_RWops *c=SDL_AllocRW();
     if(c==NULL) return NULL;
 
+    c->size =mysizefunc;
     c->seek =myseekfunc;
     c->read =myreadfunc;
     c->write=mywritefunc;
