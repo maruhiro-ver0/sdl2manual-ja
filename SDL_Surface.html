@@ -28,6 +28,27 @@
 <tr><td>SDL_BlitMap</td><td>map</td><td>他のサーフェイスへの高速コピーマッピングの情報 (内部使用)</td></tr>
 <tr><td>int</td><td>refcount</td><td>アプリケーションから参照された回数</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* この関数はCPUでサーフェイスのピクセルを編集する方法を示すためのものである.
+   しかし, サーフェイスをクリアするときは通常はSDL_FillRect()を使うほうがよいだろう. */
+void WipeSurface(SDL_Surface *surface)
+{
+    /* ロックの必要のないサーフェイスではこれが高速である. */
+    /* 一度ロックすれば surface->pixels に安全にアクセスできるようになる. */
+    SDL_LockSurface(surface);
+
+    /* 0を黒色とみなしている. SDL_MapRGBA()を使うとより確実にサーフェイスと色をマッピングできる! */
+    /* ピッチ×高さがサーフェイスのバッファ全体のサイズである. */
+    SDL_memset(surface->pixels, 0, surface->h * surface->pitch);
+
+    SDL_UnlockSurface(surface);
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 ほとんどのサーフェイスはpixelsに直接アクセスできる.
 <a href="SDL_SetSurfaceRLE.html">SDL_SetSurfaceRLE()</a>で最適化されたサーフェイスはpixelsにアクセスする前に<a href="SDL_LockSurface.html">SDL_LockSurface()</a>でロックする必要がある.
