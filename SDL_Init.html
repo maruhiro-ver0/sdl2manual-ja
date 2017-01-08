@@ -24,7 +24,6 @@ SDLライブラリを初期化する.
 成功のとき0, エラーのとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>サンプルコード</h2>
-<h3>C</h3>
 <p>
 <code>
 <pre>
@@ -35,82 +34,16 @@ SDLライブラリを初期化する.
 int main(int argv, char** argc) {
     if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER) != 0) {
         fprintf(stderr, 
-                "\nSDLを初期化できなかった:  %s\n",
+                "SDLを初期化できなかった: %s\n",
                 SDL_GetError()
                );
         return 1;
     }
-    atexit(SDL_Quit);
 
     /* ... */
 
-    return 0;
-}
-</pre>
-</code>
-</p>
-<h3>C++</h3>
-<p>
-<code>
-<pre>
-#include &lt;exception&gt;
-#include &lt;string&gt;
-#include "SDL.h"
-
-class InitError: public std::exception {
-    public:
-        InitError();
-        InitError(const std::string&amp;);
-        virtual ~InitError() throw();
-        virtual const char* what() const throw();
-    private:
-        std::string msg;
-};
-
-InitError::InitError():
-  exception(), msg(SDL_GetError()) {}
-InitError::InitError(const std::string&amp; m):
-  exception(), msg(m) {}
-InitError::~InitError() throw() {}
-const char* InitError::what() const throw() {
-    return msg.c_str();
-}
-
-class SDL {
-    public:
-        SDL(Uint32 flags = 0) throw(InitError);
-        virtual ~SDL();
-};
-
-SDL::SDL(Uint32 flags) throw(InitError) {
-    if (SDL_Init(flags) != 0)
-        throw InitError();
-}
-
-SDL::~SDL() {
     SDL_Quit();
-}
-
-/* ... */
-
-#include &lt;iostream&gt;
-
-int main(int argc, char **argv) {
-    try {
-        SDL sdl(SDL_INIT_VIDEO|SDL_INIT_TIMER);
-
-        /* ... */
-
-        return 0;
-    }
-
-    catch (const InitError&amp; err) {
-        std::cerr
-            &lt;&lt; "SDLの初期化中にエラーが発生した:  "
-            &lt;&lt; err.what() &lt;&lt; std::endl;
-    }
-
-    return 1;
+    return 0;
 }
 </pre>
 </code>
