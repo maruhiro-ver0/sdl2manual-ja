@@ -26,9 +26,61 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+
+int main(int argc, char* argv[])
+{
+    if (SDL_Init(SDL_INIT_VIDEO) == 0) {
+        SDL_Window* window = NULL;
+        SDL_Renderer* renderer = NULL;
+
+        if (SDL_CreateWindowAndRenderer(640, 480, 0, &amp;window, &amp;renderer) == 0) {
+            SDL_bool done = SDL_FALSE;
+
+            while (!done) {
+                SDL_Event event;
+
+                SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+                SDL_RenderClear(renderer);
+
+                SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+                SDL_RenderDrawLine(renderer, 320, 200, 300, 240);
+                SDL_RenderDrawLine(renderer, 300, 240, 340, 240);
+                SDL_RenderDrawLine(renderer, 340, 240, 320, 200);
+                SDL_RenderPresent(renderer);
+
+                while (SDL_PollEvent(&amp;event)) {
+                    if (event.type == SDL_QUIT) {
+                        done = SDL_TRUE;
+                    }
+                }
+            }
+        }
+
+        if (renderer) {
+            SDL_DestroyRenderer(renderer);
+        }
+        if (window) {
+            SDL_DestroyWindow(window);
+        }
+    }
+    SDL_Quit();
+    return 0;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <a href="SDL_RenderDrawLine.html">SDL_RenderDrawLine()</a>は始点から終点までの直線を描く.
 複数のつながった直線を描く場合は, 代わりに<a href="SDL_RenderDrawLines.html">SDL_RenderDrawLines()</a>が使える.
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_RenderDrawLines.html">SDL_RenderDrawLines</a><br>
 <a href="SDL_RenderDrawPoint.html">SDL_RenderDrawPoint</a><br>
