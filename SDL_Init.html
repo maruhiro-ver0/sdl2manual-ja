@@ -28,11 +28,10 @@ SDLライブラリを初期化する.
 <code>
 <pre>
 #include "SDL.h"
-#include &lt;stdio.h&gt; /* fprintf()のため */
-#include &lt;stdlib.h&gt; /* atexit()のため */
+#include &lt;stdio.h&gt; /* fprintf()とstderrのため */
 
-int main(int argv, char** argc) {
-    if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER) != 0) {
+int main(int argc, char* argv[]) {
+    if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) != 0) {
         fprintf(stderr, 
                 "SDLを初期化できなかった: %s\n",
                 SDL_GetError()
@@ -62,10 +61,10 @@ flagsは以下の項目の論理和で複数設定できる:
 <table border="1" summary="SDL_Init flags">
 <tr><td>SDL_INIT_TIMER</td><td>タイマ サブシステム</td></tr>
 <tr><td>SDL_INIT_AUDIO</td><td>オーディオ サブシステム</td></tr>
-<tr><td>SDL_INIT_VIDEO</td><td>ビデオ サブシステム. 自動的にSDL_INIT_EVENTSサブシステムを初期化する</td></tr>
-<tr><td>SDL_INIT_JOYSTICK</td><td>ジョイスティック サブシステム</td></tr>
+<tr><td>SDL_INIT_VIDEO</td><td>ビデオ サブシステム. イベントサブシステムも自動的に初期化される</td></tr>
+<tr><td>SDL_INIT_JOYSTICK</td><td>ジョイスティック サブシステム. イベントサブシステムも自動的に初期化される</td></tr>
 <tr><td>SDL_INIT_HAPTIC</td><td>ハプティクス(感覚フィードバック) サブシステム</td></tr>
-<tr><td>SDL_INIT_GAMECONTROLLER</td><td>コントローラー サブシステム. 自動的にSDL_INIT_JOYSTICKサブシステムを初期化する</td></tr>
+<tr><td>SDL_INIT_GAMECONTROLLER</td><td>コントローラー サブシステム. ジョイスティックサブシステムも自動的に初期化される</td></tr>
 <tr><td>SDL_INIT_EVENTS</td><td>イベント サブシステム</td></tr>
 <tr><td>SDL_INIT_EVERYTHING</td><td>上記のサブシステムの全て</td></tr>
 <tr><td>SDL_INIT_NOPARACHUTE</td><td>互換性のために存在する. このフラグは機能しない</td></tr>
