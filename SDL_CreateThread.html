@@ -30,9 +30,8 @@
 <pre>
 #include &lt;stdio.h&gt;
 #include "SDL_thread.h"
-#include "SDL_timer.h"
 
-// とても簡単なスレッド - 50ms間隔で0から9までカウントする
+/* とても単純なスレッド - 50ms間隔で0から9までカウントする */
 static int TestThread(void *ptr)
 {
     int cnt;
@@ -47,26 +46,20 @@ static int TestThread(void *ptr)
 
 int main(int argc, char *argv[])
 {
-    SDL_Thread   *thread;
-    SDL_threadID threadID;
-    int          threadReturnValue;
+    SDL_Thread *thread;
+    int         threadReturnValue;
 
-    printf("\n簡単なSDL_CreateThreadのテスト:");
+    printf("\n単純なSDL_CreateThreadのテスト:");
 
-    // 単にスレッドを生成する
+    /* 単にスレッドを生成する */
     thread = SDL_CreateThread(TestThread, "TestThread", (void *)NULL);
 
     if (NULL == thread) {
         printf("\nSDL_CreateThread 失敗: %s\n", SDL_GetError());
-        exit(-1);
+    } else {
+        SDL_WaitThread(thread, &threadReturnValue);
+        printf("\nスレッドの戻り値: %d", threadReturnValue);
     }
-
-    // 新しく開始されたスレッドのIDを得る
-    threadID = SDL_GetThreadID(thread);
-
-    // スレッドの完了を待ち戻り値を得る
-    SDL_WaitThread(thread, &amp;threadReturnValue);
-    printf("\nスレッドの戻り値: %d", threadReturnValue);
 
     return 0;
 }
