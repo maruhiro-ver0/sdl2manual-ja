@@ -27,26 +27,27 @@
 <p>
 <code>
 <pre>
-#include "SDL_loadso.h"
+#include "SDL.h"
 
-// 変数を宣言する
+/* 変数を宣言する */
 void* myHandle = NULL;
 char* myFunctionName = "myFancyFunction";
 void (*myFancyFunction)(int anInt);
 
-// mylib.soを動的に読み込む
+/* mylib.soを動的に読み込む */
 myHandle = SDL_LoadObject("mylib.so");
 
-// mylib.soからエクスポートされた関数を読み込む
-// エクスポートされた関数のプロトタイプは次のようであるとする
-// void myFancyFunction(int anInt);
+/* mylib.soからエクスポートされた関数を読み込む
+ * エクスポートされた関数のプロトタイプは次のようであるとする
+ * void myFancyFunction(int anInt);
+ */
 myFancyFunction = (void (*)(int))SDL_LoadFunction(myHandle, myFunctionName);
 
-// myFancyFunctionに適当な値を渡す
+/* myFancyFunctionに適当な値を渡す */
 if (myFancyFunction != NULL) {
     myFancyFunction(15);
 } else {
-    // ここでエラー処理を行う
+    /* ここでエラー処理を行う */
 }
 </pre>
 </code>
