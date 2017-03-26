@@ -36,6 +36,17 @@
 <tr><td>SDL_WINDOW_TOOLTIP</td><td>ウィンドウはツールチップとして扱われる (X11専用 SDL2.0.5以上)</td></tr>
 <tr><td>SDL_WINDOW_POPUP_MENU</td><td>ウィンドウはポップアップメニューとして扱われる (X11専用 SDL2.0.5以上)</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+Uint32 flags = SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN;
+SDL_Window * window = SDL_CreateWindow(
+    /* ... */
+    flags
+);
+</pre>
+</code>
 <h2>詳細</h2>
 <p>
 <a href="SDL_WindowFlags.html">SDL_WINDOW_OPENGL</a>フラグはOpenGLを使う準備をする. しかし, ウィンドウを生成した後はOpenGLの関数を呼ぶ前に<a href="SDL_GL_CreateContext.html">SDL_GL_CreateContext()</a>でOpenGLコンテキストを生成する必要がある.
