@@ -17,7 +17,7 @@
 <table border="1" summary="SDL_HapticCustom">
 <tr><td colspan="3" align="center">ヘッダ</td></tr>
 <tr><td>Uint16</td><td>type</td><td>SDL_HAPTIC_CUSTOM</td></tr>
-<tr><td><a href="SDL_HapticDirection.html">SDL_HapticDirection</a></td><td>direction</td><td>無効 (詳細を参照するこ<<tr><td colspan="3" align="center">再生</td></tr>
+<tr><td><a href="SDL_HapticDirection.html">SDL_HapticDirection</a></td><td>direction</td><td>無効 (詳細を参照すること)<tr><td colspan="3" align="center">再生</td></tr>
 <tr><td>Uint32</td><td>length</td><td>継続時間(ミリ秒)</td></tr>
 <tr><td>Uint16</td><td>delay</td><td>効果が始まるまでの待ち時間</td></tr>
 <tr><td colspan="3" align="center">トリガ</td></tr>
@@ -36,6 +36,9 @@
 </table>
 <h2>詳細</h2>
 <p>
+この構造体はSDL_HAPTIC_CUSTOM(カスタム)効果専用である.
+</p>
+<p>
 カスタム効果は周期効果と似ていて, アプリケーションはその実際の形を定義できる.
 dataはchannels * samples個のUint16型で, 自分で確保する必要がある.
 </p>
@@ -43,6 +46,9 @@ dataはchannels * samples個のUint16型で, 自分で確保する必要がある.
 channelsが1のとき, 定義した方向に回る.
 その他のとき, 別の軸のためにdataを使う.
 </p>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_HapticDirection.html">SDL_HapticDirection</a><br>
+<a href="SDL_HapticEffect.html">SDL_HapticEffect</a><br>
 <h2>関連項目(関数)</h2>
 <a href="SDL_HapticNewEffect.html">SDL_HapticNewEffect</a><br>
 <h2>SDL Wikiへのリンク</h2>
