@@ -28,10 +28,14 @@
 <pre>
 extern SDL_Haptic *haptic;
 if (SDL_HapticQuery(haptic) &amp; SDL_HAPTIC_CONSTANT) {
-    printf("一定ハプティック効果(constant haptic effect)あり!");
+    SDL_Log("一定ハプティック効果(constant haptic effect)あり!");
 }
 </pre>
 </code>
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_HapticEffectSupported.html">SDL_HapticEffectSupported</a><br>
