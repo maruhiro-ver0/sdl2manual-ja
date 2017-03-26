@@ -79,7 +79,7 @@ int test_haptic( SDL_Joystick * joystick ) {
  }
 
  // 効果を生成する
- memset( &effect, 0, sizeof(SDL_HapticEffect) ); // 安全のためデフォルトを0にする
+ SDL_memset( &effect, 0, sizeof(SDL_HapticEffect) ); // 安全のためデフォルトを0にする
  effect.type = SDL_HAPTIC_SINE;
  effect.periodic.direction.type = SDL_HAPTIC_POLAR; // 極座標系
  effect.periodic.direction.dir[0] = 18000; // 効果は南から来る
