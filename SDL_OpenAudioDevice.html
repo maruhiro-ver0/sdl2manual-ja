@@ -45,7 +45,7 @@ want.freq = 48000;
 want.format = AUDIO_F32;
 want.channels = 2;
 want.samples = 4096;
-want.callback = MyAudioCallback;  /* この関数はどこか別の場所に書く */
+want.callback = MyAudioCallback;  /* この関数はどこか別の場所に書く. 詳細はSDL_AudioSpecを参照すること */
 
 dev = SDL_OpenAudioDevice(NULL, 0, &amp;want, &amp;have, SDL_AUDIO_ALLOW_FORMAT_CHANGE);
 if (dev == 0) {
@@ -103,6 +103,7 @@ allowed_changesは次のフラグの論理和である.
 <p>
 多くの場合, コールバック関数は別のスレッドで実行される.
 <a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice()</a>で完全に再生を止めなくても, コールバック関数と他のスレッドの競合状態を避けることができる.
+詳細は<a href="SDL_AudioSpec.html">SDL_AudioSpec</a>を参照すること.
 </p>
 <h2>バージョン</h2>
 <p>
