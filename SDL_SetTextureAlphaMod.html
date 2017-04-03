@@ -12,13 +12,13 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_SetTextureAlphaMod
 <hr>
 <h1>SDL_SetTextureAlphaMod</h1>
-レンダラーのコピー操作で積算されるα値を設定する
+レンダラーのコピー操作で乗算されるα値を設定する
 <h2>構文</h2>
 <code>int SDL_SetTextureAlphaMod(SDL_Texture* texture, Uint8 alpha)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_SetTextureAlphaMod">
 <tr><td>texture</td><td>調査するテクスチャ</td></tr>
-<tr><td>alpha</td><td>コピー時に積算されるα値</td></tr>
+<tr><td>alpha</td><td>コピー時に乗算されるα値</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
