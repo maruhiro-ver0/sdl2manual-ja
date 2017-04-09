@@ -13,7 +13,7 @@
 <hr>
 <h1>SDL_Init</h1>
 SDLライブラリを初期化する.
-他のあらゆるSDLの関数を呼び出す前にこの関数を呼ぶ必要がある.
+他のほとんどのSDLの関数を呼び出す前にこの関数を呼ぶ必要がある.
 <h2>構文</h2>
 <code>int SDL_Init(Uint32 flags)</code>
 <h2>引数</h2>
@@ -31,7 +31,7 @@ SDLライブラリを初期化する.
 
 int main(int argc, char* argv[]) {
     if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) != 0) {
-        SDL_Log("SDLを初期化できなかった: %s\n", SDL_GetError());
+        SDL_Log("SDLを初期化できなかった: %s", SDL_GetError());
         return 1;
     }
 
@@ -49,8 +49,11 @@ SDL_Init()は単純に<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>に処理
 よって, これら2つは入れ替えられる. コードが読みやすさを考慮するならば, <a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>の方がよいかもしれない.
 </p>
 <p>
-ファイルI/O, そしてスレッドサブシステムはデフォルトで初期化される.
+<a href="CategoryIO.html">ファイルI/O</a>, そして<a href="CategoryThread.html">スレッド</a>サブシステムはデフォルトで初期化される.
 他のサブシステムを使うときは指定して初期化しなければならない.
+</p>
+<p>
+<a href="CategoryLog.html">ログ</a>も初期化せずに使うことができる.
 </p>
 <p>
 flagsは以下の項目の論理和で複数設定できる:
