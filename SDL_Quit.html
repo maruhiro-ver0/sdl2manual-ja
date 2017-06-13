@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
 初期化中にエラーが発生した場合でもこの関数は呼んでも安全である.
 </p>
 <p>
-<a href="SDL_Init.html">SDL_Init()</a>や<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>の代わりに<a href="sdl2-video.html#SDL_VideoInit">SDL_VideoInit()</a>等のサブシステム初期化関数を呼んでサブシステムを開始した場合は, <a href="SDL_Quit.html">SDL_Quit()</a>を呼ぶ前に<a href="SDL_VideoQuit.html">SDL_VideoQuit()</a>等のサブシステム終了関数を呼ぶ必要がある.
+<a href="SDL_Init.html">SDL_Init()</a>や<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>の代わりに<a href="SDL_VideoInit.html">SDL_VideoInit()</a>等のサブシステム初期化関数を呼んでサブシステムを開始した場合は, <a href="SDL_Quit.html">SDL_Quit()</a>を呼ぶ前に<a href="SDL_VideoQuit.html">SDL_VideoQuit()</a>等のサブシステム終了関数を呼ぶ必要がある.
 </p>
 <p>
 この関数はatexit()でアプリケーションが終了するときに必ず呼ばれるようにすることができる.
