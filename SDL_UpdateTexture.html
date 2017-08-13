@@ -19,7 +19,7 @@
 <table border="1" summary="SDL_UpdateTexture">
 <tr><td>texture</td><td>更新するテクスチャ</td></tr>
 <tr><td>rect</td><td>テクスチャを更新する領域の<a href="SDL_Rect.html">SDL_Rect</a>. NULLのときテクスチャ全体</td></tr>
-<tr><td>pixels</td><td>テクスチャ形式の生のピクセルデータ</td></tr>
+<tr><td>pixels</td><td>テクスチャの形式の生のピクセルデータ</td></tr>
 <tr><td>pitch</td><td>ピクセルデータの水平方向のバイト数. ライン間のパッディングを含む</td></tr>
 </table>
 <h2>戻り値</h2>
@@ -28,7 +28,7 @@
 <h2>詳細</h2>
 <p>
 ピクセルデータはテクスチャのピクセル形式でなければならない.
-<a href="SDL_QueryTexture.html">SDL_QueryTexture()</a>でテクスチャのピクセル形式の情報を得ることができる.
+テクスチャのピクセル形式は<a href="SDL_QueryTexture.html">SDL_QueryTexture()</a>で得ることができる.
 </p>
 <p>
 この関数はやや遅いので, あまり変更のない静的なテクスチャでの使用に向いている.
