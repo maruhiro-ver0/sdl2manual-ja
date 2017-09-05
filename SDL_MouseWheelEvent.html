@@ -23,6 +23,31 @@
 <tr><td>Sint32</td><td>y</td><td>垂直方向のスクロール量. 正が奥で, 負が手前</td></tr>
 <tr><td>Uint32</td><td>direction</td><td>SDL_MOUSEWHEEL_NORMALまたはSDL_MOUSEWHEEL_FLIPPED (SDL 2.0.4以降)</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Event Event;
+
+while( SDL_PollEvent( &Event ) )
+{
+
+     // ..
+
+     if(Event.wheel.y == 1) // 上へスクロール
+     {
+          // 引く動作のコードをここに書く!
+     }
+     else if(Event.wheel.y == -1) // 下へスクロール
+     {
+          // 押す動作のコードをここに書く!
+     }
+ 
+     // ...
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 <a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバで, SDL_MOUSEWHEELが報告されたときに使われる.
