@@ -12,6 +12,77 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.0.6の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>SDL_vulkan.hによる多環境対応Vulkanグラフィックの追加:
+<ul style="list-style:none;">
+<li>SDL_Vulkan_LoadLibrary()
+<li>SDL_Vulkan_GetVkGetInstanceProcAddr()
+<li>SDL_Vulkan_GetInstanceExtensions()
+<li>SDL_Vulkan_CreateSurface()
+<li>SDL_Vulkan_GetDrawableSize()
+<li>SDL_Vulkan_UnloadLibrary()
+</ul>
+これにより全ての環境依存コードをSDL環境のVulkanへ移行する必要が生じる.
+test/testvulkan.cにサンプルがある.
+<li>2Dレンダリングのカスタムブレンドモードを生成するSDL_ComposeCustomBlendMode()の追加
+<li>NEON命令に対応しているか否かを戻すSDL_HasNEON()の追加
+<li>Nintendo Switch Proコントローラーを含む多くのゲームコントローラーへの対応を追加
+<li>ゲームコントローラーで逆転やバラバラの方向のマッピングの追加
+<li>開く前にジョイスティックの情報を戻す関数の追加:
+<ul style="list-style:none;">
+<li>SDL_JoystickGetDeviceVendor()
+<li>SDL_JoystickGetDeviceProduct()
+<li>SDL_JoystickGetDeviceProductVersion()
+<li>SDL_JoystickGetDeviceType()
+<li>SDL_JoystickGetDeviceInstanceID()
+</ul>
+<li>開かれたジョイスティックの情報を戻す関数の追加:
+<ul style="list-style:none;">
+<li>SDL_JoystickGetVendor()
+<li>SDL_JoystickGetProduct()
+<li>SDL_JoystickGetProductVersion()
+<li>SDL_JoystickGetType()
+<li>SDL_JoystickGetAxisInitialState()
+</ul>
+<li>開かれたゲームコントローラーの情報を戻る関数の追加:
+<ul style="list-style:none;">
+<li>SDL_GameControllerGetVendor()
+<li>SDL_GameControllerGetProduct()
+<li>SDL_GameControllerGetProductVersion()
+</ul>
+<li>組み込まれたゲームコントローラーマッピングの一覧を得られるSDL_GameControllerNumMappings()とSDL_GameControllerMappingForIndex()の追加
+<li>ファイルからメモリにロードするSDL_LoadFile()とSDL_LoadFile_RW()の追加
+<li>サーフェイスのコピーを生成するSDL_DuplicateSurface()の追加
+<li>JACKオーディオドライバの試作を追加
+<li>2のベキ乗でない再サンプリングの実装. libsamplerateの使用を選択できる
+<li>再サンプリングの質を決めるSDL_HINT_AUDIO_RESAMPLING_MODEヒントの追加
+<li>SDL_RenderSetLogicalSize()の拡大方法を決めるSDL_HINT_RENDER_LOGICAL_SIZE_MODEヒントの追加
+<ul style="list-style:none;">
+<li>"0" または "letterbox" - 上下/左右を黒帯にして画面に合わせる (デフォルト)
+<li>"1" または "overscan" - 拡大して画面に合わせる. 画面からはみ出すことを認める
+</ul>
+<li>マウスの速さの倍率を設定するSDL_HINT_MOUSE_NORMAL_SPEED_SCALEヒントとSDL_HINT_MOUSE_RELATIVE_SPEED_SCALEヒントの追加
+<li>マウスイベントとタッチイベントを統合するか否かをを決めるSDL_HINT_TOUCH_MOUSE_EVENTSヒントの追加
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>Windowsのオーディオドライバのデフォルトを新たにWASAPIとした. ホットプラグインとデフォルトオーディオデバイスの変更に対応
+<li>古いXAudio2オーディオドライバは非推奨となった. 次のリリースで廃止される予定である
+<li>SDL windowsでユーザのアイコンを指定するSDL_HINT_WINDOWS_INTRESOURCE_ICONヒントとSDL_HINT_WINDOWS_INTRESOURCE_ICON_SMALLヒントの追加
+<li>.NET言語と様々なWindowsデバッガに対応するためSDL_HINT_WINDOWS_DISABLE_THREAD_NAMINGヒントをデフォルトとした
+<li>ゲームコントローラーマッピングのGUID形式の更新. 古いマッピングは読み込み時に自動的に変換される
+<li>WindowsのSDL_WINDOW_ALWAYS_ON_TOPフラグを実装
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>組み込み用のKMS/DRMビデオドライバの試作を追加
+</ul>
+<h3>iOS</h3>
+<ul>
+<li>SDL_HINT_AUDIO_CATEGORYヒントによるオーディオカテゴリの操作を追加. サイレントスイッチが音声に影響を与えるか否かを決めるため
+</ul>
 <h2>2.0.5の変更点</h2>
 <h3>全般</h3>
 <ul>
