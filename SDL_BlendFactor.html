@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryRender.html" title="1つ上">
+<title>SDL_BlendFactor</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_BlendFactor
+<hr>
+<h1>SDL_BlendFactor</h1>
+<a href="SDL_ComposeCustomBlendMode.html">SDL_ComposeCustomBlendMode()</a>でカスタムブレンドモードを生成する場合に使われるブレンド係数の列挙体
+<h2>値</h2>
+<table border="1" summary="SDL_BlendFactor">
+<tr><td>SDL_BLENDFACTOR_ZERO</td><td>0, 0, 0, 0</td></tr>
+<tr><td>SDL_BLENDFACTOR_ONE</td><td>1, 1, 1, 1</td></tr>
+<tr><td>SDL_BLENDFACTOR_SRC_COLOR</td><td>srcR, srcG, srcB, srcA</td></tr>
+<tr><td>SDL_BLENDFACTOR_ONE_MINUS_SRC_COLOR</td><td>1-srcR, 1-srcG, 1-srcB, 1-srcA</td></tr>
+<tr><td>SDL_BLENDFACTOR_SRC_ALPHA</td><td>srcA, srcA, srcA, srcA</td></tr>
+<tr><td>SDL_BLENDFACTOR_ONE_MINUS_SRC_ALPHA</td><td>1-srcA, 1-srcA, 1-srcA, 1-srcA</td></tr>
+<tr><td>SDL_BLENDFACTOR_DST_COLOR</td><td>dstR, dstG, dstB, dstA</td></tr>
+<tr><td>SDL_BLENDFACTOR_ONE_MINUS_DST_COLOR</td><td>1-dstR, 1-dstG, 1-dstB, 1-dstA</td></tr>
+<tr><td>SDL_BLENDFACTOR_DST_ALPHA</td><td>dstA, dstA, dstA, dstA</td></tr>
+<tr><td>SDL_BLENDFACTOR_ONE_MINUS_DST_ALPHA</td><td>1-dstA, 1-dstA, 1-dstA, 1-dstA</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+ブレンド係数は, ブレンド演算の前に, 描画するピクセル(元)とレンダーターゲットのピクセル(先)に乗算される.
+上の一覧のコンマでくぎられた係数は, 常に赤, 緑, 青, αの順に適用される.
+</p>
+<p>
+一部のレンダラーは全ての係数には対応していない.
+<a href="SDL_ComposeCustomBlendMode.html">SDL_ComposeCustomBlendMode()</a>の現在の対応の一覧を参照すること.
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.6以降
+</p>
+<h2>関連項目(列挙体)</h2>
+<a href="SDL_BlendOperation.html">SDL_BlendOperation</a>
+<h2>関連項目(関数)</h2>
+<a href="SDL_ComposeCustomBlendMode.html">SDL_ComposeCustomBlendMode</a><br>
+<a href="SDL_SetRenderDrawBlendMode.html">SDL_SetRenderDrawBlendMode</a><br>
+<a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode</a>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_BlendFactor">SDL_BlendFactor - SDL Wiki</a><br>
+<hr>
+</body>
+</html>
