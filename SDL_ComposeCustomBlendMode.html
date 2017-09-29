@@ -17,22 +17,22 @@
 <code>SDL_BlendMode SDL_ComposeCustomBlendMode(SDL_BlendFactor srcColorFactor, SDL_BlendFactor dstColorFactor, SDL_BlendOperation colorOperation, SDL_BlendFactor srcAlphaFactor, SDL_BlendFactor dstAlphaFactor, SDL_BlendOperation alphaOperation)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_ComposeCustomBlendMode">
-<tr><td>srcColorFactor</td><td>元のピクセルの赤, 緑, 青要素に適用される<a href="SDL_BlendFactor.html">SDL_BlendFactor</a></td></tr>
-<tr><td>dstColorFactor</td><td>先のピクセルの赤, 緑, 青要素に適用される<a href="SDL_BlendFactor.html">SDL_BlendFactor</a></td></tr>
-<tr><td>colorOperation</td><td>元と先のピクセルの赤, 緑, 青要素の混合に使われる<a href="SDL_BlendOperation.html">SDL_BlendOperation</a></td></tr>
-<tr><td>srcAlphaFactor</td><td>元のピクセルのα要素に適用される<a href="SDL_BlendFactor.html">SDL_BlendFactor</a></td></tr>
-<tr><td>dstAlphaFactor</td><td>先のピクセルのα要素に適用される<a href="SDL_BlendFactor.html">SDL_BlendFactor</a></td></tr>
-<tr><td>alphaOperation</td><td>元と先のピクセルのα要素の混合に使われる<a href="SDL_BlendOperation.html">SDL_BlendOperation</a></td></tr>
+<tr><td>srcColorFactor</td><td>描画元のピクセルの赤, 緑, 青成分に乗算される<a href="SDL_BlendFactor.html">SDL_BlendFactor</a></td></tr>
+<tr><td>dstColorFactor</td><td>描画先のピクセルの赤, 緑, 青成分に乗算される<a href="SDL_BlendFactor.html">SDL_BlendFactor</a></td></tr>
+<tr><td>colorOperation</td><td>描画元と描画先のピクセルの赤, 緑, 青成分の合成に使われる<a href="SDL_BlendOperation.html">SDL_BlendOperation</a></td></tr>
+<tr><td>srcAlphaFactor</td><td>描画元のピクセルのα成分に乗算される<a href="SDL_BlendFactor.html">SDL_BlendFactor</a></td></tr>
+<tr><td>dstAlphaFactor</td><td>描画先のピクセルのα成分に乗算される<a href="SDL_BlendFactor.html">SDL_BlendFactor</a></td></tr>
+<tr><td>alphaOperation</td><td>描画元と描画先のピクセルのα成分の合成に使われる<a href="SDL_BlendOperation.html">SDL_BlendOperation</a></td></tr>
 </table>
 <h2>戻り値</h2>
-選択した係数と演算を適用する<a href="SDL_BlendMode.html">SDL_BlendMode</a>を戻す.
+選択した係数と演算を適用した<a href="SDL_BlendMode.html">SDL_BlendMode</a>を戻す.
 <h2>詳細</h2>
 <p>
-<a href="SDL_SetRenderDrawBlendMode.html">SDL_SetRenderDrawBlendMode()</a>と<a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode()</a>は, レンダーが対応していればこの関数が戻す<a href="SDL_BlendMode.html">SDL_BlendMode</a>を受け付ける.
+<a href="SDL_SetRenderDrawBlendMode.html">SDL_SetRenderDrawBlendMode()</a>と<a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode()</a>は, レンダラーが対応していればこの関数が戻す<a href="SDL_BlendMode.html">SDL_BlendMode</a>を受け付ける.
 </p>
 <p>
-ブレンドモードは, 描画するピクセル(元)が, レンダーターゲットのピクセル(先)とどのように混合されるかを決める.
-最初に元と先のピクセルの各要素にブレンド係数が乗算される.
+ブレンドモードは, 描画するピクセル(元)が, レンダーターゲットのピクセル(先)とどのように合成されるかを決める.
+最初に描画元と描画先のピクセルの各色成分にブレンド係数が乗算される.
 次にその2つの積をブレンド演算に従って計算し, 結果をレンダーターゲットに書き込む.
 </p>
 <p>
@@ -48,12 +48,12 @@
 colorOperation(src, dst)とalphaOperation(src, dst)関数は, 次の内の1つを戻す: src + dst, src - dst, dst - src, min(src, dst), max(src, dst)
 </p>
 <p>
-赤, 緑, 青の要素には, 常に<a href="SDL_BlendFactor.html">SDL_BlendFactor</a>の第1, 第2, 第3要素がそれぞれ乗算される.
-第4要素は使われない.
+赤, 緑, 青の成分には, 常に<a href="SDL_BlendFactor.html">SDL_BlendFactor</a>の第1, 第2, 第3係数がそれぞれ乗算される.
+第4係数は使われない.
 </p>
 <p>
-α要素には, 常に<a href="SDL_BlendFactor.html">SDL_BlendFactor</a>の第4要素が乗算される.
-他の要素はα要素の計算では使われない.
+α成分には, 常に<a href="SDL_BlendFactor.html">SDL_BlendFactor</a>の第4係数が乗算される.
+他の係数はα成分の計算では使われない.
 </p>
 <p>
 これらのブレンドモードは, レンダラーによっては対応していないことがある.
@@ -69,15 +69,15 @@ colorOperation(src, dst)とalphaOperation(src, dst)関数は, 次の内の1つを戻す: src
 <tr><td>direct3d11</td><td>全ての係数と演算に対応. しかし, 一部の係数はSDL_BLENDOPERATION_MINIMUM演算またはSDL_BLENDOPERATION_MAXIMUM演算を指定すると予期しない結果になる</td></tr>
 <tr><td>opengl</td><td>SDL_BLENDOPERATION_ADD演算で全ての係数に対応. OpenGL バージョン1.1, 1.2, 1.3はSDL 2.0.6では正常に動作しない</td></tr>
 <tr><td>opengles</td><td>SDL_BLENDOPERATION_ADD演算で全ての係数に対応. 色とα係数は同じである必要がある.<br>
-OpenGL ES 1 固有の特性: SDL_BLENDOPERATION_SUBTRACT演算とSDL_BLENDOPERATION_REV_SUBTRACT演算に対応しているかもしれない. 色とα要素の演算はそれぞれ異なってもよいかもしれない. 色とα要素の係数は異なってもよいかもしれない</td></tr>
+OpenGL ES 1 固有の特性: SDL_BLENDOPERATION_SUBTRACT演算とSDL_BLENDOPERATION_REV_SUBTRACT演算に対応しているかもしれない. 色とα成分の演算はそれぞれ異なってもよいかもしれない. 色とα成分の係数は異なってもよいかもしれない</td></tr>
 <tr><td>opengles2</td><td>SDL_BLENDOPERATION_ADD, SDL_BLENDOPERATION_SUBTRACT, SDL_BLENDOPERATION_REV_SUBTRACT演算で全ての係数に対応</td></tr>
 <tr><td>psp</td><td>カスタムブレンドモードには対応していない</td></tr>
 <tr><td>software</td><td>カスタムブレンドモードには対応していない</td></tr>
 </tr>
 </table>
 <p>
-一部のレンダラーは, デフォルトのレンダラーターゲットではα要素を提供しない.
-この場合, SDL_BLENDFACTOR_DST_ALPHAとSDL_BLENDFACTOR_ONE_MINUS_DST_ALPHA要素は効果がない.
+一部のレンダラーは, デフォルトのレンダーターゲットではα成分を提供しない.
+この場合, SDL_BLENDFACTOR_DST_ALPHA係数とSDL_BLENDFACTOR_ONE_MINUS_DST_ALPHA係数は効果がない.
 </p>
 <h2>バージョン</h2>
 <p>

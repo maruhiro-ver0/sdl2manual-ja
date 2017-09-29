@@ -19,10 +19,10 @@
 <tr><td>SDL_Palette*</td><td>palette</td><td>ピクセル形式に関連付けられた<a href="SDL_Palette.html">SDL_Palette</a>の配列, NULLのときパレットを持たない</td></tr>
 <tr><td>Uint8</td><td>BitsPerPixel</td><td>ピクセル値の有効なビット数. 例: 8, 15, 16, 24, 32</td></tr>
 <tr><td>Uint8</td><td>BytesPerPixel</td><td>ピクセル値に必要なバイト数. 例: 1, 2, 3, 4 (詳細を参照すること)</td></tr>
-<tr><td>Uint32</td><td>Rmask</td><td>ピクセルの赤チャネルの位置を表すマスク</td></tr>
-<tr><td>Uint32</td><td>Gmask</td><td>ピクセルの緑チャネルの位置を表すマスク</td></tr>
-<tr><td>Uint32</td><td>Bmask</td><td>ピクセルの青チャネルの位置を表すマスク</td></tr>
-<tr><td>Uint32</td><td>Amask</td><td>ピクセルのαチャネルの位置を表すマスク. 0ならばα値を持たない</td></tr>
+<tr><td>Uint32</td><td>Rmask</td><td>ピクセルの赤成分の位置を表すマスク</td></tr>
+<tr><td>Uint32</td><td>Gmask</td><td>ピクセルの緑成分の位置を表すマスク</td></tr>
+<tr><td>Uint32</td><td>Bmask</td><td>ピクセルの青成分の位置を表すマスク</td></tr>
+<tr><td>Uint32</td><td>Amask</td><td>ピクセルのα成分の位置を表すマスク. 0ならばα成分を持たない</td></tr>
 <tr><td>Uint8</td><td>Rloss</td><td>(内部で使用)</td></tr>
 <tr><td>Uint8</td><td>Gloss</td><td>(内部で使用)</td></tr>
 <tr><td>Uint8</td><td>Bloss</td><td>(内部で使用)</td></tr>
@@ -83,10 +83,10 @@ printf("Pixel Color-&gt; Red: %d, Green: %d, Blue: %d. Index: %d\n",
 8bitを超えるピクセルは別の考え方が必要になる.
 それらは"TrueColor"形式であり, 色情報はパレットではなくピクセル自身に格納されている.
 mask, shift, lossフィールドでどのように色をエンコードしているかわかる.
-maskフィールドでそれぞれの色要素を分離することができ, shiftフィールドはピクセル値のそれぞれの色要素が右から何ビット目かを知ることができ, そしてlossフィールドはこのピクセル値が8bitの色要素に対して何ビット失われているかを知ることができる.
+maskフィールドでそれぞれの色成分を分離することができ, shiftフィールドはピクセル値のそれぞれの色成分が右から何ビット目かを知ることができ, そしてlossフィールドはこのピクセル値が8bitの色成分に対して何ビット失われているかを知ることができる.
 <code>
 <pre>
-/* 32bitピクセル値から色要素を得る */
+/* 32bitピクセル値から色成分を得る */
 SDL_PixelFormat *fmt;
 SDL_Surface *surface;
 Uint32 temp, pixel;
@@ -99,26 +99,26 @@ SDL_LockSurface(surface);
 pixel = *((Uint32*)surface->pixels);
 SDL_UnlockSurface(surface);
 
-/* 赤要素を得る */
-temp = pixel &amp; fmt-&gt;Rmask;  /* 赤要素を分離する */
+/* 赤成分を得る */
+temp = pixel &amp; fmt-&gt;Rmask;  /* 赤成分を分離する */
 temp = temp &gt;&gt; fmt->Rshift; /* 8bitまで下ろす */
 temp = temp &lt;&lt; fmt-&gt;Rloss;  /* 8bitフルまで拡張する */
 red = (Uint8)temp;
 
-/* 緑要素を得る */
-temp = pixel &amp; fmt-&gt;Gmask;  /* 緑要素を分離する */
+/* 緑成分を得る */
+temp = pixel &amp; fmt-&gt;Gmask;  /* 緑成分を分離する */
 temp = temp &gt;&gt; fmt-&gt;Gshift; /* 8bitまで下ろす */
 temp = temp &lt;&lt; fmt-&gt;Gloss;  /* 8bitフルまで拡張する */
 green = (Uint8)temp;
 
-/* 青要素を得る */
-temp = pixel &amp; fmt-&gt;Bmask;  /* 青要素を分離する */
+/* 青成分を得る */
+temp = pixel &amp; fmt-&gt;Bmask;  /* 青成分を分離する */
 temp = temp &gt;&gt; fmt-&gt;Bshift; /* 8bitまで下ろす */
 temp = temp &lt;&lt; fmt-&gt;Bloss;  /* 8bitフルまで拡張する */
 blue = (Uint8)temp;
 
-/* α要素を得る */
-temp = pixel &amp; fmt-&gt;Amask;  /* α要素を分離する */
+/* α成分を得る */
+temp = pixel &amp; fmt-&gt;Amask;  /* α成分を分離する */
 temp = temp &gt;&gt; fmt-&gt;Ashift; /* 8bitまで下ろす */
 temp = temp &lt;&lt; fmt-&gt;Aloss;  /* 8bitフルまで拡張する */
 alpha = (Uint8)temp;

@@ -19,18 +19,18 @@
 <table border="1" summary="SDL_GetRGBA">
 <tr><td>pixel</td><td>ピクセル値</td></tr>
 <tr><td>format</td><td><a href="SDL_PixelFormat.html">SDL_PixelFormat</a></td></tr>
-<tr><td>r</td><td>赤チャネルの値を代入するポインタ</td></tr>
-<tr><td>g</td><td>緑チャネルの値を代入するポインタ</td></tr>
-<tr><td>b</td><td>青チャネルの値を代入するポインタ</td></tr>
-<tr><td>a</td><td>αチャネルの値を代入するポインタ</td></tr>
+<tr><td>r</td><td>赤成分の値を代入するポインタ</td></tr>
+<tr><td>g</td><td>緑成分の値を代入するポインタ</td></tr>
+<tr><td>b</td><td>青成分の値を代入するポインタ</td></tr>
+<tr><td>a</td><td>α成分の値を代入するポインタ</td></tr>
 </table>
 <h2>詳細</h2>
 <p>
-RGBチャネルが8bit未満のピクセル形式でも0～255の範囲に変換される.
+色成分の値が8bit未満のピクセル形式でも0～255の範囲に変換される.
 (例: 16bit RGB565形式の真っ白のピクセルは [0xf8, 0xfc, 0xf8] ではなく [0xff, 0xff, 0xff] を戻す.)
 </p>
 <p>
-サーフェイスにαチャネルがなければ, 0xff(100%不透明)を戻す.
+サーフェイスにα成分がなければ, 0xff(100%不透明)を戻す.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetRGB.html">SDL_GetRGB</a><br>
