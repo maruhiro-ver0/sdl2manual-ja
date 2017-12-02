@@ -12,6 +12,39 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.0.7の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>オーディオストリーム変換関数の追加:
+<ul style="list-style:none;">
+<li>
+<li>SDL_NewAudioStream()
+<li>SDL_AudioStreamPut()
+<li>SDL_AudioStreamGet()
+<li>SDL_AudioStreamAvailable()
+<li>SDL_AudioStreamFlush()
+<li>SDL_AudioStreamClear()
+<li>SDL_FreeAudioStream()
+</ul>
+<li>SDLメモリ確保機能の問い合わせと設定を行う関数の追加:
+<ul style="list-style:none;">
+<li>SDL_GetMemoryFunctions()
+<li>SDL_SetMemoryFunctions()
+<li>SDL_GetNumAllocations()
+</ul>
+<li>ジョイスティックとゲームコントローラーAPIへのマルチスレッドアクセスのためのロック関数の追加:
+<ul style="list-style:none;">
+<li>SDL_LockJoysticks()
+<li>SDL_UnlockJoysticks()
+</ul>
+<li>以下の関数がスレッドセーフになった:
+<ul style="list-style:none;">
+<li>SDL_SetEventFilter()
+<li>SDL_GetEventFilter()
+<li>SDL_AddEventWatch()
+<li>SDL_DelEventWatch()
+</ul>
+</ul>
 <h2>2.0.6の変更点</h2>
 <h3>全般</h3>
 <ul>
