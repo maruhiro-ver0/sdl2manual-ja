@@ -32,7 +32,7 @@ SDL_assert(cvt.needed); // 明らかにこれは必要である
 cvt.len = 1024 * 2 * 4;  // 1024 ステレオ 32bit浮動小数点のサンプルフレームバッファ
 cvt.buf = (Uint8 *) SDL_malloc(cvt.len * cvt.len_mult);
 // ここで32bit浮動小数点のデータをcvt.dataに読み込む
-SDL_ConvertAudio(cvt);
+SDL_ConvertAudio(&amp;cvt);
 // cvt.bufにはcvt.len_cvtバイトの変換されたデータが書き込まれている
 </pre>
 </p>
