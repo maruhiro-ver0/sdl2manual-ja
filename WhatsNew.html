@@ -12,6 +12,58 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.0.8の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>SDL_fmod()とSDL_log10()の追加
+<li>SDL数学関数はそれぞれfloat版が利用可能になる
+<li>YUV色空間に/から変換するとき使用される計算式を制御するSDL_SetYUVConversionMode()とSDL_GetYUVConversionMode()の追加. オプションはJPEG, BT.601, BT.709
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>Windows UWPでWASAPIへの対応を実装. 非推奨のXAudio2実装を削除
+<li>Windows 7以降でWASAPIによるリサンプリングを追加
+</ul>
+<h3>Windows UWP</h3>
+<ul>
+<li>アプリケーションが実行されているデバイスの種類を得るSDL_WinRTGetDeviceFamily()の追加
+</ul>
+<h3>Mac OS X</h3>
+<ul>
+<li>MacにおけるVulkan SDKの対応を追加:
+<ul style="list-style:none;">
+<li><a href="https://www.lunarg.com/lunarg-releases-vulkan-sdk-1-0-69-0-for-mac/">https://www.lunarg.com/lunarg-releases-vulkan-sdk-1-0-69-0-for-mac/</a>
+</ul>
+<li>可能なときANGLEを使ったOpenGL ESへの対応を追加
+</ul>
+<h3>Mac OS X / iOS / tvOS</h3>
+<ul>
+<li>Metal 2Dレンダーを追加
+<li>Metalを使ってSDLレンダリングするとき, アプリケーションの描画を挿入するSDL_RenderGetMetalLayer()とSDL_RenderGetMetalCommandEncoder()の追加
+</ul>
+<h3>iOS</h3>
+<ul>
+<li>iPhone Xでホームインジケーターバーを隠すか否かを制御するSDL_HINT_IOS_HIDE_HOME_INDICATORヒントの追加. デフォルトはフルスクリーンアプリケーションでは暗くして, ウィンドウアプリケーションでは表示する
+</ul>
+<h3>iOS / Android</h3>
+<ul>
+<li>ソフトウェアキーボードのリターンキーはキーボードを隠すか, キーイベントを送るか(デフォルト)を制御するSDL_HINT_RETURN_KEY_HIDES_IMEヒントの追加
+</ul>
+<h3>Android</h3>
+<ul>
+<li>SDLはAndroid StudioとGradleでのビルドにデフォルトで対応する
+<li>SDLはビルドにはAPI 19 SDKが必要になる. しかし依然 API 14 (Android 4.0.1)をターゲットとする
+<li>アプリケーションがAndroid TVで実行されているかを得るSDL_IsAndroidTV()の追加
+</ul>
+<h3>Android / tvOS</h3>
+<ul>
+<li>TVリモコンはジョイスティックとしてリストに上げられるか(デフォルト), キーボードイベントを送るか制御するSDL_HINT_TV_REMOTE_AS_JOYSTICKヒントの追加
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>XサーバはSDLアプリケーションのコンポーザーをスキップするか否かを制御するSDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITORヒントの追加. デフォルトは"1"
+<li>Raspberry PiとKMSDRMビデオドライバで, ダブルバッファリングまたはトリプルバッファリング(デフォルト)のどちらを使うかを制御するSDL_HINT_VIDEO_DOUBLE_BUFFERヒントの追加
+</ul>
 <h2>2.0.7の変更点</h2>
 <h3>全般</h3>
 <ul>
@@ -291,7 +343,7 @@ test/testvulkan.cにサンプルがある.
 <li>Raspberry Pi 2に対応
 </ul>
 <h2>原文へのリンク</h2>
-<a href="https://hg.libsdl.org/SDL/file/2088cd828335/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
+<a href="https://hg.libsdl.org/SDL/file/f1084c419f33/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
 <hr>
 </body>
 </html>
