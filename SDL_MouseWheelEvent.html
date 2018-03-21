@@ -27,23 +27,35 @@
 <p>
 <code>
 <pre>
-SDL_Event Event;
-
-while( SDL_PollEvent( &Event ) )
+SDL_Event event;
+while( SDL_PollEvent( &amp;event ) )
 {
+    if(event.type == SDL_MOUSEWHEEL)
+    {
+        if(event.wheel.y &gt; 0) // 上へスクロール
+        {
+             // 引き上げる動作のコードをここに書く!
+        }
+        else if(event.wheel.y &lt; 0) // 下へスクロール
+        {
+             // 押し下げる動作のコードをここに書く!
+        }
 
-     // ..
+        if(event.wheel.x &gt; 0) // 右へスクロール
+        {
+             // ...
+        }
+        else if(event.wheel.x &lt; 0) // 左へスクロール
+        {
+             // ...
+        }
+    }
+    else if(event.type == SDL_SDL_MOUSEBUTTONDOWN)
+    {
+        // ... マウスクリックを処理する
+    }
 
-     if(Event.wheel.y == 1) // 上へスクロール
-     {
-          // 引く動作のコードをここに書く!
-     }
-     else if(Event.wheel.y == -1) // 下へスクロール
-     {
-          // 押す動作のコードをここに書く!
-     }
- 
-     // ...
+    // ... その他のイベントを処理する ...
 }
 </pre>
 </code>
