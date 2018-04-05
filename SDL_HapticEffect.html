@@ -27,13 +27,13 @@
 <p>
 この共用体に含まれる全ての構造体には次の項目がある.
 <table border="1" summary="">
-<tr><td colspan="3" align="center">再生 (この要目は全ての効果にある)</td></tr>
+<tr><td colspan="3" align="center">再生 (この要目は左右効果を除く全ての効果にある)</td></tr>
 <tr><td>Uint32</td><td>length</td><td>継続時間(ミリ秒)</td></tr>
 <tr><td>Uint16</td><td>delay</td><td>効果が始まるまでの待ち時間</td></tr>
-<tr><td colspan="3" align="center">トリガ (この要目は全ての効果にある)</td></tr>
+<tr><td colspan="3" align="center">トリガ (この要目は左右効果を除く全ての効果にある)</td></tr>
 <tr><td>Uint16</td><td>button</td><td>効果を引き起こすボタン</td></tr>
 <tr><td>Uint16</td><td>interval</td><td>効果を再び引き起こす時間</td></tr>
-<tr><td colspan="3" align="center">エンベロープ (この要目はconditionを除く全ての効果にある)</td></tr>
+<tr><td colspan="3" align="center">エンベロープ (この要目は条件効果と左右効果を除く全ての効果にある)</td></tr>
 <tr><td>Uint16</td><td>attack_length</td><td>立ち上がりの継続時間</td></tr>
 <tr><td>Uint16</td><td>attack_level</td><td>立ち上がりの強さ</td></tr>
 <tr><td>Uint16</td><td>fade_length</td><td>立ち下げの継続時間</td></tr>
