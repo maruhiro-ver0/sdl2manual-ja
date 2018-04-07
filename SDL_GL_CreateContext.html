@@ -45,8 +45,13 @@ SDL_GL_DeleteContext(glcontext);
 </code>
 </p>
 <h2>詳細</h2>
+<p>
 新たにOpenGLを使うWindowsユーザーは, 歴史的な理由で, OpenGLバージョン1.1で追加されたGL関数はデフォルトでは使えないことに注意しなければならない.
 これらの関数は, OpenGL拡張を扱うライブラリ, または<a href="SDL_GL_GetProcAddress.html">SDL_GL_GetProcAddress()</a>とその関連の関数で実行中に読み込むことができる.
+</p>
+<p>
+SDL_GLContextはvoid *のエイリアスである.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_GL_DeleteContext.html">SDL_GL_DeleteContext</a><br>
 <a href="SDL_GL_MakeCurrent.html">SDL_GL_MakeCurrent</a><br>
