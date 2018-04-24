@@ -17,20 +17,21 @@
 <code>int SDL_GL_SetSwapInterval(int interval)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GL_SetSwapInterval">
-<tr><td>interval</td><td>すぐに更新するとき0, 垂直帰線で同期するとき1, late swap tearingのとき-1 (詳細を参照すること)</td></tr>
+<tr><td>interval</td><td>すぐに更新するとき0, 垂直帰線で同期するとき1, 適応垂直同期のとき-1 (詳細を参照すること)</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 設定した交換インターバルが対応していない場合は-1を戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 <p>
-一部の処理系ではintervalに-1を指定することでlate swap tearingが有効になる.
-Late swap tearingは垂直帰線同期と同じように働くが, 与えられたフレームの垂直帰線同期に失敗したとき, バッファをただちに交換する. それによりユーザのフレーム落ちに対する不快感を抑えることができる.
-アプリケーションがlate swap tearingを要求したが処理系が対応していないとき, この関数は失敗し-1を戻す.
+一部の処理系ではintervalに-1を指定すると適応垂直同期(adaptive vsync)が有効になる.
+適応垂直同期は垂直帰線同期と同じように働くが, 与えられたフレームの垂直帰線同期に失敗したとき, バッファをただちに交換する. それによりユーザのフレーム落ちに対する不快感を抑えることができる.
+アプリケーションが適応垂直同期を要求したが処理系が対応していないとき, この関数は失敗し-1を戻す.
 その場合は, 再びこの関数をintervalを1にして呼ぶ必要がある.
 </p>
 <p>
-Late swap tearingは, 一部のglXドライバの<a href="https://www.opengl.org/registry/specs/EXT/glx_swap_control_tear.txt">GLX_EXT_swap_control_tear</a>と, 一部のWindowsドライバの<a href="https://www.opengl.org/registry/specs/EXT/wgl_swap_control_tear.txt">WGL_EXT_swap_control_tear</a>で実装されている.
+適応垂直同期は, 一部のglXドライバの<a href="https://www.opengl.org/registry/specs/EXT/glx_swap_control_tear.txt">GLX_EXT_swap_control_tear</a>と, 一部のWindowsドライバの<a href="https://www.opengl.org/registry/specs/EXT/wgl_swap_control_tear.txt">WGL_EXT_swap_control_tear</a>で実装されている.
+詳細は<a href="https://www.khronos.org/opengl/wiki/Swap_Interval#Adaptive_Vsync">Khronos wiki</a>を読むこと.
 </p>
 <h2>バージョン</h2>
 <p>
