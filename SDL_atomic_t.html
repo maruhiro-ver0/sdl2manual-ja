@@ -17,6 +17,67 @@
 <table border="1" summary="SDL_atomic_t">
 <tr><td>int</td><td>value</td><td>アトミック整数値</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* これはFPSをカウントするサンプルである
+ *
+ * SDLタイマは別のスレッドで動いている
+ * そのためデータ競合を防ぐ必要である
+ */
+SDL_atomic_t frames;
+
+/* 設定された間隔で平均フレームレートの計算と表示を行う */
+Uint32 fps_timer_callback(Uint32 interval, void *data)
+{
+        const float f = SDL_AtomicGet(&frames);
+        const float iv = (float)interval / 1000.0f;
+        printf("%.2f\tfps\n", f / iv);
+
+        /* フレームカウンタをリセットする */
+        SDL_AtomicSet(&frames, 0);
+
+        return interval;
+}
+
+int main(int argc, char **argv)
+{
+        SDL_Init(SDL_INIT_EVERYTHING);
+        SDL_Window *win = SDL_CreateWindow("Counter",
+                        SDL_WINDOWPOS_CENTERED,
+                        SDL_WINDOWPOS_CENTERED,
+                        640,
+                        480,
+                        0
+                        );
+
+        SDL_Surface *screen = SDL_GetWindowSurface(win);
+
+        /* タイマは別スレッドで5秒間隔で動く */
+        SDL_AddTimer(5000, fps_timer_callback, NULL);
+
+        SDL_Event e;
+        while(1) {
+                while (SDL_PollEvent(&e)) {
+                        if (e.type == SDL_QUIT) {
+                                goto quit;
+                        }
+                }
+                SDL_FillRect(screen, NULL, 0xffffffff);
+                SDL_UpdateWindowSurface(win);
+
+                /* フレーム数に1を加える */
+                SDL_AtomicAdd(&frames, 1);
+        }
+quit:
+        SDL_DestroyWindow(win);
+        SDL_Quit();
+        return 0;
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <a href="SDL_atomic_t.html">SDL_atomic_t</a>は構造体なので間違って演算子で操作することがない.
 アトミック操作関数では整数の値としてこれを使う必要がある.
