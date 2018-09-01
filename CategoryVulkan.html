@@ -6,12 +6,12 @@
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
 <link rel="top" href="index.html" title="ホーム">
 <link rel="parent" href="ApiByCategory.html" title="1つ上">
-<title>Vulkan</title>
+<title>Vulkanグラフィック</title>
 </head>
 <body>
-<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - Vulkan
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - Vulkanグラフィック
 <hr>
-<h1>Vulkan</h1>
+<h1>Vulkanグラフィック</h1>
 インクルードファイル:
 <a href="http://hg.libsdl.org/SDL/file/default/include/SDL_vulkan.h">SDL_vulkan.h</a>
 <h2>概要</h2>
@@ -21,10 +21,10 @@
 <p>
 通常のVulkanベースのSDLアプリケーションの流れは次のようになる:
 <ol>
-<li>必要ならばSDL_Vulkan_LoadLibrary()とSDL_Vulkan_GetVkInstanceProcAddr()でVulkanライブラリを読み込み, ドライバ関数へのポインタを問い合わせる. (これはビデオシステムを初期化した後で行う必要がある.)
-<li>SDL_Vulkan_GetInstanceExtensions()でイクステンションを問い合わせ, その情報でVkInstanceを生成する.
-<li>SDL_Vulkan_CreateSurface()でウィンドウに描画するためのサーフェイスを生成する.
-<li>新しく生成したサーフェイスにパイプラインとフレームバッファを設定する場合は, SDL_Vulkan_GetDrawableSize()でサーフェイスイクステンションを問い合わせる.
+<li>必要ならば<a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>と<a href="SDL_Vulkan_GetVkGetInstanceProcAddr.html">SDL_Vulkan_GetVkInstanceProcAddr()</a>でVulkanライブラリを読み込み, ドライバ関数へのポインタを問い合わせる. (これはビデオシステムを初期化した後で行う必要がある.)
+<li><a href="SDL_Vulkan_GetInstanceExtensions.html">SDL_Vulkan_GetInstanceExtensions()</a>でイクステンションを問い合わせ, その情報でVkInstanceを生成する.
+<li><a href="SDL_Vulkan_CreateSurface.html">SDL_Vulkan_CreateSurface()</a>でウィンドウに描画するためのサーフェイスを生成する.
+<li>新しく生成したサーフェイスにパイプラインとフレームバッファを設定する場合は, <a href="SDL_Vulkan_GetDrawableSize.html">SDL_Vulkan_GetDrawableSize()</a>でサーフェイスイクステンションを問い合わせる.
 </ol>
 </p>
 <h2>関数</h2>
