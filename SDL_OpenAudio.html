@@ -43,7 +43,7 @@ want.freq = 48000;
 want.format = AUDIO_F32;
 want.channels = 2;
 want.samples = 4096;
-want.callback = MyAudioCallback; /* この関数はどこか別の場所に書く */
+want.callback = MyAudioCallback; /* この関数はどこか別の場所に書く. 詳細はSDL_AudioSpecを参照すること */
 
 if (SDL_OpenAudio(&amp;want, &amp;have) &lt; 0) {
     SDL_Log("オーディオを開けなかった: %s", SDL_GetError());
@@ -91,6 +91,8 @@ obtainedがNULLのとき, desiredが(変更されず)使われる.
 <a href="SDL_LockAudio.html">SDL_LockAudio</a><br>
 <a href="SDL_PauseAudio.html">SDL_PauseAudio</a><br>
 <a href="SDL_UnlockAudio.html">SDL_UnlockAudio</a><br>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_AudioSpec.html">SDL_AudioSpec</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_OpenAudio">SDL_OpenAudio - SDL Wiki</a>
 <hr>
