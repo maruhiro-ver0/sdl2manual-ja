@@ -19,6 +19,29 @@ OpenGLレンダリングでウィンドウを更新する
 <table border="1" summary="SDL_GL_SwapWindow">
 <tr><td>window</td><td>設定するウィンドウ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Window* window = SDL_CreateWindow("SDL2/OpenGL Demo", 30, 30, 640, 480, SDL_WINDOW_OPENGL|SDL_WINDOW_RESIZABLE);
+      
+/* windowと関連付けられたOpenGLコンテキストを生成する */
+SDL_GLContext glcontext = SDL_GL_CreateContext(window);
+
+/* モニタの垂直リフレッシュとバッファの切り替えを同期させる */
+SDL_GL_SetSwapInterval(1);
+
+/* コンテキストをクリアする */
+glClearColor(0,0,0,1);
+glClear(GL_COLOR_BUFFER_BIT);
+
+/* &lt;ここに描画関数を記述する&gt; */ 
+
+/* 画面にカレントコンテキストを表示するためにバッファを交換する */
+SDL_GL_SwapWindow(window);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数はダブルバッファのOpenGLコンテキストで使う(デフォルト).
 <h2>SDL Wikiへのリンク</h2>
