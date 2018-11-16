@@ -12,6 +12,48 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.0.9の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>新しいセンサーAPIの追加. SDL_Init()でSDL_INIT_SENSORを使って初期化され, SDL_sensor.hで宣言されている
+<li>センサーが更新されたとき送られるSDL_SENSORUPDATEイベントの追加
+<li>現在のディスプレイの向きを戻すSDL_GetDisplayOrientation()の追加
+<li>ディスプレイの向きが変わったとき送られるSDL_DISPLAYEVENTイベントの追加
+<li>Xbox, PS4, Nintendo Switch Proコントローラの環境を越えた一貫性のある対応のためのHIDAPIジョイスティックドライバの追加 (PS4とNintendo Switch Proコントローラへの対応に貢献したValveに感謝します)
+<li>その他多数のゲームコントローラへの対応を追加
+<li>ゲームコントローラのプレイヤー番号を得るSDL_JoystickGetDevicePlayerIndex(), SDL_JoystickGetPlayerIndex(), SDL_GameControllerGetPlayerIndex()の追加. XInputコントローラの場合はXInput indexを戻す.
+<li>ハプティックAPIを使わずに単純な振動を起こせるSDL_GameControllerRumble(), SDL_JoystickRumble()の追加
+<li>開く前にゲームコントローラのマッピングを得られるSDL_GameControllerMappingForDeviceIndex()の追加
+<li>マウスのダブルクリックの時間を制御するSDL_HINT_MOUSE_DOUBLE_CLICK_TIMEヒントの追加
+<li>マウスのダブルクリックの半径をピクセル単位で制御するSDL_HINT_MOUSE_DOUBLE_CLICK_RADIUSヒントの追加
+<li>サーフェイスが有効なカラーキーを持っているか否かを戻すSDL_HasColorKey()の追加
+<li>CPUにAVX-512F仕様があるか否かを戻すSDL_HasAVX512F()の追加
+<li>アプリケーションがタブレット上で実行されているか否かを戻すSDL_IsTablet()の追加
+<li>スレッドを最高位の優先度にするSDL_THREAD_PRIORITY_TIME_CRITICALの追加
+</ul>
+<h3>Mac OS X</h3>
+<ul>
+<li>Mac OS X Mojaveで黒い画面から始まる問題の修正
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>RealtimeKitを使って可能ならネイディブスレッドの優先度の設定を許可するSDL_LinuxSetThreadPriority()の追加
+</ul>
+<h3>iOS</h3>
+<ul>
+<li>アジア言語のIME入力の修正
+</ul>
+<h3>Android</h3>
+<ul>
+<li>Googleの新しいApp Storeの要求に適合させるため, Android SDKでAPI 26が必要となった
+<li>有線USBのXbox, PS4, Nintendo Switch Pro ゲームコントローラへの対応の追加
+<li>Android 7.0以降(Chromebook, Samsung Experience 9.0のDeXモードを除く)でマウスの相対モードへの対応を追加
+<li>Android 7.0以降でカスタムマウスカーソルへの対応を追加
+<li>戻るボタンを押したときアプリ外に戻る(デフォルト)かSDL_SCANCODE_AC_BACKイベントを送るかを決めるSDL_HINT_ANDROID_TRAP_BACK_BUTTONヒントの追加
+<li>Androidシステムの戻るボタンの振る舞いを引き起こすSDL_AndroidBackButton()の追加
+<li>Chromebook Androidランタイムで実行されているか否かを戻すSDL_IsChromebook()の追加
+<li>Samsung DeXに接続して実行しているか否かを戻すSDL_IsDeXMode()の追加
+</ul>
 <h2>2.0.8の変更点</h2>
 <h3>全般</h3>
 <ul>
@@ -343,7 +385,7 @@ test/testvulkan.cにサンプルがある.
 <li>Raspberry Pi 2に対応
 </ul>
 <h2>原文へのリンク</h2>
-<a href="https://hg.libsdl.org/SDL/file/f1084c419f33/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
+<a href="https://hg.libsdl.org/SDL/file/8feb5da6f2fb/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
 <hr>
 </body>
 </html>
