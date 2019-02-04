@@ -37,7 +37,7 @@ static int TestThread(void *ptr)
     int cnt;
 
     for (cnt = 0; cnt &lt; 10; ++cnt) {
-        printf("\nスレッドカウンタ: %d", cnt);
+        printf("スレッドカウンタ: %d\n", cnt);
         SDL_Delay(50);
     }
 
@@ -49,16 +49,16 @@ int main(int argc, char *argv[])
     SDL_Thread *thread;
     int         threadReturnValue;
 
-    printf("\n単純なSDL_CreateThreadのテスト:");
+    printf("単純なSDL_CreateThreadのテスト:\n");
 
     /* 単にスレッドを生成する */
     thread = SDL_CreateThread(TestThread, "TestThread", (void *)NULL);
 
     if (NULL == thread) {
-        printf("\nSDL_CreateThread 失敗: %s\n", SDL_GetError());
+        printf("SDL_CreateThread 失敗: %s\n", SDL_GetError());
     } else {
         SDL_WaitThread(thread, &threadReturnValue);
-        printf("\nスレッドの戻り値: %d", threadReturnValue);
+        printf("スレッドの戻り値: %d\n", threadReturnValue);
     }
 
     return 0;
