@@ -49,8 +49,10 @@ dev = SDL_OpenAudioDevice(NULL, 0, &want, &have, SDL_AUDIO_ALLOW_FORMAT_CHANGE);
 </p>
 <p>
 freqは1秒間にオーディオデバイスに送信するサンプルフレームの数である.
-よく使われる値は11025, 22050, 44100, 48000で, 値が大きいほど音がよくなる.
-解像度が高いほどグラフィックがよくなるのと同じである.
+ナイキストのサンプリング定理では, 音声のサンプリング周期は最も高い音の2倍以上である必要がある.
+人は20kHzよりやや低い音を聞くことができるが, 加齢とともに16kHz程度までに低下する.
+通常のCDは44100, DVDと<a href="https://opus-codec.org/">Opus audio codec</a>は48000を採用している.
+48000はメモリとCPUパワーを多く消費するだけでなく, <a href="https://people.xiph.org/~xiphmont/demo/neil-young.html">このXiphのChris Montgomeryによるblogの記事</a>の問題あるため, BGM再生では使うべきではない.
 </p>
 <p>
 formatは1サンプルのサイズと型を決める.
