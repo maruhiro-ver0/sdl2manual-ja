@@ -19,6 +19,17 @@
 <table border="1" summary="SDL_GetNumDisplayModes">
 <tr><td>displayIndex</td><td>調査するディスプレイの番号</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+    // ここではプライマリディスプレイのみとしている
+    int numDispModes = SDL_GetNumDisplayModes(0);
+
+    ...
+</pre>
+</code>
+</p>
 <h2>戻り値</h2>
 成功のとき1以上の数を, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
