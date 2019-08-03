@@ -12,6 +12,38 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.0.10の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>SDL_RW*マクロは2.0.10以降は関数となる
+<li>現在のCPUのSIMD命令用にメモリを確保するSDL_SIMDGetAlignment(), SDL_SIMDAlloc(), SDL_SIMDFree()関数の追加
+<li>SDLレンダリングAPIの引数を浮動小数点で指定するSDL_RenderDrawPointF(), SDL_RenderDrawPointsF(), SDL_RenderDrawLineF(), SDL_RenderDrawLinesF(), SDL_RenderDrawRectF(), SDL_RenderDrawRectsF(), SDL_RenderFillRectF(), SDL_RenderFillRectsF(), SDL_RenderCopyF(), SDL_RenderCopyExF()関数の追加
+<li>タッチデバイスがタッチスクリーン, 相対座標または絶対座標のトラックパッドとなるかを得るSDL_GetTouchDeviceType()関数の追加
+<li>パフォーマンス向上のため, SDLレンダリングAPIはバッチレンダリングをデフォルトとした
+<li>ネイティブレンダリングとSDLレンダリングを混合して使っている場合に, バッチレンダリングコマンドを強制的に実行させるSDL_RenderFlush()関数の追加
+<li>レンダリングAPIをバッチ処理するか否かを制御するSDL_HINT_RENDER_BATCHINGヒントの追加. レンダラーを生成するとき, 使用するドライバを指定しなければ, デフォルトは"1"である.
+<li>デバッグ用にSDLイベントのログ出力を有効にするSDL_HINT_EVENT_LOGGINGヒントの追加
+<li>ジョイスティックとゲームコントローラーをバインドするために読み込むファイルを指定するSDL_HINT_GAMECONTROLLERCONFIG_FILEヒントの追加
+<li>SDLがタッチイベントとマウスイベントを統合して扱うか否かを選択するSDL_HINT_MOUSE_TOUCH_EVENTSヒントの追加
+<li>潜在的なセキュリティ上の脅威に対応するため, 不正なWAVEファイルとBMPファイルの処理を改善
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>Waylandを採用し, Mirビデオドライバを削除
+</ul>
+<h3>iOS / tvOS</h3>
+<ul>
+<li>iOS 13とtvOS 13でXBoxとPS4の無線コントローラに対応
+<li>Bluetoothキーボードを使ったテキスト入力に対応
+</ul>
+<h3>Android</h3>
+<ul>
+<li>OpenSL ESを使用した低遅延オーディオの追加
+<li>SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCHヒントの廃止 (SDL_HINT_MOUSE_TOUCH_EVENTSヒントとSDL_HINT_TOUCH_MOUSE_EVENTSヒントに置き換えられた)<br>
+SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH = 1は, 2つのヒントを0とする設定と置き換えなければならない.
+SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH = 0は, 2つのヒントを1とする設定と置き換えなければならない.
+<li>アプリがポーズされたときイベントループをブロックするか否かを選択するSDL_HINT_ANDROID_BLOCK_ON_PAUSEヒントの追加
+</ul>
 <h2>2.0.9の変更点</h2>
 <h3>全般</h3>
 <ul>
@@ -385,7 +417,7 @@ test/testvulkan.cにサンプルがある.
 <li>Raspberry Pi 2に対応
 </ul>
 <h2>原文へのリンク</h2>
-<a href="https://hg.libsdl.org/SDL/file/8feb5da6f2fb/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
+<a href="https://hg.libsdl.org/SDL/file/bc90ce38f1e2/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
 <hr>
 </body>
 </html>
