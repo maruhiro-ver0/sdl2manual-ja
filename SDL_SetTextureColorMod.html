@@ -30,8 +30,8 @@
 <code>
 <pre>
 ...
-SDL_Surface pTexture= SDL_CreateTextureFromSurface( renderer, loadedSurface );
-SDL_SetTextureColorMod(pTexture, 64, 64, 64);
+SDL_Texture* pTexture = SDL_CreateTextureFromSurface( renderer, loadedSurface );
+SDL_SetTextureColorMod( pTexture, 64, 64, 64 );
 ...
 </pre>
 </code>
