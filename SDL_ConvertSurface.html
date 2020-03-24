@@ -24,11 +24,23 @@
 <h2>戻り値</h2>
 成功のとき生成された<a href="SDL_Surface.html">SDL_Surface</a>, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// SDL_Surface *input = ...;
+SDL_PixelFormat *format = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA32);
+SDL_Surface *output = SDL_ConvertSurface(input, format, 0);
+SDL_FreeFormat(format);
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 この関数は繰り返しコピーされる画像を最適化するために使われる.
 元のサーフェイスを変換すると新しいサーフェイスが生成される.
 新しい最適化されたサーフェイスは高速なコピー元として使える.
 <h2>関連項目(関数)</h2>
+<a href="SDL_AllocFormat.html">SDL_AllocFormat</a></br>
 <a href="SDL_ConvertSurfaceFormat.html">SDL_ConvertSurfaceFormat</a><br>
 <a href="SDL_CreateRGBSurface.html">SDL_CreateRGBSurface</a><br>
 <h2>SDL Wikiへのリンク</h2>
