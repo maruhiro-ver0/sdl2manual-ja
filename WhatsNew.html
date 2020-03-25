@@ -12,6 +12,74 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.0.12の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>テクスチャで使用される拡大モードの獲得と設定を行うSDL_GetTextureScaleMode()とSDL_SetTextureScaleMode()の追加
+<li>SDL_LockTexture()と似ているが, ロックされた領域がSDLサーフェイスとなるSDL_LockTextureToSurface()の追加
+<li>乗算ブレンドとαブレンドを同時に行うSDL_BLENDMODE_MULの追加
+<li>ディスプレイ番号0のSDL_GetDisplayUsableBounds()の結果を上書きするSDL_HINT_DISPLAY_USABLE_BOUNDSヒントの追加
+<li>SDL_TouchFingerEventにタッチしたウィンドウIDを追加
+<li>ゲームコントローラの種類(Xbox 360, Xbox One, PS3, PS4, Nintendo Switch Pro)を戻すSDL_GameControllerTypeForIndex(), SDL_GameControllerGetType()の追加
+<li>ゲームコントローラの種類の自動検知の結果を上書きするSDL_HINT_GAMECONTROLLERTYPEヒントの追加
+<li>プレイヤー番号からデバイスを求めるSDL_JoystickFromPlayerIndex()とSDL_GameControllerFromPlayerIndex()の追加
+<li>デバイスのプレイヤー番号を設定するSDL_JoystickSetPlayerIndex()とSDL_GameControllerSetPlayerIndex()の追加
+<li>Nintendo Switch Proコントローラで, ボタンをラベル通りとするか, 配置レイアウトに合わせて交換するかを決めるSDL_HINT_GAMECONTROLLER_USE_BUTTON_LABELSヒントの追加. デフォルトではラベル通りとする
+<li>HIDAPIドライバによるNintendo GameCubeコントローラの対応を追加. 使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_GAMECUBEヒントの追加
+<li>HIDAPIドライバによるXbox 360とXbox Oneコントローラの対応を改善
+<li>以下を含む多数のゲームコントローラの対応を追加:
+<ul>
+<li>8BitDo FC30 Pro
+<li>8BitDo M30 GamePad
+<li>BDA PS4 Fightpad
+<li>HORI Fighting Commander
+<li>Hyperkin Duke
+<li>Hyperkin X91
+<li>MOGA XP5-A Plus
+<li>NACON GC-400ES
+<li>NVIDIA Controller v01.04
+<li>PDP Versus Fighting Pad
+<li>Razer Raion Fightpad for PS4
+<li>Razer Serval
+<li>Stadia Controller
+<li>SteelSeries Stratus Duo
+<li>Victrix Pro Fight Stick for PS4
+<li>Xbox One Elite Series 2
+</ul>
+<li>HIDAPIドライバを使用した場合の, ゲームコントローラの振動の呼び出しによるブロッキングを修正
+<li>配列の各要素を0にするSDL_zeroa()マクロの追加
+<li>CPUがARM SIMD (ARMv6+)仕様がある場合に真を戻すSDL_HasARMSIMD()の追加
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>gccでビルドしたアプリケーションでrelease SDL DLLを使うとクラッシュする問題を修正
+<li>2.0.10のイベントハンドリングのパフォーマンス低下を修正
+<li>SDL_SetThreadPriority()がUWPアプリケーションに対応
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>新しいX11ウィンドウのビジュアルIDを指定するSDL_HINT_VIDEO_X11_WINDOW_VISUALIDヒントの追加
+<li>デフォルトでX11がGLXとEGLのどちらを使用するかを指定するSDL_HINT_VIDEO_X11_FORCE_EGLヒントの追加
+</ul>
+<h3>iOS / tvOS / macOS</h3>
+<ul>
+<li>指定のウィンドウにCAMetalLayer-backed NSView/UIViewを生成してアタッチするSDL_Metal_CreateView()とSDL_Metal_DestroyView()の追加
+</ul>
+<h3>iOS/ tvOS</h3>
+<ul>
+<li>Bluetooth Steamコントローラのゲームコントローラとしての対応を追加
+</ul>
+<h3>tvOS</h3>
+<ul>
+<li>Apple TVのサラウンド対応を修正
+</ul>
+<h3>Android</h3>
+<ul>
+<li>デバイスのAPIレベルを戻すSDL_GetAndroidSDKVersion()の追加
+<li>OpenSL-ESを使用した録音の対応を追加
+<li>Bluetooth Steamコントローラのゲームコントローラとしての対応を追加
+<li>アプリがバックグラウンドになる, または終了するとき稀にクラッシュする問題の修正
+</ul>
 <h2>2.0.10の変更点</h2>
 <h3>全般</h3>
 <ul>
@@ -417,7 +485,7 @@ test/testvulkan.cにサンプルがある.
 <li>Raspberry Pi 2に対応
 </ul>
 <h2>原文へのリンク</h2>
-<a href="https://hg.libsdl.org/SDL/file/bc90ce38f1e2/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
+<a href="https://hg.libsdl.org/SDL/file/355a4f94a782/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
 <hr>
 </body>
 </html>
