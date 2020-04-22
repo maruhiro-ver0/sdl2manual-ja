@@ -21,13 +21,20 @@
 <tr><td>rect</td><td>読み込む領域の<a href="SDL_Rect.html">SDL_Rect</a>. NULLのときレンダリング対象全体</td></tr>
 <tr><td>format</td><td>ピクセルデータの<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>. 0のときレンダリング対象と同じ形式</td></tr>
 <tr><td>pixels</td><td>ピクセルデータを代入するポインタ</td></tr>
-<tr><td>pitch</td><td>ピクセルデータの水平方向のバイト数</td></tr>
+<tr><td>pitch</td><td>引数pixelsの水平方向のバイト数. 詳細を参照すること</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
 <h2>詳細</h2>
+<p>
 注意: この関数は非常に遅いので, 周期的な処理で使ってはならない.
+</p>
+<p>
+<strong>pitch</strong>でpixelsの1行あたりのバイト数を指定する.
+これにより, より大きなpixels配列の一部の領域を利用したり, ピクセルデータの行をパッディングすることができる.
+一般的には, これはピクセルデータの1行あたりのピクセル数に, 1ピクセルあたりのバイト数を掛けたものと等しくなければならない.
+</p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_RenderReadPixels">SDL_RenderReadPixels - SDL Wiki</a>
 <hr>
