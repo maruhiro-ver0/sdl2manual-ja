@@ -20,6 +20,20 @@ Android/iOSの加速度センサーをジョイスティックの一覧に加えるか否かのヒント
 </table>
 <h2>デフォルト</h2>
 デフォルトでは, 本物に加え, 加速度センサーを3軸のジョイスティックとして一覧にする.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+
+int main(int argc, char* argv[])
+{
+    // 加速度センサーをジョイスティックとして使用しない
+    SDL_SetHint(SDL_HINT_ACCELEROMETER_AS_JOYSTICK, "0");
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 iOSの場合はこのヒントはSDL 2.0.4以降で使える.
 <h2>バージョン</h2>
