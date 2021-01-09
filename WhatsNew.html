@@ -12,6 +12,57 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.0.14の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>HIDAPIコントローラドライバにPS5 DualSenseとXbox Series X コントローラの対応を追加
+<li>パドルと新しいボタンのためのゲームコントローラ定数の追加
+<li>新たな情報の獲得のためのゲームコントローラ関数の追加:
+<ul>
+<li>SDL_GameControllerGetSerial()
+<li>SDL_GameControllerHasAxis()
+<li>SDL_GameControllerHasButton()
+<li>SDL_GameControllerGetNumTouchpads()
+<li>SDL_GameControllerGetNumTouchpadFingers()
+<li>SDL_GameControllerGetTouchpadFinger()
+<li>SDL_GameControllerHasSensor()
+<li>SDL_GameControllerSetSensorEnabled()
+<li>SDL_GameControllerIsSensorEnabled()
+<li>SDL_GameControllerGetSensorData()
+<li>SDL_GameControllerRumbleTriggers()
+<li>SDL_GameControllerHasLED()
+<li>SDL_GameControllerSetLED()
+</ul>
+<li>PS5コントローラ用HIDAPIを使用するか否かを選択するSDL_HINT_JOYSTICK_HIDAPI_PS5ヒントの追加
+<li>新たな情報を獲得するためのジョイスティック関数の追加:
+<ul>
+<li>SDL_JoystickGetSerial()
+<li>SDL_JoystickRumbleTriggers()
+<li>SDL_JoystickHasLED()
+<li>SDL_JoystickSetLED()
+</ul>
+<li>アプリケーションが仮想ジョイスティックを生成するためのAPIの追加:
+<ul>
+<li>SDL_JoystickAttachVirtual()
+<li>SDL_JoystickDetachVirtual()
+<li>SDL_JoystickIsVirtual()
+<li>SDL_JoystickSetVirtualAxis()
+<li>SDL_JoystickSetVirtualButton()
+<li>SDL_JoystickSetVirtualHat()
+</ul>
+<li>センサー一覧への排他的アクセスを保障するSDL_LockSensors()とSDL_UnlockSensors()の追加
+<li>ハンドル型コントローラのエフェクト再生を行うSDL_HAPTIC_STEERING_AXISの追加
+<li>マウスの相対移動量をディスプレイのDPIとレンダラーの論理サイズのどちらを基準にするかを決めるSDL_HINT_MOUSE_RELATIVE_SCALINGヒントの追加
+<li>現代的なウィンドウマネージャとの互換性を高めるため, SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSSのデフォルト値を偽とした
+<li>アプリケーションの現在のロケールを設定するSDL_GetPreferredLocales()の追加
+<li>アプリケーションのロケールのデフォルトを上書きするSDL_HINT_PREFERRED_LOCALESヒントの追加
+<li>システムのデフォルトブラウザでURLを開くSDL_OpenURL()の追加
+<li>サーフェイスがランレングス圧縮を使用しているかを得るSDL_HasSurfaceRLE()の追加
+<li>SDL_SIMDAlloc()で得たメモリを再取得するSDL_SIMDRealloc()の追加
+<li>スレッドセーフな方法で最後のエラーを得られるSDL_GetErrorMsg()の追加
+<li>SDL_crc32(), SDL_wcscasecmp(), SDL_wcsncasecmp(), SDL_trunc(), SDL_truncf()の追加
+<li>RGBのより明確な名称の追加. 例: SDL_PIXELFORMAT_XRGB8888, SDL_PIXELFORMAT_XBGR8888など
+</ul>
 <h2>2.0.12の変更点</h2>
 <h3>全般</h3>
 <ul>
@@ -485,7 +536,7 @@ test/testvulkan.cにサンプルがある.
 <li>Raspberry Pi 2に対応
 </ul>
 <h2>原文へのリンク</h2>
-<a href="https://hg.libsdl.org/SDL/file/355a4f94a782/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
+<a href="https://hg.libsdl.org/SDL/file/e52d96ea04fc/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
 <hr>
 </body>
 </html>
