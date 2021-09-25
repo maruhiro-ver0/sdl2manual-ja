@@ -12,6 +12,49 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.0.16の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>ユーザに注意を喚起するSDL_FlashWindow()の追加
+<li>デバイスの推奨オーディオフォーマットを得るSDL_GetAudioDeviceSpec()の追加
+<li>ウィンドウのSDL_WINDOW_ALWAYS_ON_TOPフラグを動的に変更するSDL_SetWindowAlwaysOnTop()の追加
+<li>マウスとは独立してキーボードをグラブする機能をSDL_SetWindowKeyboardGrab()に追加
+<li>32ビットサーフェイスを双一次補間(biliner)で拡大するSDL_SoftStretchLinear()の追加
+<li>ストリーミングNV12/21テクスチャを更新するSDL_UpdateNVTexture()の追加
+<li>DualSenseコントローラにカスタムトリガーエフェクトを送信するSDL_GameControllerSendEffect()とSDL_JoystickSendEffect()の追加
+<li>PlayStationとNintendo Switchコントローラのセンサーのデータレートを獲得するSDL_GameControllerGetSensorDataRate()の追加
+<li>Amazon Lunaゲームコントローラに対応
+<li>HIDAPIドライバ使用時のGoogle Stadiaコントローラで振動に対応
+<li>Amazon LunaとGoogle Stadiaコントローラの値をSDL_GameControllerTypeに追加
+<li>HIDAPIドライバ使用時のNintendo Switch Proコントローラでアナログ振動に対応
+<li>SDL_WaitEvent()とSDL_WaitEventTimeout()の使用時のCPU負荷を軽減
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>ウィンドウメッセージを受信したとき呼ばれる関数を設定するSDL_SetWindowsMessageHook()の追加
+<li>SDLレンダラに使われているD3D11ドライバを得るSDL_RenderGetD3D11Device()の追加
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>Waylandへの対応を大幅に向上
+<li>Pipewireを使った音声出力とキャプチャを追加
+<li>PulseAudioによる録音がモニタデバイスを含むか否かを選択するSDL_HINT_AUDIO_INCLUDE_MONITORSヒントの追加
+<li>音声コントロールパネルにアプリケーションの役割を記述するSDL_HINT_AUDIO_DEVICE_STREAM_ROLEヒントの追加
+</ul>
+<h3>Android</h3>
+<ul>
+<li>AAudioを使用する音声出力と録音の追加
+<li>軽い注意喚起を行うSDL_AndroidShowToast()の追加
+</ul>
+<h3>iOS</h3>
+<ul>
+<li>iOS 14.1以降でマウスの相対モードに対応
+<li>XboxシリーズXコントローラへの対応を追加
+</ul>
+<h3>tvOS</h3>
+<ul>
+<li>XboxシリーズXコントローラへの対応を追加
+</ul>
 <h2>2.0.14の変更点</h2>
 <h3>全般</h3>
 <ul>
@@ -536,7 +579,7 @@ test/testvulkan.cにサンプルがある.
 <li>Raspberry Pi 2に対応
 </ul>
 <h2>原文へのリンク</h2>
-<a href="https://hg.libsdl.org/SDL/file/e52d96ea04fc/WhatsNew.txt">Mercurial &gt; SDL / file revision</a>
+<a href="https://github.com/libsdl-org/SDL/blob/f5bc58bf57f27455d34f3b09b7fe7e5c66dc5aad/WhatsNew.txt">SDL/WhatsNew.txt</a>
 <hr>
 </body>
 </html>
