@@ -180,7 +180,7 @@
 <li>SDL_RW*マクロは2.0.10以降は関数となる
 <li>現在のCPUのSIMD命令用にメモリを確保するSDL_SIMDGetAlignment(), SDL_SIMDAlloc(), SDL_SIMDFree()関数の追加
 <li>SDLレンダリングAPIの引数を浮動小数点で指定するSDL_RenderDrawPointF(), SDL_RenderDrawPointsF(), SDL_RenderDrawLineF(), SDL_RenderDrawLinesF(), SDL_RenderDrawRectF(), SDL_RenderDrawRectsF(), SDL_RenderFillRectF(), SDL_RenderFillRectsF(), SDL_RenderCopyF(), SDL_RenderCopyExF()関数の追加
-<li>タッチデバイスがタッチスクリーン, 相対座標または絶対座標のトラックパッドとなるかを得るSDL_GetTouchDeviceType()関数の追加
+<li>タッチデバイスがタッチスクリーン, 相対座標または絶対座標のトラックパッドとなるかを得る<a href="SDL_GetTouchDeviceType.html">SDL_GetTouchDeviceType()</a>関数の追加
 <li>パフォーマンス向上のため, SDLレンダリングAPIはバッチレンダリングをデフォルトとした
 <li>ネイティブレンダリングとSDLレンダリングを混合して使っている場合に, バッチレンダリングコマンドを強制的に実行させるSDL_RenderFlush()関数の追加
 <li>レンダリングAPIをバッチ処理するか否かを制御するSDL_HINT_RENDER_BATCHINGヒントの追加. レンダラーを生成するとき, 使用するドライバを指定しなければ, デフォルトは"1"である.
