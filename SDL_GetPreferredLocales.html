@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAPI.html" title="1つ上">
+<title>SDL_GetPreferredLocales</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryLocale.html">ロケール</a> - SDL_GetPreferredLocales
+<hr>
+<h1>SDL_GetPreferredLocales</h1>
+ユーザのロケールを得る
+<h2>構文</h2>
+<code>SDL_Locale* SDL_GetPreferredLocales(void)</code>
+<h2>戻り値</h2>
+ロケールの配列を戻す. 終端は<code>language</code>フィールドがNULLである. 失敗のときNULLを戻す.
+<h2>詳細</h2>
+<p>
+この関数は, 終端の項目がNULLのSDL_Locale構造体の配列を戻す.
+呼び出し元はこの配列を使い終えたらSDL_free()で解放する必要がある;
+確保されたメモリは全て1つのブロック上にあるので, SDL_free()を1回呼べば十分である.
+</p>
+<p>
+戻された言語の文字列はxx(小文字)の形式で, "xx"はISO-639言語コード("en"は英語, "de"はドイツ語など)である.
+国名はYY(大文字)の形式で, "YY"はISO-3166国名コード("US"はアメリカ合衆国, "CA"はカナダなど)である.
+国名は, 特定の国ない場合はNULLとなる. ({ "en", "US" } ならばアメリカ英語だが, { "en", NULL } ならば「英語, 一般」を意味する.)
+言語文字列は, 終端以外ではNULLにならない.
+</p>
+<p>
+これらは2文字とは限らないので注意すること. 3文字以上もありうる.
+</p>
+<p>
+戻されたロケールの一覧はユーザへの適合順に並んでいる.
+例えば, ドイツ市民で, 英語に堪能で, 東京を移動するのに十分な日本語が分かっていれば: { "de", "en_US", "jp", NULL }.
+イングランド出身ならばイギリス英語を好むだろう("color"ではなく"colour"と書く)が, 次のようになるだろう: { "en_GB", "en", NULL }.
+</p>
+<p>
+この関数はエラーのときNULLを戻す. これは環境が情報をまったく提供しなかった場合を含む.
+</p>
+<p>
+この関数はOSに問い合わせるため, 恐らく「遅い」.
+1回だけ呼び出して結果を保存したほうがよいだろう.
+しかし, この一覧は変わることがある. 通常は, あなたのプログラムの外でシステムを変更した場合である;
+この場合, SDLはSDL_LOCALECHANGEDイベントを発生させる. 可能ならば, このとき関数を再び呼んでロケール一覧を更新しコピーするとよいだろう.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_GetPreferredLocales">SDL_GetPreferredLocales - SDL Wiki</a>
+<hr>
+</body>
+</html>
