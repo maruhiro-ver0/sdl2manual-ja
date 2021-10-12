@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryRender.html" title="1つ上">
+<title>SDL_RenderCopyExF</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_RenderCopyExF
+<hr>
+<h1>SDL_RenderCopyExF</h1>
+テクスチャの一部を, サブピクセル(副画素)単位で指定の点を中心に回転させ, 上下左右を反転を指定して, 現在のレンダーターゲットにコピーする
+<h2>構文</h2>
+<code>int SDL_RenderCopyExF(SDL_Renderer* renderer, SDL_Texture* texture, const SDL_Rect* srcrect, const SDL_FRect* dstrect, const double angle, const SDL_FPoint* center, const SDL_RendererFlip flip)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_RenderCopyExF">
+<tr><td>renderer</td><td>テクスチャの一部をコピーするレンダラ</td></tr>
+<tr><td>texture</td><td>元テクスチャ</td></tr>
+<tr><td>srcrect</td><td>コピー元の長方形へのポインタ. NULLのときテクスチャ全体</td></tr>
+<tr><td>dstrect</td><td>コピー先の長方形へのポインタ. NULLのときレンダーターゲット全体</td></tr>
+<tr><td>angle</td><td>dstrectにコピーするときの画像の角度(度数法・時計回り)</td></tr>
+<tr><td>center</td><td>dstrectにコピーするときの画像の回転の中心位置へのポインタ(NULLのときdstrect.w/2, dstrect.h/2)</td></tr>
+<tr><td>flip</td><td>テクスチャの上下左右反転を表す<a href="SDL_RendererFlip.html">SDL_RendererFlip</a></td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_RenderCopyExF">SDL_RenderCopyExF - SDL Wiki</a>
+<hr>
+</body>
+</html>
