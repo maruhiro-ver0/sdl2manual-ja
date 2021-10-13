@@ -182,7 +182,7 @@
 <li>SDLレンダリングAPIの引数を浮動小数点で指定する<a href="SDL_RenderDrawPointF.html">SDL_RenderDrawPointF()</a>, <a href="SDL_RenderDrawPointsF.html">SDL_RenderDrawPointsF()</a>, <a href="SDL_RenderDrawLineF.html">SDL_RenderDrawLineF()</a>, <a href="SDL_RenderDrawLinesF.html">SDL_RenderDrawLinesF()</a>, <a href="SDL_RenderDrawRectF.html">SDL_RenderDrawRectF()</a>, <a href="SDL_RenderDrawRectsF.html">SDL_RenderDrawRectsF()</a>, <a href="SDL_RenderFillRectF.html">SDL_RenderFillRectF()</a>, <a href="SDL_RenderFillRectsF.html">SDL_RenderFillRectsF()</a>, <a href="SDL_RenderCopyF.html">SDL_RenderCopyF()</a>, <a href="SDL_RenderCopyExF.html">SDL_RenderCopyExF()</a>関数の追加
 <li>タッチデバイスがタッチスクリーン, 相対座標または絶対座標のトラックパッドとなるかを得る<a href="SDL_GetTouchDeviceType.html">SDL_GetTouchDeviceType()</a>関数の追加
 <li>パフォーマンス向上のため, SDLレンダリングAPIはバッチレンダリングをデフォルトとした
-<li>ネイティブレンダリングとSDLレンダリングを混合して使っている場合に, バッチレンダリングコマンドを強制的に実行させるSDL_RenderFlush()関数の追加
+<li>ネイティブレンダリングとSDLレンダリングを混合して使っている場合に, バッチレンダリングコマンドを強制的に実行させる<a href="SDL_RenderFlush.html">SDL_RenderFlush()</a>関数の追加
 <li>レンダリングAPIをバッチ処理するか否かを制御するSDL_HINT_RENDER_BATCHINGヒントの追加. レンダラーを生成するとき, 使用するドライバを指定しなければ, デフォルトは"1"である.
 <li>デバッグ用にSDLイベントのログ出力を有効にするSDL_HINT_EVENT_LOGGINGヒントの追加
 <li>ジョイスティックとゲームコントローラーをバインドするために読み込むファイルを指定するSDL_HINT_GAMECONTROLLERCONFIG_FILEヒントの追加
