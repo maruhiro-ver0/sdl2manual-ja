@@ -87,7 +87,7 @@ SDL_WINDOW_SHOWNは<a href="SDL_GetWindowFlags.html">SDL_GetWindowFlags()</a>で問
 AppleのOS Xでは, Info.plistのNSHighResolutionCapableプロパティは<strong>必ず</strong>YESでなければならない. そうしなければ高DPI OpenGL キャンバスを受信できない.
 </p>
 <p>
-もし高DPIに対応した環境(iOSやOS X)でSDL_WINDOW_ALLOW_HIGHDPIを指定してウィンドウを生成した場合ならば, スクリーン座標系のウィンドウサイズは, ピクセル数のウィンドウサイズと異なる場合がある.
+高DPIに対応した環境(iOSやOS X)でSDL_WINDOW_ALLOW_HIGHDPIを指定してウィンドウを生成した場合, スクリーン座標系のウィンドウサイズは, ピクセル数のウィンドウサイズと異なる場合がある.
 <a href="SDL_GL_GetDrawableSize.html">SDL_GL_GetDrawableSize()</a>または<a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize()</a>でピクセル数のクライアントサイズを得ることができる.
 </p>
 <p>
