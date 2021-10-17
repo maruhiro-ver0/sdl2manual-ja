@@ -17,9 +17,10 @@ vkGetInstanceProcAddr関数のアドレスを得る
 <code>void *SDLCALL SDL_Vulkan_GetVkGetInstanceProcAddr()</code>
 <h2>戻り値</h2>
 実行時にVulkan関数を読み込むために使う<a href="https://www.khronos.org/registry/vulkan/specs/1.1-extensions/man/html/vkGetInstanceProcAddr.html">vkGetInstanceProcAddr関数</a>へのポインタを戻す.
+失敗のときNULLを戻す.
 <h2>詳細</h2>
 <p>
-この関数は<a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>を呼ぶ, またはSDL_WINDOW_VULKANフラグを使ってウィンドウを生成する前に呼ぶ必要がある.
+この関数は<a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>の後に呼ぶ, またはSDL_WINDOW_VULKANフラグを使ってウィンドウを生成する必要がある.
 </p>
 <h2>バージョン</h2>
 <p>
