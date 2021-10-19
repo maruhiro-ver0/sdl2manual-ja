@@ -12,13 +12,15 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVersion.html">バージョン</a> - SDL_GetRevisionNumber
 <hr>
 <h1>SDL_GetRevisionNumber</h1>
-アプリケーションにリンクされたSDLのリビジョン番号を得る
+(廃止予定) アプリケーションにリンクされたSDLのリビジョン番号を得る
 <h2>構文</h2>
 <code>int SDL_GetRevisionNumber(void)</code>
 <h2>戻り値</h2>
 SDLライブラリが使う厳密なリビジョンを識別するユニークな数値を戻す.
 <h2>詳細</h2>
-この値はhg.libsdl.orgにコミットの度に加算される数値に基づいている.
+SDLのGitHubへの移行以後(2.0.16のリリース前), この関数は廃止予定であり, ハードコードされた0を戻す.
+この関数を呼んではならない.
+<a href="SDL_GetRevision.html">SDL_GetRevision()</a>は今でも機能し, SDLが慎重にビルドされていれば, gitハッシュを戻す.
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetRevision.html">SDL_GetRevision</a><br>
 <h2>SDL Wikiへのリンク</h2>
