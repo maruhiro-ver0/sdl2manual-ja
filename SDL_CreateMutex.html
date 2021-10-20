@@ -43,6 +43,9 @@ SDL_DestroyMutex(mutex);
 </p>
 <h2>詳細</h2>
 <p>
+新しく生成されたmutexは, 全てアンロックの状態から始まる.
+</p>
+<p>
 他のスレッドで既にロックされている間は<a href="SDL_LockMutex.html">SDL_LockMutex()</a>から戻らない.
 ブロックせずにロックを試みたい場合は<a href="SDL_TryLockMutex.html">SDL_TryLockMutex()</a>を使うこと.
 </p>

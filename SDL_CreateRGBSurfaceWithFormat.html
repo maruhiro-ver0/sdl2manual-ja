@@ -26,10 +26,6 @@
 <h2>戻り値</h2>
 成功のとき生成された<a href="SDL_Surface.html">SDL_Surface</a>, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
-<h2>詳細</h2>
-<p>
-メモリを確保できなかったときはNULLを戻す.
-</p>
 <h2>サンプルコード</h2>
 <p>
 <code>
@@ -45,6 +41,10 @@
     }
 </pre>
 </code>
+</p>
+<h2>詳細</h2>
+<p>
+この関数の動作は<a href="SDL_CreateRGBSurface.html">SDL_CreateRGBSurface()</a>とよく似ているが, カラーマスクの代わりに, 定義済みの<a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a>を指定する.
 </p>
 <h2>バージョン</h2>
 <p>

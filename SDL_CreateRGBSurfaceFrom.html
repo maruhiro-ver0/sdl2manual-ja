@@ -93,22 +93,10 @@ stbi_image_free(data);
 </p>
 <h2>詳細</h2>
 <p>
-depthが4または8のとき, 空のパレットが生成される.
-depthが8を超えるとき, 引数の[RGBA]maskを使ったピクセル形式が設定される.
+この関数の動作は<a href="SDL_CreateRGBSurface.html">SDL_CreateRGBSurface()</a>とよく似ているが, ピクセルデータのメモリを確保せず, 代わりに指定された既存のデータバッファをサーフェイスで使用する.
 </p>
 <p>
-[RGBA]maskはピクセルの色を指定するためのビットマスクとして使われる.
-例えば, RmaskがFF0000ならば, 赤のデータは最上位バイトに格納される.
-[RGB]maskを0にすると, ビット深度に基づいたデフォルトの値になる.
-(例: <code>SDL_CreateRGBSurface(0,w,h,32,0,0,0,0);</code>)
-しかし, Amaskを0にすると, αマスクは0になる.
-</p>
-<p>
-αマスク付きサーフェイスのブレンドモードの初期値は <code>SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_BLEND)</code> である.
-<a href="SDL_SetSurfaceBlendMode.html">SDL_SetSurfaceBlendMode()</a>で別のブレンドモードに変えることができる.
-</p>
-<p>
-ピクセルデータは新たに生成されない.
+ピクセルデータはコピーされない.
 ピクセルデータは管理外である.
 つまり, サーフェイスを解放した後はピクセルデータも解放する必要がある.
 </p>

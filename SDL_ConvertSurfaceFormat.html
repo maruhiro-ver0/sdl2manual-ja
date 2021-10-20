@@ -24,8 +24,16 @@
 <h2>戻り値</h2>
 成功のとき生成された<a href="SDL_Surface.html">SDL_Surface</a>, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>詳細</h2>
+<p>
+この関数の動作は<a href="SDL_ConvertSurface.html">SDL_ConvertSurface()</a>とよく似ている.
+しかし, <a href="SDL_PixelFormat.html">SDL_PixelFormat</a>構造体の代わりに<a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a>の値を取る.
+そのため簡単に使用できるが, 変換後のサーフェイスのパレット情報には, それが重要であってもアクセスできない.
+</p>
 <h2>関連項目(関数)</h2>
+<a href="SDL_AllocFormat.html">SDL_AllocFormat</a><br>
 <a href="SDL_ConvertSurface.html">SDL_ConvertSurface</a><br>
+<a href="SDL_CreateRGBSurface.html">SDL_CreateRGBSurface</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_ConvertSurfaceFormat">SDL_ConvertSurfaceFormat - SDL Wiki</a>
 <hr>

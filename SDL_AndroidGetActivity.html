@@ -20,10 +20,6 @@ AndroidアプリケーションでアクティビティクラスのJavaインスタンスを得る
 jobject型のAndroidアプリケーションのアクティビティクラスのインスタンスを戻す.
 失敗のときNULLを戻す.
 </p>
-<p>
-この関数が戻したjobjectはローカルリファレンスで, 呼び出し側が解放する必要がある.
-JavaネイティブインターフェースのPushLocalFrame(), PopLocalFrame(), DeleteLocalRef()関数を参照すること. (<a href="http://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/functions.html">Oracleのドキュメント</a>にある)
-</p>
 <h2>サンプルコード</h2>
 <p>
 <code>
@@ -65,8 +61,17 @@ void showHome(void)
 </code>
 </p>
 <h2>詳細</h2>
+<p>
 この関数はjobject型を戻すが, 戻り値の関数プロトタイプはvoid*で定義されている.
 SDLのヘッダにはjni.hがインクルードされていないためである.
+</p>
+<p>
+この関数が戻したjobjectはローカルリファレンスで, 呼び出し側が解放する必要がある.
+JavaネイティブインターフェースのPushLocalFrame(), PopLocalFrame(), DeleteLocalRef()関数を参照すること.
+</p>
+<p>
+<a href="https://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/functions.html">https://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/functions.html</a>
+</p>
 <h2>バージョン</h2>
 SDL 2.0.0以降
 <h2>関連項目(関数)</h2>

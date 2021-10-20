@@ -17,10 +17,10 @@
 <code>SDL_Cursor* SDL_CreateCursor(const Uint8* data, const Uint8* mask, int w, int h, int hot_x, int hot_y)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_CreateCursor">
-<tr><td>data</td><td>カーソルの各ピクセルの色 (詳細を参照すること)</td></tr>
-<tr><td>mask</td><td>カーソルの書くピクセルのマスク (詳細を参照すること)</td></tr>
-<tr><td>w</td><td>カーソルの幅 (詳細を参照すること)</td></tr>
-<tr><td>h</td><td>カーソルの高さ (wと同じ?)</td></tr>
+<tr><td>data</td><td>カーソルの各ピクセルの色</td></tr>
+<tr><td>mask</td><td>カーソルの各ピクセルのマスク</td></tr>
+<tr><td>w</td><td>カーソルの幅</td></tr>
+<tr><td>h</td><td>カーソルの高さ</td></tr>
 <tr><td>hot_x</td><td>カーソルの左上の実際のカーソルからの相対位置のX座標</td></tr>
 <tr><td>hot_y</td><td>カーソルの左上の実際のカーソルからの相対位置のY座標</td></tr>
 </table>
@@ -136,14 +136,11 @@ maskはMSB形式である.
 この関数で生成されたカーソルは<a href="SDL_FreeCursor.html">SDL_FreeCursor()</a>で解放する必要がある.
 </p>
 <p>
-色のついたカーソルが必要ならば, この関数は向いていない.
-代わりに, 通常のカーソルを<a href="SDL_ShowCursor.html">SDL_ShowCursor()</a>で隠し, メインループで<a href="SDL_Surface.html">SDL_Surface()</a>をカーソルの位置に描く必要がある.
+色のついたカーソルや, SDL_Surfaceからカーソルを作りたい場合は, <a href="SDL_CreateColorCursor.html">SDL_CreateColorCursor()</a>を使うべきである.
+または, カーソルを非表示にして, ゲームのレンダリングとして描画してもよいが, その場合はフレームレートに拘束される.
 </p>
 <p>
-または, <a href="SDL_CreateColorCursor.html">SDL_CreateColorCursor()</a>を使ってもよい.
-</p>
-<p>
-SDL 2.0.0以降では<a href="SDL_CreateSystemCursor.html">SDL_CreateSystemCursor()</a>で既にある11のシステムカーソルが使える.
+また, SDL 2.0.0以降では<a href="SDL_CreateSystemCursor.html">SDL_CreateSystemCursor()</a>で既にある11のシステムカーソルが使える.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_FreeCursor.html">SDL_FreeCursor</a><br>

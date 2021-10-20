@@ -117,6 +117,10 @@ while (SDL_PollEvent (&amp;event))
 タイマはコールバックを実行するのにかかった時間を考慮している.
 例えば, コールバックの実行に250ミリ秒かかり, 1000(ミリ秒)を戻すと, タイマは次の呼び出しまで750ミリ秒しか待たない.
 </p>
+<p>
+間隔はOSスケジューリングで不正確になりうる.
+コールバック内で不正確さを補正する必要がある場合, <a href="SDL_GetTicks.html">SDL_GetTicks()</a>または<a href="SDL_GetPerformanceCounter.html">SDL_GetPerformanceCounter()</a>を使って現在の時刻に注目する必要がある.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_RemoveTimer.html">SDL_RemoveTimer</a><br>
 <h2>SDL Wikiへのリンク</h2>
