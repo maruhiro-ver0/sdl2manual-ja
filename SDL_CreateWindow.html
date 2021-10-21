@@ -84,7 +84,7 @@ SDL_WindowはSDL_WINDOW_HIDDENが設定されない限り表示される.
 SDL_WINDOW_SHOWNは<a href="SDL_GetWindowFlags.html">SDL_GetWindowFlags()</a>で問い合わせたとき使われる.
 </p>
 <p>
-AppleのOS Xでは, Info.plistのNSHighResolutionCapableプロパティは<strong>必ず</strong>YESでなければならない. そうしなければ高DPI OpenGL キャンバスを受信できない.
+AppleのmacOSでは, Info.plistのNSHighResolutionCapableプロパティは<strong>必ず</strong>YESでなければならない. そうしなければ高DPI OpenGL キャンバスを受信できない.
 </p>
 <p>
 高DPIに対応した環境(iOSやOS X)でSDL_WINDOW_ALLOW_HIGHDPIを指定してウィンドウを生成した場合, スクリーン座標系のウィンドウサイズは, ピクセル数のウィンドウサイズと異なる場合がある.
@@ -94,6 +94,19 @@ AppleのOS Xでは, Info.plistのNSHighResolutionCapableプロパティは<strong>必ず</st
 フルスクリーンの設定をした場合, 幅と高さの引数である<strong>w</strong>と<strong>h</strong>は使われない.
 しかし, 不正なサイズの引数(例えば大きすぎる)の場合は失敗する.
 全ての環境でのウィンドウサイズの事実上の限界は16384×16384である.
+</p>
+<p>
+SDL_WINDOW_OPENGLまたはSDL_WINDOW_VULKANフラグを指定してウィンドウを生成すると, 一致するLoadLibrary関数(<a href="SDL_GL_LoadLibrary.html">SDL_GL_LoadLibrary()</a>または<a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>)が呼び出され, <a href="SDL_DestroyWindow.html">SDL_DestroyWindow()</a>で一致するUnloadLibrary関数が呼ばれる.
+</p>
+<p>
+SDL_WINDOW_VULKANを指定してVulkanドライバが動作しなかった場合, <a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>が失敗するため<a href="SDL_CreateWindow.html">SDL_CreateWindow()も失敗する.</a>
+</p>
+<p>
+Metalに対応していないOSでSDL_WINDOW_METALを指定した場合, SDL_CreateWindow()は失敗する.
+</p>
+<p>
+Appleデバイス以外の場合, SDLはVulkanローダをリンクしないか, 動的リンクライブラリ版のリンクを要求する.
+後のバージョンのSDLではこの制約はなくなる予定である.
 </p>
 <h2>バージョン</h2>
 <p>

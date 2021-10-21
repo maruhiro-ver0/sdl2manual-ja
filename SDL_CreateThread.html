@@ -87,31 +87,15 @@ SDL_CreateThreadの簡単なテスト:
 </p>
 <h2>詳細</h2>
 <p>
-<a href="SDL_CreateThread.html">SDL_CreateThread()</a>は, グローバルメモリ, シグナルハンドラ, ファイルディスクリプタ等の全てを親と共有する新しいスレッドを生成し, 関数fnにvoidポインタのdataを渡し実行する.
-関数fnから戻るとスレッドは終了する.
+これは次の呼び出しと等価である:
 </p>
 <p>
-fnの関数プロトタイプは
-</p>
-<p>
-<code>int SDL_ThreadFunction(void* data)</code>
-</p>
-<p>
-引数は
-<table border="1" summary="fn">
-<tr><td>data</td><td><a href="SDL_CreateThread.html">SDL_CreateThread()</a>に渡したdata</td></tr>
-</table>
-</p>
-<p>
-スレッドの名前はNUL文字で終わるUTF-8文字列であれば何でもよいが, 次の指針が役立つかもしれない.
-</p>
-<p>
-<a href="http://stackoverflow.com/questions/149932/naming-conventions-for-threads">http://stackoverflow.com/questions/149932/naming-conventions-for-threads</a>
-</p>
-<p>
-システムが名前を強制する場合, SDLはその名前に変換する. しかし, 元の文字列は<a href="SDL_GetThreadName.html">SDL_GetThreadName()</a>で得られる.
+<code>
+SDL_CreateThreadWithStackSize(fn, name, 0, data);
+</code>
 </p>
 <h2>関連項目(関数)</h2>
+<a href="SDL_CreateThreadWithStackSize.html">SDL_CreateThreadWithStackSize</a><br>
 <a href="SDL_WaitThread.html">SDL_WaitThread</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_CreateThread">SDL_CreateThread - SDL Wiki</a>

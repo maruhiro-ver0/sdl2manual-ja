@@ -54,7 +54,7 @@ SDL_DestroySemaphore(sem);
 </code>
 </p>
 <h2>詳細</h2>
-待機中のスレッドのあるセマフォを破棄するのは安全ではない.
+セマフォを待機しているスレッドがある場合, セマフォを破棄するのは安全ではない.
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateSemaphore.html">SDL_CreateSemaphore</a><br>
 <a href="SDL_SemPost.html">SDL_SemPost</a><br>
