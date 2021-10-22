@@ -12,7 +12,7 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_GL_BindTexture
 <hr>
 <h1>SDL_GL_BindTexture</h1>
-OpenGLプリミティブを直接レンダリングするとき, それをOpenGLインストラクションで使うためにOpenGL/ES/ES2テクスチャをカレントコンテキストにバインドする
+OpenGL/ES/ES2テクスチャをカレントコンテキストにバインドする
 <h2>構文</h2>
 <code>int SDL_GL_BindTexture(SDL_Texture *texture, float *texw, float *texh)</code>
 <h2>引数</h2>
@@ -244,6 +244,9 @@ void RocketSDLRenderInterfaceOpenGLES::RenderGeometry(Rocket::Core::Vertex* vert
 </code>
 </p>
 <h2>詳細</h2>
+<p>
+この関数によって, OpenGLプリミティブを直接レンダリングするとき, OpenGLインストラクションを使うことができる.
+</p>
 <p>
 値が得られたなら, <strong>texw</strong>と<strong>texh</strong>には得られたテクスチャに適した幅と高さが代入されている.
 ほとんどの場合, 両方の値は1.0である.

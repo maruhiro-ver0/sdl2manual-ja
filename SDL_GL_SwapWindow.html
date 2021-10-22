@@ -43,7 +43,14 @@ SDL_GL_SwapWindow(window);
 </code>
 </p>
 <h2>詳細</h2>
+<p>
 この関数はダブルバッファのOpenGLコンテキストで使う(デフォルト).
+</p>
+<p>
+macOSでは, ウィンドウを切り替える前に描画するフレームバッファを0にバインドすること.
+そうしないと何も起こらない.
+glBindFramebuffer()を使わないのであれば, これがデフォルトで, 他に何かする必要はない.
+</p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GL_SwapWindow">SDL_GL_SwapWindow - SDL Wiki</a>
 <hr>

@@ -13,19 +13,14 @@
 <hr>
 <h1>SDL_GameControllerEventState</h1>
 ゲームコントローラーのイベントを有効・無効にする.
-これによりコントローラーによって発生するジョイスティックイベントが無効になることはない. (<a href="SDL_JoystickEventState.html">SDL_JoystickEventState()</a>を参照すること.)
 <h2>構文</h2>
 <code>int SDL_GameControllerEventState(int state)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_GameControllerEventState">
-<tr><td>state</td><td>SDL_QUERY, SDL_IGNORE, SDL_ENABLEの1つ</td></tr>
+<tr><td>state</td><td>SDL_QUERY(-1), SDL_IGNORE(0), SDL_ENABLE(1)の1つ</td></tr>
 </table>
-メモ: 代わりに -1, 0, 1 でもよい.
 <h2>戻り値</h2>
-<p>
--1 (SDL_QUERY)以外は, 引数と同じ値を戻す.
--1 (SDL_QUERY)のときは, 現在の状態を戻す.
-</p>
+引数が-1(SDL_QUERY)のとき現在の状態を戻す. それ以外のときは引数と同じ値を戻す.
 <h2>サンプルコード</h2>
 <p>
 <code>
@@ -37,6 +32,9 @@ printf("%d\n", SDL_GameControllerEventState(SDL_QUERY));  /* 0が表示される */
 </code>
 </p>
 <h2>詳細</h2>
+<p>
+コントローラーイベントを無効にした場合, コントローラーの情報が必要なときは<a href="SDL_GameControllerUpdate.html">SDL_GameControllerUpdate()</a>を自分で呼んで状態をチェックする必要がある.
+</p>
 <p>
 -1, 0, 1以外の引数は無効である. その場合は引数と同じ値を戻す.
 </p>
