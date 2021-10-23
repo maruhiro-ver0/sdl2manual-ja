@@ -17,17 +17,9 @@
 <code>char* SDL_GetBasePath(void)</code>
 <h2>戻り値</h2>
 <p>
-Returns an absolute path in UTF-8 encoding to the application data directory. NULL will be returned on error or when the platform doesn't implement this functionality, call SDL_GetError() for more information.
 アプリケーションデータディレクトリのUTF-8の絶対パス名を戻す.
 失敗またはこの関数が実装されていない環境の場合NULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
-</p>
-<p>
-戻されたパスは最後が区切り記号(Windowsなら'\', 他の環境なら'/')で終わっていることが保障されている.
-</p>
-<p>
-このポインタの管理はプログラマが行う.
-使い終わったらSDL_free()を呼ぶ必要がある.
 </p>
 <h2>サンプルコード</h2>
 <p>
@@ -48,7 +40,7 @@ void InitializeDataPath() {
 </p>
 <h2>詳細</h2>
 <p>
-この関数は速い必要はない. それにも関わらず速さが必要ならば, 最初に呼んだときに文字列を保存する必要がある.
+この関数は高速である必要はないはずだ. それでも速さが必要ならば, 最初に呼んだときに文字列を保存する必要がある.
 </p>
 <p>
 <strong>Mac OS XとiOSの特別な仕様:</strong>
@@ -64,6 +56,13 @@ SDL_FILESYSTEM_BASE_DIR_TYPE プロパティの値 (アプリケーションは /Applications/SD
 <tr><th>bundle</th><td>バンドルディレクトリ</td><td>/Applications/SDLApp/MyApp.app/</td></tr>
 <tr><th>parent</th><td>バンドルディレクトリのあるディレクトリ</td><td>/Applications/SDLApp/</td></tr>
 </table>
+</p>
+<p>
+戻されたパスは最後が区切り記号(Windowsなら'\', 他の環境なら'/')で終わっていることが保障されている.
+</p>
+<p>
+このポインタの管理はプログラマが行う.
+使い終わったらSDL_free()を呼ぶ必要がある.
 </p>
 <h2>バージョン</h2>
 SDL 2.0.1以降

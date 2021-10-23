@@ -12,7 +12,7 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GetDisplayUsableBounds
 <hr>
 <h1>SDL_GetDisplayUsableBounds</h1>
-主ディスプレイの位置を(0,0)とした場合の指定のディスプレイの利用可能な表示領域を得る
+ディスプレイに表示される利用可能なデスクトップの領域を得る
 <h2>構文</h2>
 <code>int SDL_GetDisplayUsableBounds(int displayIndex, SDL_Rect* rect)</code>
 <h2>引数</h2>
@@ -26,6 +26,9 @@
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 </p>
 <h2>詳細</h2>
+<p>
+主ディスプレイ(ディスプレイ番号0)の位置は常に(0,0)である.
+</p>
 <p>
 これは<a href="SDL_GetDisplayBounds.html">SDL_GetDisplayBounds()</a>と同じ表示領域を戻すが, システムが予約している部分が取り除かれている.
 例えばApple Mac OS Xのならば, メニューバーとdockの占有する部分が引かれている.
