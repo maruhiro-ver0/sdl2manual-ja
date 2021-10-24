@@ -17,6 +17,10 @@ CPUにSSE2仕様があるかチェックする
 <code>SDL_bool SDL_HasSSE2(void)</code>
 <h2>戻り値</h2>
 CPUにSSE2仕様があるときSDL_TRUE, ないときSDL_FALSEを戻す.
+<h2>詳細</h2>
+<p>
+Intel命令セットがない場合, この関数は常に偽を戻す.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_Has3DNow.html">SDL_Has3DNow</a><br>
 <a href="SDL_HasAltiVec.html">SDL_HasAltiVec</a><br>

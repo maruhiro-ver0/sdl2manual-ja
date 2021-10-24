@@ -21,10 +21,6 @@
 </table>
 <h2>戻り値</h2>
 キー状態の配列へのポインタを戻す.
-値が1のとき押されていて, 0のとき押されていない.
-配列の添え字は<a href="SDL_Scancode.html">SDL_Scancode</a>である.
-戻されたポインタはSDL内部の配列へのポインタである.
-アプリケーションの実行中は常に有効で, 呼び出し側は解放する必要はない.
 <h2>サンプルコード</h2>
 <p>
 <code>
@@ -40,6 +36,14 @@ if (state[SDL_SCANCODE_RIGHT] &amp;&amp; state[SDL_SCANCODE_UP]) {
 </code>
 </p>
 <h2>詳細</h2>
+<p>
+戻されたポインタはSDL内部の配列へのポインタである.
+アプリケーションの実行中は常に有効で, 呼び出し側は解放してはならない.
+</p>
+<p>
+値が1のとき押されていて, 0のとき押されていない.
+配列の添え字は<a href="SDL_Scancode.html">SDL_Scancode</a>である.
+</p>
 <p>
 メモ: <a href="SDL_PumpEvents.html">SDL_PumpEvents()</a>でこの状態は更新される.
 </p>

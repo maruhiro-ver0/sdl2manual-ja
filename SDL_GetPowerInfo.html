@@ -56,6 +56,9 @@ if (SDL_GetPowerInfo(&amp;secs, &amp;pct) == SDL_POWERSTATE_ON_BATTERY) {
 バッテリーの状態は常に変化している.
 電源状態を得るときは, 定期的にこの関数を呼ぶ必要がある. そして数秒の間安定するまでは変化を無視したほうがよいかもしれない.
 </p>
+<p>
+環境によっては, バッテリーの残りパーセントか残り時間のどちらかで, 両方を得られない場合もある.
+</p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetPowerInfo">SDL_GetPowerInfo - SDL Wiki</a>
 <hr>

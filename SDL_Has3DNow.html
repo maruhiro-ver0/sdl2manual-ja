@@ -17,6 +17,10 @@ CPUに3DNow!仕様があるかチェックする
 <code>SDL_bool SDL_Has3DNow(void)</code>
 <h2>戻り値</h2>
 CPUに3DNow!仕様があるときSDL_TRUE, ないときSDL_FALSEを戻す.
+<h2>詳細</h2>
+<p>
+AMD命令セットがない場合, この関数は常に偽を戻す.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_HasAltiVec.html">SDL_HasAltiVec</a><br>
 <a href="SDL_HasAVX.html">SDL_HasAVX</a><br>

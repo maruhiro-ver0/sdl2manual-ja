@@ -50,6 +50,7 @@ SDL_Init()は単純に<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>に処理
 </p>
 <p>
 <a href="CategoryIO.html">ファイルI/O</a>, そして<a href="CategoryThread.html">スレッド</a>サブシステムはデフォルトで初期化される.
+メッセージボックス(<a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox()</a>もビデオサブシステムを初期化せずに使える.
 他のサブシステムを使うときは指定して初期化しなければならない.
 </p>
 <p>
@@ -70,7 +71,8 @@ flagsは以下の項目の論理和で複数設定できる:
 </table>
 </p>
 <p>
-個別にサブシステムを初期化したい場合は, <a href="SDL_Init.html">SDL_Init(0)</a>を呼び, 後で必要なflagsを指定して<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>を呼ぶとよい.
+サブシステムの初期化は参照カウントされている. そのため, 手動で正常にサブシステムを終了させるためには, それぞれの<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>に対して<a href="SDL_QuitSubSystem.html">SDL_QuitSubSystem()</a>を呼ぶ(または<a href="SDL_Quit.html">SDL_Quit()</a>を呼んで強制的に終了する)必要がある.
+サブシステムが既に読み込まれている場合は, この関数を呼ぶと参照カウントが加算される.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_InitSubSystem.html">SDL_InitSubSystem</a><br>

@@ -18,7 +18,7 @@
 <h2>引数</h2>
 <table border="1" summary="SDL_GetWindowWMInfo">
 <tr><td>window</td><td>情報を求めるウィンドウ</td></tr>
-<tr><td>info</td><td>ウィンドウの情報を書き込む<a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>のポインタ (詳細を参照すること)</td></tr>
+<tr><td>info</td><td>ウィンドウの情報を書き込む<a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>のポインタ</td></tr>
 </table>
 <h2>戻り値</h2>
 この関数が実装されていて, かつinfo構造体のバージョンが正しければSDL_TRUE, 情報が得られなければSDL_FALSEを戻す.
@@ -88,7 +88,8 @@ int main(int argc, char *argv[]) {
 <a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>を定義するためSDL_syswm.hをインクルードする必要がある.
 </p>
 <p>
-info構造体はSDLバージョンが初期化されている必要があり, それがあればウィンドウの情報がサンプルコードのように得られる.
+呼び出し側はinfo構造体のバージョンを <code>SDL_version(&info.version)</code> を使って初期化している必要がある.
+するとこの関数は構造体の残りの部分に指定のウィンドウの情報を書き込む.
 </p>
 <h2>バージョン</h2>
 <p>

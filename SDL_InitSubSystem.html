@@ -48,15 +48,7 @@ SDL_Quit();
 </p>
 <h2>詳細</h2>
 <p>
-<a href="SDL_Init.html">SDL_Init()</a>で初期化した後でも<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>で未初期化のサブシステムを初期化することができる.
-</p>
-<p>
-<a href="SDL_Init.html">SDL_Init()</a>はアサーションとクラッシュ保護を初期化し, その後<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>を呼んでいる.
-それらの保護を回避したい場合は直接<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>を呼ぶとよい.
-</p>
-<p>
-サブシステムの初期化は参照カウントされている. そのため, 手動で正常にサブシステムを終了させるためには, それぞれの<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>に対して<a href="SDL_QuitSubSystem.html">SDL_QuitSubSystem()</a>を呼ぶ(または<a href="SDL_Quit.html">SDL_Quit()</a>を呼んで強制的に終了する)必要がある.
-サブシステムが既に読み込まれている場合は, この関数を呼ぶと参照カウントが加算される.
+SDL2では, この関数は<a href="SDL_Init.html">SDL_Init()</a>と相互に交換可能である.
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_Init.html">SDL_Init</a><br>
