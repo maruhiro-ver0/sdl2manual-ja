@@ -56,10 +56,53 @@ if (SDL_LoadWAV_RW(myRWops, 1, &amp;wav_spec, &amp;wav_buffer, &amp;wav_length) 
 </p>
 <h2>詳細</h2>
 <p>
-現在は無圧縮とMS-ADPCM WAVEに対応している.
+WAVEファイルをロードするには, src, spec, audio_buf, audio_lenへのポイントが必要である.
+その後, ファイルのデータ部分がメモリに読み込まれ, 必要ならばデコードされる.
+</p>
+<p>
+freesrcが0でないとき, 関数から戻る前にデータソースは自動的にクローズされ解放される.
+</p>
+<p>
+対応しているフォーマットは, PCM(8, 16, 24, 32ビット), IEEE浮動小数点(32ビット), Microsoft ADPCMとIMA ADPCM(4ビット), A-lawとμ-law(8ビット)である.
+他のフォーマットには現時点では対応しておらずエラーとなる.
+</p>
+<p>
+この関数は呼び出しに成功すると, 元のWAVEの音声データが設定された<a href="SDL_AudioSpec.html">SDL_AudioSpec</a>を戻す.
+audio_bufには音声データが確保されたバッファへのポインタが, audio_lenには音声バッファのバイト長が代入される.
+SDL_AudioSpecのメンバのfreq, channels, formatには, バッファ内の音声データの値が代入される.
+samplesメンバにはデフォルトが, 他には0が代入される.
 </p>
 <p>
 使った後は音声バッファを<a href="SDL_FreeWAV.html">SDL_FreeWAV()</a>で解放する必要がある.
+</p>
+<p>
+.WAVファイルフォーマットの仕様が不完全なため, デコーダが厳密に解釈すると, 広く出回っている問題のあるファイルを再生できない.
+これらのファイルを再生するため, デコーダはファイル, factチャンク, RIFFチャンクサイズの切り捨てを認めている.
+SDL_HINT_WAVE_RIFF_CHUNK_SIZE, SDL_HINT_WAVE_TRUNCATION, SDL_HINT_WAVE_FACT_CHUNKヒントでロード時の振る舞いを調整できる.
+</p>
+<p>
+不正な(切り捨て, 破損, ヘッダの不正な値), または大きすぎる, または対応していないファイルは全てエラーとなる.
+また, データソースの致命的なI/Oエラーは, 読み込みを中断してエラーとなる.
+いずれのエラーの場合もNULLを戻し(srcがNULLの場合を除く), 適当なエラーメッセージが設定される.
+</p>
+<p>
+データソースはシークに対応している必要がある.
+</p>
+<p>
+例:<br>
+<code>
+<pre>
+SDL_LoadWAV_RW(SDL_RWFromFile("sample.wav", "rb"), 1, &spec, &buf, &len);
+</pre>
+</code>
+</p>
+<p>
+<a href="SDL_LoadWAV.html">SDL_LoadWAV</a>マクロでも同じことができるが, より単純である:<br>
+<code>
+<pre>
+SDL_LoadWAV("sample.wav", &spec, &buf, &len);
+</pre>
+</code>
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_FreeWAV.html">SDL_FreeWAV</a><br>

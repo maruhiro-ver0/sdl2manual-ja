@@ -46,9 +46,14 @@ SDL_DestroyMutex(mutex);
 </code>
 </p>
 <h2>詳細</h2>
-他のスレッドでロックされている間はこの関数から戻らない.
-ブロックせずにロックしたい場合は<a href="SDL_TryLockMutex.html">SDL_TryLockMutex</a>を使うこと.
-SDLのmutexは再帰的である.
+<p>
+この関数はmutexが利用可能になるまで, つまりアンブロックか, OSが次にロックするスレッドとして選ばれるまでブロックする.
+mutexのロックを待っている全てのスレッドの内, 一度にロックできるのは1つのみである.
+</p>
+<p>
+ロック中のスレッドで再びロックすることは可能である.
+他のスレッドで利用可能にするには, 同じ回数だけアンロックする必要がある(これは「再入可能mutex」と呼ばれる).
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateMutex.html">SDL_CreateMutex</a><br>
 <a href="SDL_DestroyMutex.html">SDL_DestroyMutex</a><br>

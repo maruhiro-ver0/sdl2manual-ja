@@ -42,8 +42,13 @@ printf("トラックボール 移動量- X:%d, Y:%d\n", delta_x, delta_y);
 </code>
 </p>
 <h2>詳細</h2>
+<p>
 トラックボールが戻すのは, 最後に<a href="SDL_JoystickGetBall.html">SDL_JoystickGetBall()</a>を呼んでからの相対値のみである.
 その移動量はdxとdyに代入される.
+</p>
+<p>
+ほとんどのジョイスティックにはトラックボールがない.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_JoystickNumBalls.html">SDL_JoystickNumBalls</a><br>
 <h2>SDL Wikiへのリンク</h2>
