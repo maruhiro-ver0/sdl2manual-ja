@@ -77,6 +77,35 @@ deviceは<a href="SDL_GetAudioDeviceName.html">SDL_GetAudioDeviceName()</a>で得た
 しかし一部のドライバは, ホスト名/IPアドレス, またはディスクオーディオドライバのファイル名のような, 定まらないドライバ固有の文字列を要求する.
 </p>
 <p>
+開いたオーディオデバイスは一時停止の状態から始まる. コールバック関数を呼ぶ準備ができていれば, <a href="SDL_PauseAudioDevice.html"><code>SDL_PauseAudioDevice(devid, 0);</code></a>を呼んで再生を始める必要がある.
+オーディオデバイスは要求された音声バッファの長さを変更することがある.
+オーディオデバイスを開いた後にローカルのミキシングバッファを確保する必要がある.
+</p>
+<p>
+多くの場合, コールバック関数は別のスレッドで実行される.
+<a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice()</a>で完全に再生を止めなくても, コールバック関数と他のスレッドの競合状態を避けることができる.
+詳細は<a href="SDL_AudioSpec.html">SDL_AudioSpec</a>を参照すること.
+</p>
+<p>
+要求する音声形式は次のように設定する:
+<ul>
+<li>desired->freq には1秒あたりのサンプル数(Hz)を設定する.
+<li>desired->format には音声形式(AUDIO_S16SYSなど)を設定する.
+<li>desired->samples には音声バッファサイズをサンプルフレーム数(ステレオ出力ならば2サンプル(左右)で1サンプルフレーム)を設定する.
+この数は2のべき乗である必要があるが, 音声ドライバによってハードウェアにより適した値に調整されることがある.
+良い値は512から8096までだが, アプリケーションとCPUの速度による.
+値が小さいと遅れが少なくなるが, アプリケーションが重い処理を行うとアンダーフローを引き起こし時間内にバッファを満たせないことがある.
+サンプルフレーム数と時間の関係は次の式で表される: [ミリ秒] = ([サンプルフレーム数] * 1000) / [サンプル周波数]
+<li>desired->size は音声バッファのバイトサイズだが, <a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>で計算され, ここでは初期化されない.
+<li>desired->silence は無音の値だが, <a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>で計算され, ここでは初期化されない.
+<li>desired->callback には音声デバイスが新しいデータの準備ができたとき呼ばれる関数を設定する. 
+その関数には音声バッファのポインタと音声バッファのバイト数が渡される.
+この関数は通常別のスレッドで実行される. よって, データ構造を保護するため, アクセスするときは<a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice()</a>と<a href="SDL_UnlockAudioDevice.html">SDL_UnlockAudioDevice()</a>を呼ぶべきである.
+この方法の代わりにNULLポインタを渡し, <a href="SDL_QueueAudio.html">SDL_QueueAudio()</a>を定期的に呼び, 音声をキューに入れる(または<a href="SDL_DequeueAudio.html">SDL_DequeueAudio()</a>を定期的に呼び, 録音デバイスから音声サンプルを得る)こともできる.
+<li>desired->userdata はコールバック関数の第1引数に渡される. NULLを渡すと, この値は無視される.
+</ul>
+</p>
+<p>
 allowed_changesは次のフラグの論理和である.
 <table border="1" summary="allowed_changes">
 <tr><td>SDL_AUDIO_ALLOW_FREQUENCY_CHANGE</td><td>周波数を変えることを認める</td></tr>
@@ -93,17 +122,10 @@ allowed_changesは次のフラグの論理和である.
 もし設定していなければ, コールバック関数で設定した32bit浮動小数点形式のデータを, SDLはハードウェアに送る前に16bit整数形式のデータに変換する. そして, obtainedのformatフィールドは要求と同じである.
 </p>
 <p>
+結果的に設定された音声形式は, ハードウェアに強く依存し変更される可能性があるが, obtainedに書き込まれる.
+</p>
+<p>
 アプリケーションが1つの特定の形式しか扱わないのであれば, allowed_changesを0として, SDLに他の形式に変換させることができる.
-</p>
-<p>
-開いたオーディオデバイスは一時停止の状態から始まる. コールバック関数を呼ぶ準備ができていれば, <a href="SDL_PauseAudioDevice.html"><code>SDL_PauseAudioDevice(devid, 0);</code></a>を呼んで再生を始める必要がある.
-オーディオデバイスは要求された音声バッファの長さを変更することがある.
-オーディオデバイスを開いた後にローカルのミキシングバッファを確保する必要がある.
-</p>
-<p>
-多くの場合, コールバック関数は別のスレッドで実行される.
-<a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice()</a>で完全に再生を止めなくても, コールバック関数と他のスレッドの競合状態を避けることができる.
-詳細は<a href="SDL_AudioSpec.html">SDL_AudioSpec</a>を参照すること.
 </p>
 <h2>バージョン</h2>
 <p>

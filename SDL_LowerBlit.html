@@ -26,10 +26,14 @@
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
+<p>
 これは半プライベートな関数で, 入力が既にクリップされているとみなして低レベルのサーフェイスのコピーを行う.
+</p>
+<p>
+自分が何をしているのかわからないならば, 代わりに<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>を使うべきである.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_BlitSurface.html">SDL_BlitSurface</a><br>
-<a href="SDL_UpperBlit.html">SDL_UpperBlit</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_LowerBlit">SDL_LowerBlit - SDL Wiki</a>
 <hr>
