@@ -35,11 +35,15 @@ actionは次の値である.
 <tr><td>SDL_GETEVENT</td><td>minTypeからmaxTypeの範囲の種類のイベントを, 先頭から最大でnumevents個を戻し, キューから削除する</td></tr>
 </table>
 <p>
-この関数はスレッドセーフである.
-</p>
-<p>
 <a href="SDL_PumpEvents.html">SDL_PumpEvents()</a>はこの関数の前に呼ぶ必要がある.
 そうしなければ, <a href="SDL_PeepEvents.html">SDL_PeepEvents()</a>を呼んだとき, イベントをフィルタする準備ができていない.
+</p>
+<p>
+この関数はスレッドセーフである.
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_PollEvent.html">SDL_PollEvent</a><br>

@@ -44,10 +44,15 @@ int main(int argc, char** argv) {
 </p>
 <p>
 <a href="SDL_Init.html">SDL_Init()</a>や<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>の代わりに<a href="SDL_VideoInit.html">SDL_VideoInit()</a>等のサブシステム初期化関数を呼んでサブシステムを開始した場合は, <a href="SDL_Quit.html">SDL_Quit()</a>を呼ぶ前に<a href="SDL_VideoQuit.html">SDL_VideoQuit()</a>等のサブシステム終了関数を呼ぶ必要がある.
+しかし, 一般的にはこれらの関数を使う必要はなく, <a href="SDL_Init.html">SDL_Init()</a>を使ったほうがよい.
 </p>
 <p>
 この関数はatexit()でアプリケーションが終了するときに必ず呼ばれるようにすることができる.
 しかしライブラリや他の動的に読み込まれるコードでそのようにするのはよい方法ではない.
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
 </p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_Init.html">SDL_Init</a><br>
