@@ -50,6 +50,15 @@ SDL_DestroyMutex(mutex);
 </pre>
 </code>
 </p>
+<h2>詳細</h2>
+<p>
+この関数は<a href="SDL_LockMutex.html">SDL_LockMutex()</a>と似ているが, mutexが使えない場合, 即座にSDL_MUTEX_TIMEOUTを戻す.
+</p>
+<p>
+これは資源を排他的にアクセスしたいが待つことができない場合に有用で, その場合は後で再び試みることになる.
+</p>
+<h2>バージョン</h2>
+SDL 2.0.0以降
 <h2>関連項目(関数)</h2>
 <a href="SDL_CreateMutex.html">SDL_CreateMutex</a><br>
 <a href="SDL_DestroyMutex.html">SDL_DestroyMutex</a><br>

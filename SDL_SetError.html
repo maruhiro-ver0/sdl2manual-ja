@@ -45,7 +45,22 @@ if (errorCode &lt; 0)
 </code>
 </p>
 <h2>詳細</h2>
+<p>
 この関数を呼ぶと, 以前のエラーメッセージは上書きされる.
+</p>
+<p>
+この関数は常に-1を戻す.
+SDLでは失敗のとき-1がよく使われ, 次のような書き方ができる:
+<code>
+<pre>
+if (error_code) {
+    return SDL_SetError("操作に失敗した: %d", error_code);
+}
+</pre>
+</code>
+</p>
+<h2>バージョン</h2>
+SDL 2.0.0以降
 <h2>関連項目(関数)</h2>
 <a href="SDL_ClearError.html">SDL_ClearError</a><br>
 <a href="SDL_GetError.html">SDL_GetError</a><br>

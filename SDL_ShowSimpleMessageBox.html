@@ -38,12 +38,17 @@ SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,
 </p>
 <h2>詳細</h2>
 <p>
+</p>
+複雑なものが必要でなければ, この関数は<a href="SDL_ShowMessageBox.html">SDL_ShowMessageBox()</a>よりも適している.
+<p>
 flagは以下の値である.
 <table border="1" summary="SDL_MessageBoxFlag">
 <tr><td>SDL_MESSAGEBOX_ERROR</td><td>エラーダイアログ</td></tr>
 <tr><td>SDL_MESSAGEBOX_WARNING</td><td>警告ダイアログ</td></tr>
 <tr><td>SDL_MESSAGEBOX_INFORMATION</td><td>情報ダイアログ</td></tr>
 </table>
+</p>
+<p>
 この関数は<a href="SDL_Init.html">SDL_Init()</a>の前でも呼べる.
 このことはレンダラーやOpenGLコンテキストの生成の失敗を報告するときに役立つ.
 </p>

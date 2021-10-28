@@ -18,8 +18,7 @@
 <h2>引数</h2>
 <table border="1" summary="SDL_SetRenderTarget">
 <tr><td>renderer</td><td>レンダリングコンテキスト</td></tr>
-<tr><td>texture</td><td>レンダーターゲットとなるテク
-スチャ. SDL_TEXTUREACCESS_TARGETフラグをつけて生成されている必要がある. NULLでデフォルトのレンダーターゲットに戻される</td></tr>
+<tr><td>texture</td><td>レンダーターゲットとなるテクスチャ. SDL_TEXTUREACCESS_TARGETフラグをつけて生成されている必要がある. NULLでデフォルトのレンダーターゲットに戻される</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
@@ -30,6 +29,7 @@
 </p>
 <p>
 レンダーターゲットのデフォルトは, そのレンダラーを生成したウィンドウである.
+テクスチャのレンダリングをやめて, 再びウィンドウをレンダリングする場合は, textureをNULLにしてこの関数を呼ぶこと.
 </p>
 <h2>バージョン</h2>
 <p>

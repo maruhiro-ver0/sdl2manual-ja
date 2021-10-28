@@ -25,10 +25,18 @@
 成功のとき0を, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
+<p>
 関数名と引数に反し, このメソッドは個々のウィンドウではなくディスプレイ全体の輝度を設定する.
 ウィンドウの中央があるディスプレイが対象となる.
 (このディスプレイ番号は<a href="SDL_GetWindowDisplayIndex.html">SDL_GetWindowDisplayIndex()</a>で得られる.)
 ウィンドウが別のディスプレイに移動しても, 設定した輝度は移動しない.
+</p>
+<p>
+現在の多くの環境ではディスプレイの輝度を設定することができない.
+レンダリング中にガンマ値を調整するためにシェーダーを使うなどしたほうがよい.
+</p>
+<h2>バージョン</h2>
+SDL 2.0.0以降
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetWindowBrightness.html">SDL_GetWindowBrightness</a><br>
 <a href="SDL_SetWindowGammaRamp.html">SDL_SetWindowGammaRamp</a><br>

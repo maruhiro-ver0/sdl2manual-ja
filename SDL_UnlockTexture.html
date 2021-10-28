@@ -21,7 +21,14 @@
 <tr><td>texture</td><td><a href="SDL_LockTexture.html">SDL_LockTexture()</a>でロックしたテクスチャ</td></tr>
 </table>
 <h2>詳細</h2>
-<em>警告:</em> この関数を使う前に<a href="https://bugzilla.libsdl.org/show_bug.cgi?id=1586">SDL bug #1586</a>を参照すること!
+<p>
+<em>警告:</em> <a href="SDL_LockTexture.html">SDL_LockTexture()</a>は書き込み専用である.
+これは以前のテクスチャの内容が得られることを保障していない.
+アンロックする前にロックしたテクスチャの全ての領域を初期化する必要がある. そうしないとピクセルは初期化されていないメモリである.
+</p>
+<p>
+つまり, テクスチャをロックしてすぐにアンロックすると, レンダラの使い方によってはテクスチャが破壊される.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_LockTexture.html">SDL_LockTexture</a><br>
 <h2>SDL Wikiへのリンク</h2>
