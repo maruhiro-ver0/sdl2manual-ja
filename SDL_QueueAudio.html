@@ -52,6 +52,10 @@ SDLがコールバック関数を周期的に呼んで音声データを得る方法(引きの方法)と,
 <p>
 キューを消去する前に<a href="SDL_LockAudio.html">SDL_LockAudio()</a>を呼んではならない. この関数の内部でSDLはロックを扱っている.
 </p>
+<p>
+SDL2はplanar audioに対応していない.
+あらかじめplanar audioフォーマットからplanarではないもの(<a href="SDL_AudioFormat.html">SDL_AudioFormat</a>を参照すること)にリサンプルする必要がある.
+</p>
 <h2>バージョン</h2>
 SDL 2.0.4以降
 <h2>関連項目(関数)</h2>
