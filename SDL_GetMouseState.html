@@ -26,9 +26,17 @@
 <p>
 <code>
 <pre>
-SDL_PumpEvents();
-if(SDL_GetMouseState(NULL, NULL)&amp;SDL_BUTTON(1))
+int x, y;
+Uint32 buttons;
+
+SDL_PumpEvents();  // 最新のマウスの状態を確実に得る
+
+buttons = SDL_GetMouseState(&x, &y);
+
+SDL_Log("マウスカーソルの座標は %d, %d", x, y);
+if ((buttons & SDL_BUTTON_LMASK) != 0) {
     SDL_Log("マウスボタン1(左)が押された");
+}
 </pre>
 </code>
 </p>
