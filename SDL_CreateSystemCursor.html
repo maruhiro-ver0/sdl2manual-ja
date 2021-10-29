@@ -17,7 +17,7 @@
 <code>SDL_Cursor* SDL_CreateSystemCursor(SDL_SystemCursor id)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_CreateSystemCursor">
-<tr><td>id</td><td>システムカーソルの列挙体の値 (詳細を参照すること)</td></tr>
+<tr><td>id</td><td><a href="SDL_SystemCursor.html">SDL_SystemCursor</a>列挙体の値</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のときカーソル, 失敗のときNULLを戻す.
@@ -31,24 +31,6 @@ cursor = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
 SDL_SetCursor(cursor);
 </pre>
 </code>
-</p>
-<h2>詳細</h2>
-<p>
-idの値は次のいずれかである.
-<table border="1" summary="id">
-<tr><td>SDL_SYSTEM_CURSOR_ARROW</td><td>矢印</td></tr>
-<tr><td>SDL_SYSTEM_CURSOR_IBEAM</td><td>Iビーム</td></tr>
-<tr><td>SDL_SYSTEM_CURSOR_WAIT</td><td>処理待ち</td></tr>
-<tr><td>SDL_SYSTEM_CURSOR_CROSSHAIR</td><td>照準</td></tr>
-<tr><td>SDL_SYSTEM_CURSOR_WAITARROW</td><td>小さな処理待ち (利用できない環境ならば処理待ち)</td></tr>
-<tr><td>SDL_SYSTEM_CURSOR_SIZENWSE</td><td>北西と南東の両矢印</td></tr>
-<tr><td>SDL_SYSTEM_CURSOR_SIZENESW</td><td>北東と南西の両矢印</td></tr>
-<tr><td>SDL_SYSTEM_CURSOR_SIZEWE</td><td>東西の両矢印</td></tr>
-<tr><td>SDL_SYSTEM_CURSOR_SIZENS</td><td>南北の両矢印</td></tr>
-<tr><td>SDL_SYSTEM_CURSOR_SIZEALL</td><td>東西南北の矢印</td></tr>
-<tr><td>SDL_SYSTEM_CURSOR_NO</td><td>円に斜線, または交差する骨</td></tr>
-<tr><td>SDL_SYSTEM_CURSOR_HAND</td><td>手</td></tr>
-</table>
 </p>
 <h2>バージョン</h2>
 SDL 2.0.0以降
