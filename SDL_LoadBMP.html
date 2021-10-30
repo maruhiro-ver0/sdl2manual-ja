@@ -23,7 +23,31 @@ BMPファイルをサーフェイスに読み込む
 成功のとき生成された<a href="SDL_Surface.html">SDL_Surface</a>, 失敗のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
+<p>
 生成されたサーフェイスは<a href="SDL_FreeSurface.html">SDL_FreeSurface()</a>で解放する必要がある.
+</p>
+<p>
+SDL_LoadBMP()は, <a href="SDL_RWFromFile.html">SDL_RWFromFile()</a>でファイルを開き自動的にファイルを閉じる<a href="SDL_LoadBMP_RW.html">SDL_LoadBMP_RW()</a>のマクロである.
+</p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+const char *image_path = "myimage.bmp";
+SDL_Surface *image = SDL_LoadBMP(image_path);
+
+/* ファイルの読み込みに失敗したらユーザに知らせる */
+if (!image) {
+    printf("画像の読み込みに失敗した %s: %s\n", image_path, SDL_GetError());
+    return;
+}
+
+/* ここで画像を使う */
+
+/* 最後にサーフェイスの資源を解放する */
+SDL_FreeSurface(image);
+</pre>
+</code>
 <h2>関連項目(関数)</h2>
 <a href="SDL_FreeSurface.html">SDL_FreeSurface</a><br>
 <a href="SDL_LoadBMP_RW.html">SDL_LoadBMP_RW</a><br>
