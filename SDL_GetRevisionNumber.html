@@ -12,15 +12,27 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVersion.html">バージョン</a> - SDL_GetRevisionNumber
 <hr>
 <h1>SDL_GetRevisionNumber</h1>
-(廃止予定) アプリケーションにリンクされたSDLのリビジョン番号を得る
+<del>アプリケーションにリンクされたSDLのリビジョン番号を得る</del>
+この関数は廃止された. 使用してはならない
+<h2>廃止予定</h2>
+代わりに<a href="SDL_GetRevision.html">SDL_GetRevision()</a>を使用すること. この関数はSDLが厳密にビルドされていればgit hashを戻す.
 <h2>構文</h2>
 <code>int SDL_GetRevisionNumber(void)</code>
 <h2>戻り値</h2>
-SDLライブラリが使う厳密なリビジョンを識別するユニークな数値を戻す.
+<del>SDLライブラリが使う厳密なリビジョンを識別するユニークな数値を戻す.</del>
+現在のSDLでは常に0を戻す.
 <h2>詳細</h2>
-SDLのGitHubへの移行以後(2.0.16のリリース前), この関数は廃止予定であり, ハードコードされた0を戻す.
-この関数を呼んではならない.
-<a href="SDL_GetRevision.html">SDL_GetRevision()</a>は今でも機能し, SDLが慎重にビルドされていれば, gitハッシュを戻す.
+<p>
+SDLがMercurialで管理されていて, かつ厳密にビルドされていれば, この関数はビルドが生成したリビジョン番号を戻す.
+この値は複数の理由で信用できない. しかし, さらに重要なのは, 現在SDLを管理しているgitリポジトリは, 番号ではなくハッシュのみを提供している.
+現在, この関数は常に0を戻す.
+使用してはならない.
+</p>
+<p>
+SDL 2.0.16以前は, 信頼できないが0ではない値を戻す.
+</p>
+<h2>バージョン</h2>
+2.0.0以降
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetRevision.html">SDL_GetRevision</a><br>
 <h2>SDL Wikiへのリンク</h2>
