@@ -20,6 +20,76 @@
 <tr><td>filter</td><td>イベント発生時に呼ばれる関数 (詳細を参照すること)</td></tr>
 <tr><td>userdata</td><td>filterへ渡されるポインタ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+#include "SDL.h"
+
+
+// まず警告: これはバカげたやり方である. しかし, イベントフィルタが
+// どのように働くかを示している. 実際の場合は, メインループで
+// SDL_PollEventから得たイベントをただ処理すればよい. 一般的に, イベ
+// ントフィルタを使おうと思ったときは, 立ち止まり, 原点に帰ってそれ
+// がよい方法かよく考えるべきである.
+
+
+// この関数をSDL_SetEventFilterに渡す. ユーザがキーボードのスペース
+// バーを押したとき, `userdata`ポインタが示す値を切り替える. これは
+// 青色をあらわしていて, 255と0の間の値である. メインプログラムはス
+// ペースバーを押すたびにこの値の色でウィンドウをクリアする.
+static int SDLCALL my_event_filter(void *userdata, SDL_Event * event)
+{
+    if ((event->type == SDL_KEYDOWN) && (event->key.keysym.sym == SDLK_SPACE)) {
+        Uint8 *blue = (Uint8 *) userdata;
+        if (*blue == 0) {
+            *blue = 255;
+        } else {
+            *blue = 0;
+        }
+    }
+    return 1;  // イベントをキューに追加する場合は1を戻す
+}
+
+int main(int argc, char **argv)
+{
+    Uint8 blue = 0;
+    int quit = 0;
+
+    // 単にウィンドウを生成して黒色でクリアする.
+    // 実際の場合はエラーをチェックすること!
+    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Window *window = SDL_CreateWindow("Hello SDL", SDL_WINDOWPOS_UNDEFINED,
+                                          SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+    SDL_RenderPresent(renderer);
+
+    // イベントフィルタを設定する...
+    SDL_SetEventFilter(my_event_filter, &blue);
+
+    // イベントループを無限に実行する. 全てのイベントはここに到達する前に
+    // my_event_filter関数を通過する. フレームごとにウィンドウを`blue`に設定さ
+    // れた色で塗りつぶす. その値のアドレスはuserdataでフィルタ関数に渡され,
+    // そこで変えられる.
+    while (!quit) {
+        SDL_Event e;
+        while (SDL_PollEvent(&e)) {
+            if (e.type == SDL_QUIT) {
+                quit = 1;
+            }
+        }
+
+        SDL_SetRenderDrawColor(renderer, 0, 0, blue, 255);
+        SDL_RenderClear(renderer);
+        SDL_RenderPresent(renderer);
+    }
+
+    SDL_Quit();
+    return 0;
+}
+</pre>
+</code>
 <h2>詳細</h2>
 <p>
 filterの関数プロトタイプは
