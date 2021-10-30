@@ -23,22 +23,17 @@
 未処理のイベントがある場合は1, ない場合は0を戻す.
 <h2>詳細</h2>
 <p>
-If event is not NULL, the next event is removed from the queue and stored in the SDL_Event structure pointed to by event.
 eventがNULLでない場合, イベントはキューから削除され, <a href="SDL_Event.html">SDL_Event</a>構造体のeventに代入される.
-The 1 returned refers to this event, immediately stored in the SDL Event structure -- not an event to follow.
 戻った1は, 削除されSDLイベント構造体に収められたこのイベントのことを指している――続くイベントのことではない.
 </p>
 <p>
-If event is NULL, it simply returns 1 if there is an event in the queue, but will not remove it from the queue.
 eventがNULLの場合, イベントがキューにある場合1を戻すが, イベントは削除されない.
 </p>
 <p>
-As this function may implicitly call SDL_PumpEvents(), you can only call this function in the thread that set the video mode.
 この関数は暗黙のうちに<a href="SDL_PumpEvents.html">SDL_PumpEvents()</a>を呼んでいる.
 この関数はビデオモードを設定したスレッドのみで呼べる.
 </p>
 <p>
-SDL_PollEvent() is the favored way of receiving system events since it can be done from the main loop and does not suspend the main loop while waiting on an event to be posted.
 <a href="SDL_PollEvent.html">SDL_PollEvent()</a>はシステムイベントを受信する望ましい方法である.
 この関数を使えば, メインループでイベントが発生するのを待つことなく処理できる.
 </p>
