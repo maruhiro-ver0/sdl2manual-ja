@@ -60,6 +60,8 @@ SDL_DestroySemaphore(sem);
 この関数は新しいセマフォを生成し, initial_valueの値で初期化する.
 セマフォの待機操作でアトミック(不可分)にセマフォの値を1減算する. もしセマフォの値が0ならば待機する.
 通知操作でアトミックにセマフォの値を1加算し, 待機中のスレッドを再開し, それらが再び待機操作をすることを許可する.
+<h2>バージョン</h2>
+SDL 2.0.0以降
 <h2>関連項目(関数)</h2>
 <a href="SDL_DestroySemaphore.html">SDL_DestroySemaphore</a><br>
 <a href="SDL_SemPost.html">SDL_SemPost</a><br>
