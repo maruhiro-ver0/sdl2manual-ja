@@ -12,6 +12,58 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.0.18の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>SDL wikiドキュメントと開発ヘッダは自動的に同期する
+<li>各関数はどのバージョンで導入されたかの情報を持つ
+<li>SDL固有のCMakeオプションは先頭に'SDL_'が付くようになる. これに従ってあなたのCMakeビルドスクリプトを更新すること!
+<li>システム情報の様々な場所に表示されるアプリケーション名をSDLに知らせるSDL_HINT_APP_NAMEヒントの追加
+<li>SDL 2DレンダーAPIを使って非矩形レンダリングを行えるSDL_RenderGeometry()とRenderGeometryRaw()の追加
+<li>アプリケーションデータとSDLテクスチャを関連付けるSDL_SetTextureUserData()とSDL_GetTextureUserData()の追加
+<li>ウィンドウ座標と論理レンダー座標を変換するSDL_RenderWindowToLogical()とSDL_RenderLogicalToWindow()の追加
+<li>レンダラーの表示をvblankと同期させるかを実行中に変更するSDL_RenderSetVSync()の追加
+<li>SDL_PIXELFORMAT_ARGB8888ピクセルのブロックのαをプリマルチプライ処理するSDL_PremultiplyAlpha()の追加
+<li>ウィンドウの中心がどのディスプレイに表示されているかが変わったとき発生するSDL_WINDOWEVENT_DISPLAY_CHANGEDウィンドウイベントの追加
+<li>ICCを得るSDL_GetWindowICCProfile()の追加と, ICCが変化したとき発生するSDL_WINDOWEVENT_ICCPROF_CHANGEDウィンドウイベントの追加
+<li>EGLウィンドウを透過にするSDL_HINT_VIDEO_EGL_ALLOW_TRANSPARENCYヒントの追加
+<li>多くの場合で少ないCPUを使うようにSDL_WaitEvent()を再設計した
+<li>マウスカーソルの動きをウィンドウ内の領域に制限するSDL_SetWindowMouseRect()とSDL_GetWindowMouseRect()の追加
+<li>イベントフィールドの'preciseX'と'preciseY'でマウスホイールの正確な動きを得られるようになった
+<li>ゲームコントローラが振動に対応しているかを得るSDL_GameControllerHasRumble()とSDL_GameControllerHasRumbleTriggers()の追加
+<li>ジョイスティックが振動に対応しているかを得るSDL_JoystickHasRumble()とSDL_JoystickHasRumbleTriggers()の追加
+<li>SDLのhidapi機能はSDL_hidapi.hの公開APIとして使えるようになった
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>Windowsリモートデスクトップでの相対マウス移動の改良
+<li>ネイティブのIME UIコンポーネントを表示するSDL_HINT_IME_SHOW_UIヒントの追加 (デフォルトはOFF)
+</ul>
+<h3>Windows/UWP</h3>
+<ul>
+<li>UWPアプリケーションでのコントローラー対応の改良のため, XInputの代わりにWGIを使用する
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>スクリーンセーバーが無効のときシステムが表示するアクティビティ名を設定するSDL_HINT_SCREENSAVER_INHIBIT_ACTIVITY_NAMEヒントの追加
+<li>/dev/input/js* と /dev/input/event* のどちらをジョイスティックとして使用するかを決めるSDL_HINT_LINUX_JOYSTICK_CLASSIC ヒントの追加
+<li>ユーザが指定したデバイスを通常のジョイスティックの検知に追加するSDL_HINT_JOYSTICK_DEVICEヒントの追加
+<li>Linuxのスレッド優先度を詳細に設定するSDL_LinuxSetThreadPriorityAndPolicy()の追加
+</ul>
+<h3>Android</h3>
+<ul>
+<li>Android 8.1以降でAAudioを使用するオーディオ再生と録音に対応
+<li>Steamコントローラーへの対応はデフォルトで無効となった. これはSDL_Init()を呼ぶ前にSDL_HINT_JOYSTICK_HIDAPI_STEAMヒントを"1"にすると有効にできる.
+</ul>
+<h3>Apple Arcade</h3>
+<ul>
+<li>Apple Arcadeタイトルに対応するためのSDL_GameControllerGetAppleSFSymbolsNameForButton()とSDL_GameControllerGetAppleSFSymbolsNameForAxis()の追加
+</ul>
+<h3>iOS</h3>
+<ul>
+<li>実際のBluetoothマウスのイベントを獲得するには, アプリケーションのInfo.plistのUIApplicationSupportsIndirectInputEventsキーは真でなければならないことをドキュメントに追加
+<li>Steamコントローラーへの対応はデフォルトで無効となった. これはSDL_Init()を呼ぶ前にSDL_HINT_JOYSTICK_HIDAPI_STEAMヒントを"1"にすると有効にできる.
+</ul>
 <h2>2.0.16の変更点</h2>
 <h3>全般</h3>
 <ul>
@@ -579,7 +631,7 @@ test/testvulkan.cにサンプルがある.
 <li>Raspberry Pi 2に対応
 </ul>
 <h2>原文へのリンク</h2>
-<a href="https://github.com/libsdl-org/SDL/blob/f5bc58bf57f27455d34f3b09b7fe7e5c66dc5aad/WhatsNew.txt">SDL/WhatsNew.txt</a>
+<a href="https://raw.githubusercontent.com/libsdl-org/SDL/main/WhatsNew.txt">SDL/WhatsNew.txt</a>
 <hr>
 </body>
 </html>
