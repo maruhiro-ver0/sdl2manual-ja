@@ -20,10 +20,16 @@
 <tr><td>renderer</td><td>レンダラ</td></tr>
 </table>
 <h2>戻り値</h2>
-成功のときid&lt;MTLRenderCommandEncoder&gt;, レンダラがMetalでないときNULLを戻す.
+成功のときid&lt;MTLRenderCommandEncoder&gt;, レンダラがMetalでないとき, またはエラーが発生したときNULLを戻す.
 <h2>詳細</h2>
 <p>
 この関数はvoid*を戻す. SDLはMetalのヘッダをインクルードしていないためである. しかし, id&lt;MTLRenderCommandEncoder&gt;にキャストしても安全である.
+</p>
+<p>
+SDL 2.0.18以降では, MetalがSDLに描画可能なレンダラの提供を拒否した場合はNULLを戻すので注意すること.
+これはウィンドウが非表示/最小化/画面外のとき発生しうる.
+これはレンダーターゲットのコマンドエンコーダの場合は発生しない. ウィンドウの場合のみである.
+戻り値を確認すること!
 </p>
 <h2>バージョン</h2>
 SDL 2.0.8以降
