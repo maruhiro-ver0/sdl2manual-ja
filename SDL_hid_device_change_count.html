@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAPI.html" title="1つ上">
+<title>SDL_hid_device_change_count</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="CategoryAPI.html">SDL 2.0 API</a> - SDL_hid_device_change_count
+<hr>
+<h1>SDL_hid_device_change_count</h1>
+デバイスが追加または削除された可能性があるごとに増加するカウンタの値を得る
+<h2>構文</h2>
+<code>Uint32 SDL_hid_device_change_count(void)</code>
+<h2>戻り値</h2>
+デバイス数が変化した可能性があるごとに増加するカウンタの値を戻す. デバイス数の変化の検知を利用できないとき0を戻す.
+<h2>詳細</h2>
+<p>
+HIDデバイスの一覧を得るのは高コストである. この関数を呼ぶと, 最後に読んだときから変化したシステムのデバイスの数を得られる. 
+戻り値が変化しても何かが変わったとは限らない. しかし, そのとき<a href="SDL_hid_enumerate.html">SDL_hid_enumerate()</a>を呼んでデバイス一覧を更新できる.
+</p>
+<p>
+この関数を最初に呼んだとき, デバイスの変化を追跡するためにスレッドやシステムリソースが確保される.
+</p>
+<h2>バージョン</h2>
+SDL 2.0.18以降
+<h2>関連項目(関数)</h2>
+<a href="SDL_hid_enumerate.html">SDL_hid_enumerate</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_hid_device_change_count">SDL_hid_device_change_count - SDL Wiki</a>
+<hr>
+</body>
+</html>
