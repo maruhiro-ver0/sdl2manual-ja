@@ -19,16 +19,16 @@
 <li>各関数はどのバージョンで導入されたかの情報を持つ
 <li>SDL固有のCMakeオプションは先頭に'SDL_'が付くようになる. これに従ってあなたのCMakeビルドスクリプトを更新すること!
 <li>システム情報の様々な場所に表示されるアプリケーション名をSDLに知らせるSDL_HINT_APP_NAMEヒントの追加
-<li>SDL 2DレンダーAPIを使って非矩形レンダリングを行えるSDL_RenderGeometry()とRenderGeometryRaw()の追加
-<li>アプリケーションデータとSDLテクスチャを関連付けるSDL_SetTextureUserData()とSDL_GetTextureUserData()の追加
-<li>ウィンドウ座標と論理レンダー座標を変換するSDL_RenderWindowToLogical()とSDL_RenderLogicalToWindow()の追加
-<li>レンダラーの表示をvblankと同期させるかを実行中に変更するSDL_RenderSetVSync()の追加
+<li>SDL 2DレンダーAPIを使って非矩形レンダリングを行える<a href="SDL_RenderGeometry.html">SDL_RenderGeometry()</a>と<a href="SDL_RenderGeometryRaw.html">SDL_RenderGeometryRaw()</a>の追加
+<li>アプリケーションデータとSDLテクスチャを関連付ける<a href="SDL_SetTextureUserData.html">SDL_SetTextureUserData()</a>と<a href="SDL_GetTextureUserData.html">SDL_GetTextureUserData()</a>の追加
+<li>ウィンドウ座標と論理レンダー座標を変換する<a href="SDL_RenderWindowToLogical.html">SDL_RenderWindowToLogical()</a>とSDL_RenderLogicalToWindow()の追加
+<li>レンダラーの表示をvblankと同期させるかを実行中に変更する<a href="SDL_RenderSetVSync.html">SDL_RenderSetVSync()</a>の追加
 <li>SDL_PIXELFORMAT_ARGB8888ピクセルのブロックのαをプリマルチプライ処理するSDL_PremultiplyAlpha()の追加
 <li>ウィンドウの中心がどのディスプレイに表示されているかが変わったとき発生するSDL_WINDOWEVENT_DISPLAY_CHANGEDウィンドウイベントの追加
-<li>ICCを得るSDL_GetWindowICCProfile()の追加と, ICCが変化したとき発生するSDL_WINDOWEVENT_ICCPROF_CHANGEDウィンドウイベントの追加
+<li>ICCを得る<a href="SDL_GetWindowICCProfile.html">SDL_GetWindowICCProfile()</a>の追加と, ICCが変化したとき発生するSDL_WINDOWEVENT_ICCPROF_CHANGEDウィンドウイベントの追加
 <li>EGLウィンドウを透過にするSDL_HINT_VIDEO_EGL_ALLOW_TRANSPARENCYヒントの追加
 <li>多くの場合で少ないCPUを使うようにSDL_WaitEvent()を再設計した
-<li>マウスカーソルの動きをウィンドウ内の領域に制限するSDL_SetWindowMouseRect()とSDL_GetWindowMouseRect()の追加
+<li>マウスカーソルの動きをウィンドウ内の領域に制限する<a href="SDL_SetWindowMouseRect.html">SDL_SetWindowMouseRect()</a>と<a href="SDL_GetWindowMouseRect.html">SDL_GetWindowMouseRect()</a>の追加
 <li>イベントフィールドの'preciseX'と'preciseY'でマウスホイールの正確な動きを得られるようになった
 <li>ゲームコントローラが振動に対応しているかを得るSDL_GameControllerHasRumble()とSDL_GameControllerHasRumbleTriggers()の追加
 <li>ジョイスティックが振動に対応しているかを得るSDL_JoystickHasRumble()とSDL_JoystickHasRumbleTriggers()の追加
@@ -48,7 +48,7 @@
 <li>スクリーンセーバーが無効のときシステムが表示するアクティビティ名を設定するSDL_HINT_SCREENSAVER_INHIBIT_ACTIVITY_NAMEヒントの追加
 <li>/dev/input/js* と /dev/input/event* のどちらをジョイスティックとして使用するかを決めるSDL_HINT_LINUX_JOYSTICK_CLASSIC ヒントの追加
 <li>ユーザが指定したデバイスを通常のジョイスティックの検知に追加するSDL_HINT_JOYSTICK_DEVICEヒントの追加
-<li>Linuxのスレッド優先度を詳細に設定するSDL_LinuxSetThreadPriorityAndPolicy()の追加
+<li>Linuxのスレッド優先度を詳細に設定する<a href="SDL_LinuxSetThreadPriorityAndPolicy.html">SDL_LinuxSetThreadPriorityAndPolicy()</a>の追加
 </ul>
 <h3>Android</h3>
 <ul>
