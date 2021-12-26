@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAPI.html" title="1つ上">
+<title>SDL_hid_read</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="CategoryAPI.html">SDL 2.0 API</a> - SDL_hid_read
+<hr>
+<h1>SDL_hid_read</h1>
+HIDデバイスから入力レポートを読み込む
+<h2>構文</h2>
+<code>int SDL_hid_read(SDL_hid_device *dev, unsigned char *data, size_t length)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_hid_read">
+<tr><td>dev</td><td><a href="SDL_hid_open.html">SDL_hid_open()</a>が戻したデバイスハンドル</td></tr>
+<tr><td>data</td><td>読み込んだデータを書き込むバッファ</td></tr>
+<tr><td>maxlen</td><td>読み込むバイト数. 複数のデバイスのレポートの場合は, レポートの数だけ多く確保すること</td></tr>
+</table>
+<h2>戻り値</h2>
+実際に読み込んだバイト数を戻す. エラーのとき-1を戻す.
+読み込めるパケットがない場合や, ハンドルが非ブロックモードの場合は, この関数は0を戻す.
+<h2>詳細</h2>
+<p>
+入力レポートは割り込みINエンドポイントを通してホストに戻される.
+デバイスが番号付きレポートを使用する場合は, 先頭バイトはレポート番号である.
+</p>
+<h2>バージョン</h2>
+SDL 2.0.18以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_hid_read">SDL_hid_read - SDL Wiki</a>
+<hr>
+</body>
+</html>
