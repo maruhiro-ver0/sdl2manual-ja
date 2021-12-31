@@ -12,11 +12,32 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryMain.html">メイン</a> - SDL_RegisterApp
 <hr>
 <h1>SDL_RegisterApp</h1>
-この関数を呼ぶとアプリケーション起動時にウィンドウクラスを設定することができる
+SDLが使用するwin32ウィンドウクラスを登録する
 <h2>バージョン</h2>
 SDL 2.0.0以降
 <h2>構文</h2>
-<code>int SDL_RegisterApp(char* name, Uint32 style, void* hInst)</code>
+<code>int SDL_RegisterApp(const char *name, Uint32 style, void *hInst)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_RegisterApp">
+<tr><td>name</td><td>UTF-8でエンコードされたウィンドウクラス名. NULLのとき, 現在は"SDL_app"を使用するが, その保障はない</td></tr>
+<tr><td>style</td><td>WNDCLASSEX::styleで使用する値. nameがNULLならば, 現在は設定に関わらず(CS_BYTEALIGNCLIENT | CS_OWNDC)となる</td></tr>
+<tr><td>hInst</td><td>WNDCLASSEX::hInstanceで使用するHINSTANCE. 0のとき, SDLはGetModuleHandle(NULL)を代わりに使用する</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき-1を戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>詳細</h2>
+<p>
+この関数を呼ぶと起動時にアプリケーションのウィンドウクラスを設定できる.
+毎回<a href="SDL_UnregisterApp.html">SDL_UnregisterApp()</a>を呼ぶならば, この関数は何度でも安全に呼べる.
+しかし前回の設定が有効ならば, 登録を上書きしようとしてもカウンタが増加する以外は無視される.
+</p>
+<p>
+多くのアプリケーションでは登録しなくてもよく, する必要もなく, 直接呼ぶこともない.
+ビデオサブシステムを初期化するときSDLは内部で読んでいる.
+</p>
+<h2>バージョン</h2>
+SDL 2.0.2以降
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_RegisterApp">SDL_RegisterApp - SDL Wiki</a>
 <hr>
