@@ -18,7 +18,7 @@
 SDLはGNU libcとカーネルバージョン2.6以上が認識する全てのハードウェアに対応している.
 </p>
 <p>
-最新の情報は<a href="http://hg.libsdl.org/SDL/file/default/docs/README-platforms.md">http://hg.libsdl.org/SDL/file/default/docs/README-platforms.md</a>を参照すること.
+最新の情報は<a href="https://wiki.libsdl.org/Installation">インストール</a>を参照すること.
 </p>
 <h2>SDLを自分のプロジェクトに追加する方法は?</h2>
 <p>
@@ -36,7 +36,7 @@ SDL_LDFLAGS := $(shell sdl-config --libs)
 </code>
 </p>
 <p>
-プロジェクトでautoconfやautomakeを使うならば, <a href="https://hg.libsdl.org/SDL/file/SDL-1.2/sdl.m4">sdl.m4</a> (<a href="https://hg.libsdl.org/SDL/file/default/sdl2.m4">sdl2.m4</a>)を内容をコピーしてあなたのacinclude.m4ファイルに追加し, 次の内容をあなたのconfigure.inファイルに追加するとよい. (SDL 1.2用)
+プロジェクトでautoconfやautomakeを使うならば, <a href="https://github.com/libsdl-org/SDL-1.2/blob/main/sdl.m4">sdl.m4</a> (<a href="https://github.com/libsdl-org/SDL/blob/main/sdl2.m4">sdl2.m4</a>)を内容をコピーしてあなたのacinclude.m4ファイルに追加し, 次の内容をあなたのconfigure.inファイルに追加するとよい. (SDL 1.2用)
 </p>
 <p>
 <code>
