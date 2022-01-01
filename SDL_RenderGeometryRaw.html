@@ -12,16 +12,16 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_RenderGeometryRaw
 <hr>
 <h1>SDL_RenderGeometryRaw</h1>
-三角形の一覧をレンダリングする. テクスチャとベクトル配列の番号も使用できる. 色とα変調はベクトルごとに行われる(SDL_SetTextureColorModとSDL_SetTextureAlphaModは無視される)
+三角形の一覧をレンダリングする. テクスチャとベクトル配列の番号も使用できる. 色とα変調はベクトルごとに行われる(<a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod</a>と<a href="SDL_SetTextureAlphaMod.html">SDL_SetTextureAlphaMod</a>は無視される)
 <h2>構文</h2>
-<code>int SDL_RenderGeometryRaw(SDL_Renderer* renderer, SDL_Texture* texture, const float* xy, int xy_stride, const int* color, int color_stride, const float* uv, int uv_stride, int num_vertices, const void* indices, int num_indices, int size_indices)</code>
+<code>int SDL_RenderGeometryRaw(SDL_Renderer *renderer, SDL_Texture *texture, const float *xy, int xy_stride, const SDL_Color *color, int color_stride, const float *uv, int uv_stride, int num_vertices, const void *indices, int num_indices, int size_indices)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_RenderGeometryRaw">
 <tr><td>renderer</td><td>レンダラ</td></tr>
 <tr><td>texture</td><td>(任意) 使用するSDL_Texture</td></tr>
 <tr><td>xy</td><td>ベクトルの位置</td></tr>
 <tr><td>xy_stride</td><td>ある要素から次の要素へ移動するサイズ</td></tr>
-<tr><td>color</td><td>ベクトルの色(SDL_Color)</td></tr>
+<tr><td>color</td><td>ベクトルの色(<a href="SDL_Color.html">SDL_Color</a>)</td></tr>
 <tr><td>color_stride</td><td>ある要素から次の要素へ移動するサイズ</td></tr>
 <tr><td>uv</td><td>正規化されたテクスチャ座標のベクトル</td></tr>
 <tr><td>uv_stride</td><td>ある要素から次の要素へ移動するサイズ</td></tr>
