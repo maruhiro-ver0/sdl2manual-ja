@@ -12,6 +12,21 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.0.20の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>SDL_RenderGeometryRaw()はintではなくSDL_Colorへのポインタを取る. この引数にはカラーデータをSDL_PIXELFORMAT_RGBA32形式でキャストして渡せる
+<li>OpenGLまたはOpenGLESを使った水平と垂直の直線描画の精度の向上
+<li>速度, 精度, 互換性のどれを重視するかを選択するため, 直線描画で使用する方法を選択するSDL_HINT_RENDER_LINE_METHODヒントの追加
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>カスタムカーソルのサイズを修正
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>2.0.18で壊れていたホットプラグコントローラー検知の修正
+</ul>
 <h2>2.0.18の変更点</h2>
 <h3>全般</h3>
 <ul>
