@@ -22,7 +22,7 @@
 <p>
 <code>
 <pre>
-#include "stdlib.h"
+#include <stdlib.h>
 #include "SDL.h"
 
 /* これらの関数はSDL_RWops内のポインタ以外で使ってはならない */
@@ -49,8 +49,7 @@ static size_t mywritefunc(SDL_RWops *context, const void *ptr, size_t size, size
 
 static int myclosefunc(SDL_RWops *context)
 {
-    if(context->type != 0xdeadbeef)
-    {
+    if(context->type != 0xdeadbeef) {
         return SDL_SetError("myclosefunc()で処理できない不正なSDL_RWops");
     }
 
@@ -59,18 +58,18 @@ static int myclosefunc(SDL_RWops *context)
     return 0;
 }
 
-SDL_RWops *MyCustomRWop()
+SDL_RWops *MyCustomRWop(void)
 {
     SDL_RWops *c=SDL_AllocRW();
     if(c==NULL) return NULL;
 
-    c->size =mysizefunc;
-    c->seek =myseekfunc;
-    c->read =myreadfunc;
-    c->write=mywritefunc;
-    c->close=myclosefunc;
-    c->type =0xdeadbeef;
-    c->hidden.unknown.data1=malloc(256);
+    c->size = mysizefunc;
+    c->seek = myseekfunc;
+    c->read = myreadfunc;
+    c->write= mywritefunc;
+    c->close= myclosefunc;
+    c->type = 0xdeadbeef;
+    c->hidden.unknown.data1 = malloc(256);
     return c;
 }
 </pre>
