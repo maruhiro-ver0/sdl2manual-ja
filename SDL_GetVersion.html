@@ -28,8 +28,8 @@ SDL_version linked;
 
 SDL_VERSION(&amp;compiled);
 SDL_GetVersion(&amp;linked);
-printf("コンパイルしたSDLのバージョンは %d.%d.%d ...\n", compiled.major, compiled.minor, compiled.patch);
-printf("しかし, リンクしたSDLのバージョンは %d.%d.%d\n", linked.major, linked.minor, linked.patch);
+SDL_Log("コンパイルしたSDLのバージョンは %u.%u.%u ...\n", compiled.major, compiled.minor, compiled.patch);
+SDL_Log("しかし, リンクしたSDLのバージョンは %u.%u.%U\n", linked.major, linked.minor, linked.patch);
 </pre>
 </code>
 </p>
