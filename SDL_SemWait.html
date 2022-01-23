@@ -26,32 +26,37 @@
 <p>
 <code>
 <pre>
-SDL_atomic_t done;
+#define NB_WAITER 10
+
 SDL_sem *sem;
 
-SDL_AtomicSet(&amp;done, 0);
-sem = SDL_CreateSemaphore(0);
-.
-.
-Thread A:
-    while (!SDL_AtomicGet(&amp;done)) {
-        add_data_to_queue();
-        SDL_SemPost(sem);
-    }
+// 2秒ごとにセマフォを加算する
+int poster_thread() {
+  for (int i = 0; i < NB_WAITER; i++) {
+    SDL_SemPost(sem);
+    SDL_Delay(2 * 1000);
+  }
+  return 0;
+}
 
-Thread B:
-    while (!SDL_AtomicGet(&amp;done)) {
-        SDL_SemWait(sem);
-        if (data_available()) {
-            get_data_from_queue();
-        }
-    }
-.
-.
-SDL_AtomicSet(&amp;done, 1);
-SDL_SemPost(sem);
-wait_for_threads();
-SDL_DestroySemaphore(sem);
+int waiter_thread() {
+  int status;
+
+  status = SDL_SemWait(sem);
+  
+  if (status == 0) {
+    SDL_Log("セマフォを減算した\n");
+  } else {
+    SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "待っている間にエラーが発生した: %s\n", SDL_GetError());
+  }
+  return 0;
+}
+
+int main() {
+  sem = SDL_CreateSemaphore(0);
+  create_and_wait_threads(); // 加算スレッド1個, 減算スレッド10個
+  SDL_DestroySemaphore(sem);
+}
 </pre>
 </code>
 </p>
