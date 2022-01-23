@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     thread = SDL_CreateThread(TestThread, "TestThread", (void *)NULL);
 
     if (NULL == thread) {
-        SDL_LogError("\nSDL_CreateThread Ž¸”s: %s\n", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "\nSDL_CreateThread Ž¸”s: %s\n", SDL_GetError());
         exit(-1);
     }
 

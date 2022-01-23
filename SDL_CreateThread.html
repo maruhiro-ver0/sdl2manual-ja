@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     thread = SDL_CreateThread(TestThread, "TestThread", (void *)NULL);
 
     if (NULL == thread) {
-        SDL_LogError("SDL_CreateThread 失敗: %s\n", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDL_CreateThread 失敗: %s\n", SDL_GetError());
     } else {
         SDL_WaitThread(thread, &threadReturnValue);
         SDL_Log("スレッドの戻り値: %d\n", threadReturnValue);
