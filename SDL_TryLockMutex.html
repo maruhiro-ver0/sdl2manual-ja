@@ -31,19 +31,19 @@ SDL_mutex *mutex;
 
 mutex = SDL_CreateMutex();
 if (!mutex) {
-  fprintf(stderr, "mutexを生成できなかった\n");
+  SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "mutexを生成できなかった\n");
   return;
 }
 
 status = SDL_TryLockMutex(mutex);
 
 if (status == 0) {
-    printf("mutexをロックした\n");
+    SDL_Log("mutexをロックした\n");
     SDL_UnlockMutex(mutex);
 } else if (status == SDL_MUTEX_TIMEDOUT) {
     /* 今はmutexをロックできない */
 } else {
-    fprintf(stderr, "mutexをロックできなかった\n");
+    SDL_LogError(stderr, "mutexをロックできなかった\n");
 }
 
 SDL_DestroyMutex(mutex);
