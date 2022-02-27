@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategorySystem.html" title="1つ上">
+<title>SDL_AndroidSendMessage</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySystem.html">環境固有の機能</a> - SDL_AndroidSendMessage
+<hr>
+<h1>SDL_AndroidSendMessage</h1>
+SDLActivityにユーザコマンドを送信する
+<h2>構文</h2>
+<code>int SDL_AndroidSendMessage(Uint32 command, int param)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_AndroidSendMessage">
+<tr><td>command</td><td>0x8000以上のユーザコマンド</td></tr>
+<tr><td>param</td><td>ユーザパラメータ</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+メッセージをハンドルするためboolean onUnhandledMessage(Message msg)をオーバーライドする.
+</p>
+<h2>バージョン</h2>
+2.0.22以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_AndroidSendMessage">SDL_AndroidSendMessage - SDL Wiki</a>
+<hr>
+</body>
+</html>
