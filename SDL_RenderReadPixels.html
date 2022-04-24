@@ -29,6 +29,7 @@
 <h2>詳細</h2>
 <p>
 注意: この関数は非常に遅いので, 周期的な処理で使ってはならない.
+この関数をメインレンダーターゲットで使う場合は, レンダリングの後, <a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>の前に呼ぶべきである.
 </p>
 <p>
 <strong>pitch</strong>でpixelsの1行あたりのバイト数を指定する.
