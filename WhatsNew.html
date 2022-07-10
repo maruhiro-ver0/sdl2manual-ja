@@ -12,6 +12,86 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.24.0の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>バージョン番号をGLibやFlatpakのような体系に更新する
+<ul>
+<li>マイナーバージョン(2番目の数字)が偶数のバージョンはリリース可能な安定バージョンであることを表す. 例えば2.24.0で, これは旧体系ならば2.0.24である
+<ul>
+<li>パッチレベル(マイクロバージョン, 3番目の数字)はバグ修正のみの更新を表す. 例えば2.24.1は2.24.0のバグを修正しただけで, 新しい機能は追加されていない
+</ul>
+</ul>
+<ul>
+<li>マイナーバージョンが奇数のバージョンは事前リリースを表す(例えば2.23.0). 安定版の配布にはこの事前リリース版を使用すべきではない
+<ul>
+<li>事前リリースのパッチレベルは, 例えば2.23.1, 2.23.2のように, SDL 2.24.0安定版がリリースされるまで続いて行く
+</ul>
+</ul>
+<li>stdlibルーチンへのSDL_bsearch()とSDL_utf8strnlen()の追加
+<li>サイズオーバーフロー防止の改善のためにSDL_size_mul_overflow()とSDL_size_add_overflow()を追加
+<li>ジョイスティックまたはゲームコントローラーの環境に依存した名称を得る関数の追加
+<ul>
+<li>SDL_JoystickPathForIndex()
+<li>SDL_JoystickPath()
+<li>SDL_GameControllerPathForIndex()
+<li>SDL_GameControllerPath()
+</ul>
+<li>現在はHIDAPIを使用してDualSense(tm)無線コントローラーに対応したSDL_GameControllerGetFirmwareVersion()とSDL_JoystickGetFirmwareVersion()の追加
+<li>仮想コントローラーの機能拡張に対応したSDL_JoystickAttachVirtualEx()の追加
+<li>ジョイスティックのバッテリー状態の変化したとき発生するSDL_JOYBATTERYUPDATEDイベントの追加
+<li>SDL GUIDと文字列を相互変換するSDL_GUIDToString()とSDL_GUIDFromString()の追加
+<li>LoongArch SIMD対応を検知するSDL_HasLSX()とSDL_HasLASX()の追加
+<li>SDL_GetOriginalMemoryFunctions()の追加
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>D3D12レンダラの実装と, それに関連付けられたD3D12デバイスを得るSDL_RenderGetD3D12Device()の追加
+<li>アプリケーションにDPI-aware(高DPI対応)を設定するか否かを指定するSDL_HINT_WINDOWS_DPI_AWARENESSヒントの追加. このヒントはビデオサブシステムを初期化する前に設定する必要がある
+<li>SDL座標がDPIスケーリングされたものかピクセル数かを指定するSDL_HINT_WINDOWS_DPI_SCALINGヒントの追加
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>Waylandが使用できるネイティブの解像度に加え, エミュレーションモードを追加するか否かを指定するSDL_HINT_VIDEO_WAYLAND_MODE_EMULATIONヒントの追加
+<li>ハットがアナログかをチェックする前にデジタルとして扱うか否かを指定するSDL_HINT_LINUX_DIGITAL_HATSヒントの追加
+<li>アナログハットのデッドゾーンを使用するか否かを指定するSDL_HINT_LINUX_HAT_DEADZONESヒントの追加
+</ul>
+<h2>2.0.22の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>ウィンドウと関連付けられたレンダラを得るSDL_RenderGetWindow()の追加
+<li>浮動小数点矩形関数の追加:
+<ul>
+<li>SDL_PointInFRect()
+<li>SDL_FRectEmpty()
+<li>SDL_FRectEquals()
+<li>SDL_FRectEqualsEpsilon()
+<li>SDL_HasIntersectionF()
+<li>SDL_IntersectFRect()
+<li>SDL_UnionFRect()
+<li>SDL_EncloseFPoints()
+<li>SDL_IntersectFRectAndLine()
+</ul>
+<li>IMEウィンドウが現在表示されているか否かを戻す<a href="SDL_IsTextInputShown.html">SDL_IsTextInputShown()</a>の追加
+<li>IMEを無効化せずにコンポジションウィンドウを閉じる<a href="SDL_ClearComposition.html">SDL_ClearComposition()</a>の追加
+<li>長文変換を扱うSDL_TEXTEDITING_EXTイベントの追加と, それを有効にするSDL_HINT_IME_SUPPORT_EXTENDED_TEXTヒントの追加
+<li>相対マウスモードが有効のとき, マウスの制限がウィンドウ全体かウィンドウ中央かを選択するSDL_HINT_MOUSE_RELATIVE_MODE_CENTERヒントの追加
+<li>マウスのボタンを押したとき, マウスが自動的にキャプチャーされるようになった. この動作を選択するSDL_HINT_MOUSE_AUTO_CAPTUREヒントが追加された
+<li>SDLに外部ウィンドウがOpenGLを使用していることを知らせるSDL_HINT_VIDEO_FOREIGN_WINDOW_OPENGLヒントの追加
+<li>SDLに外部ウィンドウがVulkanを使用していることを知らせるSDL_HINT_VIDEO_FOREIGN_WINDOW_VULKANヒントの追加
+<li>最後のアプリケーションウィンドウが閉じたときSDL_QUITイベントが届けられるか否かを指定するSDL_HINT_QUIT_ON_LAST_WINDOW_CLOSEヒントの追加
+<li>ROG Chakramマウスがジョイスティックとして現れるか否かを選択するSDL_HINT_JOYSTICK_ROG_CHAKRAMヒントの追加
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>D3D9レンダラのSDL_BLENDOPERATION_MINIMUMとSDL_BLENDOPERATION_MAXIMUMへの対応を追加
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>Wayland対応のコンパイルにはlibwayland-clientバージョン1.18.0以降が必要となった
+<li>SDLウィンドウの_NET_WM_WINDOW_TYPEを指定するSDL_HINT_X11_WINDOW_TYPEヒントの追加
+<li>xdg-decorationに対応したコンポジタのlibdecorの使用を許可するSDL_HINT_VIDEO_WAYLAND_PREFER_LIBDECORヒントの追加
+</ul>
 <h2>2.0.20の変更点</h2>
 <h3>全般</h3>
 <ul>
