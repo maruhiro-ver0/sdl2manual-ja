@@ -14,7 +14,7 @@
 <h1>SDL_iPhoneSetAnimationCallback</h1>
 Apple iOSのアニメーションコールバックを設定する
 <h2>構文</h2>
-<code>int SDL_iPhoneSetAnimationCallback(SDL_Window* window, int interval, void (*callback)(void*), void* callbackParam)</code>
+<code>int SDL_iPhoneSetAnimationCallback(SDL_Window * window, int interval, void (SDLCALL *callback)(void*), void *callbackParam)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_iPhoneSetAnimationCallback">
 <tr><td>window</td><td>アニメーションコールバックを設定するウィンドウ</td></tr>
