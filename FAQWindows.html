@@ -108,6 +108,12 @@ Dev-C++を含むgcc環境では, "sdl-config --libs" の出力結果をリンクする必要がある. 
 <p>
 vcpkgのSDL2main.libはmanual-linkフォルダに移されるので, 手動でリンカに追加する必要がある. 詳細は<a href="https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md">vcpkgの総合ドキュメント</a>を読むこと.
 </p>
+<h4>"Undefined reference to 'main'"(または'_main')が発生する</h4>
+<p>
+CMakeを使う場合, add_executableにWIN32を忘れずに追加すること.
+MinGWを使う場合, -mwindowsをリンクオプションに追加すること.
+MSVCユーザは/subsystem:windowsを追加すること.
+</p>
 <h4>様々な未定義のSDL関数がある...</h4>
 <p>
 gccでコンパイルしているならば, コマンドラインのあなたのソースコードの後にsdl-configの出力があることを確認する: gcc -o test test.c sdl-config --cflags --libs
