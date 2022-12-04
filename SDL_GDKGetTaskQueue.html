@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAPI.html" title="1つ上">
+<title>SDL_GDKGetTaskQueue</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - SDL_GDKGetTaskQueue
+<hr>
+<h1>SDL_GDKGetTaskQueue</h1>
+GDKの非同期タスクキューハンドルを得て, 必要ならば初期化する
+<h2>構文</h2>
+<code>int SDL_GDKGetTaskQueue(XTaskQueueHandle *outTaskQueue)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_GDKGetTaskQueue">
+<tr><td>outTaskQueue</td><td>タスクキューの書き込み先ポインタ</td></tr>
+</table>
+<h2>戻り値</h2>
+成功の0, エラーが発生したとき-1を戻す.
+<h2>詳細</h2>
+タスクキューを使い終わったならば, リソースリークを避けるためにXTaskQueueCloseHandleを読んで解放する必要がある.
+<h2>バージョン</h2>
+SDL 2.24.0以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_GDKGetTaskQueue">SDL_GDKGetTaskQueue - SDL Wiki</a>
+<hr>
+</body>
+</html>
