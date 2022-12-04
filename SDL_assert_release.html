@@ -20,9 +20,19 @@
 <tr><td>condition</td><td>発生の条件</td></tr>
 </table>
 <h2>詳細</h2>
+<p?
 この関数はデフォルトで有効である.
 SDL_ASSERT_LEVELを0にすると無効にできる.
 詳細は<a href="CategoryAssertions.html">アサーション</a>を参照すること.
+</p>
+<p>
+環境変数"SDL_ASSERT"にいくつかの文字列("abort", "break", "retry", "ignore", "always_ignore")の1つを設定してデフォルトの動作を変えることができる.
+メインスレッドがGUIインターフェースだが, バックグラウンドスレッドでアサーションデバッグを行うときは, "break"に設定するとデバッガはアプリケーションのUIが悪い影響(デッドロック等)を受けずにアサーションが発生するとすぐにコントロールを得ることができる.
+</p>
+<p>
+SDL_ASSERTは「環境変数」であり, SDLヒントではないので注意すること!
+設定方法はあなたの環境のドキュメントを参照すること!
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_assert.html">SDL_assert</a><br>
 <a href="SDL_assert_paranoid.html">SDL_assert_paranoid</a><br>
