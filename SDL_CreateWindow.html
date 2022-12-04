@@ -89,6 +89,7 @@ AppleのmacOSでは, Info.plistのNSHighResolutionCapableプロパティは<strong>必ず</s
 <p>
 高DPIに対応した環境(iOSやOS X)でSDL_WINDOW_ALLOW_HIGHDPIを指定してウィンドウを生成した場合, スクリーン座標系のウィンドウサイズは, ピクセル数のウィンドウサイズと異なる場合がある.
 <a href="SDL_GL_GetDrawableSize.html">SDL_GL_GetDrawableSize()</a>または<a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize()</a>でピクセル数のクライアントサイズを得ることができる.
+このフラグを設定した場合, ウィンドウが生成された後に描画可能なサイズが変化しうるため, ウィンドウのサイズが変わった, またはディスプレイ間で移動したようなイベントが発生した後はサイズを調べなおさなければならないので注意すること.
 </p>
 <p>
 フルスクリーンの設定をした場合, 幅と高さの引数である<strong>w</strong>と<strong>h</strong>は使われない.
