@@ -34,6 +34,11 @@
 <p>
 一般的にこの関数が失敗するのは, DPI情報がないか, displayIndexが範囲外のときである.
 </p>
+<p>
+注意: このDPIはハードウェアが報告したものである. そして常に信用できるものではない!
+ほとんどの場合, <a href="SDL_GetWindowSize.html">SDL_GetWindowSize()</a>を使うと物理ピクセル数ではなく論理ピクセル数のウィンドウのサイズが得られ, その後<a href="SDL_GL_GetDrawableSize.html">SDL_GL_GetDrawableSize()</a>, <a href="SDL_Vulkan_GetDrawableSize.html">SDL_Vulkan_GetDrawableSize()</a>, <a href="SDL_Metal_GetDrawableSize.html">SDL_Metal_GetDrawableSize()</a>, <a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize()</a>を使い, 2つの値を比較して実際の拡大率を求める方がよい.
+SDL3では高DPIについてより一貫性, 信頼性があり明確なものになるように検討している.
+</p>
 <h2>バージョン</h2>
 2.0.4以降
 <h2>関連項目(関数)</h2>
