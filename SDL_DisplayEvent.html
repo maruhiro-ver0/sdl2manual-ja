@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryEvents.html" title="1つ上">
+<title>SDL_DisplayEvent</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryEvents.html">イベント処理</a> - SDL_DisplayEvent
+<hr>
+<h1>SDL_DisplayEvent</h1>
+ディスプレイ状態変化イベントの情報の構造体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_ControllerAxisEvent">
+<tr><td>Uint32</td><td>type</td><td>SDL_DISPLAYEVENT</td></tr>
+<tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ(ミリ秒)</td></tr>
+<tr><td>Uint32</td><td>display</td><td>ディスプレイ番号</td></tr>
+<tr><td>Uint32</td><td>event</td><td><a href="SDL_DisplayEventID.html">SDL_DisplayEventID</a></td></tr>
+<tr><td>Uint32</td><td>data1</td><td>イベントのデータ</td></tr>
+</table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Event ev;
+
+while (SDL_PollEvent(&ev) != 0) {
+    if (ev.type == SDL_DISPLAYEVENT) {
+        switch (ev.display.event) {
+            case SDL_DISPLAYEVENT_CONNECTED:
+                SDL_Log("ID %dのディスプレイが接続された", ev.display.display);
+                break;
+            case SDL_DISPLAYEVENT_DISCONNECTED:
+                SDL_Log("ID %dのディスプレイが切り離された", ev.display.display);
+                break;
+            case SDL_DISPLAYEVENT_ORIENTATION:
+                SDL_Log("ID %dのディスプレイの向きが変わった", ev.display.display);
+                break;
+        }
+    }
+}
+</pre>
+</code>
+</p>
+<h2>詳細</h2>
+SDL_DisplayEventは<a href="SDL_Event.html">SDL_Event</a>共用体のメンバで, SDL_DISPLAYEVENTイベントが発生したとき使われる.
+これはイベントのdisplayフィールドを通じて使用することになる.
+<h2>バージョン</h2>
+SDL 2.0.4以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_DisplayEvent">SDL_DisplayEvent - SDL Wiki</a><br>
+<hr>
+</body>
+</html>
