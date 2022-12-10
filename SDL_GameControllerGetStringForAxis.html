@@ -22,6 +22,45 @@
 <h2>戻り値</h2>
 指定の軸番号の文字列を戻す. 軸番号が範囲外のときはNULLを戻す.
 文字列はSDL_GameControllerマッピング文字列の形式である.
+<h2>詳細</h2>
+戻された文字列をSDL_free()で解放しようとしてはならない.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+
+int main(int argc, char* argv[])
+{
+    SDL_Event event;
+    SDL_bool running = SDL_TRUE;
+
+    if (SDL_Init(SDL_INIT_GAMECONTROLLER) < 0) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDL2初期化エラー : %s\n", SDL_GetError());
+        return 1;
+    }
+
+    while (running) {
+        while (SDL_PollEvent(&event) > 0) {
+            if (event.type == SDL_QUIT) {
+                running = SDL_FALSE;
+            }
+
+            if (event.type == SDL_CONTROLLERAXISMOTION) {
+                const char *axisName = SDL_GameControllerGetStringForAxis((SDL_GameControllerAxis)event.caxis.axis);
+                int axisValue = event.caxis.value;
+                SDL_Log("使用軸 : %s\t軸の値 : %d\n", axisName, axisValue);
+            }
+        }
+    }
+
+    SDL_Quit();
+
+    return 0;
+}
+</pre>
+</code>
+</p>
 <h2>バージョン</h2>
 SDL 2.0.0以降
 <h2>関連項目(関数)</h2>
