@@ -16,9 +16,17 @@
 <h2>構文</h2>
 <code>void SDL_ClearHints(void)</code>
 <h2>詳細</h2>
-この関数は<a href="SDL_Quit.html">SDL_Quit()</a>で自動的に呼ばれる.
+<p>
+この関数は<a href="SDL_Quit.html">SDL_Quit()</a>で自動的に呼ばれ, 全てのコールバック関数を呼ばずに削除し, ヒントに結びつけられた全てのメモリを解放する.
+あなたがこの関数をアプリケーションから呼ぼうとしているならば, <a href="SDL_ResetHints.html">SDL_ResetHints()</a>の方が適しているかもしれない.
+</p>
+<p>
+この関数は次のバージョンから削除される予定である.
+</p>
 <h2>バージョン</h2>
 SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="SDL_ResetHints.html">SDL_ResetHints</a><br>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_ClearHints">SDL_ClearHints - SDL Wiki</a>
 <hr>
