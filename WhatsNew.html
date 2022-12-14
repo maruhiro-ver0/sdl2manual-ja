@@ -28,33 +28,67 @@
 <li>事前リリースのパッチレベルは, 例えば2.23.1, 2.23.2のように, SDL 2.24.0安定版がリリースされるまで続いて行く
 </ul>
 </ul>
+<li>画面上の点と長方形に結び付けられたディスプレイを得る<a href="SDL_GetPointDisplayIndex.html">SDL_GetPointDisplayIndex()</a>と<a href="SDL_GetRectDisplayIndex.html">SDL_GetRectDisplayIndex()</a>の追加
 <li>stdlibルーチンへのSDL_bsearch()とSDL_utf8strnlen()の追加
+<li>SDL_CPUPauseInstruction()マクロのSDL_atomic.hへの追加
 <li>サイズオーバーフロー防止の改善のためにSDL_size_mul_overflow()とSDL_size_add_overflow()を追加
-<li>ジョイスティックまたはゲームコントローラーの環境に依存した名称を得る関数の追加
+<li>ヒントをデフォルト値にリセットする<a href="SDL_ResetHint.html">SDL_ResetHint()</a>の追加
+<li>SDLの内部キーボード状態をリセットし, 全ての押されたキーに対してキーを離したイベントを発生させる<a href="SDL_ResetKeyboard.html">SDL_ResetKeyboard()</a>の追加
+<li>相対モードのときマウスカーソルのワープに対してマウス移動イベントを発生させるか否かを決めるSDL_HINT_MOUSE_RELATIVE_WARP_MOTIONヒントの追加. デフォルトは発生させない
+<li>トラックパッドをタッチデバイスまたは複数マウスとして扱うか否かを決めるSDL_HINT_TRACKPAD_IS_TOUCH_ONLYヒントの追加. デフォルトではマウスとして扱われる
+<li>SDL_HINT_JOYSTICK_HIDAPI_JOY_CONSヒントはデフォルトでONとなった
+<li>HIDAPIドライバを使用したニンテンドーJoy-Conのミニゲームパッドモードへの対応
+<li>HIDAPIドライバを使用する場合, 自動的に統一化されたゲームパッドとして統合するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_COMBINE_JOY_CONSヒントの追加
+<li>ニンテンドースイッチコントローラーのホームLEDの明るさを浮動小数点の値で設定できるようにするSDL_HINT_JOYSTICK_HIDAPI_SWITCH_HOME_LEDヒントの追加
+<li>ニンテンドーJoy-ConのホームLEDの明るさを設定できるようにするSDL_HINT_JOYSTICK_HIDAPI_JOYCON_HOME_LEDヒントの追加. デフォルトではホームLEDは変更できない
+<li>ニンテンドーJoy-ConのプレイヤーLEDを点灯させるか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_SWITCH_PLAYER_LEDヒントの追加
+<li>HIDAPIドライバを使用したニンテンドーオンラインクラシックコントローラーへの対応
+<li>HIDAPIドライバを使用してニンテンドーオンラインクラシックコントローラーを使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_NINTENDO_CLASSICヒントの追加
+<li>バッテリー状態と振動に対応したNVIDIA SHIELDコントローラ用HIDAPIドライバに対応
+<li>NVIDIA SHIELDコントローラーの対応のHIDAPIドライバへの追加と, それを使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_SHIELDヒントの追加
+<li>ジョイスティックまたはゲームコントローラーの環境に依存した名称を得る関数の追加:
 <ul>
-<li>SDL_JoystickPathForIndex()
-<li>SDL_JoystickPath()
-<li>SDL_GameControllerPathForIndex()
-<li>SDL_GameControllerPath()
+<li><a href="SDL_JoystickPathForIndex.html">SDL_JoystickPathForIndex()</a>
+<li><a href="SDL_JoystickPath.html">SDL_JoystickPath()</a>
+<li><a href="SDL_GameControllerPathForIndex.html">SDL_GameControllerPathForIndex()</a>
+<li><a href="SDL_GameControllerPath.html">SDL_GameControllerPath()</a>
 </ul>
-<li>現在はHIDAPIを使用してDualSense(tm)無線コントローラーに対応したSDL_GameControllerGetFirmwareVersion()とSDL_JoystickGetFirmwareVersion()の追加
-<li>仮想コントローラーの機能拡張に対応したSDL_JoystickAttachVirtualEx()の追加
+<li>現在はHIDAPIを使用してDualSense(tm)無線コントローラーに対応した<a href="SDL_GameControllerGetFirmwareVersion.html">SDL_GameControllerGetFirmwareVersion()</a>と<a href="SDL_JoystickGetFirmwareVersion.html">SDL_JoystickGetFirmwareVersion()</a>の追加
+<li>仮想コントローラーの機能拡張に対応した<a href="SDL_JoystickAttachVirtualEx.html">SDL_JoystickAttachVirtualEx()</a>の追加
 <li>ジョイスティックのバッテリー状態の変化したとき発生するSDL_JOYBATTERYUPDATEDイベントの追加
-<li>SDL GUIDと文字列を相互変換するSDL_GUIDToString()とSDL_GUIDFromString()の追加
-<li>LoongArch SIMD対応を検知するSDL_HasLSX()とSDL_HasLASX()の追加
-<li>SDL_GetOriginalMemoryFunctions()の追加
+<li>SDL GUIDと文字列を相互変換する<a href="SDL_GUIDToString.html">SDL_GUIDToString()</a>と<a href="SDL_GUIDFromString.html">SDL_GUIDFromString()</a>の追加
+<li>LoongArch SIMD対応を検知する<a href="SDL_HasLSX.html">SDL_HasLSX()</a>と<a href="SDL_HasLASX.html">SDL_HasLASX()</a>の追加
+<li><a href="SDL_GetOriginalMemoryFunctions.html">SDL_GetOriginalMemoryFunctions()</a>の追加
+<li>オーディオデバイスのデフォルト名称と形式を得る<a href="SDL_GetDefaultAudioInfo.html">SDL_GetDefaultAudioInfo()</a>の追加. 現在はPipeWire, PulseAudio, WASAPI, DirectSoundが実装済みである
+<li>バッテリー状態と振動に対応するためのNVIDIA SHIELDコントローラ(2017モデル)用HIDAPIドライバの追加
+<li>3または5チャネル(2.1, 4.1)オーディオデバイスへの対応を追加. これによりモノラルから7.1まで全チャネルに対応した
+<li>SDL_AudioCVTを使用したオーディオチャネルコンバータの書き直し. FAudio音声のデフォルトで使用されるチャネルマトリクス係数に基づく
+<li>SDLメッセージの4Kの制限はなくなり, 無制限の長さが可能になった
+<li>OpenWatcomまたはOS/2のビルドに影響を与えるdynapiの呼出規約の長年の問題の修正
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>D3D12レンダラの実装と, それに関連付けられたD3D12デバイスを得るSDL_RenderGetD3D12Device()の追加
+<li>Microsoft Game Development Kit (GDK)を使用したWindowsとXbox用のビルドの初期サポートを追加. 詳細は<a href="https://github.com/libsdl-org/SDL/blob/SDL2/docs/README-gdk.md">docs/README-gdk.md</a>を参照すること
+<li>D3D12レンダラの実装と, それに関連付けられたD3D12デバイスを得る<a href="SDL_RenderGetD3D12Device.html">SDL_RenderGetD3D12Device()</a>の追加
 <li>アプリケーションにDPI-aware(高DPI対応)を設定するか否かを指定するSDL_HINT_WINDOWS_DPI_AWARENESSヒントの追加. このヒントはビデオサブシステムを初期化する前に設定する必要がある
 <li>SDL座標がDPIスケーリングされたものかピクセル数かを指定するSDL_HINT_WINDOWS_DPI_SCALINGヒントの追加
+<li>DirectInputを使用するか否かを決めるSDL_HINT_DIRECTINPUT_ENABLEDヒントの追加
+<li>SDL_GetAudioDeviceSpecにDirectSoundバックエンドへの対応を追加
 </ul>
 <h3>Linux</h3>
 <ul>
+<li>XVidModeへの対応は取り除かれた. XRandR拡張を使用する場合のみモード変更に対応する
 <li>Waylandが使用できるネイティブの解像度に加え, エミュレーションモードを追加するか否かを指定するSDL_HINT_VIDEO_WAYLAND_MODE_EMULATIONヒントの追加
+<li>デフォルトを使用したくない場合にKMSDRMデバイスを指定するSDL_HINT_KMSDRM_DEVICE_INDEXヒントの追加
 <li>ハットがアナログかをチェックする前にデジタルとして扱うか否かを指定するSDL_HINT_LINUX_DIGITAL_HATSヒントの追加
 <li>アナログハットのデッドゾーンを使用するか否かを指定するSDL_HINT_LINUX_HAT_DEADZONESヒントの追加
+</ul>
+<h3>macOS</h3>
+<ul>
+<li>最低バージョンをmacOS 10.9に引き上げ
+<li>EDR使用のためCocoa GLコンテキストを許可するSDL_GL_FLOATBUFFERSの追加
+<li>OpenGLコンテキストのディスパッチがメインスレッドの処理が完了するまでディスパッチスレッドをブロックするか否かを決めるSDL_HINT_MAC_OPENGL_ASYNC_DISPATCHヒントの追加.
+現在のmacOSの安全のためデフォルトではブロックする
 </ul>
 <h2>2.0.22の変更点</h2>
 <h3>全般</h3>
