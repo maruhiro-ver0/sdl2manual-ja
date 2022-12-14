@@ -14,11 +14,11 @@
 <h1>SDL_SemWaitTimeout</h1>
 セマフォの値が正になるまで待機し, セマフォの値を減算する
 <h2>構文</h2>
-<code>int SDL_SemWaitTimeout(SDL_sem* sem, Uint32 ms)</code>
+<code>int SDL_SemWaitTimeout(SDL_sem *sem, Uint32 timeout)</code>
 <h2>引数</h2>
 <table border="1" summary="SDL_SemWaitTimeout">
 <tr><td>sem</td><td>セマフォ</td></tr>
-<tr><td>ms</td><td>ミリ秒単位の待ち時間</td></tr>
+<tr><td>timeout</td><td>ミリ秒単位の待ち時間</td></tr>
 </table>
 <h2>戻り値</h2>
 待機操作に成功したとき0, 待ち時間内に待機操作に成功しなかったときSDL_MUTEX_TIMEDOUT, 失敗のとき負の数のエラーコードを戻す.
