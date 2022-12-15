@@ -12,6 +12,48 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.26.0の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>OpenGLヘッダをクロノス・グループの最新APIに更新
+<li>ウィンドウサイズをピクセル数で得る<a href="SDL_GetWindowSizeInPixels.html">SDL_GetWindowSizeInPixels()</a>の追加. これは高DPIウィンドウの場合, ウィンドウ座標系サイズと異なる場合がある
+<li>ソフトウェアレンダリング時の垂直同期シミュレートの追加
+<li><a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a>にマウスの位置を追加
+<li>全てのヒントをデフォルト値にリセットする<a href="SDL_ResetHints.html">SDL_ResetHints()</a>の追加
+<li>ジョイスティックGUIDでコード化されたデバイス情報を得る<a href="SDL_GetJoystickGUIDInfo.html">SDL_GetJoystickGUIDInfo()</a>の追加
+<li>XBox 360コントローラー用HIDAPIドライバを使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_XBOX_360ヒントの追加
+<li>どのプレイヤーがXBox 360コントローラーと結び付けられているかを示すLEDを点灯するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LEDヒントの追加
+<li>XBox 360ワイヤレスコントローラー用HIDAPIドライバを使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_XBOX_360_WIRELESSヒントの追加
+<li>XBox Oneコントローラー用HIDAPIドライバを使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_XBOX_ONEの追加
+<li>XBox OneガイドボタンLCDの明るさを決めるSDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LEDヒントの追加
+<li>HIDAPIドライバにPS3コントローラーを追加. macOSではデフォルトで有効. SDL_HINT_JOYSTICK_HIDAPI_PS3ヒントで制御できる
+<li>HIDAPIドライバにニンテンドーWiiコントローラーを追加. デフォルトでは有効にならない. SDL_HINT_JOYSTICK_HIDAPI_WIIヒントで制御できる
+<li>ニンテンドーWiiコントローラーのプレイヤーLEDを点灯させるか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_WII_PLAYER_LEDヒントの追加
+<li>HIDAPIドライバを使用する場合, ニンテンドースイッチJoy-Conを縦持ちモードにするか否かを選択するSDL_HINT_JOYSTICK_HIDAPI_VERTICAL_JOY_CONSヒントの追加
+<li>Joy-Conコントローラーの左右のジャイロセンサーへの個別のアクセスの追加
+<li>ハードウェアが情報を提供する場合, <a href="SDL_SensorEvent.html">SDL_SensorEvent</a>とSDL_ControllerSensorEventにマイクロ秒のタイムスタンプを追加
+<li>センサーが最後に更新された時間をミリ秒で得る<a href="SDL_SensorGetDataWithTimestamp.html">SDL_SensorGetDataWithTimestamp()</a>と<a href="SDL_GameControllerGetSensorDataWithTimestamp.html">SDL_GameControllerGetSensorDataWithTimestamp()</a>の追加
+<li>SDL HDI APIに特定のデバイスを無視させるSDL_HINT_HIDAPI_IGNORE_DEVICESヒントの追加
+<li><a href="SDL_GetRevision.html">SDL_GetRevision()</a>に(可能ならば)gitコミットハッシュを含むさらなるSDLビルド情報を追加. 
+</ul>
+<h3>Windows</h3>
+<ul>
+<li>相対マウスモードのとき, システムの加速カーブを使用するか否かを決めるSDL_HINT_MOUSE_RELATIVE_SYSTEM_SCALEヒントの追加
+</ul>
+<h3>macOS</h3>
+<ul>
+<li>macOS 12で垂直同期を実装
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>X11プライマリ選択クリップボードを処理する<a href="SDL_SetPrimarySelectionText.html">SDL_SetPrimarySelectionText()</a>, <a href="SDL_GetPrimarySelectionText.html">SDL_GetPrimarySelectionText()</a>, <a href="SDL_HasPrimarySelectionText.html">SDL_HasPrimarySelectionText()</a>の追加
+<li>Waylandでのマウスポインタワープをエミュレートするか否かを決めるSDL_HINT_VIDEO_WAYLAND_EMULATE_MOUSE_WARPヒントの追加
+</ul>
+<h3>Android</h3>
+<ul>
+<li>IMEソフトウェアキーボード入力が可能になった
+<li>SDL JavaとCコードが互換かを確認するバージョンチェックの追加
+</ul>
 <h2>2.24.0の変更点</h2>
 <h3>全般</h3>
 <ul>
@@ -760,7 +802,7 @@ test/testvulkan.cにサンプルがある.
 <li>Raspberry Pi 2に対応
 </ul>
 <h2>原文へのリンク</h2>
-<a href="https://raw.githubusercontent.com/libsdl-org/SDL/main/WhatsNew.txt">SDL/WhatsNew.txt</a>
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/WhatsNew.txt">SDL/WhatsNew.txt</a>
 <hr>
 </body>
 </html>
