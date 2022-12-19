@@ -12,55 +12,73 @@
 <a href="index.html#SDL_image">目次</a> - <a href="SDL_image-functions.html">3.関数</a> - <a href="SDL_image-functions-general.html">3.1一般</a> - IMG_Init
 <hr>
 <h1>IMG_Init</h1>
+SDL_imageを初期化する
+<h2>構文</h2>
 <p>
 <code>int IMG_Init(int flags)</code>
 </p>
+<h2>引数</h2>
+<table border="1" summary="IMG_Init">
+<tr><td>flags</td><td>初期化フラグ. 論理和で複数指定できる</td></tr>
+</table>
+<h2>戻り値</h2>
+初期化された全てのフラグ
+<h2>詳細</h2>
 <p>
+この関数はSDL_imageが必要とする動的リンクライブラリを読み込み, 使用するために初期化する.
+この関数はSDL_imageの内で最初に呼ばなければならない. もし呼び出しに失敗すれば, ライブラリを使うことはできない.
+</p>
+<p>
+フラグは<a href="IMG_InitFlags.html">IMG_InitFlags</a>の1つか, 論理和で複数選択する.
+成功のとき初期化に成功したフラグ, 失敗のとき0が戻される.
+</p>
+<p>
+現在, 以下のフラグがある<br>
 <dl>
-<dt>flags</dt>
-<dd>
-扱う画像形式(動的ライブラリを読み込む).
-以下の論理和で複数指定できる:<br>
-IMG_INIT_JPG<br>
-IMG_INIT_PNG<br>
-IMG_INIT_TIF<br>
-</dd>
+<dd>IMG_INIT_JPG
+<dd>IMG_INIT_PNG
+<dd>IMG_INIT_TIF
+<dd>IMG_INIT_WEBP
+<dd>IMG_INIT_JXL
+<dd>IMG_INIT_AVIF
 </dl>
 </p>
 <p>
-flagsで指定したライブラリを読み込んで初期化する. 少なくとも読み込めれば(既に読み込まれていれば)この関数は成功する.
-この関数は何度でも呼べるが, その場合でも<a href="IMG_Quit.html">IMG_Quit</a>関数を一度呼べば終了できる.
-既にライブラリを読み込んだ場合でも, 読み込んでいない場合でも, 解放するために(使わないために)引数として0を渡すことができる.
+フラグは将来のSDL_imageのリリースで追加される可能性がある.
 </p>
 <p>
-メモ: JPG, PNG, TIF画像を読み込む場合, ライブラリを読み込むとき一時的に停止するのを防ぐために, そして実際に読み込む前に本当にその形式に対応しているかチェックするために, あなたのプログラムが本格的に実行される前にIMG_Init関数に使用するIMG_INIT_*フラグの論理和を渡して初期化したほうがよい.
+この関数は様々な画像の読み書きに対応するために外部の共有ライブラリを必要とする.
+そのため, 共有ライブラリが使えない場合は, メモリ不足などの問題がなくシステムが正常でも初期化に失敗する場合がある.
 </p>
 <p>
-メモ: <a href="IMG_isJPG.html">IMG_isJPG</a>, <a href="IMG_isPNG.html">IMG_isPNG</a>, <a href="IMG_isTIF.html">IMG_isTIF</a>関数は初期化しなくても使える.
+この関数はフラグを追加するために複数回呼び出せる.
+その場合の戻り値には, 新たに正常に初期化されたフラグと, 以前に初期化したフラグの両方が含まれている.
 </p>
 <p>
-メモ: この関数はエラー文字列を設定しない. よって<a href="IMG_GetError.html">IMG_GetError</a>が意味のあるメッセージを戻すことを期待してはならない.
+以前に初期化したフラグを戻すために0(フラグなし)で呼び出すことは可能である.
+この方法で変更を加えず安全に現在の状態を得ることができる.
 </p>
 <p>
-戻り値: 初期化された全ての画像ローダーのビットマスク
+この関数は以前初期化したフラグを新たなものと同様に戻すため, この関数を0で呼ぶことはできるが, 戻り値が0か否かでエラーをチェックすることはできない.
+代わりに戻り値に要求したフラグが全て含まれているかでチェックすべきである.
+もしゲームに特定のフォーマットのデータがあるならば, 致命的なエラーを引き起こしてしまう.
+一般的な画像表示アプリケーションならば, JPGとPNGに対応していれば恐らく問題はなく, たとえあらゆる形式を要求したとしても, WEBPはなくても十分だろう.
 </p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// JPGとPNG形式の画像を読み込めるようにする
-int flags=IMG_INIT_JPG|IMG_INIT_PNG;
-int initted=IMG_Init(flags);
-if(initted&amp;flags != flags) {
-    printf("IMG_Init: JPGとPNGの読み込みの初期化に失敗した!\n");
-    printf("IMG_Init: %s\n", IMG_GetError());
-    // ここでエラー処理を行う
-}
-</pre>
-</code>
-<h2>参照</h2>
+<p>
+他の周辺ライブラリとは違い, IMG_Initは重ならない.
+一度<a href="IMG_Quit.html">IMG_Quit()</a>を呼べば全て終了するため, IMG_Initの回数呼ぶ必要はない.
+そのため, プログラム中ではIMG_InitとIMG_Quitを1度だけ呼ぶのが最良と考えられる.
+これは必須ではないが, そうでない場合は発生する危険性に注意する必要がある.
+</p>
+<p>
+SDL_imageを初期化した後, アプリケーションはSDL_SurfaceやSDL_Textureに画像を読み込むことができるようになる.
+</p>
+<h2>バージョン</h2>
+SDL_image 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="IMG_Quit.html">IMG_Quit</a>
 <h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/SDL_image/docs/SDL_image_8.html#SEC8">3.1.2 IMG_Init</a>
+<a href="https://wiki.libsdl.org/SDL_image/IMG_Init">SDL_image/IMG_Init</a>
 <hr>
 </body>
 </html>
