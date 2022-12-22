@@ -12,27 +12,32 @@
 <a href="index.html#SDL_image">目次</a> - <a href="SDL_image-functions.html">3.関数</a> - <a href="SDL_image-functions-general.html">3.1一般</a> - IMG_Quit
 <hr>
 <h1>IMG_Quit</h1>
+SDL_imageを終了する
+<h2>構文</h2>
 <p>
 <code>void IMG_Quit()</code>
 </p>
+<h2>詳細</h2>
 <p>
-この関数は読み込んだ動的ライブラリをメモリから解放する.
-もし再びライブラリが必要な場合は, <a href="IMG_Init.html">IMG_Init</a>関数または画像の読み込みで動的ライブラリを読み込む必要がある.
-この関数は<a href="IMG_Load.html">IMG_Load</a>でJPG, PNG, TIF画像を読み込む必要がなくなったとき呼ぶとよい.
-何度<a href="IMG_Init.html">IMG_Init</a>関数を呼んだとしても, この関数は一度だけ呼べばよい.
+この関数が資源を解放した後はSDL_imageの関数を呼んではならない.
+この関数は様々なコードで使われる共有ライブラリをアンロードする.
 </p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 動的に読み込まれた画像ライブラリを解放する
-// 
-IMG_Quit();
-</pre>
-</code>
-<h2>参照</h2>
+<p>
+この呼び出しの後, <code>IMG_Init(0)</code>を呼ぶと0(読み込まれたコーデックがない)が戻る.
+</p>
+<p>
+この呼び出しの後, <code>IMG_Init()</a>を呼んでコーデックを再ロードするのは安全である.
+</p>
+<p>
+他の周辺ライブラリとは違い, IMG_Initは重ならない.
+一度<a href="IMG_Quit.html">IMG_Quit()</a>を呼べば全て終了するため, IMG_Initの回数呼ぶ必要はない.
+そのため, プログラム中ではIMG_InitとIMG_Quitを1度だけ呼ぶのが最良と考えられる.
+これは必須ではないが, そうでない場合は発生する危険性に注意する必要がある.
+</p>
+<h2>関連項目(関数)</h2>
 <a href="IMG_Init.html">IMG_Init</a>
 <h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/SDL_image/docs/SDL_image_9.html#SEC9">3.1.3 IMG_Quit</a>
+<a href="https://wiki.libsdl.org/SDL_image/IMG_Quit">SDL_image/IMG_Quit</a>
 <hr>
 </body>
 </html>
