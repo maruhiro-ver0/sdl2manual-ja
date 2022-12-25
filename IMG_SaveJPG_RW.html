@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_image">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_image-functions-loading.html" title="1つ上">
+<title>IMG_SaveJPG_RW</title>
+</head>
+<body>
+<a href="index.html#SDL_image">目次</a> - <a href="SDL_image-functions.html">3.関数</a> - <a href="SDL_image-functions-loading.html">3.2読み込み</a> - IMG_SaveJPG_RW
+<hr>
+<h1>IMG_SaveJPG_RW</h1>
+SDL_SurfaceをSDL_RWopsを経由してJPEG画像として保存する
+<h2>構文</h2>
+<p>
+<code>int IMG_SaveJPG_RW(SDL_Surface *surface, SDL_RWops *dst, int freedst, int quality)</code>
+</p>
+<h2>引数</h2>
+<table border="1" summary="IMG_SaveJPG_RW">
+<tr><td>surface</td><td>保存するSDL_Surface</td></tr>
+<tr><td>dst</td><td>画像の保存先のSDL_RWops</td></tr>
+<tr><td>quality</td><td>[0; 33]ならば低画質, [34; 66]ならば中, [67; 100]ならば高画質</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, エラーのとき-1を戻す.
+<h2>バージョン</h2>
+SDL_image 2.0.2以降
+<h2>関連項目(関数)</h2>
+<a href="IMG_SaveJPG.html">IMG_SaveJPG</a><br>
+<a href="IMG_SavePNG.html">IMG_SavePNG</a><br>
+<a href="IMG_SavePNG_RW.html">IMG_SavePNG_RW</a><br>
+<h2>原文へのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_image/IMG_SaveJPG_RW">SDL_image/IMG_SaveJPG_RW</a>
+<hr>
+</body>
+</html>
