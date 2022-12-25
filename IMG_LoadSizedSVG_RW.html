@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_image">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_image-functions-loading.html" title="1つ上">
+<title>IMG_LoadSizedSVG_RW</title>
+</head>
+<body>
+<a href="index.html#SDL_image">目次</a> - <a href="SDL_image-functions.html">3.関数</a> - <a href="SDL_image-functions-loading.html">3.2読み込み</a> - IMG_LoadSizedSVG_RW
+<hr>
+<h1>IMG_LoadSizedSVG_RW</h1>
+SVG画像指定のサイズに拡大縮小して読み込む
+<h2>構文</h2>
+<p>
+<code>SDL_Surface *IMG_LoadSizedSVG_RW(SDL_RWops *src, int width, int height)</code>
+</p>
+<h2>引数</h2>
+<table border="1" summary="IMG_LoadSizedSVG_RW">
+<tr><td>src</td><td>読み込むSDL_RWops</td></tr>
+<tr><td>width</td><td>生成されるSDL_Surfaceの幅(ピクセル数)</td></tr>
+<tr><td>height</td><td>生成されるSDL_Surfaceの高さ(ピクセル数)</td></tr>
+</table>
+<h2>戻り値</h2>
+成功したとき<a href="SDL_Surface.html">SDL_Surface</a>を戻す. エラーのときNULLを戻す
+<h2>詳細</h2>
+<p>
+Since SVG files are resolution-independent, you specify the size you would like the output image to be and it will be generated at those dimensions.
+SVGファイルは解像度非依存のため, 出力画像のサイズを指定して生成することができる.
+</p>
+<p>
+widthとheightのどちらかを0にすると, 縦横比を保つようにサイズが自動的に設定される.
+</p>
+<p>
+戻されたSDL_Surfaceは, アプリケーションが<a href="SDL_FreeSurface.html">SDL_FreeSurface()</a>を呼んで破棄する必要がある.
+</p>
+<h2>バージョン</h2>
+SDL_image 2.6.0以降
+<h2>原文へのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_image/IMG_LoadSizedSVG_RW">SDL_image/IMG_LoadSizedSVG_RW</a>
+<hr>
+</body>
+</html>
