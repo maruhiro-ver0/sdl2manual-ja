@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_image">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_image-functions-general.html" title="1つ上">
+<title>IMG_LoadAnimation_RW</title>
+</head>
+<body>
+<a href="index.html#SDL_image">目次</a> - <a href="SDL_image-functions.html">3.関数</a> - <a href="SDL_image-functions-general.html">3.1一般</a> - IMG_LoadAnimation_RW
+<hr>
+<h1>IMG_LoadAnimation_RW</h1>
+ファイルからアニメーションを読み込む
+<h2>構文</h2>
+<p>
+<code>IMG_Animation *IMG_LoadAnimation_RW(SDL_RWops *src, int freesrc)</code>
+</p>
+<h2>引数</h2>
+<table border="1" summary="IMG_LoadAnimation_RW">
+<tr><td>src</td><td>読み込むSDL_RWops</td></tr>
+<tr><td>freesrc</td><td>0でないときsrcを自動的に閉じる/解放する. 0のとき開いたままにする</td></tr>
+</table>
+<h2>戻り値</h2>
+新しいIMG_Animation, エラーのときNULLを戻す.
+<h2>詳細</h2>
+<p>
+freesrcが0以外の場合, 処理が成功してもしなくてもRWopsは閉じる.
+この関数を呼んだとき, どのような場合でもSDL_imageは必要ならばRWopsを全て読み込む.
+</p>
+<p>
+アニメーションを戻した場合, アプリケーションは<a href="IMG_FreeAnimation.html">IMG_FreeAnimation()</a>を呼んで破棄しなければならない.
+</p>
+<p>
+</p>
+<h2>バージョン</h2>
+SDL_image 2.6.0以降
+<h2>関連項目(関数)</h2>
+<a href="IMG_FreeAnimation.html">IMG_FreeAnimation</a>
+<h2>原文へのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_image/IMG_LoadAnimation_RW">SDL_image/IMG_LoadAnimation_RW</a>
+<hr>
+</body>
+</html>
