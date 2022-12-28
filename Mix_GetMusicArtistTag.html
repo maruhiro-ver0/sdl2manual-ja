@@ -6,21 +6,21 @@
 <meta name="keywords" content="SDL_mixer">
 <link rel="top" href="index.html" title="ホーム">
 <link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
-<title>Mix_GetMusicAlbumTag</title>
+<title>Mix_GetMusicArtistTag</title>
 </head>
 <body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_GetMusicAlbumTag
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_GetMusicArtistTag
 <hr>
-<h1>Mix_GetMusicAlbumTag</h1>
-音楽オブジェクトのアルバム名を得る
+<h1>Mix_GetMusicArtistTag</h1>
+音楽オブジェクトのアーティスト名を得る
 <h2>構文</h2>
-<code>const char *Mix_GetMusicAlbumTag(const Mix_Music *music)</code>
+<code>const char *Mix_GetMusicArtistTag(const Mix_Music *music)</code>
 <h2>引数</h2>
-<table border="1" summary="Mix_GetMusicAlbumTag">
+<table border="1" summary="Mix_GetMusicArtistTag">
 <tr><td>music</td><td>問い合わせる音楽オブジェクト. NULLのとき現在再生中の音楽</td></tr>
 </table>
 <h2>戻り値</h2>
-音楽のアルバム名, または""を戻す
+音楽のアーティスト名, または""を戻す
 <h2>詳細</h2>
 <p>
 この関数はフォーマット依存のメタデータを戻す.
@@ -35,11 +35,11 @@ musicがNULLの場合, 現在再生中の音楽から得ようとする.
 <h2>バージョン</h2>
 SDL_mixer 2.6.0以降
 <h2>関連項目(関数)</h2>
-<a href="Mix_GetMusicArtistTag.html">Mix_GetMusicArtistTag</a><br>
-<a href="Mix_GetMusicCopyrightTag.html">Mix_GetMusicCopyrightTag</a><br>
+<a href="Mix_GetMusicAlbumTag.html">Mix_GetMusicAlbumTag</a><br>
 <a href="Mix_GetMusicTitleTag.html">Mix_GetMusicTitleTag</a><br>
+<a href="Mix_GetMusicCopyrightTag.html">Mix_GetMusicCopyrightTag</a><br>
 <h2>原文へのリンク</h2>
-<a href="https://wiki.libsdl.org/SDL_mixer/Mix_GetMusicAlbumTag">SDL_mixer/Mix_GetMusicAlbumTag</a>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_GetMusicArtistTag">SDL_mixer/Mix_GetMusicArtistTag</a>
 <hr>
 </body>
 </html>
