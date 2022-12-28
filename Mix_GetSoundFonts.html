@@ -21,8 +21,8 @@ MIDIバックエンドで使用されるサウンドフォントのパスを得る
 <p>
 この関数が何を戻すかは複数の要素で決まる:
 </p>
-<ul>
 <p>
+<ul>
 <li>ブール値のSDLヒント"SDL_FORCE_SOUNDFONTS"が設定されていて, かつ環境変数"SDL_SOUNDFONTS"も設定されている場合, この関数は<a href="Mix_SetSoundFounts.html">Mix_SetSoundFounts()</a>が呼ばれたかに関わらず環境変数の値を戻す.
 <li>そうではない場合, もし<a href="Mix_SetSoundFonts.html">Mix_SetSoundFonts()</a>がNULLではないパスで正常に呼ばれたならば, この関数は渡された文字列を戻す.
 <li>そうではない場合, もし環境変数"SDL_SOUNDFONTS"が設定されていれば, この関数は環境変数の値を戻す.
