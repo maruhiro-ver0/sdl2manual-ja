@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
+<title>Mix_LoadMUS_RW</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_LoadMUS_RW
+<hr>
+<h1>Mix_LoadMUS_RW</h1>
+利用可能なオーディオフォーマットを音楽オブジェクトに読み込む
+<h2>構文</h2>
+<code>Mix_Music *Mix_LoadMUS_RW(SDL_RWops *src, int freesrc)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_LoadMUS_RW">
+<tr><td>src</td><td>読み込み元のSDL_RWops</td></tr>
+<tr><td>freesrc</td><td>0以外のときSDL_RWopsを閉じて解放する. 0のとき開いたままにする</td></tr>
+</table>
+<h2>戻り値</h2>
+生成された音楽オブジェクトを戻す. エラーのときNULLを戻す.
+<h2>詳細</h2>
+<p>
+SDL_mixerには2つのオーディオデータ構造がある.
+1つは「チャンク」で, これは事前にファイルを完全にメモリにデコードする.
+もう1つは「音楽」で, ファイルを必要に応じてデコードする.
+当初はWAVの様な無圧縮の単純な形式をチャンク, MP3等を音楽として, 1つの音楽をBGMとしてストリーム再生し, チャンクを効果音として繰り返し再生することを意図していた.
+</p>
+<p>
+現在では形式による違いはなく, ほぼ相互に交換可能で, 事前にデコードした方がアプリケーションにとってよいかの問題となっている.
+チャンクはより多くのメモリを使用するが, 一度読み込めば再度デコードすることはない. 一方, 音楽は再生のたびに常にデコードする必要がある.
+さらに決定的なのは, アプリケーションには多くのチャンクのチャネルを確保できるが, 「音楽」チャネルは1つしか提供されていない.
+</p>
+<p>
+freesrcが0以外のとき, 処理が成功してもしなくても関数から戻るときRWopsは閉じる.
+どのような場合でもこの関数を呼ぶと必要ならばSDL_mixerは全て読み込む.
+</p>
+<p>
+簡単のため, SDL_RWopsを扱わず<a href="Mix_LoadMUS.html">Mix_LoadMUS("filename.mp3")</a>のようにディスクからファイルを読み込む関数も存在する. 
+</p>
+<p>
+この関数はファイルの形式を類推しようとする.
+もし呼び出し側が形式を知っている, または強制したい場合は, 代わりに<a href="Mix_LoadMUSType_RW.html">Mix_LoadMUSType_RW()</a>を使うこと.
+</p>
+<p>
+音楽を使用し終えたならば, アプリケーションは<a href="Mix_FreeMusic.html">Mix_FreeMusic()</a>を呼んで解放する必要がある.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="Mix_FreeMusic.html">Mix_FreeMusic</a><br>
+<h2>原文へのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_LoadMUS_RW">SDL_mixer/Mix_LoadMUS_RW</a>
+<hr>
+</body>
+</html>
