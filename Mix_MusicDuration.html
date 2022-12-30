@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
+<title>Mix_MusicDuration</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_MusicDuration
+<hr>
+<h1>Mix_MusicDuration</h1>
+音楽オブジェクトのデュレーションを秒単位で得る
+<h2>構文</h2>
+<code>double Mix_MusicDuration(Mix_Music *music)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_MusicDuration">
+<tr><td>music</td><td>問い合わせる音楽オブジェクト</td></tr>
+</table>
+<h2>戻り値</h2>
+秒単位のデュレーションを戻す. エラーのとき-1.0を戻す.
+<h2>詳細</h2>
+<p>
+ミリ秒に変換するには1000.0を掛けること.
+</p>
+<p>
+musicがNULLの場合, 現在再生中の音楽から得ようとする.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.6.0以降
+<h2>原文へのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_MusicDuration">SDL_mixer/Mix_MusicDuration</a>
+<hr>
+</body>
+</html>
