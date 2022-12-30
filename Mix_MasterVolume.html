@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions-general.html" title="1つ上">
+<title>Mix_MasterVolume</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-samples.html">4.2サンプリング音声</a> - Mix_GetChunkDecoder
+<hr>
+<h1>Mix_MasterVolume</h1>
+全チャネルの全体ボリュームを設定する
+<h2>構文</h2>
+<code>int Mix_MasterVolume(int volume)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_MasterVolume">
+<tr><td>volume</td><td>0からMIX_MAX_VOLUMEまでの新しく設定するボリューム. -1のとき現在の値を問い合わせる</td></tr>
+</table>
+<h2>戻り値</h2>
+設定前の値を戻す. 引数を-1とした場合は現在のボリュームを戻す.
+<h2>詳細</h2>
+<p>
+SDL_mixerにはチャネル, チャンク, そして全体のボリューム値があり, オーディオのミキシング時にこの3つを考慮する.
+この関数はミキシング時に全ての再生チャネルに適用される全体ボリュームを設定する.
+</p>
+<p>
+ボリュームは0(無音)からMIX_MAX_VOLUME(最大ボリューム)の範囲である必要がある. MIX_MAX_VOLUMEは128である.
+MIX_MAX_VOLUME以上の場合はMIX_MAX_VOLUMEになる.
+</p>
+<p>
+負の数を指定するとボリュームは変わらない. この関数は設定前(この場合は変更なし)の値を戻すため, ボリュームを変更せずに現在の値を問い合わせることができる.
+</p>
+<p>
+全体ボリューム音楽には適用されないので注意すること.
+これはチャンクのミキシングにのみ適用される.
+音楽には<a href="Mix_MusicVolume.html">Mix_MusicVolume()</a>を使用すること.
+</p>
+<h2>バージョン</h2>
+SDL 2.6.0以降
+<h2>原文へのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_MasterVolume">SDL_mixer/Mix_MasterVolume</a>
+<hr>
+</body>
+</html>
