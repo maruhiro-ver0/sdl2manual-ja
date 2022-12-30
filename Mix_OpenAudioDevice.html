@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions-general.html" title="1つ上">
+<title>Mix_OpenAudioDevice</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-general.html">4.1一般</a> - Mix_OpenAudioDevice
+<hr>
+<h1>Mix_OpenAudioDevice</h1>
+Open a specific audio device for playback.
+<h2>構文</h2>
+<code>int Mix_OpenAudioDevice(int frequency, Uint16 format, int channels, int chunksize, const char* device, int allowed_changes)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_OpenAudioDevice">
+<tr><td>frequency</td><td>出力サンプリング周波数 (Hz). ゲームではMIX_DEFAULT_FREQUENCY(22050)がよい値である</td></tr>
+<tr><td>format</td><td>出力サンプル形式</td></tr>
+<tr><td>channels</td><td>出力チャネル数. 2ならステレオ, 1ならモノラル. これはミキシングのチャネルとは無関係である</td></tr>
+<tr><td>chunksize</td><td>一度に出力するバイト数</td></tr>
+<tr><td>device</td><td>オープンするデバイス名. NULLのとき利用可能なデフォルトが選択される</td></tr>
+<tr><td>allowed_changes</td><td>変更フラグ(SDL_AUDIO_ALLOW_*フラグを参照)</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, エラーのとき-1を戻す.
+<h2>詳細</h2>
+<p>
+(これよりも単純な関数<a href="Mix_OpenAudio.html">Mix_OpenAudio()</a>が存在する. ほとんどのアプリケーションはこれで十分である.)
+</p>
+<p>
+オーディオデバイスは音声を出力する. そのため, アプリケーションはこれをオープンする必要がある.
+</p>
+<p>
+この関数はSDLオーディオシステムが初期化されているかチェックする. もし初期化されていなければ, あなたの代わりに<code><a href="SDL_Init.html">SDL_Init</a>(SDL_INIT_AUDIO)</code>を呼び出して初期化する.
+より詳細にあなたのプログラムを制御できるため, この科数を呼ぶ前に初期化することもできる. (そしてそれを推奨する!)
+</p>
+<p>
+オーディオデバイスの設定に特にこだわりがなく, データが特定の形式でなければ, ここで設定するのは妥当とされる値のデフォルトで十分である.
+SDL_mixerはあなたが与えたオーディオデータを必要なときに自動的に変換する.
+</p>
+<p>
+しかし, あなたがオーディオデータを自由に決められて, あらかじめその形式がわかっているならば, 背後でSDL_mixweは何も変換せず直接ハードウェアにデータを渡せるように一致する形式でオーディオデバイスをオープンしてCPUの負荷を減らすことができる.
+
+一部の環境では, ハードウェアが特定の形式にのみ対応しており, 全てを一致させるために注意する必要があるが, 多くの場合は自分のデータの方が制御しやすいため, 必要な形式でデバイスをオープンする方がよい.
+</p>
+<p>
+形式の特定には別の注意点もある.
+ミキシングバッファを(<a href="Mix_SetPostMix.html">Mix_SetPostMix</a>, エフェクトの登録, <a href="Mix_HookMusic.html">Mix_HookMusic</a>で)直接操作する場合, コードが特定の形式を想定している場合があり, その部分にも形式を指定する必要がある.
+</p>
+<p>
+オーディオデバイスの周波数はHzで指定する. 現在の環境では48000が妥当とされるデフォルト値である.
+</p>
+<p>
+オーディオデバイスのサンプル形式はSDLのAUDIO_*から選択する.
+恐らくAUDIO_S16SYS(16ビットオーディオ)が安全なデフォルトである.
+現在のシステムではAUDIO_F32SYS(32ビット浮動小数点オーディオ)の方が好ましいかもしれない.
+</p>
+<p>
+チャネル数は一般的にはモノラルの1またはステレオの2だが, 思い切ってサラウンドの4(クアッド), 6(5.1), 7(6.1), 8(7.1)を試してもよいだろう.
+</p>
+<p>
+オーディオデバイスのチャンクサイズは一度にデバイスに渡されるサンプルフレーム数(モノラルならば1フレームあたり1サンプル, ステレオならば1フレームあたり2サンプルなど)である.
+少ないほど遅れが少なくなるが, 少なすぎると取りこぼしのリスクが増大する.
+通常は2048が妥当とされるデフォルトだが, アプリケーションによっては1024から4096の間を試すとよいだろう.
+</p>
+<p>
+オーディオデバイスは一度に1つしかオープンできない.
+設定を変更したい場合はデバイスを閉じて再オープンする必要があり, 再生中に途切れなく行うことはできない.
+</p>
+<p>
+この関数のdeviceパラメータでシステム上の特定のオーディオハードウェアを選択することができる.
+NULLを指定するとSDL_mixerはあなたの代わりに(多くの場合はユーザの望み通りの)最適なデフォルトを選択する.
+SDL_mixerにはオープンするデバイス名を決定する仕組みは用意されていない. しかし, <a href="SDL_GetNumAudioDevices.html">SDL_GetNumAudioDevices()</a>で利用可能なデバイス数を得て, <a href="SDL_GetAudioDeviceName.html">SDL_GetAudioDeviceName()</a>でループすると一覧が得られる.
+これを行う場合, 初めに<a href="SDL_Init.html">SDL_Init(SDL_INIT_AUDIO)</a>を呼んでSDLオーディオシステムを初期化すること!
+</p>
+<p>
+allowed_changesパラメータは設定変更の許容範囲を設定する.
+SDLにはSDL_AUDIO_ALLOW_*フラグが用意されている.
+これは特定の設定を変えてもアプリケーションは問題ないことをSDL_mixerに通知するためのものである.
+例えば, アプリケーションはSint16形式のステレオデータを必要とするが, サンプルレートとチャックサイズは変更されても問題ないとする.
+この場合, アプリケーションはSDL_AUDIO_ALLOW_FORMAT_CHANGE|SDL_AUDIO_ALLOW_SAMPLES_CHANGEを指定する.
+こうするとシステムのハードウェアが要求する形式に合わない場合, SDL_mixerはアプリケーションに代わってハードウェアが必要とするパラメータを選択する.
+SDL_AUDIO_ALLOW_フラグが指定されていない場合, SDL_mixerはデータをハードウェアが要求する形式に背後で変換しなければならない.
+もしアプリケーションが厳密な設定を必要とするならばallowed_changesを0にすること.
+</p>
+<p>
+変更が許可されている場合, アプリケーションは<a href="Mix_QuerySpec.html">Mix_QuerySpec()</a>で最終的なデバイス設定を得ることができる.
+</p>
+<p>
+この関数が成功を戻したならば, 音を出力する準備が整っており, オーディオデータを読み込み再生することができる.
+</p>
+<p>
+プログラムが終了してオーディオデバイスを使い終えたならば, アプリケーションは<a href="Mix_CloseAudio.html">Mix_CloseAudio()</a>で破棄する必要がある.
+</p>
+<h2>バージョン</h2>
+SDL 2.0.2以降
+<h2>関連項目(関数)</h2>
+<a href="Mix_OpenAudio.html">Mix_OpenAudio</a><br>
+<a href="Mix_CloseAudio.html">Mix_CloseAudio</a><br>
+<a href="Mix_QuerySpec.html">Mix_QuerySpec</a><br>
+<h2>原文へのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_OpenAudioDevice">SDL_mixer/Mix_OpenAudioDevice</a>
+<hr>
+</body>
+</html>
