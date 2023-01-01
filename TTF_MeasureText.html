@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_MeasureText</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_MeasureText
+<hr>
+<h1>TTF_MeasureText</h1>
+与えられた幅に収まるLatin1文字数を求める
+<h2>構文</h2>
+<code>int TTF_MeasureText(TTF_Font *font, const char *text, int measure_width, int *extent, int *count)</code>
+<h2>引数</h2>
+<table border="1" summary="TTF_MeasureText">
+<tr><td>font</td><td>フォント</td></tr>
+<tr><td>text</td><td>求めるLatin1テキスト</td></tr>
+<tr><td>measure_width</td><td>文字列の限界幅ピクセル数</td></tr>
+<tr><td>extent</td><td>文字列が収まる最小の幅ピクセル数</td></tr>
+<tr><td>count</td><td>レンダリング可能な文字数の代入先へのポインタ</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, エラーのとき-1を戻す.
+<h2>詳細</h2>
+<p>
+measure_widthに達するまでレンダリングできる文字数を求める.
+</p>
+<p>
+求めるために文字列をレンダリングする必要はない.
+</p>
+<p>
+1バイトLatin1でエンコードされているのが確実でない限り, 本当に必要なのは<a href="TTF_MeasureUTF8.html">TTF_MeasureUTF8()</a>だろう.
+US ASCII文字はどちらの関数でも正常に動作するが, 他の多くの文字はUTF-8としての処理が必要である.
+</p>
+<h2>バージョン</h2>
+SDL_ttf 2.0.18以降
+<h2>関連項目(関数)</h2>
+<a href="TTF_MeasureUTF8.html">TTF_MeasureUTF8</a><br>
+<a href="TTF_MeasureUNICODE.html">TTF_MeasureUNICODE</a><br>
+<h2>原文へのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_ttf/TTF_MeasureText">SDL_ttf/TTF_MeasureText</a>
+<hr>
+</body>
+</html>
