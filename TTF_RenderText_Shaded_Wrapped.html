@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_RenderText_Shaded_Wrapped</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-render.html">3.4レンダラー</a> - TTF_RenderText_Shaded_Wrapped
+<hr>
+<h1>TTF_RenderText_Shaded_Wrapped</h1>
+Latin1の改行するテキストを, 生成した8ビットサーフェイスに陰影(Shaded)モードでレンダリングする
+<h2>構文</h2>
+<code>SDL_Surface *TTF_RenderText_Shaded_Wrapped(TTF_Font *font, const char *text, SDL_Color fg, SDL_Color bg, Uint32 wrapLength)</code>
+<h2>引数</h2>
+<table border="1" summary="TTF_RenderText_Shaded_Wrapped">
+<tr><td>font</td><td>レンダリングで使用するフォント</td></tr>
+<tr><td>text</td><td>レンダリングするLatin1テキスト</td></tr>
+<tr><td>fg</td><td>テキストの前景色</td></tr>
+<tr><td>bg</td><td>テキストの背景色</td></tr>
+<tr><td>wrapLength</td><td>改行するピクセル数の長さ</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき生成された8ビットパレットサーフェイス, エラーのときNULLを戻す.
+<h2>詳細</h2>
+<p>
+この関数は新たに8ビットパレットサーフェイスを生成する.
+サーフェイスの0ピクセルは背景色で, それ以外のピクセルは様々な明るさの前景色を表している.
+この関数の戻り値は生成されたサーフェイス, またはエラーが発生した場合はNULLである.
+</p>
+<p>
+テキストはピクセル数がwrapLengthを超えるとき行末または語の区切りで改行される.
+</p>
+<p>
+wrapLengthが0のとき, 改行コードの場合のみ改行する.
+</p>
+<p>
+1バイトLatin1でエンコードされているのが確実でない限り, 本当に必要なのは<a href="TTF_RenderUTF8_LCD_Wrapped.html">TTF_RenderUTF8_LCD_Wrapped()</a>だろう.
+US ASCII文字はどちらの関数でも正常に動作するが, 他の多くの文字はUTF-8としての処理が必要である.
+</p>
+<p>
+<a href="TTF_RenderText_Solid_Wrapped.html">TTF_RenderText_Solid_Wrapped</a>, <a href="TTF_RenderText_Blended_Wrapped.html">TTF_RenderText_Blended_Wrapped</a>, <a href="TTF_RenderText_LCD_Wrapped.html">TTF_RenderText_LCD_Wrapped</a>を使うと別の画質でレンダリングできる.
+</p>
+<h2>バージョン</h2>
+SDL_ttf 2.0.18以降
+<h2>関連項目(関数)</h2>
+<a href="TTF_RenderUTF8_Shaded_Wrapped.html">TTF_RenderUTF8_Shaded_Wrapped</a><br>
+<a href="TTF_RenderUNICODE_Shaded_Wrapped.html">TTF_RenderUNICODE_Shaded_Wrapped</a><br>
+<h2>原文へのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_ttf/TTF_RenderText_Shaded_Wrapped">SDL_ttf/TTF_RenderText_Shaded_Wrapped</a>
+<hr>
+</body>
+</html>
