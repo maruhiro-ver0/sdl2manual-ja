@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_SetFontSizeDPI</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_SetFontSizeDPI
+<hr>
+<h1>TTF_SetFontSizeDPI</h1>
+フォントのDPI単位で指定した解像度とサイズを変更する
+<h2>構文</h2>
+<code>int TTF_SetFontSizeDPI(TTF_Font *font, int ptsize, unsigned int hdpi, unsigned int vdpi)</code>
+<h2>引数</h2>
+<table border="1" summary="TTF_SetFontSizeDPI">
+<tr><td>font</td><td>サイズを変更するフォント</td></tr>
+<tr><td>ptsize</td><td>新しいポイントサイズ</td></tr>
+<tr><td>hdpi</td><td>水平方向DPI</td></tr>
+<tr><td>vdpi</td><td>垂直方向DPI</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, エラーのとき-1を戻す.
+<h2>詳細</h2>
+<p>
+既に生成されたグリフがあればクリアされる.
+</p>
+<h2>バージョン</h2>
+SDL_ttf 2.0.18以降
+<h2>原文へのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_ttf/TTF_SetFontSizeDPI">SDL_ttf/TTF_SetFontSizeDPI</a>
+<hr>
+</body>
+</html>
