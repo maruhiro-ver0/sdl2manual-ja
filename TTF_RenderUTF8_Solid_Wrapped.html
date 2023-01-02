@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_RenderUTF8_Solid_Wrapped</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-render.html">3.4レンダラー</a> - TTF_RenderUTF8_Solid_Wrapped
+<hr>
+<h1>TTF_RenderUTF8_Solid_Wrapped</h1>
+UTF-8の改行するテキストを, 生成した8ビットサーフェイスにベタ(Solid)モードでレンダリングする
+<h2>構文</h2>
+<code>SDL_Surface *TTF_RenderUTF8_Solid_Wrapped(TTF_Font *font, const char *text, SDL_Color fg, Uint32 wrapLength)</code>
+<h2>引数</h2>
+<table border="1" summary="TTF_RenderUTF8_Solid_Wrapped">
+<tr><td>font</td><td>レンダリングで使用するフォント</td></tr>
+<tr><td>text</td><td>レンダリングするUTF-8テキスト</td></tr>
+<tr><td>fg</td><td>テキストの前景色</td></tr>
+<tr><td>wrapLength</td><td>改行するピクセル数の長さ</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき生成された8ビットパレットサーフェイス, エラーのときNULLを戻す.
+<h2>詳細</h2>
+<p>
+この関数は新たに8ビットパレットサーフェイスを生成する.
+サーフェイスの0ピクセルはキーカラーで, 透明な背景色となる.
+1ピクセルは設定されたテキストの色である. 
+</p>
+<p>
+テキストはピクセル数がwrapLengthを超えるとき行末または語の区切りで改行される.
+</p>
+<p>
+wrapLengthが0のとき, 改行コードの場合のみ改行する.
+</p>
+<p>
+<a href="TTF_RenderUTF8_Shaded_Wrapped.html">TTF_RenderUTF8_Shaded_Wrapped</a>, <a href="TTF_RenderUTF8_Blended_Wrapped.html">TTF_RenderUTF8_Blended_Wrapped</a>, <a href="TTF_RenderUTF8_LCD_Wrapped.html">TTF_RenderUTF8_LCD_Wrapped</a>を使うと別の画質でレンダリングできる.
+</p>
+<h2>バージョン</h2>
+SDL_ttf 2.0.18以降
+<h2>関連項目(関数)</h2>
+<a href="TTF_RenderUTF8_Shaded_Wrapped.html">TTF_RenderUTF8_Shaded_Wrapped</a><br>
+<a href="TTF_RenderUTF8_Blended_Wrapped.html">TTF_RenderUTF8_Blended_Wrapped</a><br>
+<a href="TTF_RenderUTF8_LCD_Wrapped.html">TTF_RenderUTF8_LCD_Wrapped</a><br>
+<h2>原文へのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_ttf/TTF_RenderUTF8_Solid_Wrapped">SDL_ttf/TTF_RenderUTF8_Solid_Wrapped</a>
+<hr>
+</body>
+</html>
