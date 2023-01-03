@@ -14,7 +14,7 @@
 <h1>3.4 レンダラー</h1>
 <p>
 これらの関数は<a href="TTF_Font.html">TTF_Font</a>を使って文字列をレンダリングする.
-レンダリングには3つのモードがある:
+レンダリングには4つのモードがある:
 <dl>
 <dt>
 ベタ(Solid)
@@ -58,28 +58,58 @@
 生成されたサーフェイスの画面へのコピーはベタ(Solid)や陰影(Shaded)よりも遅い.
 高品質が必要で, テキストがあまり変わらないときは, このモードを使うとよい.
 </dd>
+<dt>
+LCDサブピクセル
+</dt>
+<dd>
+LCDのピクセルを構成する赤・緑・青の発光源の単位でアンチエイリアスを行いレンダリングする<br>
+生成されるサーフェイスは混合モードと同じ.
+</dd>
 </dl>
 </p>
 <h2>ベタ(Solid)</h2>
 <ol>
 <li><a href="TTF_RenderText_Solid.html">TTF_RenderText_Solid</a> - LATIN1テキストをベタ塗りモードで描く
+<li><a href="TTF_RenderText_Solid_Wrapped.html">TTF_RenderText_Solid_Wrapped</a> - LATIN1テキストをベタ塗りモードで描く(改行あり)
 <li><a href="TTF_RenderUTF8_Solid.html">TTF_RenderUTF8_Solid</a> - UTF8テキストをベタ塗りモードで描く
+<li><a href="TTF_RenderUTF8_Solid_Wrapped.html">TTF_RenderUTF8_Solid_Wrapped</a> - UTF8テキストをベタ塗りモードで描く(改行あり)
 <li><a href="TTF_RenderUNICODE_Solid.html">TTF_RenderUNICODE_Solid</a> - UNICODEテキストをベタ塗りモードで描く
+<li><a href="TTF_RenderUNICODE_Solid_Wrapped.html">TTF_RenderUNICODE_Solid_Wrapped</a> - UNICODEテキストをベタ塗りモードで描く(改行あり)
 <li><a href="TTF_RenderGlyph_Solid.html">TTF_RenderGlyph_Solid</a> - UNICODEグリフをベタ塗りでモード描く
+<li><a href="TTF_RenderGlyph32_Solid.html">TTF_RenderGlyph32_Solid</a> - UNICODEグリフをベタ塗りでモード描く
 </ol>
 <h2>陰影(Shaded)</h2>
 <ol>
 <li><a href="TTF_RenderText_Shaded.html">TTF_RenderText_Shaded</a> - LATIN1テキストを陰影モードで描く
+<li><a href="TTF_RenderText_Shaded_Wrapped.html">TTF_RenderText_Shaded_Wrapped</a> - LATIN1テキストを陰影モードで描く(改行あり)
 <li><a href="TTF_RenderUTF8_Shaded.html">TTF_RenderUTF8_Shaded</a> - UTF8テキストを陰影モードで描く
+<li><a href="TTF_RenderUTF8_Shaded_Wrapped.html">TTF_RenderUTF8_Shaded_Wrapped</a> - UTF8テキストを陰影モードで描く(改行あり)
 <li><a href="TTF_RenderUNICODE_Shaded.html">TTF_RenderUNICODE_Shaded</a> - UNCODEテキストを陰影モードで描く
+<li><a href="TTF_RenderUNICODE_Shaded_Wrapped.html">TTF_RenderUNICODE_Shaded_Wrapped</a> - UNCODEテキストを陰影モードで描く(改行あり)
 <li><a href="TTF_RenderGlyph_Shaded.html">TTF_RenderGlyph_Shaded</a> - UNICODEグリフを陰影モードで描く
+<li><a href="TTF_RenderGlyph32_Shaded.html">TTF_RenderGlyph32_Shaded</a> - UNICODEグリフを陰影モードで描く(32ビットUNICODE)
 </ol>
 <h2>混合(Blended)</h2>
 <ol>
 <li><a href="TTF_RenderText_Blended.html">TTF_RenderText_Blended</a> - LATIN1テキストを混合モードで描く
+<li><a href="TTF_RenderText_Blended_Wrapped.html">TTF_RenderText_Blended_Wrapped</a> - LATIN1テキストを混合モードで描く(改行あり)
 <li><a href="TTF_RenderUTF8_Blended.html">TTF_RenderUTF8_Blended</a> - UTF8テキストを混合モードで描く
+<li><a href="TTF_RenderUTF8_Blended_Wrapped.html">TTF_RenderUTF8_Blended_Wrapped</a> - UTF8テキストを混合モードで描く(改行あり)
 <li><a href="TTF_RenderUNICODE_Blended.html">TTF_RenderUNICODE_Blended</a> - UNICODEテキストを混合モードで描く
+<li><a href="TTF_RenderUNICODE_Blended_Wrapped.html">TTF_RenderUNICODE_Blended_Wrapped</a> - UNICODEテキストを混合モードで描く(改行あり)
 <li><a href="TTF_RenderGlyph_Blended.html">TTF_RenderGlyph_Blended</a> - UNICODEグリフを混合モードで描く
+<li><a href="TTF_RenderGlyph32_Blended.html">TTF_RenderGlyph32_Blended</a> - UNICODEグリフを混合モードで描く(32ビットUNICODE)
+</ol>
+<h2>LCDサブピクセル</h2>
+<ol>
+<li><a href="TTF_RenderText_LCD.html">TTF_RenderText_LCD</a> - LATIN1テキストをLCD画質で描く
+<li><a href="TTF_RenderText_LCD_Wrapped.html">TTF_RenderText_LCD_Wrapped</a> - LATIN1テキストをLCD画質で描く(改行あり)
+<li><a href="TTF_RenderUTF8_LCD.html">TTF_RenderUTF8_LCD</a> - UTF-8テキストをLCD画質で描く
+<li><a href="TTF_RenderUTF8_LCD_Wrapped.html">TTF_RenderUTF8_LCD_Wrapped</a> - UTF-8テキストをLCD画質で描く(改行あり)
+<li><a href="TTF_RenderUNICODE_LCD.html">TTF_RenderUNICODE_LCD</a> - UNICODEテキストをLCD画質で描く
+<li><a href="TTF_RenderUNICODE_LCD_Wrapped.html">TTF_RenderUNICODE_LCD_Wrapped</a> - UNICODEテキストをLCD画質で描く(改行あり)
+<li><a href="TTF_RenderGlyph_LCD.html">TTF_RenderGlyph_LCD</a> - UNICODEグリフをLCD画質で描く
+<li><a href="TTF_RenderGlyph32_LCD.html">TTF_RenderGlyph32_LCD</a> - UNICODEグリフをLCD画質で描く(32ビットUNICODE)
 </ol>
 <h2>原文へのリンク</h2>
 <a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_42.html#SEC42">3.4 Render</a>
