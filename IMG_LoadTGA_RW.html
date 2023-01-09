@@ -12,40 +12,45 @@
 <a href="index.html#SDL_image">目次</a> - <a href="SDL_image-functions.html">3.関数</a> - <a href="SDL_image-functions-loading.html">3.2読み込み/保存</a> - IMG_LoadTGA_RW
 <hr>
 <h1>IMG_LoadTGA_RW</h1>
+TGA画像を直接読み込む
+<h2>構文</h2>
 <p>
 <code>SDL_Surface *IMG_LoadTGA_RW(SDL_RWops *src)</code>
 </p>
+<h2>引数</h2>
+<table border="1" summary="IMG_LoadTGA_RW">
+<tr><td>src</td><td>読み込むSDL_RWops</td></tr>
+</table>
+<h2>戻り値</h2>
+成功したとき<a href="SDL_Surface.html">SDL_Surface</a>を戻す. エラーのときNULLを戻す
+<h2>詳細</h2>
 <p>
-<dl>
-<dt>src</dt><dd>読み込み元の<a href="SDL_RWops.html">SDL_RWops</a>. TGA画像はここから読み込まれる</dd>
-</dl>
+あらかじめTGA画像であるとわかっている場合, この関数を呼んでSDL_imageのファイルチェックルーチンをスキップすることができる.
+一般的には抽象インターフェースを使う方がよい. また, SDL_RWopsインターフェースしか使うことができない.
 </p>
-<p>
-TGA画像のsrcからをサーフェイスを生成する (SDL_imageライブラリがTGA形式に対応していれば).
-この関数でTGA画像以外を読み込もうとすると, TGA形式でなくても読み込みに成功してしまう. TGAにはマジックナンバーがなく, ファイルの形式を内容から識別する方法がないためである.
-よって慎重に扱わなければならない.
-</p>
-<p>
-戻り値: 新しい<a href="SDL_Surface.html">SDL_Surface</a>へのポインタを戻す. TGAに対応していない, ファイルの読み込みに失敗したときなどはNULLを戻す.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// sample.tgaをimageに読み込む
-SDL_Surface *image;
-SDL_RWops *rwop;
-rwop=SDL_RWFromFile("sample.tga", "rb");
-image=IMG_LoadTGA_RW(rwop);
-if(!image) {
-    printf("IMG_LoadTGA_RW: %s\n", IMG_GetError());
-    // ここでエラー処理を行う
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a>
+<h2>バージョン</h2>
+SDL_image 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="IMG_LoadAVIF_RW.html">IMG_LoadAVIF_RW</a><br>
+<a href="IMG_LoadICO_RW.html">IMG_LoadICO_RW</a><br>
+<a href="IMG_LoadCUR_RW.html">IMG_LoadCUR_RW</a><br>
+<a href="IMG_LoadBMP_RW.html">IMG_LoadBMP_RW</a><br>
+<a href="IMG_LoadGIF_RW.html">IMG_LoadGIF_RW</a><br>
+<a href="IMG_LoadJPG_RW.html">IMG_LoadJPG_RW</a><br>
+<a href="IMG_LoadJXL_RW.html">IMG_LoadJXL_RW</a><br>
+<a href="IMG_LoadLBM_RW.html">IMG_LoadLBM_RW</a><br>
+<a href="IMG_LoadPCX_RW.html">IMG_LoadPCX_RW</a><br>
+<a href="IMG_LoadPNG_RW.html">IMG_LoadPNG_RW</a><br>
+<a href="IMG_LoadPNM_RW.html">IMG_LoadPNM_RW</a><br>
+<a href="IMG_LoadSVG_RW.html">IMG_LoadSVG_RW</a><br>
+<a href="IMG_LoadQOI_RW.html">IMG_LoadQOI_RW</a><br>
+<a href="IMG_LoadTIF_RW.html">IMG_LoadTIF_RW</a><br>
+<a href="IMG_LoadXCF_RW.html">IMG_LoadXCF_RW</a><br>
+<a href="IMG_LoadXPM_RW.html">IMG_LoadXPM_RW</a><br>
+<a href="IMG_LoadXV_RW.html">IMG_LoadXV_RW</a><br>
+<a href="IMG_LoadWEBP_RW.html">IMG_LoadWEBP_RW</a><br>
 <h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/SDL_image/docs/SDL_image_25.html#SEC25">3.2.15 IMG_LoadTGA_RW</a>
+<a href="https://wiki.libsdl.org/SDL_image/IMG_LoadTGA_RW">SDL_image/IMG_LoadTGA_RW</a>
 <hr>
 </body>
 </html>
