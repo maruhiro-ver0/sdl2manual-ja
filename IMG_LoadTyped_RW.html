@@ -5,58 +5,26 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_image">
 <link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_image-functions-loading.html" title="1つ上">
+<link rel="parent" href="SDL_image-functions-general.html" title="1つ上">
 <title>IMG_LoadTyped_RW</title>
 </head>
 <body>
 <a href="index.html#SDL_image">目次</a> - <a href="SDL_image-functions.html">3.関数</a> - <a href="SDL_image-functions-loading.html">3.2読み込み/保存</a> - IMG_LoadTyped_RW
 <hr>
 <h1>IMG_LoadTyped_RW</h1>
+画像をSDL_RWopsからサーフェイスに読み込む
+<h2>構文</h2>
 <p>
-<code>SDL_Surface *IMG_LoadTyped_RW(SDL_RWops *src, int freesrc, char *type)</code>
+<code>SDL_Surface *IMG_LoadTyped_RW(SDL_RWops *src, int freesrc, const char *type)</code>
 </p>
-<p>
-<dl>
-<dt>src</dt><dd>読み込み元の<a href="SDL_RWops.html">SDL_RWops</a>. 画像はここから読み込まれる</dd>
-<dt>freesrc</dt><dd>0でないときsrcが自動的に閉じる/解放される</dd>
-<dt>type</dt><dd>
-画像の形式を示す文字列.
-現在は以下の文字列が使える(大文字小文字は区別しない):<br>
-"BMP"<br>
-"CUR"<br>
-"GIF"<br>
-"ICO"<br>
-"JPG"<br>
-"LBM"<br>
-"PCX"<br>
-"PNG"<br>
-"PNM"<br>
-"TGA"<br>
-"TIF"<br>
-"XCF"<br>
-"XPM"<br>
-"XV"
-</dd>
-</dl>
-</p>
-<p>
-srcを読み込んでサーフェイスを生成する.
-この関数は全ての対応した画像を読み込める.
-この関数は指定の形式の画像が読み込めることを保障しないが, TGA形式(または将来対応するかもしれないマジックナンバーのない形式)を指定した場合は常に読み込める.
-<a href="SDL_RWops.html">SDL_RWops</a>の使い方は詳しく説明しないが, ほとんどのデータ元から読み込むことができる.
-</p>
-<p>
-メモ: 画像ローダーは初期化されている必要がある.
-もしあらかじめ<a href="IMG_Init.html">IMG_Init</a>で初期化されていなければ, 最初に画像を読み込もうとしたときに初期化を試みる.
-</p>
-<p>
-メモ: 透過ピクセルに対応した形式の画像ならば, SDL_imageはサーフェイスのカラーキーを設定する.
-次のようにするとサーフェイスのRLEアクセラレーションを有効にできる:<br>
-<code>SDL_SetColorKey(image, SDL_RLEACCEL, image->format->colorkey);</code>
-</p>
-<p>
-戻り値: 新しい<a href="SDL_Surface.html">SDL_Surface</a>へのポインタを戻す. 対応していない形式, ファイルの読み込みに失敗したときなどはNULLを戻す.
-</p>
+<h2>引数</h2>
+<table border="1" summary="IMG_LoadTyped_RW">
+<tr><td>src</td><td>読み込むSDL_RWops</td></tr>
+<tr><td>freesrc</td><td>0でないときsrcを自動的に閉じる/解放する. 0のとき開いたままにする</td></tr>
+<tr><td>type</td><td>データの種類を表すファイルの拡張子("BMP", "GIF", "PNG"など)</td></tr>
+</table>
+<h2>戻り値</h2>
+新しいSDLサーフェイスを戻す. エラーのときNULLを戻す.
 <h2>サンプルコード</h2>
 <code>
 <pre>
@@ -69,12 +37,51 @@ if(!image) {
 }
 </pre>
 </code>
-<h2>参照</h2>
-<a href="IMG_Init.html">IMG_Init</a>,
-<a href="IMG_Load.html">IMG_Load</a>,
-<a href="IMG_Load_RW.html">IMG_Load_RW</a>
+<h2>詳細</h2>
+<p>
+SDL_SurfaceはCPUからアクセスできるメモリ上のピクセルバッファである.
+後でデータを他に渡したり, 操作する場合はこれを使うことになる.
+</p>
+<p>
+生成されたSDL_Surfaceの形式には保証がない.
+多くの場合, SDL_imageは画像と完全に一致するサーフェイスを生成しようとするが, 変換される場合もある.
+(SDLが直接対応していない形式の画像や, 様々な形式で圧縮されていてSDL_imageがそのうちの1つを選択した場合など.)
+SDL_Surfaceの形式を精査し, その後<a href="SDL_ConvertSurface.html">SDL_ConvertSurface()</a>で必要な形式に変換することもできる.
+</p>
+<p>
+画像ファイルが透過ピクセルに対応している場合, SDLはサーフェイスにカラーキーを設定する.
+以下のようにすると呼び出し後にRLEアクセラレーションを有効にできる:<br>
+<code><a href="SDL_SetColorKey.html">SDL_SetColorKey</a>(image, SDL_RLEACCEL, image->format->colorkey);</code>
+</p>
+<p>
+freesrcが0以外の場合, 処理が成功してもしなくてもRWopsは閉じる. この関数を呼んだとき, どのような場合でもSDL_imageは必要ならばRWopsを全て読み込む.
+</p>
+<p>
+この関数はファイルの種別を指定できるが, 画像データを別の形式として読み込める場合, SDL_imageは別のデコーダを見つけようとする.
+しかし, 自動検出できない場合は呼び出し側の画像種別文字列を信頼する.
+typeがNULLのとき, SDL_imageは何も参考にせずに形式を推定する.
+</p>
+<p>
+SDL_RWopsを使わずにディスクからファイルを読み込む別の関数も存在する.
+<code><a href="IMG_Load.html">IMG_Load</a>("filename.jpg")</code>のようにすると, アプリケーションがSDL_RWopsを操作し, 拡張子からファイル形式を判別する.
+</p>
+<p>
+<code><a href="IMG_Load_RW.html">IMG_Load_RW()</a></code>関数も存在する. これはSDL_imageがファイル形式を読み込み時に自動的に判別すること以外はこの関数と同じである.
+</p>
+<p>
+SDLの2DレンダリングAPIを使用する場合, GPUが使用するSDL_Textureに画像を直接読み込む<a href="IMG_LoadTextureTyped_RW.html">IMG_LoadTextureTyped_RW()</a>をこの関数の代わりに使うこと.
+</p>
+<p>
+戻されたサーフェイスを使い終えたならば, アプリケーションは<a href="SDL_FreeSurface.html">SDL_FreeSurface()</a>で破棄する必要がある.
+</p>
+<h2>バージョン</h2>
+SDL_image 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="IMG_Load.html">IMG_Load</a><br>
+<a href="IMG_Load_RW.html">IMG_Load_RW</a><br>
+<a href="SDL_FreeSurface.html">SDL_FreeSurface</a><br>
 <h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/SDL_image/docs/SDL_image_13.html#SEC13">3.2.3 IMG_LoadTyped_RW</a>
+<a href="https://wiki.libsdl.org/SDL_image/IMG_LoadTyped_RW">SDL_image/IMG_LoadTyped_RW</a>
 <hr>
 </body>
 </html>
