@@ -5,37 +5,52 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
 <link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-general.html" title="1つ上">
+<link rel="parent" href="SDL_mixer-functions-channels.html" title="1つ上">
 <title>Mix_CloseAudio</title>
 </head>
 <body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-general.html">4.1一般</a> - Mix_CloseAudio
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-channels.html">4.3チャネル</a> - Mix_CloseAudio
 <hr>
 <h1>Mix_CloseAudio</h1>
+ミキサーを閉じて全てのオーディオ再生を終了する
+<h2>構文</h2>
 <p>
-<code>void Mix_CloseAudio()</code>
+<code>void Mix_CloseAudio(void)</code>
+</p>
+<h2>詳細</h2>
+<p>
+全てのチャネルが終了し, 登録されたエフェクトが解放され, この関数から戻る前に<a href="Mix_ChannelFinished.html">Mix_ChannelFinished()</a>で登録されたコールバック関数が呼ばれる.
 </p>
 <p>
-ミキサーAPIを終了する.
-この関数を呼ぶと全ての音声が停止し, デバイスが閉じられ, SDL_mixer関数が使えなくなる.
-当然, <a href="Mix_OpenAudio.html">Mix_OpenAudio</a>を使って再び開始することはできる.
+全ての音楽が終了し, この関数から戻る前に<a href="Mix_HookMusicFinished.html">Mix_HookMusicFinished()</a>で登録されたコールバック関数が呼ばれる.
 </p>
 <p>
-メモ: この関数は<a href="Mix_OpenAudio.html">Mix_OpenAudio</a>を呼んだ回数と同じだけ呼ばなければ何も行わない.
-<a href="Mix_QuerySpec.html">Mix_QuerySpec</a>でデバイスを完全に閉じるためにはMix_CloseAudioを何回呼ぶ必要があるかを知ることができる.
+この関数からのコールバック中に新たにオーディオの再生を開始してはならない.
 </p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-Mix_CloseAudio();
-// ここで SDL_Quit(); してもよいし, しなくてもよい
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_OpenAudio.html">Mix_OpenAudio</a>
-<a href="Mix_QuerySpec.html">Mix_QuerySpec</a>
+<p>
+この関数はオーディオデバイスを閉じる.
+別の<a href="Mix_OpenAudio.html">Mix_OpenAudio()</a>または<a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice()</a>の呼び出しを行わない限り, この関数の後に新たにオーディオ再生を行おうとすると失敗する.
+</p>
+<p>
+(<a href="Mix_OpenAudio.html">Mix_OpenAudio</a>があなたのアプリケーションに代わり<a href="SDL_Init.html">SDL_Init(SDL_INIT_AUDIO)</a>を呼ぶのとは異なり,) この関数はSDLオーディオサブシステムを解放<strong>しない</strong>ので注意すること.
+この関数と<a href="Mix_Quit.html">Mix_Quit()</a>を呼んだ時点で, アプリケーションは<a href="SDL_Quit.html">SDL_Quit()</a>を呼んでオーディオサブシステムを含む全SDLを解放する必要がある.
+</p>
+<p>
+この関数は<a href="Mix_Quit.html">Mix_Quit()</a>の前に呼ぶ最後のSDL_mixer関数でなければならない.
+しかし, これに従わない場合は以下に注意すること:
+</p>
+<p>
+この関数はチャンクと音楽を解放しないので注意すること. よって, これらの資源は別に解放する必要がある.
+この関数の<strong>後で</strong>これらを解放するのは形式的には不適切だが, デバイスを閉じた後で<a href="Mix_FreeChunk.html">Mix_FreeChunk()</a>や<a href="Mix_FreeMusic.html">Mix_FreeMusic()</a>を呼んでも安全である.
+</p>
+<p>
+解放しなかったチャンクや音楽は, 再び<a href="Mix_OpenAudio.html">Mix_OpenAudio()</a>を呼んだ場合, 有効である場合とない場合がある.
+オーディオデバイスの形式が新しくなり, 既に存在するチャンクが適合するように変換されない場合があるためである.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_12.html#SEC12">4.1.5 Mix_CloseAudio</a>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_CloseAudio">SDL_mixer/Mix_CloseAudio</a>
 <hr>
 </body>
 </html>
