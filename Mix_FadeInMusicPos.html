@@ -5,45 +5,54 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
 <link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
+<link rel="parent" href="SDL_mixer-functions-general.html" title="1つ上">
 <title>Mix_FadeInMusicPos</title>
 </head>
 <body>
 <a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_FadeInMusicPos
 <hr>
 <h1>Mix_FadeInMusicPos</h1>
-<p>
+新しい音楽オブジェクトを指定の位置からフェードインしながら再生する
+<h2>構文</h2>
 <code>int Mix_FadeInMusicPos(Mix_Music *music, int loops, int ms, double position)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_FadeInMusicPos">
+<tr><td>music</td><td>新しく再生する音楽オブジェクト</td></tr>
+<tr><td>loops</td><td>チャンクを再生する回数. -1のとき無限にループする</td></tr>
+<tr><td>ms</td><td>フェードインのミリ秒単位の時間</td></tr>
+<tr><td>pos</td><td>秒単位の音楽の再生開始位置</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, エラーのとき-1を戻す.
+<h2>詳細</h2>
+<p>
+この関数は<a href="Mix_PlayMusic.html">Mix_PlayMusic()</a>と同じように新しい音楽を再生するが, 無音から通常のボリュームまで指定のミリ秒時間でフェードインしながら再生する.
 </p>
 <p>
-<dl>
-<dt>music</dt><dd>再生する<a href="Mix_Music.html">Mix_Music</a></dd>
-<dt>loops</dt><dd>音楽を再生する回数. 0の場合は0回再生する... -1の場合は無限に再生する</dd>
-<dt>ms</dt><dd>無音から最大ボリュームまでのフェードイン時間(ミリ秒)</dd>
-<dt>position</dt><dd>再生を開始する位置. 値の意味は<a href="Mix_SetMusicPosition.html">Mix_SetMusicPosition</a>を参照すること</dd>
-</dl>
+既に音楽が再生中の場合は, その音楽を中断して新しい音楽と置き換える.
 </p>
 <p>
-読み込んだmusicを, msミリ秒でフェードインして, loops回再生する.
-フェードインは最初のループのみ適用される.
-最初の再生はposistionで設定した位置から始まる. この値の意味は音楽ファイルの種類によって異なる. <a href="Mix_SetMusicPosition.html">Mix_SetMusicPosition</a>を参照すること.
-この関数を呼ぶ前に再生中の音楽が停止するかフェードアウトするまで待つ(ブロックされる).
+loopsが0より大きい場合, その回数だけ再生する.
+loopsが-1の場合, 「無限」(65000回)に再生する.
 </p>
-// 音楽を2秒間でフェードインして無限に再生する.
-// Mix_Music *music; // 読み込み済みとする
-if(Mix_FadeInMusicPos(music, -1, 2000)==-1) {
-    printf("Mix_FadeInMusicPos: %s\n", Mix_GetError());
-    // 音楽がない. しかし多くのゲームは音楽がなくても中断しない...
-}
 <p>
-戻り値: 成功のとき0, 失敗のとき-1
+フェード中の音楽は, その最中に<a href="Mix_VolumeMusic.html">Mix_VolumeMusic()</a>が呼ばれても, ボリュームが徐々に変化する.
+(言い換えると, フェード中の音楽には<a href="Mix_VolumeMusic.html">Mix_VolumeMusic()</a>を呼んでも無意味である.)
 </p>
-<h2>参照</h2>
-<a href="Mix_PlayMusic.html">Mix_PlayMusic</a>,
-<a href="Mix_FadeInMusic.html">Mix_FadeInMusic</a>,
-<a href="Mix_SetMusicPosition.html">Mix_SetMusicPosition</a>
+<p>
+この関数は音声データを指定の位置から再生する.
+開始位置を秒単位で指定すると, 先頭からではなくその位置からフェードインしながら再生が始まる.
+</p>
+<p>
+位置を0.0として音楽を先頭から再生することもできる. (代わりに単に<a href="Mix_FadeInMusic.html">Mix_FadeInMusic()</a>を呼んでもよい.)
+</p>
+<p>
+ミリ秒から変換するには1000.0で割ること.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_59.html#SEC59">4.5.7 Mix_FadeInMusicPos</a>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_FadeInMusicPos">SDL_mixer/Mix_FadeInMusicPos</a>
 <hr>
 </body>
 </html>
