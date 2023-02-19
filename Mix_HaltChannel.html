@@ -5,41 +5,39 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
 <link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-channels.html" title="1つ上">
-<title>Mix_HaltChannel </title>
+<link rel="parent" href="SDL_mixer-functions-general.html" title="1つ上">
+<title>Mix_HaltChannel</title>
 </head>
 <body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-channels.html">4.3チャネル</a> - Mix_HaltChannel 
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-channels.html">4.3チャネル</a> - Mix_HaltChannel
 <hr>
-<h1>Mix_HaltChannel </h1>
-<p>
+<h1>Mix_HaltChannel</h1>
+指定のチャネルを停止する
+<h2>構文</h2>
 <code>int Mix_HaltChannel(int channel)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_HaltChannel">
+<tr><td>channel</td><td>停止するチャネル. -1のとき全チャネル</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, エラーのとき-1を戻す.
+<h2>詳細</h2>
+<p>
+この関数は新しいチャンクの再生が開始されるまで指定のチャネルでの再生を停止する.
 </p>
 <p>
-<dl>
-<dt>channel</dt><dd>停止するチャネル. -1のとき全てのチャネル</dd>
-</dl>
+チャネルに-1を指定すると, 現在再生中の音楽を除き<strong>全て</strong>のチャネルが停止する.
 </p>
 <p>
-channelの再生を停止する, -1のとき全てのチャネルを停止する.
-このとき<a href="Mix_ChannelFinished.html">Mix_ChannelFinished</a>で設定したコールバック関数が呼ばれる.
+停止したチャネルに設定されたエフェクトは解除され, <a href="Mix_ChannelFinished.html">Mix_ChannelFinished()</a>で設定されたコールバックがこの関数から戻る前に呼ばれる.
 </p>
 <p>
-戻り値: 常に0を戻す (やや馬鹿げているが)
+チャネルにMAX_CHANNEL_POSTを指定してはならない.
 </p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 全てのチャネルの再生を停止する
-Mix_HaltChannel(-1);
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_ExpireChannel.html">Mix_ExpireChannel</a>,
-<a href="Mix_FadeOutChannel.html">Mix_FadeOutChannel</a>,
-<a href="Mix_ChannelFinished.html">Mix_ChannelFinished</a>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_34.html#SEC34">4.3.9 Mix_HaltChannel</a>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_HaltChannel">SDL_mixer/Mix_HaltChannel</a>
 <hr>
 </body>
 </html>

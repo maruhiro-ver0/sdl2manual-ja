@@ -5,28 +5,26 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
 <link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
+<link rel="parent" href="SDL_mixer-functions-general.html" title="1つ上">
 <title>Mix_GetMusicLoopStartTime</title>
 </head>
 <body>
 <a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_GetMusicLoopStartTime
 <hr>
 <h1>Mix_GetMusicLoopStartTime</h1>
-音楽ストリームのループスタート地点を秒単位で得る
+音楽のループ開始位置を秒単位で得る
 <h2>構文</h2>
 <code>double Mix_GetMusicLoopStartTime(Mix_Music *music)</code>
 <h2>引数</h2>
 <table border="1" summary="Mix_GetMusicLoopStartTime">
-<tr><td>music</td><td>問い合わせる音楽オブジェクト</td></tr>
+<tr><td>music</td><td>調査する音楽</td></tr>
 </table>
 <h2>戻り値</h2>
-音楽にこの仕様がない, またはコーデックが対応していない場合は-1.0を戻す
+音楽がこの機能に対応していない, またはコーデックが対応していない場合, -1.0を戻す.
 <h2>詳細</h2>
 <p>
-ミリ秒に変換するには1000.0を掛けること.
-</p>
-<p>
-musicがNULLの場合, 現在再生中の音楽から得ようとする.
+ミリ秒から変換するには1000.0で割ること.
+NULLを渡した場合, 現在再生中の音楽の開始位置を戻す.
 </p>
 <h2>バージョン</h2>
 SDL_mixer 2.6.0以降

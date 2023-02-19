@@ -5,34 +5,27 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
 <link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
+<link rel="parent" href="SDL_mixer-functions-general.html" title="1つ上">
 <title>Mix_GetMusicHookData</title>
 </head>
 <body>
 <a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_GetMusicHookData
 <hr>
 <h1>Mix_GetMusicHookData</h1>
+音楽再生フックに渡されたユーザデータへのポインタを得る
+<h2>構文</h2>
+<code>void *Mix_GetMusicHookData(void)</code>
+<h2>戻り値</h2>
+以前<a href="Mix_HookMusic.html">Mix_HookMusic</a>に渡したユーザデータへのポインタを戻す.
+<h2>詳細</h2>
 <p>
-<code>void *Mix_GetMusicHookData()</code>
+この関数は<a href="Mix_HookMusic.html">Mix_HookMusic()</a>に最後に渡したargポインタを戻す.
+一度も渡していない場合はNULLを戻す.
 </p>
-<p>
-<a href="Mix_HookMusic.html">Mix_HookMusic</a>に渡したargを得る.
-</p>
-<p>
-戻り値: argへのポインタ
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 音楽フック データポインタを得る
-void *data;
-data=Mix_GetMusicHookData();
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_HookMusic.html">Mix_HookMusic</a>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_74.html#SEC74">4.5.22 Mix_GetMusicHookData</a>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_GetMusicHookData">SDL_mixer/Mix_GetMusicHookData</a>
 <hr>
 </body>
 </html>
