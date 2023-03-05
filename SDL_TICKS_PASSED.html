@@ -12,7 +12,15 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryTimer.html">タイマ</a> - SDL_TICKS_PASSED
 <hr>
 <h1>SDL_TICKS_PASSED</h1>
-経過時間(ミリ秒)を比較する
+<p>
+<a href="SDL_GetTicks.html">SDL_GetTicks</a>が戻した32ビットの経過時間(ミリ秒)を比較するマクロ.
+<a href="SDL_GetTicks.html">SDL_GetTicks</a>の値は32ビットのミリ秒のため, 約49日で巻き戻ってしまう.
+このマクロはこの問題を適切に回避しているため, 49日以内の比較であれば正しく処理できる.
+</p>
+<p>
+境界線上の問題を完全に回避するためには, 代わりに<a href="SDL_GetTicks64.html">SDL_GetTicks64</a>を使うこと.
+このマクロに<a href="SDL_GetTicks64.html">SDL_GetTicks64</a>が戻した値を渡してはならない.
+</p>
 <h2>構文</h2>
 <code>SDL_TICKS_PASSED(A, B)</code>
 <h2>引数</h2>
@@ -35,7 +43,7 @@ while (!SDL_TICKS_PASSED(SDL_GetTicks(), timeout)) {
 </code>
 </p>
 <h2>バージョン</h2>
-SDL 2.0.0以降
+SDL 2.0.1以降
 <h2>関連項目(関数)</h2>
 <a href="SDL_GetTicks.html">SDL_GetTicks</a><br>
 <h2>SDL Wikiへのリンク</h2>
