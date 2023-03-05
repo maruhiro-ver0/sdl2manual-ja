@@ -21,6 +21,46 @@
 <tr><td>points</td><td>点の配列</td></tr>
 <tr><td>count</td><td>pointsの数</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// 画面の中央を求める
+
+double x_centre = WIDTH / 2;
+double y_centre = HEIGHT / 2;
+
+...
+
+// 三角形の頂点を初期化する
+
+SDL_FPoint a = {x_centre, y_centre};
+SDL_FPoint b = {x_centre, y_centre - 10.5};
+SDL_FPoint c = {x_centre - 10.5, y_centre};
+
+// 頂点の配列を初期化する
+
+SDL_FPoint triangle[] = {
+    a,
+    b,
+    c
+};
+
+...
+
+// レンダラを白色に設定する
+
+SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+SDL_RenderClear(renderer);
+
+// 三角形を描く
+
+SDL_RenderDrawPointsF(renderer, triangle, 3);
+
+SDL_RenderPresent(renderer);
+</pre>
+</code>
+</p>
 <h2>バージョン</h2>
 SDL 2.0.10以降
 <h2>戻り値</h2>
