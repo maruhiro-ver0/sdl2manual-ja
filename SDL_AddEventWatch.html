@@ -20,6 +20,20 @@
 <tr><td>filter</td><td>イベント発生時に呼ばれる関数 (詳細を参照すること)</td></tr>
 <tr><td>userdata</td><td>filterへ渡されるポインタ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+int MyEventFunction(void *userdata, SDL_Event *event) {
+    // userdataとeventを使って処理を行う
+
+    return 0; // 戻り値は無視される
+}
+
+// ...
+SDL_AddEventWatch(MyEventFunction, NULL);
+</pre>
+</code>
 <h2>詳細</h2>
 <p>
 filterの関数プロトタイプは
@@ -48,6 +62,7 @@ filterはイベントが発生したとき呼ばれ, その戻り値は無視される.
 <p>
 メモ: コールバックはユーザの<a href="SDL_PushEvent.html">SDL_PushEvent()</a>で発生させたイベントでも呼ばれる.
 しかし, 無効なイベントや, <a href="SDL_SetEventFilter.html">SDL_SetEventFilter()</a>でコールバックフィルタを設定したイベントや, <a href="SDL_PeepEvents.html">SDL_PeepEvents()</a>でユーザが発生されたイベントの場合は呼ばれない.
+</p>
 </p>
 <h2>バージョン</h2>
 SDL 2.0.0以降
