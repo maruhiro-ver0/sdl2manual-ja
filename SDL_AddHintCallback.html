@@ -21,6 +21,38 @@
 <tr><td>callback</td><td>ヒントの値が変わったとき呼ぶ関数</td></tr>
 <tr><td>userdata</td><td>コールバック関数に渡すポインタ</td></tr>
 </table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// ヒントの値が新たに"1"になったときメッセージを表示するコールバック関数
+
+void callback(void* f_name, const char* name, const char* oldValue, const char* newValue) {
+  if (newValue == (const char*)"1") {
+    printf("Hi %s\n", static_cast<char*>(f_name));
+  }
+}
+
+...
+
+SDL_SetHint(SDL_HINT_XINPUT_ENABLED, "0");
+
+...
+
+SDL_Init(SDL_INIT_EVERYTHING);
+
+...
+
+while(SDL_PollEvent(&event) != 0)
+{
+   // ここでヒントを変更する
+}
+
+...
+
+SDL_AddHintCallback(SDL_HINT_XINPUT_ENABLED, callback, const_cast<char*>("SDL"));
+</pre>
+</code>
 <h2>詳細</h2>
 <p>
 callbackの関数プロトタイプは
