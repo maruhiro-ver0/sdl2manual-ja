@@ -100,6 +100,9 @@ int main(int argc, char *argv[])
 Windowsアプリケーションであるが, WinMain()の代わりにmain()を使わなければならない. なぜならば, SDLはあなたのメインコードを呼ぶ前にSDLの初期化をWinMain()で行っているからである.
 何らかの理由でWinMain()を使う必要があるならば, SDLが正しく動作するためにはWinMain()でどのような初期化が必要かをsrc/main/win32/SDL_main.cから見つけること.
 </p>
+<p>
+以下の様な警告/エラーメッセージの場合もこの方法で回避できる: - found main and WinMain; defaulting to /subsystem:console - found both wmain and main; using latter
+</p>
 <h4>"Undefined reference to 'WinMain@16'"が発生する</h4>
 <p>
 Visual C++ではSDL2main.libをリンクする必要がある.
@@ -113,6 +116,7 @@ vcpkgのSDL2main.libはmanual-linkフォルダに移されるので, 手動でリンカに追加する必
 CMakeを使う場合, add_executableにWIN32を忘れずに追加すること.
 MinGWを使う場合, -mwindowsをリンクオプションに追加すること.
 MSVCユーザは/subsystem:windowsを追加すること.
+clang-clユーザは -Xlinker /subsystem:windows を追加すること.
 </p>
 <h4>様々な未定義のSDL関数がある...</h4>
 <p>
