@@ -12,59 +12,50 @@
 <a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_HookMusic
 <hr>
 <h1>Mix_HookMusic</h1>
+ユーザ自身の音楽プレイヤーまたはさらなるミキサー関数を追加する
+<h2>構文</h2>
+<code>void Mix_HookMusic(void (SDLCALL *mix_func)(void *udata, Uint8 *stream, int len), void *arg)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_HookMusic">
+<tr><td>mix_func</td><td>新しいミックス後のコールバックになる関数</td></tr>
+<tr><td>arg</td><td>コールバックにそのまま渡されるポインタ</td></tr>
+</table>
+<h2>詳細</h2>
 <p>
-<code>void Mix_HookMusic(void (*mix_func)(void *udata, Uint8 *stream, int len), void *arg)</code>
+この関数は<a href="Mix_SetPostMix.html">Mix_SetPostMix()</a>と似ているが, 大きな違いがある.
+アプリケーションはこの関数<strong>と</strong><a href="Mix_SetPostMix.html">Mix_SetPostMix()</a>を同時に使えることに注意すること.
+この関数は組み込まれた音楽再生ルーチンを, 自分で作成したデコーダまたはサウンド生成器と置き換えることができる.
 </p>
 <p>
-<dl>
-<dt>mix_func</dt><dd>音楽プレイヤーミキサー関数へのポインタ. NULLのとき音楽プレイヤーを使わず, 通常の内部の音楽プレイヤーで使用するミキサーに戻す</dd>
-<dt>arg</dt><dd>
-mix_funcのudataに渡す引数
-</dd>
-</dl>
+指定されたコールバックは, SDL_Mixerがオーディオデバイスへのさらなるデータの供給を準備するたびに呼び出される.
+SDLオーディオコールバックの内部で実行されるため, コールバックからは早く戻らなければならない. さもないとオーディオ再生の問題になりうる.
 </p>
 <p>
-ユーザの音楽プレイヤーを設定する.
-この関数のargはmix_funcが呼ばれたとき引数udataに渡される.
-引数streamはlenバイトの音楽データが格納されたオーディオストリームバッファである.
-この音楽プレイヤーは必要なときに自動的に呼ばれる.
-この関数が呼ばれると音楽の再生がすぐに始まる.
-全ての音楽の再生と停止の関数は, この後には無効になる.
-一時停止と一時停止の解除は有効である.
-ユーザの音楽プレイヤーと内部の音楽プレイヤーは同時に使われない. ユーザの音楽プレイヤーが優先される.
-ユーザの音楽プレイヤーはMix_HookMusic(NULL, NULL)で使われなくなる.
+コールバックの実行は, SDL_mixerがさらなる音声をミックスしようとしたとき最初に行われる.
+入力時にバッファには無音が書き込まれている.
+よってコールバックは既にあるデータとのミックスやバッファの初期化を行う必要はない.
+</p>
 <p>
+この関数でコールバックを設定している間はSDL_mixerはあらゆる音楽のミックスを行わず, 代わりに設定したコールバックが使われることに注意すること.
+コールバックを無効にする(これにより組み込みの音楽再生が再び有効化される)ためには, この関数でNULLをコールバックにすること.
 </p>
-メモ: コールバック関数内でSDL_mixerの関数やSDL_LockAudioを決して呼んではならない. 
+<p>
+コールバックが書き込むデータはオープンされたオーディオデバイスの形式で, コールバックから戻ったときSDL_mixerは再生中の全チャンク(音楽を除く)とバッファ内でミックスする.
+コールバックはバッファサイズを変えられない(よって, 必要な量と正確に一致するデータを用意するか, 無音のままにする必要がある).
 </p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 音楽再生関数を作る
-// udataはintへのポインタを想定している
-void myMusicPlayer(void *udata, Uint8 *stream, int len)
-{
-    int i, pos=*(int*)udata;
-
-    // バッファに...うーん...音楽を書き込む
-    for(i=0; i&lt;len; i++)
-        stream[i]=(i+pos)&amp;ff;
-
-    // 次回のためのudataを設定する
-    pos+=len;
-    *(int*)udata=pos;
-}
-...
-// myMusicPlayerで...うーん...音楽を再生する
-int music_pos=0;
-Mix_HookMusic(myMusicPlayer, &amp;music_pos);
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_SetMusicCMD.html">Mix_SetMusicCMD</a>,
-<a href="Mix_GetMusicHookData.html">Mix_GetMusicHookData</a>
+<p>
+argポインタにはコールバックに渡されたものがそのまま渡され, コールバックはこれを(トラックの進行状況や設定など)自由に使える.
+</p>
+<p>
+ミックスされる音楽「チャネル」は1つしかないため, コールバックは1つしか使えない.
+複数の入力をミックスする場合は, 1つの関数で扱えるようにする必要がある.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="Mix_SetPostMix.html">Mix_SetPostMix</a><br>
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_60.html#SEC60">4.5.8 Mix_HookMusic</a>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_HookMusic">SDL_mixer/Mix_HookMusic</a>
 <hr>
 </body>
 </html>
