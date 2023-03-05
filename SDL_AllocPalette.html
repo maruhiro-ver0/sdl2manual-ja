@@ -22,6 +22,39 @@
 <h2>戻り値</h2>
 成功のとき生成された<a href="SDL_Palette.html">SDL_Palette</a>, 失敗(十分なメモリがない等)のときNULLを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_Palette* palette = nullptr;
+
+...
+
+SDL_Init(SDL_EVERYTHING);
+
+// 4色のパレットを新たに生成する
+
+palette = SDL_AllocPalette(4);
+
+if (palette == nullptr) printf( "エラー: %s\n", SDL_GetError() );
+
+...
+
+// パレット0の緑成分と青成分を0にする
+
+palette->colors[0].g = 0;
+palette->colors[0].b = 0;
+
+// レンダラを赤色に設定する
+
+SDL_SetRenderDrawColor(renderer, palette->colors[0].r, palette->colors[0].g, palette->colors.b, palette->colors[0].a);
+
+...
+
+SDL_FreePalette(palette);
+palette = nullptr;
+</pre>
+</code>
 <h2>詳細</h2>
 パレットの初期値は白である.
 <h2>バージョン</h2>
