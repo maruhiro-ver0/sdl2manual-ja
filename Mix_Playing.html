@@ -5,44 +5,41 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
 <link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-channels.html" title="1つ上">
+<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
 <title>Mix_Playing</title>
 </head>
 <body>
 <a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-channels.html">4.3チャネル</a> - Mix_Playing
 <hr>
 <h1>Mix_Playing</h1>
-<p>
+指定のチャネルの再生状態をチェックする
+<h2>構文</h2>
 <code>int Mix_Playing(int channel)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_Playing">
+<tr><td>channel</td><td>チャネル</td></tr>
+</table>
+<h2>戻り値</h2>
+指定のチャネルが再生中のとき0以外, それ以外のとき0を戻す.
+channelに-1を指定した場合, 再生中のチャネルの数を戻す.
+<h2>詳細</h2>
+<p>
+チャネルが再生中の場合, この関数は1を戻す.
+それ以外の場合, 0を戻す.
 </p>
 <p>
-<dl>
-<dt>channel</dt><dd>再生中か否か調査するチャネル. -1のとき再生中のチャネル数を求める</dd>
-</dl>
+チャネルに-1を指定した場合, 全チャネルがチェックされ, 現在再生中のチャネルの数を戻す.
 </p>
 <p>
-channelが再生中か否かを調べる.
+チャネルにMAX_CHANNEL_POSTを指定してはならない.
 </p>
 <p>
-メモ: チャネルが一時停止中かはチェックしない.
+一時停止中のチャネルは, 現在はミキシングが進んでいなくても再生中とみなされる.
 </p>
-<p>
-戻り値: 再生中でなければ0, 引数に-1を渡したならば再生中のチャネル数, チャネルを指定して再生中ならば1を戻す.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// サンプリング音声を再生中のチャネルの数をチェックする
-printf("%d つのチャネルで再生中\n", Mix_Playing(-1));
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_Paused.html">Mix_Paused</a>,
-<a href="Mix_Fading.html">Mix_Fading</a>,
-<a href="Mix_PlayChannel.html">Mix_PlayChannel</a>,
-<a href="Mix_Pause.html">Mix_Pause</a>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_38.html#SEC38">4.3.13 Mix_Playing</a>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_Playing">SDL_mixer/Mix_Playing</a>
 <hr>
 </body>
 </html>
