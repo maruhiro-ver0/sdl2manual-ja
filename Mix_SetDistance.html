@@ -12,41 +12,42 @@
 <a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-effects.html">4.6エフェクト</a> - Mix_SetDistance
 <hr>
 <h1>Mix_SetDistance</h1>
-<p>
+チャネルの距離を設定する
+<h2>構文</h2>
 <code>int Mix_SetDistance(int channel, Uint8 distance)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_SetDistance">
+<tr><td>channel</td><td>減衰させるチャネル, またはMIX_CHANNEL_POST</td></tr>
+<tr><td>distance</td><td>距離. 0が聴者, 255が最大遠</td></tr>
+</table>
+<h2>戻り値</h2>
+エラー(チャネルがない, または<a href="Mix_RegisterEffect.html">Mix_RegisterEffect()</a>が失敗)のとき0, エフェクトが有効になったとき0以外を戻す.
+エラーメッセージは<a href="Mix_GetError.html">Mix_GetError()</a>で得られる.
+<h2>詳細</h2>
+<p>
+「距離」は聴者からの音源の位置を表す0から255の整数で, 
+距離0が聴者, 255が可能な限り遠い位置である.
+255は無音であることを保証しない. そのようにしたい場合は, チャンクの音量を変更するか, 単に<a href="Mix_HaltChannel.html">Mix_HaltChannel()</a>を呼んで停止させること.
+効率化のため, このエフェクトの精度には制限がある(距離1から7は同じ, 8から15は同じ, ...の様に).
+distanceは音源と聴者の間隔を表す0から255の整数である.
+最大数が音源の最大遠である.
+0を設定するとエフェクトが解除され, 以降のデータは通常通りになる.
+より正確な位置エフェクトが必要な場合は, 離散的なSDL_mixerのエフェクトではなくOpenALの使用を検討すべきである.
+これはシンプルな"3D"ゲームのための基礎的なエフェクトにすぎない.
 </p>
 <p>
-<dl>
-<dt>channel</dt><dd>エフェクトを登録するチャネル番号. MIX_CHANNEL_POSTとするとミキシングの後の処理</dd>
-<dt>distance</dt><dd>聞き手との距離. 0(近い/大きい)～255(遠い/小さい)</dd>
-</dl>
+チャネルにMIX_CHANNEL_POSTを設定するとポストエフェクトとなり, 距離はオーディオデバイスに渡される前の最後のミキシングの直前に適用される.
 </p>
 <p>
-このエフェクトは音を弱めることで距離をシミュレートする.
-ボリュームは最大距離でも無音にはならない.
+この関数は内部で<a href="Mix_RegisterEffect.html">Mix_RegisterEffect()</a>APIを使用している.
 </p>
 <p>
-メモ: distanceを0にするとchannelからこのエフェクトを削除する.
-チャネルに対して<a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a>を使うことを除けば, この方法以外で削除することはできない.
+他のSDLやSDL_mixerの関数とは異なり, この関数は成功ではなくエラーのとき0を戻す. 
 </p>
-<p>
-戻り値: チャネルが不正, <a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>に失敗などのとき0(偽)
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// チャネル1を最も遠くにする
-if(!Mix_SetDistance(1, 255)) {
-    printf("Mix_SetDistance: %s\n", Mix_GetError());
-    // 距離がない?
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_SetPosition.html">Mix_SetPosition</a>,
-<a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_mixer/docs/SDL_mixer_81.html#SEC81">4.6.6 Mix_SetDistance</a>
+<a href="https://wiki.libsdl.org/SDL_mixer/Mix_SetDistance">SDL_mixer/Mix_SetDistance</a>
 <hr>
 </body>
 </html>
