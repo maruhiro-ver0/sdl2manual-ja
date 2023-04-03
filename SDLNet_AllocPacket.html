@@ -12,40 +12,34 @@
 <a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-udp_packets.html">3.5パケット</a> - SDLNet_AllocPacket
 <hr>
 <h1>SDLNet_AllocPacket</h1>
+UDPパケットを1つ確保する
+<h2>構文</h2>
+<code>UDPpacket * SDLNet_AllocPacket(int size)</code>
+<h2>引数</h2>
+<table border="1" summary="SDLNet_AllocPacket">
+<tr><td>size</td><td>パケットのペイロードの最大バイト数</td></tr>
+</table>
+<h2>戻り値</h2>
+新しいパケットを戻す. メモリが足りない場合はNULLを戻す.
+<h2>詳細</h2>
 <p>
-<code>UDPpacket *SDLNet_AllocPacket(int size)</code>
+この関数はペイロードが`size`バイトのパケットを確保する.
 </p>
 <p>
-<dl>
-<dt>size</dt><dd>新しい<a href="UDPpacket.html">UDPpacket</a>で確保するデータバッファのバイト数. 0は不正</dd>
-</dl>
+パケットを使い終えたならば, <a href="SDLNet_FreePacket.html">SDLNet_FreePacket()</a>で解放できる.
+パケットは複数回再利用できるので, 送信するたびに新しく確保する必要はない.
 </p>
 <p>
-新しい<a href="UDPpacket.html">UDPpacket</a>をsizeバイトのデータバッファを(mallocで)確保して生成する.
-新しいパケットを使い終えたら<a href="SDLNet_FreePacket.html">SDLNet_FreePacket</a>で解放する必要がある.
+<a href="SDLNet_AllocPacketV.html">SDLNet_AllocPacketV()</a>を使えば一度に複数のパケットを確保できる.
 </p>
-<p>
-戻り値: 新しい空の<a href="UDPpacket.html">UDPpacket</a>へのポインタ. メモリがないなど失敗のときNULL
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// ソケットセットを解放する
-//SDLNet_SocketSet set;
-
-SDLNet_FreeSocketSet(set);
-set=NULL; // これはこのセットが確保されていないことを記憶する助けになる
-</pre>
-</code>
-<h2>参照</h2>
-<a href="SDLNet_AllocPacketV.html">SDLNet_AllocPacketV</a>,
-<a href="SDLNet_ResizePacket.html">SDLNet_ResizePacket</a>,
-<a href="SDLNet_FreePacket.html">SDLNet_FreePacket</a>,
-<a href="SDLNet_UDP_Send.html">SDLNet_UDP_Send</a>,
-<a href="SDLNet_UDP_SendV.html">SDLNet_UDP_SendV</a>,
-<a href="UDPpacket.html">UDPpacket</a>
+<h2>バージョン</h2>
+SDL_net 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="SDLNet_ResizePacket.html">SDLNet_ResizePacket</a><br>
+<a href="SDLNet_FreePacket.html">SDLNet_FreePacket</a><br>
+<a href="SDLNet_AllocPacketV.html">SDLNet_AllocPacketV</a><br>
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_36.html#SEC36">3.5.1 SDLNet_AllocPacket</a>
+<a href="https://wiki.libsdl.org/SDL_net/SDLNet_AllocPacket">SDL_net/SDLNet_AllocPacket</a>
 <hr>
 </body>
 </html>
