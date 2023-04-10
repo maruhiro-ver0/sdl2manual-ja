@@ -12,23 +12,21 @@
 <a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-general.html">3.1一般</a> - SDLNet_GetError
 <hr>
 <h1>SDLNet_GetError</h1>
+SDL_netの最後のエラーメッセージを得る
+<h2>構文</h2>
+<code>const char *SDLNet_GetError(void)</code>
+<h2>戻り値</h2>
+UTF-8コードの最後のエラーメッセージを戻す.
+<h2>詳細</h2>
 <p>
-<code>char *SDLNet_GetError()</code>
+エラーメッセージは, SDL_netのビルドによって, スレッドローカルデータであることもないこともありうる.
+エラーが発生しなかった場合でもエラーメッセージが設定されることがある.
+エラー文字列は公開APIが失敗を報告した直後のみ意味があり, それ以外が無視するべきである.
 </p>
-<p>
-これは<a href="SDL_GetError.html">SDL_GetError</a>と同じで, SDL_net関数がエラー状態を戻したときに何が起こったかをユーザに知らせるメッセージを戻す.
-</p>
-<p>
-戻り値: 人が読める最後に発生したエラーの理由へのchar型ポインタ
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-printf("なんてこった、エラーだ : %s", SDLNet_GetError());
-</pre>
-</code>
+<h2>バージョン</h2>
+SDL_net 2.0.0以降
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_10.html#SEC10">3.1.4 SDLNet_GetError</a>
+<a href="https://wiki.libsdl.org/SDL_net/SDLNet_GetError">SDL_net/SDLNet_GetError</a>
 <hr>
 </body>
 </html>
