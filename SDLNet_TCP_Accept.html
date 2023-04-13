@@ -12,48 +12,24 @@
 <a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-tcp_sockets.html">3.3TCPソケット</a> - SDLNet_TCP_Accept
 <hr>
 <h1>SDLNet_TCP_Accept</h1>
-<p>
+指定のサーバソケットで接続を受け入れる
+<h2>構文</h2>
 <code>TCPsocket SDLNet_TCP_Accept(TCPsocket server)</code>
-</p>
+<h2>引数</h2>
+<table border="1" summary="SDLNet_TCP_Accept">
+<tr><td>server</td><td>接続を受け入れるサーバソケット</td></tr>
+</table>
+<h2>戻り値</h2>
+新しく生成されたソケットを戻す. エラーのときNULLを戻す.
+<h2>詳細</h2>
 <p>
-<dl>
-<dt>server</dt><dd><a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open</a>で生成したサーバの<a href="TCPsocket.html">TCPsocket</a></dd>
-</dl>
+`server`は<a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open()</a>のアドレスをINADDR_NONEまたはINADDR_ANY(サーバソケット)とした戻り値でなければならない.
+その他のソケットでは接続を受け入れられない.
 </p>
-<p>
-serverの<a href="TCPsocket.html">TCPsocket</a>で接続をACCEPTする.
-この関数を接続されたソケットで使ってはならない.
-サーバのソケットがリモートのホストと接続されることはない.
-戻されるのはリモートホストと接続した新しい<a href="TCPsocket.html">TCPsocket</a>である.
-この呼び出しは待たない(ブロックしない). もしACCEPTする接続がない場合は, NULLの<a href="TCPsocket.html">TCPsocket</a>が戻されプログラムの実行は続く.
-</p>
-<p>
-戻り値: 成功のとき, つまり接続がESTABLISHEDのとき, 利用可能な<a href="TCPsocket.html">TCPsocket</a>.
-ソケットを生成できなかった, または相手のホストとポートからの接続を完了できなかった場合など失敗のときNULL.
-接続を確立している最中や, 何もACCEPTするものがない場合も同様にNULLを戻す.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 接続をserver_tcpsockにACCEPTする
-TCPsocket new_tcpsock;
-
-new_tcpsock=SDLNet_TCP_Accept(server_tcpsock);
-if(!new_tcpsock) {
-    printf("SDLNet_TCP_Accept: %s\n", SDLNet_GetError());
-}
-else {
-    // ここでnew_tcpsockで通信する
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open</a>,
-<a href="SDLNet_TCP_GetPeerAddress.html">SDLNet_TCP_GetPeerAddress</a>,
-<a href="SDLNet_TCP_Close.html">SDLNet_TCP_Close</a>,
-<a href="TCPsocket.html">TCPsocket</a>
+<h2>バージョン</h2>
+SDL_net 2.0.0以降
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_21.html#SEC21">3.3.3 SDLNet_TCP_Accept</a>
+<a href="https://wiki.libsdl.org/SDL_net/SDLNet_TCP_Accept">SDL_net/SDLNet_TCP_Accept</a>
 <hr>
 </body>
 </html>
