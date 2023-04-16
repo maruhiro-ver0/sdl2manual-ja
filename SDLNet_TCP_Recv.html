@@ -12,54 +12,43 @@
 <a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-tcp_sockets.html">3.3TCPソケット</a> - SDLNet_TCP_Recv
 <hr>
 <h1>SDLNet_TCP_Recv</h1>
-<p>
+サーバでないソケットからデータを受信する
+<h2>構文</h2>
 <code>int SDLNet_TCP_Recv(TCPsocket sock, void *data, int maxlen)</code>
+<h2>引数</h2>
+<table border="1" summary="SDLNet_TCP_Recv">
+<tr><td>sock</td><td>データを受信するソケット</td></tr>
+<tr><td>data</td><td>受信データの書き込み先ポインタ</td></tr>
+<tr><td>maxlen</td><td>`data`に書き込み可能な最大バイト数</td></tr>
+</table>
+<h2>戻り値</h2>
+受信したバイト数を戻す. この値は`maxlen`以下である.
+<h2>詳細</h2>
+<p>
+`sock'は<a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open()</a>でアドレスを指定して生成した, または<a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept()</a>で生成したものでなければならない.
 </p>
 <p>
-<dl>
-<dt>sock</dt><dd>利用可能な接続された<a href="TCPsocket.html">TCPsocket</a></dd>
-<dt>data</dt><dd>sockから受信したデータを書き込むバッファへのポインタ</dd>
-<dt>maxlen</dt><dd>読み込んだデータを書き込むdataの最大長(バイト数)</dd>
-</dl>
+非サーバソケット`sock`から最大で`maxlen`バイトを受信し, `data`が示すバッファへのポインタに書き込む.
 </p>
 <p>
-ソケットsockから, <em>ちょうど</em>maxlenバイトのデータを受信し, dataが示すメモリに書き込む.
-この関数はサーバのソケットでは使えない.
-エラーまたは接続が閉じられない限り, maxlenバイトのバッファを読み込む.
-相手の送信より多く読もうとすると, 要求の長さが満たされるか相手が切断するまで待つ.
-アプリケーションによっては1byteずつ受信する必要がある. 例えば, 送信側がテキストをまとめて送る場合でも, 受信側は1行ずつ読みたいだろう.
-この場合は, 複数の行や1行に満たないテキストが無秩序に含まれるテキストを読む代わりに, 改行するためのコードを自分自身で見つけたいはずだ.
+この関数は実際に受信したデータのサイズを戻す.
+戻り値が0以下の場合, 相手が接続を切ったか, 不明なソケットエラーが発生した.
 </p>
 <p>
-戻り値: 受信したバイト数.
-エラーが発生した, またはリモート側が接続を閉じた場合は0以下
+この関数はソケットが新しいデータを見つけた瞬間に戻すことに注意すること.
+パケットがネットワークからゆっくりと来る場合, データはあなたの予想よりも少なくなる可能性がある.
 </p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// sockからいくつかのテキストを受信する
-//TCPsocket sock;
-#define MAXLEN 1024
-int result;
-char msg[MAXLEN];
-
-result=SDLNet_TCP_Recv(sock,msg,MAXLEN);
-if(result%lt;=0) {
-    // エラーが発生した場合は無視することもできる
-    // 恐らく現在は使えないだけなので, 切断するとよい
-}
-printf("受信した: \"%s\"\n",msg);
-</pre>
-</code>
-<h2>参照</h2>
-<a href="SDLNet_TCP_Send.html">SDLNet_TCP_Send</a>,
-<a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept</a>,
-<a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open</a>,
-<a href="SDLNet_TCP_GetPeerAddress.html">SDLNet_TCP_GetPeerAddress</a>,
-<a href="SDLNet_TCP_Close.html">SDLNet_TCP_Close</a>,
-<a href="TCPsocket.html">TCPsocket</a>
+<p>
+この関数はブロックする. ブロックを避けたいならば, <a href="DLNet_CheckSockets.html">DLNet_CheckSockets()</a>で関数を呼ぶ前にデータの有無を知ることができる.
+</p>
+<p>
+<h2>バージョン</h2>
+SDL_net 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="SDLNet_TCP_Send.html">SDLNet_TCP_Send</a><br>
+<a href="SDLNet_CheckSockets.html">SDLNet_CheckSockets</a><br>
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_net/docs/SDL_net_24.html#SEC24">3.3.6 SDLNet_TCP_Recv</a>
+<a href="https://wiki.libsdl.org/SDL_net/SDLNet_TCP_Recv">SDL_net/SDLNet_TCP_Recv</a>
 <hr>
 </body>
 </html>
