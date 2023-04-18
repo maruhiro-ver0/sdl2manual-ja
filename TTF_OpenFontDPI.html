@@ -17,7 +17,7 @@
 <code>TTF_Font *TTF_OpenFontDPI(const char *file, int ptsize, unsigned int hdpi, unsigned int vdpi)</code>
 <h2>引数</h2>
 <table border="1" summary="TTF_OpenFontDPI">
-<tr><td>font</td><td>フォントファイルのパス</td></tr>
+<tr><td>file</td><td>フォントファイルのパス</td></tr>
 <tr><td>ptsize</td><td>フォントのポイントサイズ</td></tr>
 <tr><td>hdpi</td><td>水平方向DPI</td></tr>
 <tr><td>vdpi</td><td>垂直方向DPI</td></tr>
@@ -33,7 +33,7 @@ DPIによる拡大縮小は拡大縮小可能なフォント(例えばTrueType)にのみ適用される.
 値が大きすぎる場合, 最も大きな番号のサイズになる.
 </p>
 <p>
-<a href="TTF_Font.html">TTF_Font</a>を使い終えたら<a href="TTF_CloseFont.html">TTF_CloseFont()</a>で破棄こと.
+<a href="TTF_Font.html">TTF_Font</a>を使い終えたら<a href="TTF_CloseFont.html">TTF_CloseFont()</a>で破棄すること.
 </p>
 <h2>バージョン</h2>
 SDL_ttf 2.0.18以降
