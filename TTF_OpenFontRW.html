@@ -9,50 +9,38 @@
 <title>TTF_OpenFontRW</title>
 </head>
 <body>
-<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-management.html">3.2管理</a> - TTF_OpenFontRW
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_OpenFontRW
 <hr>
 <h1>TTF_OpenFontRW</h1>
-<p>
+ポイントサイズを指定してフォントをSDL_RWopsから生成する
+<h2>構文</h2>
 <code>TTF_Font *TTF_OpenFontRW(SDL_RWops *src, int freesrc, int ptsize)</code>
+<h2>引数</h2>
+<table border="1" summary="TTF_OpenFontRW">
+<tr><td>src</td><td>フォントファイルのデータを提供するSDL_RWops</td></tr>
+<tr><td>freesrc</td><td>0以外のときRWopsを閉じる. 0のとき開いたままにする</td></tr>
+<tr><td>ptsize</td><td>フォントのポイントサイズ</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき<a href="TTF_Font.html">TTF_Font</a>, エラーのときNULLを戻す.
+<h2>詳細</h2>
+<p>
+一部の.fonフォントはファイル内に複数のフォントが埋め込まれている. その場合, ポイントサイズはサイズを選択する番号となる.
+値が大きすぎる場合, 最も大きな番号のサイズになる.
 </p>
 <p>
-<dl>
-<dt>src</dt><dd>読み込み元の<a href="SDL_RWops.html">SDL_RWops</a>のポインタ. フォントはここから読み込まれる</dd>
-<dt>freesrc</dt><dd>0でないときsrcを使い終わると自動的に閉じ解放される. 致命的でないエラーが発生した場合も同じ</dd>
-<dt>ptsize</dt><dd>フォントのポイントサイズ(72DPI). これは基本的には高さのピクセル数に変換される</dd>
-</dl>
+freesrcが0以外のとき, 処理が成功してもしなくても関数から戻るときRWopsは閉じる.
+どのような場合でもこの関数を呼ぶと必要ならばSDL_mixerは全て読み込む.
 </p>
 <p>
-フォントを使うためにsrcからptsizeサイズとして読み込む.
-これは実際には <code>TTF_OpenFontIndexRW(src, freesrc, ptsize, 0)</code> である.
-この関数ではTTFとFONファイルを読み込める. 
-<a href="SDL_RWops.html">SDL_RWops</a>の使い方は詳しく説明しないが, ほとんどのデータ元から読み込むことができる.
+<a href="TTF_Font.html">TTF_Font</a>を使い終えたら<a href="TTF_CloseFont.html">TTF_CloseFont()</a>で破棄こと.
 </p>
-<p>
-メモ: srcはNULLをチェックしない. 扱いには気をつけること.
-</p>
-<p>
-戻り値: <a href="TTF_Font.html">TTF_Font</a>へのポインタ. 失敗のときNULL
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// font.ttfをサイズ16でfontに読み込む
-TTF_Font *font;
-font=TTF_OpenFontRW(SDL_RWFromFile("font.ttf"), 1, 16);
-if(!font) {
-    printf("TTF_OpenFontRW: %s\n", TTF_GetError());
-    // ここでエラーを処理する
-}
-</pre>
-</code>
-注意: SDL_RWFromFileが戻したポインタをチェックせずに使うのは危険である.
-<h2>参照</h2>
-<a href="TTF_OpenFontIndexRW.html">TTF_OpenFontIndexRW</a>,
-<a href="TTF_OpenFont.html">TTF_OpenFont</a>,
-<a href="TTF_CloseFont.html">TTF_CloseFont</a>
+<h2>バージョン</h2>
+SDL_ttf 2.0.12以降
+<h2>関連項目(関数)</h2>
+<a href="TTF_CloseFont.html">TTF_CloseFont</a><br>
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_15.html#SEC15">3.2.2 TTF_OpenFontRW</a>
+<a href="https://wiki.libsdl.org/SDL_ttf/TTF_OpenFontRW">SDL_ttf/TTF_OpenFontRW</a>
 <hr>
 </body>
 </html>
