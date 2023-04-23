@@ -20,6 +20,7 @@
 <tr><td>SDL_BLENDMODE_BLEND</td><td>αブレンド</td><td>dstRGB = (srcRGB * srcA) + (dstRGB * (1 - srcA))<br>dstA = srcA + (dstA * (1 - srcA))</td></tr>
 <tr><td>SDL_BLENDMODE_ADD</td><td>加算ブレンド</td><td>dstRGB = (srcRGB * srcA) + dstRGB<br>dstA = dstA</td></tr>
 <tr><td>SDL_BLENDMODE_MOD</td><td>乗算ブレンド</td><td>dstRGB = srcRGB * dstRGB<br>dstA = dstA</td></tr>
+<tr><td>SDL_BLENDMODE_MUL</td><td>乗算αブレンド</td><td>dstRGB = (srcRGB * dstRGB) + (dstRGB * (1-srcA))<br>dstA = (srcA * dstA) + (dstA * (1-srcA))</td></tr>
 </table>
 <h2>関連項目(構造体)</h2>
 <a href="SDL_RendererInfo.html">SDL_RendererInfo</a><br>
