@@ -16,16 +16,16 @@
 <h3>SDLを使う</h3>
 <h4>何に対応しているか?</h4>
 <p>
-SDL 2.0.0 はWindows XP, Vista, 7, 8に対応している.
+SDL 2.0.0 はWindows XP, Vista, 7, 8, 10, 11に対応している.
 </p>
 <p>
-SDLはVisual C++, Cygwin, MinGW, Dev-C++で利用できる.
+SDLはICC, Visual C++, Cygwin, MinGW, Dev-C++で利用できる.
 </p>
 <p>
 最新の情報は<a href="https://wiki.libsdl.org/Installation">インストール</a>を参照すること.
 </p>
 <h3>Windows 2000</h3>
-<h4>Windows 2000を使っているが, SDL.dllをコピーできない!</h4>
+<h4>Windows 2000を使っているが, SDL2.dllをコピーできない!</h4>
 様々な理由で, Linuxで作られたアーカイブはWindows 2000で展開すると「暗号化」属性が設定される.
 プロパティウィンドウの全般タブの詳細設定から暗号化チェックを外すことができる.
 そうすれば通常通りコピーできるようになる.
@@ -54,15 +54,45 @@ SDLはMicrosoft Visual C++ランタイムのマルチスレッド版を動的にリンクしている.
 <h4>Visual C++ 5を使っているが, 次のエラーが発生する: SDL.lib : fatal error LNK1106: invalid file or disk full</h4>
 これは, Visual C++ 5で最新のサービスパックに更新していない場合, SDLライブラリをリビルドすると発生する.
 <h4>なぜSDL 1.2アプリケーションでVisual C++デバッガが使えないのか?</h4>
-MSVCデバッガが働くようにするためには, SDL_Init()にSDL_INIT_NOPARACHUTEフラグを渡して呼ぶ必要がある.
+MSVCデバッガが働くようにするためには, <a href="SDL_Init.html">SDL_Init()</a>にSDL_INIT_NOPARACHUTEフラグを渡して呼ぶ必要がある.
 そうしないとデバッガは例外をトレースできず, 実行箇所を示すことなども行えない.
 <h4>SDLアプリケーションをデバッグするとVisual C++デバッガが毎回フリーズするのはなぜか?</h4>
 サーフェイスをロックしている間, DirectXドライバはシステムをロックしている.
 これを避けるため, 環境変数SDL_VIDEODRIVERにwindibを設定することでビデオドライバをGDIに設定できる.
 これはビデオとマウス/キーボード入力ドライバを変更する. 性能と機能が変わるが, アプリケーションをより簡単にデバッグすることができるようになる.
+<h4>私のアプリケーションではデバッグメッセージのターミナルウィンドウが表示されない</h4>
+<p>
+このオプションであなたのアプリケーションにコンソールサブシステムをリンクすること: `/SUBSYSTEM:CONSOLE`
+</p>
+<p>
+Win32 APIでコンソールの表示を選択させることもできる:
+<code>
+<pre>
+#include "SDL.h"
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;windows.h&gt;
+
+static void create_console(void) {
+    AllocConsole();
+    freopen("CONIN$", "r", stdin);
+    freopen("CONOUT$", "w", stdout);
+    freopen("CONOUT$", "w", stderr);
+}
+
+int main(int argc, char *argv[]) {
+    if (strcmp(argv[1], "--debug") == 0) {
+        create_console();
+    }
+    /* ... ここに秘密のソースを書き込むこと */
+    return 0;
+}
+</pre>
+</code>
+</p>
 <h3>gcc</h3>
 <h4>WindowsのgccでSDLを使うには?</h4>
-ネイティブでビルドするならばCygwinまたはMiGW, または他の環境でWindowsを対象としたクロスコンパイラでビルドすることもできる.
+ネイティブでビルドするならばCygwin, MSYS2, MinGW, または他の環境でWindowsを対象としたクロスコンパイラでビルドすることもできる.
 これらの環境を構築するためのドキュメントは<a href="http://www.libsdl.org/extras/win32/gcc.html">http://www.libsdl.org/extras/win32/gcc.html</a>にある.
 環境を構築すれば, UNIXのようにアプリケーションをビルドできるようになる.
 この環境でアプリケーションをビルドするための詳細はLinux FAQを参照すること.
@@ -79,9 +109,26 @@ the Dev-C++のチュートリアルを参照すること: <a href="http://cone3d.gamedev.net/cg
 プロジェクトのパラメータの"console application"を選択すると, Vistaではプログラムの生成で必ずクラッシュする
 </h4>
 Vistaでコンパイルするときは, "console application"の代わりに"gui application"を選択すること.
-<h3>MinGW/MYSYS</h3>
-<h4>MinGW/MYSYSでSDLを使うには?</h4>
-<a href="https://wiki.libsdl.org/SDL1.2Tutorials#Setup">MYSYS/MinGW</a>チュートリアルを参照すること.
+<h3>MinGW</h3>
+<h4>私のアプリケーションではデバッグメッセージのターミナルウィンドウが表示されない</h4>
+<p>
+pkg-config, またはSDL2 CMakeスクリプトを使用しているならば, 常に`-mwindows`がリンクオプションに加えられる.
+このオプションはWindowsローダにアプリケーションが`WinMain`から始まることを指示し, コンソールウィンドウを表示しない.
+</p>
+<p>
+`-mwindows`を取り除く方法はビルドシステムによって異なる:<br>
+CMaakeの場合, CMake変数`SDL2_NO_MWINDOWS`を設定すると`find_package(SDL2)`を呼ぶ前に`-mwindows`がリンクオプションから削除される.<br>
+pkg-configの場合, 代わりに`$(pkg-config sdl2 --libs-only-L --libs-only-l)`とする.<br>
+sdl2-configの場合, `sed`で`-mwindows`を取り除く: `$(sdl2-config --libs | sed -E s/-mwindows//)`
+</p>
+<p>
+`-mwindows`がない場合, <a href="SDL_Init.html">SDL_Init()</a>の前に<a href="SDL_SetMainReady.html">SDL_SetMainReady()</a>を呼ばなければならない.
+`SDL2_main`内の`WinMain`シンボルはもう使わないためである.
+</p>
+<p>
+コンソールウィンドウの生成を選択することもできる.
+Visual C++の欄を参照すること.
+</p>
 <h3>その他</h3>
 <h4>"Undefined reference to 'SDL_main'"が発生する...</h4>
 <p>
@@ -120,32 +167,10 @@ clang-clユーザは -Xlinker /subsystem:windows を追加すること.
 </p>
 <h4>様々な未定義のSDL関数がある...</h4>
 <p>
-gccでコンパイルしているならば, コマンドラインのあなたのソースコードの後にsdl-configの出力があることを確認する: gcc -o test test.c sdl-config --cflags --libs
+gccでコンパイルしているならば, コマンドラインのあなたのソースコードの後にsdl2-configの出力があることを確認する: gcc -o test test.c sdl2-config --cflags --libs
 </p>
 <p>
-SDL_imageやSDL_mixerの未定義の関数がある場合は, これらのライブラリが正しくリンクされていることを確認する.
-</p>
-<h4>WindowsでSDL_WM_ToggleFullScreen()が動作しないのはなぜか?</h4>
-<p>
-フルスクリーンとウィンドウのモードを切り替えるSDL_WM_ToggleFullScreen()の動作は, アプリケーションからは透過的てある.
-ディスプレイのピクセルポインタが変わらない, ディスプレイのビット深度が変わらないなどである.
-これはWindowsは保障できない.
-しかし, 次の方法でフルスクリーンとウィンドウモードを簡単に変えられる:
-</p>
-<p>
-<code>
-<pre>
-flags ^= SDL_FULLSCREEN;
-screen = SDL_SetVideoMode(..., flags);
-</pre>
-</code>
-</p>
-<h4>stdout.txtとstderr.txtを作らないようにする方法は?</h4>
-<p>
-「SDLを使うVisual C++プロジェクトには, SDL_nostdioがあり, 望むならばこれをビルドできるはず」
-</p>
-<p>
-「"NO_STDIO_REDIRECT"を定義しSDLを再コンパイルすれば, この問題は解決すると思う」(Bill Kendrickによる回答)
+SDL2_imageやSDL2_mixerの未定義の関数がある場合は, これらのライブラリが正しくリンクされていることを確認する.
 </p>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/FAQWindows">FAQ: Windows - SDL Wiki</a>
