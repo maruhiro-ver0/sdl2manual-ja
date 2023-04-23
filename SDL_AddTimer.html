@@ -28,76 +28,36 @@
 <p>
 <code>
 <pre>
-/* タイマを開始する; 下のコールバックは時間が経過すると実行される */
+// 一定時間の経過で呼ばれる関数
 
-Uint32 delay = (33 / 10) * 10;  /* 10ミリ秒単位で切り捨てる */
-SDL_TimerID my_timer_id = SDL_AddTimer(delay, my_callbackfunc, my_callback_param);
+Uint32 callback(Uint32 interval, void* name) {
+
+    printf("Hello %s!\n", static_cast<char*>(name));
+       
+    return 0;
+}
 
 ...
 
-Uint32 my_callbackfunc(Uint32 interval, void *param)
-{
-    SDL_Event event;
-    SDL_UserEvent userevent;
+// タイマを初期化する
 
-    /* この例では, コールバックでSDL_USEREVENTイベントをキューに入れている.
-    このコールバック関数は一定の周期で再び呼ばれる */
+if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
 
-    userevent.type = SDL_USEREVENT;
-    userevent.code = 0;
-    userevent.data1 = NULL;
-    userevent.data2 = NULL;
+...
 
-    event.type = SDL_USEREVENT;
-    event.user = userevent;
+// タイマを1秒に設定する
 
-    SDL_PushEvent(&amp;event);
-    return(interval);
-}
-</pre>
-</code>
-</p>
-<p>
-userevent.data1に実行する関数のアドレス, userevent.data2にその引数を与え, イベントループでそれを扱うと, SDLのマルチスレッドの問題を避けられる.
-<br>
-<code>
-<pre>
-/* 上のコードと同じ */
-Uint32 my_callbackfunc(Uint32 interval, void *param)
-{
-    SDL_Event event;
-    SDL_UserEvent userevent;
+SDL_TimerID timerID = SDL_AddTimer(1000, callback, const_cast<char*>("SDL"));
 
-    /* この例では, コールバックでSDL_USEREVENTイベントをキューに入れている.
-    このコールバック関数は一定の周期で再び呼ばれる */
+// メインループ
 
-    userevent.type = SDL_USEREVENT;
-    userevent.code = 0;
-    userevent.data1 = &amp;my_function;
-    userevent.data2 = param;
-
-    event.type = SDL_USEREVENT;
-    event.user = userevent;
-
-    SDL_PushEvent(&amp;event);
-    return(interval);
+while(!quit) {
+    ...
 }
 
-/* イベントループ */
-SDL_Event event;
-while (SDL_PollEvent (&amp;event))
-{
-    switch(event.type)
-    {
-        case SDL_USEREVENT: {
-            /* タイマでこの関数を呼びたいところだが, マルチスレッドの問題のためできない */
-            void (*p) (void*) = event.user.data1;
-            p(event.user.data2);
-            break;
-        }
-        /* ... */
-    }
-}
+// メインループの後でタイマを取り除く
+
+SDL_RemoveTimer(timerID);
 </pre>
 </code>
 </p>
