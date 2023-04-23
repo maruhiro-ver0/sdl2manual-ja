@@ -5,65 +5,50 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_ttf">
 <link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_ttf-functions-render.html" title="1つ上">
-<title>TTF_RenderUNICODE_Blended</title>
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_RenderUNICODE_Blended_Wrapped</title>
 </head>
 <body>
-<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-render.html">3.4レンダラー</a> - TTF_RenderUNICODE_Blended
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-render.html">3.4レンダラー</a> - TTF_RenderUNICODE_Blended_Wrapped
 <hr>
-<h1>TTF_RenderUNICODE_Blended</h1>
+<h1>TTF_RenderUNICODE_Blended_Wrapped</h1>
+UCS-2の改行するテキストを, 生成したARGBサーフェイスに混合(Blend)モードでレンダリングする
+<h2>構文</h2>
+<code>SDL_Surface * TTF_RenderUNICODE_Blended(TTF_Font *font, const Uint16 *text, SDL_Color fg)</code>
+<h2>引数</h2>
+<table border="1" summary="TTF_RenderUNICODE_Blended_Wrapped">
+<tr><td>font</td><td>レンダリングで使用するフォント</td></tr>
+<tr><td>text</td><td>レンダリングするUCS-2テキスト</td></tr>
+<tr><td>fg</td><td>テキストの前景色</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき生成された32ビットARGBサーフェイス, エラーのときNULLを戻す.
+<h2>詳細</h2>
 <p>
-<code>SDL_Surface *TTF_RenderUNICODE_Blended(TTF_Font *font, const Uint16 *text, SDL_Color fg)</code>
+この関数は新たに32ビットARGBサーフェイスを生成し, 指定の前景色とαブレンドを用いてディザリングを行いレンダリングする.
+この関数の戻り値は生成されたサーフェイス, またはエラーが発生した場合はNULLである.
 </p>
 <p>
-<dl>
-<dt>font</dt><dd>テキストをレンダリングするフォント</dd>
-<dt>text</dt><dd>レンダリングするNUL終端のUNICODE文字列</dd>
-<dt>fg</dt><dd>レンダリングするテキストの色. ピクセルは透明色とこの色でブレンドされ, アンチエイリアスされたグリフが描かれる</dd>
-</dl>
+この関数は改行しないため, どれだけ文字列が長くてもサーフェイスのテキストは1行である.
+改行して複数行にする必要がある場合は, 代わりに<a href="TTF_RenderUNICODE_Blended_Wrapped.html">TTF_RenderUNICODE_Blended_Wrapped()</a>を使うことができる.
 </p>
 <p>
-UNICODEでエンコードされたtextを, fontと色fgで新しく生成したサーフェイスに混合(Blended)モードでレンダリングする.
-呼び出し側(あなたのことだ!)が戻されたサーフェイスを解放しなければならない.
+この関数は改行コードで改行しない.
 </p>
 <p>
-メモ: この関数のfontにNULLを渡すと異常終了する.
+この関数の名前は"Unicode"となっているが, 現在の実際の入力はUCS-2(1コードポイント16ビット)である.
+絵文字のようなそれよりも大きなUnicodeの値は渡せない.
+そのようなコードポイントはUTF-8版でアクセスできる.
 </p>
 <p>
-メモ: この関数のtextにNULLを渡した場合の動作は未定義である.
+<a href="TTF_RenderUNICODE_Solid.html">TTF_RenderUNICODE_Solid</a>, <a href="TTF_RenderUNICODE_Shaded.html">TTF_RenderUNICODE_Shaded</a>, <a href="TTF_RenderUNICODE_LCD.html">TTF_RenderUNICODE_LCD</a>を使うと別の画質でレンダリングできる.
 </p>
-<p>
-戻り値: 生成された<a href="SDL_Surface.html">SDL_Surface</a>. 失敗のときNULL
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 黒色でUNICODEテキストを新しいサーフェイスにレンダリングする
-// そしてそれを画面の左上にコピーする
-// そしてテキストのサーフェイスを解放する
-//SDL_Surface *screen;
-SDL_Color color={0,0,0};
-SDL_Surface *text_surface;
-Uint16 text[]={'H','e','l','l','o',' ',
-               'W','o','r','l','d','!'};
-if(!(text_surface=TTF_RenderUNICODE_Blended(font,text,color))) {
-    // ここでエラーを処理する. 少なくともTTF_GetErrorを表示したほうがよい
-} else {
-    SDL_BlitSurface(text_surface,NULL,screen,NULL);
-    // これは再利用できる. しかしここでは単純化のためにそうしない
-    SDL_FreeSurface(text_surface);
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="TTF_SizeUNICODE.html">TTF_SizeUNICODE</a>,
-<a href="TTF_RenderText_Blended.html">TTF_RenderText_Blended</a>,
-<a href="TTF_RenderUTF8_Blended.html">TTF_RenderUTF8_Blended</a>,
-<a href="TTF_RenderGlyph_Blended.html">TTF_RenderGlyph_Blended</a>,
-<a href="TTF_RenderUNICODE_Solid.html">TTF_RenderUNICODE_Solid</a>,
-<a href="TTF_RenderUNICODE_Shaded.html">TTF_RenderUNICODE_Shaded</a>
+<h2>バージョン</h2>
+SDL_ttf 2.0.12以降
+<h2>関連項目(関数)</h2>
+<a href="TTF_RenderUTF8_Blended.html">TTF_RenderUTF8_Blended</a><br>
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_53.html#SEC53">3.4.11 TTF_RenderUNICODE_Blended</a>
+<a href="https://wiki.libsdl.org/SDL_ttf/TTF_RenderUNICODE_Blended_Wrapped">SDL_ttf/TTF_RenderUNICODE_Blended_Wrapped</a>
 <hr>
 </body>
 </html>

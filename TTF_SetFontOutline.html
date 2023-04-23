@@ -12,43 +12,21 @@
 <a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_SetFontOutline
 <hr>
 <h1>TTF_SetFontOutline</h1>
-<p>
+Set a font's current outline.
+フォントのアウトラインの値を設定する
+<h2>構文</h2>
 <code>void TTF_SetFontOutline(TTF_Font *font, int outline)</code>
-</p>
-<p>
-<dl>
-<dt>font</dt><dd>アウトラインの幅を得るフォント</dd>
-<dt>outline</dt><dd>設定するアウトラインの幅のピクセル数. 0のときアウトライン設定を解除する</dd>
-</dl>
-</p>
-<p>
-fontのアウトラインの幅のピクセル数を設定する.
-</p>
-<p>
-メモ: この関数のfontにNULLを渡すと異常終了する.
-</p>
-<p>
-メモ: この関数を呼ぶと, アウトラインの幅が変わらない場合でも, 以前のレンダリングされたグリフの内部キャッシュが消去される.
-まず<a href="TTF_GetFontOutline.html">TTF_GetFontOutline</a>を呼んで現在のアウトラインの幅をチェックしたほうがよい.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 読み込んだフォントのアウトライン幅を1ピクセルに設定する
-//TTF_Font *font;
-TTF_SetFontOutline(font, 1);
-
-// ここでアウトライン設定されたテキストをレンダリングする...
-
-// 見込まれたフォントのアウトラインを通常に戻す
-TTF_SetFontOutline(font, 0);
-</pre>
-</code>
-<h2>参照</h2>
-<a href="TTF_GetFontOutline.html">TTF_GetFontOutline</a>,
-<a href="TTF_SetFontStyle.html">TTF_SetFontStyle</a>
+<h2>引数</h2>
+<table border="1" summary="TTF_SetFontOutline">
+<tr><td>font</td><td>アウトラインを設定するフォント</td></tr>
+<tr><td>outline</td><td>正の値のアウトライン, デフォルトは0</td></tr>
+</table>
+<h2>バージョン</h2>
+SDL_net 2.0.12以降
+<h2>関連項目(関数)</h2>
+<a href="TTF_GetFontOutline.html">TTF_GetFontOutline</a><br>
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_24.html#SEC24">3.3.5 TTF_SetFontOutline</a>
+<a href="https://wiki.libsdl.org/SDL_ttf/TTF_SetFontOutline">SDL_ttf/TTF_SetFontOutline</a>
 <hr>
 </body>
 </html>

@@ -12,9 +12,9 @@
 <a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-render.html">3.4レンダラー</a> - TTF_RenderGlyph_LCD
 <hr>
 <h1>TTF_RenderGlyph_LCD</h1>
-1つの16ビットグリフを生成したARGBサーフェイスにLCDサブピクセル画質でレンダリングする
+1つの16ビットグリフを, 生成したARGBサーフェイスにLCDサブピクセル画質でレンダリングする
 <h2>構文</h2>
-<code>SDL_Surface * TTF_RenderGlyph_LCD(TTF_Font *font, Uint16 ch, SDL_Color fg, SDL_Color bg)</code>
+<code>SDL_Surface *TTF_RenderGlyph_LCD(TTF_Font *font, Uint16 ch, SDL_Color fg, SDL_Color bg)</code>
 <h2>引数</h2>
 <table border="1" summary="TTF_RenderGlyph_LCD">
 <tr><td>font</td><td>レンダリングで使用するフォント</td></tr>
@@ -33,11 +33,11 @@
 グリフはX軸方向にはパッディングやセンタリングは行われず, Y方向には通常の配置でレンダリングされる.
 </p>
 <p>
-この関数は16ビットの文字コードを引数とする. これは基本多言語面は表せるが, 絵文字を含むUnicode全体は表せないので注意すること.
-この関数ではなく機能は同じだが32ビットコードポイントを引数とする<a href="TTF_RenderGlyph32_LCD.html">TTF_RenderGlyph32_LCD()</a>を使うべきである.
+このバージョンの関数は16ビット文字コードを引数とするため, 基本多言語面には対応しているが, 絵文字などの全てのユニコードを扱うには不十分である.
+代わりに機能は同じだが32ビットコードポイントに対応した<a href="TTF_RenderGlyph32_LCD.html">TTF_RenderGlyph32_LCD()</a>を使うべきだ.
 </p>
 <p>
-この関数は既存のAPIとの一貫性を保つためにのみ存在する.
+この関数を使う唯一の理由は, 最初のバージョンから存在しているから, ということのみである.
 </p>
 <p>
 <a href="TTF_RenderGlyph_Solid.html">TTF_RenderGlyph_Solid</a>, <a href="TTF_RenderGlyph_Shaded.html">TTF_RenderGlyph_Shaded</a>, <a href="TTF_RenderGlyph_Blended.html">TTF_RenderGlyph_Blended</a>を使うと別の画質でレンダリングできる.

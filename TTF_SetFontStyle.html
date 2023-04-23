@@ -12,61 +12,34 @@
 <a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_SetFontStyle
 <hr>
 <h1>TTF_SetFontStyle</h1>
-<p>
+フォントスタイルを設定する
+<h2>構文</h2>
 <code>void TTF_SetFontStyle(TTF_Font *font, int style)</code>
+<h2>引数</h2>
+<table border="1" summary="TTF_SetFontStyle">
+<tr><td>font</td><td>スタイルを設定するフォント</td></tr>
+<tr><td>style</td><td>設定するスタイル. 論理和で複数設定が可能</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+新たにフォントスタイルを設定すると, 全てのグリフはキャッシュから削除される.
 </p>
 <p>
-<dl>
-<dt>font</dt><dd>スタイルを設定するフォント</dd>
-<dt>style</dt><dd>
-次のスタイルを表すビットマスクの論理和:<br>
-TTF_STYLE_BOLD<br>
-TTF_STYLE_ITALIC<br>
-TTF_STYLE_UNDERLINE<br>
-TTF_STYLE_STRIKETHROUGH<br>
-スタイルを設定しない場合はTTF_STYLE_NORMAL
-</dd>
-</dl>
+フォントスタイルは次の値の論理和である:
+<ul>
+<li>TTF_STYLE_NORMAL (0)
+<li>TTF_STYLE_BOLD
+<li>TTF_STYLE_ITALIC
+<li>TTF_STYLE_UNDERLINE
+<li>TTF_STYLE_STRIKETHROUGH
+</ul>
 </p>
-<p>
-fontのスタイルを設定する.
-</p>
-<p>
-メモ: この関数のfontにNULLを渡すと異常終了する.
-</p>
-<p>
-メモ: この関数を呼ぶと, スタイルが変わらない場合でも, 以前のレンダリングされたグリフの内部キャッシュが消去される.
-まず<a href="TTF_GetFontStyle.html">TTF_GetFontStyle</a>を呼んで現在のスタイルをチェックしたほうがよい.
-</p>
-<p>
-メモ: TTF_STYLE_UNDERLINEで元のグリフメトリックが下線を認めない場合, TTF_RenderGlyph_*関数によって生成されるサーフェイスは下線を囲むように下に広がる.
-これはグリフメトリックを使って位置を計算する場合も変わらない.
-<br>
-一方, TTF_STYLE_STRIKETHROUGHはグリフは広がらない. このとこにより, コピーするときグリフの位置を決めるためにメトリックが使えないようになる. なぜなら, 恐らく実際には上に広がっているためである.
-もしかすると回避策はあるのかもしれない.
-しかし, 現在の設計よりも賢いグリフをコピーする計算がプログラムに求められる.
-<br>
-また, 下線や取り消し線が生成されるサーフェイスの外に出てしまうかもしれない. その場合はスクリーンにコピーしても表示されない.
-この場合は, スタイルの設定ではなく自分自身で取り消し線や下線を描く必要がある.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 読み込まれたフォントのスタイルをボールドのイタリックに設定する
-//TTF_Font *font;
-TTF_SetFontStyle(font, TTF_STYLE_BOLD|TTF_STYLE_ITALIC);
-
-// ここでボールド・イタリックのテキストをレンダリングする...
-
-// 読み込まれたフォントのスタイルを標準に戻す
-TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
-</pre>
-</code>
-<h2>参照</h2>
-<a href="TTF_GetFontStyle.html">TTF_GetFontStyle</a>,
-<a href="SDL_ttf-defines.html">5.マクロ</a>
+<h2>バージョン</h2>
+SDL_net 2.0.12以降
+<h2>関連項目(関数)</h2>
+<a href="TTF_GetFontStyle.html">TTF_GetFontStyle</a><br>
 <h2>原文へのリンク</h2>
-<a href="http://www.libsdl.org/projects/SDL_ttf/docs/SDL_ttf_22.html#SEC22">3.3.3 TTF_SetFontStyle</a>
+<a href="https://wiki.libsdl.org/SDL_ttf/TTF_SetFontStyle">SDL_ttf/TTF_SetFontStyle</a>
 <hr>
 </body>
 </html>
