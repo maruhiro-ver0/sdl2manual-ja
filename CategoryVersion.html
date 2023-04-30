@@ -12,7 +12,7 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - バージョン
 <hr>
 <h1>バージョン</h1>
-インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_version.h">SDL_version.h</a> <a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_revision.h">SDL_revision.h</a>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_version.h">SDL_version.h</a> <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_revision.h">SDL_revision.h</a>
 <h2>概要</h2>
 <p>
 これらの関数は, コンパイルされた時点の, またはプログラムが現在使用しているSDLのバージョンの獲得のために使われる.
@@ -38,21 +38,21 @@ SDL_REVISIONを使う場合, SDL_revision.hをプログラムにインクルードする必要がある.
 </p>
 <h2>構造体</h2>
 <ol>
-<li><a href="SDL_version-structure.html">SDL_version</a></li>
+<li><a href="SDL_version-structure.html">SDL_version</a> - SDLのバージョンの構造体
 </ol>
 <h2>関数</h2>
 <ol>
-<li><a href="SDL_COMPILEDVERSION.html">SDL_COMPILEDVERSION</a></li>
-<li><a href="SDL_GetRevision.html">SDL_GetRevision</a></li>
-<li><a href="SDL_GetRevisionNumber.html">SDL_GetRevisionNumber</a></li>
-<li><a href="SDL_GetVersion.html">SDL_GetVersion</a></li>
-<li><a href="SDL_REVISION.html">SDL_REVISION</a></li>
-<li><a href="SDL_VERSION.html">SDL_VERSION</a></li>
-<li><a href="SDL_VERSIONNUM.html">SDL_VERSIONNUM</a></li>
-<li><a href="SDL_VERSION_ATLEAST.html">SDL_VERSION_ATLEAST</a></li>
+<li><a href="SDL_COMPILEDVERSION.html">SDL_COMPILEDVERSION</a> - コンパイル時のSDLのバージョンを得るマクロ
+<li><a href="SDL_GetRevision.html">SDL_GetRevision</a> - アプリケーションにリンクされたSDLのリビジョンコードを得る
+<li><a href="SDL_GetRevisionNumber.html">SDL_GetRevisionNumber</a> - <del>アプリケーションにリンクされたSDLのリビジョン番号を得る.</del> この関数は廃止された. 使用してはならない
+<li><a href="SDL_GetVersion.html">SDL_GetVersion</a> - アプリケーションにリンクされたSDLのバージョンを得る
+<li><a href="SDL_REVISION.html">SDL_REVISION</a> - 開発のソースの時点の表す文字列のマクロ
+<li><a href="SDL_VERSION.html">SDL_VERSION</a> - アプリケーションをコンパイルした時のSDLのバージョンを求めるマクロ
+<li><a href="SDL_VERSIONNUM.html">SDL_VERSIONNUM</a> - 分離された3つのバージョン番号を1つの値にする
+<li><a href="SDL_VERSION_ATLEAST.html">SDL_VERSION_ATLEAST</a> - コンパイル時のSDLのバージョンが指定のバージョンより新しいかチェックする
 </ol>
 <h2>SDL Wikiへのリンク</h2>
-<a href="https://wiki.libsdl.org/CategoryVersion">Querying SDL Version - SDL Wiki</a>
+<a href="https://wiki.libsdl.org/SDL2/CategoryVersion">Querying SDL Version - SDL Wiki</a>
 <hr>
 </body>
 </html>

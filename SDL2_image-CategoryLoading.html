@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_image">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_image-ApiByCategory.html" title="1つ上">
+<title>読み込み/保存</title>
+</head>
+<body>
+<a href="index.html#SDL2_image">目次</a> - <a href="SDL2_image-FrontPage.html">SDL_image</a> - <a href="SDL2_image-ApiByCategory.html">API(機能別)</a> - 読み込み/保存
+<hr>
+<h1>読み込み/保存</h1>
+これらの関数は, ファイル, <a href="SDL_RWops.html">SDL_RWops</a>, メモリ上のデータ配列から<a href="SDL_Surface.html">SDL_Surface</a>, <a href="SDL_Renderer.html">SDL_Renderer</a>, IMG_Animationを生成する.<br>
+または<a href="SDL_Surface.html">SDL_Surface</a>からファイル, <a href="SDL_RWops.html">SDL_RWops</a>に保存する.
+<h2>形式を自動判別して読み込む</h2>
+<ol>
+<li><a href="IMG_Load.html">IMG_Load</a> - 画像をファイルシステムのパスからサーフェイスに読み込む
+<li><a href="IMG_Load_RW.html">IMG_Load_RW</a> - 画像をSDL_RWopsからサーフェイスに読み込む
+<li><a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a> - 画像をSDL_RWopsからサーフェイスに読み込む
+</ol>
+<h2>形式を指定して読み込む</h2>
+<ol>
+<li><a href="IMG_LoadAVIF_RW.html">IMG_LoadAVIF_RW</a> - AVIF画像を直接読み込む
+<li><a href="IMG_LoadBMP_RW.html">IMG_LoadBMP_RW</a> - BMP画像を直接読み込む
+<li><a href="IMG_LoadCUR_RW.html">IMG_LoadCUR_RW</a> - CUR画像を直接読み込む
+<li><a href="IMG_LoadGIF_RW.html">IMG_LoadGIF_RW</a> - GIF画像を直接読み込む
+<li><a href="IMG_LoadICO_RW.html">IMG_LoadICO_RW</a> - ICO画像を直接読み込む
+<li><a href="IMG_LoadJPG_RW.html">IMG_LoadJPG_RW</a> - JPG画像を直接読み込む
+<li><a href="IMG_LoadJXL_RW.html">IMG_LoadJXL_RW</a> - JXL画像を直接読み込む
+<li><a href="IMG_LoadLBM_RW.html">IMG_LoadLBM_RW</a> - LBM画像を直接読み込む
+<li><a href="IMG_LoadPCX_RW.html">IMG_LoadPCX_RW</a> - PCX画像を直接読み込む
+<li><a href="IMG_LoadPNG_RW.html">IMG_LoadPNG_RW</a> - PNG画像を直接読み込む
+<li><a href="IMG_LoadPNM_RW.html">IMG_LoadPNM_RW</a> - PNM画像を直接読み込む
+<li><a href="IMG_LoadQOI_RW.html">IMG_LoadQOI_RW</a> - QOI画像を直接読み込む
+<li><a href="IMG_LoadSizedSVG_RW.html">IMG_LoadSizedSVG_RW</a> - SVG画像指定のサイズに拡大縮小して読み込む
+<li><a href="IMG_LoadSVG_RW.html">IMG_LoadSVG_RW</a> - SVG画像を直接読み込む
+<li><a href="IMG_LoadTGA_RW.html">IMG_LoadTGA_RW</a> - TGA画像を直接読み込む
+<li><a href="IMG_LoadTIF_RW.html">IMG_LoadTIF_RW</a> - TIF画像を直接読み込む
+<li><a href="IMG_LoadWEBP_RW.html">IMG_LoadWEBP_RW</a> - WEBP画像を直接読み込む
+<li><a href="IMG_LoadXCF_RW.html">IMG_LoadXCF_RW</a> - XCF画像を直接読み込む
+<li><a href="IMG_LoadXPM_RW.html">IMG_LoadXPM_RW</a> - XPM画像を直接読み込む
+<li><a href="IMG_LoadXV_RW.html">IMG_LoadXV_RW</a> - XV画像を直接読み込む
+</ol>
+<h2>配列から読み込む</h2>
+<ol>
+<li><a href="IMG_ReadXPMFromArray.html">IMG_ReadXPMFromArray</a> - メモリ上の配列からXPM画像を読み込む
+<li><a href="IMG_ReadXPMFromArrayToRGB888.html">IMG_ReadXPMFromArrayToRGB888</a> - メモリ上の配列からXPM画像を読み込む
+</ol>
+<h2>テクスチャを生成する</h2>
+<ol>
+<li><a href="IMG_LoadTexture.html">IMG_LoadTexture</a> - 画像をファイルからGPUテクスチャに読み込む
+<li><a href="IMG_LoadTexture_RW.html">IMG_LoadTexture_RW</a> - 画像をSDLデータソースからGPUテクスチャに読み込む
+<li><a href="IMG_LoadTextureTyped_RW.html">IMG_LoadTextureTyped_RW</a> - 画像をSDLデータソースからGPUテクスチャに読み込む
+</ol>
+</p>
+<h2>形式を自動判別してアニメーションを生成する</h2>
+<ol>
+<li><a href="IMG_LoadAnimation.html">IMG_LoadAnimation</a> - ファイルからアニメーションを読み込む
+<li><a href="IMG_LoadAnimation_RW.html">IMG_LoadAnimation_RW</a> - SDL_RWopsからアニメーションを読み込む
+<li><a href="IMG_LoadAnimationTyped_RW.html">IMG_LoadAnimationTyped_RW</a> - SDLデータソースからアニメーションを読み込む
+</ol>
+<h2>形式を指定してアニメーションを生成する</h2>
+<ol>
+<li><a href="IMG_LoadGIFAnimation_RW.html">IMG_LoadGIFAnimation_RW</a> - GIFアニメーションを直接読み込む
+<li><a href="IMG_LoadWEBPAnimation_RW.html">IMG_LoadWEBPAnimation_RW</a> - WEBPアニメーションを直接読み込む
+</ol>
+<h2>アニメーションを解放する</h2>
+<ol>
+<li><a href="IMG_FreeAnimation.html">IMG_FreeAnimation</a> - IMG_Animationを破棄して資源を解放する
+</ol>
+<h2>形式を指定して保存する</h2>
+<ol>
+<li><a href="IMG_SaveJPG.html">IMG_SaveJPG</a> - SDL_SurfaceをJPEG画像として保存する
+<li><a href="IMG_SaveJPG_RW.html">IMG_SaveJPG_RW</a> - SDL_SurfaceをSDL_RWopsを経由してJPEG画像として保存する
+<li><a href="IMG_SavePNG.html">IMG_SavePNG</a> - SDL_SurfaceをPNG画像として保存する
+<li><a href="IMG_SavePNG_RW.html">IMG_SavePNG_RW</a> - SDL_SurfaceをSDL_RWopsを経由してPNG画像として保存する
+</ol>
+<hr>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions.html" title="1つ上">
+<title>効果</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - 4.6エフェクト
+<hr>
+<h1>4.6 エフェクト</h1>
+これらの関数はエフェクト処理のためにある.
+エフェクトは効果音だけではない.
+エフェクトは全てSDL_mixerに組み込まれた, またはあなたが作成した後処理のルーチンである.
+エフェクトは個々のチャネル, または音楽を含む全てのチャネルを最終的にミックスしたストリームに対して適用できる.
+<h2>登録</h2>
+<ol>
+<li><a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a> - チャネルのエフェクトを設定する
+<li><a href="Mix_UnregisterEffect.html">Mix_UnregisterEffect</a> - チャネルのエフェクトを解除する
+<li><a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a> - チャネルの全てのエフェクトを解除する
+<li><a href="Mix_SetPostMix.html">Mix_SetPostMix</a> - 後処理をフックする
+</ol>
+<h2>組み込みエフェクト</h2>
+<ol>
+<li><a href="Mix_SetPanning.html">Mix_SetPanning</a> - ステレオパン
+<li><a href="Mix_SetDistance.html">Mix_SetDistance</a> - 距離による減衰
+<li><a href="Mix_SetPosition.html">Mix_SetPosition</a> - 方向と距離
+<li><a href="Mix_SetReverseStereo.html">Mix_SetReverseStereo</a> - ステレオの左右の入れ替え
+</ol>
+組み込みエフェクト: Mix_SetPanning, Mix_SetPosition, Mix_SetDistance, Mix_SetReverseStereoはMIX_EFFECTSMAXSPEEDが定義されていれば全て環境変数の影響を受ける.
+もし環境変数が定義されていれば, 処理速度を上げるために, これらの処理はより多くのメモリを使うかエフェクトの質を下げる.
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_75.html#SEC75">4.6 Effects</a>
+<hr>
+</body>
+</html>

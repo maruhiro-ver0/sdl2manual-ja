@@ -12,7 +12,7 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - ログ
 <hr>
 <h1>ログ</h1>
-インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_log.h">SDL_log.h</a>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_log.h">SDL_log.h</a>
 <h2>概要</h2>
 <p>
 ここに分類される関数は, 分類と重要度のついた簡単なログメッセージを扱うものである.
@@ -48,29 +48,29 @@ SDL 2.0.24以前の場合, メッセージは最大長(4096byte)で切られる.
 </p>
 <h2>列挙体</h2>
 <ol>
-<li><a href="SDL_LOG_CATEGORY.html">SDL_LOG_CATEGORY</a></li>
-<li><a href="SDL_LogPriority.html">SDL_LogPriority</a></li>
+<li><a href="SDL_LOG_CATEGORY.html">SDL_LOG_CATEGORY</a> - あらかじめ設定されたログの分類の列挙体
+<li><a href="SDL_LogPriority.html">SDL_LogPriority</a> - あらかじめ定義されたログの重要度の列挙体
 </ol>
 <h2>関数</h2>
 <ol>
-<li><a href="SDL_Log.html">SDL_Log</a></li>
-<li><a href="SDL_LogCritical.html">SDL_LogCritical</a></li>
-<li><a href="SDL_LogDebug.html">SDL_LogDebug</a></li>
-<li><a href="SDL_LogError.html">SDL_LogError</a></li>
-<li><a href="SDL_LogGetOutputFunction.html">SDL_LogGetOutputFunction</a></li>
-<li><a href="SDL_LogGetPriority.html">SDL_LogGetPriority</a></li>
-<li><a href="SDL_LogInfo.html">SDL_LogInfo</a></li>
-<li><a href="SDL_LogMessage.html">SDL_LogMessage</a></li>
-<li><a href="SDL_LogMessageV.html">SDL_LogMessageV</a></li>
-<li><a href="SDL_LogResetPriorities.html">SDL_LogResetPriorities</a></li>
-<li><a href="SDL_LogSetAllPriority.html">SDL_LogSetAllPriority</a></li>
-<li><a href="SDL_LogSetOutputFunction.html">SDL_LogSetOutputFunction</a></li>
-<li><a href="SDL_LogSetPriority.html">SDL_LogSetPriority</a></li>
-<li><a href="SDL_LogVerbose.html">SDL_LogVerbose</a></li>
-<li><a href="SDL_LogWarn.html">SDL_LogWarn</a></li>
+<li><a href="SDL_Log.html">SDL_Log</a> - SDL_LOG_CATEGORY_APPLICATION分類ログをSDL_LOG_PRIORITY_INFOの重要度で出力する
+<li><a href="SDL_LogCritical.html">SDL_LogCritical</a> - SDL_LOG_PRIORITY_CRITICAL以上の重要度のログを出力する
+<li><a href="SDL_LogDebug.html">SDL_LogDebug</a> - SDL_LOG_PRIORITY_DEBUG以上の重要度のログを出力する
+<li><a href="SDL_LogError.html">SDL_LogError</a> - SDL_LOG_PRIORITY_ERROR以上の重要度のログを出力する
+<li><a href="SDL_LogGetOutputFunction.html">SDL_LogGetOutputFunction</a> - 現在のログ出力関数を得る
+<li><a href="SDL_LogGetPriority.html">SDL_LogGetPriority</a> - 指定のログの分類の重要度を得る
+<li><a href="SDL_LogInfo.html">SDL_LogInfo</a> - SDL_LOG_PRIORITY_INFO以上の重要度のログを出力する
+<li><a href="SDL_LogMessage.html">SDL_LogMessage</a> - 指定の分類と重要度のログを出力する
+<li><a href="SDL_LogMessageV.html">SDL_LogMessageV</a> - 指定の分類と重要度のログを出力する
+<li><a href="SDL_LogResetPriorities.html">SDL_LogResetPriorities</a> - 全ての重要度をデフォルトに戻す
+<li><a href="SDL_LogSetAllPriority.html">SDL_LogSetAllPriority</a> - 全ての分類の重要度を設定する
+<li><a href="SDL_LogSetOutputFunction.html">SDL_LogSetOutputFunction</a> - ログ出力関数を置き換える
+<li><a href="SDL_LogSetPriority.html">SDL_LogSetPriority</a> - 指定の分類の重要度を設定する
+<li><a href="SDL_LogVerbose.html">SDL_LogVerbose</a> - SDL_LOG_PRIORITY_VERBOSE以上の重要度のログを出力する
+<li><a href="SDL_LogWarn.html">SDL_LogWarn</a> - SDL_LOG_PRIORITY_WARN以上の重要度のログを出力する
 </ol>
 <h2>SDL Wikiへのリンク</h2>
-<a href="https://wiki.libsdl.org/CategoryLog">Log Handling - SDL Wiki</a>
+<a href="https://wiki.libsdl.org/SDL2/CategoryLog">Log Handling - SDL Wiki</a>
 <hr>
 </body>
 </html>

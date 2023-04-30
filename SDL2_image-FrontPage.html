@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_image">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="index.html#SDL2_image" title="1つ上">
+<title>概要</title>
+</head>
+<body>
+<a href="index.html#SDL2_image">目次</a> - SDL_image
+<hr>
+<h1>SDL_image 2.0</h1>
+<p>
+このライブラリの最新版は<a href="https://github.com/libsdl-org/SDL_image/releases">GitHub</a>から入手できる.
+</p>
+<p>
+これは様々な形式の画像をSDLサーフェイスとして読み込むためのライブラリである.
+</p>
+<p>
+このライブラリの使い方は<a href="SDL2_image-ApiByCategory.html">API一覧(機能別)</a><a href="SDL2_image-CategoryAPI.html">(アルファベット順)</a>とサンプルプログラムの<a href="https://github.com/libsdl-org/SDL_image/blob/main/showimage.c">showimage.c</a>を参考にすること.
+</p>
+<p>
+このライブラリはzlibライセンスの元に配布される. 詳細は<a href="https://github.com/libsdl-org/SDL_image/blob/main/LICENSE.txt">LICENSE.txt</a>を参照すること.
+</p>
+<h2>メモ</h2>
+<p>
+AVIF, JPEG-XL, TIFF, WebPはデコーダライブラリのサイズの都合でデフォルトでは対応していないが, external/download.shを実行して入手することができる.
+</p>
+<p>
+CMakeでビルドする場合, CMakeLists.txtのSUPPORT_*オプションで有効にできる.
+</p>
+<p>
+configure/makeでビルドする場合, 通常通りビルドとインストールをするとconfigureスクリプトが検知してそれらを使用する.
+</p>
+<p>
+Visual Studioでビルドする場合, ライブラリのビルドが必要で, そのときVisual StudioプロジェクトにLOAD_*プリプロセッサを追加する.
+</p>
+<p>
+Xcodeでビルドする場合, それらを有効にするためにプロジェクトの先頭の設定を編集し, あなたのアプリケーションのフレームワークに含める必要がある.
+</p>
+<p>
+Androidの場合, それらを有効にするためAndroid.mkの先頭の設定を編集すること.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_image/FrontPage">SDL2_image/FrontPage</a>
+<hr>
+</body>
+</html>

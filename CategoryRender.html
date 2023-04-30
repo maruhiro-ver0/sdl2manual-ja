@@ -12,7 +12,7 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - 2Dレンダリング
 <hr>
 <h1>2Dレンダリング</h1>
-インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_render.h">SDL_render.h</a>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_render.h">SDL_render.h</a>
 <h2>概要</h2>
 <p>
 この分類の関数は, アクセラレータを使った2Dレンダリングを行うものである.
@@ -40,108 +40,108 @@
 </p>
 <h2>列挙体</h2>
 <ol>
-<li><a href="SDL_BlendFactor.html">SDL_BlendFactor</a></li>
-<li><a href="SDL_BlendOperation.html">SDL_BlendOperation</a></li>
-<li><a href="SDL_RendererFlags.html">SDL_RendererFlags</a></li>
-<li><a href="SDL_RendererFlip.html">SDL_RendererFlip</a></li>
-<li><a href="SDL_TextureAccess.html">SDL_TextureAccess</a></li>
-<li><a href="SDL_TextureModulate.html">SDL_TextureModulate</a></li>
+<li><a href="SDL_BlendFactor.html">SDL_BlendFactor</a> - SDL_ComposeCustomBlendMode()でカスタムブレンドモードを生成する場合に使われるブレンド係数の列挙体
+<li><a href="SDL_BlendOperation.html">SDL_BlendOperation</a> - SDL_ComposeCustomBlendMode()でカスタムブレンドモードを生成する場合に使われるブレンド演算の列挙体
+<li><a href="SDL_RendererFlags.html">SDL_RendererFlags</a> - レンダリングコンテキストを生成するときに使われるフラグの列挙体
+<li><a href="SDL_RendererFlip.html">SDL_RendererFlip</a> - SDL_RenderCopyEx()の反転のフラグの列挙体
+<li><a href="SDL_TextureAccess.html">SDL_TextureAccess</a> - テクスチャのアクセスパターンの列挙体
+<li><a href="SDL_TextureModulate.html">SDL_TextureModulate</a> - SDL_RenderCopy()のテクスチャーチャネル変調の列挙体
 </ol>
 <h2>構造体</h2>
 <ol>
-<li><a href="SDL_Renderer.html">SDL_Renderer</a></li>
-<li><a href="SDL_RendererInfo.html">SDL_RendererInfo</a></li>
-<li><a href="SDL_Texture.html">SDL_Texture</a></li>
-<li><a href="SDL_Vertex.html">SDL_Vertex</a></li>
-<li><a href="SDL_VertexSolid.html">SDL_VertexSolid</a></li>
+<li><a href="SDL_Renderer.html">SDL_Renderer</a> - レンダラーの状態を含む構造体
+<li><a href="SDL_RendererInfo.html">SDL_RendererInfo</a> - レンダリングドライバまたは現在のレンダリングコンテキストの能力の構造体
+<li><a href="SDL_Texture.html">SDL_Texture</a> - 効果, ドライバ固有のピクセルデータを含む構造体
+<li><a href="SDL_Vertex.html">SDL_Vertex</a> - 頂点の構造体
+<li><a href="SDL_VertexSolid.html">SDL_VertexSolid</a> - 頂点の構造体
 </ol>
 <h2>関数</h2>
 <ol>
-<li><a href="SDL_ComposeCustomBlendMode.html">SDL_ComposeCustomBlendMode</a></li>
-<li><a href="SDL_CreateRenderer.html">SDL_CreateRenderer</a></li>
-<li><a href="SDL_CreateSoftwareRenderer.html">SDL_CreateSoftwareRenderer</a></li>
-<li><a href="SDL_CreateTexture.html">SDL_CreateTexture</a></li>
-<li><a href="SDL_CreateTextureFromSurface.html">SDL_CreateTextureFromSurface</a></li>
-<li><a href="SDL_CreateWindowAndRenderer.html">SDL_CreateWindowAndRenderer</a></li>
-<li><a href="SDL_DestroyRenderer.html">SDL_DestroyRenderer</a></li>
-<li><a href="SDL_DestroyTexture.html">SDL_DestroyTexture</a></li>
-<li><a href="SDL_GL_BindTexture.html">SDL_GL_BindTexture</a></li>
-<li><a href="SDL_GL_UnbindTexture.html">SDL_GL_UnbindTexture</a></li>
-<li><a href="SDL_GetNumRenderDrivers.html">SDL_GetNumRenderDrivers</a></li>
-<li><a href="SDL_GetRenderDrawBlendMode.html">SDL_GetRenderDrawBlendMode</a></li>
-<li><a href="SDL_GetRenderDrawColor.html">SDL_GetRenderDrawColor</a></li>
-<li><a href="SDL_GetRenderDriverInfo.html">SDL_GetRenderDriverInfo</a></li>
-<li><a href="SDL_GetRenderTarget.html">SDL_GetRenderTarget</a></li>
-<li><a href="SDL_GetRenderer.html">SDL_GetRenderer</a></li>
-<li><a href="SDL_GetRendererInfo.html">SDL_GetRendererInfo</a></li>
-<li><a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize</a></li>
-<li><a href="SDL_GetTextureAlphaMod.html">SDL_GetTextureAlphaMod</a></li>
-<li><a href="SDL_GetTextureBlendMode.html">SDL_GetTextureBlendMode</a></li>
-<li><a href="SDL_GetTextureColorMod.html">SDL_GetTextureColorMod</a></li>
-<li><a href="SDL_GetTextureScaleMode.html">SDL_GetTextureScaleMode</a></li>
-<li><a href="SDL_GetTextureUserData.html">SDL_GetTextureUserData</a></li>
-<li><a href="SDL_LockTexture.html">SDL_LockTexture</a></li>
-<li><a href="SDL_LockTextureToSurface.html">SDL_LockTextureToSurface</a></li>
-<li><a href="SDL_QueryTexture.html">SDL_QueryTexture</a></li>
-<li><a href="SDL_RenderClear.html">SDL_RenderClear</a></li>
-<li><a href="SDL_RenderCopy.html">SDL_RenderCopy</a></li>
-<li><a href="SDL_RenderCopyF.html">SDL_RenderCopyF</a></li>
-<li><a href="SDL_RenderCopyEx.html">SDL_RenderCopyEx</a></li>
-<li><a href="SDL_RenderCopyExF.html">SDL_RenderCopyExF</a></li>
-<li><a href="SDL_RenderDrawLine.html">SDL_RenderDrawLine</a></li>
-<li><a href="SDL_RenderDrawLineF.html">SDL_RenderDrawLineF</a></li>
-<li><a href="SDL_RenderDrawLines.html">SDL_RenderDrawLines</a></li>
-<li><a href="SDL_RenderDrawLinesF.html">SDL_RenderDrawLinesF</a></li>
-<li><a href="SDL_RenderDrawPoint.html">SDL_RenderDrawPoint</a></li>
-<li><a href="SDL_RenderDrawPointF.html">SDL_RenderDrawPointF</a></li>
-<li><a href="SDL_RenderDrawPoints.html">SDL_RenderDrawPoints</a></li>
-<li><a href="SDL_RenderDrawPointsF.html">SDL_RenderDrawPointsF</a></li>
-<li><a href="SDL_RenderDrawRect.html">SDL_RenderDrawRect</a></li>
-<li><a href="SDL_RenderDrawRectF.html">SDL_RenderDrawRectF</a></li>
-<li><a href="SDL_RenderDrawRects.html">SDL_RenderDrawRects</a></li>
-<li><a href="SDL_RenderDrawRectsF.html">SDL_RenderDrawRectsF</a></li>
-<li><a href="SDL_RenderFillRect.html">SDL_RenderFillRect</a></li>
-<li><a href="SDL_RenderFillRectF.html">SDL_RenderFillRectF</a></li>
-<li><a href="SDL_RenderFillRects.html">SDL_RenderFillRects</a></li>
-<li><a href="SDL_RenderFillRectsF.html">SDL_RenderFillRectsF</a></li>
-<li><a href="SDL_RenderFlush.html">SDL_RenderFlush</a></li>
-<li><a href="SDL_RenderGeometry.html">SDL_RenderGeometry</a></li>
-<li><a href="SDL_RenderGeometryRaw.html">SDL_RenderGeometryRaw</a></li>
-<li><a href="SDL_RenderGetClipRect.html">SDL_RenderGetClipRect</a></li>
-<li><a href="SDL_RenderGetIntegerScale.html">SDL_RenderGetIntegerScale</a></li>
-<li><a href="SDL_RenderGetLogicalSize.html">SDL_RenderGetLogicalSize</a></li>
-<li><a href="SDL_RenderGetMetalCommandEncoder.html">SDL_RenderGetMetalCommandEncoder</a></li>
-<li><a href="SDL_RenderGetMetalLayer.html">SDL_RenderGetMetalLayer</a></li>
-<li><a href="SDL_RenderGetScale.html">SDL_RenderGetScale</a></li>
-<li><a href="SDL_RenderGetViewport.html">SDL_RenderGetViewport</a></li>
-<li><a href="SDL_RenderGetWindow.html">SDL_RenderGetWindow</a></li>
-<li><a href="SDL_RenderIsClipEnabled.html">SDL_RenderIsClipEnabled</a></li>
-<li><a href="SDL_RenderLogicalToWindow.html">SDL_RenderLogicalToWindow</a></li>
-<li><a href="SDL_RenderPresent.html">SDL_RenderPresent</a></li>
-<li><a href="SDL_RenderReadPixels.html">SDL_RenderReadPixels</a></li>
-<li><a href="SDL_RenderSetClipRect.html">SDL_RenderSetClipRect</a></li>
-<li><a href="SDL_RenderSetIntegerScale.html">SDL_RenderSetIntegerScale</a></li>
-<li><a href="SDL_RenderSetLogicalSize.html">SDL_RenderSetLogicalSize</a></li>
-<li><a href="SDL_RenderSetScale.html">SDL_RenderSetScale</a></li>
-<li><a href="SDL_RenderSetViewport.html">SDL_RenderSetViewport</a></li>
-<li><a href="SDL_RenderSetVSync.html">SDL_RenderSetVSync</a></li>
-<li><a href="SDL_RenderTargetSupported.html">SDL_RenderTargetSupported</a></li>
-<li><a href="SDL_RenderWindowToLogical.html">SDL_RenderWindowToLogical</a></li>
-<li><a href="SDL_SetRenderDrawBlendMode.html">SDL_SetRenderDrawBlendMode</a></li>
-<li><a href="SDL_SetRenderDrawColor.html">SDL_SetRenderDrawColor</a></li>
-<li><a href="SDL_SetRenderTarget.html">SDL_SetRenderTarget</a></li>
-<li><a href="SDL_SetTextureAlphaMod.html">SDL_SetTextureAlphaMod</a></li>
-<li><a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode</a></li>
-<li><a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod</a></li>
-<li><a href="SDL_SetTextureScaleMode.html">SDL_SetTextureScaleMode</a></li>
-<li><a href="SDL_SetTextureUserData.html">SDL_SetTextureUserData</a></li>
-<li><a href="SDL_UnlockTexture.html">SDL_UnlockTexture</a></li>
-<li><a href="SDL_UpdateNVTexture.html">SDL_UpdateNVTexture</a></li>
-<li><a href="SDL_UpdateTexture.html">SDL_UpdateTexture</a></li>
-<li><a href="SDL_UpdateYUVTexture.html">SDL_UpdateYUVTexture</a></li>
+<li><a href="SDL_ComposeCustomBlendMode.html">SDL_ComposeCustomBlendMode</a> - レンダーのカスタムブレンドモードを生成する
+<li><a href="SDL_CreateRenderer.html">SDL_CreateRenderer</a> - ウィンドウの2Dレンダリングコンテキストを生成する
+<li><a href="SDL_CreateSoftwareRenderer.html">SDL_CreateSoftwareRenderer</a> - サーフェイスの2Dソフトウェアレンダリングコンテキストを作成する
+<li><a href="SDL_CreateTexture.html">SDL_CreateTexture</a> - レンダリングコンテキストのテクスチャを生成する
+<li><a href="SDL_CreateTextureFromSurface.html">SDL_CreateTextureFromSurface</a> - サーフェイスからテクスチャを生成する
+<li><a href="SDL_CreateWindowAndRenderer.html">SDL_CreateWindowAndRenderer</a> - ウィンドウとデフォルトのレンダラを生成する
+<li><a href="SDL_DestroyRenderer.html">SDL_DestroyRenderer</a> - ウィンドウのレンダリングコンテキストと関連のテクスチャを破棄する
+<li><a href="SDL_DestroyTexture.html">SDL_DestroyTexture</a> - テクスチャを破棄する
+<li><a href="SDL_GL_BindTexture.html">SDL_GL_BindTexture</a> - OpenGL/ES/ES2テクスチャをカレントコンテキストにバインドする
+<li><a href="SDL_GL_UnbindTexture.html">SDL_GL_UnbindTexture</a> - OpenGLプリミティブのレンダリングで使っているOpenGL/ES/ES2テクスチャをカレントコンテキストからアンバインドする
+<li><a href="SDL_GetNumRenderDrivers.html">SDL_GetNumRenderDrivers</a> - 現在のディスプレイで利用できる2Dレンダリングドライバの数を得る
+<li><a href="SDL_GetRenderDrawBlendMode.html">SDL_GetRenderDrawBlendMode</a> - 描画時のブレンドモードを得る
+<li><a href="SDL_GetRenderDrawColor.html">SDL_GetRenderDrawColor</a> - 描画操作(長方形, 直線, 消去)で使う色を得る
+<li><a href="SDL_GetRenderDriverInfo.html">SDL_GetRenderDriverInfo</a> - 指定の2Dレンダリングドライバの情報を得る
+<li><a href="SDL_GetRenderer.html">SDL_GetRenderer</a> - ウィンドウに関連付けられたレンダラーを得る
+<li><a href="SDL_GetRendererInfo.html">SDL_GetRendererInfo</a> - レンダリングコンテキストの情報を得る
+<li><a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize</a> - レンダリングコンテキストの出力サイズをピクセル数で得る
+<li><a href="SDL_GetRenderTarget.html">SDL_GetRenderTarget</a> - 現在のレンダーターゲットを得る
+<li><a href="SDL_GetTextureAlphaMod.html">SDL_GetTextureAlphaMod</a> - レンダラーのコピー操作で乗算されるα値を得る
+<li><a href="SDL_GetTextureBlendMode.html">SDL_GetTextureBlendMode</a> - テクスチャのコピー操作で使われるブレンドモードを得る
+<li><a href="SDL_GetTextureColorMod.html">SDL_GetTextureColorMod</a> - レンダーのコピー操作で各色成分に乗算される値を得る
+<li><a href="SDL_GetTextureScaleMode.html">SDL_GetTextureScaleMode</a> - テクスチャの拡大縮小で使用しているモードを得る
+<li><a href="SDL_GetTextureUserData.html">SDL_GetTextureUserData</a> - テクスチャに関連付けられたユーザ指定のポインタを得る
+<li><a href="SDL_LockTexture.html">SDL_LockTexture</a> - ピクセルを書き込み専用にするためにテクスチャの一部をロックする
+<li><a href="SDL_LockTextureToSurface.html">SDL_LockTextureToSurface</a> - ピクセルを書き込み専用にするためにテクスチャの一部をロックしSDLサーフェイスにする
+<li><a href="SDL_QueryTexture.html">SDL_QueryTexture</a> - テクスチャの情報を得る
+<li><a href="SDL_RenderClear.html">SDL_RenderClear</a> - 現在のレンダーターゲットを色で塗りつぶして消去する
+<li><a href="SDL_RenderCopy.html">SDL_RenderCopy</a> - テクスチャの一部を現在のレンダーターゲットにコピーする
+<li><a href="SDL_RenderCopyEx.html">SDL_RenderCopyEx</a> - テクスチャの一部を, 指定の点を中心に回転させ, 上下左右を反転を指定して, 現在のレンダーターゲットにコピーする
+<li><a href="SDL_RenderCopyExF.html">SDL_RenderCopyExF</a> - テクスチャの一部を, サブピクセル(副画素)単位で指定の点を中心に回転させ, 上下左右を反転を指定して, 現在のレンダーターゲットにコピーする
+<li><a href="SDL_RenderCopyF.html">SDL_RenderCopyF</a> - テクスチャの一部をサブピクセル(副画素)単位で現在のレンダーターゲットにコピーする
+<li><a href="SDL_RenderDrawLine.html">SDL_RenderDrawLine</a> - 現在のレンダーターゲットに直線を描く
+<li><a href="SDL_RenderDrawLineF.html">SDL_RenderDrawLineF</a> - 現在のレンダーターゲットにサブピクセル(副画素)単位で直線を描く
+<li><a href="SDL_RenderDrawLines.html">SDL_RenderDrawLines</a> - 現在のレンダーターゲットに複数のつながった直線を描く
+<li><a href="SDL_RenderDrawLinesF.html">SDL_RenderDrawLinesF</a> - 現在のレンダーターゲットに複数のつながった直線をサブピクセル(副画素)単位で描く
+<li><a href="SDL_RenderDrawPoint.html">SDL_RenderDrawPoint</a> - 現在のレンダーターゲットに点を描く
+<li><a href="SDL_RenderDrawPointF.html">SDL_RenderDrawPointF</a> - 現在のレンダーターゲットに点をサブピクセル(副画素)単位で描く
+<li><a href="SDL_RenderDrawPoints.html">SDL_RenderDrawPoints</a> - 現在のレンダーターゲットに複数の点を描く
+<li><a href="SDL_RenderDrawPointsF.html">SDL_RenderDrawPointsF</a> - 現在のレンダーターゲットに複数の点をサブピクセル(副画素)単位で描く
+<li><a href="SDL_RenderDrawRect.html">SDL_RenderDrawRect</a> - 現在のレンダーターゲットに長方形を描く
+<li><a href="SDL_RenderDrawRectF.html">SDL_RenderDrawRectF</a> - 現在のレンダーターゲットに長方形をサブピクセル(副画素)単位で描く
+<li><a href="SDL_RenderDrawRects.html">SDL_RenderDrawRects</a> - 現在のレンダーターゲットに複数の長方形を描く
+<li><a href="SDL_RenderDrawRectsF.html">SDL_RenderDrawRectsF</a> - 現在のレンダーターゲットに複数の長方形をサブピクセル(副画素)単位で描く
+<li><a href="SDL_RenderFillRect.html">SDL_RenderFillRect</a> - 現在のレンダーターゲットに塗りつぶした長方形を描く
+<li><a href="SDL_RenderFillRectF.html">SDL_RenderFillRectF</a> - 現在のレンダーターゲットに塗りつぶした長方形をサブピクセル(副画素)単位で描く
+<li><a href="SDL_RenderFillRects.html">SDL_RenderFillRects</a> - 現在のレンダーターゲットに複数の長方形を描く
+<li><a href="SDL_RenderFillRectsF.html">SDL_RenderFillRectsF</a> - 現在のレンダーターゲットに複数の長方形をサブピクセル(副画素)単位で描く
+<li><a href="SDL_RenderFlush.html">SDL_RenderFlush</a> - レンダラの未実行のコマンドを下位レンダリングAPIに強制的に掃き出す
+<li><a href="SDL_RenderGeometry.html">SDL_RenderGeometry</a> - 三角形の一覧をレンダリングする
+<li><a href="SDL_RenderGeometryRaw.html">SDL_RenderGeometryRaw</a> - 三角形の一覧をレンダリングする
+<li><a href="SDL_RenderGetClipRect.html">SDL_RenderGetClipRect</a> - 現在のレンダーターゲットのクリップ領域を得る
+<li><a href="SDL_RenderGetIntegerScale.html">SDL_RenderGetIntegerScale</a> - 解像度非依存レンダリングで倍率を整数倍に強制されているか否かを得る
+<li><a href="SDL_RenderGetLogicalSize.html">SDL_RenderGetLogicalSize</a> - レンダリングのデバイスに依存しない分解能を得る
+<li><a href="SDL_RenderGetMetalCommandEncoder.html">SDL_RenderGetMetalCommandEncoder</a> - 現在のレンダラのMetalコマンドエンコーダを得る
+<li><a href="SDL_RenderGetMetalLayer.html">SDL_RenderGetMetalLayer</a> - 指定のMetalレンダラに結び付けられたCAMetalLayerを得る
+<li><a href="SDL_RenderGetScale.html">SDL_RenderGetScale</a> - 現在のレンダーターゲットの描画の縮尺を得る
+<li><a href="SDL_RenderGetViewport.html">SDL_RenderGetViewport</a> - レンダーターゲットの描画領域を得る
+<li><a href="SDL_RenderGetWindow.html">SDL_RenderGetWindow</a> - レンダラに関連付けられたウィンドウを得る
+<li><a href="SDL_RenderIsClipEnabled.html">SDL_RenderIsClipEnabled</a> - 指定のレンダラーでクリップが有効か否かを得る
+<li><a href="SDL_RenderLogicalToWindow.html">SDL_RenderLogicalToWindow</a> - レンダラー上の倫理座標からウィンドウ上の実座標を得る
+<li><a href="SDL_RenderPresent.html">SDL_RenderPresent</a> - レンダリングの結果を画面に反映する
+<li><a href="SDL_RenderReadPixels.html">SDL_RenderReadPixels</a> - 現在のレンダーターゲットのピクセルデータを読み込む
+<li><a href="SDL_RenderSetClipRect.html">SDL_RenderSetClipRect</a> - レンダーターゲットにクリップ領域を設定する
+<li><a href="SDL_RenderSetIntegerScale.html">SDL_RenderSetIntegerScale</a> - 解像度非依存レンダラーで倍率を整数倍に強制するか否かを設定する
+<li><a href="SDL_RenderSetLogicalSize.html">SDL_RenderSetLogicalSize</a> - レンダリングのデバイスに依存しない論理サイズを設定する
+<li><a href="SDL_RenderSetScale.html">SDL_RenderSetScale</a> - レンダーターゲットの描画の縮尺を設定する
+<li><a href="SDL_RenderSetViewport.html">SDL_RenderSetViewport</a> - レンダーターゲットの描画領域を設定する
+<li><a href="SDL_RenderSetVSync.html">SDL_RenderSetVSync</a> - 指定のレンダラの垂直同期信号をトグルする
+<li><a href="SDL_RenderTargetSupported.html">SDL_RenderTargetSupported</a> - ウィンドウがレンダーターゲットの利用に対応しているか調査する
+<li><a href="SDL_RenderWindowToLogical.html">SDL_RenderWindowToLogical</a> - ウィンドウ上の実座標からレンダラ上の論理座標を求める
+<li><a href="SDL_SetRenderDrawBlendMode.html">SDL_SetRenderDrawBlendMode</a> - 描画(塗りつぶしと直線)時のブレンドモードを設定する
+<li><a href="SDL_SetRenderDrawColor.html">SDL_SetRenderDrawColor</a> - 描画操作(長方形, 直線, 消去)で使う色を設定する
+<li><a href="SDL_SetRenderTarget.html">SDL_SetRenderTarget</a> - レンダラーのレンダーターゲットを設定する
+<li><a href="SDL_SetTextureAlphaMod.html">SDL_SetTextureAlphaMod</a> - レンダーのコピー操作で乗算されるα値を設定する
+<li><a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode</a> - テクスチャのコピー操作で使われるブレンドモードを設定する
+<li><a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod</a> - レンダーのコピー操作で各色成分に乗算される値を設定する
+<li><a href="SDL_SetTextureScaleMode.html">SDL_SetTextureScaleMode</a> - テクスチャの拡大縮小で使用するモードを設定する
+<li><a href="SDL_SetTextureUserData.html">SDL_SetTextureUserData</a> - ユーザ指定のポインタをテクスチャに関連付ける
+<li><a href="SDL_UnlockTexture.html">SDL_UnlockTexture</a> - 必要なら変更をビデオメモリに反映されるためにテクスチャをアンロックする
+<li><a href="SDL_UpdateNVTexture.html">SDL_UpdateNVTexture</a> - 指定のplanar N12またはN21テクスチャの領域を新しいピクセルデータで更新する
+<li><a href="SDL_UpdateTexture.html">SDL_UpdateTexture</a> - 指定のテクスチャの領域を新しいピクセルデータで更新する
+<li><a href="SDL_UpdateYUVTexture.html">SDL_UpdateYUVTexture</a> - 指定の均等なYV12またはIYUVテクスチャの領域を新しいピクセルデータで更新する
 </ol>
 <h2>SDL Wikiへのリンク</h2>
-<a href="https://wiki.libsdl.org/CategoryRender">2D Accelerated Rendering - SDL Wiki</a>
+<a href="https://wiki.libsdl.org/SDL2/CategoryRender">2D Accelerated Rendering - SDL Wiki</a>
 <hr>
 </body>
 </html>

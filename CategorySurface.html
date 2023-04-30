@@ -12,59 +12,59 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - サーフェイスの生成と単純な描画
 <hr>
 <h1>サーフェイスの生成と単純な描画</h1>
-インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_surface.h">SDL_surface.h</a>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_surface.h">SDL_surface.h</a>
 <h2>概要</h2>
 ここに分類される関数は, サーフェイスの生成, コピー, 長方形などの簡単な描画を行うためのものである.
 <h2>構造体</h2>
 <ol>
-<li><a href="SDL_Surface.html">SDL_Surface</a></li>
+<li><a href="SDL_Surface.html">SDL_Surface</a> - コピーで使われるピクセルの集まりの構造体
 </ol>
 <h2>関数</h2>
 <ol>
-<li><a href="SDL_BlitScaled.html">SDL_BlitScaled</a></li>
-<li><a href="SDL_BlitSurface.html">SDL_BlitSurface</a></li>
-<li><a href="SDL_ConvertPixels.html">SDL_ConvertPixels</a></li>
-<li><a href="SDL_ConvertSurface.html">SDL_ConvertSurface</a></li>
-<li><a href="SDL_ConvertSurfaceFormat.html">SDL_ConvertSurfaceFormat</a></li>
-<li><a href="SDL_CreateRGBSurface.html">SDL_CreateRGBSurface</a></li>
-<li><a href="SDL_CreateRGBSurfaceFrom.html">SDL_CreateRGBSurfaceFrom</a></li>
-<li><a href="SDL_CreateRGBSurfaceWithFormat.html">SDL_CreateRGBSurfaceWithFormat</a></li>
-<li><a href="SDL_CreateRGBSurfaceWithFormatFrom.html">SDL_CreateRGBSurfaceWithFormatFrom</a></li>
-<li><a href="SDL_FillRect.html">SDL_FillRect</a></li>
-<li><a href="SDL_FillRects.html">SDL_FillRects</a></li>
-<li><a href="SDL_FreeSurface.html">SDL_FreeSurface</a></li>
-<li><a href="SDL_GetClipRect.html">SDL_GetClipRect</a></li>
-<li><a href="SDL_GetColorKey.html">SDL_GetColorKey</a></li>
-<li><a href="SDL_GetSurfaceAlphaMod.html">SDL_GetSurfaceAlphaMod</a></li>
-<li><a href="SDL_GetSurfaceBlendMode.html">SDL_GetSurfaceBlendMode</a></li>
-<li><a href="SDL_GetSurfaceColorMod.html">SDL_GetSurfaceColorMod</a></li>
-<li><a href="SDL_GetYUVConversionMode.html">SDL_GetYUVConversionMode</a></li>
-<li><a href="SDL_GetYUVConversionModeForResolution.html">SDL_GetYUVConversionModeForResolution</a></li>
-<li><a href="SDL_HasColorKey.html">SDL_HasColorKey</a></li>
-<li><a href="SDL_HasSurfaceRLE.html">SDL_HasSurfaceRLE</a></li>
-<li><a href="SDL_LoadBMP.html">SDL_LoadBMP</a></li>
-<li><a href="SDL_LoadBMP_RW.html">SDL_LoadBMP_RW</a></li>
-<li><a href="SDL_LockSurface.html">SDL_LockSurface</a></li>
-<li><a href="SDL_LowerBlit.html">SDL_LowerBlit</a></li>
-<li><a href="SDL_LowerBlitScaled.html">SDL_LowerBlitScaled</a></li>
-<li><a href="SDL_MUSTLOCK.html">SDL_MUSTLOCK</a></li>
-<li><a href="SDL_PremultiplyAlpha.html">SDL_PremultiplyAlpha</a></li>
-<li><a href="SDL_SaveBMP.html">SDL_SaveBMP</a></li>
-<li><a href="SDL_SaveBMP_RW.html">SDL_SaveBMP_RW</a></li>
-<li><a href="SDL_SetClipRect.html">SDL_SetClipRect</a></li>
-<li><a href="SDL_SetColorKey.html">SDL_SetColorKey</a></li>
-<li><a href="SDL_SetSurfaceAlphaMod.html">SDL_SetSurfaceAlphaMod</a></li>
-<li><a href="SDL_SetSurfaceBlendMode.html">SDL_SetSurfaceBlendMode</a></li>
-<li><a href="SDL_SetSurfaceColorMod.html">SDL_SetSurfaceColorMod</a></li>
-<li><a href="SDL_SetSurfacePalette.html">SDL_SetSurfacePalette</a></li>
-<li><a href="SDL_SetSurfaceRLE.html">SDL_SetSurfaceRLE</a></li>
-<li><a href="SDL_SetYUVConversionMode.html">SDL_SetYUVConversionMode</a></li>
-<li><a href="SDL_SoftStretch.html">SDL_SoftStretch</a></li>
-<li><a href="SDL_SoftStretchLinear.html">SDL_SoftStretchLinear</a></li>
-<li><a href="SDL_UnlockSurface.html">SDL_UnlockSurface</a></li>
+<li><a href="SDL_BlitScaled.html">SDL_BlitScaled</a> - サーフェイスを別のサーフェイスに拡大縮小してコピーする
+<li><a href="SDL_BlitSurface.html">SDL_BlitSurface</a> - サーフェイスを別のサーフェイスに高速にコピーする
+<li><a href="SDL_ConvertPixels.html">SDL_ConvertPixels</a> - ある形式のピクセル群を別の形式に変換してコピーする
+<li><a href="SDL_ConvertSurface.html">SDL_ConvertSurface</a> - 特定のピクセル形式へのコピーに最適化されたサーフェイスを既存のサーフェイスから生成する
+<li><a href="SDL_ConvertSurfaceFormat.html">SDL_ConvertSurfaceFormat</a> - 既存のサーフェイスを指定のピクセル形式に変換してコピーする
+<li><a href="SDL_CreateRGBSurface.html">SDL_CreateRGBSurface</a> - 新しいRGBサーフェイスを生成する
+<li><a href="SDL_CreateRGBSurfaceFrom.html">SDL_CreateRGBSurfaceFrom</a> - 既存のピクセルデータから新しいRGBサーフェイスを生成する
+<li><a href="SDL_CreateRGBSurfaceWithFormat.html">SDL_CreateRGBSurfaceWithFormat</a> - 既存のピクセルデータから新しいRGBサーフェイスを生成する
+<li><a href="SDL_CreateRGBSurfaceWithFormatFrom.html">SDL_CreateRGBSurfaceWithFormatFrom</a> - 既存のピクセルデータから新しいRGBサーフェイスを生成する
+<li><a href="SDL_FillRect.html">SDL_FillRect</a> - 指定の色で塗りつぶした長方形を高速に描く
+<li><a href="SDL_FillRects.html">SDL_FillRects</a> - 指定の色で塗りつぶした複数の長方形を高速に描く
+<li><a href="SDL_FreeSurface.html">SDL_FreeSurface</a> - RGBサーフェイスを解放する
+<li><a href="SDL_GetClipRect.html">SDL_GetClipRect</a> - サーフェイスのクリップ領域を得る
+<li><a href="SDL_GetColorKey.html">SDL_GetColorKey</a> - サーフェイスのカラーキー(透過ピクセル)を得る
+<li><a href="SDL_GetSurfaceAlphaMod.html">SDL_GetSurfaceAlphaMod</a> - コピー時のα値の修正値を得る
+<li><a href="SDL_GetSurfaceBlendMode.html">SDL_GetSurfaceBlendMode</a> - コピー時のブレンドモードを得る
+<li><a href="SDL_GetSurfaceColorMod.html">SDL_GetSurfaceColorMod</a> - 転送時に各色成分に乗算される値を得る
+<li><a href="SDL_GetYUVConversionMode.html">SDL_GetYUVConversionMode</a> - YUV変換モードを得る
+<li><a href="SDL_GetYUVConversionModeForResolution.html">SDL_GetYUVConversionModeForResolution</a> - YUV変換モードを得る
+<li><a href="SDL_HasColorKey.html">SDL_HasColorKey</a> - サーフェイスにカラーキー(透過ピクセル)が設定されているかを得る
+<li><a href="SDL_HasSurfaceRLE.html">SDL_HasSurfaceRLE</a> - サーフェイスのRLE(ランレングス圧縮)が有効化されているかを得る
+<li><a href="SDL_LoadBMP.html">SDL_LoadBMP</a> - BMPファイルをサーフェイスに読み込む
+<li><a href="SDL_LoadBMP_RW.html">SDL_LoadBMP_RW</a> - シーク可能なSDLデータストリームからBMP形式をサーフェイスに読み込む
+<li><a href="SDL_LockSurface.html">SDL_LockSurface</a> - ピクセル領域に直接アクセスできるように設定する
+<li><a href="SDL_LowerBlit.html">SDL_LowerBlit</a> - 低レベルのサーフェイスのコピーのみを行う
+<li><a href="SDL_LowerBlitScaled.html">SDL_LowerBlitScaled</a> - 低レベルのサーフェイスの拡大縮小コピーのみを行う
+<li><a href="SDL_MUSTLOCK.html">SDL_MUSTLOCK</a> - アクセスのためにサーフェイスをロックする必要があるかを調べる
+<li><a href="SDL_PremultiplyAlpha.html">SDL_PremultiplyAlpha</a> - ピクセル郡のアルファ値にプリマルチプライを行う
+<li><a href="SDL_SaveBMP.html">SDL_SaveBMP</a> - サーフェイスをBMPファイルとして保存する
+<li><a href="SDL_SaveBMP_RW.html">SDL_SaveBMP_RW</a> - サーフェイスをシーク可能なSDLストリーム(メモリまたはファイル)にBMP形式で書き込む
+<li><a href="SDL_SetClipRect.html">SDL_SetClipRect</a> - サーフェイスのクリップ領域を設定する
+<li><a href="SDL_SetColorKey.html">SDL_SetColorKey</a> - サーフェイスのカラーキー(透過ピクセル)を設定する
+<li><a href="SDL_SetSurfaceAlphaMod.html">SDL_SetSurfaceAlphaMod</a> - コピー時のα値の修正値を設定する
+<li><a href="SDL_SetSurfaceBlendMode.html">SDL_SetSurfaceBlendMode</a> - コピー時のブレンドモードを設定する
+<li><a href="SDL_SetSurfaceColorMod.html">SDL_SetSurfaceColorMod</a> - 転送時に各色成分に乗算される値を設定する
+<li><a href="SDL_SetSurfacePalette.html">SDL_SetSurfacePalette</a> - サーフェイスで使われるパレットを設定する
+<li><a href="SDL_SetSurfaceRLE.html">SDL_SetSurfaceRLE</a> - サーフェイスにRLEアクセラレーションのヒントを設定する
+<li><a href="SDL_SetYUVConversionMode.html">SDL_SetYUVConversionMode</a> - YUV変換モードを設定する
+<li><a href="SDL_SoftStretch.html">SDL_SoftStretch</a> - 高速で低品質な伸縮転送を2つの同一フォーマットのサーフェイス間で行う
+<li><a href="SDL_SoftStretchLinear.html">SDL_SoftStretchLinear</a> - 2つのサーフェイス(32ビット形式)の間で双一次補間(biliner)で拡大縮小してコピーする
+<li><a href="SDL_UnlockSurface.html">SDL_UnlockSurface</a> - ピクセル領域に直接アクセスした後にロックを解放する
 </ol>
 <h2>SDL Wikiへのリンク</h2>
-<a href="https://wiki.libsdl.org/CategorySurface">Surface Creation and Simple Drawing - SDL Wiki</a>
+<a href="https://wiki.libsdl.org/SDL2/CategorySurface">Surface Creation and Simple Drawing - SDL Wiki</a>
 <hr>
 </body>
 </html>

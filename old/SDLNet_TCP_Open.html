@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_net-functions-tcp_sockets.html" title="1つ上">
+<title></title>
+</head>
+<body>
+<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-tcp_sockets.html">3.3TCPソケット</a> - SDLNet_TCP_Open
+<hr>
+<h1>SDLNet_TCP_Open</h1>
+<p>
+<code>TCPsocket SDLNet_TCP_Open(IPaddress *ip)</code>
+</p>
+<p>
+<dl>
+<dt>ip</dt><dd>解決されたIPアドレスとポート番号を持つ<a href="IPaddress.html">IPaddress</a>へのポインタ</dd>
+</dl>
+</p>
+<p>
+TCPでipのホストのポート番号に接続する.
+ホストがINADDR_ANYでポート番号のみ使われて, かつソケットが生成された場合, TCPで接続された後に使えるようになる.
+</p>
+<p>
+戻り値: 成功のとき, つまり接続がESTABLISHEDのとき, またはTCP接続を正常に待っているとき, 利用可能な<a href="TCPsocket.html">TCPsocket</a>.
+ソケットを生成できなかった, またはipのホストと/またはポート番号に接続できなかった場合など失敗のときNULL
+</p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// TCPでlocalhostのポート9999に接続する (クライアント)
+IPaddress ip;
+TCPsocket tcpsock;
+
+if(SDLNet_ResolveHost(&amp;ip,"localhost",9999)==-1) {
+    printf("SDLNet_ResolveHost: %s\n", SDLNet_GetError());
+    exit(1);
+}
+
+tcpsock=SDLNet_TCP_Open(&amp;ip);
+if(!tcpsock) {
+    printf("SDLNet_TCP_Open: %s\n", SDLNet_GetError());
+    exit(2);
+}
+</pre>
+</code>
+<p>
+<p>
+<code>
+<pre>
+// ポート9999でLISTENするTCPソケットを生成する (サーバ)
+IPaddress ip;
+TCPsocket tcpsock;
+
+if(SDLNet_ResolveHost(&amp;ip,NULL,9999)==-1) {
+    printf("SDLNet_ResolveHost: %s\n", SDLNet_GetError());
+    exit(1);
+}
+
+tcpsock=SDLNet_TCP_Open(&amp;ip);
+if(!tcpsock) {
+    printf("SDLNet_TCP_Open: %s\n", SDLNet_GetError());
+    exit(2);
+}
+</pre>
+</code>
+<p>
+<h2>参照</h2>
+<a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept</a>,
+<a href="SDLNet_TCP_Close.html">SDLNet_TCP_Close</a>,
+<a href="IPaddress.html">IPaddress</a>,
+<a href="TCPsocket.html">TCPsocket</a>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/old/SDL_net/docs/SDL_net_19.html#SEC19">3.3.1 SDLNet_TCP_Open</a>
+<hr>
+</body>
+</html>

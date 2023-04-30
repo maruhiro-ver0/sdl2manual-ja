@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_net-functions-socket_sets.html" title="1つ上">
+<title>SDLNet_CheckSockets</title>
+</head>
+<body>
+<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-socket_sets.html">3.6ソケットセット</a> - SDLNet_CheckSockets
+<hr>
+<h1>SDLNet_CheckSockets</h1>
+<p>
+<code>int SDLNet_CheckSockets(SDLNet_SocketSet set, Uint32 timeout)</code>
+</p>
+<p>
+<dl>
+<dt>set</dt><dd>チェックするソケットセット</dd>
+<dt>timeout</dt><dd>待ち時間(ミリ秒). 0のとき待たない. -1は49日(おそらく)以上待つ!</dd>
+</dl>
+</p>
+<p>
+ソケットセット内の全てのソケットが活動中かチェックする.
+0でないtimeoutを渡したならば, この関数は活動を待ち, 活動がなければtimeoutミリ秒経過するのを待つ.
+</p>
+<p>
+メモ: 「活動中」には切断中や他のエラーも含まれる. これらは読み込み/書き込みの失敗でわかる.
+</p>
+<p>
+戻り値: 活動中のソケットの数. 失敗のとき-1. このとき意味のあるエラーメッセージは得られない. ソケットセットが空(チェックすべきものがない)のときも-1
+</p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 1秒間ソケットの活動をチェックする
+//SDLNet_SocketSet set;
+int numready;
+
+numready=SDLNet_CheckSockets(set, 1000);
+if(numready==-1) {
+    printf("SDLNet_CheckSockets: %s\n", SDLNet_GetError());
+    // ほとんどの場合これはシステムエラーである. perrorがユーザの助けになるだろう
+    perror("SDLNet_CheckSockets");
+}
+else if(numready) {
+    printf("%d つのソケットが活動中!\n",numready);
+    // 全てのソケットをSDLNet_SocketReadyでチェックし, 活動中のものを数える
+}
+</pre>
+</code>
+<h2>参照</h2>
+<a href="SDLNet_SocketReady.html">SDLNet_SocketReady</a>,
+<a href="SDLNet_AddSocket.html">SDLNet_AddSocket</a>,
+<a href="SDLNet_DelSocket.html">SDLNet_DelSocket</a>,
+<a href="SDLNet_AllocSocketSet.html">SDLNet_AllocSocketSet</a>,
+<a href="SDLNet_SocketSet.html">SDLNet_SocketSet</a>,
+<a href="UDPsocket.html">UDPsocket</a>,
+<a href="TCPsocket.html">TCPsocket</a>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/old/SDL_net/docs/SDL_net_46.html#SEC46">3.6.5 SDLNet_CheckSockets</a>
+<hr>
+</body>
+</html>

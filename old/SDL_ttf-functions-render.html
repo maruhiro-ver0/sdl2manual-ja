@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions.html" title="1つ上">
+<title>レンダラー</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - 3.4レンダラー
+<hr>
+<h1>3.4 レンダラー</h1>
+<p>
+これらの関数は<a href="TTF_Font.html">TTF_Font</a>を使って文字列をレンダリングする.
+レンダリングには3つのモードがある:
+<dl>
+<dt>
+ベタ(Solid)
+</dt>
+<dd>
+速いが荒い
+<br>
+8bitパレットカラーのサーフェイスを生成し, 指定の文字列を指定のフォントと色で高速にレンダリングする.
+ピクセル値0はカラーキーで, コピー時には背景になる.
+ピクセルは1で, パレットの1番目にはテキストの前景色が設定される.
+それにより再びテキストをレンダリングせずに色を変えられる.
+パレットの0番目はカラーキーなので透明で, 実際は255から前景色のRGBのそれぞれの値を引いた色だが, 別のサーフェイスにコピーする場合は描画されない.
+このモードのレンダリングが最も速い.
+結果として背景色で囲まれていないが, テキストは滑らかではない.
+生成されたサーフェイスは混合(Blended)のサーフェイスより速くコピーできる.
+このモードはFPSを使っていて, 他より速く画面を更新できる.
+</dd>
+<dt>
+陰影(Shaded)
+</dt>
+<dd>
+高品質だがベタ塗りの中にある
+<br>
+8bitパレットカラーのサーフェイスを生成し, 指定の文字列を指定のフォントと色で高品質にレンダリングする.
+ピクセル値0は背景で, 他のピクセル値は背景色から前景色に段階的に変化する色である.
+結果として前景色のテキストの周りを背景色が囲んでいる.
+テキストはアンチエイリアスされている.
+このモードのレンダリングはベタ(Solid)より遅いが, 混合(Blend)モードと同じ速さである.
+生成されたサーフェイスはベタ(Solid)と同じ速さでコピーできる. 高品質なテキストが必要で, 背景色で囲まれていてよければこのモードを使うとよい.
+</dd>
+<dt>
+混合(Blended)
+</dt>
+<dd>
+最も遅いが最も高品質
+<br>
+32bit ARGBのサーフェイスを生成し, 指定の文字列を指定のフォントと色でαブレンドしてレンダリングする.
+結果としてサーフェイスはα透過で, テキストの周りをベタの色が囲んでいない.
+テキストはアンチエイリアスされている.
+ベタ(Solid)モードより遅いが, 陰影(Shaded)と同じ速さでレンダリングする.
+生成されたサーフェイスの画面へのコピーはベタ(Solid)や陰影(Shaded)よりも遅い.
+高品質が必要で, テキストがあまり変わらないときは, このモードを使うとよい.
+</dd>
+</dl>
+</p>
+<h2>ベタ(Solid)</h2>
+<ol>
+<li><a href="TTF_RenderText_Solid.html">TTF_RenderText_Solid</a> - LATIN1テキストをベタ塗りモードで描く
+<li><a href="TTF_RenderUTF8_Solid.html">TTF_RenderUTF8_Solid</a> - UTF8テキストをベタ塗りモードで描く
+<li><a href="TTF_RenderUNICODE_Solid.html">TTF_RenderUNICODE_Solid</a> - UNICODEテキストをベタ塗りモードで描く
+<li><a href="TTF_RenderGlyph_Solid.html">TTF_RenderGlyph_Solid</a> - UNICODEグリフをベタ塗りでモード描く
+</ol>
+<h2>陰影(Shaded)</h2>
+<ol>
+<li><a href="TTF_RenderText_Shaded.html">TTF_RenderText_Shaded</a> - LATIN1テキストを陰影モードで描く
+<li><a href="TTF_RenderUTF8_Shaded.html">TTF_RenderUTF8_Shaded</a> - UTF8テキストを陰影モードで描く
+<li><a href="TTF_RenderUNICODE_Shaded.html">TTF_RenderUNICODE_Shaded</a> - UNCODEテキストを陰影モードで描く
+<li><a href="TTF_RenderGlyph_Shaded.html">TTF_RenderGlyph_Shaded</a> - UNICODEグリフを陰影モードで描く
+</ol>
+<h2>混合(Blended)</h2>
+<ol>
+<li><a href="TTF_RenderText_Blended.html">TTF_RenderText_Blended</a> - LATIN1テキストを混合モードで描く
+<li><a href="TTF_RenderUTF8_Blended.html">TTF_RenderUTF8_Blended</a> - UTF8テキストを混合モードで描く
+<li><a href="TTF_RenderUNICODE_Blended.html">TTF_RenderUNICODE_Blended</a> - UNICODEテキストを混合モードで描く
+<li><a href="TTF_RenderGlyph_Blended.html">TTF_RenderGlyph_Blended</a> - UNICODEグリフを混合モードで描く
+</ol>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/old/SDL_ttf/docs/SDL_ttf_42.html#SEC42">3.4 Render</a>
+<hr>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions-samples.html" title="1つ上">
+<title>Mix_GetNumChunkDecoders</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-samples.html">4.2サンプリング音声</a> - Mix_GetNumChunkDecoders
+<hr>
+<h1>Mix_GetNumChunkDecoders</h1>
+<p>
+<code>int Mix_GetNumChunkDecoders()</code>
+</p>
+<p>
+<a href="Mix_GetChunkDecoder.html">Mix_GetChunkDecoder</a>で利用可能なサンプルチャンクデコーダーの数を得る.
+それぞれの形式に対応した共有ライブラリの利用可能なチャンクデコーダーの数が変わるため, この数はプログラムの実行毎に異なる可能性がある.
+</p>
+<p>
+戻り値: 利用可能なサンプルチャンクデコーダーの数
+</p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 利用可能なサンプルチャンクデコーダーの数を表示する
+printf("%d つのサンプルチャンクデコーダーが利用可能である\n", Mix_GetNumChunkDecoders());
+</pre>
+</code>
+<h2>参照</h2>
+<a href="Mix_GetNumMusicDecoders.html">Mix_GetNumMusicDecoders</a>,
+<a href="Mix_GetChunkDecoder.html">Mix_GetChunkDecoder</a>,
+<a href="Mix_LoadWAV.html">Mix_LoadWAV</a>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_17.html#SEC17">4.2.1 Mix_GetNumChunkDecoders</a>
+<hr>
+</body>
+</html>

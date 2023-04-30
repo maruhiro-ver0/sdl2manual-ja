@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_SizeText</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_SizeText
+<hr>
+<h1>TTF_SizeText</h1>
+<p>
+<code>int TTF_SizeText(TTF_Font *font, const char *text, int *w, int *h)</code>
+</p>
+<p>
+<dl>
+<dt>font</dt><dd>文字列のサイズを求めるfont</dd>
+<dt>text</dt><dd>サイズを求めるLATIN1のNUL終端の文字列</dd>
+<dt>w</dt><dd>文字列の幅を代入するポインタ. 不要の場合NULL</dd>
+<dt>h</dt><dd>文字列の高さを代入するポインタ. 不要の場合NULL</dd>
+</dl>
+</p>
+<p>
+fontを使ってLATIN1でエンコードされたtextのサーフェイス上のサイズを求める.
+実際にはレンダリングされないが, 正しくカーニングされ, 実際の幅が得られる.
+高さは<a href="TTF_FontHeight.html">TTF_FontHeight</a>と同じ値になる.
+</p>
+<p>
+メモ: この関数のfontにNULLを渡すと異常終了する.
+</p>
+<p>
+メモ: この関数のtextにNULLを渡した場合の動作は未定義である.
+</p>
+<p>
+戻り値: 成功のとき0で, NULLでないwとhに適切な値が代入される. フォントにグリフがないなど失敗のとき-1
+</p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込まれたフォントでテキストをレンダリングした場合の幅と高さを得る
+//TTF_Font *font;
+int w,h;
+if(TTF_SizeText(font,"Hello World!",&amp;w,&amp;h)) {
+    // レンダリングできなかった. 少なくともTTF_GetErrorを表示したほうがよい
+} else {
+    printf("幅=%d 高さ=%d\n",w,h);
+}
+</pre>
+</code>
+<h2>参照</h2>
+<a href="TTF_SizeUTF8.html">TTF_SizeUTF8</a>,
+<a href="TTF_SizeUNICODE.html">TTF_SizeUNICODE</a>,
+<a href="TTF_RenderText_Solid.html">TTF_RenderText_Solid</a>,
+<a href="TTF_RenderText_Shaded.html">TTF_RenderText_Shaded</a>,
+<a href="TTF_RenderText_Blended.html">TTF_RenderText_Blended</a>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/old/SDL_ttf/docs/SDL_ttf_39.html#SEC39">3.3.20 TTF_SizeText</a>
+<hr>
+</body>
+</html>

@@ -12,7 +12,7 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - 環境依存ウィンドウ
 <hr>
 <h1>環境依存ウィンドウ</h1>
-インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_syswm.h">SDL_syswm.h</a>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_syswm.h">SDL_syswm.h</a>
 <h2>概要</h2>
 <p>
 ここに分類される関数は, さらに踏み込んだ環境依存ウィンドウ管理タスクのためのものである.
@@ -24,13 +24,19 @@
 </p>
 <h2>列挙体</h2>
 <ol>
-<li><a href="SDL_GetWindowWMInfo.html">SDL_GetWindowWMInfo</a></li>
-<li><a href="SDL_SYSWM_TYPE.html">SDL_SYSWM_TYPE</a></li>
-<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a></li>
-<li><a href="SDL_SysWMmsg.html">SDL_SysWMmsg</a></li>
+<li><a href="SDL_SYSWM_TYPE.html">SDL_SYSWM_TYPE</a> - 対応の様々なウィンドウシステムの列挙体
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a> - ウィンドウに関するシステム依存の情報の構造体
+<li><a href="SDL_SysWMmsg.html">SDL_SysWMmsg</a> - システム依存のウィンドウマネージャメッセージの構造体
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_GetWindowWMInfo.html">SDL_GetWindowWMInfo</a> - ウィンドウのドライバ固有の情報を得る
 </ol>
 <h2>SDL Wikiへのリンク</h2>
-<a href="https://wiki.libsdl.org/CategorySWM">Platform-specific Window Management - SDL Wiki</a>
+<a href="https://wiki.libsdl.org/SDL2/CategorySWM">Platform-specific Window Management - SDL Wiki</a>
 <hr>
 </body>
 </html>

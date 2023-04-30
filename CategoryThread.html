@@ -13,8 +13,8 @@
 <hr>
 <h1>スレッド</h1>
 インクルードファイル:
-<a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_thread.h">SDL_thread.h</a>
-<a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_mutex.h">SDL_mutex.h</a>(スレッド同期プリミティブが含まれている)
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_thread.h">SDL_thread.h</a>
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_mutex.h">SDL_mutex.h</a>(スレッド同期プリミティブが含まれている)
 <h2>概要</h2>
 <p>
 ここに分類される関数は, システムに依存しないスレッド管理ルーチンである.
@@ -25,25 +25,25 @@
 </p>
 <h2>列挙体</h2>
 <ol>
-<li><a href="SDL_ThreadPriority.html">SDL_ThreadPriority</a></li>
+<li><a href="SDL_ThreadPriority.html">SDL_ThreadPriority</a> - スレッドの優先度の列挙体
 </ol>
 <h2>関数</h2>
 <ol>
-<li><a href="SDL_CreateThread.html">SDL_CreateThread</a></li>
-<li><a href="SDL_CreateThreadWithStackSize.html">SDL_CreateThreadWithStackSize</a></li>
-<li><a href="SDL_DetachThread.html">SDL_DetachThread</a></li>
-<li><a href="SDL_GetThreadID.html">SDL_GetThreadID</a></li>
-<li><a href="SDL_GetThreadName.html">SDL_GetThreadName</a></li>
-<li><a href="SDL_SetThreadPriority.html">SDL_SetThreadPriority</a></li>
-<li><a href="SDL_TLSCleanup.html">SDL_TLSCleanup</a></li>
-<li><a href="SDL_TLSCreate.html">SDL_TLSCreate</a></li>
-<li><a href="SDL_TLSGet.html">SDL_TLSGet</a></li>
-<li><a href="SDL_TLSSet.html">SDL_TLSSet</a></li>
-<li><a href="SDL_ThreadID.html">SDL_ThreadID</a></li>
-<li><a href="SDL_WaitThread.html">SDL_WaitThread</a></li>
+<li><a href="SDL_CreateThread.html">SDL_CreateThread</a> - 新しいスレッドを生成する
+<li><a href="SDL_CreateThreadWithStackSize.html">SDL_CreateThreadWithStackSize</a> - スタックサイズを指定して新しいスレッドを生成する
+<li><a href="SDL_DetachThread.html">SDL_DetachThread</a> - スレッドが終了したとき自分で消滅するようにする
+<li><a href="SDL_GetThreadID.html">SDL_GetThreadID</a> - 指定のスレッドのスレッドIDを得る
+<li><a href="SDL_GetThreadName.html">SDL_GetThreadName</a> - SDL_CreateThread()で指定したスレッドの名前を得る
+<li><a href="SDL_SetThreadPriority.html">SDL_SetThreadPriority</a> - 現在のスレッドの優先度を設定する
+<li><a href="SDL_ThreadID.html">SDL_ThreadID</a> - 現在のスレッドのスレッドIDを得る
+<li><a href="SDL_TLSCleanup.html">SDL_TLSCleanup</a> - 現在のスレッドのスレッド局所記憶(TLS)を全て消去する
+<li><a href="SDL_TLSCreate.html">SDL_TLSCreate</a> - TLS(スレッド局所記憶)を生成する
+<li><a href="SDL_TLSGet.html">SDL_TLSGet</a> - 現在のスレッドのスレッド局所記憶IDの値を得る
+<li><a href="SDL_TLSSet.html">SDL_TLSSet</a> - 現在のスレッドのスレッド局所記憶IDの値を設定する
+<li><a href="SDL_WaitThread.html">SDL_WaitThread</a> - スレッドが終了するまで待つ
 </ol>
 <h2>SDL Wikiへのリンク</h2>
-<a href="https://wiki.libsdl.org/CategoryThread">Thread Management - SDL Wiki</a>
+<a href="https://wiki.libsdl.org/SDL2/CategoryThread">Thread Management - SDL Wiki</a>
 <hr>
 </body>
 </html>

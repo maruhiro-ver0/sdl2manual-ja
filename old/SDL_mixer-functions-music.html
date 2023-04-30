@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions.html" title="1つ上">
+<title>音楽</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - 4.5音楽
+<hr>
+<h1>4.5 音楽</h1>
+これらの関数は音楽を扱う.
+音楽は通常のミキシングチャネルでは再生されない.
+音楽は後処理フック以外は別に扱われる.
+<h2>読み込み</h2>
+<ol>
+<li><a href="Mix_GetNumMusicDecoders.html">Mix_GetNumMusicDecoders</a> - デコード可能な音楽形式の数を得る
+<li><a href="Mix_GetMusicDecoder.html">Mix_GetMusicDecoder</a> - 音楽デコーダーの名前を得る
+<li><a href="Mix_LoadMUS.html">Mix_LoadMUS</a> - Mix_Musicに音楽を読み込む
+</ol>
+<h2>解放</h2>
+<ol>
+<li><a href="Mix_FreeMusic.html">Mix_FreeMusic</a> - Mix_Musicを解放する
+</ol>
+<h2>再生</h2>
+<ol>
+<li><a href="Mix_PlayMusic.html">Mix_PlayMusic</a> - 音楽をループ再生する
+<li><a href="Mix_FadeInMusic.html">Mix_FadeInMusic</a> - フェードインして音楽をループ再生する
+<li><a href="Mix_FadeInMusicPos.html">Mix_FadeInMusicPos</a> - 指定開始位置からフェードインして音楽をループ再生する
+<li><a href="Mix_HookMusic.html">Mix_HookMusic</a> - カスタム音楽プレイヤーをフックする
+</ol>
+<h2>設定</h2>
+<ol>
+<li><a href="Mix_VolumeMusic.html">Mix_VolumeMusic</a> - 音楽のボリュームを設定する
+<li><a href="Mix_PauseMusic.html">Mix_PauseMusic</a> - 音楽を一時停止する
+<li><a href="Mix_ResumeMusic.html">Mix_ResumeMusic</a> - 音楽の一時停止を解除する
+<li><a href="Mix_RewindMusic.html">Mix_RewindMusic</a> - 音楽を先頭に巻き戻す
+<li><a href="Mix_SetMusicPosition.html">Mix_SetMusicPosition</a> - 音楽の再生位置を設定する
+<li><a href="Mix_SetMusicCMD.html">Mix_SetMusicCMD</a> - 音楽の再生に外部のプログラムを使う
+</ol>
+<h2>停止</h2>
+<ol>
+<li><a href="Mix_HaltMusic.html">Mix_HaltMusic</a> - 音楽の再生を停止する
+<li><a href="Mix_FadeOutMusic.html">Mix_FadeOutMusic</a> - フェードアウトして音楽の再生を停止する
+<li><a href="Mix_HookMusicFinished.html">Mix_HookMusicFinished</a> - 音楽停止時のコールバックを設定する
+</ol>
+<h2>情報</h2>
+<ol>
+<li><a href="Mix_GetMusicType.html">Mix_GetMusicType</a> - 音楽形式を得る
+<li><a href="Mix_PlayingMusic.html">Mix_PlayingMusic</a> - 音楽の再生状態をテストする
+<li><a href="Mix_PausedMusic.html">Mix_PausedMusic</a> - 音楽の一時停止状態をテストする
+<li><a href="Mix_FadingMusic.html">Mix_FadingMusic</a> - 音楽のフェード状態を得る衣
+<li><a href="Mix_GetMusicHookData.html">Mix_GetMusicHookData</a> - Mix_HookMusicの引数を得る
+</ol>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_52.html#SEC52">4.5 Music</a>
+<hr>
+</body>
+</html>

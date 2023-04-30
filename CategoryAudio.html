@@ -12,64 +12,64 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - 再生と録音
 <hr>
 <h1>再生と録音</h1>
-インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_audio.h">SDL_audio.h</a>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_audio.h">SDL_audio.h</a>
 <h2>概要</h2>
 ここに分類される関数は, オーディオデバイスと音声入力/出力を扱うものである.
 <h2>列挙体</h2>
 <ol>
-<li><a href="SDL_AudioFormat.html">SDL_AudioFormat</a></li>
-<li><a href="SDL_AudioStatus.html">SDL_AudioStatus</a></li>
+<li><a href="SDL_AudioFormat.html">SDL_AudioFormat</a> - 音声形式の列挙体
+<li><a href="SDL_AudioStatus.html">SDL_AudioStatus</a> - オーディオデバイスの状態の列挙体
 </ol>
 <h2>構造体</h2>
 <ol>
-<li><a href="SDL_AudioCVT.html">SDL_AudioCVT</a></li>
-<li><a href="SDL_AudioSpec.html">SDL_AudioSpec</a></li>
-<li><a href="SDL_AudioStream.html">SDL_AudioStream</a></li>
+<li><a href="SDL_AudioCVT.html">SDL_AudioCVT</a> - 音声データ変換の情報の構造体
+<li><a href="SDL_AudioSpec.html">SDL_AudioSpec</a> - 音声出力形式の構造体
+<li><a href="SDL_AudioStream.html">SDL_AudioStream</a> - バッファ, 変換, 再サンプリング, 音声データの不透明構造体
 </ol>
 <h2>関数</h2>
 <ol>
-<li><a href="SDL_AudioInit.html">SDL_AudioInit</a></li>
-<li><a href="SDL_AudioQuit.html">SDL_AudioQuit</a></li>
-<li><a href="SDL_AudioStreamAvailable.html">SDL_AudioStreamAvailable</a></li>
-<li><a href="SDL_AudioStreamClear.html">SDL_AudioStreamClear</a></li>
-<li><a href="SDL_AudioStreamFlush.html">SDL_AudioStreamFlush</a></li>
-<li><a href="SDL_AudioStreamGet.html">SDL_AudioStreamGet</a></li>
-<li><a href="SDL_AudioStreamPut.html">SDL_AudioStreamPut</a></li>
-<li><a href="SDL_BuildAudioCVT.html">SDL_BuildAudioCVT</a></li>
-<li><a href="SDL_ClearQueuedAudio.html">SDL_ClearQueuedAudio</a></li>
-<li><a href="SDL_CloseAudio.html">SDL_CloseAudio</a></li>
-<li><a href="SDL_CloseAudioDevice.html">SDL_CloseAudioDevice</a></li>
-<li><a href="SDL_ConvertAudio.html">SDL_ConvertAudio</a></li>
-<li><a href="SDL_DequeueAudio.html">SDL_DequeueAudio</a></li>
-<li><a href="SDL_FreeAudioStream.html">SDL_FreeAudioStream</a></li>
-<li><a href="SDL_FreeWAV.html">SDL_FreeWAV</a></li>
-<li><a href="SDL_GetAudioDeviceName.html">SDL_GetAudioDeviceName</a></li>
-<li><a href="SDL_GetAudioDeviceSpec.html">SDL_GetAudioDeviceSpec</a></li>
-<li><a href="SDL_GetAudioDeviceStatus.html">SDL_GetAudioDeviceStatus</a></li>
-<li><a href="SDL_GetAudioDriver.html">SDL_GetAudioDriver</a></li>
-<li><a href="SDL_GetAudioStatus.html">SDL_GetAudioStatus</a></li>
-<li><a href="SDL_GetCurrentAudioDriver.html">SDL_GetCurrentAudioDriver</a></li>
-<li><a href="SDL_GetDefaultAudioInfo.html">SDL_GetDefaultAudioInfo</a></li>
-<li><a href="SDL_GetNumAudioDevices.html">SDL_GetNumAudioDevices</a></li>
-<li><a href="SDL_GetNumAudioDrivers.html">SDL_GetNumAudioDrivers</a></li>
-<li><a href="SDL_GetQueuedAudioSize.html">SDL_GetQueuedAudioSize</a></li>
-<li><a href="SDL_LoadWAV.html">SDL_LoadWAV</a></li>
-<li><a href="SDL_LoadWAV_RW.html">SDL_LoadWAV_RW</a></li>
-<li><a href="SDL_LockAudio.html">SDL_LockAudio</a></li>
-<li><a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice</a></li>
-<li><a href="SDL_MixAudio.html">SDL_MixAudio</a></li>
-<li><a href="SDL_MixAudioFormat.html">SDL_MixAudioFormat</a></li>
-<li><a href="SDL_NewAudioStream.html">SDL_NewAudioStream</a></li>
-<li><a href="SDL_OpenAudio.html">SDL_OpenAudio</a></li>
-<li><a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice</a></li>
-<li><a href="SDL_PauseAudio.html">SDL_PauseAudio</a></li>
-<li><a href="SDL_PauseAudioDevice.html">SDL_PauseAudioDevice</a></li>
-<li><a href="SDL_QueueAudio.html">SDL_QueueAudio</a></li>
-<li><a href="SDL_UnlockAudio.html">SDL_UnlockAudio</a></li>
-<li><a href="SDL_UnlockAudioDevice.html">SDL_UnlockAudioDevice</a></li>
+<li><a href="SDL_AudioInit.html">SDL_AudioInit</a> - 指定のオーディオドライバを初期化する
+<li><a href="SDL_AudioQuit.html">SDL_AudioQuit</a> - SDL_AudioInit()で初期化したオーディオデバイスを終了する
+<li><a href="SDL_AudioStreamAvailable.html">SDL_AudioStreamAvailable</a> - 変換/リサンプルされた利用可能なデータのバイト数を得る
+<li><a href="SDL_AudioStreamClear.html">SDL_AudioStreamClear</a> - 音声ストリーム内に残された全てのデータを変換せずに消去する
+<li><a href="SDL_AudioStreamFlush.html">SDL_AudioStreamFlush</a> - 音声ストリームへのデータ送信が完了したことを通知する
+<li><a href="SDL_AudioStreamGet.html">SDL_AudioStreamGet</a> - 変換/リサンプルされたデータを音声ストリームから得る
+<li><a href="SDL_AudioStreamPut.html">SDL_AudioStreamPut</a> - 変換/リサンプルしたいデータを音声ストリームに追加する
+<li><a href="SDL_BuildAudioCVT.html">SDL_BuildAudioCVT</a> - 変換のためのSDL_AudioCVT構造体を初期化する
+<li><a href="SDL_ClearQueuedAudio.html">SDL_ClearQueuedAudio</a> - ハードウェアへの送信を待つキューの全ての音声データを消去する
+<li><a href="SDL_CloseAudio.html">SDL_CloseAudio</a> - オーディオデバイスを閉じるための古い関数
+<li><a href="SDL_CloseAudioDevice.html">SDL_CloseAudioDevice</a> - 音声処理を終了しオーディオデバイスを閉じる
+<li><a href="SDL_ConvertAudio.html">SDL_ConvertAudio</a> - 音声データを別の形式に変換する
+<li><a href="SDL_DequeueAudio.html">SDL_DequeueAudio</a> - コールバックではない録音デバイスからキューされた音声データを取り出す
+<li><a href="SDL_FreeAudioStream.html">SDL_FreeAudioStream</a> - 音声ストリームを解放する
+<li><a href="SDL_FreeWAV.html">SDL_FreeWAV</a> - SDL_LoadWAV()またはSDL_LoadWAV_RW()で確保した音声データを解放する
+<li><a href="SDL_GetAudioDeviceName.html">SDL_GetAudioDeviceName</a> - 指定のオーディオデバイスの名前を得る
+<li><a href="SDL_GetAudioDeviceSpec.html">SDL_GetAudioDeviceSpec</a> - 指定の音声デバイスの推奨オーディオ形式を得る
+<li><a href="SDL_GetAudioDeviceStatus.html">SDL_GetAudioDeviceStatus</a> - 現在のオーディオデバイスの状態を得る
+<li><a href="SDL_GetAudioDriver.html">SDL_GetAudioDriver</a> - 組み込まれたオーディオドライバの名前を得る
+<li><a href="SDL_GetAudioStatus.html">SDL_GetAudioStatus</a> - オーディオデバイスの状態を得る古い関数
+<li><a href="SDL_GetCurrentAudioDriver.html">SDL_GetCurrentAudioDriver</a> - 現在のオーディオドライバの名前を得る
+<li><a href="SDL_GetDefaultAudioInfo.html">SDL_GetDefaultAudioInfo</a> - オーディオデバイスのデフォルト名と推奨フォーマットを得る
+<li><a href="SDL_GetNumAudioDevices.html">SDL_GetNumAudioDevices</a> - 組み込まれたオーディオデバイスの数を得る
+<li><a href="SDL_GetNumAudioDrivers.html">SDL_GetNumAudioDrivers</a> - 組み込まれたオーディオドライバの数を得る
+<li><a href="SDL_GetQueuedAudioSize.html">SDL_GetQueuedAudioSize</a> - キューにある音声データのバイト数を得る
+<li><a href="SDL_LoadWAV.html">SDL_LoadWAV</a> - ファイルからWAVEを読み込む
+<li><a href="SDL_LoadWAV_RW.html">SDL_LoadWAV_RW</a> - データソースからWAVEを読み込む
+<li><a href="SDL_LockAudio.html">SDL_LockAudio</a> - オーディオデバイスをロックする古い関数
+<li><a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice</a> - 指定のオーディオデバイスのコールバック関数の呼び出しをロックする
+<li><a href="SDL_MixAudio.html">SDL_MixAudio</a> - オーディオ・ミキシングの古い関数
+<li><a href="SDL_MixAudioFormat.html">SDL_MixAudioFormat</a> - 指定の形式でオーディオをミキシングする
+<li><a href="SDL_NewAudioStream.html">SDL_NewAudioStream</a> - 新しい音声ストリームを生成する
+<li><a href="SDL_OpenAudio.html">SDL_OpenAudio</a> - オーディオデバイスを開く古い関数
+<li><a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice</a> - 指定のオーディオデバイスを開く
+<li><a href="SDL_PauseAudio.html">SDL_PauseAudio</a> - オーディオデバイスを一時停止する古い関数
+<li><a href="SDL_PauseAudioDevice.html">SDL_PauseAudioDevice</a> - 指定したデバイスの再生の一時停止と一時停止解除を行う
+<li><a href="SDL_QueueAudio.html">SDL_QueueAudio</a> - コールバック関数を使わずに音声デバイスのキューにデータを送信する
+<li><a href="SDL_UnlockAudio.html">SDL_UnlockAudio</a> - オーディオデバイスのロックを解除する古い関数
+<li><a href="SDL_UnlockAudioDevice.html">SDL_UnlockAudioDevice</a> - 指定のデバイスのコールバック関数の呼び出しのロックを解除する
 </ol>
 <h2>SDL Wikiへのリンク</h2>
-<a href="https://wiki.libsdl.org/CategoryAudio">Audio Device Management and Audio Playback - SDL Wiki</a>
+<a href="https://wiki.libsdl.org/SDL2/CategoryAudio">Audio Device Management and Audio Playback - SDL Wiki</a>
 <hr>
 </body>
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-ApiByCategory.html" title="1つ上">
+<title>チャネル</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - チャネル
+<hr>
+<h1>一般</h1>
+これらの関数は効果音ミキシングチャネルで使われる. 音楽には影響しない.
+<h2>設定</h2>
+<ol>
+<li><a href="Mix_AllocateChannels.html">Mix_AllocateChannels</a> - ミキサーが管理するチャネルの数を動的に変更する
+<li><a href="Mix_Volume.html">Mix_Volume</a> - 指定のチャネルのボリュームを設定する
+<li><a href="Mix_MasterVolume.html">Mix_MasterVolume</a> - 全チャネルの全体ボリュームを設定する
+</ol>
+<h2>再生</h2>
+<ol>
+<li><a href="Mix_PlayChannel.html">Mix_PlayChannel</a> - 指定のチャネルのチャンクを再生する
+<li><a href="Mix_PlayChannelTimed.html">Mix_PlayChannelTimed</a> - 指定のチャネルのチャンクを時間を指定して再生する
+<li><a href="Mix_FadeInChannel.html">Mix_FadeInChannel</a> - 指定のチャネルで音声チャンクをフェードインしながら再生する
+<li><a href="Mix_FadeInChannelTimed.html">Mix_FadeInChannelTimed</a> - 再生時間を指定して指定のチャネルで音声チャンクをフェードインしながら再生する
+</ol>
+<h2>一時停止</h2>
+<ol>
+<li><a href="Mix_Pause.html">Mix_Pause</a> - 指定のチャネルを一時停止する
+<li><a href="Mix_Resume.html">Mix_Resume</a> - 指定のチャネルを一時停止から復帰させる
+</ol>
+<h2>停止</h2>
+<ol>
+<li><a href="Mix_HaltChannel.html">Mix_HaltChannel</a> - 指定のチャネルを停止する
+<li><a href="Mix_ExpireChannel.html">Mix_ExpireChannel</a> - 指定のチャネルの停止までの時間を変更する
+<li><a href="Mix_FadeOutChannel.html">Mix_FadeOutChannel</a> - 指定の時間フェードアウトしてチャネルを停止する
+<li><a href="Mix_ChannelFinished.html">Mix_ChannelFinished</a> - チャネルの再生が完了したとき呼ばれるコールバックを設定する
+</ol>
+<h2>情報獲得</h2>
+<ol>
+<li><a href="Mix_Playing.html">Mix_Playing</a> - 指定のチャネルの再生状態をチェックする
+<li><a href="Mix_Paused.html">Mix_Paused</a> - 指定のチャネルが一時停止中か否かを得る
+<li><a href="Mix_FadingChannel.html">Mix_FadingChannel</a> - チャネルのフェーディング状態を得る
+<li><a href="Mix_GetChunk.html">Mix_GetChunk</a> - ミキサーチャネルに関連付けられたMix_Chunkを得る
+</ol>
+<hr>
+</body>
+</html>

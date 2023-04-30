@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_GlyphMetrics</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_GlyphMetrics
+<hr>
+<h1>TTF_GlyphMetrics</h1>
+<p>
+<code>int TTF_GlyphMetrics(TTF_Font *font, Uint16 ch, int *minx, int *maxx, int *miny, int *maxy, int *advance)</code>
+</p>
+<p>
+<dl>
+<dt>font</dt><dd>グリフメトリックを得るフォント</dd>
+<dt>ch</dt><dd>グリフメトリックを得るUnicode文字</dd>
+<dt>minx</dt><dd>最小のX座標のオフセットを代入するポインタ. 不要の場合はNULL</dd>
+<dt>maxx</dt><dd>最大のX座標のオフセットを代入するポインタ. 不要の場合はNULL</dd>
+<dt>miny</dt><dd>最小のY座標のオフセットを代入するポインタ. 不要の場合はNULL</dd>
+<dt>maxy</dt><dd>最大のY座標のオフセットを代入するポインタ. 不要の場合はNULL</dd>
+<dt>advance</dt><dd>次の文字のオフセット位置を代入するポインタ. 不要の場合はNULL</dd>
+</dl>
+</p>
+<p>
+fontのUNICODE文字chのグリフメトリックを得る.
+</p>
+<p>
+メモ: この関数のfontにNULLを渡すと異常終了する.
+</p>
+<p>
+戻り値: 成功のとき0で, NULLでない引数には適切な値が代入される. 指定のフォントに指定の文字が存在しないなど失敗のとき-1
+</p>
+<p>
+それぞれの値の意味は図の通りである:
+</p>
+<p align="center">
+<img src="metrics.png" alt="メトリック">
+</p>
+<p>
+それぞれの値が次の通りであるとする:<br>
+<pre>
+TTF_FontHeight       : 53
+TTF_FontAscent       : 38
+TTF_FontDescent      : -14
+TTF_FontLineSkip     : 55
+TTF_GlyphMetrics('g'):
+        minx=1
+        maxx=15
+        miny=-7
+        maxy=15
+        advance=16
+</pre>
+</p>
+<p>
+このフォントの行の高さは行間を含めて55ピクセルである.
+アセント - ディセント = 52 なので, このフォントの行間は3ピクセルと思われる.
+</p>
+<p>
+グリフ'g'で座標(X,Y)が左上の角になるようにサーフェイスに(<a href="TTF_RenderGlyph_Solid.html">TTF_RenderGlyph_Solid</a>やこれと似た関数で)描画したいとする.
+グリフメトリックを使った求め方は次のようになる:<br>
+<pre>
+//SDL_Surface *glyph,*screen;
+SDL_Rect rect;
+int minx,maxy,advance;
+TTF_GlyphMetrics(font,'g',&amp;minx,NULL,NULL,&amp;maxy,&amp;advance);
+rect.x=X+minx;
+rect.y=Y+TTF_FontAscent(font)-maxy;
+SDL_BlitSurface(glyph,NULL,screen,&amp;rect);
+X+=advance;
+</pre>
+</p>
+<p>
+同じグリフで座標(X,Y)がorigin(ベースライン上)になるように描画したいとする:<br>
+<pre>
+//TTF_Font *font;
+//SDL_Surface *glyph,*screen;
+SDL_Rect rect;
+int minx,maxy,advance;
+TTF_GlyphMetrics(font,'g',&amp;minx,NULL,NULL,&amp;maxy,&amp;advance);
+rect.x=X+minx;
+rect.y=Y-maxy;
+SDL_BlitSurface(glyph,NULL,screen,&amp;rect);
+X+=advance;
+</pre>
+</p>
+<p>
+メモ: これらの例で違うのは, 左上の角の場合は <code>+TTF_FontAscent(font)</code> を使っている部分のみである.
+</p>
+<p>
+メモ: これらの例は'g'がフォントにあると仮定している!
+</p>
+<p>
+メモ: アウトラインサイズを設定しても位置が変わらないように<a href="TTF_GetFontOutline.html">TTF_GetFontOutline(font)</a>を引いたほうがよいかもしれない.
+</p>
+<h2>参照</h2>
+<a href="TTF_FontHeight.html">TTF_FontHeight</a>,
+<a href="TTF_FontAscent.html">TTF_FontAscent</a>,
+<a href="TTF_FontDescent.html">TTF_FontDescent</a>,
+<a href="TTF_FontLineSkip.html">TTF_FontLineSkip</a>,
+<a href="TTF_SizeText.html">TTF_SizeText</a>,
+<a href="TTF_SizeUTF8.html">TTF_SizeUTF8</a>,
+<a href="TTF_SizeUNICODE.html">TTF_SizeUNICODE</a>,
+<a href="TTF_GlyphIsProvided.html">TTF_GlyphIsProvided</a>,
+<a href="TTF_GetFontOutline.html">TTF_GetFontOutline</a>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/old/SDL_ttf/docs/SDL_ttf_38.html#SEC38">3.3.19 TTF_GlyphMetrics</a>
+<hr>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_net-ApiByCategory.html" title="1つ上">
+<title>TCPソケット</title>
+</head>
+<body>
+<a href="index.html#SDL2_net">目次</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - <a href="SDL2_net-ApiByCategory.html">API(機能別)</a> - TCPソケット
+<hr>
+<h1>TCPソケット</h1>
+これらの関数はTCPソケットを扱う.
+UDPが接続しないのに対して, TCPは完全に接続して使われる.
+また, (可能ならば)全てのパケットが相手に届く.
+TCPはパケットが送信と同じ順序で受信されることが保障されている.
+<h2>一般</h2>
+<ol>
+<li><a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open</a> - TCPソケットを開く
+<li><a href="SDLNet_TCP_Close.html">SDLNet_TCP_Close</a> - TCPネットワークソケットを閉じる
+</ol>
+<h2>サーバ</h2>
+<ol>
+<li><a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept</a> - 指定のサーバソケットで接続を受け入れる
+</ol>
+<h2>情報</h2>
+<ol>
+<li><a href="SDLNet_TCP_GetPeerAddress.html">SDLNet_TCP_GetPeerAddress</a> - ソケットに関連付けられたリモートシステムのIPアドレスを得る
+</ol>
+<h2>入出力</h2>
+<ol>
+<li><a href="SDLNet_TCP_Send.html">SDLNet_TCP_Send</a> - サーバでないソケットにデータを送信する
+<li><a href="SDLNet_TCP_Recv.html">SDLNet_TCP_Recv</a> - サーバでないソケットからデータを受信する
+</ol>
+<hr>
+</body>
+</html>

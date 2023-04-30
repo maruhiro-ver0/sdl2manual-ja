@@ -12,37 +12,37 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - CPU仕様の検知
 <hr>
 <h1>CPU仕様の検知</h1>
-インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_cpuinfo.h">SDL_cpuinfo.h</a>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_cpuinfo.h">SDL_cpuinfo.h</a>
 <h2>概要</h2>
 ここにはCPUの情報を集める関数が分類されている.
 <h2>関数</h2>
 <ol>
-<li><a href="SDL_GetCPUCacheLineSize.html">SDL_GetCPUCacheLineSize</a></li>
-<li><a href="SDL_GetCPUCount.html">SDL_GetCPUCount</a></li>
-<li><a href="SDL_GetSystemRAM.html">SDL_GetSystemRAM</a></li>
-<li><a href="SDL_Has3DNow.html">SDL_Has3DNow</a></li>
-<li><a href="SDL_HasARMSIMD.html">SDL_HasARMSIMD</a></li>
-<li><a href="SDL_HasAVX.html">SDL_HasAVX</a></li>
-<li><a href="SDL_HasAVX2.html">SDL_HasAVX2</a></li>
-<li><a href="SDL_HasAVX512F.html">SDL_HasAVX512F</a></li>
-<li><a href="SDL_HasAltiVec.html">SDL_HasAltiVec</a></li>
-<li><a href="SDL_HasLASX.html">SDL_HasLASX</a></li>
-<li><a href="SDL_HasLSX.html">SDL_HasLSX</a></li>
-<li><a href="SDL_HasMMX.html">SDL_HasMMX</a></li>
-<li><a href="SDL_HasNEON.html">SDL_HasNEON</a></li>
-<li><a href="SDL_HasRDTSC.html">SDL_HasRDTSC</a></li>
-<li><a href="SDL_HasSSE.html">SDL_HasSSE</a></li>
-<li><a href="SDL_HasSSE2.html">SDL_HasSSE2</a></li>
-<li><a href="SDL_HasSSE3.html">SDL_HasSSE3</a></li>
-<li><a href="SDL_HasSSE41.html">SDL_HasSSE41</a></li>
-<li><a href="SDL_HasSSE42.html">SDL_HasSSE42</a></li>
-<li><a href="SDL_SIMDAlloc.html">SDL_SIMDAlloc</a></li>
-<li><a href="SDL_SIMDFree.html">SDL_SIMDFree</a></li>
-<li><a href="SDL_SIMDGetAlignment.html">SDL_SIMDGetAlignment</a></li>
-<li><a href="SDL_SIMDRealloc.html">SDL_SIMDRealloc</a></li>
+<li><a href="SDL_GetCPUCacheLineSize.html">SDL_GetCPUCacheLineSize</a> - CPUのL1キャッシュラインのサイズを得る
+<li><a href="SDL_GetCPUCount.html">SDL_GetCPUCount</a> - 利用できるCPUコア数を得る
+<li><a href="SDL_GetSystemRAM.html">SDL_GetSystemRAM</a> - システムに設定されたのRAMのサイズを得る
+<li><a href="SDL_Has3DNow.html">SDL_Has3DNow</a> - CPUに3DNow!仕様があるかチェックする
+<li><a href="SDL_HasAltiVec.html">SDL_HasAltiVec</a> - CPUにAltiVec仕様があるかチェックする
+<li><a href="SDL_HasARMSIMD.html">SDL_HasARMSIMD</a> - CPUにARM SIMD (ARMv6)仕様があるかチェックする
+<li><a href="SDL_HasAVX.html">SDL_HasAVX</a> - CPUにAVX仕様があるかチェックする
+<li><a href="SDL_HasAVX2.html">SDL_HasAVX2</a> - CPUにAVX2仕様があるかチェックする
+<li><a href="SDL_HasAVX512F.html">SDL_HasAVX512F</a> - CPUにAVX-512F (foundation)仕様があるかチェックする
+<li><a href="SDL_HasLASX.html">SDL_HasLASX</a> - CPUにLASX(LOONGARCH SIMD)仕様があるかチェックする
+<li><a href="SDL_HasLSX.html">SDL_HasLSX</a> - CPUにLSX(LOONGARCH SIMD)仕様があるかチェックする
+<li><a href="SDL_HasMMX.html">SDL_HasMMX</a> - CPUにMMX仕様があるかチェックする
+<li><a href="SDL_HasNEON.html">SDL_HasNEON</a> - CPUにNEON (ARM SIMD)仕様があるかチェックする
+<li><a href="SDL_HasRDTSC.html">SDL_HasRDTSC</a> - CPUにRDTSC命令があるかチェックする
+<li><a href="SDL_HasSSE.html">SDL_HasSSE</a> - CPUにSSE仕様があるかチェックする
+<li><a href="SDL_HasSSE2.html">SDL_HasSSE2</a> - CPUにSSE2仕様があるかチェックする
+<li><a href="SDL_HasSSE3.html">SDL_HasSSE3</a> - CPUにSSE3仕様があるかチェックする
+<li><a href="SDL_HasSSE41.html">SDL_HasSSE41</a> - CPUにSSE4.1仕様があるかチェックする
+<li><a href="SDL_HasSSE42.html">SDL_HasSSE42</a> - CPUにSSE4.2仕様があるかチェックする
+<li><a href="SDL_SIMDAlloc.html">SDL_SIMDAlloc</a> - メモリをSIMDに適した方法で確保する
+<li><a href="SDL_SIMDFree.html">SDL_SIMDFree</a> - SDL_SIMDAllocで確保したメモリを解放する
+<li><a href="SDL_SIMDGetAlignment.html">SDL_SIMDGetAlignment</a> - システムのSIMD命令が必要とするアライメントを得る
+<li><a href="SDL_SIMDRealloc.html">SDL_SIMDRealloc</a> - SDL_SIMDAlloc()で得たメモリを再確保する
 </ol>
 <h2>SDL Wikiへのリンク</h2>
-<a href="https://wiki.libsdl.org/CategoryCPU">CPU Feature Detection - SDL Wiki</a>
+<a href="https://wiki.libsdl.org/SDL2/CategoryCPU">CPU Feature Detection - SDL Wiki</a>
 <hr>
 </body>
 </html>

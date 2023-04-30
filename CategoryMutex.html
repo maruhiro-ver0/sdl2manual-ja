@@ -13,8 +13,8 @@
 <hr>
 <h1>同期プリミティブ</h1>
 インクルードファイル:
-<a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_mutex.h">SDL_mutex.h</a>
-<a href="https://github.com/libsdl-org/SDL/blob/main/include/SDL_thread.h">SDL_thread.h</a>
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_mutex.h">SDL_mutex.h</a>
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_thread.h">SDL_thread.h</a>
 <h2>概要</h2>
 <p>
 この分類の関数は, マルチスレッドプログラミングのためのスレッド同期プリミティブ(同期基本機構)を提供するものである.
@@ -33,27 +33,27 @@ SDLのmutexは再帰的なmutexとして実装されているので, 同じmutexを呼ぶことでロックと
 </ol>
 <h2>関数</h2>
 <ol>
-<li><a href="SDL_CondBroadcast.html">SDL_CondBroadcast</a></li>
-<li><a href="SDL_CondSignal.html">SDL_CondSignal</a></li>
-<li><a href="SDL_CondWait.html">SDL_CondWait</a></li>
-<li><a href="SDL_CondWaitTimeout.html">SDL_CondWaitTimeout</a></li>
-<li><a href="SDL_CreateCond.html">SDL_CreateCond</a></li>
-<li><a href="SDL_CreateMutex.html">SDL_CreateMutex</a></li>
-<li><a href="SDL_CreateSemaphore.html">SDL_CreateSemaphore</a></li>
-<li><a href="SDL_DestroyCond.html">SDL_DestroyCond</a></li>
-<li><a href="SDL_DestroyMutex.html">SDL_DestroyMutex</a></li>
-<li><a href="SDL_DestroySemaphore.html">SDL_DestroySemaphore</a></li>
-<li><a href="SDL_LockMutex.html">SDL_LockMutex</a></li>
-<li><a href="SDL_SemPost.html">SDL_SemPost</a></li>
-<li><a href="SDL_SemTryWait.html">SDL_SemTryWait</a></li>
-<li><a href="SDL_SemValue.html">SDL_SemValue</a></li>
-<li><a href="SDL_SemWait.html">SDL_SemWait</a></li>
-<li><a href="SDL_SemWaitTimeout.html">SDL_SemWaitTimeout</a></li>
-<li><a href="SDL_TryLockMutex.html">SDL_TryLockMutex</a></li>
-<li><a href="SDL_UnlockMutex.html">SDL_UnlockMutex</a></li>
+<li><a href="SDL_CondBroadcast.html">SDL_CondBroadcast</a> - 条件変数を待っている全てのスレッドを再開する
+<li><a href="SDL_CondSignal.html">SDL_CondSignal</a> - 条件変数を待つ1つのスレッドを再開する
+<li><a href="SDL_CondWait.html">SDL_CondWait</a> - 条件変数が通知されるまで待つ
+<li><a href="SDL_CondWaitTimeout.html">SDL_CondWaitTimeout</a> - 条件変数が通知されるか指定の時間が経過するまで待つ
+<li><a href="SDL_CreateCond.html">SDL_CreateCond</a> - 新しい条件変数を生成する
+<li><a href="SDL_CreateMutex.html">SDL_CreateMutex</a> - 新しいmutexを生成する
+<li><a href="SDL_CreateSemaphore.html">SDL_CreateSemaphore</a> - 新しいセマフォを生成する
+<li><a href="SDL_DestroyCond.html">SDL_DestroyCond</a> - 条件変数を破棄する
+<li><a href="SDL_DestroyMutex.html">SDL_DestroyMutex</a> - mutexを破棄する
+<li><a href="SDL_DestroySemaphore.html">SDL_DestroySemaphore</a> - セマフォを破棄する
+<li><a href="SDL_LockMutex.html">SDL_LockMutex</a> - mutexをロックする
+<li><a href="SDL_SemPost.html">SDL_SemPost</a> - セマフォの値を1加算し, 待機中のスレッドを再開する
+<li><a href="SDL_SemTryWait.html">SDL_SemTryWait</a> - セマフォの値が正であるか調べ, そうならば減算する
+<li><a href="SDL_SemValue.html">SDL_SemValue</a> - セマフォの現在の値を得る
+<li><a href="SDL_SemWait.html">SDL_SemWait</a> - セマフォの値が正になるまで待機し, セマフォの値を減算する
+<li><a href="SDL_SemWaitTimeout.html">SDL_SemWaitTimeout</a> - セマフォの値が正になるまで待機し, セマフォの値を減算する
+<li><a href="SDL_TryLockMutex.html">SDL_TryLockMutex</a> - ブロックせずにmutexのロックを試みる
+<li><a href="SDL_UnlockMutex.html">SDL_UnlockMutex</a> - mutexのロックを解除する
 </ol>
 <h2>SDL Wikiへのリンク</h2>
-<a href="https://wiki.libsdl.org/CategoryMutex">Thread Synchronization Primitives - SDL Wiki</a>
+<a href="https://wiki.libsdl.org/SDL2/CategoryMutex">Thread Synchronization Primitives - SDL Wiki</a>
 <hr>
 </body>
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_ttf-ApiByCategory.html" title="1つ上">
+<title>属性</title>
+</head>
+<body>
+<a href="index.html#SDL2_ttf">目次</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(機能別)</a> - 属性
+<hr>
+<h1>属性</h1>
+<p>
+これらの関数は<a href="old/TTF_Font.html">TTF_Font</a>と全体の属性を扱う.
+</p>
+<p>
+これらのメトリックがどのように作用するかは<a href="old/TTF_GlyphMetrics.html">TTF_GlyphMetrics</a>の最後を参照すること.
+</p>
+<h2>全体の属性</h2>
+<ol>
+<li><a href="TTF_ByteSwappedUNICODE.html">TTF_ByteSwappedUNICODE</a> - UNICODEテキストのバイト交換のデフォルトを設定する
+</ol>
+<h2>フォントスタイル</h2>
+<ol>
+<li><a href="TTF_GetFontStyle.html">TTF_GetFontStyle</a> - フォントスタイルの現在の設定を得る
+<li><a href="TTF_SetFontStyle.html">TTF_SetFontStyle</a> - フォントスタイルを設定する
+<li><a href="TTF_GetFontOutline.html">TTF_GetFontOutline</a> - フォントの現在のアウトラインの値を得る
+<li><a href="TTF_SetFontOutline.html">TTF_SetFontOutline</a> - フォントのアウトラインの値を設定する
+</ol>
+<h2>フォント設定</h2>
+<ol>
+<li><a href="TTF_GetFontHinting.html">TTF_GetFontHinting</a> - フォントヒンティングの現在の設定を得る
+<li><a href="TTF_SetFontHinting.html">TTF_SetFontHinting</a> - フォントヒンティングを設定する
+<li><a href="TTF_GetFontKerning.html">TTF_GetFontKerning</a> - フォントのカーニングの有効無効を得る
+<li><a href="TTF_SetFontKerning.html">TTF_SetFontKerning</a> - フォントのカーニングの有効無効を設定する
+<li><a href="TTF_SetFontSize.html">TTF_SetFontSize</a> - フォントのサイズを変更する
+<li><a href="TTF_SetFontSizeDPI.html">TTF_SetFontSizeDPI</a> - フォントのDPI単位で指定した解像度とサイズを変更する
+<li><a href="TTF_GetFontWrappedAlign.html">TTF_GetFontWrappedAlign</a> - フォントの現在の折り返しの設定を得る
+<li><a href="TTF_SetFontWrappedAlign.html">TTF_SetFontWrappedAlign</a> - フォントの折り返し属性を設定する
+<li><a href="TTF_SetDirection.html">TTF_SetDirection</a> - 書字方向のグローバルな設定を行う
+<li><a href="TTF_SetFontDirection.html">TTF_SetFontDirection</a> - フォントの書字方向を設定する
+<li><a href="TTF_SetScript.html">TTF_SetScript</a> - 文字体系のグローバルな設定を行う 
+<li><a href="TTF_SetFontScriptName.html">TTF_SetFontScriptName</a> - フォントの文字体系を設定する
+</ol>
+<h2>フォントメトリック</h2>
+<ol>
+<li><a href="TTF_FontHeight.html">TTF_FontHeight</a> - フォントの高さを得る
+<li><a href="TTF_FontAscent.html">TTF_FontAscent</a> - フォントのベースラインから上端のオフセット値(アセント値)を得る
+<li><a href="TTF_FontDescent.html">TTF_FontDescent</a> - フォントのベースラインから下端のオフセット値(ディセント値)を得る
+<li><a href="TTF_FontLineSkip.html">TTF_FontLineSkip</a> - フォントの推奨テキスト行間を得る
+</ol>
+<h2>フォント属性</h2>
+<ol>
+<li><a href="TTF_FontFaces.html">TTF_FontFaces</a> - フォントのフェイス数を得る
+<li><a href="TTF_FontFaceIsFixedWidth.html">TTF_FontFaceIsFixedWidth</a> - フォントが等幅が否かを得る
+<li><a href="TTF_FontFaceFamilyName.html">TTF_FontFaceFamilyName</a> - フォントファミリー名を得る
+<li><a href="TTF_FontFaceStyleName.html">TTF_FontFaceStyleName</a> - フォントのスタイル名を得る
+</ol>
+<h2>グリフ</h2>
+<ol>
+<li><a href="TTF_GlyphIsProvided.html">TTF_GlyphIsProvided</a> - フォントの指定した16ビットコードポイントにグリフが提供されているかチェックする
+<li><a href="TTF_GlyphIsProvided32.html">TTF_GlyphIsProvided32</a> - フォントの指定した32ビットコードポイントにグリフが提供されているかチェックする
+<li><a href="TTF_GlyphMetrics.html">TTF_GlyphMetrics</a> - フォントの16ビットグリフのメトリクス(寸法)を得る
+<li><a href="TTF_GlyphMetrics32.html">TTF_GlyphMetrics32</a> - フォントの32ビットグリフのメトリクス(寸法)を得る
+</ol>
+<h2>テキストメトリック</h2>
+<ol>
+<li><a href="TTF_SizeText.html">TTF_SizeText</a> - Latin1文字列のサイズを求める
+<li><a href="TTF_SizeUTF8.html">TTF_SizeUTF8</a> - UTF-8文字列のサイズを求める
+<li><a href="TTF_SizeUNICODE.html">TTF_SizeUNICODE</a> - UCS-2文字列のサイズを求める
+<li><a href="TTF_MeasureText.html">TTF_MeasureText</a> - 与えられた幅に収まるLatin1文字数を求める
+<li><a href="TTF_MeasureUTF8.html">TTF_MeasureUTF8</a> - 与えられた幅に収まるUTF-8文字数を求める
+<li><a href="TTF_MeasureUNICODE.html">TTF_MeasureUNICODE</a> - 与えられた幅に収まるUCS-2文字数を求める
+</ol>
+<hr>
+</body>
+</html>
