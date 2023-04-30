@@ -6,17 +6,17 @@
 <meta name="keywords" content="SDL_ttf">
 <link rel="top" href="index.html" title="ホーム">
 <link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
-<title>TTF_RenderUNICODE_Blended_Wrapped</title>
+<title>TTF_RenderUNICODE_Blended</title>
 </head>
 <body>
-<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-render.html">3.4レンダラー</a> - TTF_RenderUNICODE_Blended_Wrapped
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-render.html">3.4レンダラー</a> - TTF_RenderUNICODE_Blended
 <hr>
-<h1>TTF_RenderUNICODE_Blended_Wrapped</h1>
-UCS-2の改行するテキストを, 生成したARGBサーフェイスに混合(Blend)モードでレンダリングする
+<h1>TTF_RenderUNICODE_Blended</h1>
+UCS-2テキストを, 生成したARGBサーフェイスに混合(Blend)モードでレンダリングする
 <h2>構文</h2>
 <code>SDL_Surface * TTF_RenderUNICODE_Blended(TTF_Font *font, const Uint16 *text, SDL_Color fg)</code>
 <h2>引数</h2>
-<table border="1" summary="TTF_RenderUNICODE_Blended_Wrapped">
+<table border="1" summary="TTF_RenderUNICODE_Blended">
 <tr><td>font</td><td>レンダリングで使用するフォント</td></tr>
 <tr><td>text</td><td>レンダリングするUCS-2テキスト</td></tr>
 <tr><td>fg</td><td>テキストの前景色</td></tr>
@@ -30,7 +30,7 @@ UCS-2の改行するテキストを, 生成したARGBサーフェイスに混合(Blend)モードでレンダリ
 </p>
 <p>
 この関数は改行しないため, どれだけ文字列が長くてもサーフェイスのテキストは1行である.
-改行して複数行にする必要がある場合は, 代わりに<a href="TTF_RenderUNICODE_Blended_Wrapped.html">TTF_RenderUNICODE_Blended_Wrapped()</a>を使うことができる.
+改行して複数行にする必要がある場合は, 代わりに<a href="TTF_RenderUNICODE_Blended.html">TTF_RenderUNICODE_Blended()</a>を使うことができる.
 </p>
 <p>
 この関数は改行コードで改行しない.
@@ -48,7 +48,7 @@ SDL_ttf 2.0.12以降
 <h2>関連項目(関数)</h2>
 <a href="TTF_RenderUTF8_Blended.html">TTF_RenderUTF8_Blended</a><br>
 <h2>原文へのリンク</h2>
-<a href="https://wiki.libsdl.org/SDL_ttf/TTF_RenderUNICODE_Blended_Wrapped">SDL_ttf/TTF_RenderUNICODE_Blended_Wrapped</a>
+<a href="https://wiki.libsdl.org/SDL_ttf/TTF_RenderUNICODE_Blended">SDL_ttf/TTF_RenderUNICODE_Blended</a>
 <hr>
 </body>
 </html>
