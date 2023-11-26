@@ -4,4 +4,72 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_net">
-<link rel="top" href="index.html" title="繝帙
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_net-functions-name_resolution.html" title="1つ上">
+<title>SDLNet_ResolveHost</title>
+</head>
+<body>
+<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-name_resolution.html">3.2名前解決</a> - SDLNet_ResolveHost
+<hr>
+<h1>SDLNet_ResolveHost</h1>
+<p>
+<code>int SDLNet_ResolveHost(IPaddress *address, const char *host, Uint16 port)</code>
+</p>
+<p>
+<dl>
+<dt>address</dt><dd>
+アドレスが代入されるポインタ. 呼ばれる前は何も設定されていなくてよいが, メモリが確保されている必要がある
+</dd>
+<dt>host</dt><dd>
+サーバに接続するためのホスト名またはIPアドレスの文字列.
+サーバになる場合はNULL.
+NULLのとき, 全てのネットワークインターフェースは接続のためにINADDR_ANYを使ってLISTEN状態になる
+</dd>
+<dt>port</dt><dd>
+サーバに接続する場合はサーバがLISTENしているポート番号.
+サーバになる場合はLISTENするポート番号.
+この関数を単なるドメイン名解決として使う場合は0にできる
+</dd>
+</dl>
+</p>
+<p>
+文字列hostを解決し, 解決されたIPとポート番号portを<a href="IPaddress.html">IPaddress</a>構造体のポインタに代入する.
+これが<a href="IPaddress.html">IPaddress</a>構造体を設定する最もよい方法である.
+この関数はあらゆるソケットを実際に開くことはない. ソケットを開く関数の引数の準備のために使われる.
+</p>
+<p>
+注意: この関数はhostとportをaddressのフィールドにネットワークバイト順で書き込む. 引数はシステムのバイト順で渡さなければならない. (これが問題になることはあまりない.)
+</p>
+<p>
+戻り値: 成功のとき0, アドレスが解決できないなど失敗のとき-1で, address.hostにINADDR_NONEが代入される.
+</p>
+<h2>サンプルコード</h2>
+<p>
+ポート1234の全てのインターフェースでLISTENする:
+<code>
+<pre>
+// ポート1234のサーバのIPaddressを生成する
+IPaddress ipaddress;
+SDLNet_ResolveHost(&amp;ipaddress, NULL, 1234);
+</pre>
+</code>
+</p>
+<p>
+"host.domain.ext"のポート1234に接続するクライアント:
+<code>
+<pre>
+// ホスト名"host.domain.ext"のポート1234のIPaddressを生成する
+// これはクライアントで使われる
+IPaddress ipaddress;
+SDLNet_ResolveHost(&amp;ipaddress, "host.domain.ext", 1234);
+</pre>
+</code>
+</p>
+<h2>参照</h2>
+<a href="SDLNet_ResolveIP.html">SDLNet_ResolveIP</a>,
+<a href="IPaddress.html">IPaddress</a>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/old/SDL_net/docs/SDL_net_16.html#SEC16">3.2.1 SDLNet_ResolveHost</a>
+<hr>
+</body>
+</html>

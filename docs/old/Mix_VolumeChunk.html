@@ -4,4 +4,45 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="繝帙
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_mixer-functions-samples.html" title="1つ上">
+<title>Mix_VolumeChunk</title>
+</head>
+<body>
+<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-samples.html">4.2サンプリング音声</a> - Mix_VolumeChunk
+<hr>
+<h1>Mix_VolumeChunk</h1>
+<p>
+<code>int Mix_VolumeChunk(Mix_Chunk *chunk, int volume)</code>
+</p>
+<p>
+<dl>
+<dt>chunk</dt><dd>ボリュームを設定する<a href="Mix_Chunk.html">Mix_Chunk</a></dd>
+<dt>volume</dt><dd>0〜MIX_MAX_VOLUME(128)のボリューム. MIX_MAX_VOLUMEより大きい場合は, MIX_MAX_VOLUMEとなる. 0より小さい場合は, chunk->volumeは設定されない</dd>
+</dl>
+</p>
+<p>
+volumeをchunk->volumeに設定する.
+設定したボリュームは, チャンクがミキシングされ出力されるときに影響がある.
+</p>
+<p>
+戻り値: 設定前のchunk->volume.
+volumeに負の数として渡すと, chunkのボリュームは現在のままとなる.
+</p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// サンプリング音声のボリュームを半分にする
+// Mix_Chunk *sample;
+int previous_volume;
+previous_volume=Mix_VolumeChunk(sample, MIX_MAX_VOLUME/2);
+printf("設定前のボリューム: %d¥n", previous_volume);
+</pre>
+</code>
+<h2>参照</h2>
+<a href="Mix_Chunk.html">Mix_Chunk</a>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_23.html#SEC23">5.1 Mix_Chunk</a>
+<hr>
+</body>
+</html>

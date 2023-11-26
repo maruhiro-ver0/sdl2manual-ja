@@ -4,4 +4,64 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_ttf">
-<link rel="top" href="index.html" title="繝帙
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
+<title>TTF_GetFontStyle</title>
+</head>
+<body>
+<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_GetFontStyle
+<hr>
+<h1>TTF_GetFontStyle</h1>
+<p>
+<code>int TTF_GetFontStyle(TTF_Font *font)</code>
+</p>
+<p>
+<dl>
+<dt>font</dt><dd>スタイルを得るフォント</dd>
+</dl>
+</p>
+<p>
+fontの現在のスタイルを得る.
+</p>
+<p>
+メモ: この関数のfontにNULLを渡すと異常終了する.
+</p>
+<p>
+戻り値: 次のスタイルを表すビットマスクの論理和:<br>
+TTF_STYLE_BOLD<br>
+TTF_STYLE_ITALIC<br>
+TTF_STYLE_UNDERLINE<br>
+TTF_STYLE_STRIKETHROUGH<br>
+スタイルが設定されていなければTTF_STYLE_NORMALを戻す.
+</p>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// 読み込まれたフォントのスタイルを得る
+//TTF_Font *font;
+int style;
+style=TTF_GetFontStyle(font);
+printf("フォントのスタイル:");
+if(style==TTF_STYLE_NORMAL)
+    printf(" 標準");
+else {
+    if(style&amp;TTF_STYLE_BOLD)
+        printf(" ボールド");
+    if(style&amp;TTF_STYLE_ITALIC)
+        printf(" イタリック");
+    if(style&amp;TTF_STYLE_UNDERLINE)
+        printf(" 下線");
+    if(style&amp;TTF_STYLE_STRIKETHROUGH)
+        printf(" 取り消し線");
+}
+printf("¥n");
+</pre>
+</code>
+<h2>参照</h2>
+<a href="TTF_SetFontStyle.html">TTF_SetFontStyle</a>,
+<a href="SDL_ttf-defines.html">5.定義</a>
+<h2>原文へのリンク</h2>
+<a href="https://www.libsdl.org/projects/old/SDL_ttf/docs/SDL_ttf_21.html#SEC21">3.3.2 TTF_GetFontStyle</a>
+<hr>
+</body>
+</html>
