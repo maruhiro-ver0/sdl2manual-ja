@@ -1,67 +1,67 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="index.html#SDL2_mixer" title="1��">
-<title>�T�v</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="index.html#SDL2_mixer" title="1つ上">
+<title>概要</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - SDL_mixer
+<a href="index.html#SDL2_mixer">目次</a> - SDL_mixer
 <hr>
 <h1>SDL_mixer 2.0</h1>
 <p>
-���̃��C�u�����̍ŐV�ł�<a href="https://github.com/libsdl-org/SDL_mixer/releases">GitHub</a>�������ł���.
+このライブラリの最新版は<a href="https://github.com/libsdl-org/SDL_mixer/releases">GitHub</a>から入手できる.
 </p>
 <p>
-����͑����̗v�]�ɉ�����V���v���ȕ����`���l���I�[�f�B�I�~�L�T�[�ł���.
+これは多くの要望に応えるシンプルな複数チャネルオーディオミキサーである.
 </p>
 <p>
-16�r�b�g�X�e���I����8�`���l���ɉ���, ���y1�`���l���ɑΉ����Ă���.
-FLAC, MP3, Ogg, VOC, WAV�`���̉����t�@�C����ǂݍ��ނ��Ƃ��ł�, 
-����Ƀr���h�I�v�V������MIDI, MOD, Opus�����t�@�C����ǂݍ��߂�(�ڍׂ͉��L�̃������Q�Ƃ��邱��).
+16ビットステレオ音声8チャネルに加え, 音楽1チャネルに対応している.
+FLAC, MP3, Ogg, VOC, WAV形式の音声ファイルを読み込むことができ, 
+さらにビルドオプションでMIDI, MOD, Opus音声ファイルを読み込める(詳細は下記のメモを参照すること).
 </p>
 <p>
-���̃��C�u�����̎g������<a href="SDL2_mixer-ApiByCategory.html">API�ꗗ(�@�\��)</a><a href="SDL2_mixer-CategoryAPI.html">(�A���t�@�x�b�g��)</a>�ƃT���v���v���O������<a href="https://github.com/libsdl-org/SDL_mixer/blob/main/playwave.c">playwave.c</a>���Q�l�ɂ��邱��.
+このライブラリの使い方は<a href="SDL2_mixer-ApiByCategory.html">API一覧(機能別)</a><a href="SDL2_mixer-CategoryAPI.html">(アルファベット順)</a>とサンプルプログラムの<a href="https://github.com/libsdl-org/SDL_mixer/blob/main/playwave.c">playwave.c</a>を参考にすること.
 </p>
 <p>
-MIDI�t�@�C���������ϊ����ă~�L�V���O���鏈����CPU�̕��ׂ��傫������, �ʏ��WAVE�t�@�C���̍Đ��͐���ł�MIDI�̍Đ��͓r�؂��ꍇ��, 8�r�b�g����, ���m����, ����g������������.
+MIDIファイルを音声変換してミキシングする処理はCPUの負荷が大きいため, 通常のWAVEファイルの再生は正常でもMIDIの再生は途切れる場合は, 8ビット音声, モノラル, 低周波数を試すこと.
 </p>
 <p>
-FluidSynth�Ή��̃r���h�̏ꍇ, SDL_SOUNDFONTS���ϐ���MIDI�Đ��Ŏg�p���������F��Sound Font 2 (.sf2) �t�@�C���ɐݒ肷��K�v������(�ꕔ��Linux�f�B�X�g���r���[�V�����ł�fluid-soundfont-gm�p�b�P�[�W���C���X�g�[���ł���).
+FluidSynth対応のビルドの場合, SDL_SOUNDFONTS環境変数をMIDI再生で使用したい音色のSound Font 2 (.sf2) ファイルに設定する必要がある(一部のLinuxディストリビューションではfluid-soundfont-gmパッケージをインストールできる).
 </p>
 <p>
-MIDI�t�@�C����Timidity�ōĐ�����ꍇ, GUS�p�b�`�̊��S�ȃZ�b�g���K�v�ł���. <a href="https://www.libsdl.org/projects/mixer/timidity/timidity.tar.gz">timidity.tar.gz</a>��W�J����, UNIX�Ȃ��/usr/local/lib��, Win32�Ȃ��C:\�ɃR�s�[���邱��.
+MIDIファイルをTimidityで再生する場合, GUSパッチの完全なセットが必要である. <a href="https://www.libsdl.org/projects/mixer/timidity/timidity.tar.gz">timidity.tar.gz</a>を展開して, UNIXならば/usr/local/libに, Win32ならばC:¥にコピーすること.
 </p>
 <p>
-���̃��C�u������zlib���C�Z���X�̌��ɔz�z�����. �ڍׂ�<a href="https://github.com/libsdl-org/SDL_mixer/blob/main/LICENSE.txt">LICENSE.txt</a>���Q�Ƃ��邱��.
+このライブラリはzlibライセンスの元に配布される. 詳細は<a href="https://github.com/libsdl-org/SDL_mixer/blob/main/LICENSE.txt">LICENSE.txt</a>を参照すること.
 </p>
-<h2>����</h2>
+<h2>メモ</h2>
 <p>
-�\�t�g�E�F�AMIDI, MOD, Opus�̓f�R�[�_���C�u�����̃T�C�Y�̓s���Ńf�t�H���g�ł͑Ή����Ă��Ȃ���, 
-external/download.sh�����s���ē��肷�邱�Ƃ��ł���.
-</p>
-<p>
-CMake�Ńr���h����ꍇ, CMakeLists.txt��SUPPORT_*�I�v�V�����ŗL���ɂł���.
+ソフトウェアMIDI, MOD, Opusはデコーダライブラリのサイズの都合でデフォルトでは対応していないが, 
+external/download.shを実行して入手することができる.
 </p>
 <p>
-configure/make�Ńr���h����ꍇ, �ʏ�ʂ�r���h�ƃC���X�g�[���������configure�X�N���v�g�����m���Ă������g�p����.
+CMakeでビルドする場合, CMakeLists.txtのSUPPORT_*オプションで有効にできる.
 </p>
 <p>
-Visual Studio�Ńr���h����ꍇ, ���C�u�����̃r���h���K�v��, ���̂Ƃ�Visual Studio�v���W�F�N�g��LOAD_*�v���v���Z�b�T��ǉ�����.
+configure/makeでビルドする場合, 通常通りビルドとインストールをするとconfigureスクリプトが検知してそれらを使用する.
 </p>
 <p>
-Xcode�Ńr���h����ꍇ, ������L���ɂ��邽�߂Ƀv���W�F�N�g�̐擪�̐ݒ��ҏW��, ���Ȃ��̃A�v���P�[�V�����̃t���[�����[�N�Ɋ܂߂�K�v������.
+Visual Studioでビルドする場合, ライブラリのビルドが必要で, そのときVisual StudioプロジェクトにLOAD_*プリプロセッサを追加する.
 </p>
 <p>
-Android�̏ꍇ, ������L���ɂ��邽��Android.mk�̐擪�̐ݒ��ҏW���邱��.
+Xcodeでビルドする場合, それらを有効にするためにプロジェクトの先頭の設定を編集し, あなたのアプリケーションのフレームワークに含める必要がある.
 </p>
 <p>
-MP3�̓f�t�H���g�ł�dr_mp3���g�p����. SDL_mixer��libmpg123�̎g�p�ɂ��Ή����Ă���: configure��--enable-music-mp3-mpg123��n���ƗL���ɂł���.
+Androidの場合, それらを有効にするためAndroid.mkの先頭の設定を編集すること.
 </p>
-<h2>SDL Wiki�ւ̃����N</h2>
+<p>
+MP3はデフォルトではdr_mp3を使用する. SDL_mixerはlibmpg123の使用にも対応している: configureに--enable-music-mp3-mpg123を渡すと有効にできる.
+</p>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/FrontPage">SDL2_mixer/FrontPage</a>
 <hr>
 </body>

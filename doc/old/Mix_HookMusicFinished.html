@@ -1,53 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
-<title>Mix_HookMusicFinished</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_HookMusicFinished
-<hr>
-<h1>Mix_HookMusicFinished</h1>
-<p>
-<code>void Mix_HookMusicFinished(void (*music_finished)())</code>
-</p>
-<p>
-<dl>
-<dt>music_finished</dt><dd>void function() 関数へのポインタ. NULLのときフックを解除する</dd>
-</dl>
-</p>
-<p>
-音楽の再生が停止したとき呼ばれる関数を設定する.
-音楽が停止すればどのような場合でもmusic_finished関数が呼ばれる.
-NULLでこの関数を呼ぶとコールバックを取り除く.
-</p>
-<p>
-メモ: コールバック関数内でSDL_mixerの関数やSDL_LockAudioを決して呼んではならない.
-</p>
-<p>
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 音楽停止関数を作る
-void musicFinished()
-{
-    printf("Music stopped.\n");
-}
-...
-// 音楽が停止したときmusicFinishedを呼ぶ
-Mix_HookMusicFinished(musicFinished);
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_HaltMusic.html">Mix_HaltMusic</a>,
-<a href="Mix_FadeOutMusic.html">Mix_FadeOutMusic</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_69.html#SEC69">4.5.17 Mix_HookMusicFinished</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

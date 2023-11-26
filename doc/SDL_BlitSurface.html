@@ -1,110 +1,110 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategorySurface.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategorySurface.html" title="1つ上">
 <title>SDL_BlitSurface</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategorySurface.html">�T�[�t�F�C�X�̐����ƒP���ȕ`��</a> - SDL_BlitSurface
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_BlitSurface
 <hr>
 <h1>SDL_BlitSurface</h1>
-�T�[�t�F�C�X��ʂ̃T�[�t�F�C�X�ɍ����ɃR�s�[����
-<h2>�\��</h2>
+サーフェイスを別のサーフェイスに高速にコピーする
+<h2>構文</h2>
 <code>int SDL_BlitSurface(SDL_Surface* src, const SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_BlitSurface">
-<tr><td>src</td><td>�R�s�[����<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
-<tr><td>srcrect</td><td>�R�s�[���̗̈��<a href="SDL_Rect.html">SDL_Rect</a>. NULL�̂Ƃ��T�[�t�F�C�X�S��</td></tr>
-<tr><td>dst</td><td>�R�s�[���<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
-<tr><td>dstrect</td><td>�R�s�[��̗̈��<a href="SDL_Rect.html">SDL_Rect</a>. NULL�̂Ƃ��T�[�t�F�C�X�S��</td></tr>
+<tr><td>src</td><td>コピー元の<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
+<tr><td>srcrect</td><td>コピー元の領域の<a href="SDL_Rect.html">SDL_Rect</a>. NULLのときサーフェイス全体</td></tr>
+<tr><td>dst</td><td>コピー先の<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
+<tr><td>dstrect</td><td>コピー先の領域の<a href="SDL_Rect.html">SDL_Rect</a>. NULLのときサーフェイス全体</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0, ���s�̂Ƃ����̐��̃G���[�R�[�h��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>���Ă�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�T���v���R�[�h</h2>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
 <code>
 <pre>
 SDL_BlitSurface(surface, &source_rect, temp_surface, NULL);
 </pre>
 </code>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-SDL�̃T�[�t�F�C�X�̃R�s�[�������łǂ̂悤�ɍs���邩�𐳊m�ɗ������Ă��Ȃ��Ȃ��, �����Ăǂ̂悤�ɑ��̃R�s�[�֐����g���̂�������Ȃ��Ȃ��<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>���g���ׂ��ł���.
+SDLのサーフェイスのコピーが内部でどのように行われるかを正確に理解していないならば, そしてどのように他のコピー関数を使うのか分からないならば<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>を使うべきである.
 </p>
 <p>
-����̓p�u���b�N�ȃR�s�[�֐���, ������<a href="SDL_LowerBlit.html">SDL_LowerBlit()</a>���ĂԑO�ɗ̈�̌��؂ƃN���b�v���s���Ă���.
+これはパブリックなコピー関数で, 内部で<a href="SDL_LowerBlit.html">SDL_LowerBlit()</a>を呼ぶ前に領域の検証とクリップを行っている.
 </p>
 <p>
-���̊֐��̓��b�N�����T�[�t�F�C�X�ɑ΂��ČĂ�ł͂Ȃ�Ȃ�.
+この関数はロックしたサーフェイスに対して呼んではならない.
 </p>
 <p>
-�R�s�[�����̈�̃T�C�Y��srcrect�̕��ƍ����Ō��܂�.
-dstrect�͈ʒu�݂̂�, ���ƍ����͖��������.
-dstrect�̍��W�����̏ꍇ�ł��������N���b�v�����.
+コピーされる領域のサイズはsrcrectの幅と高さで決まる.
+dstrectは位置のみで, 幅と高さは無視される.
+dstrectの座標が負の場合でも正しくクリップされる.
 </p>
 <p>
-srcrect��NULL�̂Ƃ��T�[�t�F�C�X�̑S�̂��R�s�[�����.
-destrect��NULL�̂Ƃ��R�s�[���(0,0) (����)�ƂȂ�.
+srcrectがNULLのときサーフェイスの全体がコピーされる.
+destrectがNULLのときコピー先は(0,0) (左上)となる.
 </p>
 <p>
-�S�ẴN���b�v���s��ꂽ��, �Ō�ɃR�s�[���ꂽ�̈��dstrect�ɕۑ������. (srcrect�͕ω����Ȃ�.)
+全てのクリップが行われた後, 最後にコピーされた領域はdstrectに保存される. (srcrectは変化しない.)
 </p>
 <p>
-�u�����h��J���[�L�[�̒�`�̗L���ɂ��R�s�[�͈ȉ��̂悤�ɂȂ�.
+ブレンドやカラーキーの定義の有無によりコピーは以下のようになる.
 <table border="1" summary="SDL_BlitSurface">
 <tr>
-<th>�`��</th>
-<th>�R�s�[���T�[�t�F�C�X�̃u�����h���[�h</th>
-<th colspan="2">�R�s�[</th>
+<th>形式</th>
+<th>コピー元サーフェイスのブレンドモード</th>
+<th colspan="2">コピー</th>
 </tr>
 <tr>
-<td rowspan="2">RGBA��RGB</td>
+<td rowspan="2">RGBA→RGB</td>
 <td rowspan="1">SDL_BLENDMODE_BLEND</td>
-<td rowspan="1" colspan="2">���u�����h(�R�s�[���̃��`���l���ƃp�[�E�T�[�t�F�C�X�E�A���t�@���g����). SDL_SRCCOLORKEY�͖��������.</td>
+<td rowspan="1" colspan="2">αブレンド(コピー元のαチャネルとパー・サーフェイス・アルファが使われる). SDL_SRCCOLORKEYは無視される.</td>
 </tr>
 <tr>
 <td rowspan="1">SDL_BLENDMODE_NONE</td>
-<td rowspan="1" colspan="2">RGB���R�s�[�����. SDL_SRCCOLORKEY���ݒ肳��Ă����, �R�s�[���̃J���[�L�[��RGB�l�ƈ�v����s�N�Z���̂݃R�s�[�����.</td>
+<td rowspan="1" colspan="2">RGBがコピーされる. SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる.</td>
 </tr>
 <tr>
-<td rowspan="2">RGB��RGBA</td>
+<td rowspan="2">RGB→RGBA</td>
 <td rowspan="1">SDL_BLENDMODE_BLEND</td>
-<td rowspan="1">���u�����h(�R�s�[���̃p�[�E�T�[�t�F�C�X�E�A���t�@���g����).</td>
-<td rowspan="2">SDL_SRCCOLORKEY���ݒ肳��Ă����, �R�s�[���̃J���[�L�[��RGB�l�ƈ�v����s�N�Z���̂݃R�s�[�����.</td>
+<td rowspan="1">αブレンド(コピー元のパー・サーフェイス・アルファが使われる).</td>
+<td rowspan="2">SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる.</td>
 </tr>
 <tr>
 <td rowspan="1">SDL_BLENDMODE_NONE</td>
-<td rowspan="1">RGB���R�s�[�����. �R�s�[��̃��ɂ̓R�s�[���̃p�[�E�T�[�t�F�C�X�E�A���t�@���ݒ肳���.</td>
+<td rowspan="1">RGBがコピーされる. コピー先のαにはコピー元のパー・サーフェイス・アルファが設定される.</td>
 </tr>
 <tr>
-<td rowspan="2">RGBA��RGBA</td>
+<td rowspan="2">RGBA→RGBA</td>
 <td rowspan="1">SDL_BLENDMODE_BLEND</td>
-<td rowspan="1" colspan="2">���u�����h(�R�s�[���̃��`���l���ƃp�[�E�T�[�t�F�C�X�E�A���t�@���g����). SDL_SRCCOLORKEY�͖��������.</td>
+<td rowspan="1" colspan="2">αブレンド(コピー元のαチャネルとパー・サーフェイス・アルファが使われる). SDL_SRCCOLORKEYは無視される.</td>
 </tr>
 <tr>
 <td rowspan="1">BLENDMODE_NONE</td>
-<td rowspan="1" colspan="2">RGBA�S�Ă��R�s�[�����. SDL_SRCCOLORKEY���ݒ肳��Ă����, �R�s�[���̃J���[�L�[��RGB�l�ƈ�v����s�N�Z���̂݃R�s�[�����. ���̂Ƃ����͖��������.</td>
+<td rowspan="1" colspan="2">RGBA全てがコピーされる. SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる. このときαは無視される.</td>
 </tr>
 <tr>
-<td rowspan="2">RGB��RGB</td>
+<td rowspan="2">RGB→RGB</td>
 <td rowspan="1">SDL_BLENDMODE_BLEND</td>
-<td rowspan="1">���u�����h(�R�s�[���̃p�[�E�T�[�t�F�C�X�E�A���t�@���g����).</td>
-<td rowspan="2" colspan="2">SDL_SRCCOLORKEY���ݒ肳��Ă����, �R�s�[���̃J���[�L�[��RGB�l�ƈ�v����s�N�Z���̂݃R�s�[�����.</td>
+<td rowspan="1">αブレンド(コピー元のパー・サーフェイス・アルファが使われる).</td>
+<td rowspan="2" colspan="2">SDL_SRCCOLORKEYが設定されていれば, コピー元のカラーキーのRGB値と一致するピクセルのみコピーされる.</td>
 </tr>
 <tr>
 <td rowspan="1">SDL_BLENDMODE_NONE</td>
-<td rowspan="1">RGB���R�s�[�����</td>
+<td rowspan="1">RGBがコピーされる</td>
 </tr>
 </table>
 </p>
-<h2>�֘A����(�֐�)</h2>
+<h2>関連項目(関数)</h2>
 <a href="SDL_BlitScaled.html">SDL_BlitScaled</a><br>
 <a href="SDL_LowerBlit.html">SDL_LowerBlit</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_BlitSurface">SDL_BlitSurface - SDL Wiki</a>
 <hr>
 </body>

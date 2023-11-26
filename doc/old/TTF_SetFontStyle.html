@@ -1,72 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_ttf">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
-<title>TTF_SetFontStyle</title>
-</head>
-<body>
-<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-attributes.html">3.3属性</a> - TTF_SetFontStyle
-<hr>
-<h1>TTF_SetFontStyle</h1>
-<p>
-<code>void TTF_SetFontStyle(TTF_Font *font, int style)</code>
-</p>
-<p>
-<dl>
-<dt>font</dt><dd>スタイルを設定するフォント</dd>
-<dt>style</dt><dd>
-次のスタイルを表すビットマスクの論理和:<br>
-TTF_STYLE_BOLD<br>
-TTF_STYLE_ITALIC<br>
-TTF_STYLE_UNDERLINE<br>
-TTF_STYLE_STRIKETHROUGH<br>
-スタイルを設定しない場合はTTF_STYLE_NORMAL
-</dd>
-</dl>
-</p>
-<p>
-fontのスタイルを設定する.
-</p>
-<p>
-メモ: この関数のfontにNULLを渡すと異常終了する.
-</p>
-<p>
-メモ: この関数を呼ぶと, スタイルが変わらない場合でも, 以前のレンダリングされたグリフの内部キャッシュが消去される.
-まず<a href="TTF_GetFontStyle.html">TTF_GetFontStyle</a>を呼んで現在のスタイルをチェックしたほうがよい.
-</p>
-<p>
-メモ: TTF_STYLE_UNDERLINEで元のグリフメトリックが下線を認めない場合, TTF_RenderGlyph_*関数によって生成されるサーフェイスは下線を囲むように下に広がる.
-これはグリフメトリックを使って位置を計算する場合も変わらない.
-<br>
-一方, TTF_STYLE_STRIKETHROUGHはグリフは広がらない. このとこにより, コピーするときグリフの位置を決めるためにメトリックが使えないようになる. なぜなら, 恐らく実際には上に広がっているためである.
-もしかすると回避策はあるのかもしれない.
-しかし, 現在の設計よりも賢いグリフをコピーする計算がプログラムに求められる.
-<br>
-また, 下線や取り消し線が生成されるサーフェイスの外に出てしまうかもしれない. その場合はスクリーンにコピーしても表示されない.
-この場合は, スタイルの設定ではなく自分自身で取り消し線や下線を描く必要がある.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 読み込まれたフォントのスタイルをボールドのイタリックに設定する
-//TTF_Font *font;
-TTF_SetFontStyle(font, TTF_STYLE_BOLD|TTF_STYLE_ITALIC);
-
-// ここでボールド・イタリックのテキストをレンダリングする...
-
-// 読み込まれたフォントのスタイルを標準に戻す
-TTF_SetFontStyle(font, TTF_STYLE_NORMAL);
-</pre>
-</code>
-<h2>参照</h2>
-<a href="TTF_GetFontStyle.html">TTF_GetFontStyle</a>,
-<a href="SDL_ttf-defines.html">5.マクロ</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_ttf/docs/SDL_ttf_22.html#SEC22">3.3.3 TTF_SetFontStyle</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

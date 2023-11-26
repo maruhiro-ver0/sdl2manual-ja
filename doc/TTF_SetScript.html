@@ -1,41 +1,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_ttf">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_ttf-CategoryAttributes.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_ttf-CategoryAttributes.html" title="1つ上">
 <title>TTF_SetScript</title>
 </head>
 <body>
-<a href="index.html#SDL2_ttf">�ڎ�</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_ttf-CategoryAttributes.html">����</a> - TTF_SetScript
+<a href="index.html#SDL2_ttf">目次</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_ttf-CategoryAttributes.html">属性</a> - TTF_SetScript
 <hr>
 <h1>TTF_SetScript</h1>
-�����̌n�̃O���[�o���Ȑݒ���s�� 
-<h2>�񐄏�</h2>
+文字体系のグローバルな設定を行う 
+<h2>非推奨</h2>
 <p>
-���̊֐���HarfBuzz��hb_script_t�̒l��int�ɃL���X�g���Ă���, �S�Ẵt�H���g�ɃO���[�o���ɉe����^���邱�Ƃ����҂��Ă���.
-���̊֐��̑����, ������������Ƃ��ē�����hb_script_t�ɕϊ�����, ���t�H���g���Ƃɐݒ�ł���<a href="TTF_SetFontScriptName.html">TTF_SetFontScriptName()</a>���g���ė~����.
+この関数はHarfBuzzのhb_script_tの値をintにキャストしており, 全てのフォントにグローバルに影響を与えることを期待している.
+この関数の代わりに, 文字列を引数として内部でhb_script_tに変換して, かつフォントごとに設定できる<a href="TTF_SetFontScriptName.html">TTF_SetFontScriptName()</a>を使って欲しい.
 </p>
 <p>
-����̓O���[�o���Ȑݒ�ł���.
-<a href="TTF_SetFontScriptName.html">TTF_SetFontScriptName()</a>�Őݒ肳�ꂽ�l���D�悳��邪, �ݒ肪�Ȃ��ꍇ�͂��̐ݒ肪�g����.
+これはグローバルな設定である.
+<a href="TTF_SetFontScriptName.html">TTF_SetFontScriptName()</a>で設定された値が優先されるが, 設定がない場合はこの設定が使われる.
 </p>
 <p>
-�f�t�H���g��HB_SCRIPT_UNKNOWN�ł���. 
+デフォルトはHB_SCRIPT_UNKNOWNである. 
 </p>
-<h2>�\��</h2>
+<h2>構文</h2>
 <code>int TTF_SetScript(int script)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="TTF_SetScript">
-<tr><td>script</td><td>hb_script_t�̒l</td></tr>
+<tr><td>script</td><td>hb_script_tの値</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0, SDL_ttf��HarfBuzz�ɑΉ����Ă��Ȃ��ꍇ��-1��߂�.
-<h2>�o�[�W����</h2>
-SDL_ttf 2.0.18�ȍ~
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>戻り値</h2>
+成功のとき0, SDL_ttfがHarfBuzzに対応していない場合は-1を戻す.
+<h2>バージョン</h2>
+SDL_ttf 2.0.18以降
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_ttf/TTF_SetScript">SDL2_ttf/TTF_SetScript</a>
 <hr>
 </body>

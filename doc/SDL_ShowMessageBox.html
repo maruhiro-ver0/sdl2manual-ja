@@ -1,29 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryVideo.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
 <title>SDL_ShowMessageBox</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryMessageBox.html">���b�Z�[�W�{�b�N�X</a> - SDL_ShowMessageBox
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryMessageBox.html">メッセージボックス</a> - SDL_ShowMessageBox
 <hr>
 <h1>SDL_ShowMessageBox</h1>
-���[�_���ȃ��b�Z�[�W�{�b�N�X�𐶐�����
-<h2>�\��</h2>
+モーダルなメッセージボックスを生成する
+<h2>構文</h2>
 <code>int SDL_ShowMessageBox(const SDL_MessageBoxData* messageboxdata, int* buttonid)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_ShowMessageBox">
-<tr><td>messageboxdata</td><td>�^�C�g��, �e�L�X�g, ���̑��̃I�v�V�������܂�<a href="SDL_MessageBoxData.html">SDL_MessageBoxData</a></td></tr>
-<tr><td>buttonid</td><td>���[�U���������{�^����ID��������|�C���^</td></tr>
+<tr><td>messageboxdata</td><td>タイトル, テキスト, その他のオプションを含む<a href="SDL_MessageBoxData.html">SDL_MessageBoxData</a></td></tr>
+<tr><td>buttonid</td><td>ユーザが押したボタンのIDを代入するポインタ</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0, ���s�̂Ƃ����̐��̃G���[�R�[�h��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>���Ă�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�T���v���R�[�h</h2>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
@@ -32,9 +32,9 @@
 int main(int argc, char *argv[])
 {
     const SDL_MessageBoxButtonData buttons[] = {
-        { /* .flags, .buttonid, .text */        0, 0, "������" },
-        { SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT, 1, "�͂�" },
-        { SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 2, "�L�����Z��" },
+        { /* .flags, .buttonid, .text */        0, 0, "いいえ" },
+        { SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT, 1, "はい" },
+        { SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 2, "キャンセル" },
     };
     const SDL_MessageBoxColorScheme colorScheme = {
         { /* .colors (.r, .g, .b) */
@@ -53,51 +53,51 @@ int main(int argc, char *argv[])
     const SDL_MessageBoxData messageboxdata = {
         SDL_MESSAGEBOX_INFORMATION, /* .flags */
         NULL, /* .window */
-        "���b�Z�[�W�{�b�N�X�̃T���v��", /* .title */
-        "�{�^����I�����Ă�������", /* .message */
+        "メッセージボックスのサンプル", /* .title */
+        "ボタンを選択してください", /* .message */
         SDL_arraysize(buttons), /* .numbuttons */
         buttons, /* .buttons */
         &amp;colorScheme /* .colorScheme */
     };
     int buttonid;
     if (SDL_ShowMessageBox(&amp;messageboxdata, &amp;buttonid) &lt; 0) {
-        SDL_Log("���b�Z�[�W�{�b�N�X�̕\���Ɏ��s����");
+        SDL_Log("メッセージボックスの表示に失敗した");
         return 1;
     }
     if (buttonid == -1) {
-        SDL_Log("�I������Ȃ�����");
+        SDL_Log("選択されなかった");
     } else {
-       SDL_Log("%s���I�����ꂽ", buttons[buttonid].text);
+       SDL_Log("%sが選択された", buttons[buttonid].text);
     }
     return 0;
 }
 </pre>
 </code>
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-���G�Ȃ��̂��K�v�łȂ����, <a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox()</a>���g�������ȒP��������Ȃ�.
+複雑なものが必要でなければ, <a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox()</a>を使う方が簡単かもしれない.
 </p>
 <p>
-���̊֐���, �e�E�B���h�E���������ꂽ�X���b�h, �e�E�B���h�E���Ȃ���΃��C���X���b�h�ŌĂԕK�v������.
-���[�U���{�^��������, �܂��̓��b�Z�[�W�{�b�N�X�����܂ŃX���b�h�̎��s�͒�~�����.
+この関数は, 親ウィンドウが生成されたスレッド, 親ウィンドウがなければメインスレッドで呼ぶ必要がある.
+ユーザがボタンを押す, またはメッセージボックスを閉じるまでスレッドの実行は停止される.
 </p>
 <p>
-���̊֐���<a href="SDL_Init.html">SDL_Init()</a>�̑O�ł��Ăׂ�.
-���̂��Ƃ̓����_���[��OpenGL�R���e�L�X�g�̐����̎��s��񍐂���Ƃ��ɖ𗧂�.
+この関数は<a href="SDL_Init.html">SDL_Init()</a>の前でも呼べる.
+このことはレンダラーやOpenGLコンテキストの生成の失敗を報告するときに役立つ.
 </p>
 <p>
-X11�ł�, GTK+��Qt�̂悤�ȃc�[���L�b�g�ł͂Ȃ�X11���̂��̂Ń_�C�A���O�{�b�N�X��\������.
+X11では, GTK+やQtのようなツールキットではなくX11そのものでダイアログボックスを表示する.
 </p>
 <p>
-���p�ł���r�f�I���Ȃ�<a href="SDL_Init.html">SDL_Init()</a>�����s�����ꍇ, ���̊֐����������R�Ŏ��s���邱�Ƃɒ��ӂ���K�v������.
-���ꂪ���ɂȂ�Ȃ��, ���̊֐��̖߂�l���`�F�b�N��, ���s��߂����Ȃ�stderr�ɏ������ނ���.
+利用できるビデオがなく<a href="SDL_Init.html">SDL_Init()</a>が失敗した場合, この関数も同じ理由で失敗することに注意する必要がある.
+これが問題になるならば, この関数の戻り値をチェックし, 失敗を戻したならstderrに書き込むこと.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_ShowMessageBox">SDL_ShowMessageBox - SDL Wiki</a>
 <hr>
 </body>

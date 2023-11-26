@@ -1,49 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
-<title>Mix_GetMusicDecoder</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_GetMusicDecoder
-<hr>
-<h1>Mix_GetMusicDecoder</h1>
-<p>
-<code>const char *Mix_GetMusicDecoder(int index)</code>
-</p>
-<p>
-<dl>
-<dt>index</dt><dd>獲得する音楽デコーダーの番号. 範囲は0～<a href="Mix_GetNumMusicDecoders.html">Mix_GetNumMusicDecoders()</a>-1</dd>
-</dl>
-</p>
-<p>
-指定の番号の音楽デコーダーの名前を得る.
-利用可能な音楽デコーダーの数を<a href="Mix_GetNumMusicDecoders.html">Mix_GetNumMusicDecoders</a>で得る必要がある.
-</p>
-<p>
-戻り値: 指定の番号の音楽デコーダーの名前.
-この文字列はSDL_mixerライブラリが管理しているので, 変更や解放をしてはならない.
-これは<a href="Mix_CloseAudio.html">Mix_CloseAudio</a>を呼ぶまで有効である.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 利用可能な音楽デコーダーを表示する
-int i,max=Mix_GetNumMusicDecoders();
-for(i=0; i&lt;max; ++i)
-    printf("音楽デコーダー %d: %s\n",i,Mix_GetMusicDecoder(i));
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_GetNumMusicDecoders.html">Mix_GetNumMusicDecoders</a>,
-<a href="Mix_GetChunkDecoder.html">Mix_GetChunkDecoder</a>,
-<a href="Mix_LoadWAV.html">Mix_LoadWAV</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_54.html#SEC54">4.5.2 Mix_GetMusicDecoder</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

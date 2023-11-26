@@ -1,122 +1,122 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryVideo.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
 <title>SDL_CreateWindow</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryVideo.html">�f�B�X�v���C�ƃE�B���h�E</a> - SDL_CreateWindow
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_CreateWindow
 <hr>
 <h1>SDL_CreateWindow</h1>
-�ʒu, �傫��, �t���O���w�肵�ăE�B���h�E�𐶐�����
-<h2>�\��</h2>
+位置, 大きさ, フラグを指定してウィンドウを生成する
+<h2>構文</h2>
 <code>SDL_Window* SDL_CreateWindow(const char* title, int x, int y, int w, int h, Uint32 flags)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_CreateWindow">
-<tr><td>title</td><td>UTF-8������̃E�B���h�E�̃^�C�g��</td></tr>
-<tr><td>x</td><td>�E�B���h�E�̃X�N���[�����W�n��X���W, SDL_WINDOWPOS_CENTERED, �܂��� SDL_WINDOWPOS_UNDEFINED</td></tr>
-<tr><td>y</td><td>�E�B���h�E�̃X�N���[�����W�n��Y���W, SDL_WINDOWPOS_CENTERED, �܂��� SDL_WINDOWPOS_UNDEFINED</td></tr>
-<tr><td>w</td><td>�E�B���h�E�̃X�N���[�����W�n�̕�</td></tr>
-<tr><td>h</td><td>�E�B���h�E�̃X�N���[�����W�n�̍���</td></tr>
-<tr><td>flags</td><td>0 �܂��� 1�ȏ��<a href="SDL_WindowFlags.html">SDL_WindowFlags</a>�񋓑̘̂_���a</td></tr>
+<tr><td>title</td><td>UTF-8文字列のウィンドウのタイトル</td></tr>
+<tr><td>x</td><td>ウィンドウのスクリーン座標系のX座標, SDL_WINDOWPOS_CENTERED, または SDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>y</td><td>ウィンドウのスクリーン座標系のY座標, SDL_WINDOWPOS_CENTERED, または SDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>w</td><td>ウィンドウのスクリーン座標系の幅</td></tr>
+<tr><td>h</td><td>ウィンドウのスクリーン座標系の高さ</td></tr>
+<tr><td>flags</td><td>0 または 1つ以上の<a href="SDL_WindowFlags.html">SDL_WindowFlags</a>列挙体の論理和</td></tr>
 </table>
-<h2>�߂�l</h2>
+<h2>戻り値</h2>
 <p>
-�������ꂽ�E�B���h�E��߂�.
-���s�̂Ƃ�NULL��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>���Ă�ŏڍׂ�m�邱�Ƃ��ł���.
+生成されたウィンドウを戻す.
+失敗のときNULLを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 </p>
-<h2>�T���v���R�[�h</h2>
+<h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
-// �T���v���v���O����:
-// SDL2�ŃA�v���P�[�V�����E�B���h�E�𐶐�����
+// サンプルプログラム:
+// SDL2でアプリケーションウィンドウを生成する
 
 #include "SDL.h"
 #include &lt;stdio.h&gt;
 
 int main(int argc, char* argv[]) {
 
-    SDL_Window *window;                    // �|�C���^��錾����
+    SDL_Window *window;                    // ポインタを宣言する
 
-    SDL_Init(SDL_INIT_VIDEO);              // SDL2������������
+    SDL_Init(SDL_INIT_VIDEO);              // SDL2を初期化する
 
-    // ���̐ݒ�ŃA�v���P�[�V�����E�B���h�E�𐶐�����:
+    // 次の設定でアプリケーションウィンドウを生成する:
     window = SDL_CreateWindow(
-        "An SDL2 window",                  // �E�B���h�E�̃^�C�g��
-        SDL_WINDOWPOS_UNDEFINED,           // X���W�̏����l
-        SDL_WINDOWPOS_UNDEFINED,           // Y���W�̏����l
-        640,                               // ���̃s�N�Z����
-        480,                               // �����̃s�N�Z����
-        SDL_WINDOW_OPENGL                  // �t���O
+        "An SDL2 window",                  // ウィンドウのタイトル
+        SDL_WINDOWPOS_UNDEFINED,           // X座標の初期値
+        SDL_WINDOWPOS_UNDEFINED,           // Y座標の初期値
+        640,                               // 幅のピクセル数
+        480,                               // 高さのピクセル数
+        SDL_WINDOW_OPENGL                  // フラグ
     );
 
-    // �E�B���h�E�̐����ɐ����������`�F�b�N����
+    // ウィンドウの生成に成功したかチェックする
     if (window == NULL) {
-        // ������ʂ����Ȃ�΃E�B���h�E�𐶐��ł��Ȃ�����...
-        printf("�E�B���h�E�𐶐��ł��Ȃ�����: %s\n", SDL_GetError());
+        // ここを通ったならばウィンドウを生成できなかった...
+        printf("ウィンドウを生成できなかった: %s¥n", SDL_GetError());
         return 1;
     }
 
-    // �E�B���h�E���J����: �����Ńv���O�������[�v�ɓ��� (SDL_PollEvent()���Q�Ƃ��邱��)
+    // ウィンドウが開いた: ここでプログラムループに入る (SDL_PollEvent()を参照すること)
 
-    SDL_Delay(3000);  // ��Ƃ���3000�~���b�Ԓ�~����
+    SDL_Delay(3000);  // 例として3000ミリ秒間停止する
 
-    // �E�B���h�E����Ĕj������
+    // ウィンドウを閉じて破棄する
     SDL_DestroyWindow(window);
 
-    // �I������
+    // 終了処理
     SDL_Quit();
     return 0;
 }
 </pre>
 </code>
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-SDL_CreateWindow()�ł�SDL_WINDOW_SHOWN�͖��������.
-SDL_Window��SDL_WINDOW_HIDDEN���ݒ肳��Ȃ�����\�������.
-SDL_WINDOW_SHOWN��<a href="SDL_GetWindowFlags.html">SDL_GetWindowFlags()</a>�Ŗ₢���킹���Ƃ��g����.
+SDL_CreateWindow()ではSDL_WINDOW_SHOWNは無視される.
+SDL_WindowはSDL_WINDOW_HIDDENが設定されない限り表示される.
+SDL_WINDOW_SHOWNは<a href="SDL_GetWindowFlags.html">SDL_GetWindowFlags()</a>で問い合わせたとき使われる.
 </p>
 <p>
-Apple��macOS�ł�, Info.plist��NSHighResolutionCapable�v���p�e�B��<strong>�K��</strong>YES�łȂ���΂Ȃ�Ȃ�. �������Ȃ���΍�DPI OpenGL �L�����o�X����M�ł��Ȃ�.
+AppleのmacOSでは, Info.plistのNSHighResolutionCapableプロパティは<strong>必ず</strong>YESでなければならない. そうしなければ高DPI OpenGL キャンバスを受信できない.
 </p>
 <p>
-��DPI�ɑΉ�������(iOS��OS X)��SDL_WINDOW_ALLOW_HIGHDPI���w�肵�ăE�B���h�E�𐶐������ꍇ, �X�N���[�����W�n�̃E�B���h�E�T�C�Y��, �s�N�Z�����̃E�B���h�E�T�C�Y�ƈقȂ�ꍇ������.
-<a href="SDL_GL_GetDrawableSize.html">SDL_GL_GetDrawableSize()</a>�܂���<a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize()</a>�Ńs�N�Z�����̃N���C�A���g�T�C�Y�𓾂邱�Ƃ��ł���.
-���̃t���O��ݒ肵���ꍇ, �E�B���h�E���������ꂽ��ɕ`��\�ȃT�C�Y���ω������邽��, �E�B���h�E�̃T�C�Y���ς����, �܂��̓f�B�X�v���C�Ԃňړ������悤�ȃC�x���g������������̓T�C�Y�𒲂ׂȂ����Ȃ���΂Ȃ�Ȃ��̂Œ��ӂ��邱��.
+高DPIに対応した環境(iOSやOS X)でSDL_WINDOW_ALLOW_HIGHDPIを指定してウィンドウを生成した場合, スクリーン座標系のウィンドウサイズは, ピクセル数のウィンドウサイズと異なる場合がある.
+<a href="SDL_GL_GetDrawableSize.html">SDL_GL_GetDrawableSize()</a>または<a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize()</a>でピクセル数のクライアントサイズを得ることができる.
+このフラグを設定した場合, ウィンドウが生成された後に描画可能なサイズが変化しうるため, ウィンドウのサイズが変わった, またはディスプレイ間で移動したようなイベントが発生した後はサイズを調べなおさなければならないので注意すること.
 </p>
 <p>
-�t���X�N���[���̐ݒ�������ꍇ, ���ƍ����̈����ł���<strong>w</strong>��<strong>h</strong>�͎g���Ȃ�.
-������, �s���ȃT�C�Y�̈���(�Ⴆ�Α傫������)�̏ꍇ�͎��s����.
-�S�Ă̊��ł̃E�B���h�E�T�C�Y�̎�����̌��E��16384�~16384�ł���.
+フルスクリーンの設定をした場合, 幅と高さの引数である<strong>w</strong>と<strong>h</strong>は使われない.
+しかし, 不正なサイズの引数(例えば大きすぎる)の場合は失敗する.
+全ての環境でのウィンドウサイズの事実上の限界は16384×16384である.
 </p>
 <p>
-SDL_WINDOW_OPENGL�܂���SDL_WINDOW_VULKAN�t���O���w�肵�ăE�B���h�E�𐶐������, ��v����LoadLibrary�֐�(<a href="SDL_GL_LoadLibrary.html">SDL_GL_LoadLibrary()</a>�܂���<a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>)���Ăяo����, <a href="SDL_DestroyWindow.html">SDL_DestroyWindow()</a>�ň�v����UnloadLibrary�֐����Ă΂��.
+SDL_WINDOW_OPENGLまたはSDL_WINDOW_VULKANフラグを指定してウィンドウを生成すると, 一致するLoadLibrary関数(<a href="SDL_GL_LoadLibrary.html">SDL_GL_LoadLibrary()</a>または<a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>)が呼び出され, <a href="SDL_DestroyWindow.html">SDL_DestroyWindow()</a>で一致するUnloadLibrary関数が呼ばれる.
 </p>
 <p>
-SDL_WINDOW_VULKAN���w�肵��Vulkan�h���C�o�����삵�Ȃ������ꍇ, <a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>�����s���邽��<a href="SDL_CreateWindow.html">SDL_CreateWindow()�����s����.</a>
+SDL_WINDOW_VULKANを指定してVulkanドライバが動作しなかった場合, <a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>が失敗するため<a href="SDL_CreateWindow.html">SDL_CreateWindow()も失敗する.</a>
 </p>
 <p>
-Metal�ɑΉ����Ă��Ȃ�OS��SDL_WINDOW_METAL���w�肵���ꍇ, SDL_CreateWindow()�͎��s����.
+Metalに対応していないOSでSDL_WINDOW_METALを指定した場合, SDL_CreateWindow()は失敗する.
 </p>
 <p>
-Apple�f�o�C�X�ȊO�̏ꍇ, SDL��Vulkan���[�_�������N���Ȃ���, ���I�����N���C�u�����ł̃����N��v������.
-��̃o�[�W������SDL�ł͂��̐���͂Ȃ��Ȃ�\��ł���.
+Appleデバイス以外の場合, SDLはVulkanローダをリンクしないか, 動的リンクライブラリ版のリンクを要求する.
+後のバージョンのSDLではこの制約はなくなる予定である.
 </p>
-<h2>�o�[�W����</h2>
+<h2>バージョン</h2>
 <p>
-SDL 2.0.0�ȍ~
+SDL 2.0.0以降
 </p>
-<h2>�֘A����(�֐�)</h2>
+<h2>関連項目(関数)</h2>
 <a href="SDL_CreateWindowFrom.html">SDL_CreateWindowFrom</a><br>
 <a href="SDL_DestroyWindow.html">SDL_DestroyWindow</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_CreateWindow">SDL_CreateWindow - SDL Wiki</a>
 <hr>
 </body>

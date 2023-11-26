@@ -1,54 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-channels.html" title="1つ上">
-<title>Mix_PlayChannelTimed</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-channels.html">4.3チャネル</a> - Mix_PlayChannelTimed
-<hr>
-<h1>Mix_PlayChannelTimed</h1>
-<p>
-<code>int Mix_PlayChannelTimed(int channel, Mix_Chunk *chunk, int loops, int ticks)</code>
-</p>
-<p>
-<dl>
-<dt>channel</dt><dd>再生するチャネル. -1のとき予約されていない最初の空きチャネル</dd>
-<dt>chunk</dt><dd>再生するサンプリング音声</dd>
-<dt>loops</dt><dd>ループする回数. -1のとぎ無限. 1を渡すと2度再生される(1ループ)</dd>
-<dt>ticks</dt><dd>再生の最大時間(ミリ秒). loopsやchunkがそれよりも短ければ, この時間より前に停止する. -1は無限を意味する</dd>
-</dl>
-</p>
-<p>
-サンプリング音声やループが十分に長ければ, ticksミリ秒経過するとサンプリング音声は停止する.
-それ以外は<a href="Mix_PlayChannel.html">Mix_PlayChannel</a>と同じである.
-</p>
-<p>
-戻り値: サンプリング音声を再生したチャネル. 失敗のとき-1
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 予約されていない最初のチャネルでサンプリング音声を0.5秒間再生する
-// Mix_Chunk *sample; // 読み込み済みとする
-if(Mix_PlayChannelTimed(-1, sample, -1 , 500)==-1) {
-    printf("Mix_PlayChannelTimed: %s\n",Mix_GetError());
-    // 致命的なエラーか, 空きチャネルがない
-    // その場合は新たに別のチャネルを確保することもできる...
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_PlayChannel.html">Mix_PlayChannel</a>,
-<a href="Mix_FadeInChannelTimed.html">Mix_FadeInChannelTimed</a>,
-<a href="Mix_FadeOutChannel.html">Mix_FadeOutChannel</a>,
-<a href="Mix_ReserveChannels.html">Mix_ReserveChannels</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_29.html#SEC29">4.3.4 Mix_PlayChannelTimed</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

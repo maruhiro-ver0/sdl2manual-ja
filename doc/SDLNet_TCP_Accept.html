@@ -1,34 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_net">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_net-CategoryTcpSockets.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_net-CategoryTcpSockets.html" title="1つ上">
 <title>SDLNet_TCP_Accept</title>
 </head>
 <body>
-<a href="index.html#SDL2_net">�ڎ�</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - <a href="SDL2_net-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_net-CategoryTcpSockets.html">TCP�\�P�b�g</a> - SDLNet_TCP_Accept
+<a href="index.html#SDL2_net">目次</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - <a href="SDL2_net-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_net-CategoryTcpSockets.html">TCPソケット</a> - SDLNet_TCP_Accept
 <hr>
 <h1>SDLNet_TCP_Accept</h1>
-�w��̃T�[�o�\�P�b�g�Őڑ����󂯓����
-<h2>�\��</h2>
+指定のサーバソケットで接続を受け入れる
+<h2>構文</h2>
 <code>TCPsocket SDLNet_TCP_Accept(TCPsocket server)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDLNet_TCP_Accept">
-<tr><td>server</td><td>�ڑ����󂯓����T�[�o�\�P�b�g</td></tr>
+<tr><td>server</td><td>接続を受け入れるサーバソケット</td></tr>
 </table>
-<h2>�߂�l</h2>
-�V�����������ꂽ�\�P�b�g��߂�. �G���[�̂Ƃ�NULL��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+新しく生成されたソケットを戻す. エラーのときNULLを戻す.
+<h2>詳細</h2>
 <p>
-`server`��<a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open()</a>�̃A�h���X��INADDR_NONE�܂���INADDR_ANY(�T�[�o�\�P�b�g)�Ƃ����߂�l�łȂ���΂Ȃ�Ȃ�.
-���̑��̃\�P�b�g�ł͐ڑ����󂯓�����Ȃ�.
+`server`は<a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open()</a>のアドレスをINADDR_NONEまたはINADDR_ANY(サーバソケット)とした戻り値でなければならない.
+その他のソケットでは接続を受け入れられない.
 </p>
-<h2>�o�[�W����</h2>
-SDL_net 2.0.0�ȍ~
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>バージョン</h2>
+SDL_net 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_net/SDLNet_TCP_Accept">SDL_net/SDLNet_TCP_Accept</a>
 <hr>
 </body>

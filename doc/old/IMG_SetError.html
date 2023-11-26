@@ -1,41 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_image">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_image-functions-errors.html" title="1つ上">
-<title>IMG_SetError</title>
-</head>
-<body>
-<a href="index.html#SDL_image">目次</a> - <a href="SDL_image-functions.html">3.関数</a> - <a href="SDL_image-functions-errors.html">3.4エラー</a> - IMG_SetError
-<hr>
-<h1>IMG_SetError</h1>
-<p>
-<code>void IMG_SetError(const char *fmt, ...)</code>
-</p>
-<p>
-これは<a href="SDL_SetError.html">SDL_SetError</a>と同様に<a href="IMG_GetError.html">IMG_GetError</a>(または<a href="SDL_GetError.html">SDL_GetError</a>)で得られるエラーメッセージを設定する.
-この関数はprintfのように振舞うが, メッセージの長さにSDL_ERRBUFIZE(1024)バイトの制限がある.
-</p>
-<p>
-フォーマット形式は以下のもののみ対応する: %s, %d, %f, %p<br>
-%.2fのような指定には対応していない. 詳細はSDLのドキュメントに書かれている.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-int myimagefunc(int i) {
-    IMG_SetError("myimagefunc is not implemented! %d was passed in.",i);
-    return(-1);
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="IMG_GetError.html">IMG_GetError</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_image/docs/SDL_image_44.html#SEC44">3.4.1 IMG_SetError</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

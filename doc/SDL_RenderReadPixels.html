@@ -1,44 +1,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryRender.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryRender.html" title="1つ上">
 <title>SDL_RenderReadPixels</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryRender.html">2D�����_�����O</a> - SDL_RenderReadPixels
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_RenderReadPixels
 <hr>
 <h1>SDL_RenderReadPixels</h1>
-���݂̃����_�[�^�[�Q�b�g�̃s�N�Z���f�[�^��ǂݍ���
-<h2>�\��</h2>
+現在のレンダーターゲットのピクセルデータを読み込む
+<h2>構文</h2>
 <code>int SDL_RenderReadPixels(SDL_Renderer* renderer, const SDL_Rect* rect, Uint32 format, void* pixels, int pitch)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_RenderReadPixels">
-<tr><td>renderer</td><td>�����_�����O�R���e�L�X�g</td></tr>
-<tr><td>rect</td><td>�ǂݍ��ޗ̈��<a href="SDL_Rect.html">SDL_Rect</a>. NULL�̂Ƃ������_�����O�ΏۑS��</td></tr>
-<tr><td>format</td><td>�s�N�Z���f�[�^��<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>. 0�̂Ƃ������_�����O�ΏۂƓ����`��</td></tr>
-<tr><td>pixels</td><td>�s�N�Z���f�[�^��������|�C���^</td></tr>
-<tr><td>pitch</td><td>����pixels�̐��������̃o�C�g��. �ڍׂ��Q�Ƃ��邱��</td></tr>
+<tr><td>renderer</td><td>レンダリングコンテキスト</td></tr>
+<tr><td>rect</td><td>読み込む領域の<a href="SDL_Rect.html">SDL_Rect</a>. NULLのときレンダリング対象全体</td></tr>
+<tr><td>format</td><td>ピクセルデータの<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>. 0のときレンダリング対象と同じ形式</td></tr>
+<tr><td>pixels</td><td>ピクセルデータを代入するポインタ</td></tr>
+<tr><td>pitch</td><td>引数pixelsの水平方向のバイト数. 詳細を参照すること</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0, ���s�̂Ƃ����̐��̃G���[�R�[�h��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>詳細</h2>
 <p>
-����: ���̊֐��͔��ɒx���̂�, �����I�ȏ����Ŏg���Ă͂Ȃ�Ȃ�.
-���̊֐������C�������_�[�^�[�Q�b�g�Ŏg���ꍇ��, �����_�����O�̌�, <a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>�̑O�ɌĂԂׂ��ł���.
+注意: この関数は非常に遅いので, 周期的な処理で使ってはならない.
+この関数をメインレンダーターゲットで使う場合は, レンダリングの後, <a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>の前に呼ぶべきである.
 </p>
 <p>
-<strong>pitch</strong>��pixels��1�s������̃o�C�g�����w�肷��.
-����ɂ��, ���傫��pixels�z��̈ꕔ�̗̈�𗘗p������, �s�N�Z���f�[�^�̍s���p�b�f�B���O���邱�Ƃ��ł���.
-��ʓI�ɂ�, ����̓s�N�Z���f�[�^��1�s������̃s�N�Z������, 1�s�N�Z��������̃o�C�g�����|�������̂Ɠ������Ȃ���΂Ȃ�Ȃ�.
+<strong>pitch</strong>でpixelsの1行あたりのバイト数を指定する.
+これにより, より大きなpixels配列の一部の領域を利用したり, ピクセルデータの行をパッディングすることができる.
+一般的には, これはピクセルデータの1行あたりのピクセル数に, 1ピクセルあたりのバイト数を掛けたものと等しくなければならない.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_RenderReadPixels">SDL_RenderReadPixels - SDL Wiki</a>
 <hr>
 </body>

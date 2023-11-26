@@ -1,41 +1,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryHints.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
 <title>SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryHints.html">�q���g</a> - SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING
 <hr>
 <h1>SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING</h1>
-SDL��Microsoft Windows�̃X���b�h�ɖ��O��t���邩�ۂ����w�肷��q���g
-<h2>�l</h2>
+SDLがMicrosoft Windowsのスレッドに名前を付けるか否かを指定するヒント
+<h2>値</h2>
 <table border="1" summary="SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING">
-<tr><td>0</td><td>�X���b�h�ɖ��O��t���� (�f�t�H���g)</td></tr>
-<tr><td>1</td><td>�X���b�h�ɖ��O��t���Ȃ�</td></tr>
+<tr><td>0</td><td>スレッドに名前を付ける (デフォルト)</td></tr>
+<tr><td>1</td><td>スレッドに名前を付けない</td></tr>
 </table>
-<h2>�f�t�H���g</h2>
-�f�t�H���g�ł�SDL��Microsoft Windows�̃X���b�h�ɖ��O��t����.
-<h2>�ڍ�</h2>
+<h2>デフォルト</h2>
+デフォルトではSDLはMicrosoft Windowsのスレッドに名前を付ける.
+<h2>詳細</h2>
 <p>
-���̃q���g���ݒ肳��Ă��Ȃ����, SDL�̓X���b�h�ɖ��O�t�����邽�߂ɗ�O0x406D1388�𔭐�������.
-���ꂪSDL�̃f�t�H���g�ł���.
+このヒントが設定されていなければ, SDLはスレッドに名前付けするために例外0x406D1388を発生させる.
+これがSDLのデフォルトである.
 </p>
 <p>
-���̃q���g���ݒ肳��Ă����, SDL�͂��̗�O�𔭐�������, �X���b�h�͖����ƂȂ�.
-.Net����̏ꍇ, �f�o�b�K�Ŏ��s����Ƃ����ꂪ�K�v�ƂȂ�.
+このヒントが設定されていると, SDLはこの例外を発生させず, スレッドは無名となる.
+.Net言語の場合, デバッガで実行するときこれが必要となる.
 </p>
-<h2>�o�[�W����</h2>
+<h2>バージョン</h2>
 <p>
-SDL 2.0.5�ȍ~
+SDL 2.0.5以降
 </p>
-<h2>�֘A����(�֐�)</h2>
+<h2>関連項目(関数)</h2>
 <a href="SDL_CreateThread.html">SDL_CreateThread</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING">SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING - SDL Wiki</a><br>
 <hr>
 </body>

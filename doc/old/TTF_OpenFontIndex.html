@@ -1,53 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_ttf">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_ttf-functions-management.html" title="1つ上">
-<title>TTF_OpenFontIndex</title>
-</head>
-<body>
-<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-management.html">3.2管理</a> - TTF_OpenFontIndex
-<hr>
-<h1>TTF_OpenFontIndex</h1>
-<p>
-<code>TTF_Font *TTF_OpenFontIndex(const char *file, int ptsize, long index)</code>
-</p>
-<p>
-<dl>
-<dt>file</dt><dd>読み込むフォントのファイル名</dd>
-<dt>ptsize</dt><dd>フォントのポイントサイズ(72DPI). これは基本的には高さのピクセル数に変換される</dd>
-<dt>index</dt><dd>フォントフェイスの番号. 最初のフェイスは常に0から始まる</dd>
-</dl>
-</p>
-<p>
-フォントを使うためにfileのフェイス番号faceをptsizeサイズとして読み込む.
-これは実際には <code>TTF_OpenFontIndexRW(SDL_RWFromFile(file), ptsize, index)</code> だが, <a href="SDL_RWops.html">SDL_RWops</a>がNULLでないかチェックしている.
-この関数ではTTFとFONファイルを読み込める.
-</p>
-<p>
-戻り値: <a href="TTF_Font.html">TTF_Font</a>へのポインタ. 失敗のときNULL
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// font.ttfのフェイス0をサイズ16でfontに読み込む
-TTF_Font *font;
-font=TTF_OpenFontIndex("font.ttf", 16, 0);
-if(!font) {
-    printf("TTF_OpenFontIndex: %s\n", TTF_GetError());
-    // ここでエラーを処理する
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="TTF_OpenFontIndexRW.html">TTF_OpenFontIndexRW</a>,
-<a href="TTF_OpenFont.html">TTF_OpenFont</a>,
-<a href="TTF_CloseFont.html">TTF_CloseFont</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_ttf/docs/SDL_ttf_16.html#SEC16">3.2.3 TTF_OpenFontIndex</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

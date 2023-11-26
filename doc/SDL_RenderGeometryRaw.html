@@ -1,43 +1,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryRender.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryRender.html" title="1ã¤ä¸Š">
 <title>SDL_RenderGeometryRaw</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryRender.html">2DƒŒƒ“ƒ_ƒŠƒ“ƒO</a> - SDL_RenderGeometryRaw
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryRender.html">2Dãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°</a> - SDL_RenderGeometryRaw
 <hr>
 <h1>SDL_RenderGeometryRaw</h1>
-OŠpŒ`‚Ìˆê——‚ğƒŒƒ“ƒ_ƒŠƒ“ƒO‚·‚é. ƒeƒNƒXƒ`ƒƒ‚ÆƒxƒNƒgƒ‹”z—ñ‚Ì”Ô†‚àg—p‚Å‚«‚é. F‚Æƒ¿•Ï’²‚ÍƒxƒNƒgƒ‹‚²‚Æ‚És‚í‚ê‚é(<a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod</a>‚Æ<a href="SDL_SetTextureAlphaMod.html">SDL_SetTextureAlphaMod</a>‚Í–³‹‚³‚ê‚é)
-<h2>\•¶</h2>
+ä¸‰è§’å½¢ã®ä¸€è¦§ã‚’ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã™ã‚‹. ãƒ†ã‚¯ã‚¹ãƒãƒ£ã¨ãƒ™ã‚¯ãƒˆãƒ«é…åˆ—ã®ç•ªå·ã‚‚ä½¿ç”¨ã§ãã‚‹. è‰²ã¨Î±å¤‰èª¿ã¯ãƒ™ã‚¯ãƒˆãƒ«ã”ã¨ã«è¡Œã‚ã‚Œã‚‹(<a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod</a>ã¨<a href="SDL_SetTextureAlphaMod.html">SDL_SetTextureAlphaMod</a>ã¯ç„¡è¦–ã•ã‚Œã‚‹)
+<h2>æ§‹æ–‡</h2>
 <code>int SDL_RenderGeometryRaw(SDL_Renderer *renderer, SDL_Texture *texture, const float *xy, int xy_stride, const SDL_Color *color, int color_stride, const float *uv, int uv_stride, int num_vertices, const void *indices, int num_indices, int size_indices)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_RenderGeometryRaw">
-<tr><td>renderer</td><td>ƒŒƒ“ƒ_ƒ‰</td></tr>
-<tr><td>texture</td><td>(”CˆÓ) g—p‚·‚éSDL_Texture</td></tr>
-<tr><td>xy</td><td>ƒxƒNƒgƒ‹‚ÌˆÊ’u</td></tr>
-<tr><td>xy_stride</td><td>‚ ‚é—v‘f‚©‚çŸ‚Ì—v‘f‚ÖˆÚ“®‚·‚éƒTƒCƒY</td></tr>
-<tr><td>color</td><td>ƒxƒNƒgƒ‹‚ÌF(<a href="SDL_Color.html">SDL_Color</a>)</td></tr>
-<tr><td>color_stride</td><td>‚ ‚é—v‘f‚©‚çŸ‚Ì—v‘f‚ÖˆÚ“®‚·‚éƒTƒCƒY</td></tr>
-<tr><td>uv</td><td>³‹K‰»‚³‚ê‚½ƒeƒNƒXƒ`ƒƒÀ•W‚ÌƒxƒNƒgƒ‹</td></tr>
-<tr><td>uv_stride</td><td>‚ ‚é—v‘f‚©‚çŸ‚Ì—v‘f‚ÖˆÚ“®‚·‚éƒTƒCƒY</td></tr>
-<tr><td>num_vertices</td><td>ƒxƒNƒgƒ‹‚ÌŒÂ”</td></tr>
-<tr><td>indices</td><td>(”CˆÓ) vertices”z—ñ‚ÌƒCƒ“ƒfƒbƒNƒX”Ô†‚Ì”z—ñ. NULL‚Ì‚Æ‚«‡˜’Ê‚è‚ÉƒŒƒ“ƒ_ƒŠƒ“ƒO‚·‚é</td></tr>
-<tr><td>num_indices</td><td>ƒCƒ“ƒfƒbƒNƒX”Ô†‚ÌŒÂ”</td></tr>
-<tr><td>size_indices</td><td>ƒCƒ“ƒfƒbƒNƒX‚ÌƒTƒCƒY: 1 (byte), 2 (short), 4 (int)</td></tr>
+<tr><td>renderer</td><td>ãƒ¬ãƒ³ãƒ€ãƒ©</td></tr>
+<tr><td>texture</td><td>(ä»»æ„) ä½¿ç”¨ã™ã‚‹SDL_Texture</td></tr>
+<tr><td>xy</td><td>ãƒ™ã‚¯ãƒˆãƒ«ã®ä½ç½®</td></tr>
+<tr><td>xy_stride</td><td>ã‚ã‚‹è¦ç´ ã‹ã‚‰æ¬¡ã®è¦ç´ ã¸ç§»å‹•ã™ã‚‹ã‚µã‚¤ã‚º</td></tr>
+<tr><td>color</td><td>ãƒ™ã‚¯ãƒˆãƒ«ã®è‰²(<a href="SDL_Color.html">SDL_Color</a>)</td></tr>
+<tr><td>color_stride</td><td>ã‚ã‚‹è¦ç´ ã‹ã‚‰æ¬¡ã®è¦ç´ ã¸ç§»å‹•ã™ã‚‹ã‚µã‚¤ã‚º</td></tr>
+<tr><td>uv</td><td>æ­£è¦åŒ–ã•ã‚ŒãŸãƒ†ã‚¯ã‚¹ãƒãƒ£åº§æ¨™ã®ãƒ™ã‚¯ãƒˆãƒ«</td></tr>
+<tr><td>uv_stride</td><td>ã‚ã‚‹è¦ç´ ã‹ã‚‰æ¬¡ã®è¦ç´ ã¸ç§»å‹•ã™ã‚‹ã‚µã‚¤ã‚º</td></tr>
+<tr><td>num_vertices</td><td>ãƒ™ã‚¯ãƒˆãƒ«ã®å€‹æ•°</td></tr>
+<tr><td>indices</td><td>(ä»»æ„) verticesé…åˆ—ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ç•ªå·ã®é…åˆ—. NULLã®ã¨ãé †åºé€šã‚Šã«ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã™ã‚‹</td></tr>
+<tr><td>num_indices</td><td>ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ç•ªå·ã®å€‹æ•°</td></tr>
+<tr><td>size_indices</td><td>ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®ã‚µã‚¤ã‚º: 1 (byte), 2 (short), 4 (int)</td></tr>
 </table>
-<h2>–ß‚è’l</h2>
-¬Œ÷‚Ì‚Æ‚«0, ‘Î‰‚µ‚Ä‚¢‚È‚¢‚Æ‚«-1‚ğ–ß‚·.
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.18ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>æˆ»ã‚Šå€¤</h2>
+æˆåŠŸã®ã¨ã0, å¯¾å¿œã—ã¦ã„ãªã„ã¨ã-1ã‚’æˆ»ã™.
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.18ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_RenderGeometry.html">SDL_RenderGeometry</a><br>
 <a href="SDL_Vertex.html">SDL_Vertex</a>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_RenderGeometryRaw">SDL_RenderGeometryRaw - SDL Wiki</a>
 <hr>
 </body>

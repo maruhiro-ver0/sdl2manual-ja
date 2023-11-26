@@ -1,48 +1,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryVideo.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
 <title>SDL_SetWindowKeyboardGrab</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryVideo.html">�f�B�X�v���C�ƃE�B���h�E</a> - SDL_SetWindowKeyboardGrab
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_SetWindowKeyboardGrab
 <hr>
 <h1>SDL_SetWindowKeyboardGrab</h1>
-�E�B���h�E�̃L�[�{�[�h�O���u���[�h��ݒ肷��
-<h2>�\��</h2>
+ウィンドウのキーボードグラブモードを設定する
+<h2>構文</h2>
 <code>void SDL_SetWindowKeyboardGrab(SDL_Window* window, SDL_bool grabbed)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_SetWindowKeyboardGrab">
-<tr><td>window</td><td>�L�[�{�[�h�O���u���[�h���ݒ肳���<a href="SDL_Window"></a></td></tr>
-<tr><td>grabbed</td><td>SDL_TRUE�̂Ƃ��L�[�{�[�h�O���u����, SDL_FALSE�̂Ƃ���������</td></tr>
+<tr><td>window</td><td>キーボードグラブモードが設定される<a href="SDL_Window"></a></td></tr>
+<tr><td>grabbed</td><td>SDL_TRUEのときキーボードグラブする, SDL_FALSEのとき解除する</td></tr>
 </table>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-�L�[�{�[�h���O���u�����, Alt+Tab��Meta/Super�L�[�̂悤�ȃV�X�e���L�[�{�[�h�V���[�g�J�b�g��߂炦�邱�Ƃ��ł���.
-�S�ẴV�X�e���L�[�{�[�h�V���[�g�J�b�g���A�v���P�[�V�������߂炦�邱�Ƃ��ł���̂ł͂Ȃ��̂Œ��ӂ��邱��. (�Ⴆ��Windows��Ctrl+Alt+Del)
+キーボードをグラブすると, Alt+TabやMeta/Superキーのようなシステムキーボードショートカットを捕らえることができる.
+全てのシステムキーボードショートカットをアプリケーションが捕らえることができるのではないので注意すること. (例えばWindowsのCtrl+Alt+Del)
 </p>
 <p>
-����͎��VNC�N���C�A���g��VM�t�����g�G���h�̂悤�ȓ���ȃA�v���P�[�V������z��Ƃ��Ă���.
-�ʏ�̃Q�[�����̓L�[�{�[�h���O���u���ׂ��ł͂Ȃ�.
+これは主にVNCクライアントやVMフロントエンドのような特殊なアプリケーションを想定としている.
+通常のゲーム等はキーボードをグラブすべきではない.
 </p>
 <p>
-�L�[�{�[�h�O������L���ɂ��Ă�, �E�B���h�E���t���X�N���[���̏ꍇ��, SDL�̓��[�U���A�v���P�[�V��������E�o�ł���悤��Alt+Tab����������.
-�t���X�N���[������E�o����V���[�g�J�b�g�������ō쐬����ꍇ��, ���̓����SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED�Ŗ����ɂ��邱��.
+キーボードグラムを有効にしても, ウィンドウがフルスクリーンの場合は, SDLはユーザがアプリケーションから脱出できるようにAlt+Tabを処理する.
+フルスクリーンから脱出するショートカットを自分で作成する場合は, この動作をSDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBEDで無効にすること.
 </p>
 <p>
-���ɑ��̃E�B���h�E���}�E�X�O���u����Ă����Ԃŕʂ̃E�B���h�E�̃}�E�X�O���u��ݒ肵���ꍇ, ���̃E�B���h�E�̓}�E�X�O���u������, ��ɐݒ肵���E�B���h�E���}�E�X�O���u�𓾂�. 
+既に他のウィンドウがマウスグラブされている状態で別のウィンドウのマウスグラブを設定した場合, 元のウィンドウはマウスグラブを失い, 後に設定したウィンドウがマウスグラブを得る. 
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.16�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.16以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_GetWindowKeyboardGrab.html">SDL_GetWindowKeyboardGrab</a><br>
 <a href="SDL_SetWindowMouseGrab.html">SDL_SetWindowMouseGrab</a><br>
 <a href="SDL_SetWindowGrab.html">SDL_SetWindowGrab</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_SetWindowKeyboardGrab">SDL_SetWindowKeyboardGrab - SDL Wiki</a>
 <hr>
 </body>

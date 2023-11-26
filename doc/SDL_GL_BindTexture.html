@@ -1,32 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryRender.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryRender.html" title="1つ上">
 <title>SDL_GL_BindTexture</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryRender.html">2D�����_�����O</a> - SDL_GL_BindTexture
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_GL_BindTexture
 <hr>
 <h1>SDL_GL_BindTexture</h1>
-OpenGL/ES/ES2�e�N�X�`�����J�����g�R���e�L�X�g�Ƀo�C���h����
-<h2>�\��</h2>
+OpenGL/ES/ES2テクスチャをカレントコンテキストにバインドする
+<h2>構文</h2>
 <code>int SDL_GL_BindTexture(SDL_Texture *texture, float *texw, float *texh)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_GL_BindTexture">
-<tr><td>texture</td><td>OpenGL/ES/ES2�J�����g�R���e�L�X�g�Ƀo�C���h����e�N�X�`��</td></tr>
-<tr><td>texw</td><td>�e�N�X�`���̕���������float�^�̕ϐ��ւ̃|�C���^, �K�v�Ȃ��ꍇ��NULL</td></tr>
-<tr><td>texh</td><td>�e�N�X�`���̍�����������float�^�̕ϐ��ւ̃|�C���^, �K�v�Ȃ��ꍇ��NULL</td></tr>
+<tr><td>texture</td><td>OpenGL/ES/ES2カレントコンテキストにバインドするテクスチャ</td></tr>
+<tr><td>texw</td><td>テクスチャの幅を代入するfloat型の変数へのポインタ, 必要ない場合はNULL</td></tr>
+<tr><td>texh</td><td>テクスチャの高さを代入するfloat型の変数へのポインタ, 必要ない場合はNULL</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0, ���삪�Ή����Ă��Ȃ��Ƃ���-1��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�T���v���R�[�h</h2>
+<h2>戻り値</h2>
+成功のとき0, 操作が対応していないときは-1を戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
 <p>
-�ȉ���3�̗��Ignifuga Game Engine���瓾�����̂�, SDL2���g����libRocket(�����_���[��OpenGL���g���Ă���)���ǂ̂悤�ɓ������Ă��邩������.
+以下の3つの例はIgnifuga Game Engineから得たもので, SDL2を使ってlibRocket(レンダラーにOpenGLを使っている)をどのように統合しているかを示す.
 </p>
 <h3>(1)</h3>
 <p>
@@ -34,7 +34,7 @@ OpenGL/ES/ES2�e�N�X�`�����J�����g�R���e�L�X�g�Ƀo�C���h����
 <pre>
 void RocketSDLRenderInterfaceOpenGL::RenderGeometry(Rocket::Core::Vertex* vertices, int num_vertices, int* indices, int num_indices, const Rocket::Core::TextureHandle texture, const Rocket::Core::Vector2f&amp; translation)
 {
-    // SDL�̓V�F�[�_�[���g���̂�, �����ł͖���������K�v������
+    // SDLはシェーダーを使うので, ここでは無効化する必要がある
     render_data.glUseProgramObjectARB(0);
     render_data.glPushMatrix();
     render_data.glTranslatef(translation.x, translation.y, 0);
@@ -163,7 +163,7 @@ void RocketSDLRenderInterfaceOpenGLES::RenderGeometry(Rocket::Core::Vertex* vert
 
     GLfloat projection[4][4];
 
-    // ���s���e�̏���������
+    // 平行投影の準備をする
     projection[0][0] = 2.0f / rvp.w;
     projection[0][1] = 0.0f;
     projection[0][2] = 0.0f;
@@ -189,7 +189,7 @@ void RocketSDLRenderInterfaceOpenGLES::RenderGeometry(Rocket::Core::Vertex* vert
     projection[3][2] = 0.0f;
     projection[3][3] = 1.0f;
 
-    // ���e�s���ݒ肷��
+    // 投影行列を設定する
     if (texture) {
         render_data.glUniformMatrix4fv(u_texture_projection, 1, GL_FALSE, (GLfloat *)projection);
         render_data.glUniform2f(u_texture_translation, translation.x, translation.y);
@@ -227,50 +227,50 @@ void RocketSDLRenderInterfaceOpenGLES::RenderGeometry(Rocket::Core::Vertex* vert
 
     render_data.glDrawElements(GL_TRIANGLES, num_indices, GL_UNSIGNED_SHORT, newIndicies);
 
-    /* ROCKETGLUE_ATTRIBUTE_COLOR (2)�����S�ɖ������ł���. SDL�͕K�v�Ȃ��vertex attrib 2���ĂїL�����ł��� */
+    /* ROCKETGLUE_ATTRIBUTE_COLOR (2)を安全に無効化できる. SDLは必要ならばvertex attrib 2を再び有効化できる */
     render_data.glDisableVertexAttribArray(ROCKETGLUE_ATTRIBUTE_COLOR);
 
-    /* SDL��RenderCopy/Ex���ĂԂƂ��L��������Ȃ����ߌ݊����̂��߂ɗL��������
-       ROCKETGLUE_ATTRIBUTE_POSITION (0) ��ROCKETGLUE_ATTRIBUTE_TEXCOORD (1) �𗣂� */
+    /* SDLがRenderCopy/Exを呼ぶとき有効化されないため互換性のために有効化した
+       ROCKETGLUE_ATTRIBUTE_POSITION (0) とROCKETGLUE_ATTRIBUTE_TEXCOORD (1) を離す */
     if(sdl_texture) SDL_GL_UnbindTexture(sdl_texture);
     else render_data.glEnableVertexAttribArray(ROCKETGLUE_ATTRIBUTE_TEXCOORD);
 
-    /* �u�����h�����Z�b�g��, ��ʂ̊O�Ƀt�F�C�N�̓_��`�悵�ăe�N�X�`���������_�����O�ꍇ�ɔ�����
-       ��Ԃ����Z�b�g����K�v�����邱�Ƃ�SDL�ɒm�点�� */
+    /* ブレンドをリセットし, 画面の外にフェイクの点を描画してテクスチャをレンダリング場合に備えて
+       状態をリセットする必要があることをSDLに知らせる */
     render_data.glDisable(GL_BLEND);
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
     SDL_RenderDrawPoint(renderer, -1, -1);
 </pre>
 </code>
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-���̊֐��ɂ����, OpenGL�v���~�e�B�u�𒼐ڃ����_�����O����Ƃ�, OpenGL�C���X�g���N�V�������g�����Ƃ��ł���.
+この関数によって, OpenGLプリミティブを直接レンダリングするとき, OpenGLインストラクションを使うことができる.
 </p>
 <p>
-�l������ꂽ�Ȃ�, <strong>texw</strong>��<strong>texh</strong>�ɂ͓���ꂽ�e�N�X�`���ɓK�������ƍ������������Ă���.
-�قƂ�ǂ̏ꍇ, �����̒l��1.0�ł���.
-������, GL_ARB_texture_rectangle�g���ɑΉ��������ł�, �����̒l�̓e�N�X�`���̐����̂��߂Ɏg��ꂽ���ۂ̃s�N�Z�����̕��ƍ����ł���.
-���̂��Ƃ�OpenGL�Ƀe�N�X�`���̍��W��^����ꍇ�ɍl������K�v������.
+値が得られたなら, <strong>texw</strong>と<strong>texh</strong>には得られたテクスチャに適した幅と高さが代入されている.
+ほとんどの場合, 両方の値は1.0である.
+しかし, GL_ARB_texture_rectangle拡張に対応した環境では, これらの値はテクスチャの生成のために使われた実際のピクセル数の幅と高さである.
+このことはOpenGLにテクスチャの座標を与える場合に考慮する必要がある.
 </p>
 <p>
-<a href="SDL_Texture.html">SDL_Texture</a>�𐶐����邽�߂ɂ̓����_���[���K�v�ł���. �����, 
-���̊֐��ł�
-���Ȃ����g��OpenGL�R���e�L�X�g�ł͂Ȃ�, <a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>�Ő��������Öق�OpenGL�R���e�L�X�g���g�������Ȃ�.
-�������Ȃ���OpenGL�R���e�L�X�g�������K�v������Ȃ��, �e�N�X�`����ǂݍ��ރ��\�b�h���������g�ŏ����Ȃ���΂Ȃ�Ȃ�.
+<a href="SDL_Texture.html">SDL_Texture</a>を生成するためにはレンダラーが必要である. よって, 
+この関数では
+あなた自身のOpenGLコンテキストではなく, <a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>で生成した暗黙のOpenGLコンテキストを使うしかない.
+もしあなたのOpenGLコンテキストを扱う必要があるならば, テクスチャを読み込むメソッドを自分自身で書かなければならない.
 </p>
 <p>
-�����, SDL��RGB�e�N�X�`����BGR��(�܂�t�ɂ���)�A�b�v���[�h��, �V�F�[�_�[�̒i�K�ŃJ���[�`���l������ёւ���.
-�����, �A�b�v���[�h���ꂽ�e�N�X�`���̓J���[�`���l�����t�ɂȂ��Ă���̂Œ��ӂ��邱��.
+さらに, SDLはRGBテクスチャをBGR順(つまり逆にして)アップロードし, シェーダーの段階でカラーチャネルを並び替える.
+よって, アップロードされたテクスチャはカラーチャネルが逆になっているので注意すること.
 </p>
-<h2>�o�[�W����</h2>
+<h2>バージョン</h2>
 <p>
-SDL 2.0.0�ȍ~
+SDL 2.0.0以降
 </p>
-<h2>�֘A����(�֐�)</h2>
+<h2>関連項目(関数)</h2>
 <a href="SDL_GL_MakeCurrent.html">SDL_GL_MakeCurrent</a><br>
 <a href="SDL_GL_UnbindTexture.html">SDL_GL_UnbindTexture</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GL_BindTexture">SDL_GL_BindTexture - SDL Wiki</a>
 <hr>
 </body>

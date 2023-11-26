@@ -1,73 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-effects.html" title="1つ上">
-<title>Mix_RegisterEffect</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-effects.html">4.6エフェクト</a> - Mix_RegisterEffect
-<hr>
-<h1>Mix_RegisterEffect</h1>
-<p>
-<code>int Mix_RegisterEffect(int chan, Mix_EffectFunc_t f, Mix_EffectDone_t d, void *arg)</code>
-</p>
-<p>
-<dl>
-<dt>chan</dt><dd>
-関数fと関数dを登録するチャネル番号.
-MIX_CHANNEL_POSTとするとミキシングの後の処理
-</dd>
-<dt>f</dt><dd>
-エフェクト関数へのポインタ
-</dd>
-<dt>d</dt><dd>
-チャネルでのサンプリング音声の再生が終了したとき呼ばれる関数へのポインタ.
-メモリや動的データを解放する必要がない場合はNULLとしてよい
-</dd>
-<dt>arg</dt><dd>
-関数fと関数dの引数udataに渡されるポインタ.
-特に同時に複数のチャネルを扱えるように作る場合は, 処理関数が状態データを保存する場所として使うとよい.
-必要なければNULLにできる.
-</dd>
-</dl>
-</p>
-<p>
-channelにエフェクトをつける後処理を行う処理関数fをフックする.
-読み込んだデータを単に表示する処理や, ストリームにエコーをつける処理などを行える.
-多くの処理関数は状態データの領域を確保する必要がある. その場合はargポインタに保存するとよい.
-処理関数を使い終えたとき, 処理関数のargの領域のデータに対して終了処理を行う関数dが呼ばれる.
-このエフェクトはリンクされたリスト構造になっていて, 常に末尾に追加される.
-つまり, 前に登録されたエフェクトの出力が次の入力になる.
-エフェクトは何度でも追加できる.
-エフェクトはこのように連なっている.
-</p>
-<p>
-戻り値: チャネルが存在しないなど失敗のとき0(偽)
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 何もせず素通りする関数を作る
-void noEffect(int chan, void *stream, int len, void *udata)
-{
-    // ここにストリームの処理を書ける...
-}
-...
-// 何もしない後処理を登録する
-if(!Mix_RegisterEffect(MIX_CHANNEL_POST, noEffect, NULL, NULL)) {
-    printf("Mix_RegisterEffect: %s\n", Mix_GetError());
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_UnregisterEffect.html">Mix_UnregisterEffect</a>,
-<a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_76.html#SEC76">4.6.1 Mix_RegisterEffect</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

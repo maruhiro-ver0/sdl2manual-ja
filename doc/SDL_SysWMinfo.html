@@ -1,29 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategorySWM.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategorySWM.html" title="1ã¤ä¸Š">
 <title>SDL_SysWMinfo</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategorySWM.html">ŠÂ‹«ˆË‘¶ƒEƒBƒ“ƒhƒE</a> - SDL_SysWMinfo
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategorySWM.html">ç’°å¢ƒä¾å­˜ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦</a> - SDL_SysWMinfo
 <hr>
 <h1>SDL_SysWMinfo</h1>
-ƒEƒBƒ“ƒhƒE‚ÉŠÖ‚·‚éƒVƒXƒeƒ€ˆË‘¶‚Ìî•ñ‚Ì\‘¢‘Ì
-<h2>ƒtƒB[ƒ‹ƒh</h2>
+ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«é–¢ã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ä¾å­˜ã®æƒ…å ±ã®æ§‹é€ ä½“
+<h2>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰</h2>
 <table border="1" summary="SDL_SysWMinfo">
-<tr><td colspan="3" align="center">‘SƒVƒXƒeƒ€</td></tr>
-<tr><td><a href="SDL_version-structure.html">SDL_version</a></td><td>version</td><td>SDL‚Ìƒo[ƒWƒ‡ƒ“</td></tr>
-<tr><td><a href="SDL_SYSWM_TYPE.html">SDL_SYSWM_TYPE</a></td><td>subsystem</td><td>ƒEƒBƒ“ƒhƒEƒVƒXƒeƒ€‚Ìí•Ê</td></tr>
-<tr><td>int</td><td>dummy</td><td>–¢g—p (—˜—p‚Å‚«‚éƒVƒXƒeƒ€‚ª‚È‚¢ê‡‚ÉƒRƒ“ƒpƒCƒ‰‚ğ•‚¯‚é‚½‚ß)</td></tr>
+<tr><td colspan="3" align="center">å…¨ã‚·ã‚¹ãƒ†ãƒ </td></tr>
+<tr><td><a href="SDL_version-structure.html">SDL_version</a></td><td>version</td><td>SDLã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³</td></tr>
+<tr><td><a href="SDL_SYSWM_TYPE.html">SDL_SYSWM_TYPE</a></td><td>subsystem</td><td>ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚·ã‚¹ãƒ†ãƒ ã®ç¨®åˆ¥</td></tr>
+<tr><td>int</td><td>dummy</td><td>æœªä½¿ç”¨ (åˆ©ç”¨ã§ãã‚‹ã‚·ã‚¹ãƒ†ãƒ ãŒãªã„å ´åˆã«ã‚³ãƒ³ãƒ‘ã‚¤ãƒ©ã‚’åŠ©ã‘ã‚‹ãŸã‚)</td></tr>
 <tr><td colspan="3" align="center">SDL_SYSWM_WINDOWS</td></tr>
 <tr><td>HWND</td><td>win.window</td><td>Window handle</td></tr>
-<tr><td>HDC</td><td>win.hdc</td><td>Window device context (SDL 2.0.4ˆÈ~)</td></tr>
-<tr><td>HINSTANCE </td><td>win.hinstance</td><td>Window hinstance (SDL 2.0.6ˆÈ~)</td></tr>
-<tr><td colspan="3" align="center">SDL_SYSWM_WINRT (SDL2.0.3ˆÈ~)</td></tr>
+<tr><td>HDC</td><td>win.hdc</td><td>Window device context (SDL 2.0.4ä»¥é™)</td></tr>
+<tr><td>HINSTANCE </td><td>win.hinstance</td><td>Window hinstance (SDL 2.0.6ä»¥é™)</td></tr>
+<tr><td colspan="3" align="center">SDL_SYSWM_WINRT (SDL2.0.3ä»¥é™)</td></tr>
 <tr><td>IInspectable*</td><td>winrt.window</td><td>WinRT CoreWindow</td></tr>
 <tr><td colspan="3" align="center">SDL_SYSWM_X11</td></tr>
 <tr><td>Display*</td><td>x11.display</td><td>X11 display</td></tr>
@@ -36,34 +36,34 @@
 <tr><td>NSWindow*</td><td>cocoa.window</td><td>Cocoa window</td></tr>
 <tr><td colspan="3" align="center">SDL_SYSWM_UIKIT</td></tr>
 <tr><td>UIWindow*</td><td>uikit.window</td><td>UIKit window</td></tr>
-<tr><td>GLuint</td><td>uikit.framebuffer</td><td>GLƒrƒ…[‚ÌFrameBuffer Object: GL‚ÅƒXƒNƒŠ[ƒ“‚ğƒŒƒ“ƒ_ƒŠƒ“ƒO‚·‚é‚Æ‚«ƒoƒCƒ“ƒh‚³‚ê‚é (SDL 2.0.4ˆÈ~)</td></tr>
-<tr><td>GLuint</td><td>uikit.colorbuffer</td><td>GLƒrƒ…[‚ÌRenderbuffer Object: <a href="SDL_GL_SwapWindow.html">SDL_GL_SwapWindow()</a>‚ªŒÄ‚Î‚ê‚½‚Æ‚«ƒoƒCƒ“ƒh‚³‚ê‚é (SDL 2.0.4ˆÈ~)</td></tr>
-<tr><td>GLuint</td><td>uikit.resolveFramebuffer</td><td>resolve color Renderbuffer‚ğ‚ÂFramebuffer Object, MSAA‚ªg‚í‚ê‚é (SDL 2.0.4ˆÈ~)</td></tr>
-<tr><td colspan="3" align="center">SDL_SYSWM_WAYLAND (SDL2.0.2ˆÈ~)</td></tr>
+<tr><td>GLuint</td><td>uikit.framebuffer</td><td>GLãƒ“ãƒ¥ãƒ¼ã®FrameBuffer Object: GLã§ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‚’ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã™ã‚‹ã¨ããƒã‚¤ãƒ³ãƒ‰ã•ã‚Œã‚‹ (SDL 2.0.4ä»¥é™)</td></tr>
+<tr><td>GLuint</td><td>uikit.colorbuffer</td><td>GLãƒ“ãƒ¥ãƒ¼ã®Renderbuffer Object: <a href="SDL_GL_SwapWindow.html">SDL_GL_SwapWindow()</a>ãŒå‘¼ã°ã‚ŒãŸã¨ããƒã‚¤ãƒ³ãƒ‰ã•ã‚Œã‚‹ (SDL 2.0.4ä»¥é™)</td></tr>
+<tr><td>GLuint</td><td>uikit.resolveFramebuffer</td><td>resolve color Renderbufferã‚’æŒã¤Framebuffer Object, MSAAãŒä½¿ã‚ã‚Œã‚‹ (SDL 2.0.4ä»¥é™)</td></tr>
+<tr><td colspan="3" align="center">SDL_SYSWM_WAYLAND (SDL2.0.2ä»¥é™)</td></tr>
 <tr><td>wl_display*</td><td>wl.display</td><td>Wayland display</td></tr>
 <tr><td>wl_surface*</td><td>wl.surface</td><td>Wayland surface</td></tr>
 <tr><td>wl_shell_surface*</td><td>wl.shell_surface</td><td>Wayland shell_surface (window manager handle)</td></tr>
-<tr><td colspan="3" align="center">SDL_SYSWM_MIR (SDL2.0.2ˆÈ~)</td></tr>
+<tr><td colspan="3" align="center">SDL_SYSWM_MIR (SDL2.0.2ä»¥é™)</td></tr>
 <tr><td>MirConnection*</td><td>mir.connection</td><td>Mir display server connection</td></tr>
 <tr><td>MirSurface*</td><td>mir.surface</td><td>Mir surface</td></tr>
-<tr><td colspan="3" align="center">SDL_SYSWM_ANDROID (SDL2.0.4ˆÈ~)</td></tr>
+<tr><td colspan="3" align="center">SDL_SYSWM_ANDROID (SDL2.0.4ä»¥é™)</td></tr>
 <tr><td>ANativeWindow*</td><td>android.connection</td><td>Android native window</td></tr>
 <tr><td>EGLSurface</td><td>android.surface</td><td>Android EGL surface</td></tr>
-<tr><td colspan="3" align="center">SDL_SYSWM_VIVANTE (SDL2.0.5ˆÈ~)</td></tr>
+<tr><td colspan="3" align="center">SDL_SYSWM_VIVANTE (SDL2.0.5ä»¥é™)</td></tr>
 <tr><td>EGLNativeDisplayType</td><td>vivante.display</td><td>Vivante EGL display type</td></tr>
 <tr><td>EGLNativeWindowType</td><td>vivante.window</td><td>Vivante EGL window type</td></tr>
 </table>
-<h2>Ú×</h2>
+<h2>è©³ç´°</h2>
 <p>
-‚±‚Ì\‘¢‘Ì‚Ì’l‚Í<a href="SDL_GetWindowWMInfo.html">SDL_GetWindowWMInfo()</a>‚Å“¾‚ç‚ê‚é.
+ã“ã®æ§‹é€ ä½“ã®å€¤ã¯<a href="SDL_GetWindowWMInfo.html">SDL_GetWindowWMInfo()</a>ã§å¾—ã‚‰ã‚Œã‚‹.
 </p>
-<h2>ŠÖ˜A€–Ú(—ñ‹“‘Ì)</h2>
+<h2>é–¢é€£é …ç›®(åˆ—æŒ™ä½“)</h2>
 <a href="SDL_SYSWM_TYPE.html">SDL_SYSWM_TYPE</a><br>
-<h2>ŠÖ˜A€–Ú(\‘¢‘Ì)</h2>
+<h2>é–¢é€£é …ç›®(æ§‹é€ ä½“)</h2>
 <a href="SDL_VERSION.html">SDL_version</a><br>
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_GetWindowWMInfo.html">SDL_GetWindowWMInfo</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_SysWMinfo">SDL_SysWMinfo - SDL Wiki</a><br>
 <hr>
 </body>

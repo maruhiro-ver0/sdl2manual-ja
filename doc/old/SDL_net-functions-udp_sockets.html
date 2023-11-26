@@ -1,55 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_net">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_net-functions.html" title="1つ上">
-<title>UDPソケット</title>
-</head>
-<body>
-<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - 3.4UDPソケット
-<hr>
-<h1>3.4 UDPソケット</h1>
-<p>
-これらの関数はUDPソケットを扱う.
-UDPは接続しない. しかし, それを望まないのであれば, 外へ行く全てのパケットに行き先を指定する必要がないという意味では接続したとして扱える. 
-これはソケットと, IPアドレスとポート番号の組み合わせをバインドすることで実現する.
-UDPは届く保障はなく, 全てのパケットは相手に届かない可能性がある.
-また, UDPパケットの受信順は送信順と一致しない.
-これらの問題は速度との引き換えである.
-UDPはTCPよりも速いため, 状態を繰り返し送信する多くのゲームやスピードが必要なアプリケーションでは, UDPがよく使われる.
-</p>
-<p>
-SDL_netにはチャネルの概念があり, 特定のクライアント同士のパケットを簡単に合わせる助けになる.
-このチャネル番号はUDPパケットデータとしては転送されない. しかし, UDPパケットの送受信ではチャネル番号はIPaddressによる送受信先の参照の代わりに使われる.
-チャネルを使わないこともできる.
-SDL_netではこれらは便利な選択肢にすぎない.
-</p>
-<h2>一般</h2>
-<ol>
-<li><a href="SDLNet_UDP_Open.html">SDLNet_UDP_Open</a> - UDPソケットを生成する
-<li><a href="SDLNet_UDP_Close.html">SDLNet_UDP_Close</a> - UDPソケットを閉じて解放する
-</ol>
-<h2>チャネルバインド</h2>
-<ol>
-<li><a href="SDLNet_UDP_Bind.html">SDLNet_UDP_Bind<a/> - IPアドレスとソケットチャネルを結びつける
-<li><a href="SDLNet_UDP_Unbind.html">SDLNet_UDP_Unbind</a> - ソケットチャネルに結びつけた全てのIPアドレスを削除する
-<li><a href="SDLNet_UDP_GetPeerAddress.html">SDLNet_UDP_GetPeerAddress</a> - ソケットチャネルに結びつけたIPアドレス, または開いたソケットのポート番号を得る
-</ol>
-<h2>単一UDPパケット</h2>
-<ol>
-<li><a href="SDLNet_UDP_Send.html">SDLNet_UDP_Send</a> - UDPpacketを送信する
-<li><a href="SDLNet_UDP_Recv.html">SDLNet_UDP_Recv</a> - UDPpacketを受信する
-</ol>
-<h2>複数UDPパケット(配列)</h2>
-<ol>
-<li><a href="SDLNet_UDP_SendV.html">SDLNet_UDP_SendV</a> - UDPpacket配列を送信する
-<li><a href="SDLNet_UDP_RecvV.html">SDLNet_UDP_RecvV</a> - UDPpacket配列を受信する
-</ol>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_net/docs/SDL_net_25.html#SEC25">3.4 UDP Sockets</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

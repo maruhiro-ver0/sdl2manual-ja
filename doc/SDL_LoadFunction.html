@@ -1,78 +1,78 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategorySharedObject.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategorySharedObject.html" title="1つ上">
 <title>SDL_LoadFunction</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategorySharedObject.html">���L�I�u�W�F�N�g�Ǎ��Ɗ֐�����</a> - SDL_LoadFunction
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySharedObject.html">共有オブジェクト読込と関数検索</a> - SDL_LoadFunction
 <hr>
 <h1>SDL_LoadFunction</h1>
-���L�I�u�W�F�N�g���疼�O�Ŋ֐��̃A�h���X�������������߂�
-<h2>�\��</h2>
+共有オブジェクトから名前で関数のアドレスを検索しそれを戻す
+<h2>構文</h2>
 <code>void* SDL_LoadFunction(void* handle, const char* name)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_LoadFunction">
-<tr><td>handle</td><td><a href="SDL_LoadObject.html">SDL_LoadObject()</a>���߂������L�I�u�W�F�N�g</td></tr>
-<tr><td>name</td><td>��������֐��̖��O</td></tr>
+<tr><td>handle</td><td><a href="SDL_LoadObject.html">SDL_LoadObject()</a>が戻した共有オブジェクト</td></tr>
+<tr><td>name</td><td>検索する関数の名前</td></tr>
 </table>
-<h2>�߂�l</h2>
-�֐��ւ̃|�C���^��߂�. ���s�̂Ƃ�NULL��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�T���v���R�[�h</h2>
+<h2>戻り値</h2>
+関数へのポインタを戻す. 失敗のときNULLを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
 #include "SDL.h"
 
-/* �ϐ���錾���� */
+/* 変数を宣言する */
 void* myHandle = NULL;
 char* myFunctionName = "myFancyFunction";
 void (*myFancyFunction)(int anInt);
 
-/* mylib.so�𓮓I�ɓǂݍ��� */
+/* mylib.soを動的に読み込む */
 myHandle = SDL_LoadObject("mylib.so");
 
-/* mylib.so����G�N�X�|�[�g���ꂽ�֐���ǂݍ���
- * �G�N�X�|�[�g���ꂽ�֐��̃v���g�^�C�v�͎��̂悤�ł���Ƃ���
+/* mylib.soからエクスポートされた関数を読み込む
+ * エクスポートされた関数のプロトタイプは次のようであるとする
  * void myFancyFunction(int anInt);
  */
 myFancyFunction = (void (*)(int))SDL_LoadFunction(myHandle, myFunctionName);
 
-/* myFancyFunction�ɓK���Ȓl��n�� */
+/* myFancyFunctionに適当な値を渡す */
 if (myFancyFunction != NULL) {
     myFancyFunction(15);
 } else {
-    /* �����ŃG���[�������s�� */
+    /* ここでエラー処理を行う */
 }
 </pre>
 </code>
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-�֐��ւ̃|�C���^��<a href="SDL_UnloadObject.html">SDL_UnloadObject()</a>���Ă񂾂��Ƃ͖����ƂȂ�.
+関数へのポインタは<a href="SDL_UnloadObject.html">SDL_UnloadObject()</a>を呼んだあとは無効となる.
 </p>
 <p>
-���̊֐���C�̊֐��̖��O�̂݌����ł���.
-���̌���ł̓R���p�C���ɂ���ĈقȂ�Ή��Ŗ��O�C��(name mangling)�����.
+この関数はCの関数の名前のみ検索できる.
+他の言語ではコンパイラによって異なる対応で名前修飾(name mangling)される.
 </p>
 <p>
-�K�����C�u�����̊֐��Ɠ����ďo�K��Ŋ֐��ւ̃|�C���^��錾���邱��.
-�������Ȃ���, �s���Ȉُ�I������������.
+必ずライブラリの関数と同じ呼出規約で関数へのポインタを宣言すること.
+そうしないと, 不明な異常終了が発生する.
 </p>
 <p>
-�v�������֐������݂��Ȃ��ꍇ��NULL��߂�.
+要求した関数が存在しない場合はNULLを戻す.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_LoadObject.html">SDL_LoadObject</a><br>
 <a href="SDL_UnloadObject.html">SDL_UnloadObject</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_LoadFunction">SDL_LoadFunction - SDL Wiki</a>
 <hr>
 </body>

@@ -1,41 +1,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_mixer-ApiByCategory.html" title="1��">
-<title>���</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-ApiByCategory.html" title="1つ上">
+<title>一般</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(�@�\��)</a> - ���
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - 一般
 <hr>
-<h1>���</h1>
-������SDL_mixer�Ŏg����B���/�֗��Ȋ֐��ł���.
-<h2>���l��</h2>
+<h1>一般</h1>
+これらはSDL_mixerで使える唯一の/便利な関数である.
+<h2>情報獲得</h2>
 <ol>
-<li><a href="Mix_Linked_Version.html">Mix_Linked_Version</a> - �v���O�����Ƀ����N���ꂽSDL_mixer�̃o�[�W�����𓾂�
+<li><a href="Mix_Linked_Version.html">Mix_Linked_Version</a> - プログラムにリンクされたSDL_mixerのバージョンを得る
 </ol>
-<h2>�L����</h2>
+<h2>有効化</h2>
 <ol>
-<li><a href="Mix_Init.html">Mix_Init</a> - SDL_mixer������������
-<li><a href="Mix_Quit.html">Mix_Quit</a> - SDL_mixer���������
-<li><a href="Mix_OpenAudio.html">Mix_OpenAudio</a> - �Đ��̂��ߊ���̃I�[�f�B�I�f�o�C�X���J��
-<li><a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice</a> - �Đ��̂��ߎw��̃I�[�f�B�I�f�o�C�X���J��
-<li><a href="Mix_CloseAudio.html">Mix_CloseAudio</a> - �~�L�T�[����đS�ẴI�[�f�B�I�Đ����I������
+<li><a href="Mix_Init.html">Mix_Init</a> - SDL_mixerを初期化する
+<li><a href="Mix_Quit.html">Mix_Quit</a> - SDL_mixerを解放する
+<li><a href="Mix_OpenAudio.html">Mix_OpenAudio</a> - 再生のため既定のオーディオデバイスを開く
+<li><a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice</a> - 再生のため指定のオーディオデバイスを開く
+<li><a href="Mix_CloseAudio.html">Mix_CloseAudio</a> - ミキサーを閉じて全てのオーディオ再生を終了する
 </ol>
-<h2>�ݒ�</h2>
+<h2>設定</h2>
 <ol>
-<li><a href="Mix_QuerySpec.html">Mix_QuerySpec</a> - �I�[�f�B�I�f�o�C�X�̎��ۂ̃p�����[�^�𓾂�
-<li><a href="Mix_PauseAudio.html">Mix_PauseAudio</a> - �I�[�f�B�I�S�̂��ꎞ��~�܂��͕��A����
+<li><a href="Mix_QuerySpec.html">Mix_QuerySpec</a> - オーディオデバイスの実際のパラメータを得る
+<li><a href="Mix_PauseAudio.html">Mix_PauseAudio</a> - オーディオ全体を一時停止または復帰する
 </ol>
 <h2>MIDI</h2>
 <ol>
-<li><a href="Mix_GetTimidityCfg.html">Mix_GetTimidityCfg</a> - �ݒ肳�ꂽTimidity�ݒ�t�@�C���̃t���p�X���𓾂�
-<li><a href="Mix_SetTimidityCfg.html">Mix_SetTimidityCfg</a> - Timidity�ݒ�t�@�C���̃t���p�X����ݒ肷��
-<li><a href="Mix_GetSoundFonts.html">Mix_GetSoundFonts</a> - MIDI�o�b�N�G���h�Ŏg�p�����T�E���h�t�H���g�̃p�X�𓾂�
-<li><a href="Mix_EachSoundFont.html">Mix_EachSoundFont</a> - MIDI�o�b�N�G���h�Ŏg�p����T�E���h�t�H���g�̃p�X���R�[���o�b�N�֐���1���n��
+<li><a href="Mix_GetTimidityCfg.html">Mix_GetTimidityCfg</a> - 設定されたTimidity設定ファイルのフルパス名を得る
+<li><a href="Mix_SetTimidityCfg.html">Mix_SetTimidityCfg</a> - Timidity設定ファイルのフルパス名を設定する
+<li><a href="Mix_GetSoundFonts.html">Mix_GetSoundFonts</a> - MIDIバックエンドで使用されるサウンドフォントのパスを得る
+<li><a href="Mix_EachSoundFont.html">Mix_EachSoundFont</a> - MIDIバックエンドで使用するサウンドフォントのパスをコールバック関数に1つずつ渡す
 </ol>
 <hr>
 </body>

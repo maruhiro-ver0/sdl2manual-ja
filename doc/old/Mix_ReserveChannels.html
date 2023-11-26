@@ -1,58 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-groups.html" title="1つ上">
-<title>Mix_ReserveChannels</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-groups.html">4.4グループ</a> - Mix_ReserveChannels
-<hr>
-<h1>Mix_ReserveChannels</h1>
-<p>
-<code>int Mix_ReserveChannels(int num)</code>
-</p>
-<p>
-<dl>
-<dt>num</dt><dd>予約するチャネルの数. 0のとき予約を解除する</dd>
-</dl>
-</p>
-<p>
-再生関数でチャネルに-1を渡したときにサンプリング音声が再生されないようにチャネルをnum個予約する.
-チャネルは0番からnum-1番まで予約される.
-0を渡すと全ての予約が解除される.
-通常, SDL_mixerはチャネルを予約していない状態から始まる.
-</p>
-<p>
-以下の関数がこの設定の影響を受ける:<br>
-<a href="Mix_PlayChannel.html">Mix_PlayChannel</a><br>
-<a href="Mix_PlayChannelTimed.html">Mix_PlayChannelTimed</a><br>
-<a href="Mix_FadeInChannel.html">Mix_FadeInChannel</a><br>
-<a href="Mix_FadeInChannelTimed.html">Mix_FadeInChannelTimed</a>
-</p>
-<p>
-戻り値: 予約されたチャネルの数を戻す. 失敗することはないが, 渡した数より少ないことがある. それは確保したチャネルの数による.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 最初の8つのミキシングチャネルを予約する
-int reserved_count;
-reserved_count=Mix_ReserveChannels(8);
-if(reserved_count!=8) {
-    printf("8つ予約できなかった!\n");
-    // これは致命的なエラーになりうる...
-}
-printf("%d つのチャネルを予約した\n",reserved_count);
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_AllocateChannels.html">Mix_AllocateChannels</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_43.html#SEC43">4.4.1 Mix_ReserveChannels</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

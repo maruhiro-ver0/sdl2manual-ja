@@ -1,68 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_ttf">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_ttf-functions-render.html" title="1つ上">
-<title>TTF_RenderUTF8_Solid</title>
-</head>
-<body>
-<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-render.html">3.4レンダラー</a> - TTF_RenderUTF8_Solid
-<hr>
-<h1>TTF_RenderUTF8_Solid</h1>
-<p>
-<code>SDL_Surface *TTF_RenderUTF8_Solid(TTF_Font *font, const char *text, SDL_Color fg)</code>
-</p>
-<p>
-<dl>
-<dt>font</dt><dd>テキストをレンダリングするフォント</dd>
-<dt>text</dt><dd>レンダリングするNUL終端のUTF-8文字列</dd>
-<dt>fg</dt><dd>レンダリングするテキストの色. これがカラーマップの1番目になる</dd>
-</dl>
-</p>
-<p>
-UTF-8でエンコードされたtextを, fontと色fgで新しく生成したサーフェイスにベタ(Solid)モードでレンダリングする.
-呼び出し側(あなたのことだ!)が戻されたサーフェイスを解放しなければならない.
-</p>
-<p>
-メモ: この関数のfontにNULLを渡すと異常終了する.
-</p>
-<p>
-メモ: この関数のtextにNULLを渡した場合の動作は未定義である.
-</p>
-<p>
-戻り値: 生成された<a href="SDL_Surface.html">SDL_Surface</a>. 失敗のときNULL
-</p>
-<h2>サンプルコード</h2>
-ASCIIはUTF8と互換性があるので, このサンプルではLATIN1と同じテキストを使っている. 
-<code>
-<pre>
-// ベタ塗りの黒でUTF8テキストを新しいサーフェイスにレンダリングする
-// そしてそれを画面の左上にコピーする
-// そしてテキストのサーフェイスを解放する
-//SDL_Surface *screen;
-SDL_Color color={0,0,0};
-SDL_Surface *text_surface;
-if(!(text_surface=TTF_RenderUTF8_Solid(font,"Hello World!",color))) {
-    // ここでエラーを処理する. 少なくともTTF_GetErrorを表示したほうがよい
-} else {
-    SDL_BlitSurface(text_surface,NULL,screen,NULL);
-    // これは再利用できる. しかしここでは単純化のためにそうしない
-    SDL_FreeSurface(text_surface);
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="TTF_SizeUTF8.html">TTF_SizeUTF8</a>,
-<a href="TTF_RenderText_Solid.html">TTF_RenderText_Solid</a>,
-<a href="TTF_RenderUNICODE_Solid.html">TTF_RenderUNICODE_Solid</a>,
-<a href="TTF_RenderGlyph_Solid.html">TTF_RenderGlyph_Solid</a>,
-<a href="TTF_RenderUTF8_Shaded.html">TTF_RenderUTF8_Shaded</a>,
-<a href="TTF_RenderUTF8_Blended.html">TTF_RenderUTF8_Blended</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_ttf/docs/SDL_ttf_44.html#SEC44">3.4.2 TTF_RenderUTF8_Solid</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

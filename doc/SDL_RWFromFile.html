@@ -1,72 +1,72 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryIO.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryIO.html" title="1つ上">
 <title>SDL_RWFromFile</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryIO.html">�t�@�C�����o��</a> - SDL_RWFromFile
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryIO.html">ファイル入出力</a> - SDL_RWFromFile
 <hr>
 <h1>SDL_RWFromFile</h1>
-�w��̖��O�̃t�@�C���̓Ǎ��Ə������s��<a href="SDL_RWops.html">SDL_RWops</a>�𐶐�����
-<h2>�\��</h2>
+指定の名前のファイルの読込と書込を行う<a href="SDL_RWops.html">SDL_RWops</a>を生成する
+<h2>構文</h2>
 <code>SDL_RWops* SDL_RWFromFile(const char* file, const char* mode)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_RWFromFile">
-<tr><td>file</td><td>�J���t�@�C����UTF-8������̖��O</td></tr>
-<tr><td>mode</td><td>�t�@�C�����J�����[�h��\��ASCII������ (�ڍׂ��Q�Ƃ��邱��)</td></tr>
+<tr><td>file</td><td>開くファイルのUTF-8文字列の名前</td></tr>
+<tr><td>mode</td><td>ファイルを開くモードを表すASCII文字列 (詳細を参照すること)</td></tr>
 </table>
-<h2>�߂�l</h2>
-��������<a href="SDL_RWops.html">SDL_RWops</a>�ւ̃|�C���^��߂�.
-���s�̂Ƃ�NULL��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�T���v���R�[�h</h2>
+<h2>戻り値</h2>
+生成した<a href="SDL_RWops.html">SDL_RWops</a>へのポインタを戻す.
+失敗のときNULLを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
 SDL_RWops *file = SDL_RWFromFile("myimage.bmp", "rb");
-SDL_Surface *image = SDL_LoadBMP_RW(file, 1); /* 1�̂Ƃ������I��SDL_RWops����� */
-/* ������image���������� */
+SDL_Surface *image = SDL_LoadBMP_RW(file, 1); /* 1のとき自動的にSDL_RWopsを閉じる */
+/* ここでimageを処理する */
 </pre>
 </code>
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-����SDL���w���fopen()���g���Ă��Ȃ��Ƃ��Ă�, mode�������C�̃��C�u������fopen()�Ƃقړ����ł���.
+仮にSDLが背後でfopen()を使っていないとしても, mode文字列はCのライブラリのfopen()とほぼ同じである.
 </p>
 <p>
-���p�ł���mode������:
+利用できるmode文字列:
 <table border="1" summary="mode">
-<tr><td>r</td><td>�ǂݍ��ނ��߂Ƀt�@�C�����J��. �t�@�C�������݂��Ă���K�v������</td></tr>
-<tr><td>w</td><td>�������ނ��߂ɋ�̃t�@�C�����쐬����. �������ɓ������O�̃t�@�C�������݂����, ���̓��e�͍폜����, �V������̃t�@�C���Ƃ��Ĉ�����</td></tr>
-<tr><td>a</td><td>�t�@�C���ɒǉ�����. ��������̓t�@�C���̖����ɒǉ�����. �t�@�C�������݂��Ȃ���΍쐬�����.</td></tr>
-<tr><td>r+</td><td>�t�@�C����Ǎ��Ə����̗����̂��߂ɊJ��. �t�@�C�������݂��Ă���K�v������</td></tr>
-<tr><td>w+</td><td>�Ǎ��Ə����̗����̂��߂ɋ�̃t�@�C���𐶐�����. �������ɓ������O�̃t�@�C�������݂����, ���̓��e�͍폜����, �V������̃t�@�C���Ƃ��Ĉ�����</td></tr>
-<tr><td>a+</td><td>�Ǎ��ƒǉ��̂��߂Ƀt�@�C�����J��. ��������̓t�@�C���̖����ɒǉ�����, ����ȑO�̓��e�͏㏑������Ȃ�. �t�@�C���̓Ǎ��ʒu�͂ǂ��ւł��ς����邪, ����������s���ƃt�@�C���̖����ɖ߂�. �t�@�C�������݂��Ȃ���΍쐬�����.</td></tr>
+<tr><td>r</td><td>読み込むためにファイルを開く. ファイルが存在している必要がある</td></tr>
+<tr><td>w</td><td>書き込むために空のファイルを作成する. もし既に同じ名前のファイルが存在すれば, その内容は削除され, 新しい空のファイルとして扱われる</td></tr>
+<tr><td>a</td><td>ファイルに追加する. 書込操作はファイルの末尾に追加する. ファイルが存在しなければ作成される.</td></tr>
+<tr><td>r+</td><td>ファイルを読込と書込の両方のために開く. ファイルが存在している必要がある</td></tr>
+<tr><td>w+</td><td>読込と書込の両方のために空のファイルを生成する. もし既に同じ名前のファイルが存在すれば, その内容は削除され, 新しい空のファイルとして扱われる</td></tr>
+<tr><td>a+</td><td>読込と追加のためにファイルを開く. 書込操作はファイルの末尾に追加され, それ以前の内容は上書きされない. ファイルの読込位置はどこへでも変えられるが, 書込操作を行うとファイルの末尾に戻る. ファイルが存在しなければ作成される.</td></tr>
 </table>
 </p>
 <p>
-����: �o�C�i���t�@�C���Ƃ��ĊJ���ꍇ��, "b"��mode�ɉ�����K�v������.
-"b"�𕶎���̖���("rb", "wb", "ab", "r+b", "w+b", "a+b")��������"+"�̊�("rb+", "wb+", "ab+")�ɒǉ�����.
-�����ƂȂ邪, ���̌�ɕ�����ǉ����邱�Ƃ�����.
-�Ⴆ��, �e�L�X�g�t�@�C���ł��邱�Ƃ𖾋L���邽�߂�"t"�����邱�Ƃ��ł���.
+メモ: バイナリファイルとして開く場合は, "b"をmodeに加える必要がある.
+"b"を文字列の末尾("rb", "wb", "ab", "r+b", "w+b", "a+b")か文字と"+"の間("rb+", "wb+", "ab+")に追加する.
+無効となるが, その後に文字を追加することがある.
+例えば, テキストファイルであることを明記するために"t"をつけることもできる.
 </p>
 <p>
-���̊֐���Unicode�̃t�@�C�����ɑΉ����Ă��邪, OS�Ɋւ�炸UTF-8�`���ŃG���R�[�h����Ă���K�v������.
+この関数はUnicodeのファイル名に対応しているが, OSに関わらずUTF-8形式でエンコードされている必要がある.
 </p>
 <p>
-Android�ł�, ��ւƂ���SDL_RWFromFile()��assets�f�B���N�g���̈�v����t�@�C�����̃t�@�C���𓧉ߓI�ɊJ��.
+Androidでは, 代替としてSDL_RWFromFile()はassetsディレクトリの一致するファイル名のファイルを透過的に開く.
 </p>
 <p>
-<a href="SDL_RWops.html">SDL_RWops</a>������SDL�������Ɏ����Ă���t�@�C���n���h��������.
+<a href="SDL_RWops.html">SDL_RWops</a>を閉じるとSDLが内部に持っているファイルハンドラも閉じる.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_RWclose.html">SDL_RWclose</a><br>
 <a href="SDL_RWFromConstMem.html">SDL_RWFromConstMem</a><br>
 <a href="SDL_RWFromFP.html">SDL_RWFromFP</a><br>
@@ -75,7 +75,7 @@ SDL 2.0.0�ȍ~
 <a href="SDL_RWseek.html">SDL_RWseek</a><br>
 <a href="SDL_RWtell.html">SDL_RWtell</a><br>
 <a href="SDL_RWwrite.html">SDL_RWwrite</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_RWFromFile">SDL_RWFromFile - SDL Wiki</a>
 <hr>
 </body>

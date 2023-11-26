@@ -1,64 +1,64 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1つ上">
 <title>Mix_GetMusicType</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_mixer-CategoryMusic.html">���y</a> - Mix_GetMusicType
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryMusic.html">音楽</a> - Mix_GetMusicType
 <hr>
 <h1>Mix_GetMusicType</h1>
-���y�̌`���𓾂�
-<h2>�\��</h2>
+音楽の形式を得る
+<h2>構文</h2>
 <code>Mix_MusicType Mix_GetMusicType(const Mix_Music *music)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="Mix_GetMusicType">
-<tr><td>music</td><td>�������鉹�y. NULL�̏ꍇ�͍Đ����̉��y�����������</td></tr>
+<tr><td>music</td><td>調査する音楽. NULLの場合は再生中の音楽が調査される</td></tr>
 </table>
-<h2>�߂�l</h2>
-���y��<a href="Mix_MusicType.html">Mix_MusicType</a>��߂�.
-<h2>�T���v���R�[�h</h2>
+<h2>戻り値</h2>
+音楽の<a href="Mix_MusicType.html">Mix_MusicType</a>を戻す.
+<h2>サンプルコード</h2>
 <code>
 <pre>
-// �Đ����̉��y�̌`����\������
+// 再生中の音楽の形式を表示する
 switch(Mix_GetMusicType(NULL))
 {
     case MUS_NONE:
     MUS_CMD:
-        printf("�R�}���h�ł̉��y���Đ���\n");
+        printf("コマンドでの音楽を再生中¥n");
         break;
     MUS_WAV:
-        printf("WAVE/RIFF�`���̉��y���Đ���\n");
+        printf("WAVE/RIFF形式の音楽を再生中¥n");
         break;
     MUS_MOD:
-        printf("MOD�`���̉��y���Đ���\n");
+        printf("MOD形式の音楽を再生中¥n");
         break;
     MUS_MID:
-        printf("MIDI�`���̉��y���Đ���\n");
+        printf("MIDI形式の音楽を再生中¥n");
         break;
     MUS_OGG:
-        printf("OGG�`���̉��y���Đ���\n");
+        printf("OGG形式の音楽を再生中¥n");
         break;
     MUS_MP3:
-        printf("MP3�`���̉��y���Đ���\n");
+        printf("MP3形式の音楽を再生中¥n");
         break;
     default:
-        printf("�s���Ȍ`���̉��y���Đ���\n");
+        printf("不明な形式の音楽を再生中¥n");
         break;
 }
 </pre>
 </code>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-music��NULL�̏ꍇ, �Đ����̉��y�̌`���𒲍�����. �Đ����łȂ��ꍇ��MUS_NONE��߂�.
+musicがNULLの場合, 再生中の音楽の形式を調査する. 再生中でない場合はMUS_NONEを戻す.
 </p>
-<h2>�o�[�W����</h2>
-SDL_mixer 2.0.0�ȍ~
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/Mix_GetMusicType">SDL2_mixer/Mix_GetMusicType</a>
 <hr>
 </body>

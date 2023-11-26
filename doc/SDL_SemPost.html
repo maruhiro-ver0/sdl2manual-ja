@@ -1,28 +1,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryMutex.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryMutex.html" title="1つ上">
 <title>SDL_SemPost</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryMutex.html">�����v���~�e�B�u</a> - SDL_SemPost
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryMutex.html">同期プリミティブ</a> - SDL_SemPost
 <hr>
 <h1>SDL_SemPost</h1>
-�Z�}�t�H�̒l��1���Z��, �ҋ@���̃X���b�h���ĊJ����
-<h2>�\��</h2>
+セマフォの値を1加算し, 待機中のスレッドを再開する
+<h2>構文</h2>
 <code>int SDL_SemPost(SDL_sem* sem)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_SemPost">
-<tr><td>sem</td><td>���Z����Z�}�t�H</td></tr>
+<tr><td>sem</td><td>加算するセマフォ</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0, ���s�̂Ƃ����̐��̃G���[�R�[�h��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�T���v���R�[�h</h2>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
@@ -55,16 +55,16 @@ SDL_DestroySemaphore(sem);
 </pre>
 </code>
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_CreateSemaphore.html">SDL_CreateSemaphore</a><br>
 <a href="SDL_DestroySemaphore.html">SDL_DestroySemaphore</a><br>
 <a href="SDL_SemTryWait.html">SDL_SemTryWait</a><br>
 <a href="SDL_SemValue.html">SDL_SemValue</a><br>
 <a href="SDL_SemWait.html">SDL_SemWait</a><br>
 <a href="SDL_SemWaitTimeout.html">SDL_SemWaitTimeout</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_SemPost">SDL_SemPost - SDL Wiki</a>
 <hr>
 </body>

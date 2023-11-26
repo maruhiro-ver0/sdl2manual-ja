@@ -1,72 +1,72 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="ApiByCategory.html" title="1‚Âã">
-<title>ƒAƒT[ƒVƒ‡ƒ“</title>
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="ApiByCategory.html" title="1ã¤ä¸Š">
+<title>ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - ƒAƒT[ƒVƒ‡ƒ“
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³
 <hr>
-<h1>ƒAƒT[ƒVƒ‡ƒ“</h1>
-ƒCƒ“ƒNƒ‹[ƒhƒtƒ@ƒCƒ‹: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_assert.h">SDL_assert.h</a>
-<h2>ŠT—v</h2>
+<h1>ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³</h1>
+ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãƒ•ã‚¡ã‚¤ãƒ«: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_assert.h">SDL_assert.h</a>
+<h2>æ¦‚è¦</h2>
 <p>
-‚±‚±‚É•ª—Ş‚³‚ê‚éŠÖ”‚Í, ƒAƒT[ƒVƒ‡ƒ“(ŒŸØ)‚ÉŠÖ‚·‚é‚à‚Ì‚Å‚ ‚é.
+ã“ã“ã«åˆ†é¡ã•ã‚Œã‚‹é–¢æ•°ã¯, ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³(æ¤œè¨¼)ã«é–¢ã™ã‚‹ã‚‚ã®ã§ã‚ã‚‹.
 </p>
 <p>
-SDL_assert() ‘Î •W€assert()ƒ}ƒNƒ‚Ì‹c˜_‚Æ, À‘•‚ÉŠÖ‚·‚é‹Zp“I‚Èà–¾‚Í, <a href="http://web.archive.org/web/20190322035412/https://plus.google.com/103391075724026391227/posts/KzV6sLdALX7">Ryan‚ÌGoogle+‚Ì“Še</a>‚É‚ ‚é.
+SDL_assert() å¯¾ æ¨™æº–assert()ãƒã‚¯ãƒ­ã®è­°è«–ã¨, å®Ÿè£…ã«é–¢ã™ã‚‹æŠ€è¡“çš„ãªèª¬æ˜ã¯, <a href="http://web.archive.org/web/20190322035412/https://plus.google.com/103391075724026391227/posts/KzV6sLdALX7">Ryanã®Google+ã®æŠ•ç¨¿</a>ã«ã‚ã‚‹.
 </p>
 <p>
-SDL_ASSERT_LEVEL‚Í, ƒRƒ“ƒpƒCƒ‹’†‚ÉŠÖ”‚ğ¶¬‚·‚é‚©‘I‘ğ‚·‚é‚±‚Æ‚Å, ‚Ç‚ÌƒAƒT[ƒVƒ‡ƒ“‚ª—LŒø‚É‚È‚é‚©‚É‰e‹¿‚·‚é.
-(Ú×‚Í‰º‹L.)
+SDL_ASSERT_LEVELã¯, ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ä¸­ã«é–¢æ•°ã‚’ç”Ÿæˆã™ã‚‹ã‹é¸æŠã™ã‚‹ã“ã¨ã§, ã©ã®ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ãŒæœ‰åŠ¹ã«ãªã‚‹ã‹ã«å½±éŸ¿ã™ã‚‹.
+(è©³ç´°ã¯ä¸‹è¨˜.)
 </p>
 <p>
-SDL_ASSERT_LEVEL‚Í©•ª‚Åİ’è‚Å‚«‚é.
-‚à‚µİ’è‚³‚ê‚È‚¯‚ê‚Î, SDL_ASSERT_LEVEL‚ÍƒfƒoƒbƒO‚Í2‚Å, ƒŠƒŠ[ƒX‚Í1‚Æ‚È‚é.
+SDL_ASSERT_LEVELã¯è‡ªåˆ†ã§è¨­å®šã§ãã‚‹.
+ã‚‚ã—è¨­å®šã•ã‚Œãªã‘ã‚Œã°, SDL_ASSERT_LEVELã¯ãƒ‡ãƒãƒƒã‚°æ™‚ã¯2ã§, ãƒªãƒªãƒ¼ã‚¹æ™‚ã¯1ã¨ãªã‚‹.
 </p>
 <p>
-Ÿ‚Ì•\‚Í, ‚»‚ê‚¼‚ê‚ÌSDL_ASSERT_LEVEL‚Ìİ’è‚Æ, SDL_assertŠÖ”‚É—^‚¦‚é‰e‹¿‚Ì‘Î‰‚Å‚ ‚é.
+æ¬¡ã®è¡¨ã¯, ãã‚Œãã‚Œã®SDL_ASSERT_LEVELã®è¨­å®šã¨, SDL_asserté–¢æ•°ã«ä¸ãˆã‚‹å½±éŸ¿ã®å¯¾å¿œã§ã‚ã‚‹.
 <table border="1" summary="SDL_ASSERT_LEVEL">
-<tr><th>SDL_ASSERT_LEVEL</th><th>à–¾</th><th>ŠÖ”</th><th>—LŒøE–³Œø</th></tr>
-<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">0</em></td><td rowspan="3">‘S‚Ä‚ÌƒAƒT[ƒVƒ‡ƒ“‚Í–³Œø‚É‚È‚é</td><td>SDL_assert</td><td>–³Œø</td></tr>
-<tr><td>SDL_assert_release</td><td>–³Œø</td></td>
-<tr><td>SDL_assert_paranoid</td><td>–³Œø</td></td>
-<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">1</em></td><td rowspan="3">ƒŠƒŠ[ƒX—p (ƒfƒtƒHƒ‹ƒg)</td><td>SDL_assert</td><td>–³Œø</td></tr>
-<tr><td>SDL_assert_release</td><td><em style="font-style:normal;font-weight:bold">—LŒø</em></td></td>
-<tr><td>SDL_assert_paranoid</td><td>–³Œø</td></td>
-<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">2</em></td><td rowspan="3">ƒfƒoƒbƒO—p (ƒfƒtƒHƒ‹ƒg)</td><td>SDL_assert</td><td><em style="font-style:normal;font-weight:bold">—LŒø</em></td></tr>
-<tr><td>SDL_assert_release</td><td><em style="font-style:normal;font-weight:bold">—LŒø</em></td></td>
-<tr><td>SDL_assert_paranoid</td><td>–³Œø</td></td>
-<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">3</em></td><td rowspan="3">ŒµŠi‚Èƒ`ƒFƒbƒN—p</td><td>SDL_assert</td><td><em style="font-style:normal;font-weight:bold">—LŒø</em></td></tr>
-<tr><td>SDL_assert_release</td><td><em style="font-style:normal;font-weight:bold">—LŒø</em></td></td>
-<tr><td>SDL_assert_paranoid</td><td><em style="font-style:normal;font-weight:bold">—LŒø</em></td></td>
+<tr><th>SDL_ASSERT_LEVEL</th><th>èª¬æ˜</th><th>é–¢æ•°</th><th>æœ‰åŠ¹ãƒ»ç„¡åŠ¹</th></tr>
+<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">0</em></td><td rowspan="3">å…¨ã¦ã®ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã¯ç„¡åŠ¹ã«ãªã‚‹</td><td>SDL_assert</td><td>ç„¡åŠ¹</td></tr>
+<tr><td>SDL_assert_release</td><td>ç„¡åŠ¹</td></td>
+<tr><td>SDL_assert_paranoid</td><td>ç„¡åŠ¹</td></td>
+<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">1</em></td><td rowspan="3">ãƒªãƒªãƒ¼ã‚¹ç”¨ (ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ)</td><td>SDL_assert</td><td>ç„¡åŠ¹</td></tr>
+<tr><td>SDL_assert_release</td><td><em style="font-style:normal;font-weight:bold">æœ‰åŠ¹</em></td></td>
+<tr><td>SDL_assert_paranoid</td><td>ç„¡åŠ¹</td></td>
+<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">2</em></td><td rowspan="3">ãƒ‡ãƒãƒƒã‚°ç”¨ (ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ)</td><td>SDL_assert</td><td><em style="font-style:normal;font-weight:bold">æœ‰åŠ¹</em></td></tr>
+<tr><td>SDL_assert_release</td><td><em style="font-style:normal;font-weight:bold">æœ‰åŠ¹</em></td></td>
+<tr><td>SDL_assert_paranoid</td><td>ç„¡åŠ¹</td></td>
+<tr><td rowspan="3"><em style="font-style:normal;font-weight:bold">3</em></td><td rowspan="3">å³æ ¼ãªãƒã‚§ãƒƒã‚¯ç”¨</td><td>SDL_assert</td><td><em style="font-style:normal;font-weight:bold">æœ‰åŠ¹</em></td></tr>
+<tr><td>SDL_assert_release</td><td><em style="font-style:normal;font-weight:bold">æœ‰åŠ¹</em></td></td>
+<tr><td>SDL_assert_paranoid</td><td><em style="font-style:normal;font-weight:bold">æœ‰åŠ¹</em></td></td>
 </table>
 </p>
-<h2>—ñ‹“‘Ì</h2>
+<h2>åˆ—æŒ™ä½“</h2>
 <ol>
-<li><a href="SDL_AssertState.html">SDL_AssertState</a> - ƒAƒT[ƒVƒ‡ƒ“‚Ìó‘Ô‚Ì—ñ‹“‘Ì
+<li><a href="SDL_AssertState.html">SDL_AssertState</a> - ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã®çŠ¶æ…‹ã®åˆ—æŒ™ä½“
 </ol>
-<h2>\‘¢‘Ì</h2>
+<h2>æ§‹é€ ä½“</h2>
 <ol>
-<li><a href="SDL_assert_data.html">SDL_assert_data</a> - ƒAƒT[ƒVƒ‡ƒ“‚Ìî•ñ‚Ì\‘¢‘Ì
+<li><a href="SDL_assert_data.html">SDL_assert_data</a> - ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã®æƒ…å ±ã®æ§‹é€ ä½“
 </ol>
-<h2>ŠÖ”</h2>
+<h2>é–¢æ•°</h2>
 <ol>
-<li><a href="SDL_assert.html">SDL_assert</a> - ƒfƒoƒbƒO‚ÉƒAƒT[ƒVƒ‡ƒ“‚ğ¶¬‚·‚éƒ}ƒNƒ
-<li><a href="SDL_assert_paranoid.html">SDL_assert_paranoid</a> - Ú×‚Èƒ`ƒFƒbƒN‚ÉƒAƒT[ƒVƒ‡ƒ“‚ğ¶¬‚·‚éƒ}ƒNƒ
-<li><a href="SDL_assert_release.html">SDL_assert_release</a> - ƒŠƒŠ[ƒX‚ÉƒAƒT[ƒVƒ‡ƒ“‚ğ¶¬‚·‚éƒ}ƒNƒ
-<li><a href="SDL_GetAssertionHandler.html">SDL_GetAssertionHandler</a> - Œ»İ‚ÌƒAƒT[ƒVƒ‡ƒ“ƒnƒ“ƒhƒ‰‚ğ“¾‚é
-<li><a href="SDL_GetAssertionReport.html">SDL_GetAssertionReport</a> - ¸”s‚µ‚½‘S‚Ä‚ÌƒAƒT[ƒVƒ‡ƒ“‚ÌƒŠƒXƒg‚ğ–ß‚·
-<li><a href="SDL_GetDefaultAssertionHandler.html">SDL_GetDefaultAssertionHandler</a> - ƒfƒtƒHƒ‹ƒg‚ÌƒAƒT[ƒVƒ‡ƒ“ƒnƒ“ƒhƒ‰‚ğ“¾‚é
-<li><a href="SDL_ResetAssertionReport.html">SDL_ResetAssertionReport</a> - ¸”s‚µ‚½ƒAƒT[ƒVƒ‡ƒ“‚ÌƒŠƒXƒg‚ğ‘S‚ÄÁ‹‚·‚é
-<li><a href="SDL_SetAssertionHandler.html">SDL_SetAssertionHandler</a> - ƒAƒvƒŠƒP[ƒVƒ‡ƒ“’è‹`‚ÌƒAƒT[ƒVƒ‡ƒ“ƒnƒ“ƒhƒ‰‚ğİ’è‚·‚é
-<li><a href="SDL_TriggerBreakpoint.html">SDL_TriggerBreakpoint</a> - ƒfƒoƒbƒO’†‚ÉƒuƒŒ[ƒNƒ|ƒCƒ“ƒg‚ğ”­¶‚³‚¹‚é
+<li><a href="SDL_assert.html">SDL_assert</a> - ãƒ‡ãƒãƒƒã‚°æ™‚ã«ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã‚’ç”Ÿæˆã™ã‚‹ãƒã‚¯ãƒ­
+<li><a href="SDL_assert_paranoid.html">SDL_assert_paranoid</a> - è©³ç´°ãªãƒã‚§ãƒƒã‚¯æ™‚ã«ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã‚’ç”Ÿæˆã™ã‚‹ãƒã‚¯ãƒ­
+<li><a href="SDL_assert_release.html">SDL_assert_release</a> - ãƒªãƒªãƒ¼ã‚¹æ™‚ã«ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã‚’ç”Ÿæˆã™ã‚‹ãƒã‚¯ãƒ­
+<li><a href="SDL_GetAssertionHandler.html">SDL_GetAssertionHandler</a> - ç¾åœ¨ã®ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ãƒãƒ³ãƒ‰ãƒ©ã‚’å¾—ã‚‹
+<li><a href="SDL_GetAssertionReport.html">SDL_GetAssertionReport</a> - å¤±æ•—ã—ãŸå…¨ã¦ã®ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒªã‚¹ãƒˆã‚’æˆ»ã™
+<li><a href="SDL_GetDefaultAssertionHandler.html">SDL_GetDefaultAssertionHandler</a> - ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ãƒãƒ³ãƒ‰ãƒ©ã‚’å¾—ã‚‹
+<li><a href="SDL_ResetAssertionReport.html">SDL_ResetAssertionReport</a> - å¤±æ•—ã—ãŸã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒªã‚¹ãƒˆã‚’å…¨ã¦æ¶ˆå»ã™ã‚‹
+<li><a href="SDL_SetAssertionHandler.html">SDL_SetAssertionHandler</a> - ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³å®šç¾©ã®ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ãƒãƒ³ãƒ‰ãƒ©ã‚’è¨­å®šã™ã‚‹
+<li><a href="SDL_TriggerBreakpoint.html">SDL_TriggerBreakpoint</a> - ãƒ‡ãƒãƒƒã‚°ä¸­ã«ãƒ–ãƒ¬ãƒ¼ã‚¯ãƒã‚¤ãƒ³ãƒˆã‚’ç™ºç”Ÿã•ã›ã‚‹
 </ol>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryAssertions">Assertions - SDL Wiki</a>
 <hr>
 </body>

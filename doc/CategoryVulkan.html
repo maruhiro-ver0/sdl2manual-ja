@@ -1,41 +1,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="ApiByCategory.html" title="1‚Âã">
-<title>VulkanƒOƒ‰ƒtƒBƒbƒN</title>
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="ApiByCategory.html" title="1ã¤ä¸Š">
+<title>Vulkanã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - VulkanƒOƒ‰ƒtƒBƒbƒN
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - Vulkanã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯
 <hr>
-<h1>VulkanƒOƒ‰ƒtƒBƒbƒN</h1>
-ƒCƒ“ƒNƒ‹[ƒhƒtƒ@ƒCƒ‹: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_vulkan.h">SDL_vulkan.h</a>
-<h2>ŠT—v</h2>
+<h1>Vulkanã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯</h1>
+ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãƒ•ã‚¡ã‚¤ãƒ«: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_vulkan.h">SDL_vulkan.h</a>
+<h2>æ¦‚è¦</h2>
 <p>
-‚±‚±‚É•ª—Ş‚³‚ê‚éŠÖ”‚Í, ƒT[ƒtƒFƒCƒX¶¬‚Ì‚½‚ß‚É•K—v‚ÈVulkanƒCƒNƒXƒeƒ“ƒVƒ‡ƒ“‚ğ‚ÂVulkanƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚é‚½‚ß‚Ì‚à‚Ì‚Å‚ ‚é.
+ã“ã“ã«åˆ†é¡ã•ã‚Œã‚‹é–¢æ•°ã¯, ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ç”Ÿæˆã®ãŸã‚ã«å¿…è¦ãªVulkanã‚¤ã‚¯ã‚¹ãƒ†ãƒ³ã‚·ãƒ§ãƒ³ã‚’æŒã¤Vulkanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ãŸã‚ã®ã‚‚ã®ã§ã‚ã‚‹.
 </p>
 <p>
-’Êí‚ÌVulkanƒx[ƒX‚ÌSDLƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ì—¬‚ê‚ÍŸ‚Ì‚æ‚¤‚É‚È‚é:
+é€šå¸¸ã®Vulkanãƒ™ãƒ¼ã‚¹ã®SDLã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®æµã‚Œã¯æ¬¡ã®ã‚ˆã†ã«ãªã‚‹:
 <ol>
-<li>•K—v‚È‚ç‚Î<a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>‚Æ<a href="SDL_Vulkan_GetVkGetInstanceProcAddr.html">SDL_Vulkan_GetVkInstanceProcAddr()</a>‚ÅVulkanƒ‰ƒCƒuƒ‰ƒŠ‚ğ“Ç‚İ‚İ, ƒhƒ‰ƒCƒoŠÖ”‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğ–â‚¢‡‚í‚¹‚é. (‚±‚ê‚ÍƒrƒfƒIƒVƒXƒeƒ€‚ğ‰Šú‰»‚µ‚½Œã‚Ås‚¤•K—v‚ª‚ ‚é.)
-<li><a href="SDL_Vulkan_GetInstanceExtensions.html">SDL_Vulkan_GetInstanceExtensions()</a>‚ÅƒCƒNƒXƒeƒ“ƒVƒ‡ƒ“‚ğ–â‚¢‡‚í‚¹, ‚»‚Ìî•ñ‚ÅVkInstance‚ğ¶¬‚·‚é.
-<li><a href="SDL_Vulkan_CreateSurface.html">SDL_Vulkan_CreateSurface()</a>‚ÅƒEƒBƒ“ƒhƒE‚É•`‰æ‚·‚é‚½‚ß‚ÌƒT[ƒtƒFƒCƒX‚ğ¶¬‚·‚é.
-<li>V‚µ‚­¶¬‚µ‚½ƒT[ƒtƒFƒCƒX‚ÉƒpƒCƒvƒ‰ƒCƒ“‚ÆƒtƒŒ[ƒ€ƒoƒbƒtƒ@‚ğİ’è‚·‚éê‡‚Í, <a href="SDL_Vulkan_GetDrawableSize.html">SDL_Vulkan_GetDrawableSize()</a>‚ÅƒT[ƒtƒFƒCƒXƒCƒNƒXƒeƒ“ƒVƒ‡ƒ“‚ğ–â‚¢‡‚í‚¹‚é.
+<li>å¿…è¦ãªã‚‰ã°<a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>ã¨<a href="SDL_Vulkan_GetVkGetInstanceProcAddr.html">SDL_Vulkan_GetVkInstanceProcAddr()</a>ã§Vulkanãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’èª­ã¿è¾¼ã¿, ãƒ‰ãƒ©ã‚¤ãƒé–¢æ•°ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’å•ã„åˆã‚ã›ã‚‹. (ã“ã‚Œã¯ãƒ“ãƒ‡ã‚ªã‚·ã‚¹ãƒ†ãƒ ã‚’åˆæœŸåŒ–ã—ãŸå¾Œã§è¡Œã†å¿…è¦ãŒã‚ã‚‹.)
+<li><a href="SDL_Vulkan_GetInstanceExtensions.html">SDL_Vulkan_GetInstanceExtensions()</a>ã§ã‚¤ã‚¯ã‚¹ãƒ†ãƒ³ã‚·ãƒ§ãƒ³ã‚’å•ã„åˆã‚ã›, ãã®æƒ…å ±ã§VkInstanceã‚’ç”Ÿæˆã™ã‚‹.
+<li><a href="SDL_Vulkan_CreateSurface.html">SDL_Vulkan_CreateSurface()</a>ã§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«æç”»ã™ã‚‹ãŸã‚ã®ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’ç”Ÿæˆã™ã‚‹.
+<li>æ–°ã—ãç”Ÿæˆã—ãŸã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã«ãƒ‘ã‚¤ãƒ—ãƒ©ã‚¤ãƒ³ã¨ãƒ•ãƒ¬ãƒ¼ãƒ ãƒãƒƒãƒ•ã‚¡ã‚’è¨­å®šã™ã‚‹å ´åˆã¯, <a href="SDL_Vulkan_GetDrawableSize.html">SDL_Vulkan_GetDrawableSize()</a>ã§ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚¤ã‚¯ã‚¹ãƒ†ãƒ³ã‚·ãƒ§ãƒ³ã‚’å•ã„åˆã‚ã›ã‚‹.
 </ol>
 </p>
-<h2>ŠÖ”</h2>
+<h2>é–¢æ•°</h2>
 <ol>
-<li><a href="SDL_Vulkan_CreateSurface.html">SDL_Vulkan_CreateSurface</a> - VulkanƒŒƒ“ƒ_ƒŠƒ“ƒOƒT[ƒtƒFƒCƒX‚ğ¶¬‚·‚é
-<li><a href="SDL_Vulkan_GetDrawableSize.html">SDL_Vulkan_GetDrawableSize</a> - ƒEƒBƒ“ƒhƒE‚ÌƒsƒNƒZƒ‹‚ğ‘‚«‚ß‚é‘w‚ÌƒTƒCƒY‚ğ“¾‚é
-<li><a href="SDL_Vulkan_GetInstanceExtensions.html">SDL_Vulkan_GetInstanceExtensions</a> - SDL_Vulkan_CreateSurface‚Å•K—v‚ÈVulkanƒCƒ“ƒXƒ^ƒ“ƒXƒCƒNƒXƒeƒ“ƒVƒ‡ƒ“‚Ì–¼‘O‚ğ“¾‚é
-<li><a href="SDL_Vulkan_GetVkGetInstanceProcAddr.html">SDL_Vulkan_GetVkGetInstanceProcAddr</a> - vkGetInstanceProcAddrŠÖ”‚ÌƒAƒhƒŒƒX‚ğ“¾‚é
-<li><a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary</a> - Vulkanƒ‰ƒCƒuƒ‰ƒŠ‚ÌŠÖ”‚ğ“®“I‚É“Ç‚İ‚Ş
-<li><a href="SDL_Vulkan_UnloadLibrary.html">SDL_Vulkan_UnloadLibrary</a> - SDL_Vulkan_LoadLibrary‚Å“Ç‚İ‚ñ‚¾Vulkanƒ[ƒ_ƒ‰ƒCƒuƒ‰ƒŠ‚ğ‰ğ•ú‚·‚é
+<li><a href="SDL_Vulkan_CreateSurface.html">SDL_Vulkan_CreateSurface</a> - Vulkanãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’ç”Ÿæˆã™ã‚‹
+<li><a href="SDL_Vulkan_GetDrawableSize.html">SDL_Vulkan_GetDrawableSize</a> - ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ãƒ”ã‚¯ã‚»ãƒ«ã‚’æ›¸ãè¾¼ã‚ã‚‹å±¤ã®ã‚µã‚¤ã‚ºã‚’å¾—ã‚‹
+<li><a href="SDL_Vulkan_GetInstanceExtensions.html">SDL_Vulkan_GetInstanceExtensions</a> - SDL_Vulkan_CreateSurfaceã§å¿…è¦ãªVulkanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚¤ã‚¯ã‚¹ãƒ†ãƒ³ã‚·ãƒ§ãƒ³ã®åå‰ã‚’å¾—ã‚‹
+<li><a href="SDL_Vulkan_GetVkGetInstanceProcAddr.html">SDL_Vulkan_GetVkGetInstanceProcAddr</a> - vkGetInstanceProcAddré–¢æ•°ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’å¾—ã‚‹
+<li><a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary</a> - Vulkanãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®é–¢æ•°ã‚’å‹•çš„ã«èª­ã¿è¾¼ã‚€
+<li><a href="SDL_Vulkan_UnloadLibrary.html">SDL_Vulkan_UnloadLibrary</a> - SDL_Vulkan_LoadLibraryã§èª­ã¿è¾¼ã‚“ã Vulkanãƒ­ãƒ¼ãƒ€ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’è§£æ”¾ã™ã‚‹
 </ol>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryVulkan">Vulkan Support - SDL Wiki</a>
 <hr>
 </body>

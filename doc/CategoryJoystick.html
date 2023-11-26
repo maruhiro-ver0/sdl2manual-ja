@@ -1,86 +1,86 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="ApiByCategory.html" title="1��">
-<title>�W���C�X�e�B�b�N</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>ジョイスティック</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - �W���C�X�e�B�b�N
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - ジョイスティック
 <hr>
-<h1>�W���C�X�e�B�b�N</h1>
-�C���N���[�h�t�@�C��: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_joystick.h">SDL_joystick.h</a>
-<h2>�T�v</h2>
-�����ɕ��ނ����֐��̓W���C�X�e�B�b�N����̓��͂��������̂ł���.
-<h2>�񋓑�</h2>
+<h1>ジョイスティック</h1>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_joystick.h">SDL_joystick.h</a>
+<h2>概要</h2>
+ここに分類される関数はジョイスティックからの入力を扱うものである.
+<h2>列挙体</h2>
 <ol>
-<li><a href="SDL_JoystickPowerLevel.html">SDL_JoystickPowerLevel</a> - �W���C�X�e�B�b�N�̃o�b�e���[�c�ʂ̗񋓑�
+<li><a href="SDL_JoystickPowerLevel.html">SDL_JoystickPowerLevel</a> - ジョイスティックのバッテリー残量の列挙体
 </ol>
-<h2>�֐�</h2>
+<h2>関数</h2>
 <ol>
-<li><a href="SDL_GetJoystickGUIDInfo.html">SDL_GetJoystickGUIDInfo</a> - SDL_JoystickGUID�\���̂���f�o�C�X���𓾂�
-<li><a href="SDL_JoystickAttachVirtual.html">SDL_JoystickAttachVirtual</a> - �V�������z�W���C�X�e�B�b�N�𐶐�����
-<li><a href="SDL_JoystickAttachVirtualEx.html">SDL_JoystickAttachVirtualEx</a> - �g�����ꂽ�v���p�e�B���g�p���ĉ��z�W���C�X�e�B�b�N�𐶐�����
-<li><a href="SDL_JoystickClose.html">SDL_JoystickClose</a> - SDL_JoystickOpen(�ŊJ�����W���C�X�e�B�b�N�����
-<li><a href="SDL_JoystickCurrentPowerLevel.html">SDL_JoystickCurrentPowerLevel</a> - �W���C�X�e�B�b�N�̃o�b�e���[�c�ʂ�SDL_JoystickPowerLevel�Ƃ��ē���
-<li><a href="SDL_JoystickDetachVirtual.html">SDL_JoystickDetachVirtual</a> - ���z�W���C�X�e�B�b�N���폜����
-<li><a href="SDL_JoystickEventState.html">SDL_JoystickEventState</a> - �W���C�X�e�B�b�N�C�x���g��L���E�����ɂ���
-<li><a href="SDL_JoystickFromInstanceID.html">SDL_JoystickFromInstanceID</a> - �C���X�^���XID�ƌ��ѕt����ꂽSDL_Joystick�𓾂�
-<li><a href="SDL_JoystickFromPlayerIndex.html">SDL_JoystickFromPlayerIndex</a> - �v���C���[�̔ԍ��Ɗ֘A�t����ꂽSDL_Joystick�𓾂�
-<li><a href="SDL_JoystickGetAttached.html">SDL_JoystickGetAttached</a> - �w��̃W���C�X�e�B�b�N�̏�Ԃ𓾂�
-<li><a href="SDL_JoystickGetAxis.html">SDL_JoystickGetAxis</a> - �W���C�X�e�B�b�N�̎��̏�Ԃ𓾂�
-<li><a href="SDL_JoystickGetAxisInitialState.html">SDL_JoystickGetAxisInitialState</a> - �W���C�X�e�B�b�N�̎��̏����l�𓾂�
-<li><a href="SDL_JoystickGetBall.html">SDL_JoystickGetBall</a> - �{�[���̈ʒu�̑O��l���Ƃ̍��𓾂�
-<li><a href="SDL_JoystickGetButton.html">SDL_JoystickGetButton</a> - �W���C�X�e�B�b�N�̃{�^���̏�Ԃ𓾂�
-<li><a href="SDL_JoystickGetDeviceGUID.html">SDL_JoystickGetDeviceGUID</a> - �w��̃f�o�C�X�ԍ��̃W���C�X�e�B�b�N�̎������瓾��GUID(�O���[�o����ӎ��ʎq)�𓾂�
-<li><a href="SDL_JoystickGetDeviceInstanceID.html">SDL_JoystickGetDeviceInstanceID</a> - �W���C�X�e�B�b�N�̃C���X�^���XID�𓾂�
-<li><a href="SDL_JoystickGetDevicePlayerIndex.html">SDL_JoystickGetDevicePlayerIndex</a> - �W���C�X�e�B�b�N�̃v���C���[�ԍ��𓾂�
-<li><a href="SDL_JoystickGetDeviceProduct.html">SDL_JoystickGetDeviceProduct</a> - �\�Ȃ�΃W���C�X�e�B�b�N��USB�v���_�N�gID�𓾂� 
-<li><a href="SDL_JoystickGetDeviceProductVersion.html">SDL_JoystickGetDeviceProductVersion</a> - �\�Ȃ�΃W���C�X�e�B�b�N�̃v���_�N�g�o�[�W�����𓾂� 
-<li><a href="SDL_JoystickGetDeviceType.html">SDL_JoystickGetDeviceType</a> - �\�Ȃ�΃W���C�X�e�B�b�N�̎�ނ𓾂�
-<li><a href="SDL_JoystickGetDeviceVendor.html">SDL_JoystickGetDeviceVendor</a> - �\�Ȃ�΃W���C�X�e�B�b�N��USB�x���_�[ID�𓾂� 
-<li><a href="SDL_JoystickGetFirmwareVersion.html">SDL_JoystickGetFirmwareVersion</a> - �\�Ȃ�΃W���C�X�e�B�b�N�̃t�@�[���E�F�A�̃o�[�W�����𓾂�
-<li><a href="SDL_JoystickGetGUID.html">SDL_JoystickGetGUID</a> - �W���C�X�e�B�b�N�̎������瓾��GUID(�O���[�o����ӎ��ʎq)�𓾂�
-<li><a href="SDL_JoystickGetGUIDFromString.html">SDL_JoystickGetGUIDFromString</a> - GUID(�O���[�o����ӎ��ʎq)�������SDL_JoystickGUID�\���̂ɕϊ�����
-<li><a href="SDL_JoystickGetGUIDString.html">SDL_JoystickGetGUIDString</a> - SDL_JoystickGUID�\���̂�ASCII������ɕϊ�����
-<li><a href="SDL_JoystickGetHat.html">SDL_JoystickGetHat</a> - �W���C�X�e�B�b�N��POV�n�b�g�̏�Ԃ𓾂�
-<li><a href="SDL_JoystickGetPlayerIndex.html">SDL_JoystickGetPlayerIndex</a> - �I�[�v�����ꂽ�W���C�X�e�B�b�N�̃v���C���[�̔ԍ��𓾂� 
-<li><a href="SDL_JoystickGetProduct.html">SDL_JoystickGetProduct</a> - �\�Ȃ�΃I�[�v�����ꂽ�W���C�X�e�B�b�N��USB�v���_�N�gID�𓾂� 
-<li><a href="SDL_JoystickGetProductVersion.html">SDL_JoystickGetProductVersion</a> - �\�Ȃ�΃I�[�v�����ꂽ�W���C�X�e�B�b�N�̃v���_�N�g�o�[�W�����𓾂� 
-<li><a href="SDL_JoystickGetSerial.html">SDL_JoystickGetSerial</a> - �\�Ȃ�΃I�[�v�����ꂽ�W���C�X�e�B�b�N�̃V���A���ԍ��𓾂� 
-<li><a href="SDL_JoystickGetType.html">SDL_JoystickGetType</a> - �I�[�v�����ꂽ�W���C�X�e�B�b�N�̎�ނ𓾂� 
-<li><a href="SDL_JoystickGetVendor.html">SDL_JoystickGetVendor</a> - �\�Ȃ�΃I�[�v�����ꂽ�W���C�X�e�B�b�N�̃x���_�[ID�𓾂� 
-<li><a href="SDL_JoystickHasLED.html">SDL_JoystickHasLED</a> - �W���C�X�e�B�b�N��LED�����݂��邩�𓾂� 
-<li><a href="SDL_JoystickHasRumble.html">SDL_JoystickHasRumble</a> - �W���C�X�e�B�b�N���U���ɑΉ����Ă��邩�𓾂�
-<li><a href="SDL_JoystickHasRumbleTriggers.html">SDL_JoystickHasRumbleTriggers</a> - �W���C�X�e�B�b�N���g���K�[�U���ɑΉ����Ă��邩�𓾂�
-<li><a href="SDL_JoystickInstanceID.html">SDL_JoystickInstanceID</a> - �J�����W���C�X�e�B�b�N�̃C���X�^���XID�𓾂�
-<li><a href="SDL_JoystickIsVirtual.html">SDL_JoystickIsVirtual</a> - �w��̔ԍ��̃W���C�X�e�B�b�N�����z���ۂ��𓾂�
-<li><a href="SDL_JoystickName.html">SDL_JoystickName</a> - �W���C�X�e�B�b�N�̎������瓾�����O�𓾂�
-<li><a href="SDL_JoystickNameForIndex.html">SDL_JoystickNameForIndex</a> - �W���C�X�e�B�b�N�̎������瓾�����O�𓾂�
-<li><a href="SDL_JoystickNumAxes.html">SDL_JoystickNumAxes</a> - �W���C�X�e�B�b�N�̎��̐��𓾂�
-<li><a href="SDL_JoystickNumBalls.html">SDL_JoystickNumBalls</a> - �W���C�X�e�B�b�N�̃g���b�N�{�[���̐��𓾂�
-<li><a href="SDL_JoystickNumButtons.html">SDL_JoystickNumButtons</a> - �W���C�X�e�B�b�N�̃{�^���̐��𓾂�
-<li><a href="SDL_JoystickNumHats.html">SDL_JoystickNumHats</a> - �W���C�X�e�B�b�N��POV�n�b�g�̐��𓾂�
-<li><a href="SDL_JoystickOpen.html">SDL_JoystickOpen</a> - �g�p����W���C�X�e�B�b�N���J��
-<li><a href="SDL_JoystickPath.html">SDL_JoystickPath</a> - �W���C�X�e�B�b�N�̎����Ɉˑ������p�X�𓾂�
-<li><a href="SDL_JoystickPathForIndex.html">SDL_JoystickPathForIndex</a> - �W���C�X�e�B�b�N�̎����Ɉˑ������p�X�𓾂�
-<li><a href="SDL_JoystickRumble.html">SDL_JoystickRumble</a> - �W���C�X�e�B�b�N�̐U�����ʂ��J�n���� 
-<li><a href="SDL_JoystickRumbleTriggers.html">SDL_JoystickRumbleTriggers</a> - �W���C�X�e�B�b�N�̃g���K�[�̐U�����ʂ��J�n���� 
-<li><a href="SDL_JoystickSendEffect.html">SDL_JoystickSendEffect</a> - �W���C�X�e�B�b�N�ŗL�̌��ʃp�P�b�g�𑗐M����
-<li><a href="SDL_JoystickSetLED.html">SDL_JoystickSetLED</a> - �W���C�X�e�B�b�N��LED�̐F��ύX���� 
-<li><a href="SDL_JoystickSetPlayerIndex.html">SDL_JoystickSetPlayerIndex</a> - �I�[�v�����ꂽ�W���C�X�e�B�b�N�Ƀv���C���[�ԍ���ݒ肷�� 
-<li><a href="SDL_JoystickSetVirtualAxis.html">SDL_JoystickSetVirtualAxis</a> - �I�[�v�����ꂽ���z�W���C�X�e�B�b�N�̎��ɒl��ݒ肷��
-<li><a href="SDL_JoystickSetVirtualButton.html">SDL_JoystickSetVirtualButton</a> - �I�[�v�����ꂽ���z�W���C�X�e�B�b�N�̃{�^���ɒl��ݒ肷��
-<li><a href="SDL_JoystickSetVirtualHat.html">SDL_JoystickSetVirtualHat</a> - �I�[�v�����ꂽ���z�W���C�X�e�B�b�N�̃n�b�g�ɒl��ݒ肷��
-<li><a href="SDL_JoystickUpdate.html">SDL_JoystickUpdate</a> - �J�����W���C�X�e�B�b�N�̏�Ԃ��X�V����
-<li><a href="SDL_LockJoysticks.html">SDL_LockJoysticks</a> - �W���C�X�e�B�b�NAPI�ւ̃}���`�X���b�h�A�N�Z�X�����b�N����
-<li><a href="SDL_NumJoysticks.html">SDL_NumJoysticks</a> - �ڑ����ꂽ�W���C�X�e�B�b�N�̐��𓾂�
-<li><a href="SDL_UnlockJoysticks.html">SDL_UnlockJoysticks</a> - �W���C�X�e�B�b�NAPI�ւ̃}���`�X���b�h�A�N�Z�X�̃��b�N����������
+<li><a href="SDL_GetJoystickGUIDInfo.html">SDL_GetJoystickGUIDInfo</a> - SDL_JoystickGUID構造体からデバイス情報を得る
+<li><a href="SDL_JoystickAttachVirtual.html">SDL_JoystickAttachVirtual</a> - 新しい仮想ジョイスティックを生成する
+<li><a href="SDL_JoystickAttachVirtualEx.html">SDL_JoystickAttachVirtualEx</a> - 拡張されたプロパティを使用して仮想ジョイスティックを生成する
+<li><a href="SDL_JoystickClose.html">SDL_JoystickClose</a> - SDL_JoystickOpen(で開いたジョイスティックを閉じる
+<li><a href="SDL_JoystickCurrentPowerLevel.html">SDL_JoystickCurrentPowerLevel</a> - ジョイスティックのバッテリー残量をSDL_JoystickPowerLevelとして得る
+<li><a href="SDL_JoystickDetachVirtual.html">SDL_JoystickDetachVirtual</a> - 仮想ジョイスティックを削除する
+<li><a href="SDL_JoystickEventState.html">SDL_JoystickEventState</a> - ジョイスティックイベントを有効・無効にする
+<li><a href="SDL_JoystickFromInstanceID.html">SDL_JoystickFromInstanceID</a> - インスタンスIDと結び付けられたSDL_Joystickを得る
+<li><a href="SDL_JoystickFromPlayerIndex.html">SDL_JoystickFromPlayerIndex</a> - プレイヤーの番号と関連付けられたSDL_Joystickを得る
+<li><a href="SDL_JoystickGetAttached.html">SDL_JoystickGetAttached</a> - 指定のジョイスティックの状態を得る
+<li><a href="SDL_JoystickGetAxis.html">SDL_JoystickGetAxis</a> - ジョイスティックの軸の状態を得る
+<li><a href="SDL_JoystickGetAxisInitialState.html">SDL_JoystickGetAxisInitialState</a> - ジョイスティックの軸の初期値を得る
+<li><a href="SDL_JoystickGetBall.html">SDL_JoystickGetBall</a> - ボールの位置の前回獲得との差を得る
+<li><a href="SDL_JoystickGetButton.html">SDL_JoystickGetButton</a> - ジョイスティックのボタンの状態を得る
+<li><a href="SDL_JoystickGetDeviceGUID.html">SDL_JoystickGetDeviceGUID</a> - 指定のデバイス番号のジョイスティックの実装から得たGUID(グローバル一意識別子)を得る
+<li><a href="SDL_JoystickGetDeviceInstanceID.html">SDL_JoystickGetDeviceInstanceID</a> - ジョイスティックのインスタンスIDを得る
+<li><a href="SDL_JoystickGetDevicePlayerIndex.html">SDL_JoystickGetDevicePlayerIndex</a> - ジョイスティックのプレイヤー番号を得る
+<li><a href="SDL_JoystickGetDeviceProduct.html">SDL_JoystickGetDeviceProduct</a> - 可能ならばジョイスティックのUSBプロダクトIDを得る 
+<li><a href="SDL_JoystickGetDeviceProductVersion.html">SDL_JoystickGetDeviceProductVersion</a> - 可能ならばジョイスティックのプロダクトバージョンを得る 
+<li><a href="SDL_JoystickGetDeviceType.html">SDL_JoystickGetDeviceType</a> - 可能ならばジョイスティックの種類を得る
+<li><a href="SDL_JoystickGetDeviceVendor.html">SDL_JoystickGetDeviceVendor</a> - 可能ならばジョイスティックのUSBベンダーIDを得る 
+<li><a href="SDL_JoystickGetFirmwareVersion.html">SDL_JoystickGetFirmwareVersion</a> - 可能ならばジョイスティックのファームウェアのバージョンを得る
+<li><a href="SDL_JoystickGetGUID.html">SDL_JoystickGetGUID</a> - ジョイスティックの実装から得たGUID(グローバル一意識別子)を得る
+<li><a href="SDL_JoystickGetGUIDFromString.html">SDL_JoystickGetGUIDFromString</a> - GUID(グローバル一意識別子)文字列をSDL_JoystickGUID構造体に変換する
+<li><a href="SDL_JoystickGetGUIDString.html">SDL_JoystickGetGUIDString</a> - SDL_JoystickGUID構造体をASCII文字列に変換する
+<li><a href="SDL_JoystickGetHat.html">SDL_JoystickGetHat</a> - ジョイスティックのPOVハットの状態を得る
+<li><a href="SDL_JoystickGetPlayerIndex.html">SDL_JoystickGetPlayerIndex</a> - オープンされたジョイスティックのプレイヤーの番号を得る 
+<li><a href="SDL_JoystickGetProduct.html">SDL_JoystickGetProduct</a> - 可能ならばオープンされたジョイスティックのUSBプロダクトIDを得る 
+<li><a href="SDL_JoystickGetProductVersion.html">SDL_JoystickGetProductVersion</a> - 可能ならばオープンされたジョイスティックのプロダクトバージョンを得る 
+<li><a href="SDL_JoystickGetSerial.html">SDL_JoystickGetSerial</a> - 可能ならばオープンされたジョイスティックのシリアル番号を得る 
+<li><a href="SDL_JoystickGetType.html">SDL_JoystickGetType</a> - オープンされたジョイスティックの種類を得る 
+<li><a href="SDL_JoystickGetVendor.html">SDL_JoystickGetVendor</a> - 可能ならばオープンされたジョイスティックのベンダーIDを得る 
+<li><a href="SDL_JoystickHasLED.html">SDL_JoystickHasLED</a> - ジョイスティックにLEDが存在するかを得る 
+<li><a href="SDL_JoystickHasRumble.html">SDL_JoystickHasRumble</a> - ジョイスティックが振動に対応しているかを得る
+<li><a href="SDL_JoystickHasRumbleTriggers.html">SDL_JoystickHasRumbleTriggers</a> - ジョイスティックがトリガー振動に対応しているかを得る
+<li><a href="SDL_JoystickInstanceID.html">SDL_JoystickInstanceID</a> - 開いたジョイスティックのインスタンスIDを得る
+<li><a href="SDL_JoystickIsVirtual.html">SDL_JoystickIsVirtual</a> - 指定の番号のジョイスティックが仮想か否かを得る
+<li><a href="SDL_JoystickName.html">SDL_JoystickName</a> - ジョイスティックの実装から得た名前を得る
+<li><a href="SDL_JoystickNameForIndex.html">SDL_JoystickNameForIndex</a> - ジョイスティックの実装から得た名前を得る
+<li><a href="SDL_JoystickNumAxes.html">SDL_JoystickNumAxes</a> - ジョイスティックの軸の数を得る
+<li><a href="SDL_JoystickNumBalls.html">SDL_JoystickNumBalls</a> - ジョイスティックのトラックボールの数を得る
+<li><a href="SDL_JoystickNumButtons.html">SDL_JoystickNumButtons</a> - ジョイスティックのボタンの数を得る
+<li><a href="SDL_JoystickNumHats.html">SDL_JoystickNumHats</a> - ジョイスティックのPOVハットの数を得る
+<li><a href="SDL_JoystickOpen.html">SDL_JoystickOpen</a> - 使用するジョイスティックを開く
+<li><a href="SDL_JoystickPath.html">SDL_JoystickPath</a> - ジョイスティックの実装に依存したパスを得る
+<li><a href="SDL_JoystickPathForIndex.html">SDL_JoystickPathForIndex</a> - ジョイスティックの実装に依存したパスを得る
+<li><a href="SDL_JoystickRumble.html">SDL_JoystickRumble</a> - ジョイスティックの振動効果を開始する 
+<li><a href="SDL_JoystickRumbleTriggers.html">SDL_JoystickRumbleTriggers</a> - ジョイスティックのトリガーの振動効果を開始する 
+<li><a href="SDL_JoystickSendEffect.html">SDL_JoystickSendEffect</a> - ジョイスティック固有の効果パケットを送信する
+<li><a href="SDL_JoystickSetLED.html">SDL_JoystickSetLED</a> - ジョイスティックのLEDの色を変更する 
+<li><a href="SDL_JoystickSetPlayerIndex.html">SDL_JoystickSetPlayerIndex</a> - オープンされたジョイスティックにプレイヤー番号を設定する 
+<li><a href="SDL_JoystickSetVirtualAxis.html">SDL_JoystickSetVirtualAxis</a> - オープンされた仮想ジョイスティックの軸に値を設定する
+<li><a href="SDL_JoystickSetVirtualButton.html">SDL_JoystickSetVirtualButton</a> - オープンされた仮想ジョイスティックのボタンに値を設定する
+<li><a href="SDL_JoystickSetVirtualHat.html">SDL_JoystickSetVirtualHat</a> - オープンされた仮想ジョイスティックのハットに値を設定する
+<li><a href="SDL_JoystickUpdate.html">SDL_JoystickUpdate</a> - 開いたジョイスティックの状態を更新する
+<li><a href="SDL_LockJoysticks.html">SDL_LockJoysticks</a> - ジョイスティックAPIへのマルチスレッドアクセスをロックする
+<li><a href="SDL_NumJoysticks.html">SDL_NumJoysticks</a> - 接続されたジョイスティックの数を得る
+<li><a href="SDL_UnlockJoysticks.html">SDL_UnlockJoysticks</a> - ジョイスティックAPIへのマルチスレッドアクセスのロックを解除する
 </ol>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryJoystick">Joystick Support - SDL Wiki</a>
 <hr>
 </body>

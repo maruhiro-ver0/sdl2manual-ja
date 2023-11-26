@@ -1,107 +1,107 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="ApiByCategory.html" title="1��">
-<title>�C�x���g����</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>イベント処理</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - �C�x���g����
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - イベント処理
 <hr>
-<h1>�C�x���g����</h1>
-�C���N���[�h�t�@�C��: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_events.h">SDL_events.h</a>
-<h2>�T�v</h2>
+<h1>イベント処理</h1>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_events.h">SDL_events.h</a>
+<h2>概要</h2>
 <p>
-�C�x���g�������ƃA�v���P�[�V�����̓��[�U�̓��͂��󂯎�邱�Ƃ��ł���.
-�C�x���g�͈ȉ��̂悤�ȌĂяo���ŏ���������(�r�f�I�̂�).
+イベントを扱うとアプリケーションはユーザの入力を受け取ることができる.
+イベントは以下のような呼び出しで初期化する(ビデオのみ).
 </p>
 <p>
 <code>SDL_Init(SDL_INIT_VIDEO);</code>
 </p>
 <p>
-(�ڍׂ�<a href="CategoryInit.html">�������ƏI��</a>��<a href="SDL_Init.html">SDL_Init()</a>���Q�Ƃ��邱��.)
+(詳細は<a href="CategoryInit.html">初期化と終了</a>と<a href="SDL_Init.html">SDL_Init()</a>を参照すること.)
 </p>
 <p>
-�����ł�, SDL�͑S�Ă̖������̃C�x���g���L���[�ɓ���Ă���.
-�ʏ��<a href="SDL_PollEvent.html">SDL_PollEvent()</a>��<a href="SDL_PeepEvents.html">SDL_PeepEvents()</a>��<a href="SDL_WaitEvent.html">SDL_WaitEvent()</a>�̂悤�Ȋ֐��Ŗ������̓��̓C�x���g���Ď�����舵��.
+内部では, SDLは全ての未処理のイベントをキューに入れている.
+通常は<a href="SDL_PollEvent.html">SDL_PollEvent()</a>や<a href="SDL_PeepEvents.html">SDL_PeepEvents()</a>や<a href="SDL_WaitEvent.html">SDL_WaitEvent()</a>のような関数で未処理の入力イベントを監視し取り扱う.
 </p>
 <p>
-�C�x���g�L���[��<a href="SDL_Event.html">SDL_Event</a>�̗�ō\������Ă���, ����1��1���������̃C�x���g�ł���.
-<a href="SDL_Event.html">SDL_Event</a>��<a href="SDL_PollEvent.html">SDL_PollEvent()</a>�ŃL���[������o����, �����Ɋi�[���ꂽ���̓A�v���P�[�V�����ŏ��������.
+イベントキューは<a href="SDL_Event.html">SDL_Event</a>の列で構成されていて, その1つ1つが未処理のイベントである.
+<a href="SDL_Event.html">SDL_Event</a>は<a href="SDL_PollEvent.html">SDL_PollEvent()</a>でキューから取り出され, そこに格納された情報はアプリケーションで処理される.
 </p>
-<h2>�񋓑�</h2>
+<h2>列挙体</h2>
 <ol>
-<li><a href="SDL_DisplayEventID.html">SDL_DisplayEventID</a> - �E�B���h�E�C�x���g�̗񋓑�
-<li><a href="SDL_EventType.html">SDL_EventType</a> - ����ꂽ�C�x���g�̎�ނ̗񋓑�
-<li><a href="SDL_WindowEventID.html">SDL_WindowEventID</a> - �E�B���h�E�C�x���g�̗񋓑�
+<li><a href="SDL_DisplayEventID.html">SDL_DisplayEventID</a> - ウィンドウイベントの列挙体
+<li><a href="SDL_EventType.html">SDL_EventType</a> - 送られたイベントの種類の列挙体
+<li><a href="SDL_WindowEventID.html">SDL_WindowEventID</a> - ウィンドウイベントの列挙体
 </ol>
-<h2>�\����</h2>
+<h2>構造体</h2>
 <ol>
-<li><a href="SDL_AudioDeviceEvent.html">SDL_AudioDeviceEvent</a> - �I�[�f�B�I�f�o�C�X�C�x���g�̏��̍\����
-<li><a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a> - �Q�[���R���g���[���[���C�x���g�̏��̍\����
-<li><a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a> - �R���g���[���[�{�^���C�x���g�̏��̍\����
-<li><a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a> - �Q�[���R���g���[���[�ڑ��C�x���g�̏��̍\����
-<li><a href="SDL_DisplayEvent.html">SDL_DisplayEvent</a> - �f�B�X�v���C��ԕω��C�x���g�̏��̍\����
-<li><a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a> - ���G�ȃW�F�X�`���[�C�x���g�̏��̍\����
-<li><a href="SDL_DropEvent.html">SDL_DropEvent</a> - �h���b�O&amp;�h���b�v�C�x���g�̏��̍\����
-<li><a href="SDL_Event.html">SDL_Event</a> - �قȂ��ނ̃C�x���g�̏��������p��
-<li><a href="SDL_Finger.html">SDL_Finger</a> - �^�b�`�̏��̍\����
-<li><a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a> - �W���C�X�e�B�b�N���C�x���g�̏��̍\����
-<li><a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a> - �W���C�X�e�B�b�N�{�[���C�x���g�̏��̍\����
-<li><a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a> - �W���C�X�e�B�b�N�{�^���C�x���g�̏��̍\����
-<li><a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a> - �W���C�X�e�B�b�N�ڑ��C�x���g�̍\����
-<li><a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a> - �W���C�X�e�B�b�N�n�b�g�C�x���g�̍\����
-<li><a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a> - �L�[�{�[�h�C�x���g�̍\����
-<li><a href="SDL_MouseButtonEvent.html">SDL_MouseButtonEvent</a> - �}�E�X�{�^���C�x���g�̍\����
-<li><a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a> - �}�E�X�ړ��C�x���g�̍\����
-<li><a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a> - �}�E�X�z�C�[���C�x���g�̍\����
-<li><a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a> - �}���`�^�b�`�W�F�X�`���[�C�x���g�̏��̍\����
-<li><a href="SDL_QuitEvent.html">SDL_QuitEvent</a> - �I���v���C�x���g�̏��̍\����
-<li><a href="SDL_SensorEvent.html">SDL_SensorEvent</a> - �Z���T�[�X�V���̍\����
-<li><a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a> - �V�X�e���ˑ��E�B���h�E�C�x���g�̏��̍\����
-<li><a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a> - �L�[�{�[�h�e�L�X�g�ҏW�C�x���g�̏��̍\����
-<li><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a> - �e�L�X�g���̓C�x���g�̏��̍\����
-<li><a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a> - �^�b�`�C�x���g�̏��̍\����
-<li><a href="SDL_UserEvent.html">SDL_UserEvent</a> - �A�v���P�[�V������`�C�x���g�̏��̍\����
-<li><a href="SDL_WindowEvent.html">SDL_WindowEvent</a> - �E�B���h�E�C�x���g�̏��̍\����
+<li><a href="SDL_AudioDeviceEvent.html">SDL_AudioDeviceEvent</a> - オーディオデバイスイベントの情報の構造体
+<li><a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a> - ゲームコントローラー軸イベントの情報の構造体
+<li><a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a> - コントローラーボタンイベントの情報の構造体
+<li><a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a> - ゲームコントローラー接続イベントの情報の構造体
+<li><a href="SDL_DisplayEvent.html">SDL_DisplayEvent</a> - ディスプレイ状態変化イベントの情報の構造体
+<li><a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a> - 複雑なジェスチャーイベントの情報の構造体
+<li><a href="SDL_DropEvent.html">SDL_DropEvent</a> - ドラッグ&amp;ドロップイベントの情報の構造体
+<li><a href="SDL_Event.html">SDL_Event</a> - 異なる種類のイベントの情報を持つ共用体
+<li><a href="SDL_Finger.html">SDL_Finger</a> - タッチの情報の構造体
+<li><a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a> - ジョイスティック軸イベントの情報の構造体
+<li><a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a> - ジョイスティックボールイベントの情報の構造体
+<li><a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a> - ジョイスティックボタンイベントの情報の構造体
+<li><a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a> - ジョイスティック接続イベントの構造体
+<li><a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a> - ジョイスティックハットイベントの構造体
+<li><a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a> - キーボードイベントの構造体
+<li><a href="SDL_MouseButtonEvent.html">SDL_MouseButtonEvent</a> - マウスボタンイベントの構造体
+<li><a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a> - マウス移動イベントの構造体
+<li><a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a> - マウスホイールイベントの構造体
+<li><a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a> - マルチタッチジェスチャーイベントの情報の構造体
+<li><a href="SDL_QuitEvent.html">SDL_QuitEvent</a> - 終了要求イベントの情報の構造体
+<li><a href="SDL_SensorEvent.html">SDL_SensorEvent</a> - センサー更新情報の構造体
+<li><a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a> - システム依存ウィンドウイベントの情報の構造体
+<li><a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a> - キーボードテキスト編集イベントの情報の構造体
+<li><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a> - テキスト入力イベントの情報の構造体
+<li><a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a> - タッチイベントの情報の構造体
+<li><a href="SDL_UserEvent.html">SDL_UserEvent</a> - アプリケーション定義イベントの情報の構造体
+<li><a href="SDL_WindowEvent.html">SDL_WindowEvent</a> - ウィンドウイベントの情報の構造体
 </ol>
-<h2>�֐�</h2>
+<h2>関数</h2>
 <ol>
-<li><a href="SDL_AddEventWatch.html">SDL_AddEventWatch</a> - �C�x���g���L���[�ɓ������ꍇ�̃R�[���o�b�N��ǉ�����
-<li><a href="SDL_DelEventWatch.html">SDL_DelEventWatch</a> - SDL_AddEventWatch()�Œǉ����ꂽ�C�x���g�Ď��R�[���o�b�N���폜����
-<li><a href="SDL_EventFilter.html">SDL_EventFilter</a> - SDL_AddEventWatch()�Ŏg�p����֐��̒�`
-<li><a href="SDL_EventState.html">SDL_EventState</a> - �C�x���g�����̏�Ԃ���ނ��Ƃɐݒ肷��
-<li><a href="SDL_FilterEvents.html">SDL_FilterEvents</a> - ���݂̃C�x���g�L���[�ɑ΂��Ďw��̃t�B���^�֐������s����
-<li><a href="SDL_FlushEvent.html">SDL_FlushEvent</a> - �C�x���g�L���[����C�x���g����������
-<li><a href="SDL_FlushEvents.html">SDL_FlushEvents</a> - �C�x���g�L���[���畡���̃C�x���g����������
-<li><a href="SDL_GetEventFilter.html">SDL_GetEventFilter</a> - ���݂̃C�x���g�t�B���^�𓾂�
-<li><a href="SDL_GetEventState.html">SDL_GetEventState</a> - �w�肵��SDL_EventType�C�x���g�̗L��/������Ԃ�߂��}�N��
-<li><a href="SDL_GetNumTouchDevices.html">SDL_GetNumTouchDevices</a> - �o�^���ꂽ�^�b�`�f�o�C�X�̐��𓾂�
-<li><a href="SDL_GetNumTouchFingers.html">SDL_GetNumTouchFingers</a> - �w��̃^�b�`�f�o�C�X�Ŏg���Ă���w�̐��𓾂�
-<li><a href="SDL_GetTouchDevice.html">SDL_GetTouchDevice</a> - �w��̔ԍ��̃^�b�`�f�o�C�X��ID�𓾂�
-<li><a href="SDL_GetTouchDeviceType.html">SDL_GetTouchDeviceType</a> - �w��̃^�b�`�f�o�C�X�̎�ނ𓾂�
-<li><a href="SDL_GetTouchFinger.html">SDL_GetTouchFinger</a> - �w��̃^�b�`�f�o�C�XID�̎w�ԍ��̎w�I�u�W�F�N�g�𓾂�
-<li><a href="SDL_GetTouchName.html">SDL_GetTouchName</a> - �^�b�`�f�o�C�X���𓾂�
-<li><a href="SDL_HasEvent.html">SDL_HasEvent</a> - �L���[�Ɏw��̃C�x���g�����݂��邩��������
-<li><a href="SDL_HasEvents.html">SDL_HasEvents</a> - �L���[�Ɏw��͈̔͂̃C�x���g�����݂��邩��������
-<li><a href="SDL_LoadDollarTemplates.html">SDL_LoadDollarTemplates</a> - ���G�ȃW�F�X�`���[�̃e���v���[�g���t�@�C������ǂݍ���
-<li><a href="SDL_PeepEvents.html">SDL_PeepEvents</a> - �C�x���g�L���[�̃��b�Z�[�W���`�F�b�N��, ������߂�
-<li><a href="SDL_PollEvent.html">SDL_PollEvent</a> - �������̃C�x���g���L���[���瓾��
-<li><a href="SDL_PumpEvents.html">SDL_PumpEvents</a> - ���̓f�o�C�X����z���o�����C�x���g���C�x���g���[�v�ɉ�����
-<li><a href="SDL_PushEvent.html">SDL_PushEvent</a> - �C�x���g���L���[�ɉ�����
-<li><a href="SDL_QuitRequested.html">SDL_QuitRequested</a> - SDL_QUIT�C�x���g���L���[�ɂ��邩��������
-<li><a href="SDL_RecordGesture.html">SDL_RecordGesture</a> - �w��܂��͑S�Ẵ^�b�`�f�o�C�X�ŃW�F�X�`���[�̋L�^���J�n����
-<li><a href="SDL_RegisterEvents.html">SDL_RegisterEvents</a> - �����̃��[�U��`�̃C�x���g�̗̈���m�ۂ�, �擪�̃C�x���g�̔ԍ���߂�
-<li><a href="SDL_SaveAllDollarTemplates.html">SDL_SaveAllDollarTemplates</a> - ���݂̑S�ẴW�F�X�`���[�̃e���v���[�g��ۑ�����
-<li><a href="SDL_SaveDollarTemplate.html">SDL_SaveDollarTemplate</a> - ���݂̃W�F�X�`���[�̃e���v���[�g��ۑ�����
-<li><a href="SDL_SetEventFilter.html">SDL_SetEventFilter</a> - ������Ԃ��ς������L���[�ɓ���O�ɑS�ẴC�x���g����������t�B���^��ݒ肷��
-<li><a href="SDL_WaitEvent.html">SDL_WaitEvent</a> - ���̃C�x���g����������܂Ŗ������ɑ҂�
-<li><a href="SDL_WaitEventTimeout.html">SDL_WaitEventTimeout</a> - ���̃C�x���g����������܂Ŏw��̎���(�~���b)�҂�
+<li><a href="SDL_AddEventWatch.html">SDL_AddEventWatch</a> - イベントがキューに入った場合のコールバックを追加する
+<li><a href="SDL_DelEventWatch.html">SDL_DelEventWatch</a> - SDL_AddEventWatch()で追加されたイベント監視コールバックを削除する
+<li><a href="SDL_EventFilter.html">SDL_EventFilter</a> - SDL_AddEventWatch()で使用する関数の定義
+<li><a href="SDL_EventState.html">SDL_EventState</a> - イベント処理の状態を種類ごとに設定する
+<li><a href="SDL_FilterEvents.html">SDL_FilterEvents</a> - 現在のイベントキューに対して指定のフィルタ関数を実行する
+<li><a href="SDL_FlushEvent.html">SDL_FlushEvent</a> - イベントキューからイベントを消去する
+<li><a href="SDL_FlushEvents.html">SDL_FlushEvents</a> - イベントキューから複数のイベントを消去する
+<li><a href="SDL_GetEventFilter.html">SDL_GetEventFilter</a> - 現在のイベントフィルタを得る
+<li><a href="SDL_GetEventState.html">SDL_GetEventState</a> - 指定したSDL_EventTypeイベントの有効/無効状態を戻すマクロ
+<li><a href="SDL_GetNumTouchDevices.html">SDL_GetNumTouchDevices</a> - 登録されたタッチデバイスの数を得る
+<li><a href="SDL_GetNumTouchFingers.html">SDL_GetNumTouchFingers</a> - 指定のタッチデバイスで使っている指の数を得る
+<li><a href="SDL_GetTouchDevice.html">SDL_GetTouchDevice</a> - 指定の番号のタッチデバイスのIDを得る
+<li><a href="SDL_GetTouchDeviceType.html">SDL_GetTouchDeviceType</a> - 指定のタッチデバイスの種類を得る
+<li><a href="SDL_GetTouchFinger.html">SDL_GetTouchFinger</a> - 指定のタッチデバイスIDの指番号の指オブジェクトを得る
+<li><a href="SDL_GetTouchName.html">SDL_GetTouchName</a> - タッチデバイス名を得る
+<li><a href="SDL_HasEvent.html">SDL_HasEvent</a> - キューに指定のイベントが存在するか調査する
+<li><a href="SDL_HasEvents.html">SDL_HasEvents</a> - キューに指定の範囲のイベントが存在するか調査する
+<li><a href="SDL_LoadDollarTemplates.html">SDL_LoadDollarTemplates</a> - 複雑なジェスチャーのテンプレートをファイルから読み込む
+<li><a href="SDL_PeepEvents.html">SDL_PeepEvents</a> - イベントキューのメッセージをチェックし, それらを戻す
+<li><a href="SDL_PollEvent.html">SDL_PollEvent</a> - 未処理のイベントをキューから得る
+<li><a href="SDL_PumpEvents.html">SDL_PumpEvents</a> - 入力デバイスから吸い出したイベントをイベントループに加える
+<li><a href="SDL_PushEvent.html">SDL_PushEvent</a> - イベントをキューに加える
+<li><a href="SDL_QuitRequested.html">SDL_QuitRequested</a> - SDL_QUITイベントがキューにあるか調査する
+<li><a href="SDL_RecordGesture.html">SDL_RecordGesture</a> - 指定または全てのタッチデバイスでジェスチャーの記録を開始する
+<li><a href="SDL_RegisterEvents.html">SDL_RegisterEvents</a> - 複数のユーザ定義のイベントの領域を確保し, 先頭のイベントの番号を戻す
+<li><a href="SDL_SaveAllDollarTemplates.html">SDL_SaveAllDollarTemplates</a> - 現在の全てのジェスチャーのテンプレートを保存する
+<li><a href="SDL_SaveDollarTemplate.html">SDL_SaveDollarTemplate</a> - 現在のジェスチャーのテンプレートを保存する
+<li><a href="SDL_SetEventFilter.html">SDL_SetEventFilter</a> - 内部状態が変わり内部キューに入る前に全てのイベントを処理するフィルタを設定する
+<li><a href="SDL_WaitEvent.html">SDL_WaitEvent</a> - 次のイベントが発生するまで無制限に待つ
+<li><a href="SDL_WaitEventTimeout.html">SDL_WaitEventTimeout</a> - 次のイベントが発生するまで指定の時間(ミリ秒)待つ
 </ol>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryEvents">Event Handling - SDL Wiki</a>
 <hr>
 </body>

@@ -1,115 +1,115 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="index.html#SDL2_mixer" title="1��">
-<title>SDL_mixer API (�A���t�@�x�b�g��)</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="index.html#SDL2_mixer" title="1つ上">
+<title>SDL_mixer API (アルファベット順)</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - API(�A���t�@�x�b�g��)
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - API(アルファベット順)
 <hr>
-<h1>SDL_mixer API (�A���t�@�x�b�g��)</h1>
+<h1>SDL_mixer API (アルファベット順)</h1>
 <ol>
-<li><a href="Mix_AllocateChannels.html">Mix_AllocateChannels</a> - �~�L�T�[���Ǘ�����`���l���̐��𓮓I�ɕύX����
-<li><a href="Mix_ChannelFinished.html">Mix_ChannelFinished</a> - �`���l���̍Đ������������Ƃ��Ă΂��R�[���o�b�N��ݒ肷��
-<li><a href="Mix_CloseAudio.html">Mix_CloseAudio</a> - �~�L�T�[����đS�ẴI�[�f�B�I�Đ����I������
-<li><a href="Mix_EachSoundFont.html">Mix_EachSoundFont</a> - MIDI�o�b�N�G���h�Ŏg�p����T�E���h�t�H���g�̃p�X���R�[���o�b�N�֐���1���n��
-<li><a href="Mix_ExpireChannel.html">Mix_ExpireChannel</a> - �w��̃`���l���̒�~�܂ł̎��Ԃ�ύX����
-<li><a href="Mix_FadeInChannel.html">Mix_FadeInChannel</a> - �w��̃`���l���ŉ����`�����N���t�F�[�h�C�����Ȃ���Đ�����
-<li><a href="Mix_FadeInChannelTimed.html">Mix_FadeInChannelTimed</a> - �Đ����Ԃ��w�肵�Ďw��̃`���l���ŉ����`�����N���t�F�[�h�C�����Ȃ���Đ�����
-<li><a href="Mix_FadeInMusic.html">Mix_FadeInMusic</a> - �V�������y�I�u�W�F�N�g���t�F�[�h�C�����Ȃ���Đ�����
-<li><a href="Mix_FadeInMusicPos.html">Mix_FadeInMusicPos</a> - �V�������y�I�u�W�F�N�g���w��̈ʒu����t�F�[�h�C�����Ȃ���Đ�����
-<li><a href="Mix_FadeOutChannel.html">Mix_FadeOutChannel</a> - �w��̎��ԃt�F�[�h�A�E�g���ă`���l�����~����
-<li><a href="Mix_FadeOutGroup.html">Mix_FadeOutGroup</a> - �Đ����̕����̃`���l�����O���[�v���w�肵�Ďw��̎��ԃt�F�[�h�A�E�g�����Ē�~����
-<li><a href="Mix_FadeOutMusic.html">Mix_FadeOutMusic</a> - �w��̎��ԃt�F�[�h�A�E�g��������ɉ��y�X�g���[�����~������
-<li><a href="Mix_FadingChannel.html">Mix_FadingChannel</a> - �`���l���̃t�F�[�f�B���O��Ԃ𓾂�
-<li><a href="Mix_FadingMusic.html">Mix_FadingMusic</a> - ���y�X�g���[���̃t�F�[�f�B���O��Ԃ𓾂� 
-<li><a href="Mix_FreeChunk.html">Mix_FreeChunk</a> - �����`�����N���������
-<li><a href="Mix_FreeMusic.html">Mix_FreeMusic</a> - ���y�I�u�W�F�N�g���������
-<li><a href="Mix_GetChunk.html">Mix_GetChunk</a> - �~�L�T�[�`���l���Ɋ֘A�t����ꂽMix_Chunk�𓾂�
-<li><a href="Mix_GetChunkDecoder.html">Mix_GetChunkDecoder</a> - �`�����N�f�R�[�_�̖��O�𓾂�
-<li><a href="Mix_GetMusicAlbumTag.html">Mix_GetMusicAlbumTag</a> - ���y�I�u�W�F�N�g�̃A���o�����𓾂�
-<li><a href="Mix_GetMusicArtistTag.html">Mix_GetMusicArtistTag</a> - ���y�I�u�W�F�N�g�̃A�[�e�B�X�g���𓾂�
-<li><a href="Mix_GetMusicCopyrightTag.html">Mix_GetMusicCopyrightTag</a> - ���y�I�u�W�F�N�g�̒��쌠�\�L�𓾂�
-<li><a href="Mix_GetMusicDecoder.html">Mix_GetMusicDecoder</a> - ���y�f�R�[�_�̖��O�𓾂�
-<li><a href="Mix_GetMusicHookData.html">Mix_GetMusicHookData</a> - ���y�Đ��t�b�N�ɓn���ꂽ���[�U�f�[�^�ւ̃|�C���^�𓾂�
-<li><a href="Mix_GetMusicLoopEndTime.html">Mix_GetMusicLoopEndTime</a> - ���y�̃��[�v�I���ʒu��b�P�ʂœ���
-<li><a href="Mix_GetMusicLoopLengthTime.html">Mix_GetMusicLoopLengthTime</a> - ���y�̃��[�v���Ԃ�b�P�ʂœ���
-<li><a href="Mix_GetMusicLoopStartTime.html">Mix_GetMusicLoopStartTime</a> - ���y�̃��[�v�J�n�ʒu��b�P�ʂœ���
-<li><a href="Mix_GetMusicPosition.html">Mix_GetMusicPosition</a> - ���y�̌��ݍĐ����̈ʒu��b�P�ʂœ���
-<li><a href="Mix_GetMusicTitle.html">Mix_GetMusicTitle</a> - ���y�I�u�W�F�N�g�̃^�C�g�����܂��̓t�@�C�����𓾂�
-<li><a href="Mix_GetMusicTitleTag.html">Mix_GetMusicTitleTag</a> - ���y�I�u�W�F�N�g�̃^�C�g�����𓾂�
-<li><a href="Mix_GetMusicType.html">Mix_GetMusicType</a> - ���y�̌`���𓾂�
-<li><a href="Mix_GetMusicVolume.html">Mix_GetMusicVolume</a> - ���y�̌��݂̃{�����[���𓾂�
-<li><a href="Mix_GetNumChunkDecoders.html">Mix_GetNumChunkDecoders</a> - ���݂̃r���h��SDL_mixer���񋟂���`�����N�f�R�[�_�̈ꗗ�𓾂�
-<li><a href="Mix_GetNumMusicDecoders.html">Mix_GetNumMusicDecoders</a> - ���݂̃r���h��SDL_mixer���񋟂��鉹�y�f�R�[�_�̈ꗗ�𓾂�
-<li><a href="Mix_GetSoundFonts.html">Mix_GetSoundFonts</a> - MIDI�o�b�N�G���h�Ŏg�p�����T�E���h�t�H���g�̃p�X�𓾂�
-<li><a href="Mix_GetSynchroValue.html">Mix_GetSynchroValue</a> - ���̊֐��͉������Ȃ�. �g�p���Ă͂Ȃ�Ȃ�.
-<li><a href="Mix_GetTimidityCfg.html">Mix_GetTimidityCfg</a> - �ݒ肳�ꂽTimidity�ݒ�t�@�C���̃t���p�X���𓾂�
-<li><a href="Mix_GroupAvailable.html">Mix_GroupAvailable</a> - �`���l���O���[�v�̎g�p�\�ȍŏ��̃`���l������������
-<li><a href="Mix_GroupChannel.html">Mix_GroupChannel</a> - �^�O��1�̃`���l�����֘A�t����
-<li><a href="Mix_GroupChannels.html">Mix_GroupChannels</a> - �^�O�ƕ����̃`���l�����֘A�t����
-<li><a href="Mix_GroupCount.html">Mix_GroupCount</a> - �O���[�v�̃`���l���̐��𓾂�
-<li><a href="Mix_GroupNewer.html">Mix_GroupNewer</a> - �O���[�v���̍ł��u�V�����v�Đ����ꂽ�`���l���𓾂�
-<li><a href="Mix_GroupOldest.html">Mix_GroupOldest</a> - �O���[�v���̍ł��u�ߋ��Ɂv�Đ����ꂽ�`���l���𓾂�
-<li><a href="Mix_HaltChannel.html">Mix_HaltChannel</a> - �w��̃`���l�����~����
-<li><a href="Mix_HaltGroup.html">Mix_HaltGroup</a> - �^�O�t�����ꂽ�����̃`���l�����~����
-<li><a href="Mix_HaltMusic.html">Mix_HaltMusic</a> - ���y�̍Đ����~����
-<li><a href="Mix_HasChunkDecoder.html">Mix_HasChunkDecoder</a> - �`�����N�f�R�[�_�[�����p�ł��邩���̂Ń`�F�b�N����
-<li><a href="Mix_HasMusicDecoder.html">Mix_HasMusicDecoder</a> - ���y�f�R�[�_�[�����p�ł��邩���̂Ń`�F�b�N����
-<li><a href="Mix_HookMusic.html">Mix_HookMusic</a> - ���[�U���g�̉��y�v���C���[�܂��͂���Ȃ�~�L�T�[�֐���ǉ�����
-<li><a href="Mix_HookMusicFinished.html">Mix_HookMusicFinished</a> - ���y�I�u�W�F�N�g�̍Đ�����~�����Ƃ����s�����R�[���o�b�N��ݒ肷��
-<li><a href="Mix_Init.html">Mix_Init</a> - SDL_mixer������������
-<li><a href="Mix_Linked_Version.html">Mix_Linked_Version</a> - �v���O�����Ƀ����N���ꂽSDL_mixer�̃o�[�W�����𓾂�
-<li><a href="Mix_LoadMUS.html">Mix_LoadMUS</a> - ���y�t�@�C�������y�I�u�W�F�N�g�ɓǂݍ���
-<li><a href="Mix_LoadMUSType_RW.html">Mix_LoadMUSType_RW</a> - �`�����w�肵���I�[�f�B�I�����y�I�u�W�F�N�g�ɓǂݍ���
-<li><a href="Mix_LoadMUS_RW.html">Mix_LoadMUS_RW</a> - ���p�\�ȃI�[�f�B�I�t�H�[�}�b�g�����y�I�u�W�F�N�g�ɓǂݍ���
-<li><a href="Mix_LoadWAV.html">Mix_LoadWAV</a> - �����t�@�C�����`�����N�ɓǂݍ���
-<li><a href="Mix_LoadWAV_RW.html">Mix_LoadWAV_RW</a> - �����t�@�C�����`�����N�ɓǂݍ���
-<li><a href="Mix_MasterVolume.html">Mix_MasterVolume</a> - �S�`���l���̑S�̃{�����[����ݒ肷��
-<li><a href="Mix_ModMusicJumpToOrder.html">Mix_ModMusicJumpToOrder</a> - MOD���y�̎w�肳�ꂽ�I�[�_�[�Ɉړ�����
-<li><a href="Mix_MusicDuration.html">Mix_MusicDuration</a> - ���y�I�u�W�F�N�g�̃f�����[�V������b�P�ʂœ���
-<li><a href="Mix_OpenAudio.html">Mix_OpenAudio</a> - �Đ��̂��ߊ���̃I�[�f�B�I�f�o�C�X���J��
-<li><a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice</a> - �Đ��̂��ߎw��̃I�[�f�B�I�f�o�C�X���J��
-<li><a href="Mix_Pause.html">Mix_Pause</a> - �w��̃`���l�����ꎞ��~����
-<li><a href="Mix_PauseAudio.html">Mix_PauseAudio</a> - �I�[�f�B�I�S�̂��ꎞ��~�܂��͕��A����
-<li><a href="Mix_Paused.html">Mix_Paused</a> - �w��̃`���l�����ꎞ��~�����ۂ��𓾂�
-<li><a href="Mix_PausedMusic.html">Mix_PausedMusic</a> - ���y�X�g���[�����ꎞ��~�����ۂ��𓾂�
-<li><a href="Mix_PauseMusic.html">Mix_PauseMusic</a> - ���y�X�g���[�����ꎞ��~����
-<li><a href="Mix_PlayChannel.html">Mix_PlayChannel</a> - �w��̃`���l���̃`�����N���Đ�����
-<li><a href="Mix_PlayChannelTimed.html">Mix_PlayChannelTimed</a> - �w��̃`���l���̃`�����N�����Ԃ��w�肵�čĐ�����
-<li><a href="Mix_Playing.html">Mix_Playing</a> - �w��̃`���l���̍Đ���Ԃ��`�F�b�N����
-<li><a href="Mix_PlayingMusic.html">Mix_PlayingMusic</a> - ���y�X�g���[���̍Đ���Ԃ��`�F�b�N����
-<li><a href="Mix_PlayMusic.html">Mix_PlayMusic</a> - �w��̃`���l���̃`�����N���Đ�����
-<li><a href="Mix_QuerySpec.html">Mix_QuerySpec</a> - �I�[�f�B�I�f�o�C�X�̎��ۂ̃p�����[�^�𓾂�
-<li><a href="Mix_QuickLoad_RAW.html">Mix_QuickLoad_RAW</a> - �\�Ȍ��荂���Ƀ���������x�^�`���̉�����ǂݍ���
-<li><a href="Mix_QuickLoad_WAV.html">Mix_QuickLoad_WAV</a> - �\�Ȍ��荂���Ƀ���������WAV�`���̉�����ǂݍ���
-<li><a href="Mix_Quit.html">Mix_Quit</a> - SDL_mixer���������
-<li><a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a> - �G�t�F�N�g�֐���o�^����
-<li><a href="Mix_ReserveChannels.html">Mix_ReserveChannels</a> - �A�v���P�[�V�����p�̃`���l����\�񂷂�
-<li><a href="Mix_Resume.html">Mix_Resume</a> - �w��̃`���l�����ꎞ��~���畜�A������
-<li><a href="Mix_ResumeMusic.html">Mix_ResumeMusic</a> - ���y�X�g���[�����ꎞ��~���畜�A������
-<li><a href="Mix_RewindMusic.html">Mix_RewindMusic</a> - ���y�X�g���[���������߂�
-<li><a href="Mix_SetDistance.html">Mix_SetDistance</a> - �`���l���̋�����ݒ肷��
-<li><a href="Mix_SetMusicCMD.html">Mix_SetMusicCMD</a> - ���y�X�g���[���̂��߂̊O���R�}���h�����s����
-<li><a href="Mix_SetMusicPosition.html">Mix_SetMusicPosition</a> - ���y�X�g���[���̍Đ��ʒu��b�P�ʂŐݒ肷��
-<li><a href="Mix_SetPanning.html">Mix_SetPanning</a> - �`���l���̃p����ݒ肷��
-<li><a href="Mix_SetPosition.html">Mix_SetPosition</a> - �`���l���̈ʒu��ݒ肷��
-<li><a href="Mix_SetPostMix.html">Mix_SetPostMix</a> - �S�Ẵ~�L�V���O���K�p���ꂽ��ɌĂ΂��֐���ݒ肷��
-<li><a href="Mix_SetReverseStereo.html">Mix_SetReverseStereo</a> - �`���l���̃X�e���I���t�ɂ���
-<li><a href="Mix_SetSoundFonts.html">Mix_SetSoundFonts</a> - MIDI�o�b�N�G���h�Ŏg�p�����T�E���h�t�H���g�̃p�X��ݒ肷��
-<li><a href="Mix_SetSynchroValue.html">Mix_SetSynchroValue</a> - ���̊֐��͉������Ȃ�. �g�p���Ă͂Ȃ�Ȃ�.
-<li><a href="Mix_SetTimidityCfg.html">Mix_SetTimidityCfg</a> - Timidity�ݒ�t�@�C���̃t���p�X����ݒ肷��
-<li><a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a> - �S�ẴG�t�F�N�g�֐�����������
-<li><a href="Mix_UnregisterEffect.html">Mix_UnregisterEffect</a> - �G�t�F�N�g�֐�����������
-<li><a href="Mix_Volume.html">Mix_Volume</a> - �w��̃`���l���̃{�����[����ݒ肷��
-<li><a href="Mix_VolumeChunk.html">Mix_VolumeChunk</a> - �w�肵���`�����N�̃{�����[����ݒ肷��
-<li><a href="Mix_VolumeMusic.html">Mix_VolumeMusic</a> - ���y�̃{�����[����ݒ肷��
+<li><a href="Mix_AllocateChannels.html">Mix_AllocateChannels</a> - ミキサーが管理するチャネルの数を動的に変更する
+<li><a href="Mix_ChannelFinished.html">Mix_ChannelFinished</a> - チャネルの再生が完了したとき呼ばれるコールバックを設定する
+<li><a href="Mix_CloseAudio.html">Mix_CloseAudio</a> - ミキサーを閉じて全てのオーディオ再生を終了する
+<li><a href="Mix_EachSoundFont.html">Mix_EachSoundFont</a> - MIDIバックエンドで使用するサウンドフォントのパスをコールバック関数に1つずつ渡す
+<li><a href="Mix_ExpireChannel.html">Mix_ExpireChannel</a> - 指定のチャネルの停止までの時間を変更する
+<li><a href="Mix_FadeInChannel.html">Mix_FadeInChannel</a> - 指定のチャネルで音声チャンクをフェードインしながら再生する
+<li><a href="Mix_FadeInChannelTimed.html">Mix_FadeInChannelTimed</a> - 再生時間を指定して指定のチャネルで音声チャンクをフェードインしながら再生する
+<li><a href="Mix_FadeInMusic.html">Mix_FadeInMusic</a> - 新しい音楽オブジェクトをフェードインしながら再生する
+<li><a href="Mix_FadeInMusicPos.html">Mix_FadeInMusicPos</a> - 新しい音楽オブジェクトを指定の位置からフェードインしながら再生する
+<li><a href="Mix_FadeOutChannel.html">Mix_FadeOutChannel</a> - 指定の時間フェードアウトしてチャネルを停止する
+<li><a href="Mix_FadeOutGroup.html">Mix_FadeOutGroup</a> - 再生中の複数のチャネルをグループを指定して指定の時間フェードアウトさせて停止する
+<li><a href="Mix_FadeOutMusic.html">Mix_FadeOutMusic</a> - 指定の時間フェードアウトさせた後に音楽ストリームを停止させる
+<li><a href="Mix_FadingChannel.html">Mix_FadingChannel</a> - チャネルのフェーディング状態を得る
+<li><a href="Mix_FadingMusic.html">Mix_FadingMusic</a> - 音楽ストリームのフェーディング状態を得る 
+<li><a href="Mix_FreeChunk.html">Mix_FreeChunk</a> - 音声チャンクを解放する
+<li><a href="Mix_FreeMusic.html">Mix_FreeMusic</a> - 音楽オブジェクトを解放する
+<li><a href="Mix_GetChunk.html">Mix_GetChunk</a> - ミキサーチャネルに関連付けられたMix_Chunkを得る
+<li><a href="Mix_GetChunkDecoder.html">Mix_GetChunkDecoder</a> - チャンクデコーダの名前を得る
+<li><a href="Mix_GetMusicAlbumTag.html">Mix_GetMusicAlbumTag</a> - 音楽オブジェクトのアルバム名を得る
+<li><a href="Mix_GetMusicArtistTag.html">Mix_GetMusicArtistTag</a> - 音楽オブジェクトのアーティスト名を得る
+<li><a href="Mix_GetMusicCopyrightTag.html">Mix_GetMusicCopyrightTag</a> - 音楽オブジェクトの著作権表記を得る
+<li><a href="Mix_GetMusicDecoder.html">Mix_GetMusicDecoder</a> - 音楽デコーダの名前を得る
+<li><a href="Mix_GetMusicHookData.html">Mix_GetMusicHookData</a> - 音楽再生フックに渡されたユーザデータへのポインタを得る
+<li><a href="Mix_GetMusicLoopEndTime.html">Mix_GetMusicLoopEndTime</a> - 音楽のループ終了位置を秒単位で得る
+<li><a href="Mix_GetMusicLoopLengthTime.html">Mix_GetMusicLoopLengthTime</a> - 音楽のループ時間を秒単位で得る
+<li><a href="Mix_GetMusicLoopStartTime.html">Mix_GetMusicLoopStartTime</a> - 音楽のループ開始位置を秒単位で得る
+<li><a href="Mix_GetMusicPosition.html">Mix_GetMusicPosition</a> - 音楽の現在再生中の位置を秒単位で得る
+<li><a href="Mix_GetMusicTitle.html">Mix_GetMusicTitle</a> - 音楽オブジェクトのタイトル名またはファイル名を得る
+<li><a href="Mix_GetMusicTitleTag.html">Mix_GetMusicTitleTag</a> - 音楽オブジェクトのタイトル名を得る
+<li><a href="Mix_GetMusicType.html">Mix_GetMusicType</a> - 音楽の形式を得る
+<li><a href="Mix_GetMusicVolume.html">Mix_GetMusicVolume</a> - 音楽の現在のボリュームを得る
+<li><a href="Mix_GetNumChunkDecoders.html">Mix_GetNumChunkDecoders</a> - 現在のビルドのSDL_mixerが提供するチャンクデコーダの一覧を得る
+<li><a href="Mix_GetNumMusicDecoders.html">Mix_GetNumMusicDecoders</a> - 現在のビルドのSDL_mixerが提供する音楽デコーダの一覧を得る
+<li><a href="Mix_GetSoundFonts.html">Mix_GetSoundFonts</a> - MIDIバックエンドで使用されるサウンドフォントのパスを得る
+<li><a href="Mix_GetSynchroValue.html">Mix_GetSynchroValue</a> - この関数は何もしない. 使用してはならない.
+<li><a href="Mix_GetTimidityCfg.html">Mix_GetTimidityCfg</a> - 設定されたTimidity設定ファイルのフルパス名を得る
+<li><a href="Mix_GroupAvailable.html">Mix_GroupAvailable</a> - チャネルグループの使用可能な最初のチャネルを検索する
+<li><a href="Mix_GroupChannel.html">Mix_GroupChannel</a> - タグと1つのチャネルを関連付ける
+<li><a href="Mix_GroupChannels.html">Mix_GroupChannels</a> - タグと複数のチャネルを関連付ける
+<li><a href="Mix_GroupCount.html">Mix_GroupCount</a> - グループのチャネルの数を得る
+<li><a href="Mix_GroupNewer.html">Mix_GroupNewer</a> - グループ内の最も「新しく」再生されたチャネルを得る
+<li><a href="Mix_GroupOldest.html">Mix_GroupOldest</a> - グループ内の最も「過去に」再生されたチャネルを得る
+<li><a href="Mix_HaltChannel.html">Mix_HaltChannel</a> - 指定のチャネルを停止する
+<li><a href="Mix_HaltGroup.html">Mix_HaltGroup</a> - タグ付けされた複数のチャネルを停止する
+<li><a href="Mix_HaltMusic.html">Mix_HaltMusic</a> - 音楽の再生を停止する
+<li><a href="Mix_HasChunkDecoder.html">Mix_HasChunkDecoder</a> - チャンクデコーダーが利用できるか名称でチェックする
+<li><a href="Mix_HasMusicDecoder.html">Mix_HasMusicDecoder</a> - 音楽デコーダーが利用できるか名称でチェックする
+<li><a href="Mix_HookMusic.html">Mix_HookMusic</a> - ユーザ自身の音楽プレイヤーまたはさらなるミキサー関数を追加する
+<li><a href="Mix_HookMusicFinished.html">Mix_HookMusicFinished</a> - 音楽オブジェクトの再生が停止したとき実行されるコールバックを設定する
+<li><a href="Mix_Init.html">Mix_Init</a> - SDL_mixerを初期化する
+<li><a href="Mix_Linked_Version.html">Mix_Linked_Version</a> - プログラムにリンクされたSDL_mixerのバージョンを得る
+<li><a href="Mix_LoadMUS.html">Mix_LoadMUS</a> - 音楽ファイルを音楽オブジェクトに読み込む
+<li><a href="Mix_LoadMUSType_RW.html">Mix_LoadMUSType_RW</a> - 形式を指定したオーディオを音楽オブジェクトに読み込む
+<li><a href="Mix_LoadMUS_RW.html">Mix_LoadMUS_RW</a> - 利用可能なオーディオフォーマットを音楽オブジェクトに読み込む
+<li><a href="Mix_LoadWAV.html">Mix_LoadWAV</a> - 音声ファイルをチャンクに読み込む
+<li><a href="Mix_LoadWAV_RW.html">Mix_LoadWAV_RW</a> - 音声ファイルをチャンクに読み込む
+<li><a href="Mix_MasterVolume.html">Mix_MasterVolume</a> - 全チャネルの全体ボリュームを設定する
+<li><a href="Mix_ModMusicJumpToOrder.html">Mix_ModMusicJumpToOrder</a> - MOD音楽の指定されたオーダーに移動する
+<li><a href="Mix_MusicDuration.html">Mix_MusicDuration</a> - 音楽オブジェクトのデュレーションを秒単位で得る
+<li><a href="Mix_OpenAudio.html">Mix_OpenAudio</a> - 再生のため既定のオーディオデバイスを開く
+<li><a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice</a> - 再生のため指定のオーディオデバイスを開く
+<li><a href="Mix_Pause.html">Mix_Pause</a> - 指定のチャネルを一時停止する
+<li><a href="Mix_PauseAudio.html">Mix_PauseAudio</a> - オーディオ全体を一時停止または復帰する
+<li><a href="Mix_Paused.html">Mix_Paused</a> - 指定のチャネルが一時停止中か否かを得る
+<li><a href="Mix_PausedMusic.html">Mix_PausedMusic</a> - 音楽ストリームが一時停止中か否かを得る
+<li><a href="Mix_PauseMusic.html">Mix_PauseMusic</a> - 音楽ストリームを一時停止する
+<li><a href="Mix_PlayChannel.html">Mix_PlayChannel</a> - 指定のチャネルのチャンクを再生する
+<li><a href="Mix_PlayChannelTimed.html">Mix_PlayChannelTimed</a> - 指定のチャネルのチャンクを時間を指定して再生する
+<li><a href="Mix_Playing.html">Mix_Playing</a> - 指定のチャネルの再生状態をチェックする
+<li><a href="Mix_PlayingMusic.html">Mix_PlayingMusic</a> - 音楽ストリームの再生状態をチェックする
+<li><a href="Mix_PlayMusic.html">Mix_PlayMusic</a> - 指定のチャネルのチャンクを再生する
+<li><a href="Mix_QuerySpec.html">Mix_QuerySpec</a> - オーディオデバイスの実際のパラメータを得る
+<li><a href="Mix_QuickLoad_RAW.html">Mix_QuickLoad_RAW</a> - 可能な限り高速にメモリからベタ形式の音声を読み込む
+<li><a href="Mix_QuickLoad_WAV.html">Mix_QuickLoad_WAV</a> - 可能な限り高速にメモリからWAV形式の音声を読み込む
+<li><a href="Mix_Quit.html">Mix_Quit</a> - SDL_mixerを解放する
+<li><a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a> - エフェクト関数を登録する
+<li><a href="Mix_ReserveChannels.html">Mix_ReserveChannels</a> - アプリケーション用のチャネルを予約する
+<li><a href="Mix_Resume.html">Mix_Resume</a> - 指定のチャネルを一時停止から復帰させる
+<li><a href="Mix_ResumeMusic.html">Mix_ResumeMusic</a> - 音楽ストリームを一時停止から復帰させる
+<li><a href="Mix_RewindMusic.html">Mix_RewindMusic</a> - 音楽ストリームを巻き戻す
+<li><a href="Mix_SetDistance.html">Mix_SetDistance</a> - チャネルの距離を設定する
+<li><a href="Mix_SetMusicCMD.html">Mix_SetMusicCMD</a> - 音楽ストリームのための外部コマンドを実行する
+<li><a href="Mix_SetMusicPosition.html">Mix_SetMusicPosition</a> - 音楽ストリームの再生位置を秒単位で設定する
+<li><a href="Mix_SetPanning.html">Mix_SetPanning</a> - チャネルのパンを設定する
+<li><a href="Mix_SetPosition.html">Mix_SetPosition</a> - チャネルの位置を設定する
+<li><a href="Mix_SetPostMix.html">Mix_SetPostMix</a> - 全てのミキシングが適用された後に呼ばれる関数を設定する
+<li><a href="Mix_SetReverseStereo.html">Mix_SetReverseStereo</a> - チャネルのステレオを逆にする
+<li><a href="Mix_SetSoundFonts.html">Mix_SetSoundFonts</a> - MIDIバックエンドで使用されるサウンドフォントのパスを設定する
+<li><a href="Mix_SetSynchroValue.html">Mix_SetSynchroValue</a> - この関数は何もしない. 使用してはならない.
+<li><a href="Mix_SetTimidityCfg.html">Mix_SetTimidityCfg</a> - Timidity設定ファイルのフルパス名を設定する
+<li><a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a> - 全てのエフェクト関数を解除する
+<li><a href="Mix_UnregisterEffect.html">Mix_UnregisterEffect</a> - エフェクト関数を解除する
+<li><a href="Mix_Volume.html">Mix_Volume</a> - 指定のチャネルのボリュームを設定する
+<li><a href="Mix_VolumeChunk.html">Mix_VolumeChunk</a> - 指定したチャンクのボリュームを設定する
+<li><a href="Mix_VolumeMusic.html">Mix_VolumeMusic</a> - 音楽のボリュームを設定する
 </ol>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/CategoryAPI">SDL2_mixer/CategoryAPI</a>
 <hr>
 </body>

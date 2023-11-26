@@ -1,87 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-general.html" title="1つ上">
-<title>Mix_OpenAudio </title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-general.html">4.1一般</a> - Mix_OpenAudio 
-<hr>
-<h1>Mix_OpenAudio </h1>
-<p>
-<code>int Mix_OpenAudio(int frequency, Uint16 format, int channels, int chunksize)</code>
-</p>
-<p>
-<dl>
-<dt>frequency</dt><dd>出力サンプリング周波数 (Hz). ゲームではMIX_DEFAULT_FREQUENCY(22050)がよい値である</dd>
-<dt>format</dt><dd>出力サンプル形式</dd>
-<dt>channels</dt><dd>出力チャネル数. 2ならステレオ, 1ならモノラル. これはミキシングのチャネルとは無関係である</dd>
-<dt>chunksize</dt><dd>一度に出力するバイト数</dd>
-</dl>
-</p>
-<p>
-ミキサーAPIを初期化する.
-このライブラリの他の関数を使う前に呼ぶ必要がある.
-この関数を呼ぶ前に, SDLはSDL_INIT_AUDIOで初期化されている必要がある.
-frequencyは44100なら44.1KHzで, これはCDの音質である.
-多くのゲームは22050を使っている. 44100は古いコンピュータにはCPUの負荷が大きすぎるためである.
-chunksizeは各ミキシングのサンプルのサイズである.
-この値を小さくすればするほど, フックが呼ばれる回数が多くなる.
-この値が小さすぎると, システムが遅くなり, 音が途切れるようになる.
-大きくすると効果音が遅れるようになる.
-対象のコンピュータにとってよい中間の値が必要だろう.
-もし, 音楽を再生するだけならば, 4096かそれ以上がよいだろう.
-デフォルトではMIX_CHANNELS(8)のミキシングチャネルが確保される.
-この関数は何度でも呼べるが, 同じ回数だけ<a href="Mix_CloseAudio.html">Mix_CloseAudio</a>を呼んでデバイスを閉じる必要がある.
-完全に閉じるまではこの関数を呼んでも出力形式は変わらない.
-よって, 別の形式で開く前には完全に閉じなければならないだろう.
-</p>
-<p>
-formatはSDLが対応するオーディオに基づいている. SDL_audio.hを参照すること. 値のリストは次の通りである:
-<dl>
-<dt>AUDIO_U8</dt><dd>8bit符号なし</dd>
-<dt>AUDIO_S8</dt><dd>8bit符号あり</dd>
-<dt>AUDIO_U16LSB</dt><dd>16bit符号なし, リトルエンディアン</dd>
-<dt>AUDIO_S16LSB</dt><dd>16bit符号あり, リトルエンディアン</dd>
-<dt>AUDIO_U16MSB</dt><dd>16bit符号なし, ビッグエンディアン</dd>
-<dt>AUDIO_S16MSB</dt><dd>16bit符号あり, ビッグエンディアン</dd>
-<dt>AUDIO_U16</dt><dd>AUDIO_U16LSBと同じ (後方互換性のために存在する)</dd>
-<dt>AUDIO_S16</dt><dd>AUDIO_S16LSBと同じ (後方互換性のために存在する)</dd>
-<dt>AUDIO_U16SYS</dt><dd>16bit符号なし, システムのバイト順</dd>
-<dt>AUDIO_S16SYS</dt><dd>16bit符号あり, システムのバイト順</dd>
-</dl>
-</p>
-<p>
-MIX_DEFAULT_FORMATはAUDIO_S16SYSと同じである.
-</p>
-<p>
-戻り値: 成功のとき0, 失敗のとき-1
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// オーディオ対応でSDLを開始する
-if(SDL_Init(SDL_INIT_AUDIO)==-1) {
-    printf("SDL_Init: %s\n", SDL_GetError());
-    exit(1);
-}
-// 44.1KHz, 16bit符号あり, システムのバイト順, ステレオ, 1024byteチャンクで開く
-if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024)==-1) {
-    printf("Mix_OpenAudio: %s\n", Mix_GetError());
-    exit(2);
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_CloseAudio.html">Mix_CloseAudio</a>,
-<a href="Mix_QuerySpec.html">Mix_QuerySpec</a>,
-<a href="Mix_AllocateChannels.html">Mix_AllocateChannels</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_11.html#SEC11">4.1.4 Mix_OpenAudio</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

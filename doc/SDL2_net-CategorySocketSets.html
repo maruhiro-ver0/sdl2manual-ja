@@ -1,35 +1,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_net">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_net-ApiByCategory.html" title="1��">
-<title>�\�P�b�g�Z�b�g</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_net-ApiByCategory.html" title="1つ上">
+<title>ソケットセット</title>
 </head>
 <body>
-<a href="index.html#SDL2_net">�ڎ�</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - <a href="SDL2_net-ApiByCategory.html">API(�@�\��)</a> - �\�P�b�g�Z�b�g
+<a href="index.html#SDL2_net">目次</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - <a href="SDL2_net-ApiByCategory.html">API(機能別)</a> - ソケットセット
 <hr>
-<h1>�\�P�b�g�Z�b�g</h1>
+<h1>ソケットセット</h1>
 <p>
-�����̊֐��͕����̃\�P�b�g���������߂Ɏg����.
-�������g����, �\�P�b�g���f�[�^�������Ă��邩, �ڑ���҂��Ă��邩��m�邱�Ƃ��ł���.
-����̓|�[�����O��I���֐��Ǝ��Ă���.
+これらの関数は複数のソケットを扱うために使われる.
+これらを使うと, ソケットがデータを持っているか, 接続を待っているかを知ることができる.
+これはポーリングや選択関数と似ている.
 </p>
-<h2>���</h2>
+<h2>一般</h2>
 <ol>
-<li><a href="SDLNet_AllocSocketSet.html">SDLNet_AllocSocketSet</a> - SDLNet_CheckSockets()�Ŏg�p����\�P�b�g�Z�b�g���m�ۂ���
-<li><a href="SDLNet_FreeSocketSet.html">SDLNet_FreeSocketSet</a> - SDLNet_AllocSocketSet()�Ŋm�ۂ����\�P�b�g�Z�b�g���������
+<li><a href="SDLNet_AllocSocketSet.html">SDLNet_AllocSocketSet</a> - SDLNet_CheckSockets()で使用するソケットセットを確保する
+<li><a href="SDLNet_FreeSocketSet.html">SDLNet_FreeSocketSet</a> - SDLNet_AllocSocketSet()で確保したソケットセットを解放する
 </ol>
-<h2>�ݒ�</h2>
+<h2>設定</h2>
 <ol>
-<li><a href="SDLNet_AddSocket.html">SDLNet_AddSocket</a> - �\�P�b�g�Z�b�g�Ƀ\�P�b�g��������
-<li><a href="SDLNet_DelSocket.html">SDLNet_DelSocket</a> - �\�P�b�g�Z�b�g����\�P�b�g����菜��
+<li><a href="SDLNet_AddSocket.html">SDLNet_AddSocket</a> - ソケットセットにソケットを加える
+<li><a href="SDLNet_DelSocket.html">SDLNet_DelSocket</a> - ソケットセットからソケットを取り除く
 </ol>
-<h2>��ԃ`�F�b�N</h2>
+<h2>状態チェック</h2>
 <ol>
-<li><a href="SDLNet_CheckSockets.html">SDLNet_CheckSockets</a> - �f�[�^�ɑ΂��ă\�P�b�g�Z�b�g���g�p�ł��邩�`�F�b�N����
+<li><a href="SDLNet_CheckSockets.html">SDLNet_CheckSockets</a> - データに対してソケットセットが使用できるかチェックする
 </ol>
 <hr>
 </body>

@@ -1,48 +1,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="ApiByCategory.html" title="1��">
-<title>�s�N�Z���`���ƕϊ�</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>ピクセル形式と変換</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - �s�N�Z���`���ƕϊ�
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - ピクセル形式と変換
 <hr>
-<h1>�s�N�Z���`���ƕϊ�</h1>
-�C���N���[�h�t�@�C��: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_pixels.h">SDL_pixels.h</a>
-<h2>�T�v</h2>
-�����̊֐��̓s�N�Z���`���ƃp���b�g���������߂̂��̂ł���.
-<h2>�񋓑�</h2>
+<h1>ピクセル形式と変換</h1>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_pixels.h">SDL_pixels.h</a>
+<h2>概要</h2>
+これらの関数はピクセル形式とパレットを扱うためのものである.
+<h2>列挙体</h2>
 <ol>
-<li><a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a> - �s�N�Z���`���̗񋓑�
+<li><a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a> - ピクセル形式の列挙体
 </ol>
-<h2>�\����</h2>
+<h2>構造体</h2>
 <ol>
-<li><a href="SDL_Color.html">SDL_Color</a> - �F��\���\����
-<li><a href="SDL_Palette.html">SDL_Palette</a> - �p���b�g���̍\����
-<li><a href="SDL_PixelFormat.html">SDL_PixelFormat</a> - �s�N�Z���`���̏��̍\����
+<li><a href="SDL_Color.html">SDL_Color</a> - 色を表す構造体
+<li><a href="SDL_Palette.html">SDL_Palette</a> - パレット情報の構造体
+<li><a href="SDL_PixelFormat.html">SDL_PixelFormat</a> - ピクセル形式の情報の構造体
 </ol>
-<h2>�֐�</h2>
+<h2>関数</h2>
 <ol>
-<li><a href="SDL_AllocFormat.html">SDL_AllocFormat</a> - �w��̃s�N�Z���`����SDL_PixelFormat�𐶐�����
-<li><a href="SDL_AllocPalette.html">SDL_AllocPalette</a> - �w��̐F���̃p���b�g�𐶐�����
-<li><a href="SDL_CalculateGammaRamp.html">SDL_CalculateGammaRamp</a> - �K���}�l����256�̃K���}�����v�l�����߂�
-<li><a href="SDL_FreeFormat.html">SDL_FreeFormat</a> - SDL_AllocFormat�Ő�������SDL_PixelFormat���������
-<li><a href="SDL_FreePalette.html">SDL_FreePalette</a> - SDL_AllocPalette()�Ő�������SDL_Palette���������
-<li><a href="SDL_GetPixelFormatName.html">SDL_GetPixelFormatName</a> - ���[�U���ǂ߂�s�N�Z���`���̖��O�𓾂�
-<li><a href="SDL_GetRGB.html">SDL_GetRGB</a> - �w��̃s�N�Z����RGB�l�𓾂�
-<li><a href="SDL_GetRGBA.html">SDL_GetRGBA</a> - �w��̃s�N�Z����RGBA�l�𓾂�
-<li><a href="SDL_MapRGB.html">SDL_MapRGB</a> - RGB��3�̒l����w��̃s�N�Z���`���̕s�����ȃs�N�Z���l�����߂�
-<li><a href="SDL_MapRGBA.html">SDL_MapRGBA</a> - RGBA��4�̒l����w��̃s�N�Z���`���̃s�N�Z���l�����߂�
-<li><a href="SDL_MasksToPixelFormatEnum.html">SDL_MasksToPixelFormatEnum</a> - �r�b�g�[�x��RGBA�}�X�N���s�N�Z���`���ɕϊ�����
-<li><a href="SDL_PixelFormatEnumToMasks.html">SDL_PixelFormatEnumToMasks</a> - �s�N�Z���`������r�b�g�[�x��RGBA�}�X�N�𓾂�
-<li><a href="SDL_SetPaletteColors.html">SDL_SetPaletteColors</a> - �p���b�g�̐F��ݒ肷��
-<li><a href="SDL_SetPixelFormatPalette.html">SDL_SetPixelFormatPalette</a> - �p���b�g�̃s�N�Z���`����ݒ肷��
+<li><a href="SDL_AllocFormat.html">SDL_AllocFormat</a> - 指定のピクセル形式のSDL_PixelFormatを生成する
+<li><a href="SDL_AllocPalette.html">SDL_AllocPalette</a> - 指定の色数のパレットを生成する
+<li><a href="SDL_CalculateGammaRamp.html">SDL_CalculateGammaRamp</a> - ガンマ値から256個のガンマランプ値を求める
+<li><a href="SDL_FreeFormat.html">SDL_FreeFormat</a> - SDL_AllocFormatで生成したSDL_PixelFormatを解放する
+<li><a href="SDL_FreePalette.html">SDL_FreePalette</a> - SDL_AllocPalette()で生成したSDL_Paletteを解放する
+<li><a href="SDL_GetPixelFormatName.html">SDL_GetPixelFormatName</a> - ユーザが読めるピクセル形式の名前を得る
+<li><a href="SDL_GetRGB.html">SDL_GetRGB</a> - 指定のピクセルのRGB値を得る
+<li><a href="SDL_GetRGBA.html">SDL_GetRGBA</a> - 指定のピクセルのRGBA値を得る
+<li><a href="SDL_MapRGB.html">SDL_MapRGB</a> - RGBの3つの値から指定のピクセル形式の不透明なピクセル値を求める
+<li><a href="SDL_MapRGBA.html">SDL_MapRGBA</a> - RGBAの4つの値から指定のピクセル形式のピクセル値を求める
+<li><a href="SDL_MasksToPixelFormatEnum.html">SDL_MasksToPixelFormatEnum</a> - ビット深度とRGBAマスクをピクセル形式に変換する
+<li><a href="SDL_PixelFormatEnumToMasks.html">SDL_PixelFormatEnumToMasks</a> - ピクセル形式からビット深度とRGBAマスクを得る
+<li><a href="SDL_SetPaletteColors.html">SDL_SetPaletteColors</a> - パレットの色を設定する
+<li><a href="SDL_SetPixelFormatPalette.html">SDL_SetPixelFormatPalette</a> - パレットのピクセル形式を設定する
 </ol>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryPixels">Pixel Formats and Conversion Routines - SDL Wiki</a>
 <hr>
 </body>

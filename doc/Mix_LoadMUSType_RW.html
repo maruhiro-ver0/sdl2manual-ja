@@ -1,78 +1,78 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_mixer-CategoryMusic.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryMusic.html" title="1つ上">
 <title>Mix_LoadMUSType_RW</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_mixer-CategoryMusic.html">���y</a> - Mix_LoadMUSType_RW
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryMusic.html">音楽</a> - Mix_LoadMUSType_RW
 <hr>
 <h1>Mix_LoadMUSType_RW</h1>
-�`�����w�肵���I�[�f�B�I�����y�I�u�W�F�N�g�ɓǂݍ���
-<h2>�\��</h2>
+形式を指定したオーディオを音楽オブジェクトに読み込む
+<h2>構文</h2>
 <code>Mix_Music * Mix_LoadMUSType_RW(SDL_RWops *src, Mix_MusicType type, int freesrc)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="Mix_LoadMUSType_RW">
-<tr><td>src</td><td>�ǂݍ��݌���SDL_RWops</td></tr>
-<tr><td>type</td><td>src�̃I�[�f�B�I�`��</td></tr>
-<tr><td>freesrc</td><td>0�ȊO�̂Ƃ�SDL_RWops����ĉ������. 0�̂Ƃ��J�����܂܂ɂ���</td></tr>
+<tr><td>src</td><td>読み込み元のSDL_RWops</td></tr>
+<tr><td>type</td><td>srcのオーディオ形式</td></tr>
+<tr><td>freesrc</td><td>0以外のときSDL_RWopsを閉じて解放する. 0のとき開いたままにする</td></tr>
 </table>
-<h2>�߂�l</h2>
-�������ꂽ���y�I�u�W�F�N�g��߂�. �G���[�̂Ƃ�NULL��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+生成された音楽オブジェクトを戻す. エラーのときNULLを戻す.
+<h2>詳細</h2>
 <p>
-SDL_mixer�ɂ�2�̃I�[�f�B�I�f�[�^�\��������.
-1�́u�`�����N�v��, ����͎��O�Ƀt�@�C�������S�Ƀ������Ƀf�R�[�h����.
-����1�́u���y�v��, �t�@�C����K�v�ɉ����ăf�R�[�h����.
-������WAV�̗l�Ȗ����k�̒P���Ȍ`�����`�����N, MP3�������y�Ƃ���, 1�̉��y��BGM�Ƃ��ăX�g���[���Đ���, �`�����N�����ʉ��Ƃ��ČJ��Ԃ��Đ����邱�Ƃ��Ӑ}���Ă���.
+SDL_mixerには2つのオーディオデータ構造がある.
+1つは「チャンク」で, これは事前にファイルを完全にメモリにデコードする.
+もう1つは「音楽」で, ファイルを必要に応じてデコードする.
+当初はWAVの様な無圧縮の単純な形式をチャンク, MP3等を音楽として, 1つの音楽をBGMとしてストリーム再生し, チャンクを効果音として繰り返し再生することを意図していた.
 </p>
 <p>
-���݂ł͌`���ɂ��Ⴂ�͂Ȃ�, �قڑ��݂Ɍ����\��, ���O�Ƀf�R�[�h���������A�v���P�[�V�����ɂƂ��Ă悢���̖��ƂȂ��Ă���.
-�`�����N�͂�葽���̃��������g�p���邪, ��x�ǂݍ��߂΍ēx�f�R�[�h���邱�Ƃ͂Ȃ�. ���, ���y�͍Đ��̂��тɏ�Ƀf�R�[�h����K�v������.
-����Ɍ���I�Ȃ̂�, �A�v���P�[�V�����ɂ͑����̃`�����N�̃`���l�����m�ۂł��邪, �u���y�v�`���l����1�����񋟂���Ă��Ȃ�.
+現在では形式による違いはなく, ほぼ相互に交換可能で, 事前にデコードした方がアプリケーションにとってよいかの問題となっている.
+チャンクはより多くのメモリを使用するが, 一度読み込めば再度デコードすることはない. 一方, 音楽は再生のたびに常にデコードする必要がある.
+さらに決定的なのは, アプリケーションには多くのチャンクのチャネルを確保できるが, 「音楽」チャネルは1つしか提供されていない.
 </p>
 <p>
-���̊֐��̓A�v���P�[�V�������`�����w�肵�ĉ��y�f�[�^��ǂݍ���.
-�����SDL_mixer���f�[�^�X�g���[���̌`�������ł��Ȃ��ꍇ�ɗL�p�ł���.
+この関数はアプリケーションが形式を指定して音楽データを読み込む.
+これはSDL_mixerがデータストリームの形式を特定できない場合に有用である.
 </p>
 <p>
-���݂͈ȉ��̌`���ɑΉ����Ă���.
+現在は以下の形式に対応している.
 <ul>
-<li>MUS_NONE (SDL_mixer���f�[�^����ސ�����)
-<li>MUS_WAV (Microsoft WAV�t�@�C��)
-<li>MUS_MOD (�l�X�ȃg���b�J�[�`��)
-<li>MUS_MID (MIDI�t�@�C��)
-<li>MUS_OGG (Ogg Vorbis�t�@�C��)
-<li>MUS_MP3 (MP3�t�@�C��)
-<li>MUS_FLAC (FLAC�t�@�C��)
-<li>MUS_OPUS (Opus�t�@�C��)
-<li>MUS_WAVPACK (WavPack�t�@�C��)
+<li>MUS_NONE (SDL_mixerがデータから類推する)
+<li>MUS_WAV (Microsoft WAVファイル)
+<li>MUS_MOD (様々なトラッカー形式)
+<li>MUS_MID (MIDIファイル)
+<li>MUS_OGG (Ogg Vorbisファイル)
+<li>MUS_MP3 (MP3ファイル)
+<li>MUS_FLAC (FLACファイル)
+<li>MUS_OPUS (Opusファイル)
+<li>MUS_WAVPACK (WavPackファイル)
 </ul>
 </p>
 <p>
-freesrc��0�ȊO�̂Ƃ�, �������������Ă����Ȃ��Ă��֐�����߂�Ƃ�RWops�͕���.
-�ǂ̂悤�ȏꍇ�ł����̊֐����ĂԂƕK�v�Ȃ��SDL_mixer�͑S�ēǂݍ���.
+freesrcが0以外のとき, 処理が成功してもしなくても関数から戻るときRWopsは閉じる.
+どのような場合でもこの関数を呼ぶと必要ならばSDL_mixerは全て読み込む.
 </p>
 <p>
-�ȒP�̂���, SDL_RWops�����킸<a href="Mix_LoadMUS.html">Mix_LoadMUS("filename.mp3")</a>�̂悤�Ƀf�B�X�N����t�@�C����ǂݍ��ފ֐������݂���. 
+簡単のため, SDL_RWopsを扱わず<a href="Mix_LoadMUS.html">Mix_LoadMUS("filename.mp3")</a>のようにディスクからファイルを読み込む関数も存在する. 
 </p>
 <p>
-���̊֐��̓t�@�C���̌`����ސ����悤�Ƃ���.
-�����Ăяo�������`����m���Ă���, �܂��͋����������ꍇ��, �����<a href="Mix_LoadMUSType_RW.html">Mix_LoadMUSType_RW()</a>���g������.
-(���������y�̌`���͎w��ł��Ȃ�.)
+この関数はファイルの形式を類推しようとする.
+もし呼び出し側が形式を知っている, または強制したい場合は, 代わりに<a href="Mix_LoadMUSType_RW.html">Mix_LoadMUSType_RW()</a>を使うこと.
+(ただし音楽の形式は指定できない.)
 </p>
 <p>
-���y���g�p���I�����Ȃ��, �A�v���P�[�V������<a href="Mix_FreeMusic.html">Mix_FreeMusic()</a>���Ă�ŉ������K�v������.
+音楽を使用し終えたならば, アプリケーションは<a href="Mix_FreeMusic.html">Mix_FreeMusic()</a>を呼んで解放する必要がある.
 </p>
-<h2>�o�[�W����</h2>
-SDL_mixer 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="Mix_FreeMusic.html">Mix_FreeMusic</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/Mix_LoadMUSType_RW">SDL2_mixer/Mix_LoadMUSType_RW</a>
 <hr>
 </body>

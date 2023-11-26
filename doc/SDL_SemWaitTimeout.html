@@ -1,29 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryMutex.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryMutex.html" title="1つ上">
 <title>SDL_SemWaitTimeout</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryMutex.html">�����v���~�e�B�u</a> - SDL_SemWaitTimeout
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryMutex.html">同期プリミティブ</a> - SDL_SemWaitTimeout
 <hr>
 <h1>SDL_SemWaitTimeout</h1>
-�Z�}�t�H�̒l�����ɂȂ�܂őҋ@��, �Z�}�t�H�̒l�����Z����
-<h2>�\��</h2>
+セマフォの値が正になるまで待機し, セマフォの値を減算する
+<h2>構文</h2>
 <code>int SDL_SemWaitTimeout(SDL_sem *sem, Uint32 timeout)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_SemWaitTimeout">
-<tr><td>sem</td><td>�Z�}�t�H</td></tr>
-<tr><td>timeout</td><td>�~���b�P�ʂ̑҂�����</td></tr>
+<tr><td>sem</td><td>セマフォ</td></tr>
+<tr><td>timeout</td><td>ミリ秒単位の待ち時間</td></tr>
 </table>
-<h2>�߂�l</h2>
-�ҋ@����ɐ��������Ƃ�0, �҂����ԓ��ɑҋ@����ɐ������Ȃ������Ƃ�SDL_MUTEX_TIMEDOUT, ���s�̂Ƃ����̐��̃G���[�R�[�h��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�T���v���R�[�h</h2>
+<h2>戻り値</h2>
+待機操作に成功したとき0, 待ち時間内に待機操作に成功しなかったときSDL_MUTEX_TIMEDOUT, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
@@ -41,13 +41,13 @@ Thread A:
     }
 
 Thread B:
-    const Uint32 timeout = 1000; /* 1�b���Ƃɓ��삷�� */
+    const Uint32 timeout = 1000; /* 1秒ごとに動作する */
 
     while (!SDL_AtomicGet(&amp;done)) {
         if (SDL_SemWaitTimeout(sem, timeout) == 0 &amp;&amp; data_available()) {
             get_data_from_queue();
         }
-        ... �����ő��̏������s��
+        ... ここで他の処理を行う
     }
 .
 .
@@ -58,21 +58,21 @@ SDL_DestroySemaphore(sem);
 </pre>
 </code>
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-�Z�}�t�Hsem�̒l�����ɂȂ�, ���荞�݂���������, �G���[����������, �܂��͑҂����Ԃ��o�߂���܂ł��̊֐����Ă񂾃X���b�h���~����.
-�Ăяo�������������, �Z�}�t�H�̒l���A�g�~�b�N�Ɍ��Z����.
+セマフォsemの値が正になる, 割り込みが発生する, エラーが発生する, または待ち時間が経過するまでこの関数を呼んだスレッドを停止する.
+呼び出しが成功すれば, セマフォの値をアトミックに減算する.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_CreateSemaphore.html">SDL_CreateSemaphore</a><br>
 <a href="SDL_DestroySemaphore.html">SDL_DestroySemaphore</a><br>
 <a href="SDL_SemPost.html">SDL_SemPost</a><br>
 <a href="SDL_SemTryWait.html">SDL_SemTryWait</a><br>
 <a href="SDL_SemValue.html">SDL_SemValue</a><br>
 <a href="SDL_SemWait.html">SDL_SemWait</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_SemWaitTimeout">SDL_SemWaitTimeout - SDL Wiki</a>
 <hr>
 </body>

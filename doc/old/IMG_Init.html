@@ -1,66 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_image">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_image-functions-general.html" title="1つ上">
-<title>IMG_Init</title>
-</head>
-<body>
-<a href="index.html#SDL_image">目次</a> - <a href="SDL_image-functions.html">3.関数</a> - <a href="SDL_image-functions-general.html">3.1一般</a> - IMG_Init
-<hr>
-<h1>IMG_Init</h1>
-<p>
-<code>int IMG_Init(int flags)</code>
-</p>
-<p>
-<dl>
-<dt>flags</dt>
-<dd>
-扱う画像形式(動的ライブラリを読み込む).
-以下の論理和で複数指定できる:<br>
-IMG_INIT_JPG<br>
-IMG_INIT_PNG<br>
-IMG_INIT_TIF<br>
-</dd>
-</dl>
-</p>
-<p>
-flagsで指定したライブラリを読み込んで初期化する. 少なくとも読み込めれば(既に読み込まれていれば)この関数は成功する.
-この関数は何度でも呼べるが, その場合でも<a href="IMG_Quit.html">IMG_Quit</a>関数を一度呼べば終了できる.
-既にライブラリを読み込んだ場合でも, 読み込んでいない場合でも, 解放するために(使わないために)引数として0を渡すことができる.
-</p>
-<p>
-メモ: JPG, PNG, TIF画像を読み込む場合, ライブラリを読み込むとき一時的に停止するのを防ぐために, そして実際に読み込む前に本当にその形式に対応しているかチェックするために, あなたのプログラムが本格的に実行される前にIMG_Init関数に使用するIMG_INIT_*フラグの論理和を渡して初期化したほうがよい.
-</p>
-<p>
-メモ: <a href="IMG_isJPG.html">IMG_isJPG</a>, <a href="IMG_isPNG.html">IMG_isPNG</a>, <a href="IMG_isTIF.html">IMG_isTIF</a>関数は初期化しなくても使える.
-</p>
-<p>
-メモ: この関数はエラー文字列を設定しない. よって<a href="IMG_GetError.html">IMG_GetError</a>が意味のあるメッセージを戻すことを期待してはならない.
-</p>
-<p>
-戻り値: 初期化された全ての画像ローダーのビットマスク
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// JPGとPNG形式の画像を読み込めるようにする
-int flags=IMG_INIT_JPG|IMG_INIT_PNG;
-int initted=IMG_Init(flags);
-if(initted&amp;flags != flags) {
-    printf("IMG_Init: JPGとPNGの読み込みの初期化に失敗した!\n");
-    printf("IMG_Init: %s\n", IMG_GetError());
-    // ここでエラー処理を行う
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="IMG_Quit.html">IMG_Quit</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_image/docs/SDL_image_8.html#SEC8">3.1.2 IMG_Init</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

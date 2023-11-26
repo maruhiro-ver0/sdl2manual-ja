@@ -1,77 +1,77 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryAudio.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAudio.html" title="1つ上">
 <title>SDL_LockAudioDevice</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryAudio.html">�Đ��Ƙ^��</a> - SDL_LockAudioDevice
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryAudio.html">再生と録音</a> - SDL_LockAudioDevice
 <hr>
 <h1>SDL_LockAudioDevice</h1>
-�w��̃I�[�f�B�I�f�o�C�X�̃R�[���o�b�N�֐��̌Ăяo�������b�N����
-<h2>�\��</h2>
+指定のオーディオデバイスのコールバック関数の呼び出しをロックする
+<h2>構文</h2>
 <code>void SDL_LockAudioDevice(SDL_AudioDeviceID dev)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_LockAudioDevice">
-<tr><td>dev</td><td>���b�N����I�[�f�B�I�f�o�C�X��ID</td></tr>
+<tr><td>dev</td><td>ロックするオーディオデバイスのID</td></tr>
 </table>
-<h2>�T���v���R�[�h</h2>
+<h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
 void MyAudioCallback(void *userdata, Uint8* stream, int len)
 {
-    printf("�I�[�f�B�I�R�[���o�b�N�J�n!\n");
-    SDL_memset(stream, 0, len);  // �������ق̂�
-    printf("�I�[�f�B�I�R�[���o�b�N�I��!\n");
+    printf("オーディオコールバック開始!¥n");
+    SDL_memset(stream, 0, len);  // ただ沈黙のみ
+    printf("オーディオコールバック終了!¥n");
 }
 
-// ���ۂɂ͈�x��2�b���~�߂Ȃ��悤�ɂ��邱��
+// 実際には一度に2秒も止めないようにすること
 extern SDL_AudioDeviceID devid;
-SDL_Delay(2000);  // �R�[���o�b�N��2�b�ԓ��삷��
+SDL_Delay(2000);  // コールバックは2秒間動作する
 SDL_LockAudioDevice(devid);
-printf("������I�[�e�B�I�R�[���o�b�N�͓��삵�Ȃ�!\n");
-SDL_Delay(2000);  // �R�[���o�b�N��2�b�ԓ��삵�Ȃ�
-printf("OK, �A�����b�N����!\n");
+printf("今からオーティオコールバックは動作しない!¥n");
+SDL_Delay(2000);  // コールバックは2秒間動作しない
+printf("OK, アンロックした!¥n");
 SDL_UnlockAudioDevice(devid);
-SDL_Delay(2000);  // �R�[���o�b�N��2�b�ԓ��삷��
+SDL_Delay(2000);  // コールバックは2秒間動作する
 </pre>
 </code>
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-�����̃��b�N����֐���, <a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>�Őݒ肵���R�[���o�b�N�֐����~����.
-<a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice()</a>��<a href="SDL_UnlockAudioDevice.html">SDL_UnlockAudioDevice()</a>�̊Ԃ�, �I�[�f�B�I�f�o�C�X���ꎞ��~���Ă��Ȃ��Ă��R�[���o�b�N�֐��͎��s����Ȃ����Ƃ��ۏႳ��Ă���.
-����I�[�f�B�I�f�o�C�X�����b�N����Ă���Ԃł�, �ʂ̃��b�N����Ă��Ȃ��I�[�f�B�I�f�o�C�X�͍Đ����ꎞ��~����Ă��Ȃ�������s�����.
+これらのロック操作関数は, <a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>で設定したコールバック関数を停止する.
+<a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice()</a>と<a href="SDL_UnlockAudioDevice.html">SDL_UnlockAudioDevice()</a>の間は, オーディオデバイスを一時停止していなくてもコールバック関数は実行されないことが保障されている.
+あるオーディオデバイスがロックされている間でも, 別のロックされていないオーディオデバイスは再生が一時停止されていない限り実行される.
 </p>
 <p>
-�R�[���o�b�N�֐��̒��ł��̊֐����ĂԕK�v�͂Ȃ�.
-SDL�̓R�[���o�b�N�֐����ĂԑO�Ƀ��b�N���Ă���. �����Ċ֐��𔲂���ƃ��b�N����������.
+コールバック関数の中でこの関数を呼ぶ必要はない.
+SDLはコールバック関数を呼ぶ前にロックしている. そして関数を抜けるとロックを解除する.
 </p>
 <p>
-�K�v�ȏ�ɒ������b�N����ׂ��ł͂Ȃ�.
-���b�N�����������, �Đ��̔�������������.
-���z�I�ɂ�, ���b�N������͂������̕ϐ��ɑ�����邾���ɂ���, �����Ƀ��b�N��������ׂ���.
-�I�[�f�B�I�f�o�C�X�����b�N���Ă���Ԃɏd�����������Ă͂Ȃ�Ȃ�.
+必要以上に長くロックするべきではない.
+ロックが長すぎると, 再生の抜けが発生する.
+理想的には, ロックした後はいくつかの変数に代入するだけにして, すぐにロック解除するべきだ.
+オーディオデバイスをロックしている間に重い処理をしてはならない.
 </p>
 <p>
-�I�[�f�B�I�f�o�C�X�𕡐��񃍃b�N���Ă�, �����񐔃��b�N��������Έ��S�ł���.
-���̏ꍇ���R�[���o�b�N�֐��͊��S�Ƀ��b�N���������܂Ŏ��s����Ȃ�.
-�A�v���P�[�V�������I�[�f�B�I�f�o�C�X�̐���ȃ��b�N�����Ɏ��s�����, �R�[���o�b�N�֐��͌Ă΂�Ȃ��Ȃ�. ���̏ꍇ, ���������J��Ԃ��������邾�낤. ���炭<a href="SDL_CloseAudioDevice.html">SDL_CloseAudioDevice()</a>���f�b�h���b�N��ԂɂȂ�.
+オーディオデバイスを複数回ロックしても, 同じ回数ロック解除すれば安全である.
+この場合もコールバック関数は完全にロック解除されるまで実行されない.
+アプリケーションがオーディオデバイスの正常なロック解除に失敗すれば, コールバック関数は呼ばれなくなる. この場合, 同じ音が繰り返し聞こえるだろう. 恐らく<a href="SDL_CloseAudioDevice.html">SDL_CloseAudioDevice()</a>もデッドロック状態になる.
 </p>
 <p>
-�����I�ɂ�, �I�[�f�B�I�f�o�C�X�̃��b�N��mutex�ł���.
-2�̃X���b�h�œ����Ƀ��b�N�����, �R�[���o�b�N�֐�����~���邾���łȂ�, ���̃X���b�h����~����.
+内部的には, オーディオデバイスのロックはmutexである.
+2つのスレッドで同時にロックすると, コールバック関数が停止するだけでなく, 他のスレッドも停止する.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_UnlockAudioDevice.html">SDL_UnlockAudioDevice</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_LockAudioDevice">SDL_LockAudioDevice - SDL Wiki</a>
 <hr>
 </body>

@@ -1,55 +1,55 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_net">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="index.html#SDL2_net" title="1‚Âã">
-<title>SDL_net API (ƒAƒ‹ƒtƒ@ƒxƒbƒg‡)</title>
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="index.html#SDL2_net" title="1ã¤ä¸Š">
+<title>SDL_net API (ã‚¢ãƒ«ãƒ•ã‚¡ãƒ™ãƒƒãƒˆé †)</title>
 </head>
 <body>
-<a href="index.html#SDL2_net">–ÚŽŸ</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - API(ƒAƒ‹ƒtƒ@ƒxƒbƒg‡)
+<a href="index.html#SDL2_net">ç›®æ¬¡</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - API(ã‚¢ãƒ«ãƒ•ã‚¡ãƒ™ãƒƒãƒˆé †)
 <hr>
-<h1>SDL_net API (ƒAƒ‹ƒtƒ@ƒxƒbƒg‡)</h1>
+<h1>SDL_net API (ã‚¢ãƒ«ãƒ•ã‚¡ãƒ™ãƒƒãƒˆé †)</h1>
 <ol>
-<li><a href="SDLNet_AddSocket.html">SDLNet_AddSocket</a> - ƒ\ƒPƒbƒgƒZƒbƒg‚Éƒ\ƒPƒbƒg‚ð‰Á‚¦‚é
-<li><a href="SDLNet_AllocPacket.html">SDLNet_AllocPacket</a> - UDPƒpƒPƒbƒg‚ð1‚ÂŠm•Û‚·‚é
-<li><a href="SDLNet_AllocPacketV.html">SDLNet_AllocPacketV</a> - UDPƒpƒPƒbƒgƒxƒNƒgƒ‹‚ðŠm•Û‚·‚é
-<li><a href="SDLNet_AllocSocketSet.html">SDLNet_AllocSocketSet</a> - SDLNet_CheckSockets()‚ÅŽg—p‚·‚éƒ\ƒPƒbƒgƒZƒbƒg‚ðŠm•Û‚·‚é
-<li><a href="SDLNet_CheckSockets.html">SDLNet_CheckSockets</a> - ƒf[ƒ^‚É‘Î‚µ‚Äƒ\ƒPƒbƒgƒZƒbƒg‚ªŽg—p‚Å‚«‚é‚©ƒ`ƒFƒbƒN‚·‚é
-<li><a href="SDLNet_DelSocket.html">SDLNet_DelSocket</a> - ƒ\ƒPƒbƒgƒZƒbƒg‚©‚çƒ\ƒPƒbƒg‚ðŽæ‚èœ‚­
-<li><a href="SDLNet_FreePacket.html">SDLNet_FreePacket</a> - UDPƒpƒPƒbƒg‚ð1‚Â‰ð•ú‚·‚é
-<li><a href="SDLNet_FreePacketV.html">SDLNet_FreePacketV</a> - UDPƒpƒPƒbƒgƒxƒNƒgƒ‹‚ð‰ð•ú‚·‚é
-<li><a href="SDLNet_FreeSocketSet.html">SDLNet_FreeSocketSet</a> - SDLNet_AllocSocketSet()‚ÅŠm•Û‚µ‚½ƒ\ƒPƒbƒgƒZƒbƒg‚ð‰ð•ú‚·‚é
-<li><a href="SDLNet_GetError.html">SDLNet_GetError</a> - SDL_net‚ÌÅŒã‚ÌƒGƒ‰[ƒƒbƒZ[ƒW‚ð“¾‚é
-<li><a href="SDLNet_GetLocalAddresses.html">SDLNet_GetLocalAddresses</a> - ‚±‚ÌƒVƒXƒeƒ€‚Ìƒlƒbƒgƒ[ƒNƒCƒ“ƒ^[ƒtƒF[ƒX‚ÌƒAƒhƒŒƒX‚ð“¾‚é
-<li><a href="SDLNet_Init.html">SDLNet_Init</a> - SDL_net‚ð‰Šú‰»‚·‚é
-<li><a href="SDLNet_Linked_Version.html">SDLNet_Linked_Version</a> - ƒvƒƒOƒ‰ƒ€‚ÉƒŠƒ“ƒN‚³‚ê‚½SDL_net‚Ìƒo[ƒWƒ‡ƒ“‚ð“¾‚é
-<li><a href="SDLNet_Quit.html">SDLNet_Quit</a> - SDL_net‚ð‰ð•ú‚·‚é
-<li><a href="SDLNet_ResizePacket.html">SDLNet_ResizePacket</a> - UDPƒpƒPƒbƒg‚ÌƒyƒCƒ[ƒh‚ðÄŠm•Û‚·‚é
-<li><a href="SDLNet_ResolveHost.html">SDLNet_ResolveHost</a> - ƒzƒXƒg–¼‚Æƒ|[ƒg‚©‚çƒlƒbƒgƒ[ƒNŒ`Ž®‚ÌIPƒAƒhƒŒƒX‚Ö‚Ì‰ðŒˆ‚ðs‚¤
-<li><a href="SDLNet_ResolveIP.html">SDLNet_ResolveIP</a> - IPƒAƒhƒŒƒX‚©‚çƒzƒXƒg‚Ì³Ž®–¼‚Ì‰ðŒˆ‚ðs‚¤
-<li><a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept</a> - Žw’è‚ÌƒT[ƒoƒ\ƒPƒbƒg‚ÅÚ‘±‚ðŽó‚¯“ü‚ê‚é
-<li><a href="SDLNet_TCP_Close.html">SDLNet_TCP_Close</a> - TCPƒlƒbƒgƒ[ƒNƒ\ƒPƒbƒg‚ð•Â‚¶‚é
-<li><a href="SDLNet_TCP_GetPeerAddress.html">SDLNet_TCP_GetPeerAddress</a> - ƒ\ƒPƒbƒg‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ƒŠƒ‚[ƒgƒVƒXƒeƒ€‚ÌIPƒAƒhƒŒƒX‚ð“¾‚é
-<li><a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open</a> - TCPƒ\ƒPƒbƒg‚ðŠJ‚­
-<li><a href="SDLNet_TCP_OpenClient.html">SDLNet_TCP_OpenClient</a> - ƒNƒ‰ƒCƒAƒ“ƒgTCPƒ\ƒPƒbƒg‚ðŠJ‚­
-<li><a href="SDLNet_TCP_OpenServer.html">SDLNet_TCP_OpenServer</a> - ƒT[ƒoTCPƒ\ƒPƒbƒg‚ðŠJ‚­
-<li><a href="SDLNet_TCP_Recv.html">SDLNet_TCP_Recv</a> - ƒT[ƒo‚Å‚È‚¢ƒ\ƒPƒbƒg‚©‚çƒf[ƒ^‚ðŽóM‚·‚é
-<li><a href="SDLNet_TCP_Send.html">SDLNet_TCP_Send</a> - ƒT[ƒo‚Å‚È‚¢ƒ\ƒPƒbƒg‚Éƒf[ƒ^‚ð‘—M‚·‚é
-<li><a href="SDLNet_UDP_Bind.html">SDLNet_UDP_Bind</a> - ƒAƒhƒŒƒX‚ðUDPƒ\ƒPƒbƒg‚Ìƒ`ƒƒƒlƒ‹‚ÉƒoƒCƒ“ƒh‚·‚é
-<li><a href="SDLNet_UDP_Close.html">SDLNet_UDP_Close</a> - UDPƒ\ƒPƒbƒg‚ð•Â‚¶‚é
-<li><a href="SDLNet_UDP_GetPeerAddress.html">SDLNet_UDP_GetPeerAddress</a> - ƒ\ƒPƒbƒg‚Æƒ`ƒƒƒlƒ‹‚ÉƒoƒCƒ“ƒh‚³‚ê‚½ƒŠƒ‚[ƒgƒVƒXƒeƒ€‚ÌIPƒAƒhƒŒƒX‚ð“¾‚é
-<li><a href="SDLNet_UDP_Open.html">SDLNet_UDP_Open</a> - UDPƒ\ƒPƒbƒg‚ðŠJ‚­
-<li><a href="SDLNet_UDP_Recv.html">SDLNet_UDP_Recv</a> - UDPƒ\ƒPƒbƒg‚©‚ç1ƒpƒPƒbƒg‚ðŽóM‚·‚é
-<li><a href="SDLNet_UDP_RecvV.html">SDLNet_UDP_Recv</a> - UDPƒ\ƒPƒbƒg‚©‚ç•¡”‚ÌƒpƒPƒbƒg‚ðŽóM‚·‚é
-<li><a href="SDLNet_UDP_Send.html">SDLNet_UDP_Send</a> - Žw’è‚Ìƒ`ƒƒƒlƒ‹‚©‚ç1ƒpƒPƒbƒg‚ð‘—M‚·‚é
-<li><a href="SDLNet_UDP_SendV.html">SDLNet_UDP_SendV</a> - •¡”‚ÌƒpƒPƒbƒg‚ðƒpƒPƒbƒg‚²‚Æ‚ÉŽw’è‚³‚ê‚½ƒ`ƒƒƒlƒ‹‚É‘—M‚·‚é
-<li><a href="SDLNet_UDP_SetPacketLoss.html">SDLNet_UDP_SetPacketLoss</a> - ƒVƒ~ƒ…ƒŒ[ƒg‚·‚é‘—M‚³‚ê‚½ƒpƒPƒbƒg‚Ì‘¹Ž¸—¦‚ðÝ’è‚·‚é
-<li><a href="SDLNet_UDP_Unbind.html">SDLNet_UDP_Unbind</a> - Žw’è‚Ìƒ`ƒƒƒlƒ‹‚Ì‘S‚Ä‚ÌƒAƒhƒŒƒX‚Æ‚ÌƒoƒCƒ“ƒh‚ð‰ðœ‚·‚é
+<li><a href="SDLNet_AddSocket.html">SDLNet_AddSocket</a> - ã‚½ã‚±ãƒƒãƒˆã‚»ãƒƒãƒˆã«ã‚½ã‚±ãƒƒãƒˆã‚’åŠ ãˆã‚‹
+<li><a href="SDLNet_AllocPacket.html">SDLNet_AllocPacket</a> - UDPãƒ‘ã‚±ãƒƒãƒˆã‚’1ã¤ç¢ºä¿ã™ã‚‹
+<li><a href="SDLNet_AllocPacketV.html">SDLNet_AllocPacketV</a> - UDPãƒ‘ã‚±ãƒƒãƒˆãƒ™ã‚¯ãƒˆãƒ«ã‚’ç¢ºä¿ã™ã‚‹
+<li><a href="SDLNet_AllocSocketSet.html">SDLNet_AllocSocketSet</a> - SDLNet_CheckSockets()ã§ä½¿ç”¨ã™ã‚‹ã‚½ã‚±ãƒƒãƒˆã‚»ãƒƒãƒˆã‚’ç¢ºä¿ã™ã‚‹
+<li><a href="SDLNet_CheckSockets.html">SDLNet_CheckSockets</a> - ãƒ‡ãƒ¼ã‚¿ã«å¯¾ã—ã¦ã‚½ã‚±ãƒƒãƒˆã‚»ãƒƒãƒˆãŒä½¿ç”¨ã§ãã‚‹ã‹ãƒã‚§ãƒƒã‚¯ã™ã‚‹
+<li><a href="SDLNet_DelSocket.html">SDLNet_DelSocket</a> - ã‚½ã‚±ãƒƒãƒˆã‚»ãƒƒãƒˆã‹ã‚‰ã‚½ã‚±ãƒƒãƒˆã‚’å–ã‚Šé™¤ã
+<li><a href="SDLNet_FreePacket.html">SDLNet_FreePacket</a> - UDPãƒ‘ã‚±ãƒƒãƒˆã‚’1ã¤è§£æ”¾ã™ã‚‹
+<li><a href="SDLNet_FreePacketV.html">SDLNet_FreePacketV</a> - UDPãƒ‘ã‚±ãƒƒãƒˆãƒ™ã‚¯ãƒˆãƒ«ã‚’è§£æ”¾ã™ã‚‹
+<li><a href="SDLNet_FreeSocketSet.html">SDLNet_FreeSocketSet</a> - SDLNet_AllocSocketSet()ã§ç¢ºä¿ã—ãŸã‚½ã‚±ãƒƒãƒˆã‚»ãƒƒãƒˆã‚’è§£æ”¾ã™ã‚‹
+<li><a href="SDLNet_GetError.html">SDLNet_GetError</a> - SDL_netã®æœ€å¾Œã®ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å¾—ã‚‹
+<li><a href="SDLNet_GetLocalAddresses.html">SDLNet_GetLocalAddresses</a> - ã“ã®ã‚·ã‚¹ãƒ†ãƒ ã®ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’å¾—ã‚‹
+<li><a href="SDLNet_Init.html">SDLNet_Init</a> - SDL_netã‚’åˆæœŸåŒ–ã™ã‚‹
+<li><a href="SDLNet_Linked_Version.html">SDLNet_Linked_Version</a> - ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã«ãƒªãƒ³ã‚¯ã•ã‚ŒãŸSDL_netã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’å¾—ã‚‹
+<li><a href="SDLNet_Quit.html">SDLNet_Quit</a> - SDL_netã‚’è§£æ”¾ã™ã‚‹
+<li><a href="SDLNet_ResizePacket.html">SDLNet_ResizePacket</a> - UDPãƒ‘ã‚±ãƒƒãƒˆã®ãƒšã‚¤ãƒ­ãƒ¼ãƒ‰ã‚’å†ç¢ºä¿ã™ã‚‹
+<li><a href="SDLNet_ResolveHost.html">SDLNet_ResolveHost</a> - ãƒ›ã‚¹ãƒˆåã¨ãƒãƒ¼ãƒˆã‹ã‚‰ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯å½¢å¼ã®IPã‚¢ãƒ‰ãƒ¬ã‚¹ã¸ã®è§£æ±ºã‚’è¡Œã†
+<li><a href="SDLNet_ResolveIP.html">SDLNet_ResolveIP</a> - IPã‚¢ãƒ‰ãƒ¬ã‚¹ã‹ã‚‰ãƒ›ã‚¹ãƒˆã®æ­£å¼åã®è§£æ±ºã‚’è¡Œã†
+<li><a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept</a> - æŒ‡å®šã®ã‚µãƒ¼ãƒã‚½ã‚±ãƒƒãƒˆã§æŽ¥ç¶šã‚’å—ã‘å…¥ã‚Œã‚‹
+<li><a href="SDLNet_TCP_Close.html">SDLNet_TCP_Close</a> - TCPãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ã‚½ã‚±ãƒƒãƒˆã‚’é–‰ã˜ã‚‹
+<li><a href="SDLNet_TCP_GetPeerAddress.html">SDLNet_TCP_GetPeerAddress</a> - ã‚½ã‚±ãƒƒãƒˆã«é–¢é€£ä»˜ã‘ã‚‰ã‚ŒãŸãƒªãƒ¢ãƒ¼ãƒˆã‚·ã‚¹ãƒ†ãƒ ã®IPã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’å¾—ã‚‹
+<li><a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open</a> - TCPã‚½ã‚±ãƒƒãƒˆã‚’é–‹ã
+<li><a href="SDLNet_TCP_OpenClient.html">SDLNet_TCP_OpenClient</a> - ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆTCPã‚½ã‚±ãƒƒãƒˆã‚’é–‹ã
+<li><a href="SDLNet_TCP_OpenServer.html">SDLNet_TCP_OpenServer</a> - ã‚µãƒ¼ãƒTCPã‚½ã‚±ãƒƒãƒˆã‚’é–‹ã
+<li><a href="SDLNet_TCP_Recv.html">SDLNet_TCP_Recv</a> - ã‚µãƒ¼ãƒã§ãªã„ã‚½ã‚±ãƒƒãƒˆã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’å—ä¿¡ã™ã‚‹
+<li><a href="SDLNet_TCP_Send.html">SDLNet_TCP_Send</a> - ã‚µãƒ¼ãƒã§ãªã„ã‚½ã‚±ãƒƒãƒˆã«ãƒ‡ãƒ¼ã‚¿ã‚’é€ä¿¡ã™ã‚‹
+<li><a href="SDLNet_UDP_Bind.html">SDLNet_UDP_Bind</a> - ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’UDPã‚½ã‚±ãƒƒãƒˆã®ãƒãƒ£ãƒãƒ«ã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹
+<li><a href="SDLNet_UDP_Close.html">SDLNet_UDP_Close</a> - UDPã‚½ã‚±ãƒƒãƒˆã‚’é–‰ã˜ã‚‹
+<li><a href="SDLNet_UDP_GetPeerAddress.html">SDLNet_UDP_GetPeerAddress</a> - ã‚½ã‚±ãƒƒãƒˆã¨ãƒãƒ£ãƒãƒ«ã«ãƒã‚¤ãƒ³ãƒ‰ã•ã‚ŒãŸãƒªãƒ¢ãƒ¼ãƒˆã‚·ã‚¹ãƒ†ãƒ ã®IPã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’å¾—ã‚‹
+<li><a href="SDLNet_UDP_Open.html">SDLNet_UDP_Open</a> - UDPã‚½ã‚±ãƒƒãƒˆã‚’é–‹ã
+<li><a href="SDLNet_UDP_Recv.html">SDLNet_UDP_Recv</a> - UDPã‚½ã‚±ãƒƒãƒˆã‹ã‚‰1ãƒ‘ã‚±ãƒƒãƒˆã‚’å—ä¿¡ã™ã‚‹
+<li><a href="SDLNet_UDP_RecvV.html">SDLNet_UDP_Recv</a> - UDPã‚½ã‚±ãƒƒãƒˆã‹ã‚‰è¤‡æ•°ã®ãƒ‘ã‚±ãƒƒãƒˆã‚’å—ä¿¡ã™ã‚‹
+<li><a href="SDLNet_UDP_Send.html">SDLNet_UDP_Send</a> - æŒ‡å®šã®ãƒãƒ£ãƒãƒ«ã‹ã‚‰1ãƒ‘ã‚±ãƒƒãƒˆã‚’é€ä¿¡ã™ã‚‹
+<li><a href="SDLNet_UDP_SendV.html">SDLNet_UDP_SendV</a> - è¤‡æ•°ã®ãƒ‘ã‚±ãƒƒãƒˆã‚’ãƒ‘ã‚±ãƒƒãƒˆã”ã¨ã«æŒ‡å®šã•ã‚ŒãŸãƒãƒ£ãƒãƒ«ã«é€ä¿¡ã™ã‚‹
+<li><a href="SDLNet_UDP_SetPacketLoss.html">SDLNet_UDP_SetPacketLoss</a> - ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆã™ã‚‹é€ä¿¡ã•ã‚ŒãŸãƒ‘ã‚±ãƒƒãƒˆã®æå¤±çŽ‡ã‚’è¨­å®šã™ã‚‹
+<li><a href="SDLNet_UDP_Unbind.html">SDLNet_UDP_Unbind</a> - æŒ‡å®šã®ãƒãƒ£ãƒãƒ«ã®å…¨ã¦ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã¨ã®ãƒã‚¤ãƒ³ãƒ‰ã‚’è§£é™¤ã™ã‚‹
 </ol>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_net/CategoryAPI">SDL_net/CategoryAPI</a>
 <hr>
 </body>

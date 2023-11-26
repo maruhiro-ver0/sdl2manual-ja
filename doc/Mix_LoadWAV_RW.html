@@ -1,57 +1,57 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_mixer-CategorySamples.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategorySamples.html" title="1つ上">
 <title>Mix_LoadWAV_RW</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_mixer-CategorySamples.html">�T���v�����O����</a> - Mix_LoadWAV_RW
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategorySamples.html">サンプリング音声</a> - Mix_LoadWAV_RW
 <hr>
 <h1>Mix_LoadWAV_RW</h1>
-�����t�@�C�����`�����N�ɓǂݍ���
-<h2>�\��</h2>
+音声ファイルをチャンクに読み込む
+<h2>構文</h2>
 <code>Mix_Chunk *Mix_LoadWAV_RW(SDL_RWops *src, int freesrc)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="Mix_LoadWAV_RW">
-<tr><td>src</td><td>�ǂݍ��݌���SDL_RWops</td></tr>
-<tr><td>freesrc</td><td>0�ȊO�̂Ƃ�SDL_RWops����ĉ������. 0�̂Ƃ��J�����܂܂ɂ���</td></tr>
+<tr><td>src</td><td>読み込み元のSDL_RWops</td></tr>
+<tr><td>freesrc</td><td>0以外のときSDL_RWopsを閉じて解放する. 0のとき開いたままにする</td></tr>
 </table>
-<h2>�߂�l</h2>
-�V�����`�����N��߂�. �G���[�̂Ƃ�NULL��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+新しいチャンクを戻す. エラーのときNULLを戻す.
+<h2>詳細</h2>
 <p>
-SDL_mixer�ɂ�2�̃I�[�f�B�I�f�[�^�\��������.
-1�́u�`�����N�v��, ����͎��O�Ƀt�@�C�������S�Ƀ������Ƀf�R�[�h����.
-����1�́u���y�v��, �t�@�C����K�v�ɉ����ăf�R�[�h����.
-������WAV�̗l�Ȗ����k�̒P���Ȍ`�����`�����N, MP3�������y�Ƃ���, 1�̉��y��BGM�Ƃ��ăX�g���[���Đ���, �`�����N�����ʉ��Ƃ��ČJ��Ԃ��Đ����邱�Ƃ��Ӑ}���Ă���.
+SDL_mixerには2つのオーディオデータ構造がある.
+1つは「チャンク」で, これは事前にファイルを完全にメモリにデコードする.
+もう1つは「音楽」で, ファイルを必要に応じてデコードする.
+当初はWAVの様な無圧縮の単純な形式をチャンク, MP3等を音楽として, 1つの音楽をBGMとしてストリーム再生し, チャンクを効果音として繰り返し再生することを意図していた.
 </p>
 <p>
-���݂ł͌`���ɂ��Ⴂ�͂Ȃ�, �قڑ��݂Ɍ����\��, ���O�Ƀf�R�[�h���������A�v���P�[�V�����ɂƂ��Ă悢���̖��ƂȂ��Ă���.
-�`�����N�͂�葽���̃��������g�p���邪, ��x�ǂݍ��߂΍ēx�f�R�[�h���邱�Ƃ͂Ȃ�.
-���, ���y�͍Đ��̂��тɏ�Ƀf�R�[�h����K�v������.
-����Ɍ���I�Ȃ̂�, �A�v���P�[�V�����ɂ͑����̃`�����N�̃`���l�����m�ۂł��邪, �u���y�v�`���l����1�����񋟂���Ă��Ȃ�. 
+現在では形式による違いはなく, ほぼ相互に交換可能で, 事前にデコードした方がアプリケーションにとってよいかの問題となっている.
+チャンクはより多くのメモリを使用するが, 一度読み込めば再度デコードすることはない.
+一方, 音楽は再生のたびに常にデコードする必要がある.
+さらに決定的なのは, アプリケーションには多くのチャンクのチャネルを確保できるが, 「音楽」チャネルは1つしか提供されていない. 
 </p>
 <p>
-freesrc��0�ȊO�̂Ƃ�, �������������Ă����Ȃ��Ă��֐�����߂�Ƃ�RWops�͕���.
-�ǂ̂悤�ȏꍇ�ł����̊֐����ĂԂƕK�v�Ȃ��SDL_mixer�͑S�ēǂݍ���.
+freesrcが0以外のとき, 処理が成功してもしなくても関数から戻るときRWopsは閉じる.
+どのような場合でもこの関数を呼ぶと必要ならばSDL_mixerは全て読み込む.
 </p>
 <p>
-����Ƃ͕ʂ�SDL_RWops���g�킸�Ƀt�@�C�����f�B�X�N����ǂݍ��ފ֐�(SDL_mixer 2.6.0�ȑO�̓}�N��)�����݂���.
-<a href="Mix_LoadWAV.html">Mix_LoadWAV("filename.wav")</a>�Ƃ����, �֐������Ȃ��̑���ɂ����̑�����s��.
+これとは別にSDL_RWopsを使わずにファイルをディスクから読み込む関数(SDL_mixer 2.6.0以前はマクロ)も存在する.
+<a href="Mix_LoadWAV.html">Mix_LoadWAV("filename.wav")</a>とすると, 関数があなたの代わりにこれらの操作を行う.
 </p>
 <p>
-�`�����N���g�p���I�����Ȃ��, �A�v���P�[�V������<a href="Mix_FreeChunk.html">Mix_FreeChunk()</a>���Ă�ŉ������K�v������.
+チャンクを使用し終えたならば, アプリケーションは<a href="Mix_FreeChunk.html">Mix_FreeChunk()</a>を呼んで解放する必要がある.
 </p>
-<h2>�o�[�W����</h2>
-SDL_mixer 2.6.0�ȍ~ (�}�N���ł�2.0.0�ȍ~)
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL_mixer 2.6.0以降 (マクロ版は2.0.0以降)
+<h2>関連項目(関数)</h2>
 <a href="Mix_LoadWAV.html">Mix_LoadWAV</a><br>
 <a href="Mix_FreeChunk.html">Mix_FreeChunk</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/Mix_LoadWAV_RW">SDL2_mixer/Mix_LoadWAV_RW</a>
 <hr>
 </body>

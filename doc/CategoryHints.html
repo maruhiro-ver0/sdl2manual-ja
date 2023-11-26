@@ -1,100 +1,100 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="ApiByCategory.html" title="1��">
-<title>�q���g</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>ヒント</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - �q���g
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - ヒント
 <hr>
-<h1>�q���g</h1>
-�C���N���[�h�t�@�C��: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_hints.h">SDL_hints.h</a>
-<h2>�T�v</h2>
+<h1>ヒント</h1>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_hints.h">SDL_hints.h</a>
+<h2>概要</h2>
 <p>
-�����ɕ��ނ����֐���, �q���g�̐ݒ�Ɗl�����s�����̂ł���. �q���g�̈ꗗ�̓A���t�@�x�b�g���ɕ���ł���.
+ここに分類される関数は, ヒントの設定と獲得を行うものである. ヒントの一覧はアルファベット順に並んでいる.
 </p>
 <p>
-���O��SDL_HINT_X�̃q���g��, �f�t�H���g�̊��ϐ�"SDL_X"���㏑�����邽�߂Ɏg����.
+名前がSDL_HINT_Xのヒントは, デフォルトの環境変数"SDL_X"を上書きするために使われる.
 </p>
 <p>
-��ʓI�ɂ����̃q���g�ɂ͎��̂��Ƃ������� - �����͊��ɂ���ėL����������Ȃ���, �L���łȂ���������Ȃ�.
-������, ���C�u�����ɓ��������������@�����[�U�ƃA�v���P�[�V�����ɒ񋟂���.
+一般的にこれらのヒントには次のことが言える - それらは環境によって有効かもしれないし, 有効でないかもしれない.
+しかし, ライブラリに動作を示唆する方法をユーザとアプリケーションに提供する.
 </p>
-<h2>�q���g</h2>
+<h2>ヒント</h2>
 <ol>
-<li><a href="SDL_HINT_ACCELEROMETER_AS_JOYSTICK.html">SDL_HINT_ACCELEROMETER_AS_JOYSTICK</a> - Android/iOS�̉����x�Z���T�[���W���C�X�e�B�b�N�̈ꗗ�ɉ����邩�ۂ��̃q���g
-<li><a href="SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION</a> - APK�g���t�@�C���̃��C���t�@�C���̃o�[�W�������w�肷��q���g
-<li><a href="SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION</a> - APK�g���t�@�C���̃p�b�`�t�@�C���̃o�[�W�������w�肷��q���g
-<li><a href="SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH.html">SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH</a> - �}�E�X�ƃ^�b�`�p�l���𓯈�܂��͕������Ĉ����悤�ɂ���q���g
-<li><a href="SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS.html">SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS</a> - Apple TV�Ŏg����R���g���[���[��UI�C�x���g�𔭐������邩�ۂ����w�肷��q���g
-<li><a href="SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION.html">SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION</a> - Apple TV remote�̃W���C�X�e�B�b�N�̎�����]�����������Ɏ����I�ɍ��킹�邩�ۂ����w�肷��q���g
-<li><a href="SDL_HINT_BMP_SAVE_LEGACY_FORMAT.html">SDL_HINT_BMP_SAVE_LEGACY_FORMAT</a> - BMP�t�@�C���ɕۑ�����Ƃ��r�b�g�}�b�v�w�b�_�o�[�W����4���g�����ۂ����w�肷��q���g
-<li><a href="SDL_HINT_EMSCRIPTEN_ASYNCIFY.html">SDL_HINT_EMSCRIPTEN_ASYNCIFY</a> - asyncify�œ��삵�Ă���Ƃ������I�ɐ�����u���E�U�ɖ߂����ۂ����w�肷��q���g
-<li><a href="SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT.html">SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT</a> - Emscripten�Ńr���h�����ꍇ�̃L�[�{�[�h���͂̃o�C���h�v�f�̃I�[�o�[���C�h���w�肷��l�̃q���g
-<li><a href="SDL_HINT_FRAMEBUFFER_ACCELERATION.html">SDL_HINT_FRAMEBUFFER_ACCELERATION</a> - SDL_GetWindowSurface()��3D�A�N�Z�����[�^�̎g�p�̃q���g
-<li><a href="SDL_HINT_GAMECONTROLLERCONFIG.html">SDL_HINT_GAMECONTROLLERCONFIG</a> - �ǉ��̃Q�[���R���g���[���E�f�[�^�x�[�X�E�G���g���[�̎w��̃q���g
-<li><a href="SDL_HINT_GRAB_KEYBOARD.html">SDL_HINT_GRAB_KEYBOARD</a> - ���̓O���u���L�[�{�[�h���O���u���邩�ۂ��̃q���g
-<li><a href="SDL_HINT_IDLE_TIMER_DISABLED.html">SDL_HINT_IDLE_TIMER_DISABLED</a> - iOS�ŃA�C�h���^�C�}�𖳌��ɂ��邩�ۂ��̃q���g
-<li><a href="SDL_HINT_IME_INTERNAL_EDITING.html">SDL_HINT_IME_INTERNAL_EDITING</a> - SDL_TEXTEDITING�C�x���g�𑗂�����IME�̓����Ńe�L�X�g�̕ҏW���s�����ۂ��̃q���g
-<li><a href="SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS.html">SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS</a> - �W���C�X�e�B�b�N(�ƃQ�[���R���g���[��)�C�x���g���A�v���P�[�V�������w��ɂ����Ă��L���ɂ��邩�ۂ��̃q���g
-<li><a href="SDL_HINT_MAC_BACKGROUND_APP.html">SDL_HINT_MAC_BACKGROUND_APP</a> - Mac OS X��SDL�A�v���P�[�V�������t�H�A�O���E���h�v���Z�X�ɂ��邽�߂Ƀt�H�[�J�X���邩�ۂ����w�肷��q���g
-<li><a href="SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK.html">SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK</a> - Mac��CTRL+�N���b�N�ŉE�N���b�N�𔭐������邩�ۂ��̃q���g
-<li><a href="SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH.html">SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH</a> - SDL�E�B���h�E���N���b�N���ăt�H�[�J�X�����Ƃ��}�E�X�C�x���g�������邩�ۂ����w�肷��q���g
-<li><a href="SDL_HINT_MOUSE_RELATIVE_MODE_WARP.html">SDL_HINT_MOUSE_RELATIVE_MODE_WARP</a> - �}�E�X�̑��΃��[�h��mouse warping�Ŏ������邩�ۂ��̃q���g
-<li><a href="SDL_HINT_MOUSE_RELATIVE_SCALING.html">SDL_HINT_MOUSE_RELATIVE_SCALING</a> - �}�E�X�̑��Έړ��ʂ������_���[�̏k�ڂ̉e�����󂯂邩�ۂ���ݒ肷��q���g
-<li><a href="SDL_HINT_NO_SIGNAL_HANDLERS.html">SDL_HINT_NO_SIGNAL_HANDLERS</a> - SIGINT��SIGTERM�V�O�i����߂炦�Ȃ��悤�ɂ���q���g
-<li><a href="SDL_HINT_ORIENTATIONS.html">SDL_HINT_ORIENTATIONS</a> - iOS�ŔF�߂�f�o�C�X�̕����̃q���g
-<li><a href="SDL_HINT_RENDER_DIRECT3D11_DEBUG.html">SDL_HINT_RENDER_DIRECT3D11_DEBUG</a> - Direct3D 11+�̃f�o�b�O���C���[��L���ɂ��邩�ۂ��𐧌䂷��l���w�肷��q���g
-<li><a href="SDL_HINT_RENDER_DIRECT3D_THREADSAFE.html">SDL_HINT_RENDER_DIRECT3D_THREADSAFE</a> - Direct3D���X���b�h�Z�[�t�Ƃ��ď��������邩�ۂ��̃q���g
-<li><a href="SDL_HINT_RENDER_DRIVER.html">SDL_HINT_RENDER_DRIVER</a> - �����_�����O�h���C�o�̎g�p�̗L���̃q���g
-<li><a href="SDL_HINT_RENDER_LINE_METHOD.html">SDL_HINT_RENDER_LINE_METHOD</a> - 2D�����_�����OAPI�̐����̕`����@���w�肷��q���g
-<li><a href="SDL_HINT_RENDER_OPENGL_SHADERS.html">SDL_HINT_RENDER_OPENGL_SHADERS</a> - OpenGL�����_���̃V�F�[�_�[�̗L���̃q���g
-<li><a href="SDL_HINT_RENDER_SCALE_QUALITY.html">SDL_HINT_RENDER_SCALE_QUALITY</a> - �g�厞�̉掿�̃q���g
-<li><a href="SDL_HINT_RENDER_VSYNC.html">SDL_HINT_RENDER_VSYNC</a> - tearing������邽�߂�SDL_CreateRenderer()�Ő����A��������L���ɂ��邩�ۂ��̃q���g
-<li><a href="SDL_HINT_RPI_VIDEO_LAYER.html">SDL_HINT_RPI_VIDEO_LAYER</a> - Raspberry PI��SDL���g��Dispmanx���C�����w�肷��q���g
-<li><a href="SDL_HINT_THREAD_STACK_SIZE.html">SDL_HINT_THREAD_STACK_SIZE</a> - SDL�̃X���b�h�̃X�^�b�N�T�C�Y���o�C�g�P�ʂŎw��, �܂���"0"�Ńo�b�N�G���h�̃f�t�H���g�ɂ���q���g
-<li><a href="SDL_HINT_TIMER_RESOLUTION.html">SDL_HINT_TIMER_RESOLUTION</a> - �^�C�}�̃~���b�P�ʂ̕���\�̃q���g
-<li><a href="SDL_HINT_VIDEO_ALLOW_SCREENSAVER.html">SDL_HINT_VIDEO_ALLOW_SCREENSAVER</a> - �X�N���[���Z�[�o�[��L���ɂ��邩�ۂ��̃q���g
-<li><a href="SDL_HINT_VIDEO_HIGHDPI_DISABLED.html">SDL_HINT_VIDEO_HIGHDPI_DISABLED</a> - Windows�̍�DPI(Mac��iOS��"Retina")�̕s���ɂ��邩�ۂ��̃q���g
-<li><a href="SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES.html">SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES</a> - Mac OS X��Spaces�̃t���X�N���[���̕��j�̃q���g
-<li><a href="SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS.html">SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS</a> - �t���X�N���[�����[�h�ŃL�[�t�H�[�J�X���������Ƃ��ŏ������邩�ۂ��̃q���g
-<li><a href="SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT.html">SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT</a> - �s�N�Z���`�������L������SDL�E�B���h�E�̃A�h���X("%p"�`���̕�����)
-<li><a href="SDL_HINT_VIDEO_WIN_D3DCOMPILER.html">SDL_HINT_VIDEO_WIN_D3DCOMPILER</a> - Chrome ANGLE�̃o�C�i�����g���Ƃ��ɐ�ɓǂݍ��ރV�F�[�_�[�R���p�C���̃q���g
-<li><a href="SDL_HINT_VIDEO_X11_NET_WM_PING.html">SDL_HINT_VIDEO_X11_NET_WM_PING</a> - X11��_NET_WM_PING�v���g�R���̎g�p�̗L�����w�肷��q���g
-<li><a href="SDL_HINT_VIDEO_X11_XINERAMA.html">SDL_HINT_VIDEO_X11_XINERAMA</a> - X11 Xinerama�g���̎g�p�̃q���g
-<li><a href="SDL_HINT_VIDEO_X11_XRANDR.html">SDL_HINT_VIDEO_X11_XRANDR</a> - X11 XRandR�g���̎g�p�̃q���g
-<li><a href="SDL_HINT_VIDEO_X11_XVIDMODE.html">SDL_HINT_VIDEO_X11_XVIDMODE</a> - X11 VidMode�̎g�p�̃q���g
-<li><a href="SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING.html">SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING</a> - SDL��Microsoft Windows�̃X���b�h�ɖ��O��t���邩�ۂ����w�肷��q���g
-<li><a href="SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP.html">SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP</a> - SDL�ŃE�B���h�E���b�Z�[�W���[�v���������邩�ۂ����w�肷��q���g
-<li><a href="SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4.html">SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4</a> - Microsoft Windows��, Alt+F4��SDL_WINDOWEVENT_CLOSE�C�x���g�𐶐����邩�ۂ����w�肷��q���g
-<li><a href="SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN.html">SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN</a> - �J�[�\���������Ȃ��Ƃ�, �E�B���h�E�̃t���[����^�C�g���o�[�𑀍�ł��邩�ۂ����w�肷��q���g
-<li><a href="SDL_HINT_WINRT_HANDLE_BACK_BUTTON.html">SDL_HINT_WINRT_HANDLE_BACK_BUTTON</a> - Windows Phone��back-button-press�C�x���g���n���h�������Ƃ��邩�ۂ��̒l���w�肷��q���g
-<li><a href="SDL_HINT_WINRT_PRIVACY_POLICY_LABEL.html">SDL_HINT_WINRT_PRIVACY_POLICY_LABEL</a> - WinRT�A�v���̃v���C�o�V�[�|���V�[�ւ̃����N�̃��x���̕�������w�肷��q���g
-<li><a href="SDL_HINT_WINRT_PRIVACY_POLICY_URL.html">SDL_HINT_WINRT_PRIVACY_POLICY_URL</a> - WinRT�A�v���̃v���C�o�V�[�|���V�[��URL���w�肷��q���g
-<li><a href="SDL_HINT_XINPUT_ENABLED.html">SDL_HINT_XINPUT_ENABLED</a> - XInput�Q�[���p�b�h�f�o�C�X�̌��m�̏ꍇ�̃q���g
-<li><a href="SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING.html">SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING</a> - SDL��XInput�f�o�C�X�ŌÂ����ƃ{�^���̃}�b�s���O���g���悤�ɂ��邩�ۂ����w�肷��q���g
+<li><a href="SDL_HINT_ACCELEROMETER_AS_JOYSTICK.html">SDL_HINT_ACCELEROMETER_AS_JOYSTICK</a> - Android/iOSの加速度センサーをジョイスティックの一覧に加えるか否かのヒント
+<li><a href="SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION</a> - APK拡張ファイルのメインファイルのバージョンを指定するヒント
+<li><a href="SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION</a> - APK拡張ファイルのパッチファイルのバージョンを指定するヒント
+<li><a href="SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH.html">SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH</a> - マウスとタッチパネルを同一または分離して扱うようにするヒント
+<li><a href="SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS.html">SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS</a> - Apple TVで使われるコントローラーがUIイベントを発生させるか否かを指定するヒント
+<li><a href="SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION.html">SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION</a> - Apple TV remoteのジョイスティックの軸を回転させた方向に自動的に合わせるか否かを指定するヒント
+<li><a href="SDL_HINT_BMP_SAVE_LEGACY_FORMAT.html">SDL_HINT_BMP_SAVE_LEGACY_FORMAT</a> - BMPファイルに保存するときビットマップヘッダバージョン4を使うか否かを指定するヒント
+<li><a href="SDL_HINT_EMSCRIPTEN_ASYNCIFY.html">SDL_HINT_EMSCRIPTEN_ASYNCIFY</a> - asyncifyで動作しているとき自動的に制御をブラウザに戻すか否かを指定するヒント
+<li><a href="SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT.html">SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT</a> - Emscriptenでビルドした場合のキーボード入力のバインド要素のオーバーライドを指定する値のヒント
+<li><a href="SDL_HINT_FRAMEBUFFER_ACCELERATION.html">SDL_HINT_FRAMEBUFFER_ACCELERATION</a> - SDL_GetWindowSurface()の3Dアクセラレータの使用のヒント
+<li><a href="SDL_HINT_GAMECONTROLLERCONFIG.html">SDL_HINT_GAMECONTROLLERCONFIG</a> - 追加のゲームコントローラ・データベース・エントリーの指定のヒント
+<li><a href="SDL_HINT_GRAB_KEYBOARD.html">SDL_HINT_GRAB_KEYBOARD</a> - 入力グラブがキーボードをグラブするか否かのヒント
+<li><a href="SDL_HINT_IDLE_TIMER_DISABLED.html">SDL_HINT_IDLE_TIMER_DISABLED</a> - iOSでアイドルタイマを無効にするか否かのヒント
+<li><a href="SDL_HINT_IME_INTERNAL_EDITING.html">SDL_HINT_IME_INTERNAL_EDITING</a> - SDL_TEXTEDITINGイベントを送る代わりにIMEの内部でテキストの編集を行うか否かのヒント
+<li><a href="SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS.html">SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS</a> - ジョイスティック(とゲームコントローラ)イベントをアプリケーションが背後にあっても有効にするか否かのヒント
+<li><a href="SDL_HINT_MAC_BACKGROUND_APP.html">SDL_HINT_MAC_BACKGROUND_APP</a> - Mac OS XでSDLアプリケーションをフォアグラウンドプロセスにするためにフォーカスするか否かを指定するヒント
+<li><a href="SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK.html">SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK</a> - MacでCTRL+クリックで右クリックを発生させるか否かのヒント
+<li><a href="SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH.html">SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH</a> - SDLウィンドウをクリックしてフォーカスしたときマウスイベントが送られるか否かを指定するヒント
+<li><a href="SDL_HINT_MOUSE_RELATIVE_MODE_WARP.html">SDL_HINT_MOUSE_RELATIVE_MODE_WARP</a> - マウスの相対モードをmouse warpingで実装するか否かのヒント
+<li><a href="SDL_HINT_MOUSE_RELATIVE_SCALING.html">SDL_HINT_MOUSE_RELATIVE_SCALING</a> - マウスの相対移動量がレンダラーの縮尺の影響を受けるか否かを設定するヒント
+<li><a href="SDL_HINT_NO_SIGNAL_HANDLERS.html">SDL_HINT_NO_SIGNAL_HANDLERS</a> - SIGINTとSIGTERMシグナルを捕らえないようにするヒント
+<li><a href="SDL_HINT_ORIENTATIONS.html">SDL_HINT_ORIENTATIONS</a> - iOSで認めるデバイスの方向のヒント
+<li><a href="SDL_HINT_RENDER_DIRECT3D11_DEBUG.html">SDL_HINT_RENDER_DIRECT3D11_DEBUG</a> - Direct3D 11+のデバッグレイヤーを有効にするか否かを制御する値を指定するヒント
+<li><a href="SDL_HINT_RENDER_DIRECT3D_THREADSAFE.html">SDL_HINT_RENDER_DIRECT3D_THREADSAFE</a> - Direct3Dをスレッドセーフとして初期化するか否かのヒント
+<li><a href="SDL_HINT_RENDER_DRIVER.html">SDL_HINT_RENDER_DRIVER</a> - レンダリングドライバの使用の有無のヒント
+<li><a href="SDL_HINT_RENDER_LINE_METHOD.html">SDL_HINT_RENDER_LINE_METHOD</a> - 2DレンダリングAPIの線分の描画方法を指定するヒント
+<li><a href="SDL_HINT_RENDER_OPENGL_SHADERS.html">SDL_HINT_RENDER_OPENGL_SHADERS</a> - OpenGLレンダラのシェーダーの有無のヒント
+<li><a href="SDL_HINT_RENDER_SCALE_QUALITY.html">SDL_HINT_RENDER_SCALE_QUALITY</a> - 拡大時の画質のヒント
+<li><a href="SDL_HINT_RENDER_VSYNC.html">SDL_HINT_RENDER_VSYNC</a> - tearingを避けるためにSDL_CreateRenderer()で垂直帰線同期を有効にするか否かのヒント
+<li><a href="SDL_HINT_RPI_VIDEO_LAYER.html">SDL_HINT_RPI_VIDEO_LAYER</a> - Raspberry PIでSDLが使うDispmanxレイヤを指定するヒント
+<li><a href="SDL_HINT_THREAD_STACK_SIZE.html">SDL_HINT_THREAD_STACK_SIZE</a> - SDLのスレッドのスタックサイズをバイト単位で指定, または"0"でバックエンドのデフォルトにするヒント
+<li><a href="SDL_HINT_TIMER_RESOLUTION.html">SDL_HINT_TIMER_RESOLUTION</a> - タイマのミリ秒単位の分解能のヒント
+<li><a href="SDL_HINT_VIDEO_ALLOW_SCREENSAVER.html">SDL_HINT_VIDEO_ALLOW_SCREENSAVER</a> - スクリーンセーバーを有効にするか否かのヒント
+<li><a href="SDL_HINT_VIDEO_HIGHDPI_DISABLED.html">SDL_HINT_VIDEO_HIGHDPI_DISABLED</a> - Windowsの高DPI(MacとiOSの"Retina")の不許可にするか否かのヒント
+<li><a href="SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES.html">SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES</a> - Mac OS XのSpacesのフルスクリーンの方針のヒント
+<li><a href="SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS.html">SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS</a> - フルスクリーンモードでキーフォーカスを失ったとき最小化するか否かのヒント
+<li><a href="SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT.html">SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT</a> - ピクセル形式を共有したいSDLウィンドウのアドレス("%p"形式の文字列)
+<li><a href="SDL_HINT_VIDEO_WIN_D3DCOMPILER.html">SDL_HINT_VIDEO_WIN_D3DCOMPILER</a> - Chrome ANGLEのバイナリを使うときに先に読み込むシェーダーコンパイラのヒント
+<li><a href="SDL_HINT_VIDEO_X11_NET_WM_PING.html">SDL_HINT_VIDEO_X11_NET_WM_PING</a> - X11の_NET_WM_PINGプロトコルの使用の有無を指定するヒント
+<li><a href="SDL_HINT_VIDEO_X11_XINERAMA.html">SDL_HINT_VIDEO_X11_XINERAMA</a> - X11 Xinerama拡張の使用のヒント
+<li><a href="SDL_HINT_VIDEO_X11_XRANDR.html">SDL_HINT_VIDEO_X11_XRANDR</a> - X11 XRandR拡張の使用のヒント
+<li><a href="SDL_HINT_VIDEO_X11_XVIDMODE.html">SDL_HINT_VIDEO_X11_XVIDMODE</a> - X11 VidModeの使用のヒント
+<li><a href="SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING.html">SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING</a> - SDLがMicrosoft Windowsのスレッドに名前を付けるか否かを指定するヒント
+<li><a href="SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP.html">SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP</a> - SDLでウィンドウメッセージループを処理するか否かを指定するヒント
+<li><a href="SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4.html">SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4</a> - Microsoft Windowsで, Alt+F4でSDL_WINDOWEVENT_CLOSEイベントを生成するか否かを指定するヒント
+<li><a href="SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN.html">SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN</a> - カーソルが見えないとき, ウィンドウのフレームやタイトルバーを操作できるか否かを指定するヒント
+<li><a href="SDL_HINT_WINRT_HANDLE_BACK_BUTTON.html">SDL_HINT_WINRT_HANDLE_BACK_BUTTON</a> - Windows Phoneのback-button-pressイベントをハンドルしたとするか否かの値を指定するヒント
+<li><a href="SDL_HINT_WINRT_PRIVACY_POLICY_LABEL.html">SDL_HINT_WINRT_PRIVACY_POLICY_LABEL</a> - WinRTアプリのプライバシーポリシーへのリンクのラベルの文字列を指定するヒント
+<li><a href="SDL_HINT_WINRT_PRIVACY_POLICY_URL.html">SDL_HINT_WINRT_PRIVACY_POLICY_URL</a> - WinRTアプリのプライバシーポリシーのURLを指定するヒント
+<li><a href="SDL_HINT_XINPUT_ENABLED.html">SDL_HINT_XINPUT_ENABLED</a> - XInputゲームパッドデバイスの検知の場合のヒント
+<li><a href="SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING.html">SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING</a> - SDLがXInputデバイスで古い軸とボタンのマッピングを使うようにするか否かを指定するヒント
 </ol>
-<h2>�񋓑�</h2>
+<h2>列挙体</h2>
 <ol>
-<li><a href="SDL_HintPriority.html">SDL_HintPriority</a> - �q���g�̗D��x�̗񋓑�
+<li><a href="SDL_HintPriority.html">SDL_HintPriority</a> - ヒントの優先度の列挙体
 </ol>
-<h2>�֐�</h2>
+<h2>関数</h2>
 <ol>
-<li><a href="SDL_AddHintCallback.html">SDL_AddHintCallback</a> - �w��̃q���g���Ď�����֐���ǉ�����
-<li><a href="SDL_ClearHints.html">SDL_ClearHints</a> - �S�Ẵq���g����������
-<li><a href="SDL_DelHintCallback.html">SDL_DelHintCallback</a> - �w��̃q���g���Ď�����֐�����菜��
-<li><a href="SDL_GetHint.html">SDL_GetHint</a> - �q���g�̒l�𓾂�
-<li><a href="SDL_GetHintBoolean.html">SDL_GetHintBoolean</a> - �q���g�̐^�U�l�𓾂�
-<li><a href="SDL_ResetHint.html">SDL_ResetHint</a> - �q���g���f�t�H���g�l�ɖ߂�
-<li><a href="SDL_ResetHints.html">SDL_ResetHints</a> - �S�Ẵq���g���f�t�H���g�̒l�Ƀ��Z�b�g����
-<li><a href="SDL_SetHint.html">SDL_SetHint</a> - �q���g��ʏ�̗D��x�Őݒ肷��
-<li><a href="SDL_SetHintWithPriority.html">SDL_SetHintWithPriority</a> - �q���g���w��̗D��x�Őݒ肷��
+<li><a href="SDL_AddHintCallback.html">SDL_AddHintCallback</a> - 指定のヒントを監視する関数を追加する
+<li><a href="SDL_ClearHints.html">SDL_ClearHints</a> - 全てのヒントを消去する
+<li><a href="SDL_DelHintCallback.html">SDL_DelHintCallback</a> - 指定のヒントを監視する関数を取り除く
+<li><a href="SDL_GetHint.html">SDL_GetHint</a> - ヒントの値を得る
+<li><a href="SDL_GetHintBoolean.html">SDL_GetHintBoolean</a> - ヒントの真偽値を得る
+<li><a href="SDL_ResetHint.html">SDL_ResetHint</a> - ヒントをデフォルト値に戻す
+<li><a href="SDL_ResetHints.html">SDL_ResetHints</a> - 全てのヒントをデフォルトの値にリセットする
+<li><a href="SDL_SetHint.html">SDL_SetHint</a> - ヒントを通常の優先度で設定する
+<li><a href="SDL_SetHintWithPriority.html">SDL_SetHintWithPriority</a> - ヒントを指定の優先度で設定する
 </ol>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryHints">Configuration Variables - SDL Wiki</a>
 <hr>
 </body>

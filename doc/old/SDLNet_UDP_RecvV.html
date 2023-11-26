@@ -1,61 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_net">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_net-functions-udp_sockets.html" title="1つ上">
-<title>SDLNet_UDP_RecvV</title>
-</head>
-<body>
-<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-udp_sockets.html">3.4UDPソケット</a> - SDLNet_UDP_RecvV
-<hr>
-<h1>SDLNet_UDP_RecvV</h1>
-<p>
-<code>int SDLNet_UDP_RecvV(UDPsocket sock, UDPpacket **packetV)</code>
-</p>
-<p>
-<dl>
-<dt>sock</dt><dd>有効な<a href="UDPsocket.html">UDPsocket</a></dd>
-<dt>packetV</dt><dd>受信したパケット</dd>
-</dl>
-</p>
-<p>
-指定のソケットsockでパケットを受信する.
-packetVはNULL終端の配列である.
-パケットはNULLに達するまで受信されるか, 準備されていなければ何も受信しない.
-その他は<a href="SDLNet_UDP_Recv.html">SDLNet_UDP_Recv</a>と同じである.
-</p>
-<p>
-戻り値: 受信したパケットの数. パケットを受信しなかったとき0, 失敗のとき-1
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// UDPパケットの受信を待つ
-//UDPsocket udpsock;
-//UDPpacket **packetV;
-int numrecv, i;
-
-numrecv=SDLNet_UDP_RecvV(udpsock, &amp;packetV);
-if(numrecv==-1) {
-    // エラーが発生した場合は単にSDL_GetErrorのメッセージを表示するだけでよいかもしれない
-}
-for(i=0; i&lt;numrecv; i++) {
-    // ここでpacketV[i]を処理する
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="SDLNet_UDP_Bind.html">SDLNet_UDP_Bind</a>,
-<a href="SDLNet_UDP_Send.html">SDLNet_UDP_Send</a>,
-<a href="SDLNet_UDP_SendV.html">SDLNet_UDP_SendV</a>,
-<a href="SDLNet_UDP_Recv.html">SDLNet_UDP_Recv</a>,
-<a href="UDPpacket.html">UDPpacket</a>,
-<a href="UDPsocket.html">UDPsocket</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_net/docs/SDL_net_34.html#SEC34">3.4.7 SDLNet_UDP_RecvV</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

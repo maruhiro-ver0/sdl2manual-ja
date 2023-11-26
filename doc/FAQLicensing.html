@@ -1,62 +1,62 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="FAQs.html" title="1��">
-<title>FAQ: ���C�Z���X</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="FAQs.html" title="1つ上">
+<title>FAQ: ライセンス</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="FAQs.html">FAQ</a> - ���C�Z���X
+<a href="index.html">目次</a> - <a href="FAQs.html">FAQ</a> - ライセンス
 <hr>
-<h1>FAQ:���C�Z���X</h1>
-<h2>SDL�̃��C�Z���X��?</h2>
+<h1>FAQ:ライセンス</h1>
+<h2>SDLのライセンスは?</h2>
 <p>
-SDL 2.0��zlib���C�Z���X, SDL 1.2��GNU LGPL���C�Z���X�̂��ƂŎ��R�Ɏg�p�ł���.
+SDL 2.0はzlibライセンス, SDL 1.2はGNU LGPLライセンスのもとで自由に使用できる.
 </p>
 <p>
-�ǂ�����t���[�̃A�v���P�[�V�����ł����p�̃A�v���P�[�V�����ł��g����.
+どちらもフリーのアプリケーションでも商用のアプリケーションでも使える.
 </p>
 <p>
-���C�Z���X�̏ڍׂ�<a href="http://www.libsdl.org/license.php">http://www.libsdl.org/license.php</a>���Q�Ƃ��邱��.
+ライセンスの詳細は<a href="http://www.libsdl.org/license.php">http://www.libsdl.org/license.php</a>を参照すること.
 </p>
-<h2>SDL�͏��p�A�v���P�[�V�����Ŏg���邩?</h2>
+<h2>SDLは商用アプリケーションで使えるか?</h2>
 <p>
-�g����.
-</p>
-<p>
-SDL 2.0�͐ÓI�����N�ɂ��g�ݍ��݂�, .dll(�܂���.so�₻�̑��̓��I�����N)�ɂ�郊���N�����R�ɂł���.
+使える.
 </p>
 <p>
-SDL 1.2��, GNU LGPL���C�Z���X�ɂ��ȉ��̂悤�Ȑ��񂪂���:
+SDL 2.0は静的リンクによる組み込みも, .dll(または.soやその他の動的リンク)によるリンクも自由にできる.
+</p>
+<p>
+SDL 1.2は, GNU LGPLライセンスによる以下のような制約がある:
 <ul>
-<li>���I�����N(.dll��.so�₻�̑��̓��I�Ƀ����N���ꂽ�f�o�C�X)�Ȃ��, ��������K�v�͂Ȃ�.
-<li>�ÓI�����N(�R���p�C������SDL�̃\�[�X�R�[�h���v���W�F�N�g�Ɋ܂߂�)�Ȃ��, ���Ȃ��̃A�v���P�[�V�����ƕʂ̃o�[�W������SDL���ă����N���鉽�炩�̕��@��񋟂���K�v������.
+<li>動的リンク(.dllや.soやその他の動的にリンクされたデバイス)ならば, 何もする必要はない.
+<li>静的リンク(コンパイル時にSDLのソースコードをプロジェクトに含める)ならば, あなたのアプリケーションと別のバージョンのSDLを再リンクする何らかの方法を提供する必要がある.
 </ul>
 </p>
 <p>
-�ڍׂ�<a href="http://www.libsdl.org/license.php">http://www.libsdl.org/license.php</a>���Q�Ƃ��邱��.
+詳細は<a href="http://www.libsdl.org/license.php">http://www.libsdl.org/license.php</a>を参照すること.
 </p>
-<h2>SDL���A�v���P�[�V�����ɑg�ݍ���ł��悢��?</h2>
+<h2>SDLをアプリケーションに組み込んでもよいか?</h2>
 <p>
-�g�ݍ���ł悢. ������, SDL 1.2�͐ÓI�����N����ꍇ�̓\�[�X�R�[�h�����J���邩, �ʂ̃o�[�W������SDL�ƍă����N���邽�߂̃c�[���ƃI�u�W�F�N�g�t�@�C����񋟂���K�v������.
+組み込んでよい. しかし, SDL 1.2は静的リンクする場合はソースコードを公開するか, 別のバージョンのSDLと再リンクするためのツールとオブジェクトファイルを提供する必要がある.
 </p>
 <p>
-�ڍׂ�<a href="http://www.libsdl.org/license.php">http://www.libsdl.org/license.php</a>���Q�Ƃ��邱��.
+詳細は<a href="http://www.libsdl.org/license.php">http://www.libsdl.org/license.php</a>を参照すること.
 </p>
-<h2>SDL���g���ꍇ, ���C�Z���X����g�p���𕥂��K�v�����邩?</h2>
-�K�v�Ȃ�. SDL�͊��S�ɖ����Ŏg�����Ƃ��ł���.
-<h2>test�f�B���N�g���̃R�[�h���g���Ă悢��? �T���v���͂ǂ���?</h2>
-�g���Ă悢. test�f�B���N�g���ƃh�L�������g���̃T���v����public domain�ł���.
-�ǂ̂悤�ȖړI�ł��g����.
-<h2>�f���̃R�[�h�������̃A�v���P�[�V�����Ŏg���Ă悢��?</h2>
-�f���ɂ͂��ꂼ��̃��C�Z���X������.
-���ꂼ��̃f���̃\�[�X�f�B���N�g����"COPYING"�t�@�C�����Q�Ƃ��邱��.
-<h2>SDL2 Wiki�̃��C�Z���X��?</h2>
-����Wiki(��Ғ�:<a href="https://wiki.libsdl.org/FrontPage">�|��</a>)�̓p�u���b�N�h���C���ł���.
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDLを使う場合, ライセンス料や使用料を払う必要があるか?</h2>
+必要ない. SDLは完全に無料で使うことができる.
+<h2>testディレクトリのコードを使ってよいか? サンプルはどうか?</h2>
+使ってよい. testディレクトリとドキュメント内のサンプルはpublic domainである.
+どのような目的でも使える.
+<h2>デモのコードを自分のアプリケーションで使ってよいか?</h2>
+デモにはそれぞれのライセンスがある.
+それぞれのデモのソースディレクトリの"COPYING"ファイルを参照すること.
+<h2>SDL2 Wikiのライセンスは?</h2>
+このWiki(訳者注:<a href="https://wiki.libsdl.org/FrontPage">翻訳元</a>)はパブリックドメインである.
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/FAQLicensing">FAQ: Licensing - SDL Wiki</a>
 <hr>
 </body>

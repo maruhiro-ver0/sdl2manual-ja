@@ -1,60 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_ttf">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_ttf-functions-render.html" title="1つ上">
-<title>TTF_RenderGlyph_Shaded</title>
-</head>
-<body>
-<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-render.html">3.4レンダラー</a> - TTF_RenderGlyph_Shaded
-<hr>
-<h1>TTF_RenderGlyph_Shaded</h1>
-<p>
-<code>SDL_Surface *TTF_RenderGlyph_Shaded(TTF_Font *font, Uint16 ch, SDL_Color fg, SDL_Color bg)</code>
-</p>
-<p>
-<dl>
-<dt>font</dt><dd>グリフをレンダリングするフォント</dd>
-<dt>ch</dt><dd>レンダリングするUNICODE文字</dd>
-<dt>fg</dt><dd>レンダリングするテキストの色. これがカラーマップの1番目になる</dd>
-<dt>bg</dt><dd>テキストを囲む背景の色. これがカラーマップの0番目になる</dd>
-</dl>
-</p>
-<p>
-UNICODE文字chを, fontと前景色fg, 背景色gbで, 新しく生成したサーフェイスに陰影(Shaded)モードでレンダリングする.
-呼び出し側(あなたのことだ!)が戻されたサーフェイスを解放しなければならない.
-</p>
-<p>
-メモ: この関数のfontにNULLを渡すと異常終了する.
-</p>
-<p>
-戻り値: 生成された<a href="SDL_Surface.html">SDL_Surface</a>. グリフがフォントにないなど失敗のときNULL
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 白の背景に黒でブレンドして表示できる全てのASCII文字をレンダリングし格納する
-//SDL_Surface *screen;
-SDL_Color color={0,0,0}, bgcolor={0xff,0xff,0xff};
-SDL_Surface *glyph_cache[128-20];
-Uint16 ch;
-for(ch=20; ch&lt;128; ++ch)
-    glyph_cache[ch-20]=TTF_RenderGlyph_Shaded(font,ch,color,bgcolor);
-</pre>
-</code>
-あらかじめグリフメトリック(minx, miny, advance)で変換して格納すると, 直接画面にレンダリングするより速い.
-しかし, <a href="SDL_ttf-glossary.html">カーニング</a>は正確には行われない.
-<h2>参照</h2>
-<a href="TTF_RenderGlyph_Solid.html">TTF_RenderGlyph_Solid</a>,
-<a href="TTF_RenderGlyph_Blended.html">TTF_RenderGlyph_Blended</a>,
-<a href="TTF_RenderText_Shaded.html">TTF_RenderText_Shaded</a>,
-<a href="TTF_RenderUTF8_Shaded.html">TTF_RenderUTF8_Shaded</a>,
-<a href="TTF_GlyphMetrics.html">TTF_GlyphMetrics</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_ttf/docs/SDL_ttf_50.html#SEC50">3.4.8 TTF_RenderGlyph_Shaded</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

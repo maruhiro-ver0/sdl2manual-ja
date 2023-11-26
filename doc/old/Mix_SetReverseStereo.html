@@ -1,50 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-effects.html" title="1つ上">
-<title>Mix_SetReverseStereo</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-effects.html">4.6エフェクト</a> - Mix_SetReverseStereo
-<hr>
-<h1>Mix_SetReverseStereo</h1>
-<p>
-<code>int Mix_SetReverseStereo(int channel, int flip)</code>
-</p>
-<p>
-<dl>
-<dt>channel</dt><dd>エフェクトを登録するチャネル番号. MIX_CHANNEL_POSTとするとミキシングの後の処理</dd>
-<dt>flip</dt><dd>0以外のとき左右の音声を入れ替える. 0のときエフェクトをチャネルから削除する</dd>
-</dl>
-</p>
-<p>
-左右の音声を入れ替える.
-</p>
-<p>
-メモ: flipを0にすると, channelからこのエフェクトを削除する.
-チャネルに対して<a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a>を使うことを除けば, この方法以外で削除することはできない.
-</p>
-<p>
-戻り値: チャネルが不正, <a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>に失敗などのとき0(偽)
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// ミキシング後の出力の左右を入れ替える
-if(!Mix_SetReverseStereo(MIX_CHANNEL_POST, 1)) {
-    printf("Mix_SetReverseStereo: %s\n", Mix_GetError());
-    // 入れ替えがない?
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_83.html#SEC83">4.6.8 Mix_SetReverseStereo</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

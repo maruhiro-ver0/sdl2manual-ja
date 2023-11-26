@@ -1,39 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryRender.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryRender.html" title="1ã¤ä¸Š">
 <title>SDL_CreateTextureFromSurface</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryRender.html">2DƒŒƒ“ƒ_ƒŠƒ“ƒO</a> - SDL_CreateTextureFromSurface
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryRender.html">2Dãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°</a> - SDL_CreateTextureFromSurface
 <hr>
 <h1>SDL_CreateTextureFromSurface</h1>
-ƒT[ƒtƒFƒCƒX‚©‚çƒeƒNƒXƒ`ƒƒ‚ğ¶¬‚·‚é
-<h2>\•¶</h2>
+ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‹ã‚‰ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’ç”Ÿæˆã™ã‚‹
+<h2>æ§‹æ–‡</h2>
 <code>SDL_Texture* SDL_CreateTextureFromSurface(SDL_Renderer* renderer, SDL_Surface*  surface)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_CreateTextureFromSurface">
-<tr><td>renderer</td><td>ƒŒƒ“ƒ_ƒŠƒ“ƒOƒRƒ“ƒeƒLƒXƒg</td></tr>
-<tr><td>surface</td><td>ƒeƒNƒXƒ`ƒƒ‚Åg‚¤ƒsƒNƒZƒ‹ƒf[ƒ^‚ğ‚Â<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
+<tr><td>renderer</td><td>ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ</td></tr>
+<tr><td>surface</td><td>ãƒ†ã‚¯ã‚¹ãƒãƒ£ã§ä½¿ã†ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’æŒã¤<a href="SDL_Surface.html">SDL_Surface</a></td></tr>
 </table>
-<h2>–ß‚è’l</h2>
-¬Œ÷‚Ì‚Æ‚«¶¬‚³‚ê‚½ƒeƒNƒXƒ`ƒƒ, ¸”s‚Ì‚Æ‚«NULL‚ğ–ß‚·.
-<a href="SDL_GetError.html">SDL_GetError()</a>‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
-<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<h2>æˆ»ã‚Šå€¤</h2>
+æˆåŠŸã®ã¨ãç”Ÿæˆã•ã‚ŒãŸãƒ†ã‚¯ã‚¹ãƒãƒ£, å¤±æ•—ã®ã¨ãNULLã‚’æˆ»ã™.
+<a href="SDL_GetError.html">SDL_GetError()</a>ã§è©³ç´°ã‚’çŸ¥ã‚‹ã“ã¨ãŒã§ãã‚‹.
+<h2>ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h2>
 <p>
 <code>
 <pre>
-    /* OpenGL‚ÌƒeƒNƒXƒ`ƒƒ‚Æ‚µ‚Äg‚¤‚½‚ß‚É
-       ŠeƒsƒNƒZƒ‹‚ªR,G,B,A‡‚Ì32bitƒT[ƒtƒFƒCƒX‚ğ¶¬‚·‚é */
+    /* OpenGLã®ãƒ†ã‚¯ã‚¹ãƒãƒ£ã¨ã—ã¦ä½¿ã†ãŸã‚ã«
+       å„ãƒ”ã‚¯ã‚»ãƒ«ãŒR,G,B,Aé †ã®32bitã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ */
     SDL_Surface *surface;
     Uint32 rmask, gmask, bmask, amask;
 
-    /* SDL‚ÍƒsƒNƒZƒ‹‚ğ32bit‚Ì’l‚Æ‚µ‚Ä‰ğß‚·‚é.
-       ‚æ‚Á‚Ä, ƒ}ƒXƒN‚Íƒ}ƒVƒ“‚ÌƒGƒ“ƒfƒBƒAƒ“(ƒoƒCƒg‡)‚ÉˆË‘¶‚·‚é */
+    /* SDLã¯ãƒ”ã‚¯ã‚»ãƒ«ã‚’32bitã®å€¤ã¨ã—ã¦è§£é‡ˆã™ã‚‹.
+       ã‚ˆã£ã¦, ãƒã‚¹ã‚¯ã¯ãƒã‚·ãƒ³ã®ã‚¨ãƒ³ãƒ‡ã‚£ã‚¢ãƒ³(ãƒã‚¤ãƒˆé †)ã«ä¾å­˜ã™ã‚‹ */
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
     rmask = 0xff000000;
     gmask = 0x00ff0000;
@@ -49,14 +49,14 @@
     surface = SDL_CreateRGBSurface(0, width, height, 32,
                                    rmask, gmask, bmask, amask);
     if (surface == NULL) {
-        fprintf(stderr, "CreateRGBSurface ¸”s: %s\n", SDL_GetError());
+        fprintf(stderr, "CreateRGBSurface å¤±æ•—: %sÂ¥n", SDL_GetError());
         exit(1);
     }
 
     SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
     
     if (texture == NULL) {
-        fprintf(stderr, "CreateTextureFromSurface ¸”s: %s\n", SDL_GetError());
+        fprintf(stderr, "CreateTextureFromSurface å¤±æ•—: %sÂ¥n", SDL_GetError());
         exit(1);
     }
     
@@ -66,24 +66,24 @@
 </pre>
 </code>
 </p>
-<h2>Ú×</h2>
+<h2>è©³ç´°</h2>
 <p>
-‚±‚ÌŠÖ”‚ÍƒT[ƒtƒFƒCƒX‚ğC³/‰ğ•ú‚µ‚È‚¢.
+ã“ã®é–¢æ•°ã¯ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’ä¿®æ­£/è§£æ”¾ã—ãªã„.
 </p>
 <p>
-‚±‚ÌƒeƒNƒXƒ`ƒƒ‚Ì<a href="SDL_TextureAccess.html">SDL_TextureAccess</a>ƒqƒ“ƒg‚ÍSDL_TEXTUREACCESS_STATIC‚Å‚ ‚é.
+ã“ã®ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®<a href="SDL_TextureAccess.html">SDL_TextureAccess</a>ãƒ’ãƒ³ãƒˆã¯SDL_TEXTUREACCESS_STATICã§ã‚ã‚‹.
 </p>
 <p>
-¶¬‚³‚ê‚éƒeƒNƒXƒ`ƒƒ‚ÌƒsƒNƒZƒ‹Œ`®‚ÍƒT[ƒtƒFƒCƒX‚ÌƒsƒNƒZƒ‹Œ`®‚Æ‚ÍˆÙ‚È‚éê‡‚ª‚ ‚é.
-ƒeƒNƒXƒ`ƒƒ‚ÌƒsƒNƒZƒ‹Œ`®‚Í<a href="SDL_QueryTexture.html">SDL_QueryTexture()</a>‚Å“¾‚é‚±‚Æ‚ª‚Å‚«‚é.
+ç”Ÿæˆã•ã‚Œã‚‹ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ãƒ”ã‚¯ã‚»ãƒ«å½¢å¼ã¯ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã®ãƒ”ã‚¯ã‚»ãƒ«å½¢å¼ã¨ã¯ç•°ãªã‚‹å ´åˆãŒã‚ã‚‹.
+ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ãƒ”ã‚¯ã‚»ãƒ«å½¢å¼ã¯<a href="SDL_QueryTexture.html">SDL_QueryTexture()</a>ã§å¾—ã‚‹ã“ã¨ãŒã§ãã‚‹.
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.0ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.0ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_CreateTexture.html">SDL_CreateTexture</a><br>
 <a href="SDL_DestroyTexture.html">SDL_DestroyTexture</a><br>
 <a href="SDL_QueryTexture.html">SDL_QueryTexture</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_CreateTextureFromSurface">SDL_CreateTextureFromSurface - SDL Wiki</a>
 <hr>
 </body>

@@ -1,45 +1,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryEvents.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryEvents.html" title="1ã¤ä¸Š">
 <title>SDL_TouchFingerEvent</title>
 </head>
 <body>
-<a href="index.html">–ÚŽŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryEvents.html">ƒCƒxƒ“ƒgˆ—</a> - SDL_TouchFingerEvent
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryEvents.html">ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†</a> - SDL_TouchFingerEvent
 <hr>
 <h1>SDL_TouchFingerEvent</h1>
-ƒ^ƒbƒ`ƒCƒxƒ“ƒg‚Ìî•ñ‚Ì\‘¢‘Ì
-<h2>ƒtƒB[ƒ‹ƒh</h2>
+ã‚¿ãƒƒãƒã‚¤ãƒ™ãƒ³ãƒˆã®æƒ…å ±ã®æ§‹é€ ä½“
+<h2>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰</h2>
 <table border="1" summary="SDL_TouchFingerEvent">
-<tr><td>Uint32</td><td>type</td><td>SDL_FINGERMOTION ‚Ü‚½‚Í SDL_FINGERDOWN ‚Ü‚½‚Í SDL_FINGERUP</td></tr>
-<tr><td>Uint32</td><td>timestamp</td><td>ƒCƒxƒ“ƒg‚Ìƒ^ƒCƒ€ƒXƒ^ƒ“ƒv</td></tr>
-<tr><td>SDL_TouchID</td><td>touchId</td><td>ƒ^ƒbƒ`ƒfƒoƒCƒX‚ÌID</td></tr>
-<tr><td>SDL_FingerID</td><td>fingerId</td><td>Žw‚ÌID</td></tr>
-<tr><td>float</td><td>x</td><td>ƒ^ƒbƒ`ƒCƒxƒ“ƒg‚ÌXÀ•W (0.0`1.0‚Å³‹K‰»)</td></tr>
-<tr><td>float</td><td>y</td><td>ƒ^ƒbƒ`ƒCƒxƒ“ƒg‚ÌYÀ•W (0.0`1.0‚Å³‹K‰»)</td></tr>
-<tr><td>float</td><td>dx</td><td>X•ûŒü‚ÌˆÚ“®—Ê (-1.0`1.0‚Å³‹K‰»)</td></tr>
-<tr><td>float</td><td>dy</td><td>Y•ûŒü‚ÌˆÚ“®—Ê (-1.0`1.0‚Å³‹K‰»)</td></tr>
-<tr><td>float</td><td>pressure</td><td>‰Á‚¦‚ç‚ê‚½ˆ³—Í (0.0`1.0‚Å³‹K‰»)</td></tr>
-<tr><td>Uint32</td><td>windowID</td><td>Žw‚Ì‰º‚É‚ ‚éƒEƒBƒ“ƒhƒE(‚ ‚é‚È‚ç‚Î)</td></tr>
+<tr><td>Uint32</td><td>type</td><td>SDL_FINGERMOTION ã¾ãŸã¯ SDL_FINGERDOWN ã¾ãŸã¯ SDL_FINGERUP</td></tr>
+<tr><td>Uint32</td><td>timestamp</td><td>ã‚¤ãƒ™ãƒ³ãƒˆã®ã‚¿ã‚¤ãƒ ã‚¹ã‚¿ãƒ³ãƒ—</td></tr>
+<tr><td>SDL_TouchID</td><td>touchId</td><td>ã‚¿ãƒƒãƒãƒ‡ãƒã‚¤ã‚¹ã®ID</td></tr>
+<tr><td>SDL_FingerID</td><td>fingerId</td><td>æŒ‡ã®ID</td></tr>
+<tr><td>float</td><td>x</td><td>ã‚¿ãƒƒãƒã‚¤ãƒ™ãƒ³ãƒˆã®Xåº§æ¨™ (0.0ã€œ1.0ã§æ­£è¦åŒ–)</td></tr>
+<tr><td>float</td><td>y</td><td>ã‚¿ãƒƒãƒã‚¤ãƒ™ãƒ³ãƒˆã®Yåº§æ¨™ (0.0ã€œ1.0ã§æ­£è¦åŒ–)</td></tr>
+<tr><td>float</td><td>dx</td><td>Xæ–¹å‘ã®ç§»å‹•é‡ (-1.0ã€œ1.0ã§æ­£è¦åŒ–)</td></tr>
+<tr><td>float</td><td>dy</td><td>Yæ–¹å‘ã®ç§»å‹•é‡ (-1.0ã€œ1.0ã§æ­£è¦åŒ–)</td></tr>
+<tr><td>float</td><td>pressure</td><td>åŠ ãˆã‚‰ã‚ŒãŸåœ§åŠ› (0.0ã€œ1.0ã§æ­£è¦åŒ–)</td></tr>
+<tr><td>Uint32</td><td>windowID</td><td>æŒ‡ã®ä¸‹ã«ã‚ã‚‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦(ã‚ã‚‹ãªã‚‰ã°)</td></tr>
 </table>
-<h2>Ú×</h2>
+<h2>è©³ç´°</h2>
 <p>
-<a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a>‚Í<a href="SDL_Event.html">SDL_Event</a>‚Ìƒƒ“ƒo‚Å, SDL_FINGERMOTION, SDL_FINGERDOWN, SDL_FINGERUP‚ª•ñ‚³‚ê‚½‚Æ‚«‚ÉŽg‚í‚ê‚é.
-event‚ÌtfingerƒtƒB[ƒ‹ƒh‚©‚çƒAƒNƒZƒX‚Å‚«‚é.
+<a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a>ã¯<a href="SDL_Event.html">SDL_Event</a>ã®ãƒ¡ãƒ³ãƒã§, SDL_FINGERMOTION, SDL_FINGERDOWN, SDL_FINGERUPãŒå ±å‘Šã•ã‚ŒãŸã¨ãã«ä½¿ã‚ã‚Œã‚‹.
+eventã®tfingerãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‹ã‚‰ã‚¢ã‚¯ã‚»ã‚¹ã§ãã‚‹.
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
 <p>
-SDL 2.0.0ˆÈ~
+SDL 2.0.0ä»¥é™
 </p>
-<h2>ŠÖ˜A€–Ú(—ñ‹“‘Ì)</h2>
+<h2>é–¢é€£é …ç›®(åˆ—æŒ™ä½“)</h2>
 <a href="SDL_EventType.html">SDL_EventType</a><br>
-<h2>ŠÖ˜A€–Ú(\‘¢‘Ì)</h2>
+<h2>é–¢é€£é …ç›®(æ§‹é€ ä½“)</h2>
 <a href="SDL_Event.html">SDL_Event</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_TouchFingerEvent">SDL_TouchFingerEvent - SDL Wiki</a><br>
 <hr>
 </body>

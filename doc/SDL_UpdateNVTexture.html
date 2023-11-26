@@ -1,39 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryRender.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryRender.html" title="1ã¤ä¸Š">
 <title>SDL_UpdateNVTexture</title>
 </head>
 <body>
-<a href="index.html">–ÚŽŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryRender.html">2DƒŒƒ“ƒ_ƒŠƒ“ƒO</a> - SDL_UpdateNVTexture
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryRender.html">2Dãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°</a> - SDL_UpdateNVTexture
 <hr>
 <h1>SDL_UpdateNVTexture</h1>
-Žw’è‚Ìplanar N12‚Ü‚½‚ÍN21ƒeƒNƒXƒ`ƒƒ‚Ì—Ìˆæ‚ðV‚µ‚¢ƒsƒNƒZƒ‹ƒf[ƒ^‚ÅXV‚·‚é
-<h2>\•¶</h2>
+æŒ‡å®šã®planar N12ã¾ãŸã¯N21ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®é ˜åŸŸã‚’æ–°ã—ã„ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã§æ›´æ–°ã™ã‚‹
+<h2>æ§‹æ–‡</h2>
 <code>int SDL_UpdateNVTexture(SDL_Texture* texture, const SDL_Rect* rect, const Uint8* Yplane, int Ypitch, const Uint8* UVplane, int UVpitch)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_UpdateNVTexture">
-<tr><td>texture</td><td>XV‚·‚éƒeƒNƒXƒ`ƒƒ</td></tr>
-<tr><td>rect</td><td>ƒeƒNƒXƒ`ƒƒ‚ðXV‚·‚é—Ìˆæ‚Ì<a href="SDL_Rect.html">SDL_Rect</a>. NULL‚Ì‚Æ‚«ƒeƒNƒXƒ`ƒƒ‘S‘Ì</td></tr>
-<tr><td>Yplane</td><td>YƒvƒŒ[ƒ“‚Ì¶‚ÌƒsƒNƒZƒ‹ƒf[ƒ^</td></tr>
-<tr><td>Ypitch</td><td>YƒvƒŒ[ƒ“‚Ì…•½•ûŒüƒsƒNƒZƒ‹ƒf[ƒ^‚ÌƒoƒCƒg”</td></tr>
-<tr><td>UVplane</td><td>UYƒvƒŒ[ƒ“‚Ì¶‚ÌƒsƒNƒZƒ‹ƒf[ƒ^</td></tr>
-<tr><td>UVpitch</td><td>UYƒvƒŒ[ƒ“‚Ì…•½•ûŒüƒsƒNƒZƒ‹ƒf[ƒ^‚ÌƒoƒCƒg”</td></tr>
+<tr><td>texture</td><td>æ›´æ–°ã™ã‚‹ãƒ†ã‚¯ã‚¹ãƒãƒ£</td></tr>
+<tr><td>rect</td><td>ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’æ›´æ–°ã™ã‚‹é ˜åŸŸã®<a href="SDL_Rect.html">SDL_Rect</a>. NULLã®ã¨ããƒ†ã‚¯ã‚¹ãƒãƒ£å…¨ä½“</td></tr>
+<tr><td>Yplane</td><td>Yãƒ—ãƒ¬ãƒ¼ãƒ³ã®ç”Ÿã®ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿</td></tr>
+<tr><td>Ypitch</td><td>Yãƒ—ãƒ¬ãƒ¼ãƒ³ã®æ°´å¹³æ–¹å‘ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã®ãƒã‚¤ãƒˆæ•°</td></tr>
+<tr><td>UVplane</td><td>UYãƒ—ãƒ¬ãƒ¼ãƒ³ã®ç”Ÿã®ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿</td></tr>
+<tr><td>UVpitch</td><td>UYãƒ—ãƒ¬ãƒ¼ãƒ³ã®æ°´å¹³æ–¹å‘ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã®ãƒã‚¤ãƒˆæ•°</td></tr>
 </table>
-<h2>–ß‚è’l</h2>
-¬Œ÷‚Ì‚Æ‚«0, ƒeƒNƒXƒ`ƒƒ‚ª•s³‚Ì‚Æ‚«-1‚ð–ß‚·.
-<h2>Ú×</h2>
+<h2>æˆ»ã‚Šå€¤</h2>
+æˆåŠŸã®ã¨ã0, ãƒ†ã‚¯ã‚¹ãƒãƒ£ãŒä¸æ­£ã®ã¨ã-1ã‚’æˆ»ã™.
+<h2>è©³ç´°</h2>
 <p>
-ƒsƒNƒZƒ‹ƒf[ƒ^‚ÌNV12/21ƒvƒŒ[ƒ“‚ª³‚µ‚¢‡˜‚Å—×‚è‡‚Á‚Ä‚¢‚ê‚Î<a href="SDL_UpdateTexture.html">SDL_UpdateTexture()</a>‚ðŽg‚¤‚±‚Æ‚à‚Å‚«‚é.
-‚µ‚©‚µ, ‚±‚ÌŠÖ”‚ÍƒsƒNƒZƒ‹ƒf[ƒ^‚ª—×‚è‡‚Á‚Ä‚¢‚È‚­‚Ä‚à‚æ‚¢.
+ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã®NV12/21ãƒ—ãƒ¬ãƒ¼ãƒ³ãŒæ­£ã—ã„é †åºã§éš£ã‚Šåˆã£ã¦ã„ã‚Œã°<a href="SDL_UpdateTexture.html">SDL_UpdateTexture()</a>ã‚’ä½¿ã†ã“ã¨ã‚‚ã§ãã‚‹.
+ã—ã‹ã—, ã“ã®é–¢æ•°ã¯ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ãŒéš£ã‚Šåˆã£ã¦ã„ãªãã¦ã‚‚ã‚ˆã„.
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.16ˆÈ~
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.16ä»¥é™
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_UpdateNVTexture">SDL_UpdateNVTexture - SDL Wiki</a>
 <hr>
 </body>

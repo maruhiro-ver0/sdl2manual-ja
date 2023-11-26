@@ -1,45 +1,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_ttf">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_ttf-CategoryManagement.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_ttf-CategoryManagement.html" title="1つ上">
 <title>TTF_OpenFontDPI</title>
 </head>
 <body>
-<a href="index.html#SDL2_ttf">�ڎ�</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_ttf-CategoryManagement.html">�Ǘ�</a> - TTF_OpenFontDPI
+<a href="index.html#SDL2_ttf">目次</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_ttf-CategoryManagement.html">管理</a> - TTF_OpenFontDPI
 <hr>
 <h1>TTF_OpenFontDPI</h1>
-(DPI�P�ʂ�)�w�肵���𑜓x�Ńt�H���g���t�@�C�����琶������
-<h2>�\��</h2>
+(DPI単位で)指定した解像度でフォントをファイルから生成する
+<h2>構文</h2>
 <code>TTF_Font *TTF_OpenFontDPI(const char *file, int ptsize, unsigned int hdpi, unsigned int vdpi)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="TTF_OpenFontDPI">
-<tr><td>file</td><td>�t�H���g�t�@�C���̃p�X</td></tr>
-<tr><td>ptsize</td><td>�t�H���g�̃|�C���g�T�C�Y</td></tr>
-<tr><td>hdpi</td><td>��������DPI</td></tr>
-<tr><td>vdpi</td><td>��������DPI</td></tr>
+<tr><td>file</td><td>フォントファイルのパス</td></tr>
+<tr><td>ptsize</td><td>フォントのポイントサイズ</td></tr>
+<tr><td>hdpi</td><td>水平方向DPI</td></tr>
+<tr><td>vdpi</td><td>垂直方向DPI</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�<a href="TTF_Font.html">TTF_Font</a>, �G���[�̂Ƃ�NULL��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+成功のとき<a href="TTF_Font.html">TTF_Font</a>, エラーのときNULLを戻す.
+<h2>詳細</h2>
 <p>
-DPI�ɂ��g��k���͊g��k���\�ȃt�H���g(�Ⴆ��TrueType)�ɂ̂ݓK�p�����.
+DPIによる拡大縮小は拡大縮小可能なフォント(例えばTrueType)にのみ適用される.
 </p>
 <p>
-�ꕔ��.fon�t�H���g�̓t�@�C�����ɕ����̃t�H���g�����ߍ��܂�Ă���. ���̏ꍇ, �|�C���g�T�C�Y�̓T�C�Y��I������ԍ��ƂȂ�.
-�l���傫������ꍇ, �ł��傫�Ȕԍ��̃T�C�Y�ɂȂ�.
+一部の.fonフォントはファイル内に複数のフォントが埋め込まれている. その場合, ポイントサイズはサイズを選択する番号となる.
+値が大きすぎる場合, 最も大きな番号のサイズになる.
 </p>
 <p>
-<a href="TTF_Font.html">TTF_Font</a>���g���I������<a href="TTF_CloseFont.html">TTF_CloseFont()</a>�Ŕj�����邱��.
+<a href="TTF_Font.html">TTF_Font</a>を使い終えたら<a href="TTF_CloseFont.html">TTF_CloseFont()</a>で破棄すること.
 </p>
-<h2>�o�[�W����</h2>
-SDL_ttf 2.0.18�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL_ttf 2.0.18以降
+<h2>関連項目(関数)</h2>
 <a href="TTF_CloseFont.html">TTF_CloseFont</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_ttf/TTF_OpenFontDPI">SDL2_ttf/TTF_OpenFontDPI</a>
 <hr>
 </body>

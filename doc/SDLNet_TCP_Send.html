@@ -1,49 +1,49 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_net">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_net-CategoryTcpSockets.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_net-CategoryTcpSockets.html" title="1つ上">
 <title>SDLNet_TCP_Send</title>
 </head>
 <body>
-<a href="index.html#SDL2_net">�ڎ�</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - <a href="SDL2_net-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_net-CategoryTcpSockets.html">TCP�\�P�b�g</a> - SDLNet_TCP_Send
+<a href="index.html#SDL2_net">目次</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - <a href="SDL2_net-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_net-CategoryTcpSockets.html">TCPソケット</a> - SDLNet_TCP_Send
 <hr>
 <h1>SDLNet_TCP_Send</h1>
-�T�[�o�łȂ��\�P�b�g�Ƀf�[�^�𑗐M����
-<h2>�\��</h2>
+サーバでないソケットにデータを送信する
+<h2>構文</h2>
 <code>int SDLNet_TCP_Send(TCPsocket sock, const void *data, int len)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDLNet_TCP_Send">
-<tr><td>sock</td><td>�f�[�^�𑗐M����\�P�b�g</td></tr>
-<tr><td>data</td><td>���M�f�[�^�ւ̃|�C���^</td></tr>
-<tr><td>maxlen</td><td>`data`�ɏ������܂ꂽ���M�f�[�^�̃o�C�g��</td></tr>
+<tr><td>sock</td><td>データを送信するソケット</td></tr>
+<tr><td>data</td><td>送信データへのポインタ</td></tr>
+<tr><td>maxlen</td><td>`data`に書き込まれた送信データのバイト数</td></tr>
 </table>
-<h2>�߂�l</h2>
-���M�����o�C�g����߂�. ����ڑ��ُ킪���������ꍇ�͏��Ȃ��ꍇ������.
-�\�P�b�g���s���ȏꍇ, -1��߂�. ����ȏꍇ��0�ȏ�ƂȂ�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+送信したバイト数を戻す. 問題や接続異常が発生した場合は少ない場合がある.
+ソケットが不正な場合, -1を戻す. 正常な場合は0以上となる.
+<h2>詳細</h2>
 <p>
-`sock'��<a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open()</a>�ŃA�h���X���w�肵�Đ�������, �܂���<a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept()</a>�Ő����������̂łȂ���΂Ȃ�Ȃ�.
+`sock'は<a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open()</a>でアドレスを指定して生成した, または<a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept()</a>で生成したものでなければならない.
 </p>
 <p>
-���̊֐��͔�T�[�o�\�P�b�g`sock`��`data`�������f�[�^��`len`�o�C�g���M����.
+この関数は非サーバソケット`sock`に`data`が示すデータを`len`バイト送信する.
 </p>
 <p>
-���̊֐��͎��ۂɑ��M�����f�[�^�̃T�C�Y��߂�.
-���肪�ڑ����N���[�Y�����ꍇ��, �\�P�b�g�ɕs���ȃG���[�����������ꍇ��, ���ۂɑ��M�����T�C�Y�����������ꍇ������.
+この関数は実際に送信したデータのサイズを戻す.
+相手が接続をクローズした場合や, ソケットに不明なエラーが発生した場合は, 実際に送信したサイズよりも小さい場合がある.
 </p>
 <p>
-���̊֐��̓u���b�N����.
+この関数はブロックする.
 </p>
 <p>
-<h2>�o�[�W����</h2>
-SDL_net 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL_net 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDLNet_TCP_Recv.html">SDLNet_TCP_Recv</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_net/SDLNet_TCP_Send">SDL_net/SDLNet_TCP_Send</a>
 <hr>
 </body>

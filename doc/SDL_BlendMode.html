@@ -1,30 +1,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryVideo.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryVideo.html" title="1ã¤ä¸Š">
 <title>SDL_BlendMode</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryVideo.html">ƒfƒBƒXƒvƒŒƒC‚ÆƒEƒBƒ“ƒhƒE</a> - SDL_BlendMode
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryVideo.html">ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã¨ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦</a> - SDL_BlendMode
 <hr>
 <h1>SDL_BlendMode</h1>
-<a href="SDL_RenderCopy.html">SDL_RenderCopy()</a>‚Æ•`‰æ‘€ì‚Åg‚í‚ê‚éƒuƒŒƒ“ƒhƒ‚[ƒh‚Ì—ñ‹“‘Ì.
-‚»‚Ì‘¼‚Ì’l‚Í<a href="SDL_ComposeCustomBlendMode.html">SDL_ComposeCustomBlendMode()</a>‚ğQÆ‚·‚é‚±‚Æ
-<h2>’l</h2>
+<a href="SDL_RenderCopy.html">SDL_RenderCopy()</a>ã¨æç”»æ“ä½œã§ä½¿ã‚ã‚Œã‚‹ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã®åˆ—æŒ™ä½“.
+ãã®ä»–ã®å€¤ã¯<a href="SDL_ComposeCustomBlendMode.html">SDL_ComposeCustomBlendMode()</a>ã‚’å‚ç…§ã™ã‚‹ã“ã¨
+<h2>å€¤</h2>
 <table border="1" summary="SDL_BlendMode">
-<tr><td>SDL_BLENDMODE_NONE</td><td>ƒuƒŒƒ“ƒh‚µ‚È‚¢</td><td>dstRGBA = srcRGBA</td></tr>
-<tr><td>SDL_BLENDMODE_BLEND</td><td>ƒ¿ƒuƒŒƒ“ƒh</td><td>dstRGB = (srcRGB * srcA) + (dstRGB * (1 - srcA))<br>dstA = srcA + (dstA * (1 - srcA))</td></tr>
-<tr><td>SDL_BLENDMODE_ADD</td><td>‰ÁZƒuƒŒƒ“ƒh</td><td>dstRGB = (srcRGB * srcA) + dstRGB<br>dstA = dstA</td></tr>
-<tr><td>SDL_BLENDMODE_MOD</td><td>æZƒuƒŒƒ“ƒh</td><td>dstRGB = srcRGB * dstRGB<br>dstA = dstA</td></tr>
-<tr><td>SDL_BLENDMODE_MUL</td><td>æZƒ¿ƒuƒŒƒ“ƒh</td><td>dstRGB = (srcRGB * dstRGB) + (dstRGB * (1-srcA))<br>dstA = (srcA * dstA) + (dstA * (1-srcA))</td></tr>
+<tr><td>SDL_BLENDMODE_NONE</td><td>ãƒ–ãƒ¬ãƒ³ãƒ‰ã—ãªã„</td><td>dstRGBA = srcRGBA</td></tr>
+<tr><td>SDL_BLENDMODE_BLEND</td><td>Î±ãƒ–ãƒ¬ãƒ³ãƒ‰</td><td>dstRGB = (srcRGB * srcA) + (dstRGB * (1 - srcA))<br>dstA = srcA + (dstA * (1 - srcA))</td></tr>
+<tr><td>SDL_BLENDMODE_ADD</td><td>åŠ ç®—ãƒ–ãƒ¬ãƒ³ãƒ‰</td><td>dstRGB = (srcRGB * srcA) + dstRGB<br>dstA = dstA</td></tr>
+<tr><td>SDL_BLENDMODE_MOD</td><td>ä¹—ç®—ãƒ–ãƒ¬ãƒ³ãƒ‰</td><td>dstRGB = srcRGB * dstRGB<br>dstA = dstA</td></tr>
+<tr><td>SDL_BLENDMODE_MUL</td><td>ä¹—ç®—Î±ãƒ–ãƒ¬ãƒ³ãƒ‰</td><td>dstRGB = (srcRGB * dstRGB) + (dstRGB * (1-srcA))<br>dstA = (srcA * dstA) + (dstA * (1-srcA))</td></tr>
 </table>
-<h2>ŠÖ˜A€–Ú(\‘¢‘Ì)</h2>
+<h2>é–¢é€£é …ç›®(æ§‹é€ ä½“)</h2>
 <a href="SDL_RendererInfo.html">SDL_RendererInfo</a><br>
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_GetRenderDrawBlendMode.html">SDL_GetRenderDrawBlendMode</a><br>
 <a href="SDL_GetSurfaceBlendMode.html">SDL_GetSurfaceBlendMode</a><br>
 <a href="SDL_GetTextureBlendMode.html">SDL_GetTextureBlendMode</a><br>
@@ -33,7 +33,7 @@
 <a href="SDL_SetSurfaceBlendMode.html">SDL_SetSurfaceBlendMode</a><br>
 <a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode</a><br>
 <a href="SDL_ComposeCustomBlendMode.html">SDL_ComposeCustomBlendMode</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_BlendMode">SDL_BlendMode - SDL Wiki</a><br>
 <hr>
 </body>

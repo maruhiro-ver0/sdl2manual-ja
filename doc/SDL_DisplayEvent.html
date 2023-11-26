@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryEvents.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryEvents.html" title="1ã¤ä¸Š">
 <title>SDL_DisplayEvent</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryEvents.html">ƒCƒxƒ“ƒgˆ—</a> - SDL_DisplayEvent
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryEvents.html">ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†</a> - SDL_DisplayEvent
 <hr>
 <h1>SDL_DisplayEvent</h1>
-ƒfƒBƒXƒvƒŒƒCó‘Ô•Ï‰»ƒCƒxƒ“ƒg‚Ìî•ñ‚Ì\‘¢‘Ì
-<h2>ƒtƒB[ƒ‹ƒh</h2>
+ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤çŠ¶æ…‹å¤‰åŒ–ã‚¤ãƒ™ãƒ³ãƒˆã®æƒ…å ±ã®æ§‹é€ ä½“
+<h2>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰</h2>
 <table border="1" summary="SDL_ControllerAxisEvent">
 <tr><td>Uint32</td><td>type</td><td>SDL_DISPLAYEVENT</td></tr>
-<tr><td>Uint32</td><td>timestamp</td><td>ƒCƒxƒ“ƒg‚Ìƒ^ƒCƒ€ƒXƒ^ƒ“ƒv(ƒ~ƒŠ•b)</td></tr>
-<tr><td>Uint32</td><td>display</td><td>ƒfƒBƒXƒvƒŒƒC”Ô†</td></tr>
+<tr><td>Uint32</td><td>timestamp</td><td>ã‚¤ãƒ™ãƒ³ãƒˆã®ã‚¿ã‚¤ãƒ ã‚¹ã‚¿ãƒ³ãƒ—(ãƒŸãƒªç§’)</td></tr>
+<tr><td>Uint32</td><td>display</td><td>ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ç•ªå·</td></tr>
 <tr><td>Uint32</td><td>event</td><td><a href="SDL_DisplayEventID.html">SDL_DisplayEventID</a></td></tr>
-<tr><td>Uint32</td><td>data1</td><td>ƒCƒxƒ“ƒg‚Ìƒf[ƒ^</td></tr>
+<tr><td>Uint32</td><td>data1</td><td>ã‚¤ãƒ™ãƒ³ãƒˆã®ãƒ‡ãƒ¼ã‚¿</td></tr>
 </table>
-<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<h2>ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h2>
 <p>
 <code>
 <pre>
@@ -31,13 +31,13 @@ while (SDL_PollEvent(&ev) != 0) {
     if (ev.type == SDL_DISPLAYEVENT) {
         switch (ev.display.event) {
             case SDL_DISPLAYEVENT_CONNECTED:
-                SDL_Log("ID %d‚ÌƒfƒBƒXƒvƒŒƒC‚ªÚ‘±‚³‚ê‚½", ev.display.display);
+                SDL_Log("ID %dã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãŒæ¥ç¶šã•ã‚ŒãŸ", ev.display.display);
                 break;
             case SDL_DISPLAYEVENT_DISCONNECTED:
-                SDL_Log("ID %d‚ÌƒfƒBƒXƒvƒŒƒC‚ªØ‚è—£‚³‚ê‚½", ev.display.display);
+                SDL_Log("ID %dã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãŒåˆ‡ã‚Šé›¢ã•ã‚ŒãŸ", ev.display.display);
                 break;
             case SDL_DISPLAYEVENT_ORIENTATION:
-                SDL_Log("ID %d‚ÌƒfƒBƒXƒvƒŒƒC‚ÌŒü‚«‚ª•Ï‚í‚Á‚½", ev.display.display);
+                SDL_Log("ID %dã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã®å‘ããŒå¤‰ã‚ã£ãŸ", ev.display.display);
                 break;
         }
     }
@@ -45,12 +45,12 @@ while (SDL_PollEvent(&ev) != 0) {
 </pre>
 </code>
 </p>
-<h2>Ú×</h2>
-SDL_DisplayEvent‚Í<a href="SDL_Event.html">SDL_Event</a>‹¤—p‘Ì‚Ìƒƒ“ƒo‚Å, SDL_DISPLAYEVENTƒCƒxƒ“ƒg‚ª”­¶‚µ‚½‚Æ‚«g‚í‚ê‚é.
-‚±‚ê‚ÍƒCƒxƒ“ƒg‚ÌdisplayƒtƒB[ƒ‹ƒh‚ğ’Ê‚¶‚Äg—p‚·‚é‚±‚Æ‚É‚È‚é.
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.4ˆÈ~
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>è©³ç´°</h2>
+SDL_DisplayEventã¯<a href="SDL_Event.html">SDL_Event</a>å…±ç”¨ä½“ã®ãƒ¡ãƒ³ãƒã§, SDL_DISPLAYEVENTã‚¤ãƒ™ãƒ³ãƒˆãŒç™ºç”Ÿã—ãŸã¨ãä½¿ã‚ã‚Œã‚‹.
+ã“ã‚Œã¯ã‚¤ãƒ™ãƒ³ãƒˆã®displayãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’é€šã˜ã¦ä½¿ç”¨ã™ã‚‹ã“ã¨ã«ãªã‚‹.
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.4ä»¥é™
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_DisplayEvent">SDL_DisplayEvent - SDL Wiki</a><br>
 <hr>
 </body>

@@ -1,33 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryVideo.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
 <title>SDL_GetVideoDriver</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryVideo.html">�f�B�X�v���C�ƃE�B���h�E</a> - SDL_GetVideoDriver
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GetVideoDriver
 <hr>
 <h1>SDL_GetVideoDriver</h1>
-�g�ݍ��܂ꂽ�r�f�I�h���C�o�̈ꗗ���疼�O�𓾂�
-<h2>�\��</h2>
+組み込まれたビデオドライバの一覧から名前を得る
+<h2>構文</h2>
 <code>const char* SDL_GetVideoDriver(int index)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_GetVideoDriver">
-<tr><td>index</td><td>�r�f�I�h���C�o�̔ԍ�</td></tr>
+<tr><td>index</td><td>ビデオドライバの番号</td></tr>
 </table>
-<h2>�߂�l</h2>
-�^����ꂽ�ԍ��̃r�f�I�h���C�o�̖��O��߂�
-<h2>�ڍ�</h2>
-�r�f�I�h���C�o�̈ꗗ�͏��������Ƀ`�F�b�N���ꂽ���Ԃɕ���ł���.
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>戻り値</h2>
+与えられた番号のビデオドライバの名前を戻す
+<h2>詳細</h2>
+ビデオドライバの一覧は初期化中にチェックされた順番に並んでいる.
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_GetNumVideoDrivers.html">SDL_GetNumVideoDrivers</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetVideoDriver">SDL_GetVideoDriver - SDL Wiki</a>
 <hr>
 </body>

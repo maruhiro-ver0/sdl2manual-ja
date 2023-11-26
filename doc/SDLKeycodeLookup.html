@@ -1,26 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryEvents.html" title="1��">
-<title>SDL�L�[�R�[�h�ꗗ�\</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryEvents.html" title="1つ上">
+<title>SDLキーコード一覧表</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryEvents.html">�C�x���g����</a> - SDL�L�[�R�[�h�ꗗ�\
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryEvents.html">イベント処理</a> - SDLキーコード一覧表
 <hr>
-<h1>SDL�L�[�R�[�h�ꗗ�\</h1>
-�\���ł��镶���̃L�[�̃L�[�R�[�h��, �J�b�R���̕����̃R�[�h�ł���.
-�\���ł��镶���̂Ȃ��L�[��, �X�L�����R�[�h��1&lt;&lt;30 (0x40000000)�̘_���a�ł���.
+<h1>SDLキーコード一覧表</h1>
+表示できる文字のキーのキーコードは, カッコ内の文字のコードである.
+表示できる文字のないキーは, スキャンコードと1&lt;&lt;30 (0x40000000)の論理和である.
 <table border="1" summary="SDLKeycodeLookup">
-<tr><th>10�i���̒l</th><th>16�i���̒l(����)</th><th>SDL_Keycode</th></tr>
-<tr><td>0</td><td>0x00 ('\0')</td><td>SDLK_UNKNOWN</td></tr>
-<tr><td>8</td><td>0x08 ('\b')</td><td>SDLK_BACKSPACE</td></tr>
-<tr><td>9</td><td>0x09 ('\t')</td><td>SDLK_TAB</td></tr>
-<tr><td>13</td><td>0x0D ('\r')</td><td>SDLK_RETURN</td></tr>
-<tr><td>27</td><td>0x1B ('\033')</td><td>SDLK_ESCAPE</td></tr>
+<tr><th>10進数の値</th><th>16進数の値(文字)</th><th>SDL_Keycode</th></tr>
+<tr><td>0</td><td>0x00 ('¥0')</td><td>SDLK_UNKNOWN</td></tr>
+<tr><td>8</td><td>0x08 ('¥b')</td><td>SDLK_BACKSPACE</td></tr>
+<tr><td>9</td><td>0x09 ('¥t')</td><td>SDLK_TAB</td></tr>
+<tr><td>13</td><td>0x0D ('¥r')</td><td>SDLK_RETURN</td></tr>
+<tr><td>27</td><td>0x1B ('¥033')</td><td>SDLK_ESCAPE</td></tr>
 <tr><td>32</td><td>0x20 (' ')</td><td>SDLK_SPACE</td></tr>
 <tr><td>33</td><td>0x21 ('!')</td><td>SDLK_EXCLAIM</td></tr>
 <tr><td>34</td><td>0x22 ('"')</td><td>SDLK_QUOTEDBL</td></tr>
@@ -28,7 +28,7 @@
 <tr><td>36</td><td>0x24 ('$')</td><td>SDLK_DOLLAR</td></tr>
 <tr><td>37</td><td>0x25 ('%')</td><td>SDLK_PERCENT</td></tr>
 <tr><td>38</td><td>0x26 ('&amp;')</td><td>SDLK_AMPERSAND</td></tr>
-<tr><td>39</td><td>0x27 ('\'')</td><td>SDLK_QUOTE</td></tr>
+<tr><td>39</td><td>0x27 ('¥'')</td><td>SDLK_QUOTE</td></tr>
 <tr><td>40</td><td>0x28 ('(')</td><td>SDLK_LEFTPAREN</td></tr>
 <tr><td>41</td><td>0x29 (')')</td><td>SDLK_RIGHTPAREN</td></tr>
 <tr><td>42</td><td>0x2A ('*')</td><td>SDLK_ASTERISK</td></tr>
@@ -55,7 +55,7 @@
 <tr><td>63</td><td>0x3F ('?')</td><td>SDLK_QUESTION</td></tr>
 <tr><td>64</td><td>0x40 ('@')</td><td>SDLK_AT</td></tr>
 <tr><td>91</td><td>0x5B ('[')</td><td>SDLK_LEFTBRACKET</td></tr>
-<tr><td>92</td><td>0x5C ('\\')</td><td>SDLK_BACKSLASH</td></tr>
+<tr><td>92</td><td>0x5C ('¥¥')</td><td>SDLK_BACKSLASH</td></tr>
 <tr><td>93</td><td>0x5D (']')</td><td>SDLK_RIGHTBRACKET</td></tr>
 <tr><td>94</td><td>0x5E ('^')</td><td>SDLK_CARET</td></tr>
 <tr><td>95</td><td>0x5F ('_')</td><td>SDLK_UNDERSCORE</td></tr>
@@ -86,7 +86,7 @@
 <tr><td>120</td><td>0x78 ('x')</td><td>SDLK_x</td></tr>
 <tr><td>121</td><td>0x79 ('y')</td><td>SDLK_y</td></tr>
 <tr><td>122</td><td>0x7A ('z')</td><td>SDLK_z</td></tr>
-<tr><td>177</td><td>0xB1 ('\177')</td><td>SDLK_DELETE</td></tr>
+<tr><td>177</td><td>0xB1 ('¥177')</td><td>SDLK_DELETE</td></tr>
 <tr><td>1073741881</td><td>0x40000039</td><td>SDLK_CAPSLOCK</td></tr>
 <tr><td>1073741882</td><td>0x4000003A</td><td>SDLK_F1</td></tr>
 <tr><td>1073741883</td><td>0x4000003B</td><td>SDLK_F2</td></tr>
@@ -253,7 +253,7 @@
 <tr><td>1073742105</td><td>0x40000119</td><td>SDLK_EJECT</td></tr>
 <tr><td>1073742106</td><td>0x4000011A</td><td>SDLK_SLEEP</td></tr>
 </table>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDLKeycodeLookup">SDLKeycodeLookup - SDL Wiki</a><br>
 <hr>
 </body>

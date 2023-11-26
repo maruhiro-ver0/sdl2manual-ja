@@ -1,65 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-general.html" title="1つ上">
-<title>Mix_QuerySpec</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-general.html">4.1一般</a> - Mix_QuerySpec
-<hr>
-<h1>Mix_QuerySpec</h1>
-<p>
-<code>int Mix_QuerySpec(int *frequency, Uint16 *format, int *channels)</code>
-</p>
-<p>
-<dl>
-<dt>frequency</dt><dd>デバイスが使用中の周波数を代入するint型変数へのポインタ</dd>
-<dt>format</dt><dd>デバイスが使用中の形式を代入するUint16型変数へのポインタ</dd>
-<dt>channels</dt><dd>デバイスが使用中のチャネル数を代入するint型変数へのポインタ. 2のときステレオ, 1のときモノラル</dd>
-</dl>
-</p>
-<p>
-開かれたデバイスの現在の出力形式を得る.
-これらは<a href="Mix_OpenAudio.html">Mix_OpenAudio</a>に渡した値と同じことも違うこともある.
-</p>
-<p>
-戻り値: 失敗のとき0を戻す.
-もしデバイスが何度も開かれたならば, その回数を戻す.
-失敗の場合は値は設定されない.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 使用中のオーディオ形式を獲得し表示する
-int numtimesopened, frequency, channels;
-Uint16 format;
-numtimesopened=Mix_QuerySpec(&amp;frequency, &amp;format, &amp;channels);
-if(!numtimesopened) {
-    printf("Mix_QuerySpec: %s\n",Mix_GetError());
-}
-else {
-    char *format_str="不明";
-    switch(format) {
-        case AUDIO_U8: format_str="8bit符号なし"; break;
-        case AUDIO_S8: format_str="8bit符号あり"; break;
-        case AUDIO_U16LSB: format_str="16bit符号なしリトルエンディアン"; break;
-        case AUDIO_S16LSB: format_str="16bit符号ありリトルエンディアン"; break;
-        case AUDIO_U16MSB: format_str="16bit符号なしビッグエンディアン"; break;
-        case AUDIO_S16MSB: format_str="16bit符号ありビッグエンディアン"; break;
-    }
-    printf("開いた回数=%d times  周波数=%dHz  形式=%s  チャネル数=%d",
-            numtimesopened, frequency, format_str, channels);
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_OpenAudio.html">Mix_OpenAudio</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_15.html#SEC15">4.1.8 Mix_QuerySpec</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

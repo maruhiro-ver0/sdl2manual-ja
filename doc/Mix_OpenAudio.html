@@ -1,97 +1,97 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1つ上">
 <title>Mix_OpenAudio</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_mixer-CategoryGeneral.html">���</a> - Mix_OpenAudio
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryGeneral.html">一般</a> - Mix_OpenAudio
 <hr>
 <h1>Mix_OpenAudio</h1>
-�Đ��̂��ߊ���̃I�[�f�B�I�f�o�C�X���J��
-<h2>�\��</h2>
+再生のため既定のオーディオデバイスを開く
+<h2>構文</h2>
 <code>Mix_OpenAudio(int frequency, Uint16 format, int channels, int chunksize)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="Mix_OpenAudio">
-<tr><td>frequency</td><td>�o�̓T���v�����O���g�� (Hz). �Q�[���ł�MIX_DEFAULT_FREQUENCY(22050)���悢�l�ł���</td></tr>
-<tr><td>format</td><td>�o�̓T���v���`��</td></tr>
-<tr><td>channels</td><td>�o�̓`���l����. 2�Ȃ�X�e���I, 1�Ȃ烂�m����. ����̓~�L�V���O�̃`���l���Ƃ͖��֌W�ł���</td></tr>
-<tr><td>chunksize</td><td>��x�ɏo�͂���o�C�g��</td></tr>
+<tr><td>frequency</td><td>出力サンプリング周波数 (Hz). ゲームではMIX_DEFAULT_FREQUENCY(22050)がよい値である</td></tr>
+<tr><td>format</td><td>出力サンプル形式</td></tr>
+<tr><td>channels</td><td>出力チャネル数. 2ならステレオ, 1ならモノラル. これはミキシングのチャネルとは無関係である</td></tr>
+<tr><td>chunksize</td><td>一度に出力するバイト数</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0, �G���[�̂Ƃ�-1��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+成功のとき0, エラーのとき-1を戻す.
+<h2>詳細</h2>
 <p>
-�I�[�f�B�I�f�o�C�X�͉������o�͂���. ���̂���, �A�v���P�[�V�����͂�����I�[�v������K�v������.
+オーディオデバイスは音声を出力する. そのため, アプリケーションはこれをオープンする必要がある.
 </p>
 <p>
-���̊֐���SDL�I�[�f�B�I�V�X�e��������������Ă��邩�`�F�b�N����. ��������������Ă��Ȃ����, ���Ȃ��̑����<code><a href="SDL_Init.html">SDL_Init</a>(SDL_INIT_AUDIO)</code>���Ăяo���ď���������.
-���ڍׂɂ��Ȃ��̃v���O�����𐧌�ł��邽��, ���̊֐����ĂԑO�ɏ��������邱�Ƃ��ł���. (�����Ă���𐄏�����!)
+この関数はSDLオーディオシステムが初期化されているかチェックする. もし初期化されていなければ, あなたの代わりに<code><a href="SDL_Init.html">SDL_Init</a>(SDL_INIT_AUDIO)</code>を呼び出して初期化する.
+より詳細にあなたのプログラムを制御できるため, この関数を呼ぶ前に初期化することもできる. (そしてそれを推奨する!)
 </p>
 <p>
-���̊֐��̓A�v���P�[�V�����̗v����S�ăJ�o�[�ł��邾�낤.
-������, ����ɏ_����K�v�ȏꍇ�̂���, ���̊֐��̋����ł�<a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice()</a>�����݂���.
-���̊֐��͈ȉ��̌Ăяo���Ɠ����ł���:<br>
+この関数はアプリケーションの要求を全てカバーできるだろう.
+しかし, さらに柔軟さが必要な場合のため, この関数の強化版の<a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice()</a>が存在する.
+この関数は以下の呼び出しと同じである:<br>
 <code>
 Mix_OpenAudioDevice(frequency, format, nchannels, chunksize, NULL, SDL_AUDIO_ALLOW_FREQUENCY_CHANGE | SDL_AUDIO_ALLOW_CHANNELS_CHANGE);
 </code>
 </p>
 <p>
-�I�[�f�B�I�f�o�C�X�̐ݒ�ɓ��ɂ�����肪�Ȃ�, �f�[�^������̌`���łȂ����, �����Őݒ肷��̂͑Ó��Ƃ����l�̃f�t�H���g�ŏ\���ł���.
-SDL_mixer�͂��Ȃ����^�����I�[�f�B�I�f�[�^��K�v�ȂƂ��Ɏ����I�ɕϊ�����.
+オーディオデバイスの設定に特にこだわりがなく, データが特定の形式でなければ, ここで設定するのは妥当とされる値のデフォルトで十分である.
+SDL_mixerはあなたが与えたオーディオデータを必要なときに自動的に変換する.
 </p>
 <p>
-������, ���Ȃ����I�[�f�B�I�f�[�^�����R�Ɍ��߂���, ���炩���߂��̌`�����킩���Ă���Ȃ��, �w���SDL_mixwe�͉����ϊ��������ڃn�[�h�E�F�A�Ƀf�[�^��n����悤�Ɉ�v����`���ŃI�[�f�B�I�f�o�C�X���I�[�v������CPU�̕��ׂ����炷���Ƃ��ł���.
+しかし, あなたがオーディオデータを自由に決められて, あらかじめその形式がわかっているならば, 背後でSDL_mixweは何も変換せず直接ハードウェアにデータを渡せるように一致する形式でオーディオデバイスをオープンしてCPUの負荷を減らすことができる.
 
-�ꕔ�̊��ł�, �n�[�h�E�F�A������̌`���ɂ̂ݑΉ����Ă���, �S�Ă���v�����邽�߂ɒ��ӂ���K�v�����邪, �����̏ꍇ�͎����̃f�[�^�̕������䂵�₷������, �K�v�Ȍ`���Ńf�o�C�X���I�[�v����������悢.
+一部の環境では, ハードウェアが特定の形式にのみ対応しており, 全てを一致させるために注意する必要があるが, 多くの場合は自分のデータの方が制御しやすいため, 必要な形式でデバイスをオープンする方がよい.
 </p>
 <p>
-�`���̓���ɂ͕ʂ̒��ӓ_������.
-�~�L�V���O�o�b�t�@��(<a href="Mix_SetPostMix.html">Mix_SetPostMix</a>, �G�t�F�N�g�̓o�^, <a href="Mix_HookMusic.html">Mix_HookMusic</a>��)���ڑ��삷��ꍇ, �R�[�h������̌`����z�肵�Ă���ꍇ������, ���̕����ɂ��`�����w�肷��K�v������.
+形式の特定には別の注意点もある.
+ミキシングバッファを(<a href="Mix_SetPostMix.html">Mix_SetPostMix</a>, エフェクトの登録, <a href="Mix_HookMusic.html">Mix_HookMusic</a>で)直接操作する場合, コードが特定の形式を想定している場合があり, その部分にも形式を指定する必要がある.
 </p>
 <p>
-�I�[�f�B�I�f�o�C�X�̎��g����Hz�Ŏw�肷��. ���݂̊��ł�48000���Ó��Ƃ����f�t�H���g�l�ł���.
+オーディオデバイスの周波数はHzで指定する. 現在の環境では48000が妥当とされるデフォルト値である.
 </p>
 <p>
-�I�[�f�B�I�f�o�C�X�̃T���v���`����SDL��AUDIO_*����I������.
-���炭AUDIO_S16SYS(16�r�b�g�I�[�f�B�I)�����S�ȃf�t�H���g�ł���.
-���݂̃V�X�e���ł�AUDIO_F32SYS(32�r�b�g���������_�I�[�f�B�I)�̕����D�܂�����������Ȃ�.
+オーディオデバイスのサンプル形式はSDLのAUDIO_*から選択する.
+恐らくAUDIO_S16SYS(16ビットオーディオ)が安全なデフォルトである.
+現在のシステムではAUDIO_F32SYS(32ビット浮動小数点オーディオ)の方が好ましいかもしれない.
 </p>
 <p>
-�`���l�����͈�ʓI�ɂ̓��m������1�܂��̓X�e���I��2����, �v���؂��ăT���E���h��4(�N�A�b�h), 6(5.1), 7(6.1), 8(7.1)�������Ă��悢���낤.
+チャネル数は一般的にはモノラルの1またはステレオの2だが, 思い切ってサラウンドの4(クアッド), 6(5.1), 7(6.1), 8(7.1)を試してもよいだろう.
 </p>
 <p>
-�I�[�f�B�I�f�o�C�X�̃`�����N�T�C�Y�͈�x�Ƀf�o�C�X�ɓn�����T���v���t���[����(���m�����Ȃ��1�t���[��������1�T���v��, �X�e���I�Ȃ��1�t���[��������2�T���v���Ȃ�)�ł���.
-���Ȃ��قǒx�ꂪ���Ȃ��Ȃ邪, ���Ȃ�����Ǝ�肱�ڂ��̃��X�N�����傷��.
-�ʏ��2048���Ó��Ƃ����f�t�H���g����, �A�v���P�[�V�����ɂ���Ă�1024����4096�̊Ԃ������Ƃ悢���낤.
+オーディオデバイスのチャンクサイズは一度にデバイスに渡されるサンプルフレーム数(モノラルならば1フレームあたり1サンプル, ステレオならば1フレームあたり2サンプルなど)である.
+少ないほど遅れが少なくなるが, 少なすぎると取りこぼしのリスクが増大する.
+通常は2048が妥当とされるデフォルトだが, アプリケーションによっては1024から4096の間を試すとよいだろう.
 </p>
 <p>
-�I�[�f�B�I�f�o�C�X�͈�x��1�����I�[�v���ł��Ȃ�.
-�ݒ��ύX�������ꍇ�̓f�o�C�X����čăI�[�v������K�v������, �Đ����ɓr�؂�Ȃ��s�����Ƃ͂ł��Ȃ�.
+オーディオデバイスは一度に1つしかオープンできない.
+設定を変更したい場合はデバイスを閉じて再オープンする必要があり, 再生中に途切れなく行うことはできない.
 </p>
 <p>
-���̊֐��ł̓V�X�e����̓���̃I�[�f�B�I�f�o�C�X���w�肷�邱�Ƃ͂ł���, ��ɂ��Ȃ��̑���Ƀf�t�H���g(�قƂ�ǂ̏ꍇ�͍ł��K��������)��I������.
-����̃f�o�C�X���g���K�v������ꍇ��, ���̊֐��̑����<a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice()</a>���g�����Ƃ��ł���.
+この関数ではシステム上の特定のオーディオデバイスを指定することはできず, 常にあなたの代わりにデフォルト(ほとんどの場合は最も適したもの)を選択する.
+特定のデバイスを使う必要がある場合は, この関数の代わりに<a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice()</a>を使うことができる.
 </p>
 <p>
-���̊֐���������߂����Ȃ��, �����o�͂��鏀���������Ă���, �I�[�f�B�I�f�[�^��ǂݍ��ݍĐ����邱�Ƃ��ł���.
+この関数が成功を戻したならば, 音を出力する準備が整っており, オーディオデータを読み込み再生することができる.
 </p>
 <p>
-�A�v���P�[�V������<a href="Mix_QuerySpec.html">Mix_QuerySpec()</a>�Ńf�o�C�X�̍ŏI�I�Ȑݒ���s�����Ƃ��ł���.
+アプリケーションは<a href="Mix_QuerySpec.html">Mix_QuerySpec()</a>でデバイスの最終的な設定を行うことができる.
 </p>
 <p>
-�v���O�������I�����ăI�[�f�B�I�f�o�C�X���g���I�����Ȃ��, �A�v���P�[�V������<a href="Mix_CloseAudio.html">Mix_CloseAudio()</a>�Ŕj������K�v������.
+プログラムが終了してオーディオデバイスを使い終えたならば, アプリケーションは<a href="Mix_CloseAudio.html">Mix_CloseAudio()</a>で破棄する必要がある.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice</a><br>
 <a href="Mix_CloseAudio.html">Mix_CloseAudio</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/Mix_OpenAudio">SDL2_mixer/Mix_OpenAudio</a>
 <hr>
 </body>

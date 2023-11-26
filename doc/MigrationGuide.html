@@ -1,127 +1,127 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
 <style type="text/css">
 </style>
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="index.html" title="1��">
-<title>SDL 1.2����2.0�ւ̈ڍs</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="index.html" title="1つ上">
+<title>SDL 1.2から2.0への移行</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="Introduction.html">�T�v</a> - SDL 1.2����2.0�ւ̈ڍs
+<a href="index.html">目次</a> - <a href="Introduction.html">概要</a> - SDL 1.2から2.0への移行
 <hr>
-<h1 id="SDL_1.2_to_2.0_Migration_Guide">SDL 1.2����2.0�ւ̈ڍs</h1>
-<h2 id="Introduction">�͂��߂�</h2>
+<h1 id="SDL_1.2_to_2.0_Migration_Guide">SDL 1.2から2.0への移行</h1>
+<h2 id="Introduction">はじめに</h2>
 <p>
-���N���̊J���̂̂�, ����SDL 2.0�������[�X���ꂽ!
+幾年もの開発ののち, ついにSDL 2.0がリリースされた!
 </p>
 <p>
-�������͂��̏o���ɖ�����, SDL 1.2���g�����Q�[���͂����Ɉڍs���邱�Ƃ�]��ł���.
-����͖ʓ|���Ǝv����������Ȃ�. ���̕����ɂ͐V�������C�u�����ւ̈ڍs�̕��@���Ȍ��ɏ�����Ă���.
-����͍l���Ă�����͓���Ȃ��Ƃ킩��͂���. �����̊֐��ɒu�������邩, 1.2�̖�������邽�߂̍H�v���s��Ȃ��悤�ɂ��邾���̏ꍇ�����邾�낤.
+私たちはその出来に満足し, SDL 1.2を使ったゲームはすぐに移行することを望んでいる.
+それは面倒だと思うかもしれない. この文書には新しいライブラリへの移行の方法を簡潔に書かれている.
+それは考えているよりは難しくないとわかるはずだ. 同等の関数に置き換えるか, 1.2の問題を避けるための工夫を行わないようにするだけの場合もあるだろう.
 </p>
 <p>
-SDL 2.0��, �V�����@�\��SDL 1.2�̌o�����������閞���̂������̂��Ǝ������͍l���Ă���.
-���̕�����SDL2�̑S�Ă̋@�\���������Ƃ�ڎw���Ă͂��Ȃ�. ����͑������邩�炾. ������, <em>������</em>���������߂ɕK�v�Ȃ��̂͂�����Ă���͂���.
-���ɃR�[�h���ڍs�����Ȃ��, �V�������ڂ��`�F�b�N���ׂ���. ���Ȃ��̃A�v���P�[�V�����ŐV�����@�\���g�������Ȃ邾�낤.
+SDL 2.0は, 新しい機能とSDL 1.2の経験が生かせる満足のいくものだと私たちは考えている.
+この文書はSDL2の全ての機能を扱うことを目指してはいない. それは多すぎるからだ. しかし, <em>すぐに</em>動かすために必要なものはそろっているはずだ.
+既にコードを移行したならば, 新しい項目をチェックすべきだ. あなたのアプリケーションで新しい機能を使いたくなるだろう.
 </p>
-<h3 id="Overview_of_new_features">�V�����@�\�̊T�v</h3>
-SDL 2.0�̎�v�ȐV�@�\:
+<h3 id="Overview_of_new_features">新しい機能の概要</h3>
+SDL 2.0の主要な新機能:
 <ul>
-<li>���S��3D�n�[�h�E�F�A�A�N�Z�����[�V����
-<li>OpenGL 3.0�ȍ~�̊e�v���t�B�[��(core, compatibility, debug, robust�Ȃ�)�ɑΉ�
-<li>OpenGL ES�ɑΉ�
-<li>�����̃E�B���h�E�ɑΉ�
-<li>�}���`�f�B�X�v���C�ɑΉ�
-<li>�����̃I�[�f�B�I�f�o�C�X�ɑΉ�
-<li>�^���ɑΉ�
-<li>Android��iOS�ɑΉ�
-<li>Emscripten�ƃl�C�e�B�u�N���C�A���g�ɑΉ�
-<li>Direct3D, OpenGL, OpenGL ES���g����, �܂��̓\�t�g�E�F�A�ɂ��V���v����2D�����_�����OAPI
-<li>�͊o�t�B�[�h�o�b�N
-<li>Windows��XInput��XAudio2�ɑΉ�
-<li>�A�g�~�b�N����
-<li>�d���Ǘ�(�o�b�e���[�c�ʂȂ�)
-<li>���`�E�B���h�E
-<li>32bit�I�[�f�B�I(�����ƕ��������_)
-<li>�P�������ꂽ�Q�[���R���g���[��API(�W���C�X�e�B�b�NAPI���p�����ė��p�\!)
-<li>�^�b�`(�}���`�^�b�`, �W�F�X�`���[)�ɑΉ�
-<li>�t���X�N���[���̉���
-<li>�L�[�{�[�h�̉���(�X�L�����R�[�h�΃L�[�R�[�h�Ȃ�)
-<li>���b�Z�[�W�{�b�N�X
-<li>�N���b�v�{�[�h�ɑΉ�
-<li>SDL�ŋ��ł�GUI�c�[���L�b�g���\�z���邽�߂�API
-<li>��{�I�ȃh���b�O�E�A���h�E�h���b�v�ɑΉ�
-<li>������Unicode���͂�IME�ɑΉ�
-<li>���͂ȃA�T�[�g(����)�}�N��
-<li>LGPL����zlib���C�Z���X�ֈڍs
-<li>������1.2�̖��̉���
-<li>���̑�����!
+<li>完全な3Dハードウェアアクセラレーション
+<li>OpenGL 3.0以降の各プロフィール(core, compatibility, debug, robustなど)に対応
+<li>OpenGL ESに対応
+<li>複数のウィンドウに対応
+<li>マルチディスプレイに対応
+<li>複数のオーディオデバイスに対応
+<li>録音に対応
+<li>AndroidとiOSに対応
+<li>Emscriptenとネイティブクライアントに対応
+<li>Direct3D, OpenGL, OpenGL ESを使った, またはソフトウェアによるシンプルな2DレンダリングAPI
+<li>力覚フィードバック
+<li>WindowsのXInputとXAudio2に対応
+<li>アトミック操作
+<li>電源管理(バッテリー残量など)
+<li>非矩形ウィンドウ
+<li>32bitオーディオ(整数と浮動小数点)
+<li>単純化されたゲームコントローラAPI(ジョイスティックAPIも継続して利用可能!)
+<li>タッチ(マルチタッチ, ジェスチャー)に対応
+<li>フルスクリーンの改良
+<li>キーボードの改良(スキャンコード対キーコードなど)
+<li>メッセージボックス
+<li>クリップボードに対応
+<li>SDLで強固なGUIツールキットを構築するためのAPI
+<li>基本的なドラッグ・アンド・ドロップに対応
+<li>厳密なUnicode入力とIMEに対応
+<li>強力なアサート(検証)マクロ
+<li>LGPLからzlibライセンスへ移行
+<li>多くの1.2の問題の解消
+<li>その他多数!
 </ul>
-<a href="https://wiki.libsdl.org/Introduction">Introduction</a>�̃y�[�W�ɂ�, (1.2�̋@�\���܂�)SDL�̑S�@�\�̈ꗗ������.
-<h3 id="Looking_for_more_information">����Ȃ���������邽�߂�</h3>
-����������悢�ꏊ:
+<a href="https://wiki.libsdl.org/Introduction">Introduction</a>のページには, (1.2の機能を含む)SDLの全機能の一覧がある.
+<h3 id="Looking_for_more_information">さらなる情報を見つけるために</h3>
+情報を見つけるよい場所:
 <ul>
-<li>����wiki :-) <a href="https://wiki.libsdl.org/FrontPage">SDL Wiki</a>
-<li>SDL��test/�f�B���N�g���ɂ���e�X�g�v���O���� (<a href="https://github.com/libsdl-org/SDL/tree/main/test">�I�����C���ŉ{��</a>)
-<li>SDL<a href="https://discourse.libsdl.org/">���[�����O���X�g/�t�H�[����</a>
+<li>このwiki :-) <a href="https://wiki.libsdl.org/FrontPage">SDL Wiki</a>
+<li>SDLのtest/ディレクトリにあるテストプログラム (<a href="https://github.com/libsdl-org/SDL/tree/main/test">オンラインで閲覧</a>)
+<li>SDL<a href="https://discourse.libsdl.org/">メーリングリスト/フォーラム</a>
 </ul>
-<h2 id="Moving_from_SDL_1.2_to_2.0">SDL 1.2���� SDL 2.0�ւ̈ڍs</h2>
-<h3 id="Some_general_truths">�������̎���</h3>
+<h2 id="Moving_from_SDL_1.2_to_2.0">SDL 1.2から SDL 2.0への移行</h2>
+<h3 id="Some_general_truths">いくつかの事実</h3>
 <p>
-SDL2�ւ̌݊����C���[�͂Ȃ�.
-2.0��API�ɕύX����Ȃ��, ���܂������悤�ɌÂ��֐���ύX��폜����K�v������.
-�P��1.2�̃v���O������2.0�̃w�b�_���C���N���[�h�����Ȃ��, ���炭�R���p�C���Ɏ��s���邾�낤.
-���̕����ł͍ł��傫�ȕύX�_�Ƃ܂����₷���_���������.
+SDL2への互換レイヤーはない.
+2.0のAPIに変更するならば, つじつまが合うように古い関数を変更や削除する必要がある.
+単に1.2のプログラムに2.0のヘッダをインクルードしたならば, 恐らくコンパイルに失敗するだろう.
+この文書では最も大きな変更点とつまずきやすい点を説明する.
 </p>
 <p>
-SDL_main�͑��݂��Ȃ�! �c��������Windows�ł�main()��WinMain()�̍����B�����߂̏����ȃR�[�h�Ђ͑��݂���. ������, 
-���̒��ɂ͏������̂��߂̃R�[�h�͂Ȃ�, �K�������g��Ȃ��Ă��悢.
-�����main�������邱�ƂȂ�SDL���g���邱�Ƃ��Ӗ���, SDL���g�����v���O�C����, �X�N���v�g�����SDL���W���[���Ƌ��Ɏg���ꍇ�ɗL���ł���.
-1.2��SDL_main�ōs���Ă������Ƃ�, ���ł͑S��SDL_Init()�ōs���Ă���.
+SDL_mainは存在しない! …たしかにWindowsではmain()とWinMain()の差を隠すための小さなコード片は存在する. しかし, 
+その中には初期化のためのコードはなく, 必ずしも使わなくてもよい.
+それはmainを乗っ取ることなくSDLが使えることを意味し, SDLを使ったプラグインや, スクリプト言語をSDLモジュールと共に使う場合に有利である.
+1.2のSDL_mainで行っていたことは, 今では全てSDL_Init()で行っている.
 </p>
 <p>
-SDL parachute��, ���͂⑶�݂��Ȃ�.
-1.2��SDL_INIT_NOPARACHUTE�ƌĂ΂�Ă������̂��f�t�H���g���B��ƂȂ���.
-����̓��C���X���b�h�ȊO���N���b�V�������Ƃ����������N�����Ă���. �����ăA�v���P�[�V�������Ǝ��ɐݒ肵���V�O�i��/��O�n���h����j�Q���Ă���.
-�����, �ꕔ�̊��ł̓N���b�V�����Ƀt���X�N���[���̌㏈�����s���Ă��Ȃ�����.
-���Ȃ��͎������g�ŃN���b�V���n���h���𓱓����邩, atexit()�֐���<a href="SDL_Quit.html">SDL_Quit()</a>�₻��Ɠ����̊֐����ĂԕK�v������.
-�Ȃ�, Unix���ł�, SDL�͍��ł�SIGINT��߂炦<a href="SDL_EventType.html">SQL_QUIT</a>�C�x���g�ɕϊ����Ă���̂Œ��ӂ��邱��.
+SDL parachuteは, もはや存在しない.
+1.2でSDL_INIT_NOPARACHUTEと呼ばれていたものがデフォルトかつ唯一となった.
+これはメインスレッド以外がクラッシュしたとき問題を引き起こしていた. そしてアプリケーションが独自に設定したシグナル/例外ハンドラを阻害していた.
+さらに, 一部の環境ではクラッシュ時にフルスクリーンの後処理が行われていなかった.
+あなたは自分自身でクラッシュハンドラを導入するか, atexit()関数で<a href="SDL_Quit.html">SDL_Quit()</a>やそれと同等の関数を呼ぶ必要がある.
+なお, Unix環境では, SDLは今でもSIGINTを捕らえ<a href="SDL_EventType.html">SQL_QUIT</a>イベントに変換しているので注意すること.
 </p>
-<h3 id="Video">�r�f�I</h3>
-<h4 id="Setting_up_a_game_with_the_new_video_API">�V�����r�f�IAPI�ŃQ�[��������������</h4>
+<h3 id="Video">ビデオ</h3>
+<h4 id="Setting_up_a_game_with_the_new_video_API">新しいビデオAPIでゲームを初期化する</h4>
 <p>
-1.2����ł����I�ɕω������̂̓r�f�IAPI�ł���.
-SDL��API���݌v���ꂽ1990�N��̏I��肩��󋵂͑傫���ω�����.
-���݂̃n�[�h�E�F�A��OS�̋@�\����������, �Â�1.2�̃r�f�IAPI�̑唼�͊��S�ɒu��������ꂽ.
-</p>
-<p>
-�S�z���邱�Ƃ͂Ȃ�. �V����API�͋��͂�, ��x�ω��𗝉������, �V�����d�l��API��1.2�̃Q�[���ɑg�ݍ��߂�͂���.
-���̕��@�͌�Ő�������.
+1.2から最も劇的に変化したのはビデオAPIである.
+SDLのAPIが設計された1990年代の終わりから状況は大きく変化した.
+現在のハードウェアとOSの機能を扱うため, 古い1.2のビデオAPIの大半は完全に置き換えられた.
 </p>
 <p>
-�K���Ȃ��Ƃ�, OpenGL���g���Ă���Ȃ��, ���ׂ����Ƃ͑����Ȃ�. �����̊֐���SDL2�̓����Ȃ��̂ɒu��������Ώ\���ł���.
+心配することはない. 新しいAPIは強力で, 一度変化を理解すれば, 新しい仕様のAPIを1.2のゲームに組み込めるはずだ.
+その方法は後で説明する.
 </p>
 <p>
-2D�O���t�B�b�N��, SDL1.2�ł́u�T�[�t�F�C�X�v�ƌĂ΂��s�N�Z���̃������o�b�t�@���񋟂���Ă���.
-�X�N���[�����ꎩ�̂��u�T�[�t�F�C�X�v��, 2D�����_�����O���\�t�g�E�F�A�ōs��ꂽ. ������, �T�[�t�F�C�X�Ԃ̃R�s�[(�]�� blit)���s���֐����񋟂���, �K�v�Ȃ�΃T�[�t�F�C�X�Ԃ̃s�N�Z���̌`�����ϊ�����Ă���.
-�����̓r�f�IRAM��GPU�ł͂Ȃ�, �قڑS�ăV�X�e��RAM��CPU�ōs���Ă���.
-SDL 2.0�ł͂��ꂪ�ς����. �قڑS�Ă��n�[�h�E�F�A�A�N�Z�����[�V�����ōs���, API������𔽉f�������̂ɂȂ���.
+幸いなことに, OpenGLを使っているならば, すべきことは多くない. 少数の関数をSDL2の等価なものに置き換えれば十分である.
 </p>
 <p>
-2D�Q�[���Ȃ��, 3�̃����_�����O�̕��@��1�ɕύX���邱�ƂɂȂ�.
-�����̕��@�ɂ��ďq�ׂ邪, �܂���{�I�Ȃ��Ƃ��������.
+2Dグラフィックは, SDL1.2では「サーフェイス」と呼ばれるピクセルのメモリバッファが提供されていた.
+スクリーンそれ自体も「サーフェイス」で, 2Dレンダリングがソフトウェアで行われた. そして, サーフェイス間のコピー(転送 blit)を行う関数が提供され, 必要ならばサーフェイス間のピクセルの形式が変換されていた.
+それらはビデオRAMとGPUではなく, ほぼ全てシステムRAMとCPUで行われていた.
+SDL 2.0ではこれが変わった. ほぼ全てがハードウェアアクセラレーションで行われ, APIもそれを反映したものになった.
 </p>
 <p>
-SDL_SetVideoMode()���o���Ă��邾�낤��?
-����͊��S�ɔp�~���ꂽ.
-SDL 2.0�ł͕����̃E�B���h�E���g����. ���̂��߂��̌Â��֐��͂��͂△�Ӗ��ł���.
+2Dゲームならば, 3つのレンダリングの方法の1つに変更することになる.
+それらの方法について述べるが, まず基本的なことを説明する.
 </p>
 <p>
-�����, ���̂悤�ȏ�������...
+SDL_SetVideoMode()を覚えているだろうか?
+それは完全に廃止された.
+SDL 2.0では複数のウィンドウが使える. そのためこの古い関数はもはや無意味である.
+</p>
+<p>
+よって, このような書き方は...
 <code>
 <pre>
     SDL_WM_SetCaption("My Game Window", "game");
@@ -130,7 +130,7 @@ SDL 2.0�ł͕����̃E�B���h�E���g����. ���̂��߂��̌Â��֐��͂��͂△�Ӗ��ł���.
 </code>
 </p>
 <p>
-���̂悤�ɂȂ�
+このようになる
 <code>
 <pre>
     SDL_Window *screen = <a href="SDL_CreateWindow.html" style="text-decoration:none;">SDL_CreateWindow</a>("My Game Window",
@@ -142,44 +142,44 @@ SDL 2.0�ł͕����̃E�B���h�E���g����. ���̂��߂��̌Â��֐��͂��͂△�Ӗ��ł���.
 </code>
 </p>
 <p>
-���̒u��������1.2�Ƃ悭���Ă��邱�Ƃ��킩�邾�낤.
-�ς�����̂�, (�K�v�Ȃ��)�����̃E�B���h�E���g����悤�ɂȂ������Ƃ�, ���ڍׂɐݒ�ł���悤�ɂȂ������Ƃł���.
-SDL_WM_SetCaption()���p�~���ꂽ.
-���ꂼ��̃E�B���h�E�����ꂼ��̃^�C�g�������悤�ɂȂ������߂ł���.
-(���<a href="SDL_SetWindowTitle.html">SDL_SetWindowTitle()</a>�ŕύX���邱�Ƃ��ł���.)
-�����, �E�B���h�E�̈ʒu���ݒ�ł���悤�ɂȂ���.
-(<strong>SDL_WINDOWPOS_UNDEFINED</strong>���g���΃V�X�e���̌��߂��ʒu�ɂȂ�. <strong>SDL_WINDOWPOS_CENTERED</strong>���g���̂��悢�I���ł���.)
+この置き換えは1.2とよく似ていることがわかるだろう.
+変わったのは, (必要ならば)複数のウィンドウが使えるようになったことと, より詳細に設定できるようになったことである.
+SDL_WM_SetCaption()も廃止された.
+それぞれのウィンドウがそれぞれのタイトルを持つようになったためである.
+(後で<a href="SDL_SetWindowTitle.html">SDL_SetWindowTitle()</a>で変更することもできる.)
+さらに, ウィンドウの位置も設定できるようになった.
+(<strong>SDL_WINDOWPOS_UNDEFINED</strong>を使えばシステムの決めた位置になる. <strong>SDL_WINDOWPOS_CENTERED</strong>を使うのもよい選択である.)
 </p>
 <p>
-���[�U���E�B���h�E��\������f�B�X�v���C���w�����邱�Ƃ��ł���: SDL2�̓}���`���j�^��������.
-������, �������ł͐������Ȃ�.
+ユーザがウィンドウを表示するディスプレイを指示することもできる: SDL2はマルチモニタも扱える.
+しかし, 今ここでは説明しない.
 </p>
 <p>
-����ŃE�B���h�E����ʂɕ\���ł���悤�ɂȂ���. ��������͂��̈����ɂ��ďq�ׂ�.
-SDL2�ɂ�<a href="SDL_Surface.html">SDL_Surface</a>�����݂���. ������, �g����Ȃ��, �{���ɗ~�����̂͐V����<a href="SDL_Texture.html">SDL_Texture</a>�̂͂���.
-<a href="SDL_Surface.html">SDL_Surface</a>�ł͏�ɃV�X�e����RAM���g��, �����ď��CPU�ő��삳���. ���̕��@�͎�肽���Ȃ����낤.
-SDL2�ɂ͐V���������_�����OAPI������.
-����̓V���v����2D�Q�[���ł̎g�p���Ӑ}���Ă���.
-������, �ł����ڂ��ׂ��Ȃ̂�,
-�\�t�g�E�F�A�����_�����O����r�f�IRAM��GPU�Ɉڍs�������Ƃł���.
-������, ���Ƃ��\�t�g�E�F�A�����_�����O�̌��ʂ���ʂɓ]�����邽�߂����Ɏg���ꍇ�ł����_�͂���: 
-�����\�Ȃ��OpenGL��Direct3D���g����. ����ɂ�荂���ɓ]������, Steam Overlay���L���ɂȂ�, ���R�Ɋg��k���ł���悤�ɂȂ�.
+これでウィンドウを画面に表示できるようになった. ここからはその扱いについて述べる.
+SDL2にも<a href="SDL_Surface.html">SDL_Surface</a>が存在する. しかし, 使えるならば, 本当に欲しいのは新しい<a href="SDL_Texture.html">SDL_Texture</a>のはずだ.
+<a href="SDL_Surface.html">SDL_Surface</a>では常にシステムのRAMを使い, そして常にCPUで操作される. その方法は取りたくないだろう.
+SDL2には新しいレンダリングAPIがある.
+これはシンプルな2Dゲームでの使用を意図している.
+しかし, 最も注目すべきなのは,
+ソフトウェアレンダリングからビデオRAMとGPUに移行したことである.
+そして, たとえソフトウェアレンダリングの結果を画面に転送するためだけに使う場合でも利点はある: 
+もし可能ならばOpenGLかDirect3Dが使われる. それにより高速に転送され, Steam Overlayが有効になり, 自由に拡大縮小できるようになる.
 </p>
 <p>
-�����ݒ�͈ȉ��̂悤�ɂȂ�.
+初期設定は以下のようになる.
 </p>
 <p>
-SDL_SetVideoMode()�͏�ŏq�ׂ��悤��<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>�ɂȂ���.
-������, �𑜓x�͂ǂ̂悤�ɐݒ肷��΂悢�̂��낤��?
-�Ⴆ��, ���Ȃ��̃Q�[����640�~480�Ńn�[�h�R�[�h����Ă����, 
-���݂̃��j�^�ł̓t���X�N���[���̉𑜓x�Ƃ��Đݒ�ł��Ȃ���������Ȃ�.
-�����ăE�B���h�E���[�h�Ȃ��, �n�C�G���h�̃��j�^�Ȃ�΂��Ȃ��̃Q�[���͓����X�֐؎�̂悤�Ɍ����Ă��܂����낤.
-SDL2�ł͂��悢��@������.
+SDL_SetVideoMode()は上で述べたように<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>になった.
+しかし, 解像度はどのように設定すればよいのだろうか?
+例えば, あなたのゲームが640×480でハードコードされていれば, 
+現在のモニタではフルスクリーンの解像度として設定できないかもしれない.
+そしてウィンドウモードならば, ハイエンドのモニタならばあなたのゲームは動く郵便切手のように見えてしまうだろう.
+SDL2ではよりよい解法がある.
 </p>
 <p>
-����SDL_ListModes()���ĂԕK�v�͂Ȃ�.
-���l�̊֐���SDL2�ɂ�����. (���[�v�̒���<a href="SDL_GetDisplayMode.html">SDL_GetDisplayMode()</a>��<a href="SDL_GetNumDisplayModes.html">SDL_GetNumDisplayModes()</a>��Ă�.) ������, ����ɐV�����d�l�u�t���X�N���[���f�X�N�g�b�v�v���g�����Ƃ��ł���. �����SDL�Ɂu��ʑS�̂�v�����邪�𑜓x�͕ς��Ȃ��v���Ƃ��w��������̂ł���.
-�Ⴆ��640�~480�̃Q�[���Ȃ��, ���̂悤�ɂȂ�:
+もうSDL_ListModes()を呼ぶ必要はない.
+同様の関数はSDL2にもある. (ループの中で<a href="SDL_GetDisplayMode.html">SDL_GetDisplayMode()</a>を<a href="SDL_GetNumDisplayModes.html">SDL_GetNumDisplayModes()</a>回呼ぶ.) しかし, 代わりに新しい仕様「フルスクリーンデスクトップ」を使うことができる. これはSDLに「画面全体を要求するが解像度は変えない」ことを指示するものである.
+例えば640×480のゲームならば, 次のようになる:
 </p>
 <p>
 <code>
@@ -193,13 +193,13 @@ SDL2�ł͂��悢��@������.
 </code>
 </p>
 <p>
-640�~480���w�肵�Ȃ����Ƃɒ��ӂ��邱��...�t���X�N���[���f�X�N�g�b�v�͉�ʑS�̂̃T�C�Y�ɂȂ�, �w�肵���T�C�Y�͖��������.
-�Q�[���E�B���h�E�̓N���b�N���ĐV�����𑜓x�ɂȂ�̂�҂����ɂ����Ɍ����.
-������, �f�X�N�g�b�v�̃T�C�Y�Ɋg��k�����邽�߂�GPU���g����. �����LCD�̉𑜓x��Ⴍ�U��������������őN���ɂȂ�X���ɂ���.
-����ɑ��̃E�B���h�E�̑傫�����ς�邱�Ƃ͂Ȃ�.
+640×480を指定しないことに注意すること...フルスクリーンデスクトップは画面全体のサイズになり, 指定したサイズは無視される.
+ゲームウィンドウはクリックして新しい解像度になるのを待たずにすぐに現れる.
+そして, デスクトップのサイズに拡大縮小するためにGPUが使われる. それはLCDの解像度を低く偽装するよりも高速で鮮明になる傾向にある.
+さらに他のウィンドウの大きさが変わることはない.
 </p>
 <p>
-���̓����_�����O�R���e�L�X�g���K�v�ɂȂ�.
+次はレンダリングコンテキストが必要になる.
 <code>
 <pre>
     SDL_Renderer *renderer = <a href="SDL_CreateRenderer.html" style="text-decoration:none;">SDL_CreateRenderer</a>(sdlWindow, -1, 0);
@@ -207,16 +207,16 @@ SDL2�ł͂��悢��@������.
 </code>
 </p>
 <p>
-SDL_Renderer�ɂ���ăE�B���h�E�ւ̕`��̕��@�͉B�������.
-Direct3D, OpenGL, OpenGL ES, �܂��̓\�t�g�E�F�A�Ń����_�����O����邪,
-���Ƃ�SDL���ǂ��I��ł����[�U�̓R�[�h�𓯂��悤�ɏ�����. (���[�U�������_�����O�̕��@�������I�Ɍ��߂邱�Ƃ��ł���.)
-�e�B�A�����O(tearing, �`��̍Œ��Ƀt���[�����ւ�邱�ƂŔ������邿���)���y�����邽�߂�, �������������(sync-to-vblank)���Ƃ������������Ȃ��, 3�Ԗڂ̈�����0��<strong>SDL_RENDERER_PRESENTVSYNC</strong>�ɕύX���邱��.
-�E�B���h�E�̐�������<strong>SDL_WINDOW_OPENGL</strong>�t���O���w�肵�Ă͂Ȃ�Ȃ�.
-����<a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>��OpenGL���g���ƌ��߂��Ȃ��, ���̂Ƃ��E�B���h�E�͂���ɍ��킹�čX�V�����.
+SDL_Rendererによってウィンドウへの描画の方法は隠蔽される.
+Direct3D, OpenGL, OpenGL ES, またはソフトウェアでレンダリングされるが,
+たとえSDLがどれを選んでもユーザはコードを同じように書ける. (ユーザがレンダリングの方法を強制的に決めることもできる.)
+ティアリング(tearing, 描画の最中にフレームが替わることで発生するちらつき)を軽減するために, 垂直同期を取る(sync-to-vblank)ことを強制したいならば, 3番目の引数の0を<strong>SDL_RENDERER_PRESENTVSYNC</strong>に変更すること.
+ウィンドウの生成時に<strong>SDL_WINDOW_OPENGL</strong>フラグを指定してはならない.
+もし<a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>がOpenGLを使うと決めたならば, そのときウィンドウはそれに合わせて更新される.
 </p>
 <p>
-���̓����������ł����Ȃ��,
-<a href="SDL_CreateWindowAndRenderer.html">SDL_CreateWindowAndRenderer()</a>�ň�܂Ƃ߂ɂ��邱�Ƃ��ł���:
+その働きが理解できたならば,
+<a href="SDL_CreateWindowAndRenderer.html">SDL_CreateWindowAndRenderer()</a>で一まとめにすることもできる:
 <code>
 <pre>
     SDL_Window *sdlWindow;
@@ -226,8 +226,8 @@ Direct3D, OpenGL, OpenGL ES, �܂��̓\�t�g�E�F�A�Ń����_�����O����邪,
 </code>
 </p>
 <p>
-�����̊֐�������Ɏ��s�����Ή�ʂւ̕`��̏����͐�����.
-�܂���ʂ����ŏ�������.
+これらの関数が正常に実行されれば画面への描画の準備は整った.
+まず画面を黒で消去する.
 <code>
 <pre>
     <a href="SDL_SetRenderDrawColor.html" style="text-decoration:none;">SDL_SetRenderDrawColor</a>(sdlRenderer, 0, 0, 0, 255);
@@ -237,46 +237,46 @@ Direct3D, OpenGL, OpenGL ES, �܂��̓\�t�g�E�F�A�Ń����_�����O����邪,
 </code>
 </p>
 <p>
-���̓���͗\�z�ł��邾�낤:
-�`������ɂ���(��, ��, ���S��0, ���͍ő�l), 
-�E�B���h�E�S�̂��N���A����, 
-�N���A�����E�B���h�E����ʂɕ\������.
-��ʂ̍X�V�̂��߂�SDL_UpdateRect()��SDL_Flip()���g�������Ƃ����邩������Ȃ���,
-�����_���[API�ł�<a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>���g����.
+この動作は予想できるだろう:
+描画を黒にする(赤, 緑, 青が全て0, αは最大値), 
+ウィンドウ全体をクリアする, 
+クリアしたウィンドウを画面に表示する.
+画面の更新のためにSDL_UpdateRect()やSDL_Flip()を使ったことがあるかもしれないが,
+レンダラーAPIでは<a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>が使われる.
 </p>
 <p>
-�������ŕK�v�Ȃ��Ƃ͂܂�����.
-<strong>SDL_WINDOW_FULLSCREEN_DESKTOP</strong>���w�肵���Ȃ��, �`�悷�ׂ���ʂ̎��ۂ̑傫�����킩��Ȃ�.
-����, �K���Ȃ��Ƃɂ���͒m��K�v���Ȃ�.
-1.2�ł�, �Ⴆ��640�~480��v�����Ă����̒ʂ�ɂȂ�Ƃ͌��炸, �����𑜓x�̉�ʂ̒����ɏ�������ʂ��\������邱�Ƃ�������.
+初期化で必要なことはまだある.
+<strong>SDL_WINDOW_FULLSCREEN_DESKTOP</strong>を指定したならば, 描画すべき画面の実際の大きさがわからない.
+だが, 幸いなことにそれは知る必要がない.
+1.2では, 例えば640×480を要求してもその通りになるとは限らず, 高い解像度の画面の中央に小さく画面が表示されることもあった.
 </p>
 <p>
-2.0�ł̓����_�����OAPI���g���Ƃ��̂悤�ɂȂ�...
+2.0ではレンダリングAPIを使うとこのようになる...
 <code>
 <pre>
-    <a href="SDL_SetHint.html" style="text-decoration:none;">SDL_SetHint</a>(<a href="SDL_HINT_RENDER_SCALE_QUALITY.html" style="text-decoration:none;">SDL_HINT_RENDER_SCALE_QUALITY</a>, "linear");  // �g��k�������炩�ɂȂ�
+    <a href="SDL_SetHint.html" style="text-decoration:none;">SDL_SetHint</a>(<a href="SDL_HINT_RENDER_SCALE_QUALITY.html" style="text-decoration:none;">SDL_HINT_RENDER_SCALE_QUALITY</a>, "linear");  // 拡大縮小が滑らかになる
     <a href="SDL_RenderSetLogicalSize.html" style="text-decoration:none;">SDL_RenderSetLogicalSize</a>(sdlRenderer, 640, 480);
 </pre>
 </code>
 </p>
 <p>
-...������, ���̂悤�ɂ��ׂ���.
-���̕��@�͘_���I�ȃ����_�����O�T�C�Y��l�X�ȖړI�ɍ��킹�ĕς�����_�ŗǂ����@�ł���. ������, �ł��d�v�Ȃ̂�, 
-�����_�����O�T�C�Y�ɃV�X�e�������킹�悤�Ƃ�������, �����_�����O�T�C�Y���V�X�e���ɍ��킹��悤�ɂȂ������Ƃł���.
-1920x1200�̃��j�^��640�~480�̃A�v���P�[�V�����𓮂����Ă�, SDL��GPU���g���Ċg�債��ʑS�̂ɕ\������.
-640�~480��1920�~1200�ł͏c���䂪�قȂ邪, SDL�͂��̓_���l�����Ă���, �\�Ȍ���g�債����ɍ��т�ǉ�(letterboxing)����.
+...そして, このようにすべきた.
+この方法は論理的なレンダリングサイズを様々な目的に合わせて変えられる点で良い方法である. しかし, 最も重要なのは, 
+レンダリングサイズにシステムを合わせようとする代わりに, レンダリングサイズをシステムに合わせるようになったことである.
+1920x1200のモニタで640×480のアプリケーションを動かしても, SDLはGPUを使って拡大し画面全体に表示する.
+640×480と1920×1200では縦横比が異なるが, SDLはその点も考慮しており, 可能な限り拡大した後に黒帯を追加(letterboxing)する.
 </p>
 <p>
-��������{���̕`�悪�n�܂�.
+ここから本当の描画が始まる.
 </p>
-<h4 id="If_your_game_just_wants_to_get_fully-rendered_frames_to_the_screen">�P�[�X1: ��ʑS�̂��������g�Ń����_�����O�������ꍇ</h4>
+<h4 id="If_your_game_just_wants_to_get_fully-rendered_frames_to_the_screen">ケース1: 画面全体を自分自身でレンダリングしたい場合</h4>
 <p>
-�Â��Q�[���ɂ�, �A�v���P�[�V�������S�Ẵs�N�Z����`�悵, �Ō�ɂ��̌��ʂ���ʂɓ]��������̂�����.
-�Ⴆ��, Doom, Duke Nukem 3D�Ȃǂ������ł���.
+古いゲームには, アプリケーションが全てのピクセルを描画し, 最後にその結果を画面に転送するものがある.
+例えば, Doom, Duke Nukem 3Dなどがそうである.
 </p>
 <p>
-���̏ꍇ��, 1��<a href="SDL_Texture.html">SDL_Texture</a>����ʂ�\���悤�ɂ���.
-640�~480�̃Q�[���p�ɐ������Ă݂悤:
+この場合は, 1つの<a href="SDL_Texture.html">SDL_Texture</a>が画面を表すようにする.
+640×480のゲーム用に生成してみよう:
 <code>
 <pre>
     sdlTexture = <a href="SDL_CreateTexture.html" style="text-decoration:none;">SDL_CreateTexture</a>(sdlRenderer,
@@ -287,22 +287,22 @@ Direct3D, OpenGL, OpenGL ES, �܂��̓\�t�g�E�F�A�Ń����_�����O����邪,
 </code>
 </p>
 <p>
-�����GPU��̃e�N�X�`���[��\���Ă���.
-���̃e�N�X�`���̃s�N�Z���̍X�V�������������, �E�B���h�E�Ƀe�N�X�`����`�悵, �`�悵�����̂Ɖ�ʂ����ւ���.
-<strong>SDL_TEXTUREACCESS_STREAMING</strong>��SDL�Ƀe�N�X�`���̃R���e�L�X�g�������I�ɕς�邱�Ƃ�m�点�Ă���.
+これはGPU上のテクスチャーを表している.
+このテクスチャのピクセルの更新を完了した後に, ウィンドウにテクスチャを描画し, 描画したものと画面を入れ替える.
+<strong>SDL_TEXTUREACCESS_STREAMING</strong>はSDLにテクスチャのコンテキストが周期的に変わることを知らせている.
 </p>
 <p>
-�ȑO��<a href="SDL_Surface.html">SDL_Surface</a>�ɕ`�悵, ���ꂩ��SDL_Flip()�ŉ�ʂɕ\�����Ă������낤.
-���݂ł�, �s�N�Z���̏������ݐ�Ƃ���, RAM��<a href="SDL_Surface.html">SDL_Surface</a>�𐶐����邾���łȂ�, �P��malloc()�Ŋm�ۂ����u���b�N���g�����Ƃ��ł���.
-�����̏�ł̓o�b�t�@��RGBA�s�N�Z�����������ނ��Ƃ͂ł���. ������, �ϊ����K�v�Ȃ�Ύ��̕��@�ł��悢.
+以前は<a href="SDL_Surface.html">SDL_Surface</a>に描画し, それからSDL_Flip()で画面に表示していただろう.
+現在では, ピクセルの書き込み先として, RAMに<a href="SDL_Surface.html">SDL_Surface</a>を生成するだけでなく, 単にmalloc()で確保したブロックを使うこともできる.
+理屈の上ではバッファにRGBAピクセルを書き込むことはできる. しかし, 変換が必要ならば次の方法でもよい.
 <code>
 <pre>
-    extern Uint32 *myPixels;  // surface->pixels �� malloc()�Ŋm�ۂ����o�b�t�@�Ȃ�
+    extern Uint32 *myPixels;  // surface->pixels や malloc()で確保したバッファなど
 </pre>
 </code>
 </p>
 <p>
-�t���[���̍Ō�Ŏ��̂悤�Ƀe�N�X�`���[���X�V����:
+フレームの最後で次のようにテクスチャーを更新する:
 <code>
 <pre>
     <a href="SDL_UpdateTexture.html" style="text-decoration:none;">SDL_UpdateTexture</a>(sdlTexture, NULL, myPixels, 640 * sizeof (Uint32));
@@ -310,12 +310,12 @@ Direct3D, OpenGL, OpenGL ES, �܂��̓\�t�g�E�F�A�Ń����_�����O����邪,
 </code>
 </p>
 <p>
-����Ńs�N�Z����GPU�������ւƓ]�������.
-�]������̈�Ƃ���NULL�̕����ɂ͂ݏo�����̈���w�肵�Ă�, ���݂̃n�[�h�E�F�A�Ȃ�Ζ��Ȃ��t���[���o�b�t�@���Ɏ��܂�悤�ɂȂ�͂���.
-�Ō�̈����̓s�b�`(����s���玟�̍s�܂ł̃o�C�g��)����, ���̗�ł̓��j�A��RGBA�o�b�t�@�Ȃ̂�, �P��640(��)�~4(R,G,B,A)�ł���.
+これでピクセルがGPUメモリへと転送される.
+転送する領域としてNULLの部分にはみ出した領域を指定しても, 現在のハードウェアならば問題なくフレームバッファ内に収まるようになるはずだ.
+最後の引数はピッチ(ある行から次の行までのバイト数)だが, この例ではリニアなRGBAバッファなので, 単に640(幅)×4(R,G,B,A)である.
 </p>
 <p>
-���ꂩ��e�N�X�`������ʂɕ\������:
+これからテクスチャを画面に表示する:
 <code>
 <pre>
     <a href="SDL_RenderClear.html" style="text-decoration:none;">SDL_RenderClear</a>(sdlRenderer);
@@ -325,21 +325,21 @@ Direct3D, OpenGL, OpenGL ES, �܂��̓\�t�g�E�F�A�Ń����_�����O����邪,
 </code>
 </p>
 <p>
-���ꂾ����.
-<a href="SDL_RenderClear.html">SDL_RenderClear()</a>�͌��݂̃r�f�I�t���[���o�b�t�@(�Ō��Steam Overlay���������񂾂��̂��܂�)����������.
-<a href="SDL_RenderCopy.html">SDL_RenderCopy()</a>�̓e�N�X�`���̃R���e�L�X�g���r�f�I�t���[���o�b�t�@�ɃR�s�[����(�����<a href="SDL_RenderSetLogicalSize.html">SDL_RenderSetLogicalSize()</a>�ɂ���Ē����Ŋg��k�������).
-������, <a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>�͉�ʂɕ\������.
+これだけだ.
+<a href="SDL_RenderClear.html">SDL_RenderClear()</a>は現在のビデオフレームバッファ(最後にSteam Overlayが書き込んだものも含む)を消去する.
+<a href="SDL_RenderCopy.html">SDL_RenderCopy()</a>はテクスチャのコンテキストをビデオフレームバッファにコピーする(さらに<a href="SDL_RenderSetLogicalSize.html">SDL_RenderSetLogicalSize()</a>によって中央で拡大縮小される).
+そして, <a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>は画面に表示する.
 </p>
-<h4 id="If_your_game_wants_to_blit_surfaces_to_the_screen">�P�[�X2: ��ʂɃT�[�t�F�C�X���R�s�[�������ꍇ</h4>
+<h4 id="If_your_game_wants_to_blit_surfaces_to_the_screen">ケース2: 画面にサーフェイスをコピーしたい場合</h4>
 <p>
-�����ł�, ���Ȃ���SDL1.2�̃Q�[���������̃O���t�B�b�N���f�B�X�N����SDL_Surface�ɓǂݍ���ł���ꍇ�ɂ��Ĉ���.
-�����������SDL_HWSURFACE���w�肵�ăr�f�IRAM��Ɋm�ۂ��悤�Ƃ��Ă��邩������Ȃ�.
-�ǂݍ��ނ͈̂�x��, �K�v�����邽�тɉ��x���t���[���o�b�t�@�ɓ]�����邪, �ύX����邱�Ƃ͂Ȃ�.
-�V���v����2D�Q�[���͂����Ȃ��Ă���͂���.
-�T�[�t�F�C�X���u�X�v���C�g�v�ƍl���Ă���, �o�b�t�@�Ƀs�N�Z�����������܂Ȃ��Ȃ��, ���̍��ڂ͂��Ȃ��ɍ����Ă���.
+ここでは, あなたのSDL1.2のゲームが多くのグラフィックをディスクからSDL_Surfaceに読み込んでいる場合について扱う.
+もしかするとSDL_HWSURFACEを指定してビデオRAM上に確保しようとしているかもしれない.
+読み込むのは一度で, 必要があるたびに何度もフレームバッファに転送するが, 変更されることはない.
+シンプルな2Dゲームはそうなっているはずだ.
+サーフェイスを「スプライト」と考えていて, バッファにピクセルを書き込まないならば, この項目はあなたに合っている.
 </p>
 <p>
-�e�N�X�`��(GPU��������̃T�[�t�F�C�X)���X�ɐ���������@��, �傫��1�̃e�N�X�`���𐶐�����̂Ɠ����ł���:
+テクスチャ(GPUメモリ上のサーフェイス)を個々に生成する方法は, 大きな1つのテクスチャを生成するのと同じである:
 <code>
 <pre>
     sdlTexture = <a href="SDL_CreateTexture.html" style="text-decoration:none;">SDL_CreateTexture</a>(sdlRenderer,
@@ -350,9 +350,9 @@ Direct3D, OpenGL, OpenGL ES, �܂��̓\�t�g�E�F�A�Ń����_�����O����邪,
 </code>
 </p>
 <p>
-��������Ί��҂����ʂ�ɂȂ邾�낤.
-<strong>SDL_TEXTUREACCESS_STATIC</strong>���g���̂�, �]�������͈̂�x����������ł���.
-������, �����ƕ֗��ȕ��@������:
+こうすれば期待した通りになるだろう.
+<strong>SDL_TEXTUREACCESS_STATIC</strong>を使うのは, 転送されるのは一度だけだからである.
+しかし, もっと便利な方法がある:
 <code>
 <pre>
     sdlTexture = <a href="SDL_CreateTextureFromSurface.html" style="text-decoration:none;">SDL_CreateTextureFromSurface</a>(sdlRenderer, mySurface);
@@ -360,24 +360,24 @@ Direct3D, OpenGL, OpenGL ES, �܂��̓\�t�g�E�F�A�Ń����_�����O����邪,
 </code>
 </p>
 <p>
-���̕��@�̏ꍇ, �ǂݍ��݂͍��܂Œʂ�<a href="SDL_Surface.html">SDL_Surface</a>�ɑ΂��čs����, �Ō�ɂ�����e�N�X�`���ɕϊ����邱�ƂɂȂ�.
-��x<a href="SDL_Texture.html">SDL_Texture</a>�ɕϊ������, ���̃T�[�t�F�C�X�͉�����Ă悢.
+この方法の場合, 読み込みは今まで通り<a href="SDL_Surface.html">SDL_Surface</a>に対して行うが, 最後にそれをテクスチャに変換することになる.
+一度<a href="SDL_Texture.html">SDL_Texture</a>に変換すれば, 元のサーフェイスは解放してよい.
 </p>
 <p>
-1.2�ł�, ������<a href="SDL_Surface.html">SDL_Surface</a>���m�ۂ�, �����<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>�ŉ�ʂ̃T�[�t�F�C�X�ɓ]�����ăt���[���o�b�t�@���\����, �Ō��SDL_Flip()�ŉ�ʂ��X�V���Ă���.
-SDL 2.0�ł�, ������<a href="SDL_Texture.html">SDL_Texture</a>���m�ۂ�, �����<a href="SDL_RenderCopy.html">SDL_RenderCopy()</a>�Ń����_���[�ɓ]�����ăt���[���o�b�t�@���\����, �Ō��<a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>�ŉ�ʂ��X�V����.
-����͒P���ł���.
-�����̃e�N�X�`����ύX���Ȃ��Ȃ��, �����ɕ`��ł��邾�낤.
+1.2では, 多数の<a href="SDL_Surface.html">SDL_Surface</a>を確保し, それを<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>で画面のサーフェイスに転送してフレームバッファを構成し, 最後にSDL_Flip()で画面を更新していた.
+SDL 2.0では, 多数の<a href="SDL_Texture.html">SDL_Texture</a>を確保し, それを<a href="SDL_RenderCopy.html">SDL_RenderCopy()</a>でレンダラーに転送してフレームバッファを構成し, 最後に<a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>で画面を更新する.
+これは単純である.
+これらのテクスチャを変更しないならば, 高速に描画できるだろう.
 </p>
-<h4 id="If_your_game_wants_to_do_both">�P�[�X3: �������g�������ꍇ</h4>
+<h4 id="If_your_game_wants_to_do_both">ケース3: 両方を使いたい場合</h4>
 <p>
-�t���[���o�b�t�@�ւ̃T�[�t�F�C�X�̓]����, �X�̃s�N�Z���̕ύX�̗������s�������ꍇ��, ��╡�G�ɂȂ�.
-Round trips(�e�N�X�`������̃f�[�^�̓ǂݖ߂�)�͔��ɍ��R�X�g�ł���.
-��ʓI�ɂ̓f�[�^�͏�Ɉ���ʍs���]�܂���.
-���炭���̏ꍇ�ł��ǂ��̂�, �ŏI�I�ɉ�ʂɓ]������܂őS�ă\�t�g�E�F�A���Ɏ~�߂Ă�����, �O��2�̕��@��g�ݍ��킹����@�ł���.
+フレームバッファへのサーフェイスの転送と, 個々のピクセルの変更の両方を行いたい場合は, やや複雑になる.
+Round trips(テクスチャからのデータの読み戻し)は非常に高コストである.
+一般的にはデータは常に一方通行が望ましい.
+恐らくこの場合最も良いのは, 最終的に画面に転送するまで全てソフトウェア内に止めておいて, 前の2つの方法を組み合わせる方法である.
 </p>
 <p>
-�K���Ȃ��Ƃ�1.2��<a href="SDL_Surface.html">SDL_Surface</a> API�͂قƂ�ǎg����. ����ĉ�ʂ̃T�[�t�F�C�X��, ���ꂩ��...
+幸いなことに1.2の<a href="SDL_Surface.html">SDL_Surface</a> APIはほとんど使える. よって画面のサーフェイスを, これから...
 <code>
 <pre>
     SDL_Surface *screen = SDL_SetVideoMode(640, 480, 32, 0);
@@ -385,10 +385,10 @@ Round trips(�e�N�X�`������̃f�[�^�̓ǂݖ߂�)�͔��ɍ��R�X�g�ł���.
 </code>
 </p>
 <p>
-...���̂悤�ɂ���...
+...このようにする...
 <code>
 <pre>
-    // 16�i���ŏ��������Ȃ����<a href="SDL_PixelFormatEnumToMasks.html"  style="text-decoration:none;">SDL_PixelFormatEnumToMasks()</a>���g������!
+    // 16進数で書きたくなければ<a href="SDL_PixelFormatEnumToMasks.html"  style="text-decoration:none;">SDL_PixelFormatEnumToMasks()</a>を使うこと!
     SDL_Surface *screen = <a href="SDL_CreateRGBSurface.html" style="text-decoration:none;">SDL_CreateRGBSurface</a>(0, 640, 480, 32,
                                                0x00FF0000,
                                                0x0000FF00,
@@ -402,8 +402,8 @@ Round trips(�e�N�X�`������̃f�[�^�̓ǂݖ߂�)�͔��ɍ��R�X�g�ł���.
 </code>
 </p>
 <p>
-...�����đO�̕��@�œ]���ƃs�N�Z���̕ύX���s��, ����SDL_Surface�̃t���[���o�b�t�@���\�z����.
-��x��ʂ̃s�N�Z���𓾂鏀���������, �ŏ��̕��@�Ɠ����悤�ɂ���΂悢.
+...そして前の方法で転送とピクセルの変更を行い, このSDL_Surfaceのフレームバッファを構築する.
+一度画面のピクセルを得る準備をすれば, 最初の方法と同じようにすればよい.
 <code>
 <pre>
     <a href="SDL_UpdateTexture.html" style="text-decoration:none;">SDL_UpdateTexture</a>(sdlTexture, NULL, screen->pixels, screen->pitch);
@@ -414,115 +414,115 @@ Round trips(�e�N�X�`������̃f�[�^�̓ǂݖ߂�)�͔��ɍ��R�X�g�ł���.
 </code>
 </p>
 <p>
-�e�N�X�`���̐����͍����Ŏ����������Ă���̂Œ��ӂ��邱��: 
-<a href="SDL_CreateTextureFromSurface.html">SDL_CreateTextureFromSurface()</a>�𖈃t���[���Ă�ł͂Ȃ�Ȃ�.
-�������ŃT�[�t�F�C�X����e�N�X�`���ւ̕ϊ�����x�����s������.
+テクスチャの生成は高価で資源が限られているので注意すること: 
+<a href="SDL_CreateTextureFromSurface.html">SDL_CreateTextureFromSurface()</a>を毎フレーム呼んではならない.
+初期化でサーフェイスからテクスチャへの変換を一度だけ行うこと.
 </p>
 <p>
-�����_���[API�ɂ͂����Ƒ����̋@�\������, ���Ȃ��̃A�v���P�[�V�����̃R�[�h: �g��k��, �����̕`��Ȃǂƒu������������̂����邾�낤.���̋@�\���g����, 
-�X�̃s�N�Z���̑�����~�߂đS��GPU��Ɉڂ����Ƃ��ł�, 
-���Ȃ��̃v���O�����������ŒP���ɂł��邩������Ȃ�.
+レンダラーAPIにはもっと多くの機能があり, あなたのアプリケーションのコード: 拡大縮小, 線分の描画などと置き換えられるものもあるだろう.その機能を使えば, 
+個々のピクセルの操作を止めて全てGPU上に移すことができ, 
+あなたのプログラムを高速で単純にできるかもしれない.
 </p>
-<h4 id="Other_Renderer_API_notes">���̑��̃����_���[API</h4>
+<h4 id="Other_Renderer_API_notes">その他のレンダラーAPI</h4>
 <p>
-�������̒P���Ȍ��ʂ̓s�N�Z���𒼐ڑ��삵�Ȃ��Ă������_���[API�Ŏ����ł���.
-�ȉ��̓��̈ꕔ��1.2�̃T�[�t�F�C�X�ł��g����.
+いくつかの単純な効果はピクセルを直接操作しなくてもレンダラーAPIで実現できる.
+以下の内の一部は1.2のサーフェイスでも使える.
 </p>
 <ul>
-<li>���J���[: <a href="SDL_Color.html">SDL_Color</a>�̃����o��4�ԖڂɃ��l���ǉ����ꂽ. 1.2�ł�<a href="SDL_Color.html">SDL_Color</a>�̂��̒l(unused�Ƃ������O������)�͎g���Ȃ�����. 2.0�ł͕K�{�ł���.
-<li>���u�����h: <a href="SDL_SetSurfaceAlphaMod.html">SDL_SetSurfaceAlphaMod()</a>��<a href="SDL_SetTextureAlphaMod.html">SDL_SetTextureAlphaMod()</a>��SDL_SetAlpha()�̑���Ɏg������.
-�T�[�t�F�C�X�̃��u�����h��<a href="SDL_SetSurfaceBlendMode.html">SDL_SetSurfaceBlendMode()</a>, �e�N�X�`���̃��u�����h��<a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode()</a>�Őݒ�ł���.
-<li>�J���[�L�[: <a href="SDL_SetColorKey.html">SDL_SetColorKey()</a>�̈�����, SDL_TRUE��SDL_SRCCOLORKEY�̑���ɓn������.
-<li>�F�ϒ�: �ꕔ�̃����_���[�͑S�̓I�ȐF�̕ϒ��ɑΉ�����(srcC = srcC * color). �ڍׂ�<a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod()</a>���Q�Ƃ��邱��.
+<li>αカラー: <a href="SDL_Color.html">SDL_Color</a>のメンバの4番目にα値が追加された. 1.2では<a href="SDL_Color.html">SDL_Color</a>のこの値(unusedという名前だった)は使われなかった. 2.0では必須である.
+<li>αブレンド: <a href="SDL_SetSurfaceAlphaMod.html">SDL_SetSurfaceAlphaMod()</a>と<a href="SDL_SetTextureAlphaMod.html">SDL_SetTextureAlphaMod()</a>をSDL_SetAlpha()の代わりに使うこと.
+サーフェイスのαブレンドは<a href="SDL_SetSurfaceBlendMode.html">SDL_SetSurfaceBlendMode()</a>, テクスチャのαブレンドは<a href="SDL_SetTextureBlendMode.html">SDL_SetTextureBlendMode()</a>で設定できる.
+<li>カラーキー: <a href="SDL_SetColorKey.html">SDL_SetColorKey()</a>の引数に, SDL_TRUEをSDL_SRCCOLORKEYの代わりに渡すこと.
+<li>色変調: 一部のレンダラーは全体的な色の変調に対応した(srcC = srcC * color). 詳細は<a href="SDL_SetTextureColorMod.html">SDL_SetTextureColorMod()</a>を参照すること.
 </ul>
 <h3 id="OpenGL">OpenGL</h3>
 <p>
-OpenGL�𒼐ڂ����Ă���Ȃ�Έڍs�͊ȒP�ł���.
-SDL_SetVideoMode()��<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>��<a href="SDL_GL_CreateContext.html">SDL_GL_CreateContext()</a>�ɒu��������. ������, SDL_GL_SwapBuffers()��<a href="SDL_GL_SwapWindow.html">SDL_GL_SwapWindow(window)</a>�ɒu��������.
-������GL�̌Ăяo���͑S�ē����ł���.
+OpenGLを直接つかっているならば移行は簡単である.
+SDL_SetVideoMode()を<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>と<a href="SDL_GL_CreateContext.html">SDL_GL_CreateContext()</a>に置き換える. そして, SDL_GL_SwapBuffers()を<a href="SDL_GL_SwapWindow.html">SDL_GL_SwapWindow(window)</a>に置き換える.
+これらのGLの呼び出しは全て等価である.
 </p>
 <p>
-����SDL_GL_SetAttribute(SDL_GL_SWAP_CONTROL, x)���Ă�ł���Ȃ��, ������u��������.
-�����<a href="SDL_GL_SetSwapInterval.html">SDL_GL_SetSwapInterval(x)</a>�ɂȂ���. ����ő��݂���GL�R���e�L�X�g��ύX�ł���.
+もしSDL_GL_SetAttribute(SDL_GL_SWAP_CONTROL, x)を呼んでいるならば, これも置き換える.
+それは<a href="SDL_GL_SetSwapInterval.html">SDL_GL_SetSwapInterval(x)</a>になった. これで存在するGLコンテキストを変更できる.
 </p>
 <p>
-SDL 2.0�̓E�B���h�E/�t���X�N���[����؂�ւ����, OpenGL�E�B���h�E�ɖ߂��Ă�GL�R���e�L�X�g�͎����Ȃ�(���΂炵��!).
-�����<a href="SDL_SetWindowFullscreen.html">SDL_SetWindowFullscreen()</a>�Ŏ����ł���.
+SDL 2.0はウィンドウ/フルスクリーンを切り替えられ, OpenGLウィンドウに戻ってもGLコンテキストは失われない(すばらしい!).
+これは<a href="SDL_SetWindowFullscreen.html">SDL_SetWindowFullscreen()</a>で実現できる.
 </p>
-<h3 id="Input">����</h3>
+<h3 id="Input">入力</h3>
 <p>
-�悢�m�点��SDL 2.0�ł�Unicode���͂��ł���悤�ɂȂ�������,
-�����m�点�͂��̕ύX�̂��߂ɂ��Ȃ��̃v���O�����������C�����Ȃ���΂Ȃ�Ȃ����Ƃł���.
-</p>
-<p>
-1.2�ł�, SDL_EnableUNICODE(1)���Ă�ł�, �L�[�Ɋ֘A�t����ꂽ�����𓾂邾��������, �����̃A�v���P�[�V�����͉p�ꂵ���Ή��ł��Ȃ�����.
-����͉p�ꌗ�̊O�ł͂��܂��s����, �����ăA�W�A����ł�<em>�܂�����</em>���܂��s���Ȃ�.
+よい知らせはSDL 2.0ではUnicode入力ができるようになったこと,
+悪い知らせはこの変更のためにあなたのプログラムを少し修正しなければならないことである.
 </p>
 <p>
-���ۉ��͍���ł�����.
+1.2では, SDL_EnableUNICODE(1)を呼んでも, キーに関連付けられた文字を得るだけだった, 多くのアプリケーションは英語しか対応できなかった.
+これは英語圏の外ではうまく行かず, そしてアジア言語では<em>まったく</em>うまく行かない.
 </p>
 <p>
-2.0�ł͂������ς����.
-SDL_EnableUNICODE()�͔p�~����, <a href="SDL_Keysym.html">SDL_Keysym</a>��Unicode�̃t�B�[���h�ɂȂ���.
-���͂�<a href="SDL_EventType.html">SDL_KEYDOWN</a>�C�x���g����͕������͓͂����Ȃ�.
-���݂ł�<a href="SDL_EventType.html">SDL_KEYDOWN</a>��101�̃{�^���̂���W���C�X�e�B�b�N�̂悤�Ɉ�����.
-�e�L�X�g���͕͂ʂ̕��@�ōs��.
+国際化は困難であった.
 </p>
 <p>
-�V����<a href="SDL_EventType.html">SDL_TEXTINPUT</a>�C�x���g���ǉ����ꂽ.
-����̓��[�U���V�����e�L�X�g����͂��邽�тɔ�������.
-���̃e�L�X�g�̓L�[�̉�����IME(����͕��G�ȕ����̃e�L�X�g����͂���L���ȕ��@�ł���)�̗����Ŕ�������̂Œ��ӂ��邱��.
-���̃C�x���g�͓��͂��ꂽ1�����܂��͕��������̕������߂�.
-���̕�����͏��UTF-8�ł���.
+2.0ではここが変わった.
+SDL_EnableUNICODE()は廃止され, <a href="SDL_Keysym.html">SDL_Keysym</a>はUnicodeのフィールドになった.
+もはや<a href="SDL_EventType.html">SDL_KEYDOWN</a>イベントからは文字入力は得られない.
+現在では<a href="SDL_EventType.html">SDL_KEYDOWN</a>は101個のボタンのあるジョイスティックのように扱われる.
+テキスト入力は別の方法で行う.
 </p>
 <p>
-�������ۂɉ������L�[�����������Ȃ��, ���ł�<a href="SDL_EventType.html">SDL_KEYDOWN</a>���g����.
-������, ���̃V�X�e����1.2�̍�����2��: <a href="SDL_Keycode.html">�L�[�R�[�h</a>��<a href="SDL_Scancode.html">�X�L�����R�[�h</a>�ɕ����ꂽ.
+新しく<a href="SDL_EventType.html">SDL_TEXTINPUT</a>イベントが追加された.
+これはユーザが新しいテキストを入力するたびに発生する.
+このテキストはキーの押下とIME(これは複雑な複数のテキストを入力する有効な方法である)の両方で発生するので注意すること.
+このイベントは入力された1文字または複数文字の文字列を戻す.
+この文字列は常にUTF-8である.
 </p>
 <p>
-<a href="SDL_Scancode.html">�X�L�����R�[�h</a>�̓L�[�{�[�h���C�A�E�g�Ɉˑ����Ȃ�.
-�����, ���ۂɂ̓��[���b�p�̃L�[�{�[�h�ł�Dvorak�L�[�{�[�h�ł�, �u���[�U�̓A�����J��QWERTY�L�[�{�[�h��"Q"�̈ʒu�ɂ���L�[���������v�Ƃ��Ĉ���.
-<a href="SDL_Scancode.html">�X�L�����R�[�h</a>�͏�ɃL�[�̕����I�Ȉʒu������.
+もし実際に押したキーを扱いたいならば, 今でも<a href="SDL_EventType.html">SDL_KEYDOWN</a>が使える.
+しかし, このシステムは1.2の頃から2つ: <a href="SDL_Keycode.html">キーコード</a>と<a href="SDL_Scancode.html">スキャンコード</a>に分かれた.
 </p>
 <p>
-<a href="SDL_Keycode.html">�L�[�R�[�h</a>�̓L�[�{�[�h���C�A�E�g�Ɉˑ�����.
-����́u���[�U��"Q"�Ə����ꂽ�L�[���������v�Ƃ��Ĉ���.
+<a href="SDL_Scancode.html">スキャンコード</a>はキーボードレイアウトに依存しない.
+これは, 実際にはヨーロッパのキーボードでもDvorakキーボードでも, 「ユーザはアメリカのQWERTYキーボードの"Q"の位置にあるキーを押した」として扱う.
+<a href="SDL_Scancode.html">スキャンコード</a>は常にキーの物理的な位置を扱う.
 </p>
 <p>
-�Ⴆ��, �A�����J��QWERTY�L�[�{�[�h��CAPS LOCK�L�[����E2�ڂ̃L�[���������Ƃ���.
-<a href="SDL_Scancode.html">�X�L�����R�[�h</a>��SDL_SCANCODE_S��, <a href="SDL_Keycode.html">�L�[�R�[�h</a>��SDLK_S�ƂȂ邾�낤.
-Dvorak�L�[�{�[�h�̓����L�[�Ȃ��, <a href="SDL_Scancode.html">�X�L�����R�[�h</a>��SDL_SCANCODE_S��, <a href="SDL_Keycode.html">�L�[�R�[�h</a>��SDLK_O�ƂȂ�.
+<a href="SDL_Keycode.html">キーコード</a>はキーボードレイアウトに依存する.
+これは「ユーザは"Q"と書かれたキーを押した」として扱う.
 </p>
 <p>
-<a href="SDL_Keycode.html">�L�[�R�[�h</a>��<a href="SDL_Scancode.html">�X�L�����R�[�h</a>�͌��݂ł�32bit�ɂȂ����̂Œ��ӂ��邱��.
-SDLK_LAST�͂Ȃ��Ȃ���.
-SDL�L�[�Ƃ��Ȃ��̃A�v���P�[�V���������ŕK�v�Ȃ��̂�Ή��t���邽�߂�, �v���O�����ŗv�f����SDLK_LAST�̃e�[�u�����g���Ă���Ȃ��, ����͂��͂␳�������삵�Ȃ�.
-����Ƀn�b�V���e�[�u�����g���ׂ���.
-std::map���g���Ή\���낤.
-<a href="SDL_Scancode.html">�X�L�����R�[�h</a>��<a href="SDL_Keycode.html">�L�[�R�[�h</a>�̑���Ɏg���Ȃ��, <strong>SDL_NUM_SCANCODES</strong>��z��̗v�f���Ƃ��Ďg�����Ƃ��ł���.
-���̒l�͌��݂�512�ł���.
+例えば, アメリカのQWERTYキーボードのCAPS LOCKキーから右2つ目のキーを押したとする.
+<a href="SDL_Scancode.html">スキャンコード</a>がSDL_SCANCODE_Sで, <a href="SDL_Keycode.html">キーコード</a>はSDLK_Sとなるだろう.
+Dvorakキーボードの同じキーならば, <a href="SDL_Scancode.html">スキャンコード</a>はSDL_SCANCODE_Sで, <a href="SDL_Keycode.html">キーコード</a>はSDLK_Oとなる.
 </p>
 <p>
-SDLMod��<a href="SDL_Keymod.html">SDL_Keymod</a>�ɂȂ�, META�L�[(Windows�L�[)��GUI�L�[�ƌĂ΂��悤�ɂȂ���.
+<a href="SDL_Keycode.html">キーコード</a>と<a href="SDL_Scancode.html">スキャンコード</a>は現在では32bitになったので注意すること.
+SDLK_LASTはなくなった.
+SDLキーとあなたのアプリケーション内部で必要なものを対応付けるために, プログラムで要素数がSDLK_LAST個のテーブルを使っているならば, それはもはや正しく動作しない.
+代わりにハッシュテーブルを使うべきだ.
+std::mapを使えば可能だろう.
+<a href="SDL_Scancode.html">スキャンコード</a>を<a href="SDL_Keycode.html">キーコード</a>の代わりに使うならば, <strong>SDL_NUM_SCANCODES</strong>を配列の要素数として使うことができる.
+その値は現在は512である.
 </p>
 <p>
-SDL_GetKeyState()�̖��̂�<a href="SDL_GetKeyboardState.html">SDL_GetKeyboardState()</a>�ɕύX���ꂽ.
-�߂�l�̔z��̏���(�Y����)��, <a href="SDL_Keycode.html">SDL_Keycode</a>����<a href="SDL_Scancode.html">SDL_SCANCODE_*</a>�ɂȂ���.
+SDLModは<a href="SDL_Keymod.html">SDL_Keymod</a>になり, METAキー(Windowsキー)はGUIキーと呼ばれるようになった.
 </p>
 <p>
-���̓}�E�X���͂ł���.
+SDL_GetKeyState()の名称は<a href="SDL_GetKeyboardState.html">SDL_GetKeyboardState()</a>に変更された.
+戻り値の配列の順序(添え字)は, <a href="SDL_Keycode.html">SDL_Keycode</a>から<a href="SDL_Scancode.html">SDL_SCANCODE_*</a>になった.
 </p>
 <p>
-�܂�, �}�E�X�z�C�[���̓{�^���Ƃ��Ĉ����Ȃ��Ȃ���.
-����͊ԈႢ������. SDL 2.0�ł͓K�؂Ɉ�����.
-SDL_MOUSEWHEEL���Q�Ƃ��邱��.
-����, ���������̃z�C�[���ɑΉ����Ă���. �����Ĉꕔ�̊��ɂ���g���b�N�p�b�h��2�{�w�X�N���[�����z�C�[�����͂Ƃ��Ĉ�����.
-�}�E�X�z�C�[���̑����SDL_BUTTONDOWN�C�x���g�Ƃ��Ď󂯎�邱�Ƃ͂����Ȃ�. 4, 5�Ԗڂ̃{�^�������ۂ̃}�E�X�̃{�^���Ƃ��Ĉ�����.
+次はマウス入力である.
 </p>
 <p>
-�������Ȃ��̃Q�[�����}�E�X����������ւ����Ɠ������K�v������, 
-�Ⴆ��FPS�Ń}�E�X�J�[�\������ʂ̊O�ɏo�Ă��܂��ƃv���C���[��������ς����Ȃ��Ȃ�̂�h���Ȃ��, 
-�}�E�X�J�[�\�����B���ē��̓O���u���Ă�����������Ȃ�:
+まず, マウスホイールはボタンとして扱われなくなった.
+これは間違いだった. SDL 2.0では適切に扱われる.
+SDL_MOUSEWHEELを参照すること.
+垂直, 水平両方のホイールに対応している. そして一部の環境にあるトラックパッドの2本指スクロールもホイール入力として扱われる.
+マウスホイールの操作をSDL_BUTTONDOWNイベントとして受け取ることはもうない. 4, 5番目のボタンも実際のマウスのボタンとして扱われる.
+</p>
+<p>
+もしあなたのゲームがマウスをある方向へずっと動かす必要がある, 
+例えばFPSでマウスカーソルが画面の外に出てしまうとプレイヤーが向きを変えられなくなるのを防ぐならば, 
+マウスカーソルを隠して入力グラブしていたかもしれない:
 <code>
 <pre>
     SDL_ShowCursor(0);
@@ -531,52 +531,52 @@ SDL_MOUSEWHEEL���Q�Ƃ��邱��.
 </code>
 </p>
 <p>
-SDL2�ł͂���͏����ς����. ���̂悤�ɂ���...
+SDL2ではこれは少し変わった. このようにして...
 <code>
 <pre>
     SDL_SetRelativeMouseMode(SDL_TRUE);
 </pre>
 </code>
-���SDL�ɔC����΂悢.
+後はSDLに任せればよい.
 </p>
-<h3 id="Events">�C�x���g</h3>
+<h3 id="Events">イベント</h3>
 <p>
-<a href="SDL_PushEvent.html">SDL_PushEvent()</a>�̐������̖߂�l��0����1�ɂȂ���.
+<a href="SDL_PushEvent.html">SDL_PushEvent()</a>の成功時の戻り値は0から1になった.
 </p>
 <p>
-�C�x���g�}�X�N�͔͈͂��w��ł���悤�ɂȂ���:
+イベントマスクは範囲を指定できるようになった:
 <code>
 <pre>
     SDL_PeepEvents(&event, 1, SDL_GETEVENT, SDL_EVENTMASK(SDL_MOUSEBUTTONDOWN));
 </pre>
 </code>
-����͂��̂悤�ɂȂ�:
+これはこのようになる:
 <code>
 <pre>
     SDL_PeepEvents(&event, 1, SDL_GETEVENT, SDL_MOUSEBUTTONDOWN, SDL_MOUSEBUTTONDOWN);
 </pre>
 </code>
 </p>
-<h3 id="Audio">�I�[�f�B�I</h3>
+<h3 id="Audio">オーディオ</h3>
 <p>
-�K���Ȃ��Ƃ�, 1.2�Ƃ͈�_����������݊���������.
-�V�����@�\���g�������Ȃ�΂�����ł���. ������, ���炭�ύX�Ȃ��ɃR���p�C�������s���������낤.
+幸いなことに, 1.2とは一点を除き後方互換性がある.
+新しい機能を使いたいならばそれもできる. しかし, 恐らく変更なしにコンパイルし実行したいだろう.
 </p>
 <p>
-�d�v�ȗB��̈Ⴂ: �I�[�f�B�I�R�[���o�b�N�̓o�b�t�@�����S�ɏ��������ꂽ��Ԃ���n�܂�<strong>�Ȃ�</strong>.
-����ăo�b�t�@�ɂ͑S�ď������܂Ȃ���΂Ȃ�Ȃ�.
-��������������Ȃ����, �R�[���o�b�N�Ŗ������������ޕK�v������.
-�������Ȃ���, �������̌J��Ԃ���G������������.
-�����ȑO�Ɠ����悤�ɖ������ɏ������������Ȃ��, ���� <code>SDL_memset(stream, 0, len)</code> ���R�[���o�b�N�̐擪�ɑ}������΂悢.
+重要な唯一の違い: オーディオコールバックはバッファが完全に初期化された状態から始まら<strong>ない</strong>.
+よってバッファには全て書き込まなければならない.
+もし音声が足りなければ, コールバックで無音を書き込む必要がある.
+そうしないと, 同じ音の繰り返しや雑音が発生する.
+もし以前と同じように無条件に初期化したいならば, ただ <code>SDL_memset(stream, 0, len)</code> をコールバックの先頭に挿入すればよい.
 </p>
-<h3 id="Joysticks">�W���C�X�e�B�b�N</h3>
+<h3 id="Joysticks">ジョイスティック</h3>
 <p>
-�W���C�X�e�B�b�N�C�x���g��SDL_JoystickID�����悤�ɂȂ���.
-����ɂ��SDL 2.0�ł̓W���C�X�e�B�b�N�̃Q�[�����̔���������������悤�ɂȂ���.
-1.2�Ŏg���Ă����f�o�C�X�ꗗ�̔ԍ��̓f�o�C�X�ꗗ���ς��Ɩ����ɂȂ��Ă���.
+ジョイスティックイベントはSDL_JoystickIDを持つようになった.
+これによりSDL 2.0ではジョイスティックのゲーム中の抜き差しを扱えるようになった.
+1.2で使っていたデバイス一覧の番号はデバイス一覧が変わると無効になっていた.
 </p>
 <p>
-SDL_JoystickID�̓I�[�v������SDL_Joystick*���玟�̌Ăяo���œ�����:
+SDL_JoystickIDはオープンしたSDL_Joystick*から次の呼び出しで得られる:
 <code>
 <pre>
     SDL_JoystickID myID = <a href="SDL_JoystickInstanceID.html"  style="text-decoration:none;">SDL_JoystickInstanceID</a>(myOpenedStick);
@@ -584,165 +584,165 @@ SDL_JoystickID�̓I�[�v������SDL_Joystick*���玟�̌Ăяo���œ�����:
 </code>
 </p>
 <p>
-������, �W���C�X�e�B�b�N�̃C�x���g��which�t�B�[���h��myID���r����Ύ��ʂł���.
-�W���C�X�e�B�b�N�C�x���g���g�������Ȃ��Ȃ��, <a href="SDL_JoystickGetAxis.html">SDL_JoystickGetAxis()</a>�Ƃ��̒��Ԃ�SDL 1.2�̂悤�Ɏg����.
+そして, ジョイスティックのイベントのwhichフィールドとmyIDを比較すれば識別できる.
+ジョイスティックイベントを使いたくないならば, <a href="SDL_JoystickGetAxis.html">SDL_JoystickGetAxis()</a>とその仲間がSDL 1.2のように使える.
 </p>
 <p>
-�V�����Q�[���R���g���[���[API���`�F�b�N���ׂ���.
-����͂��΂炵�����̂�.
-������, 1.2API�ōs���Ă����l�X�ȍH�v��, �V�����R�[�h�ł͂�薾���ɉ����ł��邩������Ȃ�.
-������SDL_gamecontroller.h�ɂ���.
-�Q�[���R���g���[���[API��Steam��Big Picture���[�h�ɓK���Ă���:
-�قƂ�ǂ̃R���g���[���[�������I�ɐݒ�ł�,
-�����Ď蓮�Őݒ肵�����ꍇ�ɂ͂��΂炵�����[�U�C���^�[�t�F�[�X������.
-�ǂ���̏ꍇ�ł�, Steam�͂��Ȃ���SDL�A�v���P�[�V�����ɐݒ��񋟂���.
+新しいゲームコントローラーAPIもチェックすべきだ.
+それはすばらしいものだ.
+そして, 1.2APIで行っていた様々な工夫を, 新しいコードではより明快に解決できるかもしれない.
+それらはSDL_gamecontroller.hにある.
+ゲームコントローラーAPIはSteamのBig Pictureモードに適している:
+ほとんどのコントローラーを自動的に設定でき,
+そして手動で設定したい場合にはすばらしいユーザインターフェースがある.
+どちらの場合でも, SteamはあなたのSDLアプリケーションに設定を提供する.
 </p>
-<h3 id="Threads">�X���b�h</h3>
+<h3 id="Threads">スレッド</h3>
 <p>
-SDL_KillThread()�͔p�~���ꂽ.
-����͈��S�łȂ�, �M�p�ł�����̂ł͂Ȃ�����.
-�ł��悢����������, �t���O��ݒ肵�X���b�h�ɏI����`������@�ł���.
-�X���b�h�̓t���O�������I�Ɋm�F��, "kill"����X���b�h��<a href="SDL_WaitThread.html">SDL_WaitThread()</a>���Ă�Ō㏈�����s��.
-</p>
-<p>
-<a href="SDL_CreateThread.html">SDL_CreateThread()</a>�ɂ̓X���b�h�̖��O�̈������ǉ����ꂽ. ����̓f�o�b�O���̎��ʂɎg����.
-�g��Ȃ��̂ł����, �ǉ��̈�����NULL�ɂ���΂悢.
-</p>
-<h3 id="Audio_CDs">�I�[�f�B�ICD</h3>
-<p>
-1.2��CD API�͑S�Ĕp�~���ꂽ.
-�u�������͑��݂��Ȃ�.
-<a href="index.html#SDL_mixer">SDL_mixer</a>���g����<a href="http://www.vorbis.com/">Ogg Vorbis</a>�⑼�̃I�[�f�B�I�t�@�C���`���̉��y���Đ��ł���.
-</p>
-<h3 id="Dead_platforms">�Ή�����O�ꂽ��</h3>
-<p>
-OS/2��Mac OS 9�Ȃǂ̌Â����͐؂�̂Ă�ꂽ.
-�Ή��̊��͎��̒ʂ�ł���: Windows(XP�ȍ~), Linux, Mac OS X, iOS, Android.
-Haiku��Sony PSP�ł͓��삷�邪, �d������Ă��炸�Ή��͊��S�ł͂Ȃ�.
-�N�����p�b�`�𑗂�ΑΉ����͒ǉ�����邾�낤��, ���̐V�����o�[�W�����ւ̈ڍs���Â��F�ɕʂ��������Ƃ����ƍl���Ă���.
-</p>
-<h3 id="Mobile_platforms">���o�C����</h3>
-<p>
-�����ƑO����SDL 1.2�̔������iOS��Android�ł͑��݂��Ă���.
-���݂ł�SDL�͂����̊��ɐ����ɑΉ����Ă���. ������, 2.0 API�͂����ɂ悭�K�����Ă���.
-�قƂ�ǂ̃A�h�o�C�X�͂��̕����̑��̕����ɏ�����Ă��邪, ���������ӂ��ׂ����Ƃ�����.
+SDL_KillThread()は廃止された.
+それは安全でなく, 信用できるものではなかった.
+最もよい書き換えは, フラグを設定しスレッドに終了を伝える方法である.
+スレッドはフラグを周期的に確認し, "kill"するスレッドが<a href="SDL_WaitThread.html">SDL_WaitThread()</a>を呼んで後処理を行う.
 </p>
 <p>
-�ŏ���, ���o�C���[���݂̂̃C�x���g�����������݂���.
-�����������, iPhone��̐��E�̃��o�C���[����OS���s���悤�ȕ��@�ɑΉ����Ă���.
-�������͍ŏ��͊��ɑ��݂���SDL�C�x���g�ɑΉ��t���悤�Ƃ���(�Ⴆ�΁u�A�v���P�[�V�������w��ֈڂ����v���f�X�N�g�b�v�A�v���P�[�V�������t�H�[�J�X�����������Ƃɂ��铙).
-������, ���ۂɂ͂�������ً}�̖��ł���: 
-�����̏ꍇ�����̃C�x���g�ɂ͂����ɔ������Ȃ���΂Ȃ�Ȃ�. �����Ă������Ȃ����OS�̓A�v���P�[�V�������I�������Ă��܂�.
+<a href="SDL_CreateThread.html">SDL_CreateThread()</a>にはスレッドの名前の引数が追加された. これはデバッグ時の識別に使える.
+使わないのであれば, 追加の引数をNULLにすればよい.
+</p>
+<h3 id="Audio_CDs">オーディオCD</h3>
+<p>
+1.2のCD APIは全て廃止された.
+置き換えは存在しない.
+<a href="index.html#SDL_mixer">SDL_mixer</a>を使えば<a href="http://www.vorbis.com/">Ogg Vorbis</a>や他のオーディオファイル形式の音楽を再生できる.
+</p>
+<h3 id="Dead_platforms">対応から外れた環境</h3>
+<p>
+OS/2やMac OS 9などの古い環境は切り捨てられた.
+対応の環境は次の通りである: Windows(XP以降), Linux, Mac OS X, iOS, Android.
+HaikuやSony PSPでは動作するが, 重視されておらず対応は完全ではない.
+誰かがパッチを送れば対応環境は追加されるだろうが, この新しいバージョンへの移行が古い友に別れを告げるときだと考えている.
+</p>
+<h3 id="Mobile_platforms">モバイル環境</h3>
+<p>
+ずっと前からSDL 1.2の非公式なiOSとAndroid版は存在していた.
+現在ではSDLはこれらの環境に正式に対応している. そして, 2.0 APIはこれらによく適合している.
+ほとんどのアドバイスはこの文書の他の部分に書かれているが, いくつか注意すべきことがある.
 </p>
 <p>
-�����, �������͈ꕔ��Android��iOS�ŗL��SDL�C�x���g��ǉ�����.
-������SDL�C�x���g�t�B���^��ݒ肵��OS���񍐂���Ƃ����ɕ߂炦����悤�ɂ��ׂ��ł���.
-�Ȃ��Ȃ��, ����<a href="SDL_PollEvent.html">SDL_PollEvent()</a>�܂ő҂ƒx�����邩��ł���.
+最初に, モバイル端末のみのイベントがいくつか存在する.
+言い換えると, iPhone後の世界のモバイル端末のOSが行うような方法に対応している.
+私たちは最初は既に存在するSDLイベントに対応付けようとした(例えば「アプリケーションが背後へ移った」をデスクトップアプリケーションがフォーカスを失ったことにする等).
+しかし, 実際にはそれよりも緊急の問題である: 
+多くの場合これらのイベントにはすぐに反応しなければならない. そしてそうしなければOSはアプリケーションを終了させてしまう.
 </p>
 <p>
-�Ⴆ��, iOS��applicationWillResignActive()�ɑΉ�����SDL_APP_WILLENTERBACKGROUND�����邪, �������̃C�x���g���󂯎������ɉ�ʂɕ`�悷���, iOS�͂��Ȃ��̃v���Z�X���I�������Ă��܂�.
-�����, ����͂����ɕ߂炦�Ȃ���΂Ȃ�Ȃ�:
+よって, 私たちは一部のAndroidとiOS固有のSDLイベントを追加した.
+それらはSDLイベントフィルタを設定してOSが報告するとすぐに捕らえられるようにすべきである.
+なぜならば, 次の<a href="SDL_PollEvent.html">SDL_PollEvent()</a>まで待つと遅すぎるからである.
+</p>
+<p>
+例えば, iOSのapplicationWillResignActive()に対応したSDL_APP_WILLENTERBACKGROUNDがあるが, もしこのイベントを受け取った後に画面に描画すると, iOSはあなたのプロセスを終了させてしまう.
+よって, これはすぐに捕らえなければならない:
 <code>
 <pre>
     int SDLCALL myEventFilter(void *userdata, SDL_Event * event)
     {
         if (event->type == SDL_APP_WILLENTERBACKGROUND) {
-            // �����Ŏ������������. �O�ʂɖ߂�܂ŉ����`�悵�Ă͂Ȃ�Ȃ�!
+            // ここで資源を解放する. 前面に戻るまで何も描画してはならない!
         }
-        // ���̑��̏���
+        // その他の処理
         return 1;
     }
 
-    // ����������...
+    // 初期化処理...
 
-    // �C�x���g����������Ƃ�����myEventFilter(data, event)���ĂԂ悤�ɂ���
+    // イベントが発生するとすぐにmyEventFilter(data, event)を呼ぶようにする
     SDL_AddEventWatch(myEventFilter, data);
 </pre>
 </code>
 </p>
 <p>
-����, �}�E�X���̓C�x���g�ւ̕ϊ������łȂ�, ���ۂ̃^�b�`�C�x���g�����݂���.
-�^�b�`�̒ǐՂ�}���`�^�b�`, ���G�ȃW�F�X�`���[���s����.
-�]�ނȂ�΂������g�����Ƃ��ł���.
-�����̊֐���SDL_touch.h���Q�Ƃ�, SDL_events.h����<a href="SDL_Finger.html">SDL_Finger*</a>�����邱��.
+次に, マウス入力イベントへの変換だけでなく, 実際のタッチイベントも存在する.
+タッチの追跡やマルチタッチ, 複雑なジェスチャーも行える.
+望むならばこれらを使うことができる.
+これらの関数はSDL_touch.hを参照し, SDL_events.h内の<a href="SDL_Finger.html">SDL_Finger*</a>を見ること.
 </p>
 <p>
-SDL�͒P���ȃ^�b�`���}�E�X�C�x���g�ɑΉ��t���Ă���(���̏ꍇ, �C�x���g��which�t�B�[���h��SDL_TOUCH_MOUSEID���ݒ肳���)���Ƃɒ��ӂ��邱��.
-�����, �������G�ȃ^�b�`�C���^�[�t�F�[�X������Ȃ��Ȃ��, �����̃f�X�N�g�b�v�A�v���P�[�V���������̂܂܃X�}�[�g�t�H���̉�ʂŎw���g���đ���ł��邱�Ƃ��Ӗ�����.
-����������, ���o�C����p�A�v���P�[�V������SDL_TOUCH_MOUSEID�C�x���g�𖳎������ق����悢��������Ȃ�.
-������, ����ł��^�b�`�C�x���g�ɉ����u�{���́v�}�E�X�C�x���g���l������K�v������\�\ �ꕔ�̃��o�C���f�o�C�X��USB��Bluetooth�}�E�X�ɑΉ����Ă��邩�炾.
-���ǂǂ�����΂悢�̂��낤!�\�\�����SDL2�ֈڍs�������, �A�v���P�[�V���������ǂ��邽�߂ɂ悭�l����ׂ����Ƃ�.
+SDLは単純なタッチをマウスイベントに対応付けている(この場合, イベントのwhichフィールドにSDL_TOUCH_MOUSEIDが設定される)ことに注意すること.
+これは, もし複雑なタッチインターフェースを扱わないならば, 既存のデスクトップアプリケーションをそのままスマートフォンの画面で指を使って操作できることを意味する.
+したがって, モバイル専用アプリケーションはSDL_TOUCH_MOUSEIDイベントを無視したほうがよいかもしれない.
+しかし, それでもタッチイベントに加え「本物の」マウスイベントも考慮する必要がある―― 一部のモバイルデバイスはUSBやBluetoothマウスに対応しているからだ.
+結局どうすればよいのだろう!――これはSDL2へ移行した後に, アプリケーションを改良するためによく考えるべきことだ.
 </p>
 <p>
-���̂ق��ɂ�, �X�N���[���L�[�{�[�h��\������<a href="SDL_StartTextInput.html">SDL_StartTextInput()</a>�̗l��, ���o�C�����ɓK�����֐�������.
-���������p���邱��.
+そのほかにも, スクリーンキーボードを表示する<a href="SDL_StartTextInput.html">SDL_StartTextInput()</a>の様な, モバイル環境に適した関数がある.
+これらも活用すること.
 </p>
 <p>
-�t���������, Android��iOS�ŗL�̊֐�������, ��ʓI��API�ł͑���ł��Ȃ����ŗL�̋@�\�𑀍�ł���.
-�����̊֐���SDL_system.h���Q�Ƃ��邱��.
+付け加えると, AndroidとiOS固有の関数もあり, 一般的なAPIでは操作できない環境固有の機能を操作できる.
+それらの関数はSDL_system.hを参照すること.
 </p>
 <h3 id="RWops">RWops</h3>
 <p>
-<a href="SDL_RWread.html">SDL_RWread()</a>��<a href="SDL_RWwrite.html">SDL_RWwrite()</a>�̓G���[�̂Ƃ�-1�ł͂Ȃ�0��߂��悤�ɂȂ���.
+<a href="SDL_RWread.html">SDL_RWread()</a>と<a href="SDL_RWwrite.html">SDL_RWwrite()</a>はエラーのとき-1ではなく0を戻すようになった.
 </p>
 <p>
-�������g��SDL_RWops����������Ȃ��, �֐��̃V�O�j�`����ς��Ȃ���΂Ȃ�Ȃ�.
-�傫�ȃt�@�C�����������߂�, �֐��̌^��int����Sint64��size_t�ɂȂ���.
-�����̏ꍇ, �V�O�j�`����ς���ΈȑO�Ɠ����悤�ɓ�����, 
-���������̐����̂��߂ɏ�����������߂Ă����Ȃ��, �悢������ɂȂ邾�낤.
-�Ăяo���Ă���A�v���P�[�V�����͕ύX���ꂽ�߂�l�ɂ��킹��K�v������.
+自分自身でSDL_RWopsを実装するならば, 関数のシグニチャを変えなければならない.
+大きなファイルを扱うために, 関数の型はintからSint64とsize_tになった.
+多くの場合, シグニチャを変えれば以前と同じように動くが, 
+もしこれらの制限のために処理をあきらめていたならば, よい解決策になるだろう.
+呼び出しているアプリケーションは変更された戻り値にあわせる必要がある.
 </p>
 <p>
-RWops�ɂ�size���\�b�h�����݂���悤�ɂȂ���.
-�����<a href="SDL_RWsize.html">SDL_RWsize()</a>�̌Ăяo���ł���.
-�����, RWops�ɃX�g���[���̃T�C�Y���A�v���P�[�V������0byte����Ō�܂ŃV�[�N�����邱�ƂȂ��T�C�Y��񍐂�����̂ł���.
-�����������, �V�[�N�����ɃX�g���[���̑S�T�C�Y�𓾂���悤�ɂȂ���.
-d������s���Ȃ��X�g���[���Ȃ��-1��߂�.
+RWopsにもsizeメソッドが存在するようになった.
+それは<a href="SDL_RWsize.html">SDL_RWsize()</a>の呼び出しである.
+これは, RWopsにストリームのサイズをアプリケーションに0byteから最後までシークさせることなくサイズを報告するものである.
+言い換えると, シークせずにストリームの全サイズを得られるようになった.
+dこれを行えないストリームならば-1を戻す.
 </p>
-<h3 id="Add-on_libraries">�g�����C�u����</h3>
+<h3 id="Add-on_libraries">拡張ライブラリ</h3>
 <p>
-�����̊g�����C�u�����ł���SDL_image, SDL_ttf, SDL_mixer, SDL_net��SDL 2.0�ɑΉ���, <a href="index.html#SDL2_image">SDL2_image</a>, <a href="index.html#SDL_ttf">SDL2_ttf</a>, <a href="index.html#SDL_mixer">SDL2_mixer</a>, <a href="index.html#SDL_net">SDL2_net</a>�ƂȂ���.
-�K�v�Ȃ��<a href="https://hg.libsdl.org/">mercurial���|�W�g��</a>����ŐV�ł��_�E�����[�h�ł���.
-������񂠂Ȃ��̃v���O������make����Ƃ���, �����N��SDL_image�ł͂Ȃ�SDL2_image�ɕύX����K�v������.
-</p>
-<p>
-�����̃��C�u�����͈ȍ~��1.2���T�|�[�g���Ȃ�. ������1.2�Ƃ̌݊����͐V�����o�[�W�����̂ǂ̎��_���Ŏ����邾�낤.
+公式の拡張ライブラリであるSDL_image, SDL_ttf, SDL_mixer, SDL_netはSDL 2.0に対応し, <a href="index.html#SDL2_image">SDL2_image</a>, <a href="index.html#SDL_ttf">SDL2_ttf</a>, <a href="index.html#SDL_mixer">SDL2_mixer</a>, <a href="index.html#SDL_net">SDL2_net</a>となった.
+必要ならば<a href="https://hg.libsdl.org/">mercurialリポジトリ</a>から最新版をダウンロードできる.
+もちろんあなたのプログラムをmakeするときは, リンクをSDL_imageではなくSDL2_imageに変更する必要がある.
 </p>
 <p>
-<a href="http://cms.ferzkopp.net/index.php/software/13-sdl-gfx">SDL_gfx</a>��2.0.21(2010�N5��)�ȍ~��2.0�ŃR���p�C���ł���.
+これらのライブラリは以降は1.2をサポートしない. そして1.2との互換性は新しいバージョンのどの時点かで失われるだろう.
 </p>
-<h3 id="Summary_of_some_renamed_or_replaced_things">���̕ύX�ƒu�������̂܂Ƃ�</h3>
+<p>
+<a href="http://cms.ferzkopp.net/index.php/software/13-sdl-gfx">SDL_gfx</a>も2.0.21(2010年5月)以降は2.0でコンパイルできる.
+</p>
+<h3 id="Summary_of_some_renamed_or_replaced_things">名称変更と置き換えのまとめ</h3>
 <p>
 <ul>
-<li>SDL_SetVideoMode(): �����<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>���g������. (OpenGL�ł͂Ȃ��ÓT�I��2D�����_�����O���g�������Ȃ��, <a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>�Ƌ��Ɏg��.)
-<li>SDL_ListModes(): �����<a href="SDL_GetDisplayMode.html">SDL_GetDisplayMode()</a>/<a href="SDL_GetNumDisplayModes.html">SDL_GetNumDisplayModes()</a>���g������.
-<li>SDL_UpdateRect()/SDL_Flip(): �����<a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>���g������.
-<li>SDL_Surface/2D�����_�����O: �T�[�t�F�C�X�͑S�đ��݂���. ������, SDL_Surface���g���̂ł͂Ȃ�, �\�Ȃ��SDL_Texture��<a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>�Ƌ��Ɏg�����Ƃ𐄏�����.
+<li>SDL_SetVideoMode(): 代わりに<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>を使うこと. (OpenGLではなく古典的な2Dレンダリングを使いたいならば, <a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>と共に使う.)
+<li>SDL_ListModes(): 代わりに<a href="SDL_GetDisplayMode.html">SDL_GetDisplayMode()</a>/<a href="SDL_GetNumDisplayModes.html">SDL_GetNumDisplayModes()</a>を使うこと.
+<li>SDL_UpdateRect()/SDL_Flip(): 代わりに<a href="SDL_RenderPresent.html">SDL_RenderPresent()</a>を使うこと.
+<li>SDL_Surface/2Dレンダリング: サーフェイスは全て存在する. しかし, SDL_Surfaceを使うのではなく, 可能ならばSDL_Textureを<a href="SDL_CreateRenderer.html">SDL_CreateRenderer()</a>と共に使うことを推奨する.
 <li>
-SDL_VideoInfo: �����<a href="SDL_GetRendererInfo.html">SDL_GetRendererInfo()</a>/<a href="SDL_GetRenderDriverInfo.html">SDL_GetRenderDriverInfo()</a>���g������.
-<li>SDL_GetCurrentVideoDisplay(): �����<a href="SDL_GetWindowDisplayIndex.html">SDL_GetWindowDisplayIndex()</a>���g������.
-<li>SDL_VIDEORESIZE�C�x���g: �V����<a href="SDL_WindowEvent.html">SDL_WINDOWEVENT_RESIZED</a>�Ɠ����ł���.
+SDL_VideoInfo: 代わりに<a href="SDL_GetRendererInfo.html">SDL_GetRendererInfo()</a>/<a href="SDL_GetRenderDriverInfo.html">SDL_GetRenderDriverInfo()</a>を使うこと.
+<li>SDL_GetCurrentVideoDisplay(): 代わりに<a href="SDL_GetWindowDisplayIndex.html">SDL_GetWindowDisplayIndex()</a>を使うこと.
+<li>SDL_VIDEORESIZEイベント: 新しい<a href="SDL_WindowEvent.html">SDL_WINDOWEVENT_RESIZED</a>と等価である.
 </ul>
 </p>
-<h3 id="Other_stuff">���̑�</h3>
+<h3 id="Other_stuff">その他</h3>
 <p>
-SDL 2.0�ɂ�, �V���������[���c���1.2�ɂ͂Ȃ������@�\������.
-�����ł�1.2�̃v���O������2.0�Ŏ��s�ł���悤�ɂ�������݂̂��s������, 
-�]�ނ��̂����邪, ���݂ł��ł���̂�, ���Ȃ��Ă��悭�Ȃ����̂����h�L�������g�𒲂ׂ�ׂ��ł���.
-�Ⴆ��, �S�ẴQ�[���̂��̂悤�ȃR�[�h��, ���b�Z�[�W�{�b�N�X�֐��ɒu����������:
+SDL 2.0には, 新しく興味深い膨大な1.2にはなかった機能がある.
+ここでは1.2のプログラムを2.0で実行できるようにする説明のみを行ったが, 
+望むものがあるが, 現在でもできるのか, しなくてもよくなったのかをドキュメントを調べるべきである.
+例えば, 全てのゲームのこのようなコードは, メッセージボックス関数に置き換えられる:
 <code>
 <pre>
    #if USING_SDL
-   fprintf(stderr, "MSGBOX: %s\n%s\n", title, text);   // ����, ������
+   fprintf(stderr, "MSGBOX: %s¥n%s¥n", title, text);   // ああ, ううむ
    #endif
 </pre>
 </code>
-���̏ꍇ��<a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox()</a>���g����悤�ɂȂ���.
+この場合は<a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox()</a>が使えるようになった.
 </p>
 <p>
-�ŏ��ɖ߂���<a href="#Overview_of_new_features">�V�����@�\�̊T�v</a>���`�F�b�N���Ă݂悤!
+最初に戻って<a href="#Overview_of_new_features">新しい機能の概要</a>をチェックしてみよう!
 </p>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/MigrationGuide">SDL 1.2 to 2.0 Migration Guide - SDL Wiki</a>
 <hr>
 </body>

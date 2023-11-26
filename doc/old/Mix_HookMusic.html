@@ -1,70 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
-<title>Mix_HookMusic</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_HookMusic
-<hr>
-<h1>Mix_HookMusic</h1>
-<p>
-<code>void Mix_HookMusic(void (*mix_func)(void *udata, Uint8 *stream, int len), void *arg)</code>
-</p>
-<p>
-<dl>
-<dt>mix_func</dt><dd>音楽プレイヤーミキサー関数へのポインタ. NULLのとき音楽プレイヤーを使わず, 通常の内部の音楽プレイヤーで使用するミキサーに戻す</dd>
-<dt>arg</dt><dd>
-mix_funcのudataに渡す引数
-</dd>
-</dl>
-</p>
-<p>
-ユーザの音楽プレイヤーを設定する.
-この関数のargはmix_funcが呼ばれたとき引数udataに渡される.
-引数streamはlenバイトの音楽データが格納されたオーディオストリームバッファである.
-この音楽プレイヤーは必要なときに自動的に呼ばれる.
-この関数が呼ばれると音楽の再生がすぐに始まる.
-全ての音楽の再生と停止の関数は, この後には無効になる.
-一時停止と一時停止の解除は有効である.
-ユーザの音楽プレイヤーと内部の音楽プレイヤーは同時に使われない. ユーザの音楽プレイヤーが優先される.
-ユーザの音楽プレイヤーはMix_HookMusic(NULL, NULL)で使われなくなる.
-<p>
-</p>
-メモ: コールバック関数内でSDL_mixerの関数やSDL_LockAudioを決して呼んではならない. 
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 音楽再生関数を作る
-// udataはintへのポインタを想定している
-void myMusicPlayer(void *udata, Uint8 *stream, int len)
-{
-    int i, pos=*(int*)udata;
-
-    // バッファに...うーん...音楽を書き込む
-    for(i=0; i&lt;len; i++)
-        stream[i]=(i+pos)&amp;ff;
-
-    // 次回のためのudataを設定する
-    pos+=len;
-    *(int*)udata=pos;
-}
-...
-// myMusicPlayerで...うーん...音楽を再生する
-int music_pos=0;
-Mix_HookMusic(myMusicPlayer, &amp;music_pos);
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_SetMusicCMD.html">Mix_SetMusicCMD</a>,
-<a href="Mix_GetMusicHookData.html">Mix_GetMusicHookData</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_60.html#SEC60">4.5.8 Mix_HookMusic</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

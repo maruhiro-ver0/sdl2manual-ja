@@ -1,40 +1,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_net">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_net-ApiByCategory.html" title="1��">
-<title>TCP�\�P�b�g</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_net-ApiByCategory.html" title="1つ上">
+<title>TCPソケット</title>
 </head>
 <body>
-<a href="index.html#SDL2_net">�ڎ�</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - <a href="SDL2_net-ApiByCategory.html">API(�@�\��)</a> - TCP�\�P�b�g
+<a href="index.html#SDL2_net">目次</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - <a href="SDL2_net-ApiByCategory.html">API(機能別)</a> - TCPソケット
 <hr>
-<h1>TCP�\�P�b�g</h1>
-�����̊֐���TCP�\�P�b�g������.
-UDP���ڑ����Ȃ��̂ɑ΂���, TCP�͊��S�ɐڑ����Ďg����.
-�܂�, (�\�Ȃ��)�S�Ẵp�P�b�g������ɓ͂�.
-TCP�̓p�P�b�g�����M�Ɠ��������Ŏ�M����邱�Ƃ��ۏႳ��Ă���.
-<h2>���</h2>
+<h1>TCPソケット</h1>
+これらの関数はTCPソケットを扱う.
+UDPが接続しないのに対して, TCPは完全に接続して使われる.
+また, (可能ならば)全てのパケットが相手に届く.
+TCPはパケットが送信と同じ順序で受信されることが保障されている.
+<h2>一般</h2>
 <ol>
-<li><a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open</a> - TCP�\�P�b�g���J��
-<li><a href="SDLNet_TCP_OpenClient.html">SDLNet_TCP_OpenClient</a> - �N���C�A���gTCP�\�P�b�g���J��
-<li><a href="SDLNet_TCP_OpenServer.html">SDLNet_TCP_OpenServer</a> - �T�[�oTCP�\�P�b�g���J��
-<li><a href="SDLNet_TCP_Close.html">SDLNet_TCP_Close</a> - TCP�l�b�g���[�N�\�P�b�g�����
+<li><a href="SDLNet_TCP_Open.html">SDLNet_TCP_Open</a> - TCPソケットを開く
+<li><a href="SDLNet_TCP_OpenClient.html">SDLNet_TCP_OpenClient</a> - クライアントTCPソケットを開く
+<li><a href="SDLNet_TCP_OpenServer.html">SDLNet_TCP_OpenServer</a> - サーバTCPソケットを開く
+<li><a href="SDLNet_TCP_Close.html">SDLNet_TCP_Close</a> - TCPネットワークソケットを閉じる
 </ol>
-<h2>�T�[�o</h2>
+<h2>サーバ</h2>
 <ol>
-<li><a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept</a> - �w��̃T�[�o�\�P�b�g�Őڑ����󂯓����
+<li><a href="SDLNet_TCP_Accept.html">SDLNet_TCP_Accept</a> - 指定のサーバソケットで接続を受け入れる
 </ol>
-<h2>���</h2>
+<h2>情報</h2>
 <ol>
-<li><a href="SDLNet_TCP_GetPeerAddress.html">SDLNet_TCP_GetPeerAddress</a> - �\�P�b�g�Ɋ֘A�t����ꂽ�����[�g�V�X�e����IP�A�h���X�𓾂�
+<li><a href="SDLNet_TCP_GetPeerAddress.html">SDLNet_TCP_GetPeerAddress</a> - ソケットに関連付けられたリモートシステムのIPアドレスを得る
 </ol>
-<h2>���o��</h2>
+<h2>入出力</h2>
 <ol>
-<li><a href="SDLNet_TCP_Send.html">SDLNet_TCP_Send</a> - �T�[�o�łȂ��\�P�b�g�Ƀf�[�^�𑗐M����
-<li><a href="SDLNet_TCP_Recv.html">SDLNet_TCP_Recv</a> - �T�[�o�łȂ��\�P�b�g����f�[�^����M����
+<li><a href="SDLNet_TCP_Send.html">SDLNet_TCP_Send</a> - サーバでないソケットにデータを送信する
+<li><a href="SDLNet_TCP_Recv.html">SDLNet_TCP_Recv</a> - サーバでないソケットからデータを受信する
 </ol>
 <hr>
 </body>

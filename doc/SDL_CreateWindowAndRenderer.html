@@ -1,34 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryVideo.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryVideo.html" title="1ã¤ä¸Š">
 <title>SDL_CreateWindowAndRenderer</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryVideo.html">ƒfƒBƒXƒvƒŒƒC‚ÆƒEƒBƒ“ƒhƒE</a> - SDL_CreateWindowAndRenderer
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryVideo.html">ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã¨ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦</a> - SDL_CreateWindowAndRenderer
 <hr>
 <h1>SDL_CreateWindowAndRenderer</h1>
-ƒEƒBƒ“ƒhƒE‚ÆƒfƒtƒHƒ‹ƒg‚ÌƒŒƒ“ƒ_ƒ‰‚ğ¶¬‚·‚é
-<h2>\•¶</h2>
+ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¨ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ¬ãƒ³ãƒ€ãƒ©ã‚’ç”Ÿæˆã™ã‚‹
+<h2>æ§‹æ–‡</h2>
 <code>int SDL_CreateWindowAndRenderer(int width, int height, Uint32 window_flags, SDL_Window** window, SDL_Renderer** renderer)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_CreateWindowAndRenderer">
-<tr><td>width</td><td>ƒEƒBƒ“ƒhƒE‚Ì•</td></tr>
-<tr><td>height</td><td>ƒEƒBƒ“ƒhƒE‚Ì‚‚³</td></tr>
-<tr><td>window_flags</td><td>ƒEƒBƒ“ƒhƒE‚ğ¶¬‚·‚é‚Æ‚«‚Ég‚¤ƒtƒ‰ƒO (<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>‚ğQÆ‚·‚é‚±‚Æ)</td></tr>
-<tr><td>window</td><td>¶¬‚³‚ê‚½ƒEƒBƒ“ƒhƒE‚ğ‘ã“ü‚·‚éƒ|ƒCƒ“ƒ^, ¸”s‚Ì‚Æ‚«‚ÍNULL</td></tr>
-<tr><td>renderer</td><td>¶¬‚³‚ê‚½ƒŒƒ“ƒ_ƒ‰‚ğ‘ã“ü‚·‚éƒ|ƒCƒ“ƒ^, ¸”s‚Ì‚Æ‚«‚ÍNULL</td></tr>
+<tr><td>width</td><td>ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å¹…</td></tr>
+<tr><td>height</td><td>ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®é«˜ã•</td></tr>
+<tr><td>window_flags</td><td>ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç”Ÿæˆã™ã‚‹ã¨ãã«ä½¿ã†ãƒ•ãƒ©ã‚° (<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>ã‚’å‚ç…§ã™ã‚‹ã“ã¨)</td></tr>
+<tr><td>window</td><td>ç”Ÿæˆã•ã‚ŒãŸã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ä»£å…¥ã™ã‚‹ãƒã‚¤ãƒ³ã‚¿, å¤±æ•—ã®ã¨ãã¯NULL</td></tr>
+<tr><td>renderer</td><td>ç”Ÿæˆã•ã‚ŒãŸãƒ¬ãƒ³ãƒ€ãƒ©ã‚’ä»£å…¥ã™ã‚‹ãƒã‚¤ãƒ³ã‚¿, å¤±æ•—ã®ã¨ãã¯NULL</td></tr>
 </table>
-<h2>–ß‚è’l</h2>
+<h2>æˆ»ã‚Šå€¤</h2>
 <p>
-¬Œ÷‚Ì‚Æ‚«0, ¸”s‚Ì‚Æ‚«-1‚ğ–ß‚·.
-<a href="SDL_GetError.html">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
+æˆåŠŸã®ã¨ã0, å¤±æ•—ã®ã¨ã-1ã‚’æˆ»ã™.
+<a href="SDL_GetError.html">SDL_GetError()</a>ã‚’å‘¼ã‚“ã§è©³ç´°ã‚’çŸ¥ã‚‹ã“ã¨ãŒã§ãã‚‹.
 </p>
-<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<h2>ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h2>
 <p>
 <code>
 <pre>
@@ -43,23 +43,23 @@ int main(int argc, char *argv[])
     SDL_Event event;
 
     if (SDL_Init(SDL_INIT_VIDEO) &lt; 0) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDL‚ğ‰Šú‰»‚Å‚«‚È‚©‚Á‚½: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDLã‚’åˆæœŸåŒ–ã§ããªã‹ã£ãŸ: %s", SDL_GetError());
         return 3;
     }
 
     if (SDL_CreateWindowAndRenderer(320, 240, SDL_WINDOW_RESIZABLE, &window, &renderer)) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "ƒEƒBƒ“ƒhƒE‚ÆƒŒƒ“ƒ_ƒ‰[‚ğ¶¬‚Å‚«‚È‚©‚Á‚½: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¨ãƒ¬ãƒ³ãƒ€ãƒ©ãƒ¼ã‚’ç”Ÿæˆã§ããªã‹ã£ãŸ: %s", SDL_GetError());
         return 3;
     }
 
     surface = SDL_LoadBMP("sample.bmp");
     if (!surface) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "‰æ‘œ‚©‚çƒT[ƒtƒFƒCƒX‚ğ¶¬‚Å‚«‚È‚©‚Á‚½: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "ç”»åƒã‹ã‚‰ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’ç”Ÿæˆã§ããªã‹ã£ãŸ: %s", SDL_GetError());
         return 3;
     }
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     if (!texture) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "ƒT[ƒtƒFƒCƒX‚©‚çƒeƒNƒXƒ`ƒƒ‚ğ¶¬‚Å‚«‚È‚©‚Á‚½: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‹ã‚‰ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’ç”Ÿæˆã§ããªã‹ã£ãŸ: %s", SDL_GetError());
         return 3;
     }
     SDL_FreeSurface(surface);
@@ -86,12 +86,12 @@ int main(int argc, char *argv[])
 </pre>
 </code>
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.0ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.0ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_CreateRenderer.html">SDL_CreateRenderer</a><br>
 <a href="SDL_CreateWindow.html">SDL_CreateWindow</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_CreateWindowAndRenderer">SDL_CreateWindowAndRenderer - SDL Wiki</a>
 <hr>
 </body>

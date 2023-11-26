@@ -1,47 +1,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryGameController.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryGameController.html" title="1ã¤ä¸Š">
 <title>SDL_GameControllerClose</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryGameController.html">ƒQ[ƒ€ƒRƒ“ƒgƒ[ƒ‰[</a> - SDL_GameControllerClose
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryGameController.html">ã‚²ãƒ¼ãƒ ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼</a> - SDL_GameControllerClose
 <hr>
 <h1>SDL_GameControllerClose</h1>
-<a href="SDL_GameControllerOpen.html">SDL_GameControllerOpen()</a>‚ÅŠJ‚¢‚½ƒQ[ƒ€ƒRƒ“ƒgƒ[ƒ‰[‚ğ•Â‚¶‚é
-<h2>\•¶</h2>
+<a href="SDL_GameControllerOpen.html">SDL_GameControllerOpen()</a>ã§é–‹ã„ãŸã‚²ãƒ¼ãƒ ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼ã‚’é–‰ã˜ã‚‹
+<h2>æ§‹æ–‡</h2>
 <code>void SDL_GameControllerClose(SDL_GameController* gamecontroller)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_GameControllerClose">
-<tr><td>gamecontroller</td><td><a href="SDL_GameControllerOpen.html">SDL_GameControllerOpen()</a>‚ÅŠJ‚¢‚½ƒQ[ƒ€ƒRƒ“ƒgƒ[ƒ‰[</td></tr>
+<tr><td>gamecontroller</td><td><a href="SDL_GameControllerOpen.html">SDL_GameControllerOpen()</a>ã§é–‹ã„ãŸã‚²ãƒ¼ãƒ ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼</td></tr>
 </table>
-<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<h2>ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h2>
 <p>
 <code>
 <pre>
-/* ‘S‚Ä‚ÌƒRƒ“ƒgƒ[ƒ‰[‚ğŠJ‚±‚¤‚Æ‚·‚é */
+/* å…¨ã¦ã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼ã‚’é–‹ã“ã†ã¨ã™ã‚‹ */
 for (int i = 0; i &lt; SDL_NumJoysticks(); ++i) {
     if (SDL_IsGameController(i)) {
         SDL_GameController *controller = SDL_GameControllerOpen(i);
         if (controller) {
             SDL_GameControllerClose(controller);
         } else {
-            fprintf(stderr, "ƒQ[ƒ€ƒRƒ“ƒgƒ[ƒ‰%d‚ğŠJ‚¯‚È‚©‚Á‚½: %s\n", i, SDL_GetError());
+            fprintf(stderr, "ã‚²ãƒ¼ãƒ ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©%dã‚’é–‹ã‘ãªã‹ã£ãŸ: %sÂ¥n", i, SDL_GetError());
         }
     }
 }
 </pre>
 </code>
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.0ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.0ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_GameControllerOpen.html">SDL_GameControllerOpen</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_GameControllerClose">SDL_GameControllerClose - SDL Wiki</a>
 <hr>
 </body>

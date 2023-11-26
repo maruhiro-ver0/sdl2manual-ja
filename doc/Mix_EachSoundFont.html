@@ -1,44 +1,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1つ上">
 <title>Mix_EachSoundFont</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_mixer-CategoryGeneral.html">���</a> - Mix_EachSoundFont
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryGeneral.html">一般</a> - Mix_EachSoundFont
 <hr>
 <h1>Mix_EachSoundFont</h1>
-MIDI�o�b�N�G���h�Ŏg�p����T�E���h�t�H���g�̃p�X���R�[���o�b�N�֐���1���n��
-<h2>�\��</h2>
+MIDIバックエンドで使用するサウンドフォントのパスをコールバック関数に1つずつ渡す
+<h2>構文</h2>
 <code>int Mix_EachSoundFont(int (SDLCALL *function)(const char*, void*), void *data)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="Mix_EachSoundFont">
-<tr><td>function</td><td>�p�X���ƂɌĂ΂��R�[���o�b�N�֐�</td></tr>
-<tr><td>data</td><td>�R�[���o�b�N�֐��Ŏg�p���邽�߂ɃR�[���o�b�N�֐��ɓn���|�C���^</td></tr>
+<tr><td>function</td><td>パスごとに呼ばれるコールバック関数</td></tr>
+<tr><td>data</td><td>コールバック関数で使用するためにコールバック関数に渡すポインタ</td></tr>
 </table>
-<h2>�߂�l</h2>
-�R�[���o�b�N����x�ł�0�ȊO��߂����Ƃ�0�ȊO��, �R�[���o�b�N��0�ȊO����x���߂��Ȃ������Ƃ�0��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+コールバックが一度でも0以外を戻したとき0以外を, コールバックが0以外を一度も戻さなかったとき0を戻す.
+<h2>詳細</h2>
 <p>
-���̊֐���, <a href="Mix_GetSoundFonts.html">Mix_GetSoundFonts()</a>���񍐂����Z�~�R�����ŋ�؂�ꂽ�p�X�̕�����𕪊���, ���ꂼ��̃p�X���ƂɃR�[���o�b�N�֐����Ăяo��.
+この関数は, <a href="Mix_GetSoundFonts.html">Mix_GetSoundFonts()</a>が報告したセミコロンで区切られたパスの文字列を分割し, それぞれのパスごとにコールバック関数を呼び出す.
 </p>
 <p>
-���p�\�ȃp�X���Ȃ��ꍇ, ���̊֐��̓R�[���o�b�N���Ă΂���0��߂�.
+利用可能なパスがない場合, この関数はコールバックを呼ばずに0を戻す.
 </p>
 <p>
-�R�[���o�b�N��0�ȊO��߂���, ���̊֐��͌J��Ԃ����~�߂�0�ȊO��߂�.
-�R�[���o�b�N��0��߂���, ���̊֐��͌J��Ԃ����p����, ���̃p�X�ōĂуR�[���o�b�N���Ăяo��.
-�R�[���o�b�N��0�ȊO����x���߂��Ȃ������Ȃ��, ���̊֐���0��߂�. ����͖ړI�̃T�E���h�t�H���g�������������𔻒f���邽�߂Ɏg����.
+コールバックが0以外を戻すと, この関数は繰り返しを止めて0以外を戻す.
+コールバックが0を戻すと, この関数は繰り返しを継続し, 次のパスで再びコールバックを呼び出す.
+コールバックが0以外を一度も戻さなかったならば, この関数は0を戻す. これは目的のサウンドフォントが見つかったかを判断するために使える.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="Mix_GetSoundFonts.html">Mix_GetSoundFonts</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/Mix_EachSoundFont">SDL2_mixer/Mix_EachSoundFont</a>
 <hr>
 </body>

@@ -1,59 +1,59 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1つ上">
 <title>Mix_FadeInChannelTimed</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_mixer-CategoryChannels.html">�`���l��</a> - Mix_FadeInChannelTimed
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryChannels.html">チャネル</a> - Mix_FadeInChannelTimed
 <hr>
 <h1>Mix_FadeInChannelTimed</h1>
-�Đ����Ԃ��w�肵�Ďw��̃`���l���ŉ����`�����N���t�F�[�h�C�����Ȃ���Đ�����
-<h2>�\��</h2>
+再生時間を指定して指定のチャネルで音声チャンクをフェードインしながら再生する
+<h2>構文</h2>
 <code>int Mix_FadeInChannelTimed(int channel, Mix_Chunk *chunk, int loops, int ms, int ticks)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="Mix_FadeInChannelTimed">
-<tr><td>channel</td><td>�V�����`�����N���Đ�����`���l��. -1�̂Ƃ��\�ȃ`���l����T��</td></tr>
-<tr><td>chunk</td><td>�V�����Đ�����`�����N</td></tr>
-<tr><td>loops</td><td>�`�����N���Đ������. -1�̂Ƃ������Ƀ��[�v����</td></tr>
-<tr><td>ms</td><td>�t�F�[�h�C���̃~���b�P�ʂ̎���</td></tr>
-<tr><td>ticks</td><td>�`�����N�̃~���b�P�ʂ̍Đ�����</td></tr>
+<tr><td>channel</td><td>新しいチャンクを再生するチャネル. -1のとき可能なチャネルを探す</td></tr>
+<tr><td>chunk</td><td>新しく再生するチャンク</td></tr>
+<tr><td>loops</td><td>チャンクを再生する回数. -1のとき無限にループする</td></tr>
+<tr><td>ms</td><td>フェードインのミリ秒単位の時間</td></tr>
+<tr><td>ticks</td><td>チャンクのミリ秒単位の再生時間</td></tr>
 </table>
-<h2>�߂�l</h2>
-�Đ��Ɏg��ꂽ�`���l����߂�. �Đ��ł��Ȃ������Ƃ�-1��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+再生に使われたチャネルを戻す. 再生できなかったとき-1を戻す.
+<h2>詳細</h2>
 <p>
-���̊֐���<a href="Mix_PlayChannel.html">Mix_PlayChannel()</a>�Ɠ����悤�ɐV�����`�����N���Đ����邪, ��������ʏ�̃{�����[���܂Ŏw��̃~���b���ԂŃt�F�[�h�C�����Ȃ���Đ�����.
+この関数は<a href="Mix_PlayChannel.html">Mix_PlayChannel()</a>と同じように新しいチャンクを再生するが, 無音から通常のボリュームまで指定のミリ秒時間でフェードインしながら再生する.
 </p>
 <p>
-channel��-1���w�肷���, �󂢂Ă���ŏ��̃`���l���ōĐ�����. (�����ċ󂢂Ă���`���l�����Ȃ��ꍇ��, -1��߂������Đ����Ȃ�.)
+channelに-1を指定すると, 空いている最初のチャネルで再生する. (そして空いているチャネルがない場合は, -1を戻し何も再生しない.)
 </p>
 <p>
-channel�ɓ���̃`���l�����w�肷���, ���̃`���l�������ɍĐ����̏ꍇ�̓`�����N�𒆒f���ĐV�����`�����N�ƒu��������.
+channelに特定のチャネルを指定すると, そのチャネルが既に再生中の場合はチャンクを中断して新しいチャンクと置き換える.
 </p>
 <p>
-loops��0���傫���ꍇ, ���̉񐔂����Đ�����.
-loops��-1�̏ꍇ, �u�����v(65000��)�ɍĐ�����.
+loopsが0より大きい場合, その回数だけ再生する.
+loopsが-1の場合, 「無限」(65000回)に再生する.
 </p>
 <p>
-ticks�̓`�����N�̍Đ��~���b���Ԃł���.
-�`�����N�̑S�f�[�^�����Đ�����ꍇ��-1���w�肷�邱��.
+ticksはチャンクの再生ミリ秒時間である.
+チャンクの全データ分を再生する場合は-1を指定すること.
 </p>
 <p>
-���̊֐���ticks�Őݒ肵�����ԃu���b�N����Ȃ��̂Œ��ӂ��邱��.
-�`�����N�̒�~�܂ł̎��Ԃ�ݒ肵��, �~�L�T�[�̌�̊Ǘ��̂��߂Ɏ��Ԃ��L�^��, �����ɕ��A����.
+この関数はticksで設定した時間ブロックされないので注意すること.
+チャンクの停止までの時間を設定して, ミキサーの後の管理のために時間を記録し, すぐに復帰する.
 </p>
 <p>
-�t�F�[�h���̃`���l����, ���̍Œ���<a href="Mix_Volume.html">Mix_Volume()</a>���Ă΂�Ă�, �{�����[�������X�ɕω�����.
-(�����������, �t�F�[�h���̃`���l���ɂ�<a href="Mix_Volume.html">Mix_Volume()</a>���Ă�ł����Ӗ��ł���.)
+フェード中のチャネルは, その最中に<a href="Mix_Volume.html">Mix_Volume()</a>が呼ばれても, ボリュームが徐々に変化する.
+(言い換えると, フェード中のチャネルには<a href="Mix_Volume.html">Mix_Volume()</a>を呼んでも無意味である.)
 </p>
-<h2>�o�[�W����</h2>
-SDL_mixer 2.0.0�ȍ~
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/Mix_FadeInChannelTimed">SDL2_mixer/Mix_FadeInChannelTimed</a>
 <hr>
 </body>

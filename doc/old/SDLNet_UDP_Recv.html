@@ -1,63 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_net">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_net-functions-udp_sockets.html" title="1つ上">
-<title>SDLNet_UDP_Recv</title>
-</head>
-<body>
-<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-udp_sockets.html">3.4UDPソケット</a> - SDLNet_UDP_Recv
-<hr>
-<h1>SDLNet_UDP_Recv</h1>
-<p>
-<code>int SDLNet_UDP_Recv(UDPsocket sock, UDPpacket *packet)</code>
-</p>
-<p>
-<dl>
-<dt>sock</dt><dd>有効な<a href="UDPsocket.html">UDPsocket</a></dd>
-<dt>packet</dt><dd>受信したパケット</dd>
-</dl>
-</p>
-<p>
-指定のソケットsockでパケットを受信する.
-渡したpacketには受け取るパケットデータに対して十分なデータサイズが確保されている必要がある.
-これはUDPパケットを受信しようとする前にサイズを知らなければならないことを意味する.
-パケットにはリモートの送信者のアドレスが設定されている.
-ソケットのチャネルは番号が大きい方から小さいほうへチェックされる. よってアドレスが複数のチャネルにバインドされていれば, 元アドレスをバンドする最も大きな番号のチャネルが, 小さな番号のチャネルより先に検索される.
-よって, パケットのチャネルは, リモートアドレスとポート番号が割り当てられた最も大きな番号のものが設定される.
-そうでなければチャネルは-1で, もしバインドされていない元アドレスを無視したいならば, 簡単に仕分けることができる.
-ローカルとリモートのチャネル番号は, 一致している必要はなく, そしておそらく一致していない. これらはローカルで設定されるだけで, パケットでは送信されない.
-この関数は受信を待たない(ブロックしない). 受信できるデータがない場合はすぐに戻る.
-</p>
-<p>
-戻り値: パケットを受信したとき1, パケットを受信しなかったとき0, 失敗のとき-1
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// UDPパケットの受信を待つ
-//UDPsocket udpsock;
-UDPpacket packet;
-int numrecv;
-
-numrecv=SDLNet_UDP_Recv(udpsock, &amp;packet);
-if(numrecv) {
-    // ここでpacketを処理する
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="SDLNet_UDP_Bind.html">SDLNet_UDP_Bind</a>,
-<a href="SDLNet_UDP_Send.html">SDLNet_UDP_Send</a>,
-<a href="SDLNet_UDP_SendV.html">SDLNet_UDP_SendV</a>,
-<a href="SDLNet_UDP_RecvV.html">SDLNet_UDP_RecvV</a>,
-<a href="UDPpacket.html">UDPpacket</a>,
-<a href="UDPsocket.html">UDPsocket</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_net/docs/SDL_net_32.html#SEC32">3.4.7 SDLNet_UDP_Recv</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

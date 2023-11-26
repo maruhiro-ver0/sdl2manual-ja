@@ -1,39 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryJoystick.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryJoystick.html" title="1ã¤ä¸Š">
 <title>SDL_JoystickRumble</title>
 </head>
 <body>
-<a href="index.html">–ÚŽŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryJoystick.html">ƒWƒ‡ƒCƒXƒeƒBƒbƒN</a> - SDL_JoystickRumble
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryJoystick.html">ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯</a> - SDL_JoystickRumble
 <hr>
 <h1>SDL_JoystickRumble</h1>
-ƒWƒ‡ƒCƒXƒeƒBƒbƒN‚ÌU“®Œø‰Ê‚ðŠJŽn‚·‚é 
-<h2>\•¶</h2>
+ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®æŒ¯å‹•åŠ¹æžœã‚’é–‹å§‹ã™ã‚‹ 
+<h2>æ§‹æ–‡</h2>
 <code>int SDL_JoystickRumble(SDL_Joystick* joystick, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_JoystickRumble">
-<tr><td>joystick</td><td>U“®‚³‚¹‚éƒWƒ‡ƒCƒXƒeƒBƒbƒN</td></tr>
-<tr><td>low_frequency_rumble</td><td>’áŽü”gU“®ƒ‚[ƒ^[(¶‘¤)‚Ì‹­‚³. 0‚©‚ç0xffff</td></tr>
-<tr><td>high_frequency_rumble</td><td>‚Žü”gU“®ƒ‚[ƒ^[(‰E‘¤)‚Ì‹­‚³. 0‚©‚ç0xffff</td></tr>
-<tr><td>duration_ms</td><td>U“®Œø‰Ê‚ÌŽ‘±ŽžŠÔ(ƒ~ƒŠ•b)</td></tr>
+<tr><td>joystick</td><td>æŒ¯å‹•ã•ã›ã‚‹ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯</td></tr>
+<tr><td>low_frequency_rumble</td><td>ä½Žå‘¨æ³¢æŒ¯å‹•ãƒ¢ãƒ¼ã‚¿ãƒ¼(å·¦å´)ã®å¼·ã•. 0ã‹ã‚‰0xffff</td></tr>
+<tr><td>high_frequency_rumble</td><td>é«˜å‘¨æ³¢æŒ¯å‹•ãƒ¢ãƒ¼ã‚¿ãƒ¼(å³å´)ã®å¼·ã•. 0ã‹ã‚‰0xffff</td></tr>
+<tr><td>duration_ms</td><td>æŒ¯å‹•åŠ¹æžœã®æŒç¶šæ™‚é–“(ãƒŸãƒªç§’)</td></tr>
 </table>
-<h2>–ß‚è’l</h2>
-³í‚Ì‚Æ‚«0, ƒWƒ‡ƒCƒXƒeƒBƒbƒN‚ªU“®‚É‘Î‰ž‚µ‚Ä‚¢‚È‚¢‚Æ‚«-1‚ð–ß‚·.
-<h2>Ú×</h2>
+<h2>æˆ»ã‚Šå€¤</h2>
+æ­£å¸¸ã®ã¨ã0, ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ãŒæŒ¯å‹•ã«å¯¾å¿œã—ã¦ã„ãªã„ã¨ã-1ã‚’æˆ»ã™.
+<h2>è©³ç´°</h2>
 <p>
-‚±‚ÌŠÖ”‚ðŒÄ‚Ño‚·‚Æ, Œ»Ý‚ÌU“®Œø‰Ê‚ÍƒLƒƒƒ“ƒZƒ‹‚³‚ê‚é.
-‚Ü‚½, ‹­‚³‚ð0‚É‚·‚é‚ÆU“®‚ÍŽ~‚Ü‚é.
+ã“ã®é–¢æ•°ã‚’å‘¼ã³å‡ºã™ã¨, ç¾åœ¨ã®æŒ¯å‹•åŠ¹æžœã¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã‚‹.
+ã¾ãŸ, å¼·ã•ã‚’0ã«ã™ã‚‹ã¨æŒ¯å‹•ã¯æ­¢ã¾ã‚‹.
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.9ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.9ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_JoystickHasRumble.html">SDL_JoystickHasRumble</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_JoystickRumble">SDL_JoystickRumble - SDL Wiki</a>
 <hr>
 </body>

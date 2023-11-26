@@ -1,57 +1,57 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryAudio.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAudio.html" title="1つ上">
 <title>SDL_GetAudioDeviceName</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryAudio.html">�Đ��Ƙ^��</a> - SDL_GetAudioDeviceName
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryAudio.html">再生と録音</a> - SDL_GetAudioDeviceName
 <hr>
 <h1>SDL_GetAudioDeviceName</h1>
-�w��̃I�[�f�B�I�f�o�C�X�̖��O�𓾂�
-<h2>�\��</h2>
+指定のオーディオデバイスの名前を得る
+<h2>構文</h2>
 <code>const char* SDL_GetAudioDeviceName(int index, int iscapture)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_GetAudioDeviceName">
-<tr><td>index</td><td>�I�[�f�B�I�f�o�C�X�̔ԍ�. �l�� 0 �` <a href="SDL_GetNumAudioDevices.html">SDL_GetNumAudioDevices()</a>-1 �͈̔�</td></tr>
-<tr><td>iscapture</td><td>0�łȂ��Ƃ��^���ł���f�o�C�X�̂�</td></tr>
+<tr><td>index</td><td>オーディオデバイスの番号. 値は 0 〜 <a href="SDL_GetNumAudioDevices.html">SDL_GetNumAudioDevices()</a>-1 の範囲</td></tr>
+<tr><td>iscapture</td><td>0でないとき録音できるデバイスのみ</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ��w��̔ԍ��̃I�[�f�B�I�f�o�C�X�̖��O, ���s�̂Ƃ�NULL��߂�.
-<h2>�T���v���R�[�h</h2>
+<h2>戻り値</h2>
+成功のとき指定の番号のオーディオデバイスの名前, 失敗のときNULLを戻す.
+<h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
 int i, count = SDL_GetNumAudioDevices(0);
 
 for (i = 0; i &lt; count; ++i) {
-    SDL_Log("�I�[�f�B�I�f�o�C�X %d: %s", i, SDL_GetAudioDeviceName(i, 0));
+    SDL_Log("オーディオデバイス %d: %s", i, SDL_GetAudioDeviceName(i, 0));
 }
 </pre>
 </code>
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-���̊֐��͏������ɐ��������I�[�f�B�I�T�u�V�X�e���̂݊l���ł���.
-�߂�l�͍Ō�ɌĂ�<a href="SDL_GetNumAudioDevices.html">SDL_GetNumAudioDevices()</a>�ɂ��.
-�ĂьĂԂ�, ���p�ł���n�[�h�E�F�A���Č�������.
+この関数は初期化に成功したオーディオサブシステムのみ獲得できる.
+戻り値は最後に呼んだ<a href="SDL_GetNumAudioDevices.html">SDL_GetNumAudioDevices()</a>による.
+再び呼ぶと, 利用できるハードウェアを再検索する.
 </p>
 <p>
-�߂���镶�����UTF-8��, �ǂݍ��݂̂݉\��, �����ŊǗ�����Ă���.
-�A�v���P�[�V�����͉������K�v�͂Ȃ�.
-���̕���������܂ł��ێ�����K�v������Ȃ��, �R�s�[����K�v������.
-�ꕔ�̑���SDL�֐����ĂԂƎg���Ȃ��Ȃ邱�Ƃ����邽�߂ł���.
+戻される文字列はUTF-8で, 読み込みのみ可能で, 内部で管理されている.
+アプリケーションは解放する必要はない.
+この文字列をいつまでも保持する必要があるならば, コピーする必要がある.
+一部の他のSDL関数を呼ぶと使えなくなることがあるためである.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_GetDefaultAudioInfo.html">SDL_GetDefaultAudioInfo</a><br>
 <a href="SDL_GetNumAudioDevices.html">SDL_GetNumAudioDevices</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetAudioDeviceName">SDL_GetAudioDeviceName - SDL Wiki</a>
 <hr>
 </body>

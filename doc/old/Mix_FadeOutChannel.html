@@ -1,49 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-channels.html" title="1つ上">
-<title>Mix_FadeOutChannel</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-channels.html">4.3チャネル</a> - Mix_FadeOutChannel
-<hr>
-<h1>Mix_FadeOutChannel</h1>
-<p>
-<code>int Mix_FadeOutChannel(int channel, int ms)</code>
-</p>
-<p>
-<dl>
-<dt>channel</dt><dd>フェードアウトさせるチャネル. -1のときはすべてのチャネルをフェードアウトさせる</dd>
-<dt>ms</dt><dd>現在のボリュームから無音までのフェードアウト時間(ミリ秒)</dd>
-</dl>
-</p>
-<p>
-channelを現在のボリュームからmsミリ秒で徐々にフェードアウトさせる.
-フェードアウトが完了すると, そのチャネルは停止する.
-一時停止を含む再生中のチャネルのみフェードアウトを設定できる.
-フェードアウトが完了すると, <a href="Mix_ChannelFinished.html">Mix_ChannelFinished</a>で設定したコールバック関数が呼ばれる.
-</p>
-<p>
-戻り値: フェードアウトを設定したチャネルの数
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 3秒間で全てのチャネルをフェードアウトさせる
-printf("%dつのチャネルでフェードアウトを開始した\n", Mix_FadeOutChannel(-1, 3000));
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_FadeInChannel.html">Mix_FadeInChannel</a>,
-<a href="Mix_FadeInChannelTimed.html">Mix_FadeInChannelTimed</a>,
-<a href="Mix_FadingChannel.html">Mix_FadingChannel</a>,
-<a href="Mix_ChannelFinished.html">Mix_ChannelFinished</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_36.html#SEC36">4.3.11 Mix_FadeOutChannel</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

@@ -1,35 +1,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryEvents.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryEvents.html" title="1ã¤ä¸Š">
 <title>SDL_UserEvent</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryEvents.html">ƒCƒxƒ“ƒgˆ—</a> - SDL_UserEvent
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryEvents.html">ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†</a> - SDL_UserEvent
 <hr>
 <h1>SDL_UserEvent</h1>
-ƒAƒvƒŠƒP[ƒVƒ‡ƒ“’è‹`ƒCƒxƒ“ƒg‚Ìî•ñ‚Ì\‘¢‘Ì
-<h2>ƒtƒB[ƒ‹ƒh</h2>
+ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³å®šç¾©ã‚¤ãƒ™ãƒ³ãƒˆã®æƒ…å ±ã®æ§‹é€ ä½“
+<h2>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰</h2>
 <table border="1" summary="SDL_UserEvent">
-<tr><td>Uint32</td><td>type</td><td><a href="SDL_RegisterEvents.html">SDL_RegisterEvents()</a>‚Å“¾‚ç‚ê‚½’l</td></tr>
-<tr><td>Uint32</td><td>timestamp</td><td>ƒCƒxƒ“ƒg‚Ìƒ^ƒCƒ€ƒXƒ^ƒ“ƒv</td></tr>
-<tr><td>Uint32</td><td>windowID</td><td>ƒtƒH[ƒJƒX‚Ì‚ ‚éƒEƒBƒ“ƒhƒE (‰Â”\‚È‚ç)</td></tr>
-<tr><td>Sint32</td><td>code</td><td>ƒ†[ƒU’è‹`‚ÌƒCƒxƒ“ƒgƒR[ƒh</td></tr>
-<tr><td>void*</td><td>data1</td><td>ƒ†[ƒU’è‹`‚Ìî•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^</td></tr>
-<tr><td>void*</td><td>data2</td><td>ƒ†[ƒU’è‹`‚Ìî•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^</td></tr>
+<tr><td>Uint32</td><td>type</td><td><a href="SDL_RegisterEvents.html">SDL_RegisterEvents()</a>ã§å¾—ã‚‰ã‚ŒãŸå€¤</td></tr>
+<tr><td>Uint32</td><td>timestamp</td><td>ã‚¤ãƒ™ãƒ³ãƒˆã®ã‚¿ã‚¤ãƒ ã‚¹ã‚¿ãƒ³ãƒ—</td></tr>
+<tr><td>Uint32</td><td>windowID</td><td>ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã®ã‚ã‚‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ (å¯èƒ½ãªã‚‰)</td></tr>
+<tr><td>Sint32</td><td>code</td><td>ãƒ¦ãƒ¼ã‚¶å®šç¾©ã®ã‚¤ãƒ™ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰</td></tr>
+<tr><td>void*</td><td>data1</td><td>ãƒ¦ãƒ¼ã‚¶å®šç¾©ã®æƒ…å ±ã¸ã®ãƒã‚¤ãƒ³ã‚¿</td></tr>
+<tr><td>void*</td><td>data2</td><td>ãƒ¦ãƒ¼ã‚¶å®šç¾©ã®æƒ…å ±ã¸ã®ãƒã‚¤ãƒ³ã‚¿</td></tr>
 </table>
-<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<h2>ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h2>
 <p>
 <code>
 <pre>
 Uint32 myEventType = SDL_RegisterEvents(1);
 if (myEventType != ((Uint32)-1)) {
     SDL_Event event;
-    SDL_memset(&event, 0, sizeof(event)); /* ‚Ü‚½‚Í SDL_zero(event); */
+    SDL_memset(&event, 0, sizeof(event)); /* ã¾ãŸã¯ SDL_zero(event); */
     event.type = myEventType;
     event.user.code = my_event_code;
     event.user.data1 = significant_data;
@@ -39,20 +39,20 @@ if (myEventType != ((Uint32)-1)) {
 </pre>
 </code>
 </p>
-<h2>Ú×</h2>
+<h2>è©³ç´°</h2>
 <p>
-<a href="SDL_UserEvent.html">SDL_UserEvent</a>‚Í<a href="SDL_Event.html">SDL_Event</a>‚Ìƒƒ“ƒo‚Å‚ ‚é.
-‚±‚ÌƒCƒxƒ“ƒg‚Í“Áê‚Å, SDL‚É‚æ‚Á‚Ä”­¶‚³‚ê‚é‚±‚Æ‚ÍŒˆ‚µ‚Ä‚È‚­, ƒ†[ƒU‚É‚æ‚Á‚Ä‚Ì‚İ”­¶‚³‚ê‚é.
-ƒCƒxƒ“ƒg‚Í<a href="SDL_PushEvent.html">SDL_PushEvent()</a>‚ÅƒLƒ…[‚É“ü‚ê‚é‚±‚Æ‚ª‚Å‚«‚é.
-\‘¢‘Ì‚Ìî•ñ‚ÍŠ®‘S‚Éì¬Ò‚ªİ’è‚Å‚«‚é.
-—Bˆê—v‹‚³‚ê‚é‚Ì‚Í, <a href="SDL_RegisterEvents.html">SDL_RegisterEvents()</a>‚Å“¾‚½type‚Ì’l‚Å‚ ‚é.
+<a href="SDL_UserEvent.html">SDL_UserEvent</a>ã¯<a href="SDL_Event.html">SDL_Event</a>ã®ãƒ¡ãƒ³ãƒã§ã‚ã‚‹.
+ã“ã®ã‚¤ãƒ™ãƒ³ãƒˆã¯ç‰¹æ®Šã§, SDLã«ã‚ˆã£ã¦ç™ºç”Ÿã•ã‚Œã‚‹ã“ã¨ã¯æ±ºã—ã¦ãªã, ãƒ¦ãƒ¼ã‚¶ã«ã‚ˆã£ã¦ã®ã¿ç™ºç”Ÿã•ã‚Œã‚‹.
+ã‚¤ãƒ™ãƒ³ãƒˆã¯<a href="SDL_PushEvent.html">SDL_PushEvent()</a>ã§ã‚­ãƒ¥ãƒ¼ã«å…¥ã‚Œã‚‹ã“ã¨ãŒã§ãã‚‹.
+æ§‹é€ ä½“ã®æƒ…å ±ã¯å®Œå…¨ã«ä½œæˆè€…ãŒè¨­å®šã§ãã‚‹.
+å”¯ä¸€è¦æ±‚ã•ã‚Œã‚‹ã®ã¯, <a href="SDL_RegisterEvents.html">SDL_RegisterEvents()</a>ã§å¾—ãŸtypeã®å€¤ã§ã‚ã‚‹.
 </p>
-<h2>ŠÖ˜A€–Ú(—ñ‹“‘Ì)</h2>
+<h2>é–¢é€£é …ç›®(åˆ—æŒ™ä½“)</h2>
 <a href="SDL_EventType.html">SDL_EventType</a><br>
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_PushEvent.html">SDL_PushEvent</a><br>
 <a href="SDL_RegisterEvents.html">SDL_RegisterEvents</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_UserEvent">SDL_UserEvent - SDL Wiki</a><br>
 <hr>
 </body>

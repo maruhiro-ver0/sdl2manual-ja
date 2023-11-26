@@ -1,67 +1,67 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryVideo.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
 <title>SDL_ShowSimpleMessageBox</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryMessageBox.html">���b�Z�[�W�{�b�N�X</a> - SDL_ShowSimpleMessageBox
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryMessageBox.html">メッセージボックス</a> - SDL_ShowSimpleMessageBox
 <hr>
 <h1>SDL_ShowSimpleMessageBox</h1>
-�P���ȃ��[�_�����b�Z�[�W�{�b�N�X��\������
-<h2>�\��</h2>
+単純なモーダルメッセージボックスを表示する
+<h2>構文</h2>
 <code>int SDL_ShowSimpleMessageBox(Uint32 flags, const char* title, const char* message, SDL_Window* window)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_ShowSimpleMessageBox">
-<tr><td>flags</td><td>SDL_MessageBoxFlag (�ڍׂ��Q�Ƃ��邱��)</td></td></tr>
-<tr><td>title</td><td>�^�C�g����UTF-8������</td></tr>
-<tr><td>message</td><td>���b�Z�[�W��UTF-8������</td></tr>
-<tr><td>window</td><td>�e�E�B���h�E, NULL�̂Ƃ��e�E�B���h�E�������Ȃ�</td></tr>
+<tr><td>flags</td><td>SDL_MessageBoxFlag (詳細を参照すること)</td></td></tr>
+<tr><td>title</td><td>タイトルのUTF-8文字列</td></tr>
+<tr><td>message</td><td>メッセージのUTF-8文字列</td></tr>
+<tr><td>window</td><td>親ウィンドウ, NULLのとき親ウィンドウを持たない</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0, ���s�̂Ƃ����̐��̃G���[�R�[�h��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>���Ă�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�T���v���R�[�h</h2>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
 SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, 
-                         "�t�@�C���������Ă���",
-                         "�t�@�C���������Ă��܂��B�v���O�������ăC���X�g�[�����Ă��������B",
+                         "ファイルが失われている",
+                         "ファイルが失われています。プログラムを再インストールしてください。",
                          NULL);
 </pre>
 </code>
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
 </p>
-���G�Ȃ��̂��K�v�łȂ����, ���̊֐���<a href="SDL_ShowMessageBox.html">SDL_ShowMessageBox()</a>�����K���Ă���.
+複雑なものが必要でなければ, この関数は<a href="SDL_ShowMessageBox.html">SDL_ShowMessageBox()</a>よりも適している.
 <p>
-flag�͈ȉ��̒l�ł���.
+flagは以下の値である.
 <table border="1" summary="SDL_MessageBoxFlag">
-<tr><td>SDL_MESSAGEBOX_ERROR</td><td>�G���[�_�C�A���O</td></tr>
-<tr><td>SDL_MESSAGEBOX_WARNING</td><td>�x���_�C�A���O</td></tr>
-<tr><td>SDL_MESSAGEBOX_INFORMATION</td><td>���_�C�A���O</td></tr>
+<tr><td>SDL_MESSAGEBOX_ERROR</td><td>エラーダイアログ</td></tr>
+<tr><td>SDL_MESSAGEBOX_WARNING</td><td>警告ダイアログ</td></tr>
+<tr><td>SDL_MESSAGEBOX_INFORMATION</td><td>情報ダイアログ</td></tr>
 </table>
 </p>
 <p>
-���̊֐���<a href="SDL_Init.html">SDL_Init()</a>�̑O�ł��Ăׂ�.
-���̂��Ƃ̓����_���[��OpenGL�R���e�L�X�g�̐����̎��s��񍐂���Ƃ��ɖ𗧂�.
+この関数は<a href="SDL_Init.html">SDL_Init()</a>の前でも呼べる.
+このことはレンダラーやOpenGLコンテキストの生成の失敗を報告するときに役立つ.
 </p>
 <p>
-X11�ł�, GTK+��Qt�̂悤�ȃc�[���L�b�g�ł͂Ȃ�X11���̂��̂Ń_�C�A���O�{�b�N�X��\������.
+X11では, GTK+やQtのようなツールキットではなくX11そのものでダイアログボックスを表示する.
 </p>
 <p>
-���p�ł���r�f�I���Ȃ�<a href="SDL_Init.html">SDL_Init()</a>�����s�����ꍇ, ���̊֐����������R�Ŏ��s���邱�Ƃɒ��ӂ���K�v������.
-���ꂪ���ɂȂ�Ȃ��, ���̊֐��̖߂�l���`�F�b�N��, ���s��߂����Ȃ�stderr�ɏ������ނ���.
+利用できるビデオがなく<a href="SDL_Init.html">SDL_Init()</a>が失敗した場合, この関数も同じ理由で失敗することに注意する必要がある.
+これが問題になるならば, この関数の戻り値をチェックし, 失敗を戻したならstderrに書き込むこと.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_ShowSimpleMessageBox">SDL_ShowSimpleMessageBox - SDL Wiki</a>
 <hr>
 </body>

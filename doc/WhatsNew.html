@@ -1,149 +1,149 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="index.html" title="1��">
-<title>SDL 2.0�̗���</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="index.html" title="1つ上">
+<title>SDL 2.0の履歴</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - SDL 2.0�̗���
+<a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
-<h1>SDL 2.0�̗���</h1>
-<h2>2.28.0�̕ύX�_</h2>
-<h3>�S��</h3>
+<h1>SDL 2.0の履歴</h1>
+<h2>2.28.0の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>�E�B���h�E�̃T�[�t�F�C�X�ƃ����_�����O��؂�ւ��邽�߂�API <a href="SDL_HasWindowSurface.html">SDL_HasWindowSurface()</a>��<a href="SDL_DestroyWindowSurface.html">SDL_DestroyWindowSurface()</a>�̒ǉ�
-<li>�v���C�}�����j�^���ύX���ꂽ, �܂��̓f�B�X�v���C�̑��Έʒu���ς�����Ƃ���������f�B�X�v���C�C�x���gSDL_DISPLAYEVENT_MOVED�̒ǉ�
-<li>�e�L�X�g���͂��L���ɂȂ����Ƃ��X�N���[���L�[�{�[�h���\������邩�ۂ������߂�SDL_HINT_ENABLE_SCREEN_KEYBOARD�q���g�̒ǉ�
+<li>ウィンドウのサーフェイスとレンダリングを切り替えるためのAPI <a href="SDL_HasWindowSurface.html">SDL_HasWindowSurface()</a>と<a href="SDL_DestroyWindowSurface.html">SDL_DestroyWindowSurface()</a>の追加
+<li>プライマリモニタが変更された, またはディスプレイの相対位置が変わったとき発生するディスプレイイベントSDL_DISPLAYEVENT_MOVEDの追加
+<li>テキスト入力が有効になったときスクリーンキーボードが表示されるか否かを決めるSDL_HINT_ENABLE_SCREEN_KEYBOARDヒントの追加
 </ul>
-<h2>2.26.0�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.26.0の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>OpenGL�w�b�_���N���m�X�E�O���[�v�̍ŐVAPI�ɍX�V
-<li>�E�B���h�E�T�C�Y���s�N�Z�����œ���<a href="SDL_GetWindowSizeInPixels.html">SDL_GetWindowSizeInPixels()</a>�̒ǉ�. ����͍�DPI�E�B���h�E�̏ꍇ, �E�B���h�E���W�n�T�C�Y�ƈقȂ�ꍇ������
-<li>�\�t�g�E�F�A�����_�����O���̐��������V�~�����[�g�̒ǉ�
-<li><a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a>�Ƀ}�E�X�̈ʒu��ǉ�
-<li>�S�Ẵq���g���f�t�H���g�l�Ƀ��Z�b�g����<a href="SDL_ResetHints.html">SDL_ResetHints()</a>�̒ǉ�
-<li>�W���C�X�e�B�b�NGUID�ŃR�[�h�����ꂽ�f�o�C�X���𓾂�<a href="SDL_GetJoystickGUIDInfo.html">SDL_GetJoystickGUIDInfo()</a>�̒ǉ�
-<li>XBox 360�R���g���[���[�pHIDAPI�h���C�o���g�p���邩�ۂ������߂�SDL_HINT_JOYSTICK_HIDAPI_XBOX_360�q���g�̒ǉ�
-<li>�ǂ̃v���C���[��XBox 360�R���g���[���[�ƌ��ѕt�����Ă��邩������LED��_�����邩�ۂ������߂�SDL_HINT_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LED�q���g�̒ǉ�
-<li>XBox 360���C�����X�R���g���[���[�pHIDAPI�h���C�o���g�p���邩�ۂ������߂�SDL_HINT_JOYSTICK_HIDAPI_XBOX_360_WIRELESS�q���g�̒ǉ�
-<li>XBox One�R���g���[���[�pHIDAPI�h���C�o���g�p���邩�ۂ������߂�SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE�̒ǉ�
-<li>XBox One�K�C�h�{�^��LCD�̖��邳�����߂�SDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LED�q���g�̒ǉ�
-<li>HIDAPI�h���C�o��PS3�R���g���[���[��ǉ�. macOS�ł̓f�t�H���g�ŗL��. SDL_HINT_JOYSTICK_HIDAPI_PS3�q���g�Ő���ł���
-<li>HIDAPI�h���C�o�Ƀj���e���h�[Wii�R���g���[���[��ǉ�. �f�t�H���g�ł͗L���ɂȂ�Ȃ�. SDL_HINT_JOYSTICK_HIDAPI_WII�q���g�Ő���ł���
-<li>�j���e���h�[Wii�R���g���[���[�̃v���C���[LED��_�������邩�ۂ������߂�SDL_HINT_JOYSTICK_HIDAPI_WII_PLAYER_LED�q���g�̒ǉ�
-<li>HIDAPI�h���C�o���g�p����ꍇ, �j���e���h�[�X�C�b�`Joy-Con���c�������[�h�ɂ��邩�ۂ���I������SDL_HINT_JOYSTICK_HIDAPI_VERTICAL_JOY_CONS�q���g�̒ǉ�
-<li>Joy-Con�R���g���[���[�̍��E�̃W���C���Z���T�[�ւ̌ʂ̃A�N�Z�X�̒ǉ�
-<li>�n�[�h�E�F�A������񋟂���ꍇ, <a href="SDL_SensorEvent.html">SDL_SensorEvent</a>��SDL_ControllerSensorEvent�Ƀ}�C�N���b�̃^�C���X�^���v��ǉ�
-<li>�Z���T�[���Ō�ɍX�V���ꂽ���Ԃ��~���b�œ���<a href="SDL_SensorGetDataWithTimestamp.html">SDL_SensorGetDataWithTimestamp()</a>��<a href="SDL_GameControllerGetSensorDataWithTimestamp.html">SDL_GameControllerGetSensorDataWithTimestamp()</a>�̒ǉ�
-<li>SDL HDI API�ɓ���̃f�o�C�X�𖳎�������SDL_HINT_HIDAPI_IGNORE_DEVICES�q���g�̒ǉ�
-<li><a href="SDL_GetRevision.html">SDL_GetRevision()</a>��(�\�Ȃ��)git�R�~�b�g�n�b�V�����܂ނ���Ȃ�SDL�r���h����ǉ�. 
+<li>OpenGLヘッダをクロノス・グループの最新APIに更新
+<li>ウィンドウサイズをピクセル数で得る<a href="SDL_GetWindowSizeInPixels.html">SDL_GetWindowSizeInPixels()</a>の追加. これは高DPIウィンドウの場合, ウィンドウ座標系サイズと異なる場合がある
+<li>ソフトウェアレンダリング時の垂直同期シミュレートの追加
+<li><a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a>にマウスの位置を追加
+<li>全てのヒントをデフォルト値にリセットする<a href="SDL_ResetHints.html">SDL_ResetHints()</a>の追加
+<li>ジョイスティックGUIDでコード化されたデバイス情報を得る<a href="SDL_GetJoystickGUIDInfo.html">SDL_GetJoystickGUIDInfo()</a>の追加
+<li>XBox 360コントローラー用HIDAPIドライバを使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_XBOX_360ヒントの追加
+<li>どのプレイヤーがXBox 360コントローラーと結び付けられているかを示すLEDを点灯するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_XBOX_360_PLAYER_LEDヒントの追加
+<li>XBox 360ワイヤレスコントローラー用HIDAPIドライバを使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_XBOX_360_WIRELESSヒントの追加
+<li>XBox Oneコントローラー用HIDAPIドライバを使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_XBOX_ONEの追加
+<li>XBox OneガイドボタンLCDの明るさを決めるSDL_HINT_JOYSTICK_HIDAPI_XBOX_ONE_HOME_LEDヒントの追加
+<li>HIDAPIドライバにPS3コントローラーを追加. macOSではデフォルトで有効. SDL_HINT_JOYSTICK_HIDAPI_PS3ヒントで制御できる
+<li>HIDAPIドライバにニンテンドーWiiコントローラーを追加. デフォルトでは有効にならない. SDL_HINT_JOYSTICK_HIDAPI_WIIヒントで制御できる
+<li>ニンテンドーWiiコントローラーのプレイヤーLEDを点灯させるか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_WII_PLAYER_LEDヒントの追加
+<li>HIDAPIドライバを使用する場合, ニンテンドースイッチJoy-Conを縦持ちモードにするか否かを選択するSDL_HINT_JOYSTICK_HIDAPI_VERTICAL_JOY_CONSヒントの追加
+<li>Joy-Conコントローラーの左右のジャイロセンサーへの個別のアクセスの追加
+<li>ハードウェアが情報を提供する場合, <a href="SDL_SensorEvent.html">SDL_SensorEvent</a>とSDL_ControllerSensorEventにマイクロ秒のタイムスタンプを追加
+<li>センサーが最後に更新された時間をミリ秒で得る<a href="SDL_SensorGetDataWithTimestamp.html">SDL_SensorGetDataWithTimestamp()</a>と<a href="SDL_GameControllerGetSensorDataWithTimestamp.html">SDL_GameControllerGetSensorDataWithTimestamp()</a>の追加
+<li>SDL HDI APIに特定のデバイスを無視させるSDL_HINT_HIDAPI_IGNORE_DEVICESヒントの追加
+<li><a href="SDL_GetRevision.html">SDL_GetRevision()</a>に(可能ならば)gitコミットハッシュを含むさらなるSDLビルド情報を追加. 
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>���΃}�E�X���[�h�̂Ƃ�, �V�X�e���̉����J�[�u���g�p���邩�ۂ������߂�SDL_HINT_MOUSE_RELATIVE_SYSTEM_SCALE�q���g�̒ǉ�
+<li>相対マウスモードのとき, システムの加速カーブを使用するか否かを決めるSDL_HINT_MOUSE_RELATIVE_SYSTEM_SCALEヒントの追加
 </ul>
 <h3>macOS</h3>
 <ul>
-<li>macOS 12�Ő�������������
+<li>macOS 12で垂直同期を実装
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>X11�v���C�}���I���N���b�v�{�[�h����������<a href="SDL_SetPrimarySelectionText.html">SDL_SetPrimarySelectionText()</a>, <a href="SDL_GetPrimarySelectionText.html">SDL_GetPrimarySelectionText()</a>, <a href="SDL_HasPrimarySelectionText.html">SDL_HasPrimarySelectionText()</a>�̒ǉ�
-<li>Wayland�ł̃}�E�X�|�C���^���[�v���G�~�����[�g���邩�ۂ������߂�SDL_HINT_VIDEO_WAYLAND_EMULATE_MOUSE_WARP�q���g�̒ǉ�
+<li>X11プライマリ選択クリップボードを処理する<a href="SDL_SetPrimarySelectionText.html">SDL_SetPrimarySelectionText()</a>, <a href="SDL_GetPrimarySelectionText.html">SDL_GetPrimarySelectionText()</a>, <a href="SDL_HasPrimarySelectionText.html">SDL_HasPrimarySelectionText()</a>の追加
+<li>Waylandでのマウスポインタワープをエミュレートするか否かを決めるSDL_HINT_VIDEO_WAYLAND_EMULATE_MOUSE_WARPヒントの追加
 </ul>
 <h3>Android</h3>
 <ul>
-<li>IME�\�t�g�E�F�A�L�[�{�[�h���͂��\�ɂȂ���
-<li>SDL Java��C�R�[�h���݊������m�F����o�[�W�����`�F�b�N�̒ǉ�
+<li>IMEソフトウェアキーボード入力が可能になった
+<li>SDL JavaとCコードが互換かを確認するバージョンチェックの追加
 </ul>
-<h2>2.24.0�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.24.0の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>�o�[�W�����ԍ���GLib��Flatpak�̂悤�ȑ̌n�ɍX�V����
+<li>バージョン番号をGLibやFlatpakのような体系に更新する
 <ul>
-<li>�}�C�i�[�o�[�W����(2�Ԗڂ̐���)�������̃o�[�W�����̓����[�X�\�Ȉ���o�[�W�����ł��邱�Ƃ�\��. �Ⴆ��2.24.0��, ����͋��̌n�Ȃ��2.0.24�ł���
+<li>マイナーバージョン(2番目の数字)が偶数のバージョンはリリース可能な安定バージョンであることを表す. 例えば2.24.0で, これは旧体系ならば2.0.24である
 <ul>
-<li>�p�b�`���x��(�}�C�N���o�[�W����, 3�Ԗڂ̐���)�̓o�O�C���݂̂̍X�V��\��. �Ⴆ��2.24.1��2.24.0�̃o�O���C������������, �V�����@�\�͒ǉ�����Ă��Ȃ�
-</ul>
-</ul>
-<ul>
-<li>�}�C�i�[�o�[�W��������̃o�[�W�����͎��O�����[�X��\��(�Ⴆ��2.23.0). ����ł̔z�z�ɂ͂��̎��O�����[�X�ł��g�p���ׂ��ł͂Ȃ�
-<ul>
-<li>���O�����[�X�̃p�b�`���x����, �Ⴆ��2.23.1, 2.23.2�̂悤��, SDL 2.24.0����ł������[�X�����܂ő����čs��
+<li>パッチレベル(マイクロバージョン, 3番目の数字)はバグ修正のみの更新を表す. 例えば2.24.1は2.24.0のバグを修正しただけで, 新しい機能は追加されていない
 </ul>
 </ul>
-<li>��ʏ�̓_�ƒ����`�Ɍ��ѕt����ꂽ�f�B�X�v���C�𓾂�<a href="SDL_GetPointDisplayIndex.html">SDL_GetPointDisplayIndex()</a>��<a href="SDL_GetRectDisplayIndex.html">SDL_GetRectDisplayIndex()</a>�̒ǉ�
-<li>stdlib���[�`���ւ�SDL_bsearch()��SDL_utf8strnlen()�̒ǉ�
-<li>SDL_CPUPauseInstruction()�}�N����SDL_atomic.h�ւ̒ǉ�
-<li>�T�C�Y�I�[�o�[�t���[�h�~�̉��P�̂��߂�SDL_size_mul_overflow()��SDL_size_add_overflow()��ǉ�
-<li>�q���g���f�t�H���g�l�Ƀ��Z�b�g����<a href="SDL_ResetHint.html">SDL_ResetHint()</a>�̒ǉ�
-<li>SDL�̓����L�[�{�[�h��Ԃ����Z�b�g��, �S�Ẳ����ꂽ�L�[�ɑ΂��ăL�[�𗣂����C�x���g�𔭐�������<a href="SDL_ResetKeyboard.html">SDL_ResetKeyboard()</a>�̒ǉ�
-<li>���΃��[�h�̂Ƃ��}�E�X�J�[�\���̃��[�v�ɑ΂��ă}�E�X�ړ��C�x���g�𔭐������邩�ۂ������߂�SDL_HINT_MOUSE_RELATIVE_WARP_MOTION�q���g�̒ǉ�. �f�t�H���g�͔��������Ȃ�
-<li>�g���b�N�p�b�h���^�b�`�f�o�C�X�܂��͕����}�E�X�Ƃ��Ĉ������ۂ������߂�SDL_HINT_TRACKPAD_IS_TOUCH_ONLY�q���g�̒ǉ�. �f�t�H���g�ł̓}�E�X�Ƃ��Ĉ�����
-<li>SDL_HINT_JOYSTICK_HIDAPI_JOY_CONS�q���g�̓f�t�H���g��ON�ƂȂ���
-<li>HIDAPI�h���C�o���g�p�����j���e���h�[Joy-Con�̃~�j�Q�[���p�b�h���[�h�ւ̑Ή�
-<li>HIDAPI�h���C�o���g�p����ꍇ, �����I�ɓ��ꉻ���ꂽ�Q�[���p�b�h�Ƃ��ē������邩�ۂ������߂�SDL_HINT_JOYSTICK_HIDAPI_COMBINE_JOY_CONS�q���g�̒ǉ�
-<li>�j���e���h�[�X�C�b�`�R���g���[���[�̃z�[��LED�̖��邳�𕂓������_�̒l�Őݒ�ł���悤�ɂ���SDL_HINT_JOYSTICK_HIDAPI_SWITCH_HOME_LED�q���g�̒ǉ�
-<li>�j���e���h�[Joy-Con�̃z�[��LED�̖��邳��ݒ�ł���悤�ɂ���SDL_HINT_JOYSTICK_HIDAPI_JOYCON_HOME_LED�q���g�̒ǉ�. �f�t�H���g�ł̓z�[��LED�͕ύX�ł��Ȃ�
-<li>�j���e���h�[Joy-Con�̃v���C���[LED��_�������邩�ۂ������߂�SDL_HINT_JOYSTICK_HIDAPI_SWITCH_PLAYER_LED�q���g�̒ǉ�
-<li>HIDAPI�h���C�o���g�p�����j���e���h�[�I�����C���N���V�b�N�R���g���[���[�ւ̑Ή�
-<li>HIDAPI�h���C�o���g�p���ăj���e���h�[�I�����C���N���V�b�N�R���g���[���[���g�p���邩�ۂ������߂�SDL_HINT_JOYSTICK_HIDAPI_NINTENDO_CLASSIC�q���g�̒ǉ�
-<li>�o�b�e���[��ԂƐU���ɑΉ�����NVIDIA SHIELD�R���g���[���pHIDAPI�h���C�o�ɑΉ�
-<li>NVIDIA SHIELD�R���g���[���[�̑Ή���HIDAPI�h���C�o�ւ̒ǉ���, ������g�p���邩�ۂ������߂�SDL_HINT_JOYSTICK_HIDAPI_SHIELD�q���g�̒ǉ�
-<li>�W���C�X�e�B�b�N�܂��̓Q�[���R���g���[���[�̊��Ɉˑ��������̂𓾂�֐��̒ǉ�:
+<ul>
+<li>マイナーバージョンが奇数のバージョンは事前リリースを表す(例えば2.23.0). 安定版の配布にはこの事前リリース版を使用すべきではない
+<ul>
+<li>事前リリースのパッチレベルは, 例えば2.23.1, 2.23.2のように, SDL 2.24.0安定版がリリースされるまで続いて行く
+</ul>
+</ul>
+<li>画面上の点と長方形に結び付けられたディスプレイを得る<a href="SDL_GetPointDisplayIndex.html">SDL_GetPointDisplayIndex()</a>と<a href="SDL_GetRectDisplayIndex.html">SDL_GetRectDisplayIndex()</a>の追加
+<li>stdlibルーチンへのSDL_bsearch()とSDL_utf8strnlen()の追加
+<li>SDL_CPUPauseInstruction()マクロのSDL_atomic.hへの追加
+<li>サイズオーバーフロー防止の改善のためにSDL_size_mul_overflow()とSDL_size_add_overflow()を追加
+<li>ヒントをデフォルト値にリセットする<a href="SDL_ResetHint.html">SDL_ResetHint()</a>の追加
+<li>SDLの内部キーボード状態をリセットし, 全ての押されたキーに対してキーを離したイベントを発生させる<a href="SDL_ResetKeyboard.html">SDL_ResetKeyboard()</a>の追加
+<li>相対モードのときマウスカーソルのワープに対してマウス移動イベントを発生させるか否かを決めるSDL_HINT_MOUSE_RELATIVE_WARP_MOTIONヒントの追加. デフォルトは発生させない
+<li>トラックパッドをタッチデバイスまたは複数マウスとして扱うか否かを決めるSDL_HINT_TRACKPAD_IS_TOUCH_ONLYヒントの追加. デフォルトではマウスとして扱われる
+<li>SDL_HINT_JOYSTICK_HIDAPI_JOY_CONSヒントはデフォルトでONとなった
+<li>HIDAPIドライバを使用したニンテンドーJoy-Conのミニゲームパッドモードへの対応
+<li>HIDAPIドライバを使用する場合, 自動的に統一化されたゲームパッドとして統合するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_COMBINE_JOY_CONSヒントの追加
+<li>ニンテンドースイッチコントローラーのホームLEDの明るさを浮動小数点の値で設定できるようにするSDL_HINT_JOYSTICK_HIDAPI_SWITCH_HOME_LEDヒントの追加
+<li>ニンテンドーJoy-ConのホームLEDの明るさを設定できるようにするSDL_HINT_JOYSTICK_HIDAPI_JOYCON_HOME_LEDヒントの追加. デフォルトではホームLEDは変更できない
+<li>ニンテンドーJoy-ConのプレイヤーLEDを点灯させるか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_SWITCH_PLAYER_LEDヒントの追加
+<li>HIDAPIドライバを使用したニンテンドーオンラインクラシックコントローラーへの対応
+<li>HIDAPIドライバを使用してニンテンドーオンラインクラシックコントローラーを使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_NINTENDO_CLASSICヒントの追加
+<li>バッテリー状態と振動に対応したNVIDIA SHIELDコントローラ用HIDAPIドライバに対応
+<li>NVIDIA SHIELDコントローラーの対応のHIDAPIドライバへの追加と, それを使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_SHIELDヒントの追加
+<li>ジョイスティックまたはゲームコントローラーの環境に依存した名称を得る関数の追加:
 <ul>
 <li><a href="SDL_JoystickPathForIndex.html">SDL_JoystickPathForIndex()</a>
 <li><a href="SDL_JoystickPath.html">SDL_JoystickPath()</a>
 <li><a href="SDL_GameControllerPathForIndex.html">SDL_GameControllerPathForIndex()</a>
 <li><a href="SDL_GameControllerPath.html">SDL_GameControllerPath()</a>
 </ul>
-<li>���݂�HIDAPI���g�p����DualSense(tm)�����R���g���[���[�ɑΉ�����<a href="SDL_GameControllerGetFirmwareVersion.html">SDL_GameControllerGetFirmwareVersion()</a>��<a href="SDL_JoystickGetFirmwareVersion.html">SDL_JoystickGetFirmwareVersion()</a>�̒ǉ�
-<li>���z�R���g���[���[�̋@�\�g���ɑΉ�����<a href="SDL_JoystickAttachVirtualEx.html">SDL_JoystickAttachVirtualEx()</a>�̒ǉ�
-<li>�W���C�X�e�B�b�N�̃o�b�e���[��Ԃ̕ω������Ƃ���������SDL_JOYBATTERYUPDATED�C�x���g�̒ǉ�
-<li>SDL GUID�ƕ�����𑊌ݕϊ�����<a href="SDL_GUIDToString.html">SDL_GUIDToString()</a>��<a href="SDL_GUIDFromString.html">SDL_GUIDFromString()</a>�̒ǉ�
-<li>LoongArch SIMD�Ή������m����<a href="SDL_HasLSX.html">SDL_HasLSX()</a>��<a href="SDL_HasLASX.html">SDL_HasLASX()</a>�̒ǉ�
-<li><a href="SDL_GetOriginalMemoryFunctions.html">SDL_GetOriginalMemoryFunctions()</a>�̒ǉ�
-<li>�I�[�f�B�I�f�o�C�X�̃f�t�H���g���̂ƌ`���𓾂�<a href="SDL_GetDefaultAudioInfo.html">SDL_GetDefaultAudioInfo()</a>�̒ǉ�. ���݂�PipeWire, PulseAudio, WASAPI, DirectSound�������ς݂ł���
-<li>�o�b�e���[��ԂƐU���ɑΉ����邽�߂�NVIDIA SHIELD�R���g���[��(2017���f��)�pHIDAPI�h���C�o�̒ǉ�
-<li>3�܂���5�`���l��(2.1, 4.1)�I�[�f�B�I�f�o�C�X�ւ̑Ή���ǉ�. ����ɂ�胂�m��������7.1�܂őS�`���l���ɑΉ�����
-<li>SDL_AudioCVT���g�p�����I�[�f�B�I�`���l���R���o�[�^�̏�������. FAudio�����̃f�t�H���g�Ŏg�p�����`���l���}�g���N�X�W���Ɋ�Â�
-<li>SDL���b�Z�[�W��4K�̐����͂Ȃ��Ȃ�, �������̒������\�ɂȂ���
-<li>OpenWatcom�܂���OS/2�̃r���h�ɉe����^����dynapi�̌ďo�K��̒��N�̖��̏C��
+<li>現在はHIDAPIを使用してDualSense(tm)無線コントローラーに対応した<a href="SDL_GameControllerGetFirmwareVersion.html">SDL_GameControllerGetFirmwareVersion()</a>と<a href="SDL_JoystickGetFirmwareVersion.html">SDL_JoystickGetFirmwareVersion()</a>の追加
+<li>仮想コントローラーの機能拡張に対応した<a href="SDL_JoystickAttachVirtualEx.html">SDL_JoystickAttachVirtualEx()</a>の追加
+<li>ジョイスティックのバッテリー状態の変化したとき発生するSDL_JOYBATTERYUPDATEDイベントの追加
+<li>SDL GUIDと文字列を相互変換する<a href="SDL_GUIDToString.html">SDL_GUIDToString()</a>と<a href="SDL_GUIDFromString.html">SDL_GUIDFromString()</a>の追加
+<li>LoongArch SIMD対応を検知する<a href="SDL_HasLSX.html">SDL_HasLSX()</a>と<a href="SDL_HasLASX.html">SDL_HasLASX()</a>の追加
+<li><a href="SDL_GetOriginalMemoryFunctions.html">SDL_GetOriginalMemoryFunctions()</a>の追加
+<li>オーディオデバイスのデフォルト名称と形式を得る<a href="SDL_GetDefaultAudioInfo.html">SDL_GetDefaultAudioInfo()</a>の追加. 現在はPipeWire, PulseAudio, WASAPI, DirectSoundが実装済みである
+<li>バッテリー状態と振動に対応するためのNVIDIA SHIELDコントローラ(2017モデル)用HIDAPIドライバの追加
+<li>3または5チャネル(2.1, 4.1)オーディオデバイスへの対応を追加. これによりモノラルから7.1まで全チャネルに対応した
+<li>SDL_AudioCVTを使用したオーディオチャネルコンバータの書き直し. FAudio音声のデフォルトで使用されるチャネルマトリクス係数に基づく
+<li>SDLメッセージの4Kの制限はなくなり, 無制限の長さが可能になった
+<li>OpenWatcomまたはOS/2のビルドに影響を与えるdynapiの呼出規約の長年の問題の修正
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>Microsoft Game Development Kit (GDK)���g�p����Windows��Xbox�p�̃r���h�̏����T�|�[�g��ǉ�. �ڍׂ�<a href="https://github.com/libsdl-org/SDL/blob/SDL2/docs/README-gdk.md">docs/README-gdk.md</a>���Q�Ƃ��邱��
-<li>D3D12�����_���̎�����, ����Ɋ֘A�t����ꂽD3D12�f�o�C�X�𓾂�<a href="SDL_RenderGetD3D12Device.html">SDL_RenderGetD3D12Device()</a>�̒ǉ�
-<li>�A�v���P�[�V������DPI-aware(��DPI�Ή�)��ݒ肷�邩�ۂ����w�肷��SDL_HINT_WINDOWS_DPI_AWARENESS�q���g�̒ǉ�. ���̃q���g�̓r�f�I�T�u�V�X�e��������������O�ɐݒ肷��K�v������
-<li>SDL���W��DPI�X�P�[�����O���ꂽ���̂��s�N�Z���������w�肷��SDL_HINT_WINDOWS_DPI_SCALING�q���g�̒ǉ�
-<li>DirectInput���g�p���邩�ۂ������߂�SDL_HINT_DIRECTINPUT_ENABLED�q���g�̒ǉ�
-<li>SDL_GetAudioDeviceSpec��DirectSound�o�b�N�G���h�ւ̑Ή���ǉ�
+<li>Microsoft Game Development Kit (GDK)を使用したWindowsとXbox用のビルドの初期サポートを追加. 詳細は<a href="https://github.com/libsdl-org/SDL/blob/SDL2/docs/README-gdk.md">docs/README-gdk.md</a>を参照すること
+<li>D3D12レンダラの実装と, それに関連付けられたD3D12デバイスを得る<a href="SDL_RenderGetD3D12Device.html">SDL_RenderGetD3D12Device()</a>の追加
+<li>アプリケーションにDPI-aware(高DPI対応)を設定するか否かを指定するSDL_HINT_WINDOWS_DPI_AWARENESSヒントの追加. このヒントはビデオサブシステムを初期化する前に設定する必要がある
+<li>SDL座標がDPIスケーリングされたものかピクセル数かを指定するSDL_HINT_WINDOWS_DPI_SCALINGヒントの追加
+<li>DirectInputを使用するか否かを決めるSDL_HINT_DIRECTINPUT_ENABLEDヒントの追加
+<li>SDL_GetAudioDeviceSpecにDirectSoundバックエンドへの対応を追加
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>XVidMode�ւ̑Ή��͎�菜���ꂽ. XRandR�g�����g�p����ꍇ�̂݃��[�h�ύX�ɑΉ�����
-<li>Wayland���g�p�ł���l�C�e�B�u�̉𑜓x�ɉ���, �G�~�����[�V�������[�h��ǉ����邩�ۂ����w�肷��SDL_HINT_VIDEO_WAYLAND_MODE_EMULATION�q���g�̒ǉ�
-<li>�f�t�H���g���g�p�������Ȃ��ꍇ��KMSDRM�f�o�C�X���w�肷��SDL_HINT_KMSDRM_DEVICE_INDEX�q���g�̒ǉ�
-<li>�n�b�g���A�i���O�����`�F�b�N����O�Ƀf�W�^���Ƃ��Ĉ������ۂ����w�肷��SDL_HINT_LINUX_DIGITAL_HATS�q���g�̒ǉ�
-<li>�A�i���O�n�b�g�̃f�b�h�]�[�����g�p���邩�ۂ����w�肷��SDL_HINT_LINUX_HAT_DEADZONES�q���g�̒ǉ�
+<li>XVidModeへの対応は取り除かれた. XRandR拡張を使用する場合のみモード変更に対応する
+<li>Waylandが使用できるネイティブの解像度に加え, エミュレーションモードを追加するか否かを指定するSDL_HINT_VIDEO_WAYLAND_MODE_EMULATIONヒントの追加
+<li>デフォルトを使用したくない場合にKMSDRMデバイスを指定するSDL_HINT_KMSDRM_DEVICE_INDEXヒントの追加
+<li>ハットがアナログかをチェックする前にデジタルとして扱うか否かを指定するSDL_HINT_LINUX_DIGITAL_HATSヒントの追加
+<li>アナログハットのデッドゾーンを使用するか否かを指定するSDL_HINT_LINUX_HAT_DEADZONESヒントの追加
 </ul>
 <h3>macOS</h3>
 <ul>
-<li>�Œ�o�[�W������macOS 10.9�Ɉ����グ
-<li>EDR�g�p�̂���Cocoa GL�R���e�L�X�g��������SDL_GL_FLOATBUFFERS�̒ǉ�
-<li>OpenGL�R���e�L�X�g�̃f�B�X�p�b�`�����C���X���b�h�̏�������������܂Ńf�B�X�p�b�`�X���b�h���u���b�N���邩�ۂ������߂�SDL_HINT_MAC_OPENGL_ASYNC_DISPATCH�q���g�̒ǉ�.
-���݂�macOS�̈��S�̂��߃f�t�H���g�ł̓u���b�N����
+<li>最低バージョンをmacOS 10.9に引き上げ
+<li>EDR使用のためCocoa GLコンテキストを許可するSDL_GL_FLOATBUFFERSの追加
+<li>OpenGLコンテキストのディスパッチがメインスレッドの処理が完了するまでディスパッチスレッドをブロックするか否かを決めるSDL_HINT_MAC_OPENGL_ASYNC_DISPATCHヒントの追加.
+現在のmacOSの安全のためデフォルトではブロックする
 </ul>
-<h2>2.0.22�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.22の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>�E�B���h�E�Ɗ֘A�t����ꂽ�����_���𓾂�<a href="SDL_RenderGetWindow.html">SDL_RenderGetWindow()</a>�̒ǉ�
-<li>���������_��`�֐��̒ǉ�:
+<li>ウィンドウと関連付けられたレンダラを得る<a href="SDL_RenderGetWindow.html">SDL_RenderGetWindow()</a>の追加
+<li>浮動小数点矩形関数の追加:
 <ul>
 <li><a href="SDL_PointInFRect.html">SDL_PointInFRect()</a>
 <li><a href="SDL_FRectEmpty.html">SDL_FRectEmpty()</a>
@@ -155,142 +155,142 @@
 <li><a href="SDL_EncloseFPoints.html">SDL_EncloseFPoints()</a>
 <li><a href="SDL_IntersectFRectAndLine.html">SDL_IntersectFRectAndLine()</a>
 </ul>
-<li>IME�E�B���h�E�����ݕ\������Ă��邩�ۂ���߂�<a href="SDL_IsTextInputShown.html">SDL_IsTextInputShown()</a>�̒ǉ�
-<li>IME�𖳌��������ɃR���|�W�V�����E�B���h�E�����<a href="SDL_ClearComposition.html">SDL_ClearComposition()</a>�̒ǉ�
-<li>�����ϊ�������SDL_TEXTEDITING_EXT�C�x���g�̒ǉ���, �����L���ɂ���SDL_HINT_IME_SUPPORT_EXTENDED_TEXT�q���g�̒ǉ�
-<li>���΃}�E�X���[�h���L���̂Ƃ�, �}�E�X�̐������E�B���h�E�S�̂��E�B���h�E��������I������SDL_HINT_MOUSE_RELATIVE_MODE_CENTER�q���g�̒ǉ�
-<li>�}�E�X�̃{�^�����������Ƃ�, �}�E�X�������I�ɃL���v�`���[�����悤�ɂȂ���. ���̓����I������SDL_HINT_MOUSE_AUTO_CAPTURE�q���g���ǉ����ꂽ
-<li>SDL�ɊO���E�B���h�E��OpenGL���g�p���Ă��邱�Ƃ�m�点��SDL_HINT_VIDEO_FOREIGN_WINDOW_OPENGL�q���g�̒ǉ�
-<li>SDL�ɊO���E�B���h�E��Vulkan���g�p���Ă��邱�Ƃ�m�点��SDL_HINT_VIDEO_FOREIGN_WINDOW_VULKAN�q���g�̒ǉ�
-<li>�Ō�̃A�v���P�[�V�����E�B���h�E�������Ƃ�SDL_QUIT�C�x���g���͂����邩�ۂ����w�肷��SDL_HINT_QUIT_ON_LAST_WINDOW_CLOSE�q���g�̒ǉ�
-<li>ROG Chakram�}�E�X���W���C�X�e�B�b�N�Ƃ��Č���邩�ۂ���I������SDL_HINT_JOYSTICK_ROG_CHAKRAM�q���g�̒ǉ�
+<li>IMEウィンドウが現在表示されているか否かを戻す<a href="SDL_IsTextInputShown.html">SDL_IsTextInputShown()</a>の追加
+<li>IMEを無効化せずにコンポジションウィンドウを閉じる<a href="SDL_ClearComposition.html">SDL_ClearComposition()</a>の追加
+<li>長文変換を扱うSDL_TEXTEDITING_EXTイベントの追加と, それを有効にするSDL_HINT_IME_SUPPORT_EXTENDED_TEXTヒントの追加
+<li>相対マウスモードが有効のとき, マウスの制限がウィンドウ全体かウィンドウ中央かを選択するSDL_HINT_MOUSE_RELATIVE_MODE_CENTERヒントの追加
+<li>マウスのボタンを押したとき, マウスが自動的にキャプチャーされるようになった. この動作を選択するSDL_HINT_MOUSE_AUTO_CAPTUREヒントが追加された
+<li>SDLに外部ウィンドウがOpenGLを使用していることを知らせるSDL_HINT_VIDEO_FOREIGN_WINDOW_OPENGLヒントの追加
+<li>SDLに外部ウィンドウがVulkanを使用していることを知らせるSDL_HINT_VIDEO_FOREIGN_WINDOW_VULKANヒントの追加
+<li>最後のアプリケーションウィンドウが閉じたときSDL_QUITイベントが届けられるか否かを指定するSDL_HINT_QUIT_ON_LAST_WINDOW_CLOSEヒントの追加
+<li>ROG Chakramマウスがジョイスティックとして現れるか否かを選択するSDL_HINT_JOYSTICK_ROG_CHAKRAMヒントの追加
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>D3D9�����_����SDL_BLENDOPERATION_MINIMUM��SDL_BLENDOPERATION_MAXIMUM�ւ̑Ή���ǉ�
+<li>D3D9レンダラのSDL_BLENDOPERATION_MINIMUMとSDL_BLENDOPERATION_MAXIMUMへの対応を追加
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>Wayland�Ή��̃R���p�C���ɂ�libwayland-client�o�[�W����1.18.0�ȍ~���K�v�ƂȂ���
-<li>SDL�E�B���h�E��_NET_WM_WINDOW_TYPE���w�肷��SDL_HINT_X11_WINDOW_TYPE�q���g�̒ǉ�
-<li>xdg-decoration�ɑΉ������R���|�W�^��libdecor�̎g�p��������SDL_HINT_VIDEO_WAYLAND_PREFER_LIBDECOR�q���g�̒ǉ�
+<li>Wayland対応のコンパイルにはlibwayland-clientバージョン1.18.0以降が必要となった
+<li>SDLウィンドウの_NET_WM_WINDOW_TYPEを指定するSDL_HINT_X11_WINDOW_TYPEヒントの追加
+<li>xdg-decorationに対応したコンポジタのlibdecorの使用を許可するSDL_HINT_VIDEO_WAYLAND_PREFER_LIBDECORヒントの追加
 </ul>
-<h2>2.0.20�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.20の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>SDL_RenderGeometryRaw()��int�ł͂Ȃ�SDL_Color�ւ̃|�C���^�����. ���̈����ɂ̓J���[�f�[�^��SDL_PIXELFORMAT_RGBA32�`���ŃL���X�g���ēn����
-<li>OpenGL�܂���OpenGLES���g���������Ɛ����̒����`��̐��x�̌���
-<li>���x, ���x, �݊����̂ǂ���d�����邩��I�����邽��, �����`��Ŏg�p������@��I������<a href="SDL_HINT_RENDER_LINE_METHOD.html">SDL_HINT_RENDER_LINE_METHOD</a>�q���g�̒ǉ�
+<li>SDL_RenderGeometryRaw()はintではなくSDL_Colorへのポインタを取る. この引数にはカラーデータをSDL_PIXELFORMAT_RGBA32形式でキャストして渡せる
+<li>OpenGLまたはOpenGLESを使った水平と垂直の直線描画の精度の向上
+<li>速度, 精度, 互換性のどれを重視するかを選択するため, 直線描画で使用する方法を選択する<a href="SDL_HINT_RENDER_LINE_METHOD.html">SDL_HINT_RENDER_LINE_METHOD</a>ヒントの追加
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>�J�X�^���J�[�\���̃T�C�Y���C��
+<li>カスタムカーソルのサイズを修正
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>2.0.18�ŉ��Ă����z�b�g�v���O�R���g���[���[���m�̏C��
+<li>2.0.18で壊れていたホットプラグコントローラー検知の修正
 </ul>
-<h2>2.0.18�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.18の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>SDL wiki�h�L�������g�ƊJ���w�b�_�͎����I�ɓ�������
-<li>�e�֐��͂ǂ̃o�[�W�����œ������ꂽ���̏�������
-<li>SDL�ŗL��CMake�I�v�V�����͐擪��'SDL_'���t���悤�ɂȂ�. ����ɏ]���Ă��Ȃ���CMake�r���h�X�N���v�g���X�V���邱��!
-<li>�V�X�e�����̗l�X�ȏꏊ�ɕ\�������A�v���P�[�V��������SDL�ɒm�点��SDL_HINT_APP_NAME�q���g�̒ǉ�
-<li>SDL 2D�����_�[API���g���Ĕ��`�����_�����O���s����<a href="SDL_RenderGeometry.html">SDL_RenderGeometry()</a>��<a href="SDL_RenderGeometryRaw.html">SDL_RenderGeometryRaw()</a>�̒ǉ�
-<li>�A�v���P�[�V�����f�[�^��SDL�e�N�X�`�����֘A�t����<a href="SDL_SetTextureUserData.html">SDL_SetTextureUserData()</a>��<a href="SDL_GetTextureUserData.html">SDL_GetTextureUserData()</a>�̒ǉ�
-<li>�E�B���h�E���W�Ƙ_�������_�[���W��ϊ�����<a href="SDL_RenderWindowToLogical.html">SDL_RenderWindowToLogical()</a>��SDL_RenderLogicalToWindow()�̒ǉ�
-<li>�����_���[�̕\����vblank�Ɠ��������邩�����s���ɕύX����<a href="SDL_RenderSetVSync.html">SDL_RenderSetVSync()</a>�̒ǉ�
-<li>SDL_PIXELFORMAT_ARGB8888�s�N�Z���̃u���b�N�̃����v���}���`�v���C��������<a href="SDL_PremultiplyAlpha.html">SDL_PremultiplyAlpha()</a>�̒ǉ�
-<li>�E�B���h�E�̒��S���ǂ̃f�B�X�v���C�ɕ\������Ă��邩���ς�����Ƃ���������SDL_WINDOWEVENT_DISPLAY_CHANGED�E�B���h�E�C�x���g�̒ǉ�
-<li>ICC�𓾂�<a href="SDL_GetWindowICCProfile.html">SDL_GetWindowICCProfile()</a>�̒ǉ���, ICC���ω������Ƃ���������SDL_WINDOWEVENT_ICCPROF_CHANGED�E�B���h�E�C�x���g�̒ǉ�
-<li>EGL�E�B���h�E�𓧉߂ɂ���SDL_HINT_VIDEO_EGL_ALLOW_TRANSPARENCY�q���g�̒ǉ�
-<li>�����̏ꍇ�ŏ��Ȃ�CPU���g���悤��SDL_WaitEvent()���Đ݌v����
-<li>�}�E�X�J�[�\���̓������E�B���h�E���̗̈�ɐ�������<a href="SDL_SetWindowMouseRect.html">SDL_SetWindowMouseRect()</a>��<a href="SDL_GetWindowMouseRect.html">SDL_GetWindowMouseRect()</a>�̒ǉ�
-<li>�C�x���g�t�B�[���h��'preciseX'��'preciseY'�Ń}�E�X�z�C�[���̐��m�ȓ����𓾂���悤�ɂȂ���
-<li>�Q�[���R���g���[�����U���ɑΉ����Ă��邩�𓾂�<a href="SDL_GameControllerHasRumble.html">SDL_GameControllerHasRumble()</a>��<a href="SDL_GameControllerHasRumbleTriggers.html">SDL_GameControllerHasRumbleTriggers()</a>�̒ǉ�
-<li>�W���C�X�e�B�b�N���U���ɑΉ����Ă��邩�𓾂�<a href="SDL_JoystickHasRumble.html">SDL_JoystickHasRumble()</a>��<a href="SDL_JoystickHasRumbleTriggers.html">SDL_JoystickHasRumbleTriggers()</a>�̒ǉ�
-<li>SDL��hidapi�@�\��SDL_hidapi.h�̌��JAPI�Ƃ��Ďg����悤�ɂȂ���
+<li>SDL wikiドキュメントと開発ヘッダは自動的に同期する
+<li>各関数はどのバージョンで導入されたかの情報を持つ
+<li>SDL固有のCMakeオプションは先頭に'SDL_'が付くようになる. これに従ってあなたのCMakeビルドスクリプトを更新すること!
+<li>システム情報の様々な場所に表示されるアプリケーション名をSDLに知らせるSDL_HINT_APP_NAMEヒントの追加
+<li>SDL 2DレンダーAPIを使って非矩形レンダリングを行える<a href="SDL_RenderGeometry.html">SDL_RenderGeometry()</a>と<a href="SDL_RenderGeometryRaw.html">SDL_RenderGeometryRaw()</a>の追加
+<li>アプリケーションデータとSDLテクスチャを関連付ける<a href="SDL_SetTextureUserData.html">SDL_SetTextureUserData()</a>と<a href="SDL_GetTextureUserData.html">SDL_GetTextureUserData()</a>の追加
+<li>ウィンドウ座標と論理レンダー座標を変換する<a href="SDL_RenderWindowToLogical.html">SDL_RenderWindowToLogical()</a>とSDL_RenderLogicalToWindow()の追加
+<li>レンダラーの表示をvblankと同期させるかを実行中に変更する<a href="SDL_RenderSetVSync.html">SDL_RenderSetVSync()</a>の追加
+<li>SDL_PIXELFORMAT_ARGB8888ピクセルのブロックのαをプリマルチプライ処理する<a href="SDL_PremultiplyAlpha.html">SDL_PremultiplyAlpha()</a>の追加
+<li>ウィンドウの中心がどのディスプレイに表示されているかが変わったとき発生するSDL_WINDOWEVENT_DISPLAY_CHANGEDウィンドウイベントの追加
+<li>ICCを得る<a href="SDL_GetWindowICCProfile.html">SDL_GetWindowICCProfile()</a>の追加と, ICCが変化したとき発生するSDL_WINDOWEVENT_ICCPROF_CHANGEDウィンドウイベントの追加
+<li>EGLウィンドウを透過にするSDL_HINT_VIDEO_EGL_ALLOW_TRANSPARENCYヒントの追加
+<li>多くの場合で少ないCPUを使うようにSDL_WaitEvent()を再設計した
+<li>マウスカーソルの動きをウィンドウ内の領域に制限する<a href="SDL_SetWindowMouseRect.html">SDL_SetWindowMouseRect()</a>と<a href="SDL_GetWindowMouseRect.html">SDL_GetWindowMouseRect()</a>の追加
+<li>イベントフィールドの'preciseX'と'preciseY'でマウスホイールの正確な動きを得られるようになった
+<li>ゲームコントローラが振動に対応しているかを得る<a href="SDL_GameControllerHasRumble.html">SDL_GameControllerHasRumble()</a>と<a href="SDL_GameControllerHasRumbleTriggers.html">SDL_GameControllerHasRumbleTriggers()</a>の追加
+<li>ジョイスティックが振動に対応しているかを得る<a href="SDL_JoystickHasRumble.html">SDL_JoystickHasRumble()</a>と<a href="SDL_JoystickHasRumbleTriggers.html">SDL_JoystickHasRumbleTriggers()</a>の追加
+<li>SDLのhidapi機能はSDL_hidapi.hの公開APIとして使えるようになった
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>Windows�����[�g�f�X�N�g�b�v�ł̑��΃}�E�X�ړ��̉���
-<li>�l�C�e�B�u��IME UI�R���|�[�l���g��\������SDL_HINT_IME_SHOW_UI�q���g�̒ǉ� (�f�t�H���g��OFF)
+<li>Windowsリモートデスクトップでの相対マウス移動の改良
+<li>ネイティブのIME UIコンポーネントを表示するSDL_HINT_IME_SHOW_UIヒントの追加 (デフォルトはOFF)
 </ul>
 <h3>Windows/UWP</h3>
 <ul>
-<li>UWP�A�v���P�[�V�����ł̃R���g���[���[�Ή��̉��ǂ̂���, XInput�̑����WGI���g�p����
+<li>UWPアプリケーションでのコントローラー対応の改良のため, XInputの代わりにWGIを使用する
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>�X�N���[���Z�[�o�[�������̂Ƃ��V�X�e�����\������A�N�e�B�r�e�B����ݒ肷��SDL_HINT_SCREENSAVER_INHIBIT_ACTIVITY_NAME�q���g�̒ǉ�
-<li>/dev/input/js* �� /dev/input/event* �̂ǂ�����W���C�X�e�B�b�N�Ƃ��Ďg�p���邩�����߂�SDL_HINT_LINUX_JOYSTICK_CLASSIC �q���g�̒ǉ�
-<li>���[�U���w�肵���f�o�C�X��ʏ�̃W���C�X�e�B�b�N�̌��m�ɒǉ�����SDL_HINT_JOYSTICK_DEVICE�q���g�̒ǉ�
-<li>Linux�̃X���b�h�D��x���ڍׂɐݒ肷��<a href="SDL_LinuxSetThreadPriorityAndPolicy.html">SDL_LinuxSetThreadPriorityAndPolicy()</a>�̒ǉ�
+<li>スクリーンセーバーが無効のときシステムが表示するアクティビティ名を設定するSDL_HINT_SCREENSAVER_INHIBIT_ACTIVITY_NAMEヒントの追加
+<li>/dev/input/js* と /dev/input/event* のどちらをジョイスティックとして使用するかを決めるSDL_HINT_LINUX_JOYSTICK_CLASSIC ヒントの追加
+<li>ユーザが指定したデバイスを通常のジョイスティックの検知に追加するSDL_HINT_JOYSTICK_DEVICEヒントの追加
+<li>Linuxのスレッド優先度を詳細に設定する<a href="SDL_LinuxSetThreadPriorityAndPolicy.html">SDL_LinuxSetThreadPriorityAndPolicy()</a>の追加
 </ul>
 <h3>Android</h3>
 <ul>
-<li>Android 8.1�ȍ~��AAudio���g�p����I�[�f�B�I�Đ��Ƙ^���ɑΉ�
-<li>Steam�R���g���[���[�ւ̑Ή��̓f�t�H���g�Ŗ����ƂȂ���. �����SDL_Init()���ĂԑO��SDL_HINT_JOYSTICK_HIDAPI_STEAM�q���g��"1"�ɂ���ƗL���ɂł���.
+<li>Android 8.1以降でAAudioを使用するオーディオ再生と録音に対応
+<li>Steamコントローラーへの対応はデフォルトで無効となった. これはSDL_Init()を呼ぶ前にSDL_HINT_JOYSTICK_HIDAPI_STEAMヒントを"1"にすると有効にできる.
 </ul>
 <h3>Apple Arcade</h3>
 <ul>
-<li>Apple Arcade�^�C�g���ɑΉ����邽�߂�<a href="SDL_GameControllerGetAppleSFSymbolsNameForButton.html">SDL_GameControllerGetAppleSFSymbolsNameForButton()</a>��<a href="SDL_GameControllerGetAppleSFSymbolsNameForAxis.html">SDL_GameControllerGetAppleSFSymbolsNameForAxis()</a>�̒ǉ�
+<li>Apple Arcadeタイトルに対応するための<a href="SDL_GameControllerGetAppleSFSymbolsNameForButton.html">SDL_GameControllerGetAppleSFSymbolsNameForButton()</a>と<a href="SDL_GameControllerGetAppleSFSymbolsNameForAxis.html">SDL_GameControllerGetAppleSFSymbolsNameForAxis()</a>の追加
 </ul>
 <h3>iOS</h3>
 <ul>
-<li>���ۂ�Bluetooth�}�E�X�̃C�x���g���l������ɂ�, �A�v���P�[�V������Info.plist��UIApplicationSupportsIndirectInputEvents�L�[�͐^�łȂ���΂Ȃ�Ȃ����Ƃ��h�L�������g�ɒǉ�
-<li>Steam�R���g���[���[�ւ̑Ή��̓f�t�H���g�Ŗ����ƂȂ���. �����SDL_Init()���ĂԑO��SDL_HINT_JOYSTICK_HIDAPI_STEAM�q���g��"1"�ɂ���ƗL���ɂł���.
+<li>実際のBluetoothマウスのイベントを獲得するには, アプリケーションのInfo.plistのUIApplicationSupportsIndirectInputEventsキーは真でなければならないことをドキュメントに追加
+<li>Steamコントローラーへの対応はデフォルトで無効となった. これはSDL_Init()を呼ぶ前にSDL_HINT_JOYSTICK_HIDAPI_STEAMヒントを"1"にすると有効にできる.
 </ul>
-<h2>2.0.16�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.16の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>���[�U�ɒ��ӂ����N����<a href="SDL_FlashWindow.html">SDL_FlashWindow()</a>�̒ǉ�
-<li>�f�o�C�X�̐����I�[�f�B�I�t�H�[�}�b�g�𓾂�<a href="SDL_GetAudioDeviceSpec.html">SDL_GetAudioDeviceSpec()</a>�̒ǉ�
-<li>�E�B���h�E��SDL_WINDOW_ALWAYS_ON_TOP�t���O�𓮓I�ɕύX����<a href="SDL_SetWindowAlwaysOnTop.html">SDL_SetWindowAlwaysOnTop()</a>�̒ǉ�
-<li>�}�E�X�Ƃ͓Ɨ����ăL�[�{�[�h���O���u����@�\��<a href="SDL_SetWindowKeyboardGrab.html">SDL_SetWindowKeyboardGrab()</a>�ɒǉ�
-<li>32�r�b�g�T�[�t�F�C�X��o�ꎟ���(biliner)�Ŋg�傷��<a href="SDL_SoftStretchLinear.html">SDL_SoftStretchLinear()</a>�̒ǉ�
-<li>�X�g���[�~���ONV12/21�e�N�X�`�����X�V����<a href="SDL_UpdateNVTexture.html">SDL_UpdateNVTexture()</a>�̒ǉ�
-<li>DualSense�R���g���[���ɃJ�X�^���g���K�[�G�t�F�N�g�𑗐M����<a href="SDL_GameControllerSendEffect.html">SDL_GameControllerSendEffect()</a>��<a href="SDL_JoystickSendEffect.html">SDL_JoystickSendEffect()</a>�̒ǉ�
-<li>PlayStation��Nintendo Switch�R���g���[���̃Z���T�[�̃f�[�^���[�g���l������<a href="SDL_GameControllerGetSensorDataRate.html">SDL_GameControllerGetSensorDataRate()</a>�̒ǉ�
-<li>Amazon Luna�Q�[���R���g���[���ɑΉ�
-<li>HIDAPI�h���C�o�g�p����Google Stadia�R���g���[���ŐU���ɑΉ�
-<li>Amazon Luna��Google Stadia�R���g���[���̒l��SDL_GameControllerType�ɒǉ�
-<li>HIDAPI�h���C�o�g�p����Nintendo Switch Pro�R���g���[���ŃA�i���O�U���ɑΉ�
-<li>SDL_WaitEvent()��SDL_WaitEventTimeout()�̎g�p����CPU���ׂ��y��
+<li>ユーザに注意を喚起する<a href="SDL_FlashWindow.html">SDL_FlashWindow()</a>の追加
+<li>デバイスの推奨オーディオフォーマットを得る<a href="SDL_GetAudioDeviceSpec.html">SDL_GetAudioDeviceSpec()</a>の追加
+<li>ウィンドウのSDL_WINDOW_ALWAYS_ON_TOPフラグを動的に変更する<a href="SDL_SetWindowAlwaysOnTop.html">SDL_SetWindowAlwaysOnTop()</a>の追加
+<li>マウスとは独立してキーボードをグラブする機能を<a href="SDL_SetWindowKeyboardGrab.html">SDL_SetWindowKeyboardGrab()</a>に追加
+<li>32ビットサーフェイスを双一次補間(biliner)で拡大する<a href="SDL_SoftStretchLinear.html">SDL_SoftStretchLinear()</a>の追加
+<li>ストリーミングNV12/21テクスチャを更新する<a href="SDL_UpdateNVTexture.html">SDL_UpdateNVTexture()</a>の追加
+<li>DualSenseコントローラにカスタムトリガーエフェクトを送信する<a href="SDL_GameControllerSendEffect.html">SDL_GameControllerSendEffect()</a>と<a href="SDL_JoystickSendEffect.html">SDL_JoystickSendEffect()</a>の追加
+<li>PlayStationとNintendo Switchコントローラのセンサーのデータレートを獲得する<a href="SDL_GameControllerGetSensorDataRate.html">SDL_GameControllerGetSensorDataRate()</a>の追加
+<li>Amazon Lunaゲームコントローラに対応
+<li>HIDAPIドライバ使用時のGoogle Stadiaコントローラで振動に対応
+<li>Amazon LunaとGoogle Stadiaコントローラの値をSDL_GameControllerTypeに追加
+<li>HIDAPIドライバ使用時のNintendo Switch Proコントローラでアナログ振動に対応
+<li>SDL_WaitEvent()とSDL_WaitEventTimeout()の使用時のCPU負荷を軽減
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>�E�B���h�E���b�Z�[�W����M�����Ƃ��Ă΂��֐���ݒ肷��<a href="SDL_SetWindowsMessageHook.html">SDL_SetWindowsMessageHook()</a>�̒ǉ�
-<li>SDL�����_���Ɏg���Ă���D3D11�h���C�o�𓾂�<a href="SDL_RenderGetD3D11Device.html">SDL_RenderGetD3D11Device()</a>�̒ǉ�
+<li>ウィンドウメッセージを受信したとき呼ばれる関数を設定する<a href="SDL_SetWindowsMessageHook.html">SDL_SetWindowsMessageHook()</a>の追加
+<li>SDLレンダラに使われているD3D11ドライバを得る<a href="SDL_RenderGetD3D11Device.html">SDL_RenderGetD3D11Device()</a>の追加
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>Wayland�ւ̑Ή���啝�Ɍ���
-<li>Pipewire���g���������o�͂ƃL���v�`����ǉ�
-<li>PulseAudio�ɂ��^�������j�^�f�o�C�X���܂ނ��ۂ���I������SDL_HINT_AUDIO_INCLUDE_MONITORS�q���g�̒ǉ�
-<li>�����R���g���[���p�l���ɃA�v���P�[�V�����̖������L�q����SDL_HINT_AUDIO_DEVICE_STREAM_ROLE�q���g�̒ǉ�
+<li>Waylandへの対応を大幅に向上
+<li>Pipewireを使った音声出力とキャプチャを追加
+<li>PulseAudioによる録音がモニタデバイスを含むか否かを選択するSDL_HINT_AUDIO_INCLUDE_MONITORSヒントの追加
+<li>音声コントロールパネルにアプリケーションの役割を記述するSDL_HINT_AUDIO_DEVICE_STREAM_ROLEヒントの追加
 </ul>
 <h3>Android</h3>
 <ul>
-<li>AAudio���g�p���鉹���o�͂Ƙ^���̒ǉ�
-<li>�y�����ӊ��N���s��<a href="SDL_AndroidShowToast.html">SDL_AndroidShowToast()</a>�̒ǉ�
+<li>AAudioを使用する音声出力と録音の追加
+<li>軽い注意喚起を行う<a href="SDL_AndroidShowToast.html">SDL_AndroidShowToast()</a>の追加
 </ul>
 <h3>iOS</h3>
 <ul>
-<li>iOS 14.1�ȍ~�Ń}�E�X�̑��΃��[�h�ɑΉ�
-<li>Xbox�V���[�YX�R���g���[���ւ̑Ή���ǉ�
+<li>iOS 14.1以降でマウスの相対モードに対応
+<li>XboxシリーズXコントローラへの対応を追加
 </ul>
 <h3>tvOS</h3>
 <ul>
-<li>Xbox�V���[�YX�R���g���[���ւ̑Ή���ǉ�
+<li>XboxシリーズXコントローラへの対応を追加
 </ul>
-<h2>2.0.14�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.14の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>HIDAPI�R���g���[���h���C�o��PS5 DualSense��Xbox Series X �R���g���[���̑Ή���ǉ�
-<li>�p�h���ƐV�����{�^���̂��߂̃Q�[���R���g���[���萔�̒ǉ�
-<li>�V���ȏ��̊l���̂��߂̃Q�[���R���g���[���֐��̒ǉ�:
+<li>HIDAPIコントローラドライバにPS5 DualSenseとXbox Series X コントローラの対応を追加
+<li>パドルと新しいボタンのためのゲームコントローラ定数の追加
+<li>新たな情報の獲得のためのゲームコントローラ関数の追加:
 <ul>
 <li><a href="SDL_GameControllerGetSerial.html">SDL_GameControllerGetSerial()</a>
 <li><a href="SDL_GameControllerHasAxis.html">SDL_GameControllerHasAxis()</a>
@@ -306,15 +306,15 @@
 <li><a href="SDL_GameControllerHasLED.html">SDL_GameControllerHasLED()</a>
 <li><a href="SDL_GameControllerSetLED.html">SDL_GameControllerSetLED()</a>
 </ul>
-<li>PS5�R���g���[���pHIDAPI���g�p���邩�ۂ���I������SDL_HINT_JOYSTICK_HIDAPI_PS5�q���g�̒ǉ�
-<li>�V���ȏ����l�����邽�߂̃W���C�X�e�B�b�N�֐��̒ǉ�:
+<li>PS5コントローラ用HIDAPIを使用するか否かを選択するSDL_HINT_JOYSTICK_HIDAPI_PS5ヒントの追加
+<li>新たな情報を獲得するためのジョイスティック関数の追加:
 <ul>
 <li><a href="SDL_JoystickGetSerial.html">SDL_JoystickGetSerial()</a>
 <li><a href="SDL_JoystickRumbleTriggers.html">SDL_JoystickRumbleTriggers()</a>
 <li><a href="SDL_JoystickHasLED.html">SDL_JoystickHasLED()</a>
 <li><a href="SDL_JoystickSetLED.html">SDL_JoystickSetLED()</a>
 </ul>
-<li>�A�v���P�[�V���������z�W���C�X�e�B�b�N�𐶐����邽�߂�API�̒ǉ�:
+<li>アプリケーションが仮想ジョイスティックを生成するためのAPIの追加:
 <ul>
 <li><a href="SDL_JoystickAttachVirtual.html">SDL_JoystickAttachVirtual()</a>
 <li><a href="SDL_JoystickDetachVirtual.html">SDL_JoystickDetachVirtual()</a>
@@ -323,35 +323,35 @@
 <li><a href="SDL_JoystickSetVirtualButton.html">SDL_JoystickSetVirtualButton()</a>
 <li><a href="SDL_JoystickSetVirtualHat.html">SDL_JoystickSetVirtualHat()</a>
 </ul>
-<li>�Z���T�[�ꗗ�ւ̔r���I�A�N�Z�X��ۏႷ��<a href="SDL_LockSensors.html">SDL_LockSensors()</a>��SDL_UnlockSensors()�̒ǉ�
-<li>�n���h���^�R���g���[���̃G�t�F�N�g�Đ����s��SDL_HAPTIC_STEERING_AXIS�̒ǉ�
-<li>�}�E�X�̑��Έړ��ʂ��f�B�X�v���C��DPI�ƃ����_���[�̘_���T�C�Y�̂ǂ������ɂ��邩�����߂�<a href="SDL_HINT_MOUSE_RELATIVE_SCALING.html">SDL_HINT_MOUSE_RELATIVE_SCALING</a>�q���g�̒ǉ�
-<li>����I�ȃE�B���h�E�}�l�[�W���Ƃ̌݊��������߂邽��, SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSS�̃f�t�H���g�l���U�Ƃ���
-<li>�A�v���P�[�V�����̌��݂̃��P�[����ݒ肷��<a href="SDL_GetPreferredLocales.html">SDL_GetPreferredLocales()</a>�̒ǉ�
-<li>�A�v���P�[�V�����̃��P�[���̃f�t�H���g���㏑������SDL_HINT_PREFERRED_LOCALES�q���g�̒ǉ�
-<li>�V�X�e���̃f�t�H���g�u���E�U��URL���J��<a href="SDL_OpenURL.html">SDL_OpenURL()</a>�̒ǉ�
-<li>�T�[�t�F�C�X�����������O�X���k���g�p���Ă��邩�𓾂�<a href="SDL_HasSurfaceRLE.html">SDL_HasSurfaceRLE()</a>�̒ǉ�
-<li>SDL_SIMDAlloc()�œ������������Ď擾����<a href="SDL_SIMDRealloc.html">SDL_SIMDRealloc()</a>�̒ǉ�
-<li>�X���b�h�Z�[�t�ȕ��@�ōŌ�̃G���[�𓾂���<a href="SDL_GetErrorMsg.html">SDL_GetErrorMsg()</a>�̒ǉ�
-<li>SDL_crc32(), SDL_wcscasecmp(), SDL_wcsncasecmp(), SDL_trunc(), SDL_truncf()�̒ǉ�
-<li>RGB�̂�薾�m�Ȗ��̂̒ǉ�. ��: SDL_PIXELFORMAT_XRGB8888, SDL_PIXELFORMAT_XBGR8888�Ȃ�
+<li>センサー一覧への排他的アクセスを保障する<a href="SDL_LockSensors.html">SDL_LockSensors()</a>とSDL_UnlockSensors()の追加
+<li>ハンドル型コントローラのエフェクト再生を行うSDL_HAPTIC_STEERING_AXISの追加
+<li>マウスの相対移動量をディスプレイのDPIとレンダラーの論理サイズのどちらを基準にするかを決める<a href="SDL_HINT_MOUSE_RELATIVE_SCALING.html">SDL_HINT_MOUSE_RELATIVE_SCALING</a>ヒントの追加
+<li>現代的なウィンドウマネージャとの互換性を高めるため, SDL_HINT_VIDEO_MINIMIZE_ON_FOCUS_LOSSのデフォルト値を偽とした
+<li>アプリケーションの現在のロケールを設定する<a href="SDL_GetPreferredLocales.html">SDL_GetPreferredLocales()</a>の追加
+<li>アプリケーションのロケールのデフォルトを上書きするSDL_HINT_PREFERRED_LOCALESヒントの追加
+<li>システムのデフォルトブラウザでURLを開く<a href="SDL_OpenURL.html">SDL_OpenURL()</a>の追加
+<li>サーフェイスがランレングス圧縮を使用しているかを得る<a href="SDL_HasSurfaceRLE.html">SDL_HasSurfaceRLE()</a>の追加
+<li>SDL_SIMDAlloc()で得たメモリを再取得する<a href="SDL_SIMDRealloc.html">SDL_SIMDRealloc()</a>の追加
+<li>スレッドセーフな方法で最後のエラーを得られる<a href="SDL_GetErrorMsg.html">SDL_GetErrorMsg()</a>の追加
+<li>SDL_crc32(), SDL_wcscasecmp(), SDL_wcsncasecmp(), SDL_trunc(), SDL_truncf()の追加
+<li>RGBのより明確な名称の追加. 例: SDL_PIXELFORMAT_XRGB8888, SDL_PIXELFORMAT_XBGR8888など
 </ul>
-<h2>2.0.12�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.12の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>�e�N�X�`���Ŏg�p�����g�僂�[�h�̊l���Ɛݒ���s��<a href="SDL_GetTextureScaleMode.html">SDL_GetTextureScaleMode()</a>��<a href="SDL_SetTextureScaleMode.html">SDL_SetTextureScaleMode()</a>�̒ǉ�
-<li><a href="SDL_LockTexture.html">SDL_LockTexture()</a>�Ǝ��Ă��邪, ���b�N���ꂽ�̈悪SDL�T�[�t�F�C�X�ƂȂ�<a href="SDL_LockTextureToSurface.html">SDL_LockTextureToSurface()</a>�̒ǉ�
-<li>��Z�u�����h�ƃ��u�����h�𓯎��ɍs��SDL_BLENDMODE_MUL�̒ǉ�
-<li>�f�B�X�v���C�ԍ�0��SDL_GetDisplayUsableBounds()�̌��ʂ��㏑������SDL_HINT_DISPLAY_USABLE_BOUNDS�q���g�̒ǉ�
-<li>SDL_TouchFingerEvent�Ƀ^�b�`�����E�B���h�EID��ǉ�
-<li>�Q�[���R���g���[���̎��(Xbox 360, Xbox One, PS3, PS4, Nintendo Switch Pro)��߂�<a href="SDL_GameControllerTypeForIndex.html">SDL_GameControllerTypeForIndex()</a>, <a href="SDL_GameControllerGetType.html">SDL_GameControllerGetType()</a>�̒ǉ�
-<li>�Q�[���R���g���[���̎�ނ̎������m�̌��ʂ��㏑������SDL_HINT_GAMECONTROLLERTYPE�q���g�̒ǉ�
-<li>�v���C���[�ԍ�����f�o�C�X�����߂�<a href="SDL_JoystickFromPlayerIndex.html">SDL_JoystickFromPlayerIndex()</a>��<a href="SDL_GameControllerFromPlayerIndex.html">SDL_GameControllerFromPlayerIndex()</a>�̒ǉ�
-<li>�f�o�C�X�̃v���C���[�ԍ���ݒ肷��<a href="SDL_JoystickSetPlayerIndex.html">SDL_JoystickSetPlayerIndex()</a>��<a href="SDL_GameControllerSetPlayerIndex.html">SDL_GameControllerSetPlayerIndex()</a>�̒ǉ�
-<li>Nintendo Switch Pro�R���g���[����, �{�^�������x���ʂ�Ƃ��邩, �z�u���C�A�E�g�ɍ��킹�Č������邩�����߂�SDL_HINT_GAMECONTROLLER_USE_BUTTON_LABELS�q���g�̒ǉ�. �f�t�H���g�ł̓��x���ʂ�Ƃ���
-<li>HIDAPI�h���C�o�ɂ��Nintendo GameCube�R���g���[���̑Ή���ǉ�. �g�p���邩�ۂ������߂�SDL_HINT_JOYSTICK_HIDAPI_GAMECUBE�q���g�̒ǉ�
-<li>HIDAPI�h���C�o�ɂ��Xbox 360��Xbox One�R���g���[���̑Ή������P
-<li>�ȉ����܂ޑ����̃Q�[���R���g���[���̑Ή���ǉ�:
+<li>テクスチャで使用される拡大モードの獲得と設定を行う<a href="SDL_GetTextureScaleMode.html">SDL_GetTextureScaleMode()</a>と<a href="SDL_SetTextureScaleMode.html">SDL_SetTextureScaleMode()</a>の追加
+<li><a href="SDL_LockTexture.html">SDL_LockTexture()</a>と似ているが, ロックされた領域がSDLサーフェイスとなる<a href="SDL_LockTextureToSurface.html">SDL_LockTextureToSurface()</a>の追加
+<li>乗算ブレンドとαブレンドを同時に行うSDL_BLENDMODE_MULの追加
+<li>ディスプレイ番号0のSDL_GetDisplayUsableBounds()の結果を上書きするSDL_HINT_DISPLAY_USABLE_BOUNDSヒントの追加
+<li>SDL_TouchFingerEventにタッチしたウィンドウIDを追加
+<li>ゲームコントローラの種類(Xbox 360, Xbox One, PS3, PS4, Nintendo Switch Pro)を戻す<a href="SDL_GameControllerTypeForIndex.html">SDL_GameControllerTypeForIndex()</a>, <a href="SDL_GameControllerGetType.html">SDL_GameControllerGetType()</a>の追加
+<li>ゲームコントローラの種類の自動検知の結果を上書きするSDL_HINT_GAMECONTROLLERTYPEヒントの追加
+<li>プレイヤー番号からデバイスを求める<a href="SDL_JoystickFromPlayerIndex.html">SDL_JoystickFromPlayerIndex()</a>と<a href="SDL_GameControllerFromPlayerIndex.html">SDL_GameControllerFromPlayerIndex()</a>の追加
+<li>デバイスのプレイヤー番号を設定する<a href="SDL_JoystickSetPlayerIndex.html">SDL_JoystickSetPlayerIndex()</a>と<a href="SDL_GameControllerSetPlayerIndex.html">SDL_GameControllerSetPlayerIndex()</a>の追加
+<li>Nintendo Switch Proコントローラで, ボタンをラベル通りとするか, 配置レイアウトに合わせて交換するかを決めるSDL_HINT_GAMECONTROLLER_USE_BUTTON_LABELSヒントの追加. デフォルトではラベル通りとする
+<li>HIDAPIドライバによるNintendo GameCubeコントローラの対応を追加. 使用するか否かを決めるSDL_HINT_JOYSTICK_HIDAPI_GAMECUBEヒントの追加
+<li>HIDAPIドライバによるXbox 360とXbox Oneコントローラの対応を改善
+<li>以下を含む多数のゲームコントローラの対応を追加:
 <ul>
 <li>8BitDo FC30 Pro
 <li>8BitDo M30 GamePad
@@ -370,170 +370,170 @@
 <li>Victrix Pro Fight Stick for PS4
 <li>Xbox One Elite Series 2
 </ul>
-<li>HIDAPI�h���C�o���g�p�����ꍇ��, �Q�[���R���g���[���̐U���̌Ăяo���ɂ��u���b�L���O���C��
-<li>�z��̊e�v�f��0�ɂ���SDL_zeroa()�}�N���̒ǉ�
-<li>CPU��ARM SIMD (ARMv6+)�d�l������ꍇ�ɐ^��߂�<a href="SDL_HasARMSIMD.html">SDL_HasARMSIMD()</a>�̒ǉ�
+<li>HIDAPIドライバを使用した場合の, ゲームコントローラの振動の呼び出しによるブロッキングを修正
+<li>配列の各要素を0にするSDL_zeroa()マクロの追加
+<li>CPUにARM SIMD (ARMv6+)仕様がある場合に真を戻す<a href="SDL_HasARMSIMD.html">SDL_HasARMSIMD()</a>の追加
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>gcc�Ńr���h�����A�v���P�[�V������release SDL DLL���g���ƃN���b�V����������C��
-<li>2.0.10�̃C�x���g�n���h�����O�̃p�t�H�[�}���X�ቺ���C��
-<li>SDL_SetThreadPriority()��UWP�A�v���P�[�V�����ɑΉ�
+<li>gccでビルドしたアプリケーションでrelease SDL DLLを使うとクラッシュする問題を修正
+<li>2.0.10のイベントハンドリングのパフォーマンス低下を修正
+<li>SDL_SetThreadPriority()がUWPアプリケーションに対応
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>�V����X11�E�B���h�E�̃r�W���A��ID���w�肷��SDL_HINT_VIDEO_X11_WINDOW_VISUALID�q���g�̒ǉ�
-<li>�f�t�H���g��X11��GLX��EGL�̂ǂ�����g�p���邩���w�肷��SDL_HINT_VIDEO_X11_FORCE_EGL�q���g�̒ǉ�
+<li>新しいX11ウィンドウのビジュアルIDを指定するSDL_HINT_VIDEO_X11_WINDOW_VISUALIDヒントの追加
+<li>デフォルトでX11がGLXとEGLのどちらを使用するかを指定するSDL_HINT_VIDEO_X11_FORCE_EGLヒントの追加
 </ul>
 <h3>iOS / tvOS / macOS</h3>
 <ul>
-<li>�w��̃E�B���h�E��CAMetalLayer-backed NSView/UIView�𐶐����ăA�^�b�`����<a href="SDL_Metal_CreateView.html">SDL_Metal_CreateView()</a>��<a href="SDL_Metal_DestroyView.html">SDL_Metal_DestroyView()</a>�̒ǉ�
+<li>指定のウィンドウにCAMetalLayer-backed NSView/UIViewを生成してアタッチする<a href="SDL_Metal_CreateView.html">SDL_Metal_CreateView()</a>と<a href="SDL_Metal_DestroyView.html">SDL_Metal_DestroyView()</a>の追加
 </ul>
 <h3>iOS/ tvOS</h3>
 <ul>
-<li>Bluetooth Steam�R���g���[���̃Q�[���R���g���[���Ƃ��Ă̑Ή���ǉ�
+<li>Bluetooth Steamコントローラのゲームコントローラとしての対応を追加
 </ul>
 <h3>tvOS</h3>
 <ul>
-<li>Apple TV�̃T���E���h�Ή����C��
+<li>Apple TVのサラウンド対応を修正
 </ul>
 <h3>Android</h3>
 <ul>
-<li>�f�o�C�X��API���x����߂�<a href="SDL_GetAndroidSDKVersion.html">SDL_GetAndroidSDKVersion()</a>�̒ǉ�
-<li>OpenSL-ES���g�p�����^���̑Ή���ǉ�
-<li>Bluetooth Steam�R���g���[���̃Q�[���R���g���[���Ƃ��Ă̑Ή���ǉ�
-<li>�A�v�����o�b�N�O���E���h�ɂȂ�, �܂��͏I������Ƃ��H�ɃN���b�V��������̏C��
+<li>デバイスのAPIレベルを戻す<a href="SDL_GetAndroidSDKVersion.html">SDL_GetAndroidSDKVersion()</a>の追加
+<li>OpenSL-ESを使用した録音の対応を追加
+<li>Bluetooth Steamコントローラのゲームコントローラとしての対応を追加
+<li>アプリがバックグラウンドになる, または終了するとき稀にクラッシュする問題の修正
 </ul>
-<h2>2.0.10�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.10の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>SDL_RW*�}�N����2.0.10�ȍ~�͊֐��ƂȂ�
-<li>���݂�CPU��SIMD���ߗp�Ƀ��������m�ۂ���<a href="SDL_SIMDGetAlignment.html">SDL_SIMDGetAlignment()</a>, <a href="SDL_SIMDAlloc.html">SDL_SIMDAlloc()</a>, <a href="SDL_SIMDFree.html">SDL_SIMDFree()</a>�֐��̒ǉ�
-<li>SDL�����_�����OAPI�̈����𕂓������_�Ŏw�肷��<a href="SDL_RenderDrawPointF.html">SDL_RenderDrawPointF()</a>, <a href="SDL_RenderDrawPointsF.html">SDL_RenderDrawPointsF()</a>, <a href="SDL_RenderDrawLineF.html">SDL_RenderDrawLineF()</a>, <a href="SDL_RenderDrawLinesF.html">SDL_RenderDrawLinesF()</a>, <a href="SDL_RenderDrawRectF.html">SDL_RenderDrawRectF()</a>, <a href="SDL_RenderDrawRectsF.html">SDL_RenderDrawRectsF()</a>, <a href="SDL_RenderFillRectF.html">SDL_RenderFillRectF()</a>, <a href="SDL_RenderFillRectsF.html">SDL_RenderFillRectsF()</a>, <a href="SDL_RenderCopyF.html">SDL_RenderCopyF()</a>, <a href="SDL_RenderCopyExF.html">SDL_RenderCopyExF()</a>�֐��̒ǉ�
-<li>�^�b�`�f�o�C�X���^�b�`�X�N���[��, ���΍��W�܂��͐�΍��W�̃g���b�N�p�b�h�ƂȂ邩�𓾂�<a href="SDL_GetTouchDeviceType.html">SDL_GetTouchDeviceType()</a>�֐��̒ǉ�
-<li>�p�t�H�[�}���X����̂���, SDL�����_�����OAPI�̓o�b�`�����_�����O���f�t�H���g�Ƃ���
-<li>�l�C�e�B�u�����_�����O��SDL�����_�����O���������Ďg���Ă���ꍇ��, �o�b�`�����_�����O�R�}���h�������I�Ɏ��s������<a href="SDL_RenderFlush.html">SDL_RenderFlush()</a>�֐��̒ǉ�
-<li>�����_�����OAPI���o�b�`�������邩�ۂ��𐧌䂷��SDL_HINT_RENDER_BATCHING�q���g�̒ǉ�. �����_���[�𐶐�����Ƃ�, �g�p����h���C�o���w�肵�Ȃ����, �f�t�H���g��"1"�ł���.
-<li>�f�o�b�O�p��SDL�C�x���g�̃��O�o�͂�L���ɂ���SDL_HINT_EVENT_LOGGING�q���g�̒ǉ�
-<li>�W���C�X�e�B�b�N�ƃQ�[���R���g���[���[���o�C���h���邽�߂ɓǂݍ��ރt�@�C�����w�肷��SDL_HINT_GAMECONTROLLERCONFIG_FILE�q���g�̒ǉ�
-<li>SDL���^�b�`�C�x���g�ƃ}�E�X�C�x���g�𓝍����Ĉ������ۂ���I������SDL_HINT_MOUSE_TOUCH_EVENTS�q���g�̒ǉ�
-<li>���ݓI�ȃZ�L�����e�B��̋��ЂɑΉ����邽��, �s����WAVE�t�@�C����BMP�t�@�C���̏��������P
+<li>SDL_RW*マクロは2.0.10以降は関数となる
+<li>現在のCPUのSIMD命令用にメモリを確保する<a href="SDL_SIMDGetAlignment.html">SDL_SIMDGetAlignment()</a>, <a href="SDL_SIMDAlloc.html">SDL_SIMDAlloc()</a>, <a href="SDL_SIMDFree.html">SDL_SIMDFree()</a>関数の追加
+<li>SDLレンダリングAPIの引数を浮動小数点で指定する<a href="SDL_RenderDrawPointF.html">SDL_RenderDrawPointF()</a>, <a href="SDL_RenderDrawPointsF.html">SDL_RenderDrawPointsF()</a>, <a href="SDL_RenderDrawLineF.html">SDL_RenderDrawLineF()</a>, <a href="SDL_RenderDrawLinesF.html">SDL_RenderDrawLinesF()</a>, <a href="SDL_RenderDrawRectF.html">SDL_RenderDrawRectF()</a>, <a href="SDL_RenderDrawRectsF.html">SDL_RenderDrawRectsF()</a>, <a href="SDL_RenderFillRectF.html">SDL_RenderFillRectF()</a>, <a href="SDL_RenderFillRectsF.html">SDL_RenderFillRectsF()</a>, <a href="SDL_RenderCopyF.html">SDL_RenderCopyF()</a>, <a href="SDL_RenderCopyExF.html">SDL_RenderCopyExF()</a>関数の追加
+<li>タッチデバイスがタッチスクリーン, 相対座標または絶対座標のトラックパッドとなるかを得る<a href="SDL_GetTouchDeviceType.html">SDL_GetTouchDeviceType()</a>関数の追加
+<li>パフォーマンス向上のため, SDLレンダリングAPIはバッチレンダリングをデフォルトとした
+<li>ネイティブレンダリングとSDLレンダリングを混合して使っている場合に, バッチレンダリングコマンドを強制的に実行させる<a href="SDL_RenderFlush.html">SDL_RenderFlush()</a>関数の追加
+<li>レンダリングAPIをバッチ処理するか否かを制御するSDL_HINT_RENDER_BATCHINGヒントの追加. レンダラーを生成するとき, 使用するドライバを指定しなければ, デフォルトは"1"である.
+<li>デバッグ用にSDLイベントのログ出力を有効にするSDL_HINT_EVENT_LOGGINGヒントの追加
+<li>ジョイスティックとゲームコントローラーをバインドするために読み込むファイルを指定するSDL_HINT_GAMECONTROLLERCONFIG_FILEヒントの追加
+<li>SDLがタッチイベントとマウスイベントを統合して扱うか否かを選択するSDL_HINT_MOUSE_TOUCH_EVENTSヒントの追加
+<li>潜在的なセキュリティ上の脅威に対応するため, 不正なWAVEファイルとBMPファイルの処理を改善
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>Wayland���̗p��, Mir�r�f�I�h���C�o���폜
+<li>Waylandを採用し, Mirビデオドライバを削除
 </ul>
 <h3>iOS / tvOS</h3>
 <ul>
-<li>iOS 13��tvOS 13��XBox��PS4�̖����R���g���[���ɑΉ�
-<li>Bluetooth�L�[�{�[�h���g�����e�L�X�g���͂ɑΉ�
+<li>iOS 13とtvOS 13でXBoxとPS4の無線コントローラに対応
+<li>Bluetoothキーボードを使ったテキスト入力に対応
 </ul>
 <h3>Android</h3>
 <ul>
-<li>OpenSL ES���g�p������x���I�[�f�B�I�̒ǉ�
-<li>SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH�q���g�̔p�~ (SDL_HINT_MOUSE_TOUCH_EVENTS�q���g��SDL_HINT_TOUCH_MOUSE_EVENTS�q���g�ɒu��������ꂽ)<br>
-SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH = 1��, 2�̃q���g��0�Ƃ���ݒ�ƒu�������Ȃ���΂Ȃ�Ȃ�.
-SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH = 0��, 2�̃q���g��1�Ƃ���ݒ�ƒu�������Ȃ���΂Ȃ�Ȃ�.
-<li>�A�v�����|�[�Y���ꂽ�Ƃ��C�x���g���[�v���u���b�N���邩�ۂ���I������SDL_HINT_ANDROID_BLOCK_ON_PAUSE�q���g�̒ǉ�
+<li>OpenSL ESを使用した低遅延オーディオの追加
+<li>SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCHヒントの廃止 (SDL_HINT_MOUSE_TOUCH_EVENTSヒントとSDL_HINT_TOUCH_MOUSE_EVENTSヒントに置き換えられた)<br>
+SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH = 1は, 2つのヒントを0とする設定と置き換えなければならない.
+SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH = 0は, 2つのヒントを1とする設定と置き換えなければならない.
+<li>アプリがポーズされたときイベントループをブロックするか否かを選択するSDL_HINT_ANDROID_BLOCK_ON_PAUSEヒントの追加
 </ul>
-<h2>2.0.9�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.9の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>�V�����Z���T�[API�̒ǉ�. SDL_Init()��SDL_INIT_SENSOR���g���ď���������, SDL_sensor.h�Ő錾����Ă���
-<li>�Z���T�[���X�V���ꂽ�Ƃ�������SDL_SENSORUPDATE�C�x���g�̒ǉ�
-<li>���݂̃f�B�X�v���C�̌�����߂�<a href="SDL_GetDisplayOrientation.html">SDL_GetDisplayOrientation()</a>�̒ǉ�
-<li>�f�B�X�v���C�̌������ς�����Ƃ�������SDL_DISPLAYEVENT�C�x���g�̒ǉ�
-<li>Xbox, PS4, Nintendo Switch Pro�R���g���[���̊����z������ѐ��̂���Ή��̂��߂�HIDAPI�W���C�X�e�B�b�N�h���C�o�̒ǉ� (PS4��Nintendo Switch Pro�R���g���[���ւ̑Ή��ɍv������Valve�Ɋ��ӂ��܂�)
-<li>���̑������̃Q�[���R���g���[���ւ̑Ή���ǉ�
-<li>�Q�[���R���g���[���̃v���C���[�ԍ��𓾂�<a href="SDL_JoystickGetDevicePlayerIndex.html">SDL_JoystickGetDevicePlayerIndex()</a>, <a href="SDL_JoystickGetPlayerIndex.html">SDL_JoystickGetPlayerIndex()</a>, SDL_GameControllerGetPlayerIndex()�̒ǉ�. XInput�R���g���[���̏ꍇ��XInput index��߂�.
-<li>�n�v�e�B�b�NAPI���g�킸�ɒP���ȐU�����N������<a href="SDL_GameControllerRumble.html">SDL_GameControllerRumble()</a>, <a href="SDL_JoystickRumble.html">SDL_JoystickRumble()</a>�̒ǉ�
-<li>�J���O�ɃQ�[���R���g���[���̃}�b�s���O�𓾂���<a href="SDL_GameControllerMappingForDeviceIndex.html">SDL_GameControllerMappingForDeviceIndex()</a>�̒ǉ�
-<li>�}�E�X�̃_�u���N���b�N�̎��Ԃ𐧌䂷��SDL_HINT_MOUSE_DOUBLE_CLICK_TIME�q���g�̒ǉ�
-<li>�}�E�X�̃_�u���N���b�N�̔��a���s�N�Z���P�ʂŐ��䂷��SDL_HINT_MOUSE_DOUBLE_CLICK_RADIUS�q���g�̒ǉ�
-<li>�T�[�t�F�C�X���L���ȃJ���[�L�[�������Ă��邩�ۂ���߂�<a href="SDL_HasColorKey.html">SDL_HasColorKey()</a>�̒ǉ�
-<li>CPU��AVX-512F�d�l�����邩�ۂ���߂�<a href="SDL_HasAVX512F.html">SDL_HasAVX512F()</a>�̒ǉ�
-<li>�A�v���P�[�V�������^�u���b�g��Ŏ��s����Ă��邩�ۂ���߂�<a href="SDL_IsTablet.html">SDL_IsTablet()</a>�̒ǉ�
-<li>�X���b�h���ō��ʂ̗D��x�ɂ���SDL_THREAD_PRIORITY_TIME_CRITICAL�̒ǉ�
+<li>新しいセンサーAPIの追加. SDL_Init()でSDL_INIT_SENSORを使って初期化され, SDL_sensor.hで宣言されている
+<li>センサーが更新されたとき送られるSDL_SENSORUPDATEイベントの追加
+<li>現在のディスプレイの向きを戻す<a href="SDL_GetDisplayOrientation.html">SDL_GetDisplayOrientation()</a>の追加
+<li>ディスプレイの向きが変わったとき送られるSDL_DISPLAYEVENTイベントの追加
+<li>Xbox, PS4, Nintendo Switch Proコントローラの環境を越えた一貫性のある対応のためのHIDAPIジョイスティックドライバの追加 (PS4とNintendo Switch Proコントローラへの対応に貢献したValveに感謝します)
+<li>その他多数のゲームコントローラへの対応を追加
+<li>ゲームコントローラのプレイヤー番号を得る<a href="SDL_JoystickGetDevicePlayerIndex.html">SDL_JoystickGetDevicePlayerIndex()</a>, <a href="SDL_JoystickGetPlayerIndex.html">SDL_JoystickGetPlayerIndex()</a>, SDL_GameControllerGetPlayerIndex()の追加. XInputコントローラの場合はXInput indexを戻す.
+<li>ハプティックAPIを使わずに単純な振動を起こせる<a href="SDL_GameControllerRumble.html">SDL_GameControllerRumble()</a>, <a href="SDL_JoystickRumble.html">SDL_JoystickRumble()</a>の追加
+<li>開く前にゲームコントローラのマッピングを得られる<a href="SDL_GameControllerMappingForDeviceIndex.html">SDL_GameControllerMappingForDeviceIndex()</a>の追加
+<li>マウスのダブルクリックの時間を制御するSDL_HINT_MOUSE_DOUBLE_CLICK_TIMEヒントの追加
+<li>マウスのダブルクリックの半径をピクセル単位で制御するSDL_HINT_MOUSE_DOUBLE_CLICK_RADIUSヒントの追加
+<li>サーフェイスが有効なカラーキーを持っているか否かを戻す<a href="SDL_HasColorKey.html">SDL_HasColorKey()</a>の追加
+<li>CPUにAVX-512F仕様があるか否かを戻す<a href="SDL_HasAVX512F.html">SDL_HasAVX512F()</a>の追加
+<li>アプリケーションがタブレット上で実行されているか否かを戻す<a href="SDL_IsTablet.html">SDL_IsTablet()</a>の追加
+<li>スレッドを最高位の優先度にするSDL_THREAD_PRIORITY_TIME_CRITICALの追加
 </ul>
 <h3>Mac OS X</h3>
 <ul>
-<li>Mac OS X Mojave�ō�����ʂ���n�܂���̏C��
+<li>Mac OS X Mojaveで黒い画面から始まる問題の修正
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>RealtimeKit���g���ĉ\�Ȃ�l�C�f�B�u�X���b�h�̗D��x�̐ݒ肷��<a href="SDL_LinuxSetThreadPriority.html">SDL_LinuxSetThreadPriority()</a>�̒ǉ�
+<li>RealtimeKitを使って可能ならネイディブスレッドの優先度の設定する<a href="SDL_LinuxSetThreadPriority.html">SDL_LinuxSetThreadPriority()</a>の追加
 </ul>
 <h3>iOS</h3>
 <ul>
-<li>�A�W�A�����IME���͂̏C��
+<li>アジア言語のIME入力の修正
 </ul>
 <h3>Android</h3>
 <ul>
-<li>Google�̐V����App Store�̗v���ɓK�������邽��, Android SDK��API 26���K�v�ƂȂ���
-<li>�L��USB��Xbox, PS4, Nintendo Switch Pro �Q�[���R���g���[���ւ̑Ή��̒ǉ�
-<li>Android 7.0�ȍ~(Chromebook, Samsung Experience 9.0��DeX���[�h������)�Ń}�E�X�̑��΃��[�h�ւ̑Ή���ǉ�
-<li>Android 7.0�ȍ~�ŃJ�X�^���}�E�X�J�[�\���ւ̑Ή���ǉ�
-<li>�߂�{�^�����������Ƃ��A�v���O�ɖ߂�(�f�t�H���g)��SDL_SCANCODE_AC_BACK�C�x���g�𑗂邩�����߂�SDL_HINT_ANDROID_TRAP_BACK_BUTTON�q���g�̒ǉ�
-<li>Android�V�X�e���̖߂�{�^���̐U�镑���������N����<a href="SDL_AndroidBackButton.html">SDL_AndroidBackButton()</a>�̒ǉ�
-<li>Chromebook Android�����^�C���Ŏ��s����Ă��邩�ۂ���߂�<a href="SDL_IsChromebook.html">SDL_IsChromebook()</a>�̒ǉ�
-<li>Samsung DeX�h�b�L���O�X�e�[�V�����Ŏ��s���Ă��邩�ۂ���߂�<a href="SDL_IsDeXMode.html">SDL_IsDeXMode()</a>�̒ǉ�
+<li>Googleの新しいApp Storeの要求に適合させるため, Android SDKでAPI 26が必要となった
+<li>有線USBのXbox, PS4, Nintendo Switch Pro ゲームコントローラへの対応の追加
+<li>Android 7.0以降(Chromebook, Samsung Experience 9.0のDeXモードを除く)でマウスの相対モードへの対応を追加
+<li>Android 7.0以降でカスタムマウスカーソルへの対応を追加
+<li>戻るボタンを押したときアプリ外に戻る(デフォルト)かSDL_SCANCODE_AC_BACKイベントを送るかを決めるSDL_HINT_ANDROID_TRAP_BACK_BUTTONヒントの追加
+<li>Androidシステムの戻るボタンの振る舞いを引き起こす<a href="SDL_AndroidBackButton.html">SDL_AndroidBackButton()</a>の追加
+<li>Chromebook Androidランタイムで実行されているか否かを戻す<a href="SDL_IsChromebook.html">SDL_IsChromebook()</a>の追加
+<li>Samsung DeXドッキングステーションで実行しているか否かを戻す<a href="SDL_IsDeXMode.html">SDL_IsDeXMode()</a>の追加
 </ul>
-<h2>2.0.8�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.8の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>SDL_fmod()��SDL_log10()�̒ǉ�
-<li>SDL���w�֐��͂��ꂼ��float�ł����p�\�ɂȂ�
-<li>YUV�F��Ԃ�/����ϊ�����Ƃ��g�p�����v�Z���𐧌䂷��<a href="SDL_SetYUVConversionMode.html">SDL_SetYUVConversionMode()</a>��<a href="SDL_GetYUVConversionMode.html">SDL_GetYUVConversionMode()</a>�̒ǉ�. �I�v�V������JPEG, BT.601, BT.709
+<li>SDL_fmod()とSDL_log10()の追加
+<li>SDL数学関数はそれぞれfloat版が利用可能になる
+<li>YUV色空間に/から変換するとき使用される計算式を制御する<a href="SDL_SetYUVConversionMode.html">SDL_SetYUVConversionMode()</a>と<a href="SDL_GetYUVConversionMode.html">SDL_GetYUVConversionMode()</a>の追加. オプションはJPEG, BT.601, BT.709
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>Windows UWP��WASAPI�ւ̑Ή�������. �񐄏���XAudio2�������폜
-<li>Windows 7�ȍ~��WASAPI�ɂ�郊�T���v�����O��ǉ�
+<li>Windows UWPでWASAPIへの対応を実装. 非推奨のXAudio2実装を削除
+<li>Windows 7以降でWASAPIによるリサンプリングを追加
 </ul>
 <h3>Windows UWP</h3>
 <ul>
-<li>�A�v���P�[�V���������s����Ă���f�o�C�X�̎�ނ𓾂�<a href="SDL_WinRTGetDeviceFamily.html">SDL_WinRTGetDeviceFamily()</a>�̒ǉ�
+<li>アプリケーションが実行されているデバイスの種類を得る<a href="SDL_WinRTGetDeviceFamily.html">SDL_WinRTGetDeviceFamily()</a>の追加
 </ul>
 <h3>Mac OS X</h3>
 <ul>
-<li>Mac�ɂ�����Vulkan SDK�̑Ή���ǉ�:
+<li>MacにおけるVulkan SDKの対応を追加:
 <ul style="list-style:none;">
 <li><a href="https://www.lunarg.com/lunarg-releases-vulkan-sdk-1-0-69-0-for-mac/">https://www.lunarg.com/lunarg-releases-vulkan-sdk-1-0-69-0-for-mac/</a>
 </ul>
-<li>�\�ȂƂ�ANGLE���g����OpenGL ES�ւ̑Ή���ǉ�
+<li>可能なときANGLEを使ったOpenGL ESへの対応を追加
 </ul>
 <h3>Mac OS X / iOS / tvOS</h3>
 <ul>
-<li>Metal 2D�����_�[��ǉ�
-<li>Metal���g����SDL�����_�����O����Ƃ�, �A�v���P�[�V�����̕`���}������<a href="SDL_RenderGetMetalLayer.html">SDL_RenderGetMetalLayer()</a>��<a href="SDL_RenderGetMetalCommandEncoder.html">SDL_RenderGetMetalCommandEncoder()</a>�̒ǉ�
+<li>Metal 2Dレンダーを追加
+<li>Metalを使ってSDLレンダリングするとき, アプリケーションの描画を挿入する<a href="SDL_RenderGetMetalLayer.html">SDL_RenderGetMetalLayer()</a>と<a href="SDL_RenderGetMetalCommandEncoder.html">SDL_RenderGetMetalCommandEncoder()</a>の追加
 </ul>
 <h3>iOS</h3>
 <ul>
-<li>iPhone X�Ńz�[���C���W�P�[�^�[�o�[���B�����ۂ��𐧌䂷��SDL_HINT_IOS_HIDE_HOME_INDICATOR�q���g�̒ǉ�. �f�t�H���g�̓t���X�N���[���A�v���P�[�V�����ł͈Â�����, �E�B���h�E�A�v���P�[�V�����ł͕\������
+<li>iPhone Xでホームインジケーターバーを隠すか否かを制御するSDL_HINT_IOS_HIDE_HOME_INDICATORヒントの追加. デフォルトはフルスクリーンアプリケーションでは暗くして, ウィンドウアプリケーションでは表示する
 </ul>
 <h3>iOS / Android</h3>
 <ul>
-<li>�\�t�g�E�F�A�L�[�{�[�h�̃��^�[���L�[�̓L�[�{�[�h���B����, �L�[�C�x���g�𑗂邩(�f�t�H���g)�𐧌䂷��SDL_HINT_RETURN_KEY_HIDES_IME�q���g�̒ǉ�
+<li>ソフトウェアキーボードのリターンキーはキーボードを隠すか, キーイベントを送るか(デフォルト)を制御するSDL_HINT_RETURN_KEY_HIDES_IMEヒントの追加
 </ul>
 <h3>Android</h3>
 <ul>
-<li>SDL��Android Studio��Gradle�ł̃r���h�Ƀf�t�H���g�őΉ�����
-<li>SDL�̓r���h�ɂ�API 19 SDK���K�v�ɂȂ�. �������ˑR API 14 (Android 4.0.1)���^�[�Q�b�g�Ƃ���
-<li>�A�v���P�[�V������Android TV�Ŏ��s����Ă��邩�𓾂�<a href="SDL_IsAndroidTV.html">SDL_IsAndroidTV()</a>�̒ǉ�
+<li>SDLはAndroid StudioとGradleでのビルドにデフォルトで対応する
+<li>SDLはビルドにはAPI 19 SDKが必要になる. しかし依然 API 14 (Android 4.0.1)をターゲットとする
+<li>アプリケーションがAndroid TVで実行されているかを得る<a href="SDL_IsAndroidTV.html">SDL_IsAndroidTV()</a>の追加
 </ul>
 <h3>Android / tvOS</h3>
 <ul>
-<li>TV�����R���̓W���C�X�e�B�b�N�Ƃ��ă��X�g�ɏグ���邩(�f�t�H���g), �L�[�{�[�h�C�x���g�𑗂邩���䂷��SDL_HINT_TV_REMOTE_AS_JOYSTICK�q���g�̒ǉ�
+<li>TVリモコンはジョイスティックとしてリストに上げられるか(デフォルト), キーボードイベントを送るか制御するSDL_HINT_TV_REMOTE_AS_JOYSTICKヒントの追加
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>X�T�[�o��SDL�A�v���P�[�V�����̃R���|�[�U�[���X�L�b�v���邩�ۂ��𐧌䂷��SDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR�q���g�̒ǉ�. �f�t�H���g��"1"
-<li>Raspberry Pi��KMSDRM�r�f�I�h���C�o��, �_�u���o�b�t�@�����O�܂��̓g���v���o�b�t�@�����O(�f�t�H���g)�̂ǂ�����g�����𐧌䂷��SDL_HINT_VIDEO_DOUBLE_BUFFER�q���g�̒ǉ�
+<li>XサーバはSDLアプリケーションのコンポーザーをスキップするか否かを制御するSDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITORヒントの追加. デフォルトは"1"
+<li>Raspberry PiとKMSDRMビデオドライバで, ダブルバッファリングまたはトリプルバッファリング(デフォルト)のどちらを使うかを制御するSDL_HINT_VIDEO_DOUBLE_BUFFERヒントの追加
 </ul>
-<h2>2.0.7�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.7の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li><a href="Tutorial-SDL_AudioStream.html">�I�[�f�B�I�X�g���[���ϊ�</a>�֐��̒ǉ�:
+<li><a href="Tutorial-SDL_AudioStream.html">オーディオストリーム変換</a>関数の追加:
 <ul style="list-style:none;">
 <li>
 <li><a href="SDL_NewAudioStream.html">SDL_NewAudioStream()</a>
@@ -544,18 +544,18 @@ SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH = 0��, 2�̃q���g��1�Ƃ���ݒ�ƒu���
 <li><a href="SDL_AudioStreamClear.html">SDL_AudioStreamClear()</a>
 <li><a href="SDL_FreeAudioStream.html">SDL_FreeAudioStream()</a>
 </ul>
-<li>SDL�������m�ۋ@�\�̖₢���킹�Ɛݒ���s���֐��̒ǉ�:
+<li>SDLメモリ確保機能の問い合わせと設定を行う関数の追加:
 <ul style="list-style:none;">
 <li><a href="SDL_GetMemoryFunctions.html">SDL_GetMemoryFunctions()</a>
 <li><a href="SDL_SetMemoryFunctions.html">SDL_SetMemoryFunctions()</a>
 <li><a href="SDL_GetNumAllocations.html">SDL_GetNumAllocations()</a>
 </ul>
-<li>�W���C�X�e�B�b�N�ƃQ�[���R���g���[���[API�ւ̃}���`�X���b�h�A�N�Z�X�̂��߂̃��b�N�֐��̒ǉ�:
+<li>ジョイスティックとゲームコントローラーAPIへのマルチスレッドアクセスのためのロック関数の追加:
 <ul style="list-style:none;">
 <li><a href="SDL_LockJoysticks.html">SDL_LockJoysticks()</a>
 <li><a href="SDL_UnlockJoysticks.html">SDL_UnlockJoysticks()</a>
 </ul>
-<li>�ȉ��̊֐����X���b�h�Z�[�t�ɂȂ���:
+<li>以下の関数がスレッドセーフになった:
 <ul style="list-style:none;">
 <li>SDL_SetEventFilter()
 <li>SDL_GetEventFilter()
@@ -563,10 +563,10 @@ SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH = 0��, 2�̃q���g��1�Ƃ���ݒ�ƒu���
 <li>SDL_DelEventWatch()
 </ul>
 </ul>
-<h2>2.0.6�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.6の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>SDL_vulkan.h�ɂ�鑽���Ή�<a href="CategoryVulkan.html">Vulkan�O���t�B�b�N</a>�̒ǉ�:
+<li>SDL_vulkan.hによる多環境対応<a href="CategoryVulkan.html">Vulkanグラフィック</a>の追加:
 <ul style="list-style:none;">
 <li><a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>
 <li><a href="SDL_Vulkan_GetVkGetInstanceProcAddr.html">SDL_Vulkan_GetVkGetInstanceProcAddr()</a>
@@ -575,13 +575,13 @@ SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH = 0��, 2�̃q���g��1�Ƃ���ݒ�ƒu���
 <li><a href="SDL_Vulkan_GetDrawableSize.html">SDL_Vulkan_GetDrawableSize()</a>
 <li><a href="SDL_Vulkan_UnloadLibrary.html">SDL_Vulkan_UnloadLibrary()</a>
 </ul>
-����ɂ��S�Ă̊��ˑ��R�[�h��SDL����Vulkan�ֈڍs����K�v��������.
-test/testvulkan.c�ɃT���v��������.
-<li>2D�����_�����O�̃J�X�^���u�����h���[�h�𐶐�����<a href="SDL_ComposeCustomBlendMode.html">SDL_ComposeCustomBlendMode()</a>�̒ǉ�
-<li>NEON���߂ɑΉ����Ă��邩�ۂ���߂�<a href="SDL_HasNEON.html">SDL_HasNEON()</a>�̒ǉ�
-<li>Nintendo Switch Pro�R���g���[���[���܂ޑ����̃Q�[���R���g���[���[�ւ̑Ή���ǉ�
-<li>�Q�[���R���g���[���[�ŋt�]��o���o���̕����̃}�b�s���O�̒ǉ�
-<li>�J���O�ɃW���C�X�e�B�b�N�̏���߂��֐��̒ǉ�:
+これにより全ての環境依存コードをSDL環境のVulkanへ移行する必要が生じる.
+test/testvulkan.cにサンプルがある.
+<li>2Dレンダリングのカスタムブレンドモードを生成する<a href="SDL_ComposeCustomBlendMode.html">SDL_ComposeCustomBlendMode()</a>の追加
+<li>NEON命令に対応しているか否かを戻す<a href="SDL_HasNEON.html">SDL_HasNEON()</a>の追加
+<li>Nintendo Switch Proコントローラーを含む多くのゲームコントローラーへの対応を追加
+<li>ゲームコントローラーで逆転やバラバラの方向のマッピングの追加
+<li>開く前にジョイスティックの情報を戻す関数の追加:
 <ul style="list-style:none;">
 <li><a href="SDL_JoystickGetDeviceVendor.html">SDL_JoystickGetDeviceVendor()</a>
 <li><a href="SDL_JoystickGetDeviceProduct.html">SDL_JoystickGetDeviceProduct()</a>
@@ -589,7 +589,7 @@ test/testvulkan.c�ɃT���v��������.
 <li><a href="SDL_JoystickGetDeviceType.html">SDL_JoystickGetDeviceType()</a>
 <li><a href="SDL_JoystickGetDeviceInstanceID.html">SDL_JoystickGetDeviceInstanceID()</a>
 </ul>
-<li>�J���ꂽ�W���C�X�e�B�b�N�̏���߂��֐��̒ǉ�:
+<li>開かれたジョイスティックの情報を戻す関数の追加:
 <ul style="list-style:none;">
 <li><a href="SDL_JoystickGetVendor.html">SDL_JoystickGetVendor()</a>
 <li><a href="SDL_JoystickGetProduct.html">SDL_JoystickGetProduct()</a>
@@ -597,218 +597,218 @@ test/testvulkan.c�ɃT���v��������.
 <li><a href="SDL_JoystickGetType.html">SDL_JoystickGetType()</a>
 <li><a href="SDL_JoystickGetAxisInitialState.html">SDL_JoystickGetAxisInitialState()</a>
 </ul>
-<li>�J���ꂽ�Q�[���R���g���[���[�̏���߂�֐��̒ǉ�:
+<li>開かれたゲームコントローラーの情報を戻る関数の追加:
 <ul style="list-style:none;">
 <li><a href="SDL_GameControllerGetVendor.html">SDL_GameControllerGetVendor()</a>
 <li><a href="SDL_GameControllerGetProduct.html">SDL_GameControllerGetProduct()</a>
 <li><a href="SDL_GameControllerGetProductVersion.html">SDL_GameControllerGetProductVersion()</a>
 </ul>
-<li>�g�ݍ��܂ꂽ�Q�[���R���g���[���[�}�b�s���O�̈ꗗ�𓾂���<a href="SDL_GameControllerNumMappings.html">SDL_GameControllerNumMappings()</a>��<a href="SDL_GameControllerMappingForIndex.html">SDL_GameControllerMappingForIndex()</a>�̒ǉ�
-<li>�t�@�C�����烁�����Ƀ��[�h����<a href="SDL_LoadFile.html">SDL_LoadFile()</a>��<a href="SDL_LoadFile_RW.html">SDL_LoadFile_RW()</a>�̒ǉ�
-<li>�T�[�t�F�C�X�̃R�s�[�𐶐�����SDL_DuplicateSurface()�̒ǉ�
-<li>JACK�I�[�f�B�I�h���C�o�̎����ǉ�
-<li>2�̃x�L��łȂ��ăT���v�����O�̎���. libsamplerate�̎g�p��I���ł���
-<li>�ăT���v�����O�̎������߂�SDL_HINT_AUDIO_RESAMPLING_MODE�q���g�̒ǉ�
-<li>SDL_RenderSetLogicalSize()�̊g����@�����߂�SDL_HINT_RENDER_LOGICAL_SIZE_MODE�q���g�̒ǉ�
+<li>組み込まれたゲームコントローラーマッピングの一覧を得られる<a href="SDL_GameControllerNumMappings.html">SDL_GameControllerNumMappings()</a>と<a href="SDL_GameControllerMappingForIndex.html">SDL_GameControllerMappingForIndex()</a>の追加
+<li>ファイルからメモリにロードする<a href="SDL_LoadFile.html">SDL_LoadFile()</a>と<a href="SDL_LoadFile_RW.html">SDL_LoadFile_RW()</a>の追加
+<li>サーフェイスのコピーを生成するSDL_DuplicateSurface()の追加
+<li>JACKオーディオドライバの試作を追加
+<li>2のベキ乗でない再サンプリングの実装. libsamplerateの使用を選択できる
+<li>再サンプリングの質を決めるSDL_HINT_AUDIO_RESAMPLING_MODEヒントの追加
+<li>SDL_RenderSetLogicalSize()の拡大方法を決めるSDL_HINT_RENDER_LOGICAL_SIZE_MODEヒントの追加
 <ul style="list-style:none;">
-<li>"0" �܂��� "letterbox" - �㉺/���E�����тɂ��ĉ�ʂɍ��킹�� (�f�t�H���g)
-<li>"1" �܂��� "overscan" - �g�債�ĉ�ʂɍ��킹��. ��ʂ���͂ݏo�����Ƃ�F�߂�
+<li>"0" または "letterbox" - 上下/左右を黒帯にして画面に合わせる (デフォルト)
+<li>"1" または "overscan" - 拡大して画面に合わせる. 画面からはみ出すことを認める
 </ul>
-<li>�}�E�X�̑����̔{����ݒ肷��SDL_HINT_MOUSE_NORMAL_SPEED_SCALE�q���g��SDL_HINT_MOUSE_RELATIVE_SPEED_SCALE�q���g�̒ǉ�
-<li>�}�E�X�C�x���g�ƃ^�b�`�C�x���g�𓝍����邩�ۂ��������߂�SDL_HINT_TOUCH_MOUSE_EVENTS�q���g�̒ǉ�
+<li>マウスの速さの倍率を設定するSDL_HINT_MOUSE_NORMAL_SPEED_SCALEヒントとSDL_HINT_MOUSE_RELATIVE_SPEED_SCALEヒントの追加
+<li>マウスイベントとタッチイベントを統合するか否かをを決めるSDL_HINT_TOUCH_MOUSE_EVENTSヒントの追加
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>Windows�̃I�[�f�B�I�h���C�o�̃f�t�H���g��V����WASAPI�Ƃ���. �z�b�g�v���O�C���ƃf�t�H���g�I�[�f�B�I�f�o�C�X�̕ύX�ɑΉ�
-<li>�Â�XAudio2�I�[�f�B�I�h���C�o�͔񐄏��ƂȂ���. ���̃����[�X�Ŕp�~�����\��ł���
-<li>SDL windows�Ń��[�U�̃A�C�R�����w�肷��SDL_HINT_WINDOWS_INTRESOURCE_ICON�q���g��SDL_HINT_WINDOWS_INTRESOURCE_ICON_SMALL�q���g�̒ǉ�
-<li>.NET����Ɨl�X��Windows�f�o�b�K�ɑΉ����邽��SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING�q���g���f�t�H���g�Ƃ���
-<li>�Q�[���R���g���[���[�}�b�s���O��GUID�`���̍X�V. �Â��}�b�s���O�͓ǂݍ��ݎ��Ɏ����I�ɕϊ������
-<li>Windows��SDL_WINDOW_ALWAYS_ON_TOP�t���O������
+<li>Windowsのオーディオドライバのデフォルトを新たにWASAPIとした. ホットプラグインとデフォルトオーディオデバイスの変更に対応
+<li>古いXAudio2オーディオドライバは非推奨となった. 次のリリースで廃止される予定である
+<li>SDL windowsでユーザのアイコンを指定するSDL_HINT_WINDOWS_INTRESOURCE_ICONヒントとSDL_HINT_WINDOWS_INTRESOURCE_ICON_SMALLヒントの追加
+<li>.NET言語と様々なWindowsデバッガに対応するためSDL_HINT_WINDOWS_DISABLE_THREAD_NAMINGヒントをデフォルトとした
+<li>ゲームコントローラーマッピングのGUID形式の更新. 古いマッピングは読み込み時に自動的に変換される
+<li>WindowsのSDL_WINDOW_ALWAYS_ON_TOPフラグを実装
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>�g�ݍ��ݗp��KMS/DRM�r�f�I�h���C�o�̎����ǉ�
+<li>組み込み用のKMS/DRMビデオドライバの試作を追加
 </ul>
 <h3>iOS</h3>
 <ul>
-<li>SDL_HINT_AUDIO_CATEGORY�q���g�ɂ��I�[�f�B�I�J�e�S���̑����ǉ�. �T�C�����g�X�C�b�`�������ɉe����^���邩�ۂ������߂邽��
+<li>SDL_HINT_AUDIO_CATEGORYヒントによるオーディオカテゴリの操作を追加. サイレントスイッチが音声に影響を与えるか否かを決めるため
 </ul>
-<h2>2.0.5�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.5の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>�ꕔ�̊��Ř^���ɑΉ�����
-<li>�L���[����^�����ꂽ�������������<a href="SDL_DequeueAudio.html">SDL_DequeueAudio()</a>�̒ǉ�
-<li>�e�L�X�g���h���b�O&amp;�h���b�v�����Ƃ���������<a href="SDL_EventType.html">SDL_DROPTEXT�C�x���g</a>�̒ǉ�
-<li>�����̍��ڂ��h���b�O&amp;�h���b�v�����Ƃ���������<a href="SDL_EventType.html">SDL_DROPBEGIN�C�x���g</a>, <a href="SDL_EventType.html">SDL_DROPCOMPLETE�C�x���g</a>�̒ǉ�
-<li>�f�t�H���g�ł̓N���b�N���ăE�B���h�E���t�H�[�J�X�����Ƃ�SDL�A�v���P�[�V�����ɂ̓C�x���g���`���Ȃ��悤�ɂȂ���. <a href="SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH.html">SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH�q���g</a>��"1"�ɂ���ƃE�B���h�E�̃N���b�N�C�x���g���`���悤�ɂȂ�
-<li>���`���l���̂���T�[�t�F�C�X��BMP�Ƃ��ĕۑ������, ���`���l���ɑΉ������V����BMP�`���ŕۑ������. <a href="SDL_HINT_BMP_SAVE_LEGACY_FORMAT.html">SDL_HINT_BMP_SAVE_LEGACY_FORMAT�q���g</a>��"1"�ɂ���ƌÂ��`���ɂȂ�.
-<li>�q���g�̐^�U�l�𓾂�<a href="SDL_GetHintBoolean.html">SDL_GetHintBoolean()</a>�̒ǉ�
-<li>�����_���[�̊g���, �X���[�Y�ɍs����, �r���[�|�[�g�T�C�Y�̐����{�ɂ��邩��ݒ肷��<a href="SDL_RenderSetIntegerScale.html">SDL_RenderSetIntegerScale()</a>�̒ǉ�
-<li>�s�N�Z���`�����w�肵��SDL�T�[�t�F�C�X�𐶐�����<a href="SDL_CreateRGBSurfaceWithFormat.html">SDL_CreateRGBSurfaceWithFormat()</a>��<a href="SDL_CreateRGBSurfaceWithFormatFrom.html">SDL_CreateRGBSurfaceWithFormatFrom()</a>�̒ǉ�
-<li>�E�B���h�E���g����̈��߂�<a href="SDL_GetDisplayUsableBounds.html">SDL_GetDisplayUsableBounds()</a>�̒ǉ�. �Ⴆ��, Mac OS X�ł̓��j���[�o�[�ƃh�b�N�͗̈悩��������
-<li>�E�B���h�E�̃N���C�A���g�̈�̎���ɂ���g�̃T�C�Y��߂�<a href="SDL_GetWindowBordersSize.html">SDL_GetWindowBordersSize()</a>�̒ǉ�
-<li>SDL_HITTEST_NORMAL�ł͍s���Ȃ��q�b�g�e�X�g�Ŕ�������<a href="SDL_WindowEventID.html">SDL_WINDOWEVENT_HIT_TEST�C�x���g</a>�̒ǉ� (��: �^�C�g���o�[��E�B���h�E�g)
-<li>�E�B���h�E�̃T�C�Y��ς����邩��ݒ肷��<a href="SDL_SetWindowResizable.html">SDL_SetWindowResizable()</a>�̒ǉ�
-<li>�E�B���h�E�̕s�����x��ݒ�/�l������<a href="SDL_SetWindowOpacity.html">SDL_SetWindowOpacity()</a>��<a href="SDL_GetWindowOpacity.html">SDL_GetWindowOpacity()</a>�̒ǉ�
-<li>����E�B���h�E�����̃E�B���h�E�ɑ΂��ă��[�_���ł��邩��ݒ肷��<a href="SDL_SetWindowModalFor.html">SDL_SetWindowModalFor()</a>�̒ǉ�
-<li><a href="SDL_MixAudioFormat.html">SDL_MixAudioFormat()</a>��<a href="SDL_AudioFormat.html">AUDIO_U16LSB</a>��<a href="SDL_AudioFormat.html">AUDIO_U16MSB</a>�ɑΉ�
-<li>OpenGL�����_���[���g�����ꍇ, �e�N�X�`����ǂݖ߂��Ƃ��摜�����]������̏C��
-<li>OpenGL�����_���[���g�����ꍇ��SDL_BLENDMODE_NONE�ł̃e�N�X�`���̐F�ϒ��̖��̏C��
-<li>�������̏ꍇ�ŃJ���[�L�[�̃��l�����������s��̏C��
+<li>一部の環境で録音に対応した
+<li>キューから録音された音声を回収する<a href="SDL_DequeueAudio.html">SDL_DequeueAudio()</a>の追加
+<li>テキストをドラッグ&amp;ドロップしたとき発生する<a href="SDL_EventType.html">SDL_DROPTEXTイベント</a>の追加
+<li>複数の項目をドラッグ&amp;ドロップしたとき発生する<a href="SDL_EventType.html">SDL_DROPBEGINイベント</a>, <a href="SDL_EventType.html">SDL_DROPCOMPLETEイベント</a>の追加
+<li>デフォルトではクリックしてウィンドウをフォーカスしたときSDLアプリケーションにはイベントが伝わらないようになった. <a href="SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH.html">SDL_HINT_MOUSE_FOCUS_CLICKTHROUGHヒント</a>を"1"にするとウィンドウのクリックイベントが伝わるようになる
+<li>αチャネルのあるサーフェイスをBMPとして保存すると, αチャネルに対応した新しいBMP形式で保存される. <a href="SDL_HINT_BMP_SAVE_LEGACY_FORMAT.html">SDL_HINT_BMP_SAVE_LEGACY_FORMATヒント</a>を"1"にすると古い形式になる.
+<li>ヒントの真偽値を得る<a href="SDL_GetHintBoolean.html">SDL_GetHintBoolean()</a>の追加
+<li>レンダラーの拡大を, スムーズに行うか, ビューポートサイズの整数倍にするかを設定する<a href="SDL_RenderSetIntegerScale.html">SDL_RenderSetIntegerScale()</a>の追加
+<li>ピクセル形式を指定してSDLサーフェイスを生成する<a href="SDL_CreateRGBSurfaceWithFormat.html">SDL_CreateRGBSurfaceWithFormat()</a>と<a href="SDL_CreateRGBSurfaceWithFormatFrom.html">SDL_CreateRGBSurfaceWithFormatFrom()</a>の追加
+<li>ウィンドウが使える領域を戻す<a href="SDL_GetDisplayUsableBounds.html">SDL_GetDisplayUsableBounds()</a>の追加. 例えば, Mac OS Xではメニューバーとドックは領域から引かれる
+<li>ウィンドウのクライアント領域の周りにある枠のサイズを戻す<a href="SDL_GetWindowBordersSize.html">SDL_GetWindowBordersSize()</a>の追加
+<li>SDL_HITTEST_NORMALでは行われないヒットテストで発生する<a href="SDL_WindowEventID.html">SDL_WINDOWEVENT_HIT_TESTイベント</a>の追加 (例: タイトルバーやウィンドウ枠)
+<li>ウィンドウのサイズを変えられるかを設定する<a href="SDL_SetWindowResizable.html">SDL_SetWindowResizable()</a>の追加
+<li>ウィンドウの不透明度を設定/獲得する<a href="SDL_SetWindowOpacity.html">SDL_SetWindowOpacity()</a>と<a href="SDL_GetWindowOpacity.html">SDL_GetWindowOpacity()</a>の追加
+<li>あるウィンドウが他のウィンドウに対してモーダルであるかを設定する<a href="SDL_SetWindowModalFor.html">SDL_SetWindowModalFor()</a>の追加
+<li><a href="SDL_MixAudioFormat.html">SDL_MixAudioFormat()</a>が<a href="SDL_AudioFormat.html">AUDIO_U16LSB</a>と<a href="SDL_AudioFormat.html">AUDIO_U16MSB</a>に対応
+<li>OpenGLレンダラーを使った場合, テクスチャを読み戻すとき画像が反転する問題の修正
+<li>OpenGLレンダラーを使った場合のSDL_BLENDMODE_NONEでのテクスチャの色変調の問題の修正
+<li>いくつかの場合でカラーキーのα値が無視される不具合の修正
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>�X���b�h�ɖ��O��t�����Ƃ��f�o�b�K��O���������邱�Ƃ�h��<a href="SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING.html">SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING�q���g</a>�̒ǉ�. ���̗�O�̓f�o�b�K����.NET�A�v���P�[�V���������s����Ƃ����������N����
-<li>Windows��<a href="SDL_HINT_THREAD_STACK_SIZE.html">SDL_HINT_THREAD_STACK_SIZE�q���g</a>�ɑΉ�
-<li>XBox�̃R���g���[���̃g���K���J�n���Ɏ����I�Ɉ��������̏C��
-<li>���s�t�@�C���̍ŏ��̃A�C�R�����E�B���h�E�̃A�C�R���̃f�t�H���g�Ƃ���
-<li>SDL��C���C�u�����Ή��Ńr���h���ꂽ�Ƃ�, SDL���O���b�Z�[�W���d�����ĕ\���������̏C��
-<li>SDL�E�B���h�E���t�H�[�J�X���������Ƃ��f�b�h�L�[�����Z�b�g����. �����, SDL�A�v���P�[�V�����ŉ����ꂽ�f�b�h�L�[�͑��̃A�v���P�[�V�����̕������͂ɉe�����Ȃ�
+<li>スレッドに名前を付けたときデバッガ例外が発生することを防ぐ<a href="SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING.html">SDL_HINT_WINDOWS_DISABLE_THREAD_NAMINGヒント</a>の追加. この例外はデバッガ下で.NETアプリケーションを実行するとき問題を引き起こす
+<li>Windowsも<a href="SDL_HINT_THREAD_STACK_SIZE.html">SDL_HINT_THREAD_STACK_SIZEヒント</a>に対応
+<li>XBoxのコントローラのトリガが開始時に自動的に引かれる問題の修正
+<li>実行ファイルの最初のアイコンをウィンドウのアイコンのデフォルトとする
+<li>SDLがCライブラリ対応でビルドされたとき, SDLログメッセージが重複して表示される問題の修正
+<li>SDLウィンドウがフォーカスを失ったときデッドキーをリセットする. よって, SDLアプリケーションで押されたデッドキーは他のアプリケーションの文字入力に影響しない
 </ul>
 <h3>Mac OS X</h3>
 <ul>
-<li>�_�~�[�r�f�I�h���C�o�̑I���̖��̏C��
-<li>Caps Lock�L�[�C�x���g��, �������Ƃ��ɉ�����/�������C�x���g���y�A�Ŕ�������̂ł͂Ȃ�, �������Ƃ��ɉ������C�x���g, �������Ƃ��ɗ������C�x���g����������悤�ɂȂ���
-<li>Mac OS X 10.12�ł̃}�E�X�z�C�[���C�x���g�̖��̏C��
-<li>�����h���C�o��, �V�����o�[�W������Mac OS X�ł�荂���݊����̂���AVFoundation���g���悤�ɍX�V����
+<li>ダミービデオドライバの選択の問題の修正
+<li>Caps Lockキーイベントは, 押したときに押した/離したイベントがペアで発生するのではなく, 押したときに押したイベント, 離したときに離したイベントが発生するようになった
+<li>Mac OS X 10.12でのマウスホイールイベントの問題の修正
+<li>音声ドライバは, 新しいバージョンのMac OS Xでより高い互換性のあるAVFoundationを使うように更新した
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>Fcitx IME�ɑΉ�
-<li>SDL�E�B���h�E���t�H�[�J�X�����߂Ă��邩���E�B���h�E�}�l�[�W�����q�˂��Ƃ���������<a href="SDL_WindowEventID.html">SDL_WINDOWEVENT_TAKE_FOCUS�C�x���g</a>�̒ǉ�
-<li>�X�V�����͐؎̂Ăł͂Ȃ��l�̌ܓ��ƂȂ���. �Ⴆ��59.94Hz��, 59Hz�ł͂Ȃ�, �l�̌ܓ�����60Hz�ƂȂ�
-<li>Raspberry Pi�̃X�N���[���^�b�`�ɏ����Ή�
+<li>Fcitx IMEに対応
+<li>SDLウィンドウがフォーカスを求めているかをウィンドウマネージャが尋ねたとき発生する<a href="SDL_WindowEventID.html">SDL_WINDOWEVENT_TAKE_FOCUSイベント</a>の追加
+<li>更新周期は切捨てではなく四捨五入となった. 例えば59.94Hzは, 59Hzではなく, 四捨五入され60Hzとなる
+<li>Raspberry Piのスクリーンタッチに初期対応
 </ul>
 <h3>OpenBSD</h3>
 <ul>
-<li>OpenBSD�ł�<a href="SDL_GetBasePath.html">SDL_GetBasePath()</a>�ɑΉ�
+<li>OpenBSDでも<a href="SDL_GetBasePath.html">SDL_GetBasePath()</a>に対応
 </ul>
 <h3>iOS</h3>
 <ul>
-<li>iOS 8�ȍ~�̓��I���[�h�I�u�W�F�N�g�ɑΉ�
+<li>iOS 8以降の動的ロードオブジェクトに対応
 </ul>
 <h3>tvOS</h3>
 <ul>
-<li>Apple TV�ɑΉ�
-<li>Apple TV remote�̃W���C�X�e�B�b�N�̎��������I�ɉ�]�����ɍ��킹�邩��ݒ肷��<a href="SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION.html">SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION�q���g</a>�̒ǉ�
+<li>Apple TVに対応
+<li>Apple TV remoteのジョイスティックの軸を自動的に回転方向に合わせるかを設定する<a href="SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION.html">SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATIONヒント</a>の追加
 </ul>
 <h3>Android</h3>
 <ul>
-<li>Android�X�N���[���̉𑜓x���ς�����Ƃ��E�B���h�E�̃T�C�Y���ς��Ȃ����̏C��
-<li>�����x�œ`����ꂽ�W���C�X�e�B�b�N��Z���𐳂����Ȃ�悤�ɏC��
+<li>Androidスクリーンの解像度が変わったときウィンドウのサイズが変わらない問題の修正
+<li>加速度で伝えられたジョイスティックのZ軸を正しくなるように修正
 </ul>
-<h3>Emscripten (web�u���E�U��œ���)</h3>
+<h3>Emscripten (webブラウザ上で動作)</h3>
 <ul>
-<li>�����̕s��C���Ǝ���
+<li>多数の不具合修正と実装
 </ul>
-<h2>2.0.4�̕ύX�_</h2>
-<h3>�S��</h3>
+<h2>2.0.4の変更点</h2>
+<h3>全般</h3>
 <ul>
-<li>Emscripten���g����web�A�v���P�[�V�����ɑΉ�. �ڍׂ�<a href="https://hg.libsdl.org/SDL/file/e2343ac4788e/docs/README-emscripten.md">docs/README-emscripten.md</a>���Q�Ƃ��邱��
-<li>Native Client (NaCl)���g����web�A�v���P�[�V�����ɑΉ�. �ڍׂ�<a href="https://hg.libsdl.org/SDL/file/e2343ac4788e/docs/README-nacl.md">docs/README-nacl.md</a>���Q�Ƃ��邱��
-<li>�R�[���o�b�N���g�킸�ɃI�[�f�B�I�L���[�Ƀf�[�^�𑗐M����API�̒ǉ�:
+<li>Emscriptenを使ったwebアプリケーションに対応. 詳細は<a href="https://hg.libsdl.org/SDL/file/e2343ac4788e/docs/README-emscripten.md">docs/README-emscripten.md</a>を参照すること
+<li>Native Client (NaCl)を使ったwebアプリケーションに対応. 詳細は<a href="https://hg.libsdl.org/SDL/file/e2343ac4788e/docs/README-nacl.md">docs/README-nacl.md</a>を参照すること
+<li>コールバックを使わずにオーディオキューにデータを送信するAPIの追加:
 <ul>
 <li><a href="SDL_QueueAudio.html">SDL_QueueAudio()</a>, <a href="SDL_GetQueuedAudioSize.html">SDL_GetQueuedAudioSize()</a>, <a href="SDL_ClearQueuedAudio.html">SDL_ClearQueuedAudio()</a>
 </ul>
-<li><a href="SDL_AudioDeviceEvent.html">�I�[�f�B�I�f�o�C�X �z�b�g�v���O(�����}��)�ɑΉ�����C�x���g</a>�̒ǉ�:
+<li><a href="SDL_AudioDeviceEvent.html">オーディオデバイス ホットプラグ(活線挿抜)に対応するイベント</a>の追加:
 <ul>
 <li>SDL_AUDIODEVICEADDED, SDL_AUDIODEVICEREMOVED
 </ul>
-<li><a href="SDL_PointInRect.html">SDL_PointInRect()</a>�̒ǉ�
-<li>AVX2�Ή������m����<a href="SDL_HasAVX2.html">SDL_HasAVX2()</a>�̒ǉ�
-<li>SDL�E�B���h�E�̈ꕔ����W���I�ȃE�B���h�E�̑���(�Ⴆ�΃h���b�O�G���A��T�C�Y�ύX�G���A)�̂悤�Ɉ�����悤�ɂ���<a href="SDL_SetWindowHitTest.html">SDL_SetWindowHitTest()</a>�̒ǉ�
-<li>�����Ȃ�ꍇ�ł����̓O���u�̂���E�B���h�E�𓾂���<a href="SDL_GetGrabbedWindow.html">SDL_GetGrabbedWindow()</a>�̒ǉ�
-<li>�����_���[�̃N���b�v���L�����ۂ���m�点��<a href="SDL_RenderIsClipEnabled.html">SDL_RenderIsClipEnabled()</a>�̒ǉ�
-<li>�E�B���h�E���Ƀ}�E�X���Ȃ��ꍇ�ł��C�x���g�𓾂���悤�ɂ���<a href="SDL_CaptureMouse.html">SDL_CaptureMouse()</a>�̒ǉ�
-<li>SDL�E�B���h�E�̊O�Ƀ}�E�X�J�[�\�����ړ�������<a href="SDL_WarpMouseGlobal.html">SDL_WarpMouseGlobal()</a>�̒ǉ�
-<li>SDL�E�B���h�E�̊O�̃}�E�X�̏�Ԃ𓾂�<a href="SDL_GetGlobalMouseState.html">SDL_GetGlobalMouseState()</a>�̒ǉ�
-<li>�}�E�X�z�C�[���C�x���g��, �t���b�v����Ă���(�������t�ɂȂ��Ă���)���ۂ���m�点��<a href="SDL_MouseWheelEvent.html">direction�t�B�[���h</a>�̒ǉ�
-<li><a href="SDL_GLattr.html">GL_CONTEXT_RELEASE_BEHAVIOR GL�A�g���r���[�g</a>([WGL|GLX]_ARB_context_flush_control extension�Ƀ}�b�v�����)�̒ǉ�
-<li>�ꕔ�̊���OpenGL ES�o�[�W�����̑I����F�߂�EGL_KHR_create_context�ɑΉ�
-<li>OpenGL��OpenGL ES 2.0�����_���[��NV12��NV21 YUV�e�N�X�`���[�ɑΉ�
-<li>�l�X��SoC�Ŏg����Vivante�r�f�I�h���C�o�̒ǉ�
-<li>D3D�f�o�C�X�������Android�C�x���g���[�v��GLES�R���e�L�X�g���Đ��������Ƃ��ɔ�������<a href="SDL_EventType.html">SDL_RENDER_DEVICE_RESET�C�x���g</a>�̒ǉ�
-<li>SDL�g�ݍ��݂̃V�O�i���n���h���𖳌��ɂ���<a href="SDL_HINT_NO_SIGNAL_HANDLERS.html">SDL_HINT_NO_SIGNAL_HANDLERS�q���g</a>�̒ǉ�
-<li>SDL�X���b�h�̃X�^�b�N�T�C�Y��ݒ肷��<a href="SDL_HINT_THREAD_STACK_SIZE.html">SDL_HINT_THREAD_STACK_SIZE�q���g</a>�̒ǉ�
-<li>stdlib���[�`����SDL_sqrtf(), SDL_tan(), SDL_tanf()��ǉ�
-<li>�W���I�łȂ��`�����N��p����WAV��BMP�t�@�C���̑Ή��̉���
-<li>���̂�<a href="SDL_assert_data.html">SDL_assert_data</a>����SDL_AssertData��, SDL_assert_state����<a href="SDL_AssertState.html">SDL_AssertState</a>�ɕύX
-<li>�}�E�X�J�[�\���������Ȃ��Ƃ��E�B���h�E�𑀍�ł��Ȃ��悤�ɂ���<a href="SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN.html">SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN�q���g</a>�̒ǉ�
-<li>�f�B�X�v���C��DPI���𓾂�<a href="SDL_GetDisplayDPI.html">SDL_GetDisplayDPI()</a>�̒ǉ�
-<li>�W���C�X�e�B�b�N�̃o�b�e���[���x���𓾂�<a href="SDL_JoystickCurrentPowerLevel.html">SDL_JoystickCurrentPowerLevel()</a>�̒ǉ�
-<li>�C�x���g�̃C���X�^���XID����SDL_Joystick*�𓾂�<a href="SDL_JoystickFromInstanceID.html">SDL_JoystickFromInstanceID()</a>�̒ǉ�
-<li>�C�x���g�̃C���X�^���XID����SDL_GameController*�𓾂�<a href="SDL_GameControllerFromInstanceID.html">SDL_GameControllerFromInstanceID()</a>�̒ǉ�
-<li>(��҂ɂ��ǋL) ���{��106/109�L�[�{�[�h�̈ꕔ�L�[���L���ɂȂ���
+<li><a href="SDL_PointInRect.html">SDL_PointInRect()</a>の追加
+<li>AVX2対応を検知する<a href="SDL_HasAVX2.html">SDL_HasAVX2()</a>の追加
+<li>SDLウィンドウの一部分を標準的なウィンドウの装飾(例えばドラッグエリアやサイズ変更エリア)のように扱えるようにする<a href="SDL_SetWindowHitTest.html">SDL_SetWindowHitTest()</a>の追加
+<li>いかなる場合でも入力グラブのあるウィンドウを得られる<a href="SDL_GetGrabbedWindow.html">SDL_GetGrabbedWindow()</a>の追加
+<li>レンダラーのクリップが有効か否かを知らせる<a href="SDL_RenderIsClipEnabled.html">SDL_RenderIsClipEnabled()</a>の追加
+<li>ウィンドウ内にマウスがない場合でもイベントを得られるようにする<a href="SDL_CaptureMouse.html">SDL_CaptureMouse()</a>の追加
+<li>SDLウィンドウの外にマウスカーソルを移動させる<a href="SDL_WarpMouseGlobal.html">SDL_WarpMouseGlobal()</a>の追加
+<li>SDLウィンドウの外のマウスの状態を得る<a href="SDL_GetGlobalMouseState.html">SDL_GetGlobalMouseState()</a>の追加
+<li>マウスホイールイベントに, フリップされている(方向が逆になっている)か否かを知らせる<a href="SDL_MouseWheelEvent.html">directionフィールド</a>の追加
+<li><a href="SDL_GLattr.html">GL_CONTEXT_RELEASE_BEHAVIOR GLアトリビュート</a>([WGL|GLX]_ARB_context_flush_control extensionにマップされる)の追加
+<li>一部の環境でOpenGL ESバージョンの選択を認めるEGL_KHR_create_contextに対応
+<li>OpenGLとOpenGL ES 2.0レンダラーのNV12とNV21 YUVテクスチャーに対応
+<li>様々なSoCで使われるVivanteビデオドライバの追加
+<li>D3Dデバイスが失われAndroidイベントループがGLESコンテキストを再生成したときに発生する<a href="SDL_EventType.html">SDL_RENDER_DEVICE_RESETイベント</a>の追加
+<li>SDL組み込みのシグナルハンドラを無効にする<a href="SDL_HINT_NO_SIGNAL_HANDLERS.html">SDL_HINT_NO_SIGNAL_HANDLERSヒント</a>の追加
+<li>SDLスレッドのスタックサイズを設定する<a href="SDL_HINT_THREAD_STACK_SIZE.html">SDL_HINT_THREAD_STACK_SIZEヒント</a>の追加
+<li>stdlibルーチンにSDL_sqrtf(), SDL_tan(), SDL_tanf()を追加
+<li>標準的でないチャンクを用いたWAVとBMPファイルの対応の改良
+<li>名称を<a href="SDL_assert_data.html">SDL_assert_data</a>からSDL_AssertDataに, SDL_assert_stateから<a href="SDL_AssertState.html">SDL_AssertState</a>に変更
+<li>マウスカーソルが見えないときウィンドウを操作できないようにする<a href="SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN.html">SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDENヒント</a>の追加
+<li>ディスプレイのDPI情報を得る<a href="SDL_GetDisplayDPI.html">SDL_GetDisplayDPI()</a>の追加
+<li>ジョイスティックのバッテリーレベルを得る<a href="SDL_JoystickCurrentPowerLevel.html">SDL_JoystickCurrentPowerLevel()</a>の追加
+<li>イベントのインスタンスIDからSDL_Joystick*を得る<a href="SDL_JoystickFromInstanceID.html">SDL_JoystickFromInstanceID()</a>の追加
+<li>イベントのインスタンスIDからSDL_GameController*を得る<a href="SDL_GameControllerFromInstanceID.html">SDL_GameControllerFromInstanceID()</a>の追加
+<li>(訳者による追記) 日本語106/109キーボードの一部キーが有効になった
 <ul>
-<li>_�L�[(�EShift�̍�) = SDL_SCANCODE_INTERNATIONAL1
-<li>�J�^�J�i�Ђ炪�ȃL�[ = SDL_SCANCODE_INTERNATIONAL2
-<li>\�L�[(Backspace�̍�) = SDL_SCANCODE_INTERNATIONAL3
-<li>�ϊ��L�[ = SDL_SCANCODE_INTERNATIONAL4
-<li>���ϊ��L�[ = SDL_SCANCODE_INTERNATIONAL5
+<li>_キー(右Shiftの左) = SDL_SCANCODE_INTERNATIONAL1
+<li>カタカナひらがなキー = SDL_SCANCODE_INTERNATIONAL2
+<li>¥キー(Backspaceの左) = SDL_SCANCODE_INTERNATIONAL3
+<li>変換キー = SDL_SCANCODE_INTERNATIONAL4
+<li>無変換キー = SDL_SCANCODE_INTERNATIONAL5
 </ul>
 </ul>
 <h3>Windows</h3>
 <ul>
-<li>Windows Phone 8.1��Windows 10/UWP (Universal Windows Platform)�ɑΉ�
-<li>�^�C�}����\��1�~���b���f�t�H���g�ƂȂ���. �����<a href="SDL_HINT_TIMER_RESOLUTION.html">SDL_HINT_TIMER_RESOLUTION�q���g</a>�ŕύX�ł���
-<li>SDLmain��C�����^�C���Ɉˑ����Ȃ��Ȃ���. ����ɂ��Debug��Release�̂ǂ���ł�����.lib���g����悤�ɂȂ���
-<li>�E�B���h�E���b�Z�[�W�̂��т�TranslateMessage()�̑O�ɌĂ΂��֐���ݒ肷��<a href="SDL_SetWindowsMessageHook.html">SDL_SetWindowsMessageHook()</a>�̒ǉ�
-<li><a href="SDL_PumpEvents.html">SDL_PumpEvents()</a>�ŃE�B���h�E���b�Z�[�W���[�v���������邩�ۂ���ݒ肷��<a href="SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP.html">SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP�q���g</a>�̒ǉ�
-<li><a href="SDL_Event.html">�}�E�X�C�x���g</a>��which�t�B�[���h��SDL_TOUCH_MOUSEID�ł��邩�Ŗ{���̃}�E�X���^�b�`�C�x���g���𔻕ʂł���悤�ɂȂ���
-<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>�̓E�B���h�EHDC�����悤�ɂȂ���
-<li>Unicode�R�}���h���C���I�v�V�����ɑΉ�
-<li>ALT�Ɖ��炩�̃L�[�̓��������ɂ��r�[�v���̗}��
-<li><a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect()</a>��OS���\������IME�̕\���ʒu��ς���悤�ɂȂ���
-<li>ALT+F4�L�[�ɂ��<a href="SDL_WindowEventID.html">SDL_WINDOWEVENT_CLOSE�C�x���g</a>�̔�����}������<a href="SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4.html">SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4�q���g</a>�̒ǉ�
-<li>XInput�f�o�C�X�ŌÂ����ƃ{�^���̃}�b�s���O���g��<a href="SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING.html">SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING�q���g</a>�̒ǉ� (�����I�ɂ͔p�~)
+<li>Windows Phone 8.1とWindows 10/UWP (Universal Windows Platform)に対応
+<li>タイマ分解能は1ミリ秒がデフォルトとなった. これは<a href="SDL_HINT_TIMER_RESOLUTION.html">SDL_HINT_TIMER_RESOLUTIONヒント</a>で変更できる
+<li>SDLmainはCランタイムに依存しなくなった. これによりDebugとReleaseのどちらでも同じ.libを使えるようになった
+<li>ウィンドウメッセージのたびにTranslateMessage()の前に呼ばれる関数を設定する<a href="SDL_SetWindowsMessageHook.html">SDL_SetWindowsMessageHook()</a>の追加
+<li><a href="SDL_PumpEvents.html">SDL_PumpEvents()</a>でウィンドウメッセージループを処理するか否かを設定する<a href="SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP.html">SDL_HINT_WINDOWS_ENABLE_MESSAGELOOPヒント</a>の追加
+<li><a href="SDL_Event.html">マウスイベント</a>のwhichフィールドがSDL_TOUCH_MOUSEIDであるかで本当のマウスかタッチイベントかを判別できるようになった
+<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>はウィンドウHDCを持つようになった
+<li>Unicodeコマンドラインオプションに対応
+<li>ALTと何らかのキーの同時押しによるビープ音の抑制
+<li><a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect()</a>はOSが表示したIMEの表示位置を変えるようになった
+<li>ALT+F4キーによる<a href="SDL_WindowEventID.html">SDL_WINDOWEVENT_CLOSEイベント</a>の発生を抑制する<a href="SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4.html">SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4ヒント</a>の追加
+<li>XInputデバイスで古い軸とボタンのマッピングを使う<a href="SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING.html">SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPINGヒント</a>の追加 (将来的には廃止)
 </ul>
 <h3>Mac OS X</h3>
 <ul>
-<li>�h���b�O&amp;�h���b�v�̎���
-<li>�W���C�X�e�B�b�N �z�b�g�v���O���m�̉���
-<li><a href="SDL_WindowEvent.html">SDL_WINDOWEVENT_EXPOSED�E�B���h�E�C�x���g</a>���K�؂ȏ󋵂Ŕ�������悤�ɂȂ���
-<li>���΃}�E�X���[�h�ŃA�v���P�[�V�����̃t�H�[�J�X������ꂽ/����ꂽ�ꍇ�̓���̏C��
-<li>Spaces�t���X�N���[�����[�h�ւ�/����̈ڍs�Ɋ֘A����o�O�̏C��
-<li>�f�B�X�v���C���[�h�̃��t���b�V�����[�g�̏C��
-<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>��ARC-compatible�ƂȂ���
-<li>�t�H�[�J�X���悤�Ƃ���A�v���P�[�V�������o�b�N�O���E���h�v���Z�X�ɂȂ邱�Ƃ�}������<a href="SDL_HINT_MAC_BACKGROUND_APP.html">SDL_HINT_MAC_BACKGROUND_APP�q���g</a>�̒ǉ�
+<li>ドラッグ&amp;ドロップの実装
+<li>ジョイスティック ホットプラグ検知の改良
+<li><a href="SDL_WindowEvent.html">SDL_WINDOWEVENT_EXPOSEDウィンドウイベント</a>が適切な状況で発生するようになった
+<li>相対マウスモードでアプリケーションのフォーカスが失われた/得られた場合の動作の修正
+<li>Spacesフルスクリーンモードへの/からの移行に関連するバグの修正
+<li>ディスプレイモードのリフレッシュレートの修正
+<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>はARC-compatibleとなった
+<li>フォーカスしようとするアプリケーションがバックグラウンドプロセスになることを抑制する<a href="SDL_HINT_MAC_BACKGROUND_APP.html">SDL_HINT_MAC_BACKGROUND_APPヒント</a>の追加
 </ul>
 <h3>Linux</h3>
 <ul>
-<li>Mir��Wayland���g���r���h�Ƀf�t�H���g�őΉ�
-<li>IBus IME�ɑΉ�
-<li><a href="SDL_TextEditingEvent.html">SDL_TEXTEDITING�C�x���g</a>�𑗐M��������IBus���e�L�X�g�ҏW�Ɏg�����ۂ��𐧌䂷��<a href="SDL_HINT_IME_INTERNAL_EDITING.html">SDL_HINT_IME_INTERNAL_EDITING�q���g</a>�̒ǉ�
-<li>_NET_WM_PING�v���g�R���𖳌��ɂ���<a href="SDL_HINT_VIDEO_X11_NET_WM_PING.html">SDL_HINT_VIDEO_X11_NET_WM_PING�q���g</a>�̒ǉ�
-<li>Pulseaudio���g���������I�[�f�B�I�f�o�C�X�ɑΉ�
-<li>���΃}�E�X���[�h�ł̃}�E�X�C�x���g�̏d���̏C��
+<li>MirとWaylandを使うビルドにデフォルトで対応
+<li>IBus IMEに対応
+<li><a href="SDL_TextEditingEvent.html">SDL_TEXTEDITINGイベント</a>を送信する代わりにIBusがテキスト編集に使うか否かを制御する<a href="SDL_HINT_IME_INTERNAL_EDITING.html">SDL_HINT_IME_INTERNAL_EDITINGヒント</a>の追加
+<li>_NET_WM_PINGプロトコルを無効にする<a href="SDL_HINT_VIDEO_X11_NET_WM_PING.html">SDL_HINT_VIDEO_X11_NET_WM_PINGヒント</a>の追加
+<li>Pulseaudioを使った複数オーディオデバイスに対応
+<li>相対マウスモードでのマウスイベントの重複の修正
 </ul>
 <h3>iOS</h3>
 <ul>
-<li>iOS 8�ɑΉ�
-<li><a href="SDL_WindowFlags.html">SDL_WINDOW_ALLOW_HIGHDPI�E�B���h�E�t���O</a>���L���ɂȂ荂DPI�ɑΉ�����. <a href="SDL_GL_GetDrawableSize.html">SDL_GL_GetDrawableSize()</a>�܂���<a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize()</a>�ŃE�B���h�E�̉𑜓x���s�N�Z�����œ�����
-<li><a href="SDL_GetWindowSize.html">SDL_GetWindowSize()</a>�ƃf�B�X�v���C���[�h�T�C�Y��, �s�N�Z�����ł͂Ȃ�, �uDPI�Ɉˑ����Ȃ��|�C���g���v/�u��ʍ��W�v���W��ԂƂȂ��� (OS X�̋����ƈ�v)
-<li>iPhone 6 Plus �l�C�e�B�u�𑜓x�ɑΉ�
-<li>MFi�Q�[���R���g���[���ɑΉ�
-<li><a href="SDL_HINT_ACCELEROMETER_AS_JOYSTICK.html">SDL_HINT_ACCELEROMETER_AS_JOYSTICK�q���g</a>�ɑΉ�
-<li>iOS 7+�ł�sRGB OpenGL ES�ɑΉ�
-<li><a href="SDL_DisableScreenSaver.html">SDL_DisableScreenSaver()</a>, <a href="SDL_EnableScreenSaver.html">SDL_EnableScreenSaver()</a>, <a href="SDL_HINT_VIDEO_ALLOW_SCREENSAVER.html">SDL_HINT_VIDEO_ALLOW_SCREENSAVER�q���g</a>�ɑΉ�
-<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>�̓E�B���h�E�̃A�N�e�B�uGLES�r���[���g��OpenGL ES�t���[���o�b�t�@�ƃJ���[�o�b�t�@�����悤�ɂȂ���
-<li>�l�X�ȉ�]�ƕ����Ɋւ�����̏C��
-<li>���������[�N�̏C��
+<li>iOS 8に対応
+<li><a href="SDL_WindowFlags.html">SDL_WINDOW_ALLOW_HIGHDPIウィンドウフラグ</a>が有効になり高DPIに対応した. <a href="SDL_GL_GetDrawableSize.html">SDL_GL_GetDrawableSize()</a>または<a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize()</a>でウィンドウの解像度をピクセル数で得られる
+<li><a href="SDL_GetWindowSize.html">SDL_GetWindowSize()</a>とディスプレイモードサイズは, ピクセル数ではなく, 「DPIに依存しないポイント数」/「画面座標」座標空間となった (OS Xの挙動と一致)
+<li>iPhone 6 Plus ネイティブ解像度に対応
+<li>MFiゲームコントローラに対応
+<li><a href="SDL_HINT_ACCELEROMETER_AS_JOYSTICK.html">SDL_HINT_ACCELEROMETER_AS_JOYSTICKヒント</a>に対応
+<li>iOS 7+でのsRGB OpenGL ESに対応
+<li><a href="SDL_DisableScreenSaver.html">SDL_DisableScreenSaver()</a>, <a href="SDL_EnableScreenSaver.html">SDL_EnableScreenSaver()</a>, <a href="SDL_HINT_VIDEO_ALLOW_SCREENSAVER.html">SDL_HINT_VIDEO_ALLOW_SCREENSAVERヒント</a>に対応
+<li><a href="SDL_SysWMinfo.html">SDL_SysWMinfo</a>はウィンドウのアクティブGLESビューが使うOpenGL ESフレームバッファとカラーバッファを持つようになった
+<li>様々な回転と方向に関する問題の修正
+<li>メモリリークの修正
 </ul>
 <h3>Android</h3>
 <ul>
-<li>�^�b�`�C�x���g���}�E�X�C�x���g�Ƃ��Ĉ����Ȃ��悤�ɂ���<a href="SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH.html">SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH�q���g</a>�̒ǉ�
-<li><a href="SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION�q���g</a>��<a href="SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION�q���g</a>�̒ǉ�
-<li><a href="SDL_DisableScreenSaver.html">SDL_DisableScreenSaver()</a>, <a href="SDL_EnableScreenSaver.html">SDL_EnableScreenSaver()</a>, <a href="SDL_HINT_VIDEO_ALLOW_SCREENSAVER.html">SDL_HINT_VIDEO_ALLOW_SCREENSAVER�q���g</a>�ɑΉ�
-<li><a href="SDL_ShowMessageBox.html">SDL_ShowMessageBox()</a>��<a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox()</a>�ɑΉ�
+<li>タッチイベントがマウスイベントとして扱われないようにする<a href="SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH.html">SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCHヒント</a>の追加
+<li><a href="SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSIONヒント</a>と<a href="SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSIONヒント</a>の追加
+<li><a href="SDL_DisableScreenSaver.html">SDL_DisableScreenSaver()</a>, <a href="SDL_EnableScreenSaver.html">SDL_EnableScreenSaver()</a>, <a href="SDL_HINT_VIDEO_ALLOW_SCREENSAVER.html">SDL_HINT_VIDEO_ALLOW_SCREENSAVERヒント</a>に対応
+<li><a href="SDL_ShowMessageBox.html">SDL_ShowMessageBox()</a>と<a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox()</a>に対応
 </ul>
 <h3>Raspberry Pi</h3>
 <ul>
-<li>Raspberry Pi 2�ɑΉ�
+<li>Raspberry Pi 2に対応
 </ul>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://github.com/libsdl-org/SDL/blob/SDL2/WhatsNew.txt">SDL/WhatsNew.txt</a>
 <hr>
 </body>

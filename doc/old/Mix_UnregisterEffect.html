@@ -1,54 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-effects.html" title="1つ上">
-<title>Mix_UnregisterEffect</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-effects.html">4.6エフェクト</a> - Mix_UnregisterEffect
-<hr>
-<h1>Mix_UnregisterEffect</h1>
-<p>
-<code>int Mix_UnregisterEffect(int channel, Mix_EffectFunc_t f)</code>
-</p>
-<p>
-<dl>
-<dt>channel</dt><dd>
-後処理を行う関数fを削除するチャネル番号.
-MIX_CHANNEL_POSTとするとミキシングの後の処理
-</dd>
-<dt>f</dt><dd>
-削除する関数
-</dd>
-</dl>
-</p>
-<p>
-チャネルのリストから登録された最も古い(最初に見つけた)エフェクト関数fを削除する.
-この関数は単に最初に見つけた関数を削除するだけである. よって同じ関数を複数回登録した場合は, 複数回この関数を複数回呼び, エラーを戻したときチャネルからfを削除するのを止める必要がある.
-もしチャネルが有効ならば, Mix_RegisterEffectで登録したMix_EffectDone_t関数が呼ばれる.
-</p>
-<p>
-戻り値: チャネルが不正, またはチャネルにエフェクト関数が登録されていないなど失敗のとき0(偽)
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// noEffectを後処理から削除する
-// これは後処理に登録された全てのnoEffectを削除する
-while(Mix_UnregisterEffect(MIX_CHANNEL_POST, noEffect));
-// エラーをチェックしてMix_GetError()を表示したいかもしれない
-// しかし, このループの後は必ず"No such effect registered"となる
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a>,
-<a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_77.html#SEC77">4.6.2 Mix_UnregisterEffect</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

@@ -1,57 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-samples.html" title="1つ上">
-<title>Mix_QuickLoad_WAV</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-samples.html">4.2サンプリング音声</a> - Mix_QuickLoad_WAV
-<hr>
-<h1>Mix_QuickLoad_WAV</h1>
-<p>
-<code>Mix_Chunk *Mix_QuickLoad_WAV(Uint8 *mem)</code>
-</p>
-<p>
-<dl>
-<dt>mem</dt><dd>WAVEファイルが書き込まれたメモリバッファ</dd>
-</dl>
-</p>
-memのWAVE/RIFFファイルを読み込む.
-WAVEは出力形式と同じである必要がある.
-出力形式と同じかわからない場合は, <a href="Mix_LoadWAV_RW.html">Mix_LoadWAV_RW</a>を使ったほうがよい.
-</p>
-<p>
-メモ: この関数は最小限のチェックしかしない.
-ファイルの形式と出力形式が異なる, またはWAVEファイルでない場合でもエラーを戻さない.
-この関数を使うのは危険な場合がある.
-</p>
-<p>
-戻り値: サンプリング音声の<a href="Mix_Chunk.html">Mix_Chunk</a>へのポインタ. 失敗のときNULL
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// 生のサンプリング音声データをメモリから読み込む
-// Uint8 *wave; // 生データが書き込まれている
-                // またはプログラム内で書き込むとする...
-
-Mix_Chunk *wave_chunk;
-if(!(wave_chunk=Mix_QuickLoad_WAV(wave))) {
-    printf("Mix_QuickLoad_WAV: %s\n", Mix_GetError());
-    // ここでエラーを処理する
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_LoadWAV.html">Mix_LoadWAV</a>,
-<a href="Mix_QuickLoad_RAW.html">Mix_QuickLoad_RAW</a>,
-<a href="Mix_FreeChunk.html">Mix_FreeChunk</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_21.html#SEC21">4.2.5 Mix_QuickLoad_WAV</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

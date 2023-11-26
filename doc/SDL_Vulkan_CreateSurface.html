@@ -1,29 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryVulkan.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryVulkan.html" title="1ã¤ä¸Š">
 <title>SDL_Vulkan_CreateSurface</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryVulkan.html">VulkanƒOƒ‰ƒtƒBƒbƒN</a> - SDL_Vulkan_CreateSurface
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryVulkan.html">Vulkanã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯</a> - SDL_Vulkan_CreateSurface
 <hr>
 <h1>SDL_Vulkan_CreateSurface</h1>
-VulkanƒŒƒ“ƒ_ƒŠƒ“ƒOƒT[ƒtƒFƒCƒX‚ğ¶¬‚·‚é
-<h2>\•¶</h2>
+Vulkanãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’ç”Ÿæˆã™ã‚‹
+<h2>æ§‹æ–‡</h2>
 <code>SDL_bool SDL_Vulkan_CreateSurface(SDL_Window* window, VkInstance instance, VkSurfaceKHR* surface)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_Vulkan_CreateSurface">
-<tr><td>window</td><td>VulkanƒT[ƒtƒFƒCƒX‚ÆŒ‹‚Ñ‚Â‚¯‚éƒEƒBƒ“ƒhƒE</td></tr>
-<tr><td>instance</td><td>VulkanƒCƒ“ƒXƒ^ƒ“ƒXƒnƒ“ƒhƒ‹</td></tr>
-<tr><td>surface</td><td>V‚½‚É¶¬‚³‚ê‚éƒT[ƒtƒFƒCƒX‚ÌVkSurfaceKHRƒnƒ“ƒhƒ‹‚Ö‚Ìƒ|ƒCƒ“ƒ^ (o—Í)</td></tr>
+<tr><td>window</td><td>Vulkanã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã¨çµã³ã¤ã‘ã‚‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦</td></tr>
+<tr><td>instance</td><td>Vulkanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãƒãƒ³ãƒ‰ãƒ«</td></tr>
+<tr><td>surface</td><td>æ–°ãŸã«ç”Ÿæˆã•ã‚Œã‚‹ã‚µãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã®VkSurfaceKHRãƒãƒ³ãƒ‰ãƒ«ã¸ã®ãƒã‚¤ãƒ³ã‚¿ (å‡ºåŠ›)</td></tr>
 </table>
-<h2>–ß‚è’l</h2>
-¬Œ÷‚Ì‚Æ‚«SDL_TRUE, ¸”s‚Ì‚Æ‚«SDL_FALSE‚ğ–ß‚·.
-<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<h2>æˆ»ã‚Šå€¤</h2>
+æˆåŠŸã®ã¨ãSDL_TRUE, å¤±æ•—ã®ã¨ãSDL_FALSEã‚’æˆ»ã™.
+<h2>ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h2>
 <p>
 <code>
 <pre>
@@ -32,16 +32,16 @@ VkSurfaceKHR surface;
 if (!SDL_Vulkan_CreateSurface(window, instance, &surface)) handle_error();
 </pre>
 </code>
-<h2>Ú×</h2>
+<h2>è©³ç´°</h2>
 <p>
-ƒƒ‚: ƒEƒBƒ“ƒhƒE‚ÍSDL_WINDOW_VULKANƒtƒ‰ƒO‚ğg‚Á‚Ä¶¬‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚é. VkInstance‚Í<a href="SDL_Vulkan_GetInstanceExtensions.html">SDL_Vulkan_GetInstanceExtensions()</a>‚Å¶¬‚µ‚½—LŒø‚È‚à‚Ì‚Å‚ ‚é•K—v‚ª‚ ‚é.
+ãƒ¡ãƒ¢: ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¯SDL_WINDOW_VULKANãƒ•ãƒ©ã‚°ã‚’ä½¿ã£ã¦ç”Ÿæˆã•ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚‹. VkInstanceã¯<a href="SDL_Vulkan_GetInstanceExtensions.html">SDL_Vulkan_GetInstanceExtensions()</a>ã§ç”Ÿæˆã—ãŸæœ‰åŠ¹ãªã‚‚ã®ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚‹.
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-2.0.6ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+2.0.6ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_Vulkan_GetInstanceExtensions.html">SDL_Vulkan_GetInstanceExtensions</a><br>
 <a href="SDL_Vulkan_GetDrawableSize.html">SDL_Vulkan_GetDrawableSize</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_Vulkan_CreateSurface">SDL_Vulkan_CreateSurface - SDL Wiki</a>
 <hr>
 </body>

@@ -1,29 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryInit.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryInit.html" title="1ã¤ä¸Š">
 <title>SDL_Init</title>
 </head>
 <body>
-<a href="index.html">–ÚŽŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryInit.html">‰Šú‰»‚ÆI—¹</a> - SDL_Init
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryInit.html">åˆæœŸåŒ–ã¨çµ‚äº†</a> - SDL_Init
 <hr>
 <h1>SDL_Init</h1>
-SDLƒ‰ƒCƒuƒ‰ƒŠ‚ð‰Šú‰»‚·‚é.
-‘¼‚Ì‚Ù‚Æ‚ñ‚Ç‚ÌSDL‚ÌŠÖ”‚ðŒÄ‚Ño‚·‘O‚É‚±‚ÌŠÖ”‚ðŒÄ‚Ô•K—v‚ª‚ ‚é.
-<h2>\•¶</h2>
+SDLãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’åˆæœŸåŒ–ã™ã‚‹.
+ä»–ã®ã»ã¨ã‚“ã©ã®SDLã®é–¢æ•°ã‚’å‘¼ã³å‡ºã™å‰ã«ã“ã®é–¢æ•°ã‚’å‘¼ã¶å¿…è¦ãŒã‚ã‚‹.
+<h2>æ§‹æ–‡</h2>
 <code>int SDL_Init(Uint32 flags)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_Init">
-<tr><td>flags</td><td>ƒTƒuƒVƒXƒeƒ€‰Šú‰»ƒtƒ‰ƒO</td></tr>
+<tr><td>flags</td><td>ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ åˆæœŸåŒ–ãƒ•ãƒ©ã‚°</td></tr>
 </table>
-<h2>–ß‚è’l</h2>
-¬Œ÷‚Ì‚Æ‚«0, ƒGƒ‰[‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ð–ß‚·.
-<a href="SDL_GetError.html">SDL_GetError()</a>‚ðŒÄ‚ñ‚ÅÚ×‚ð’m‚é‚±‚Æ‚ª‚Å‚«‚é.
-<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<h2>æˆ»ã‚Šå€¤</h2>
+æˆåŠŸã®ã¨ã0, ã‚¨ãƒ©ãƒ¼ã®ã¨ãè² ã®æ•°ã®ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã‚’æˆ»ã™.
+<a href="SDL_GetError.html">SDL_GetError()</a>ã‚’å‘¼ã‚“ã§è©³ç´°ã‚’çŸ¥ã‚‹ã“ã¨ãŒã§ãã‚‹.
+<h2>ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h2>
 <p>
 <code>
 <pre>
@@ -31,7 +31,7 @@ SDLƒ‰ƒCƒuƒ‰ƒŠ‚ð‰Šú‰»‚·‚é.
 
 int main(int argc, char* argv[]) {
     if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) != 0) {
-        SDL_Log("SDL‚ð‰Šú‰»‚Å‚«‚È‚©‚Á‚½: %s", SDL_GetError());
+        SDL_Log("SDLã‚’åˆæœŸåŒ–ã§ããªã‹ã£ãŸ: %s", SDL_GetError());
         return 1;
     }
 
@@ -43,46 +43,46 @@ int main(int argc, char* argv[]) {
 </pre>
 </code>
 </p>
-<h2>Ú×</h2>
+<h2>è©³ç´°</h2>
 <p>
-SDL_Init()‚Í’Pƒ‚É<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>‚Éˆ—‚ð“n‚µ‚Ä‚¢‚é.
-‚æ‚Á‚Ä, ‚±‚ê‚ç2‚Â‚Í“ü‚ê‘Ö‚¦‚ç‚ê‚é. ƒR[ƒh‚ª“Ç‚Ý‚â‚·‚³‚ðl—¶‚·‚é‚È‚ç‚Î, <a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>‚Ì•û‚ª‚æ‚¢‚©‚à‚µ‚ê‚È‚¢.
+SDL_Init()ã¯å˜ç´”ã«<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>ã«å‡¦ç†ã‚’æ¸¡ã—ã¦ã„ã‚‹.
+ã‚ˆã£ã¦, ã“ã‚Œã‚‰2ã¤ã¯å…¥ã‚Œæ›¿ãˆã‚‰ã‚Œã‚‹. ã‚³ãƒ¼ãƒ‰ãŒèª­ã¿ã‚„ã™ã•ã‚’è€ƒæ…®ã™ã‚‹ãªã‚‰ã°, <a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>ã®æ–¹ãŒã‚ˆã„ã‹ã‚‚ã—ã‚Œãªã„.
 </p>
 <p>
-<a href="CategoryIO.html">ƒtƒ@ƒCƒ‹I/O</a>, ‚»‚µ‚Ä<a href="CategoryThread.html">ƒXƒŒƒbƒh</a>ƒTƒuƒVƒXƒeƒ€‚ÍƒfƒtƒHƒ‹ƒg‚Å‰Šú‰»‚³‚ê‚é.
-ƒƒbƒZ[ƒWƒ{ƒbƒNƒX(<a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox()</a>‚àƒrƒfƒIƒTƒuƒVƒXƒeƒ€‚ð‰Šú‰»‚¹‚¸‚ÉŽg‚¦‚é.
-‘¼‚ÌƒTƒuƒVƒXƒeƒ€‚ðŽg‚¤‚Æ‚«‚ÍŽw’è‚µ‚Ä‰Šú‰»‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢.
+<a href="CategoryIO.html">ãƒ•ã‚¡ã‚¤ãƒ«I/O</a>, ãã—ã¦<a href="CategoryThread.html">ã‚¹ãƒ¬ãƒƒãƒ‰</a>ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§åˆæœŸåŒ–ã•ã‚Œã‚‹.
+ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹(<a href="SDL_ShowSimpleMessageBox.html">SDL_ShowSimpleMessageBox()</a>ã‚‚ãƒ“ãƒ‡ã‚ªã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ ã‚’åˆæœŸåŒ–ã›ãšã«ä½¿ãˆã‚‹.
+ä»–ã®ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ ã‚’ä½¿ã†ã¨ãã¯æŒ‡å®šã—ã¦åˆæœŸåŒ–ã—ãªã‘ã‚Œã°ãªã‚‰ãªã„.
 </p>
 <p>
-<a href="CategoryLog.html">ƒƒO</a>‚à‰Šú‰»‚¹‚¸‚ÉŽg‚¤‚±‚Æ‚ª‚Å‚«‚é.
+<a href="CategoryLog.html">ãƒ­ã‚°</a>ã‚‚åˆæœŸåŒ–ã›ãšã«ä½¿ã†ã“ã¨ãŒã§ãã‚‹.
 </p>
 <p>
-flags‚ÍˆÈ‰º‚Ì€–Ú‚Ì˜_—˜a‚Å•¡”Ý’è‚Å‚«‚é:
+flagsã¯ä»¥ä¸‹ã®é …ç›®ã®è«–ç†å’Œã§è¤‡æ•°è¨­å®šã§ãã‚‹:
 <table border="1" summary="SDL_Init flags">
-<tr><td>SDL_INIT_TIMER</td><td>ƒ^ƒCƒ} ƒTƒuƒVƒXƒeƒ€</td></tr>
-<tr><td>SDL_INIT_AUDIO</td><td>ƒI[ƒfƒBƒI ƒTƒuƒVƒXƒeƒ€</td></tr>
-<tr><td>SDL_INIT_VIDEO</td><td>ƒrƒfƒI ƒTƒuƒVƒXƒeƒ€. ƒCƒxƒ“ƒgƒTƒuƒVƒXƒeƒ€‚àŽ©“®“I‚É‰Šú‰»‚³‚ê‚é</td></tr>
-<tr><td>SDL_INIT_JOYSTICK</td><td>ƒWƒ‡ƒCƒXƒeƒBƒbƒN ƒTƒuƒVƒXƒeƒ€. ƒCƒxƒ“ƒgƒTƒuƒVƒXƒeƒ€‚àŽ©“®“I‚É‰Šú‰»‚³‚ê‚é</td></tr>
-<tr><td>SDL_INIT_HAPTIC</td><td>ƒnƒvƒeƒBƒNƒX(Š´ŠoƒtƒB[ƒhƒoƒbƒN) ƒTƒuƒVƒXƒeƒ€</td></tr>
-<tr><td>SDL_INIT_GAMECONTROLLER</td><td>ƒRƒ“ƒgƒ[ƒ‰[ ƒTƒuƒVƒXƒeƒ€. ƒWƒ‡ƒCƒXƒeƒBƒbƒNƒTƒuƒVƒXƒeƒ€‚àŽ©“®“I‚É‰Šú‰»‚³‚ê‚é</td></tr>
-<tr><td>SDL_INIT_EVENTS</td><td>ƒCƒxƒ“ƒg ƒTƒuƒVƒXƒeƒ€</td></tr>
+<tr><td>SDL_INIT_TIMER</td><td>ã‚¿ã‚¤ãƒž ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ </td></tr>
+<tr><td>SDL_INIT_AUDIO</td><td>ã‚ªãƒ¼ãƒ‡ã‚£ã‚ª ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ </td></tr>
+<tr><td>SDL_INIT_VIDEO</td><td>ãƒ“ãƒ‡ã‚ª ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ . ã‚¤ãƒ™ãƒ³ãƒˆã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ ã‚‚è‡ªå‹•çš„ã«åˆæœŸåŒ–ã•ã‚Œã‚‹</td></tr>
+<tr><td>SDL_INIT_JOYSTICK</td><td>ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ . ã‚¤ãƒ™ãƒ³ãƒˆã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ ã‚‚è‡ªå‹•çš„ã«åˆæœŸåŒ–ã•ã‚Œã‚‹</td></tr>
+<tr><td>SDL_INIT_HAPTIC</td><td>ãƒãƒ—ãƒ†ã‚£ã‚¯ã‚¹(æ„Ÿè¦šãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯) ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ </td></tr>
+<tr><td>SDL_INIT_GAMECONTROLLER</td><td>ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼ ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ . ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ ã‚‚è‡ªå‹•çš„ã«åˆæœŸåŒ–ã•ã‚Œã‚‹</td></tr>
+<tr><td>SDL_INIT_EVENTS</td><td>ã‚¤ãƒ™ãƒ³ãƒˆ ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ </td></tr>
 <tr><td>SDL_INIT_SENSOR</td><td></td></tr>
-<tr><td>SDL_INIT_EVERYTHING</td><td>ã‹L‚ÌƒTƒuƒVƒXƒeƒ€‚Ì‘S‚Ä</td></tr>
-<tr><td>SDL_INIT_NOPARACHUTE</td><td>ŒÝŠ·«‚Ì‚½‚ß‚É‘¶Ý‚·‚é. ‚±‚Ìƒtƒ‰ƒO‚Í‹@”\‚µ‚È‚¢</td></tr>
+<tr><td>SDL_INIT_EVERYTHING</td><td>ä¸Šè¨˜ã®ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ ã®å…¨ã¦</td></tr>
+<tr><td>SDL_INIT_NOPARACHUTE</td><td>äº’æ›æ€§ã®ãŸã‚ã«å­˜åœ¨ã™ã‚‹. ã“ã®ãƒ•ãƒ©ã‚°ã¯æ©Ÿèƒ½ã—ãªã„</td></tr>
 </table>
 </p>
 <p>
-ƒTƒuƒVƒXƒeƒ€‚Ì‰Šú‰»‚ÍŽQÆƒJƒEƒ“ƒg‚³‚ê‚Ä‚¢‚é. ‚»‚Ì‚½‚ß, Žè“®‚Å³í‚ÉƒTƒuƒVƒXƒeƒ€‚ðI—¹‚³‚¹‚é‚½‚ß‚É‚Í, ‚»‚ê‚¼‚ê‚Ì<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>‚É‘Î‚µ‚Ä<a href="SDL_QuitSubSystem.html">SDL_QuitSubSystem()</a>‚ðŒÄ‚Ô(‚Ü‚½‚Í<a href="SDL_Quit.html">SDL_Quit()</a>‚ðŒÄ‚ñ‚Å‹­§“I‚ÉI—¹‚·‚é)•K—v‚ª‚ ‚é.
-ƒTƒuƒVƒXƒeƒ€‚ªŠù‚É“Ç‚Ýž‚Ü‚ê‚Ä‚¢‚éê‡‚Í, ‚±‚ÌŠÖ”‚ðŒÄ‚Ô‚ÆŽQÆƒJƒEƒ“ƒg‚ª‰ÁŽZ‚³‚ê‚é.
+ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ ã®åˆæœŸåŒ–ã¯å‚ç…§ã‚«ã‚¦ãƒ³ãƒˆã•ã‚Œã¦ã„ã‚‹. ãã®ãŸã‚, æ‰‹å‹•ã§æ­£å¸¸ã«ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ ã‚’çµ‚äº†ã•ã›ã‚‹ãŸã‚ã«ã¯, ãã‚Œãžã‚Œã®<a href="SDL_InitSubSystem.html">SDL_InitSubSystem()</a>ã«å¯¾ã—ã¦<a href="SDL_QuitSubSystem.html">SDL_QuitSubSystem()</a>ã‚’å‘¼ã¶(ã¾ãŸã¯<a href="SDL_Quit.html">SDL_Quit()</a>ã‚’å‘¼ã‚“ã§å¼·åˆ¶çš„ã«çµ‚äº†ã™ã‚‹)å¿…è¦ãŒã‚ã‚‹.
+ã‚µãƒ–ã‚·ã‚¹ãƒ†ãƒ ãŒæ—¢ã«èª­ã¿è¾¼ã¾ã‚Œã¦ã„ã‚‹å ´åˆã¯, ã“ã®é–¢æ•°ã‚’å‘¼ã¶ã¨å‚ç…§ã‚«ã‚¦ãƒ³ãƒˆãŒåŠ ç®—ã•ã‚Œã‚‹.
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.0ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.0ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_InitSubSystem.html">SDL_InitSubSystem</a><br>
 <a href="SDL_Quit.html">SDL_Quit</a><br>
 <a href="SDL_SetMainReady.html">SDL_SetMainReady</a><br>
 <a href="SDL_WasInit.html">SDL_WasInit</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_Init">SDL_Init - SDL Wiki</a><br>
 <hr>
 </body>

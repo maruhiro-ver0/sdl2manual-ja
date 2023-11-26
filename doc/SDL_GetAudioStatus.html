@@ -1,23 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryAudio.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryAudio.html" title="1ã¤ä¸Š">
 <title>SDL_GetAudioStatus</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryAudio.html">Ä¶‚Æ˜^‰¹</a> - SDL_GetAudioStatus
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryAudio.html">å†ç”Ÿã¨éŒ²éŸ³</a> - SDL_GetAudioStatus
 <hr>
 <h1>SDL_GetAudioStatus</h1>
-ƒI[ƒfƒBƒIƒfƒoƒCƒX‚Ìó‘Ô‚ğ“¾‚éŒÃ‚¢ŠÖ”. V‚µ‚¢ƒvƒƒOƒ‰ƒ€‚Í‘ã‚í‚è‚É<a href="SDL_GetAudioDeviceStatus.html">SDL_GetAudioDeviceStatus()</a>‚ğg‚¤•û‚ª‚æ‚¢
-<h2>\•¶</h2>
+ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªãƒ‡ãƒã‚¤ã‚¹ã®çŠ¶æ…‹ã‚’å¾—ã‚‹å¤ã„é–¢æ•°. æ–°ã—ã„ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã¯ä»£ã‚ã‚Šã«<a href="SDL_GetAudioDeviceStatus.html">SDL_GetAudioDeviceStatus()</a>ã‚’ä½¿ã†æ–¹ãŒã‚ˆã„
+<h2>æ§‹æ–‡</h2>
 <code>SDL_AudioStatus SDL_GetAudioStatus(void)</code>
-<h2>–ß‚è’l</h2>
-<a href="SDL_AudioStatus.html">SDL_AudioStatus</a>‚Ì’l‚Ì1‚Â‚ğ–ß‚·.
-<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<h2>æˆ»ã‚Šå€¤</h2>
+<a href="SDL_AudioStatus.html">SDL_AudioStatus</a>ã®å€¤ã®1ã¤ã‚’æˆ»ã™.
+<h2>ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h2>
 <p>
 <code>
 <pre>
@@ -25,9 +25,9 @@ void printStatus(void)
 {
     switch (SDL_GetAudioStatus())
     {
-        case SDL_AUDIO_STOPPED: printf("’â~’†\n"); break;
-        case SDL_AUDIO_PLAYING: printf("Ä¶’†\n"); break;
-        case SDL_AUDIO_PAUSED: printf("ˆê’â~’†\n"); break;
+        case SDL_AUDIO_STOPPED: printf("åœæ­¢ä¸­Â¥n"); break;
+        case SDL_AUDIO_PLAYING: printf("å†ç”Ÿä¸­Â¥n"); break;
+        case SDL_AUDIO_PAUSED: printf("ä¸€æ™‚åœæ­¢ä¸­Â¥n"); break;
         default: printf("???"); break;
     }
 }
@@ -37,35 +37,35 @@ extern SDL_AudioSpec obtained;
 
 // device starts paused
 if (SDL_OpenAudio(&amp;desired, &amp;obtained) == 0) {
-     printStatus();  // uˆê’â~’†v‚ª•\¦‚³‚ê‚é
+     printStatus();  // ã€Œä¸€æ™‚åœæ­¢ä¸­ã€ãŒè¡¨ç¤ºã•ã‚Œã‚‹
      SDL_PauseAudio(0);
-     printStatus();  // uÄ¶’†v‚ª•\¦‚³‚ê‚é
+     printStatus();  // ã€Œå†ç”Ÿä¸­ã€ãŒè¡¨ç¤ºã•ã‚Œã‚‹
      SDL_PauseAudio(1);
-     printStatus();  // uˆê’â~’†v‚ª•\¦‚³‚ê‚é
+     printStatus();  // ã€Œä¸€æ™‚åœæ­¢ä¸­ã€ãŒè¡¨ç¤ºã•ã‚Œã‚‹
      SDL_CloseAudio();
-     printStatus();  // u’â~’†v‚ª•\¦‚³‚ê‚é
+     printStatus();  // ã€Œåœæ­¢ä¸­ã€ãŒè¡¨ç¤ºã•ã‚Œã‚‹
 }
 </pre>
 </code>
 </p>
-<h2>Ú×</h2>
+<h2>è©³ç´°</h2>
 <p>
-‚±‚ÌŠÖ”‚Í
+ã“ã®é–¢æ•°ã¯
 </p>
 <p>
 SDL_GetAudioDeviceStatus(1);
 </p>
 <p>
-‚Æ“¯‚¶‚Å‚ ‚é.
+ã¨åŒã˜ã§ã‚ã‚‹.
 </p>
 <p>
-‚»‚µ‚Ä, ŒÃ‚¢<a href="SDL_OpenAudio.html">SDL_OpenAudio()</a>ŠÖ”‚ğg‚Á‚½ê‡‚Ì‚İg‚¦‚é.
+ãã—ã¦, å¤ã„<a href="SDL_OpenAudio.html">SDL_OpenAudio()</a>é–¢æ•°ã‚’ä½¿ã£ãŸå ´åˆã®ã¿ä½¿ãˆã‚‹.
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.0ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.0ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_GetAudioDeviceStatus.html">SDL_GetAudioDeviceStatus</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_GetAudioStatus">SDL_GetAudioStatus - SDL Wiki</a>
 <hr>
 </body>

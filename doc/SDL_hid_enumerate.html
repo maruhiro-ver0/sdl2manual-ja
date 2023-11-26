@@ -1,40 +1,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryAPI.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAPI.html" title="1つ上">
 <title>SDL_hid_enumerate</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryHID.html">HID�f�o�C�X</a> - SDL_hid_enumerate
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHID.html">HIDデバイス</a> - SDL_hid_enumerate
 <hr>
 <h1>SDL_hid_enumerate</h1>
-HID�f�o�C�X��񋓂���
-<h2>�\��</h2>
+HIDデバイスを列挙する
+<h2>構文</h2>
 <code>SDL_hid_device_info *SDL_hid_enumerate(unsigned short vendor_id, unsigned short product_id)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_hid_enumerate">
-<tr><td>vendor_id</td><td>�f�o�C�X�̃x���_�[ID</td></tr>
-<tr><td>product_id</td><td>�f�o�C�X�̃v���_�N�gID</td></tr>
+<tr><td>vendor_id</td><td>デバイスのベンダーID</td></tr>
+<tr><td>product_id</td><td>デバイスのプロダクトID</td></tr>
 </table>
-<h2>�߂�l</h2>
-�V�X�e���ɐڑ����ꂽHID�̏����܂�SDL_hid_device_info�^�̘A�����X�g�ւ̃|�C���^��, ���s�̂Ƃ���NULL��߂�.
-�A�����X�g���������ɂ�<a href="SDL_hid_free_enumeration.html">SDL_hid_free_enumeration()</a>���Ă�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+システムに接続されたHIDの情報を含むSDL_hid_device_info型の連結リストへのポインタを, 失敗のときはNULLを戻す.
+連結リストを解放するには<a href="SDL_hid_free_enumeration.html">SDL_hid_free_enumeration()</a>を呼ぶ.
+<h2>詳細</h2>
 <p>
-���̊֐���vendor_id��product_id����v����V�X�e���ɐڑ����ꂽ�SHID�f�o�C�X���̘A�����X�g��߂�.
-vendor_id��0�̂Ƃ��S�Ẵx���_�[�ƈ�v����.
-product_id�̂Ƃ��S�Ẵv���_�N�g�ƈ�v����.
-vendor_id��product_id�̗�����0�̂Ƃ�, �S�Ă�HID�f�o�C�X��߂�.
+この関数はvendor_idとproduct_idが一致するシステムに接続された全HIDデバイス情報の連結リストを戻す.
+vendor_idが0のとき全てのベンダーと一致する.
+product_idのとき全てのプロダクトと一致する.
+vendor_idとproduct_idの両方が0のとき, 全てのHIDデバイスを戻す.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.18�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.18以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_hid_device_change_count.html">SDL_hid_device_change_count</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_hid_enumerate">SDL_hid_enumerate - SDL Wiki</a>
 <hr>
 </body>

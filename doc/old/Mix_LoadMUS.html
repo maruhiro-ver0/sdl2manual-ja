@@ -1,55 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-music.html" title="1つ上">
-<title>Mix_LoadMUS</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-music.html">4.5音楽</a> - Mix_LoadMUS
-<hr>
-<h1>Mix_LoadMUS</h1>
-<p>
-<code>Mix_Music *Mix_LoadMUS(const char *file)</code>
-</p>
-<p>
-<dl>
-<dt>file</dt><dd>音楽ファイル名</dd>
-</dl>
-</p>
-<p>
-音楽ファイルを読み込む.
-WAVE, MOD, MIDI, OGG, MP3, FLAC, そして再生コマンドを使うならばあらゆるファイルを読み込むことができる.
-音楽を再生する外部コマンドを使う場合, この関数の前に<a href="Mix_SetMusicCMD.html">Mix_SetMusicCMD</a>を呼ぶ必要がある.
-そうしなければ内部のプレイヤーが使われる.
-また, 外部コマンドを設定したが使いたくなくなった場合, <a href="Mix_SetMusicCMD.html">Mix_SetMusicCMD(NULL)</a>を呼んで組み込みのプレイヤーを使うようにする必要がある.
-</p>
-<p>
-戻り値: <a href="Mix_Music.html">Mix_Music</a>へのポインタ. 失敗のときNULL
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// MP3ファイル"music.mp3"を音楽として読み込む
-Mix_Music *music;
-music=Mix_LoadMUS("music.mp3");
-if(!music) {
-    printf("Mix_LoadMUS(\"music.mp3\"): %s\n", Mix_GetError());
-    // これは恐らく致命的なエラーである
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_Music.html">Mix_Music</a>,
-<a href="Mix_SetMusicCMD.html">Mix_SetMusicCMD</a>,
-<a href="Mix_PlayMusic.html">Mix_PlayMusic</a>,
-<a href="Mix_FadeInMusic.html">Mix_FadeInMusic</a>,
-<a href="Mix_FadeInMusicPos.html">Mix_FadeInMusicPos</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_55.html#SEC55">4.5.3 Mix_LoadMUS</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

@@ -1,35 +1,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryEvents.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryEvents.html" title="1つ上">
 <title>SDL_GetTouchFinger</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryEvents.html">�C�x���g����</a> - SDL_GetTouchFinger
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryEvents.html">イベント処理</a> - SDL_GetTouchFinger
 <hr>
 <h1>SDL_GetTouchFinger</h1>
-�w��̃^�b�`�f�o�C�XID�̎w�ԍ��̎w�I�u�W�F�N�g�𓾂�
-<h2>�\��</h2>
+指定のタッチデバイスIDの指番号の指オブジェクトを得る
+<h2>構文</h2>
 <code>SDL_Finger* SDL_GetTouchFinger(SDL_TouchID touchID, int index)
 </code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_GetTouchFinger">
-<tr><td>touchID</td><td>�^�b�`�f�o�C�X��ID</td></tr>
-<tr><td>index</td><td>�w�̔ԍ�</td></tr>
+<tr><td>touchID</td><td>タッチデバイスのID</td></tr>
+<tr><td>index</td><td>指の番号</td></tr>
 </table>
-<h2>�߂�l</h2>
-SDL_Finger�I�u�W�F�N�g�̖߂�. �w���ID�Ǝw�ԍ����Ȃ��ꍇ��NULL��߂�.
-<h2>�ڍ�</h2>
-�߂��ꂽ�I�u�W�F�N�g��SDL�̊Ǘ�������̂ŉ�����Ă͂Ȃ�Ȃ�.
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>戻り値</h2>
+SDL_Fingerオブジェクトの戻す. 指定のIDと指番号がない場合はNULLを戻す.
+<h2>詳細</h2>
+戻されたオブジェクトはSDLの管理下あるので解放してはならない.
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_RecordGesture.html">SDL_RecordGesture</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetTouchFinger">SDL_GetTouchFinger - SDL Wiki</a>
 <hr>
 </body>

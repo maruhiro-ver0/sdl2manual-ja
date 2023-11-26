@@ -1,62 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_image">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_image-functions-loading.html" title="1つ上">
-<title>IMG_Load</title>
-</head>
-<body>
-<a href="index.html#SDL_image">目次</a> - <a href="SDL_image-functions.html">3.関数</a> - <a href="SDL_image-functions-loading.html">3.2読み込み</a> - IMG_Load
-<hr>
-<h1>IMG_Load</h1>
-<p>
-<code>SDL_Surface *IMG_Load(const char *file)</code>
-</p>
-<p>
-<dl>
-<dt>file</dt><dd>サーフェイスに読み込む画像ファイルの名前</dd>
-</dl>
-</p>
-<p>
-画像を読み込んで新しいサーフェイスを生成する.
-この関数は実際には<a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a>関数でファイルを読み込んでいる.
-この関数は対応する全ての画像を読み込める. TGA形式もファイル名が".tga"で終わるならば読み込める.
-この関数はイベントループの外で呼び, 読み込んだ画像は使わなくなるまで保持するのが望ましい. ディスクの読み込みと画像のサーフェイスへの展開はそれほど速くないためである.
-必要がなくなったとき, この関数が戻したサーフェイスのポインタに対して<a href="SDL_FreeSurface.html">SDL_FreeSurface</a>を呼ぶのを忘れてはならない.
-</p>
-<p>
-メモ: 画像ローダーは初期化されている必要がある.
-もしあらかじめ<a href="IMG_Init.html">IMG_Init</a>で初期化されていなければ, 最初に画像を読み込もうとしたときに初期化を試みる.
-</p>
-<p>
-メモ: 透過ピクセルに対応した形式の画像ならば, SDL_imageはサーフェイスのカラーキーを設定する.
-次のようにするとサーフェイスのRLEアクセラレーションを有効にできる:<br>
-<code>SDL_SetColorKey(image, SDL_RLEACCEL, image->format->colorkey);</code>
-</p>
-<p>
-戻り値: 新しいSDL_Surfaceへのポインタを戻す. 対応していない形式, ファイルの読み込みに失敗したときなどはNULLを戻す.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// sample.pngをimageに読み込む
-SDL_Surface *image;
-image=IMG_Load("sample.png");
-if(!image) {
-    printf("IMG_Load: %s\n", IMG_GetError());
-    // ここでエラー処理を行う
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="IMG_Init.html">IMG_Init</a>,
-<a href="IMG_Load_RW.html">IMG_Load_RW</a>,
-<a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_image/docs/SDL_image_11.html#SEC11">3.2.1 IMG_Load</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

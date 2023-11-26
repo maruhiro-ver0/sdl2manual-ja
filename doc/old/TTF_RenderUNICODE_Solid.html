@@ -1,69 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_ttf">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_ttf-functions-render.html" title="1つ上">
-<title>TTF_RenderUNICODE_Solid</title>
-</head>
-<body>
-<a href="index.html#SDL_ttf">目次</a> - <a href="SDL_ttf-functions.html">3.関数</a> - <a href="SDL_ttf-functions-render.html">3.4レンダラー</a> - TTF_RenderUNICODE_Solid
-<hr>
-<h1>TTF_RenderUNICODE_Solid</h1>
-<p>
-<code>SDL_Surface *TTF_RenderUNICODE_Solid(TTF_Font *font, const Uint16 *text, SDL_Color fg)</code>
-</p>
-<p>
-<dl>
-<dt>font</dt><dd>テキストをレンダリングするフォント</dd>
-<dt>text</dt><dd>レンダリングするNUL終端のUNICODE文字列</dd>
-<dt>fg</dt><dd>レンダリングするテキストの色. これがカラーマップの1番目になる</dd>
-</dl>
-</p>
-<p>
-UNICODEでエンコードされたtextを, fontと色fgで新しく生成したサーフェイスにベタ(Solid)モードでレンダリングする.
-呼び出し側(あなたのことだ!)が戻されたサーフェイスを解放しなければならない.
-</p>
-<p>
-メモ: この関数のfontにNULLを渡すと異常終了する.
-</p>
-<p>
-メモ: この関数のtextにNULLを渡した場合の動作は未定義である.
-</p>
-<p>
-戻り値: 生成された<a href="SDL_Surface.html">SDL_Surface</a>. 失敗のときNULL
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// ベタ塗りの黒でUNICODEテキストを新しいサーフェイスにレンダリングする
-// そしてそれを画面の左上にコピーする
-// そしてテキストのサーフェイスを解放する
-//SDL_Surface *screen;
-SDL_Color color={0,0,0};
-SDL_Surface *text_surface;
-Uint16 text[]={'H','e','l','l','o',' ',
-               'W','o','r','l','d','!'};
-if(!(text_surface=TTF_RenderUNICODE_Solid(font,text,color))) {
-    // ここでエラーを処理する. 少なくともTTF_GetErrorを表示したほうがよい
-} else {
-    SDL_BlitSurface(text_surface,NULL,screen,NULL);
-    // これは再利用できる. しかしここでは単純化のためにそうしない
-    SDL_FreeSurface(text_surface);
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="TTF_SizeUNICODE.html">TTF_SizeUNICODE</a>,
-<a href="TTF_RenderText_Solid.html">TTF_RenderText_Solid</a>,
-<a href="TTF_RenderUTF8_Solid.html">TTF_RenderUTF8_Solid</a>,
-<a href="TTF_RenderGlyph_Solid.html">TTF_RenderGlyph_Solid</a>,
-<a href="TTF_RenderUNICODE_Shaded.html">TTF_RenderUNICODE_Shaded</a>,
-<a href="TTF_RenderUNICODE_Blended.html">TTF_RenderUNICODE_Blended</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_ttf/docs/SDL_ttf_45.html#SEC45">3.4.3 TTF_RenderUNICODE_Solid</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

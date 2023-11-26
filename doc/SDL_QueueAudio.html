@@ -1,67 +1,67 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryAudio.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAudio.html" title="1つ上">
 <title>SDL_QueueAudio</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryAudio.html">�Đ��Ƙ^��</a> - SDL_QueueAudio
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryAudio.html">再生と録音</a> - SDL_QueueAudio
 <hr>
 <h1>SDL_QueueAudio</h1>
-�R�[���o�b�N�֐����g�킸�ɉ����f�o�C�X�̃L���[�Ƀf�[�^�𑗐M����
-<h2>�\��</h2>
+コールバック関数を使わずに音声デバイスのキューにデータを送信する
+<h2>構文</h2>
 <code>int SDL_QueueAudio(SDL_AudioDeviceID dev, const void* data, Uint32 len)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_QueueAudio">
-<tr><td>dev</td><td>�����f�[�^�𑗐M���鉹���f�o�C�X��ID</td></tr>
-<tr><td>data</td><td>�Đ�������f�[�^</td></tr>
-<tr><td>len</td><td>�f�[�^�̃o�C�g��(�T���v�����ł͂Ȃ�!)</td></tr>
+<tr><td>dev</td><td>音声データを送信する音声デバイスのID</td></tr>
+<tr><td>data</td><td>再生させるデータ</td></tr>
+<tr><td>len</td><td>データのバイト長(サンプル数ではない!)</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0, ���s�̂Ƃ����̐��̃G���[�R�[�h��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>詳細</h2>
 <p>
-�L���[���ꂽ�����f�[�^��, �R�[���o�b�N�ł͂Ȃ��^���f�o�C�X����󂯎�肽���Ȃ��, ���̊֐��ł͂Ȃ�<a href="SDL_DequeueAudio.html">SDL_DequeueAudio()</a>���g������.
-SDL_QueueAudio()��^���f�o�C�X�ɑ΂��Ďg����, �G���[��\��-1��߂����낤.
+キューされた音声データを, コールバックではない録音デバイスから受け取りたいならば, この関数ではなく<a href="SDL_DequeueAudio.html">SDL_DequeueAudio()</a>を使うこと.
+SDL_QueueAudio()を録音デバイスに対して使うと, エラーを表す-1を戻すだろう.
 </p>
 <p>
-SDL�ɂ͉����f�[�^���f�o�C�X�ɗ^����2�̕��@������. 
-SDL���R�[���o�b�N�֐��������I�ɌĂ�ŉ����f�[�^�𓾂���@(�����̕��@)��, 
-�R�[���o�b�N���g�킸�ɂ��Ȃ������̊֐��ŉ����f�[�^�����I�ɗ^������@(�����̕��@)�ł���.
+SDLには音声データをデバイスに与える2つの方法がある. 
+SDLがコールバック関数を周期的に呼んで音声データを得る方法(引きの方法)と, 
+コールバックを使わずにあなたがこの関数で音声データを定期的に与える方法(押しの方法)である.
 </p>
 <p>
-�L���[�ł���f�[�^�̗ʂɂ̓A�h���X��ԈȊO�̐����͂Ȃ�.
-�L���[���ꂽ�f�[�^��, �A�v���P�[�V�������������Ȃ��Ă�, �K�v�ɉ����ăf�o�C�X�����o��.
-�f�o�C�X���f�[�^��K�v�Ƃ��邪�L���[�Ƀf�[�^���Ȃ��ꍇ��, ����ɖ����ɂȂ�.
-����͏\���ȏ\���ȃf�[�^�����I�ɃL���[�ł��Ȃ��ꍇ�͍Đ����r�؂�邱�Ƃ��Ӗ�����.
+キューできるデータの量にはアドレス空間以外の制限はない.
+キューされたデータは, アプリケーションが何もしなくても, 必要に応じてデバイスが取り出す.
+デバイスがデータを必要とするがキューにデータがない場合は, 代わりに無音になる.
+これは十分な十分なデータを定期的にキューできない場合は再生が途切れることを意味する.
 </p>
 <p>
-���̊֐��͗^����ꂽ�f�[�^���R�s�[����. �����, ���̊֐�����߂�����͈��S�ɉ���ł���.
-���̊֐��̓X���b�h�Z�[�t�ł���. ������, ��x��2�̃X���b�h����1�̃f�o�C�X�ɃL���[�����ꍇ, �ǂ���̃o�b�t�@����ɃL���[����邩�͂킩��Ȃ�.
+この関数は与えられたデータをコピーする. よって, この関数から戻った後は安全に解放できる.
+この関数はスレッドセーフである. しかし, 一度に2つのスレッドから1つのデバイスにキューした場合, どちらのバッファが先にキューされるかはわからない.
 </p>
 <p>
-�A�v���P�[�V�����񋟂̃R�[���o�b�N�֐����g���f�o�C�X�ɉ������L���[���Ă͂Ȃ�Ȃ�.
-���̂悤�ȃf�o�C�X�ɑ΂��Ă�, ���̊֐��͏�ɖ����ł���.
-�R�[���o�b�N�֐����g����, <a href="SDL_QueueAudio.html">SDL_QueueAudio()</a>�ŉ������L���[�ɓ���邩�̂ǂ��炩��, �������s���Ă͂Ȃ�Ȃ�.
+アプリケーション提供のコールバック関数が使うデバイスに音声をキューしてはならない.
+そのようなデバイスに対しては, この関数は常に無効である.
+コールバック関数を使うか, <a href="SDL_QueueAudio.html">SDL_QueueAudio()</a>で音声をキューに入れるかのどちらかで, 両方を行ってはならない.
 </p>
 <p>
-�L���[����������O��<a href="SDL_LockAudio.html">SDL_LockAudio()</a>���Ă�ł͂Ȃ�Ȃ�. ���̊֐��̓�����SDL�̓��b�N�������Ă���.
+キューを消去する前に<a href="SDL_LockAudio.html">SDL_LockAudio()</a>を呼んではならない. この関数の内部でSDLはロックを扱っている.
 </p>
 <p>
-SDL��planar audio�ɑΉ����Ă��Ȃ�.
-���炩����planar audio�t�H�[�}�b�g����planar�ł͂Ȃ�����(<a href="SDL_AudioFormat.html">SDL_AudioFormat</a>���Q�Ƃ��邱��)�Ƀ��T���v������K�v������.
+SDLはplanar audioに対応していない.
+あらかじめplanar audioフォーマットからplanarではないもの(<a href="SDL_AudioFormat.html">SDL_AudioFormat</a>を参照すること)にリサンプルする必要がある.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.4�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.4以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_ClearQueuedAudio.html">SDL_ClearQueuedAudio</a><br>
 <a href="SDL_GetQueuedAudioSize.html">SDL_GetQueuedAudioSize</a>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_QueueAudio">SDL_QueueAudio - SDL Wiki</a>
 <hr>
 </body>

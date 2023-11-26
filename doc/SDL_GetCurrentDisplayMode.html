@@ -1,33 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryVideo.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryVideo.html" title="1ã¤ä¸Š">
 <title>SDL_GetCurrentDisplayMode</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryVideo.html">ƒfƒBƒXƒvƒŒƒC‚ÆƒEƒBƒ“ƒhƒE</a> - SDL_GetCurrentDisplayMode
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryVideo.html">ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã¨ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦</a> - SDL_GetCurrentDisplayMode
 <hr>
 <h1>SDL_GetCurrentDisplayMode</a></h1>
-Œ»İ‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ“¾‚é
-<h2>\•¶</h2>
+ç¾åœ¨ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰ã‚’å¾—ã‚‹
+<h2>æ§‹æ–‡</h2>
 <code>int SDL_GetCurrentDisplayMode(int displayIndex, SDL_DisplayMode* mode)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_GetCurrentDisplayMode">
-<tr><td>displayIndex</td><td>’²¸‚·‚éƒfƒBƒXƒvƒŒƒC‚Ì”Ô†</td></tr>
-<tr><td>mode</td><td>Œ»İ‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ‘ã“ü‚·‚é<a href="SDL_DisplayMode.html">SDL_DisplayMode</a>‚Ìƒ|ƒCƒ“ƒ^</td></tr>
+<tr><td>displayIndex</td><td>èª¿æŸ»ã™ã‚‹ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã®ç•ªå·</td></tr>
+<tr><td>mode</td><td>ç¾åœ¨ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰ã‚’ä»£å…¥ã™ã‚‹<a href="SDL_DisplayMode.html">SDL_DisplayMode</a>ã®ãƒã‚¤ãƒ³ã‚¿</td></tr>
 </table>
-<h2>–ß‚è’l</h2>
-¬Œ÷‚Ì‚Æ‚«0, ¸”s‚Ì‚Æ‚«•‰‚Ì”‚ÌƒGƒ‰[ƒR[ƒh‚ğ–ß‚·.
-<a href="SDL_GetError.html">SDL_GetError()</a>‚ğŒÄ‚ñ‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
-<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<h2>æˆ»ã‚Šå€¤</h2>
+æˆåŠŸã®ã¨ã0, å¤±æ•—ã®ã¨ãè² ã®æ•°ã®ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã‚’æˆ»ã™.
+<a href="SDL_GetError.html">SDL_GetError()</a>ã‚’å‘¼ã‚“ã§è©³ç´°ã‚’çŸ¥ã‚‹ã“ã¨ãŒã§ãã‚‹.
+<h2>ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h2>
 <p>
 <code>
 <pre>
-// SDL2‚ÌSDL_GetCurrentDisplayMode()‚ğg‚¤
+// SDL2ã®SDL_GetCurrentDisplayMode()ã‚’ä½¿ã†
 
 #include "SDL.h"
 
@@ -35,27 +35,27 @@ int main(int argc, char* argv[])
 {
   int i;
 
-  // ‘ã“ü‚³‚ê‚éƒfƒBƒXƒvƒŒƒCƒ‚[ƒh\‘¢‘Ì‚ğéŒ¾‚·‚é
+  // ä»£å…¥ã•ã‚Œã‚‹ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰æ§‹é€ ä½“ã‚’å®£è¨€ã™ã‚‹
   SDL_DisplayMode current;
 
   SDL_Init(SDL_INIT_VIDEO); 
 
-  // ‘S‚Ä‚ÌƒfƒBƒXƒvƒŒƒC‚ÌŒ»İ‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ“¾‚é
+  // å…¨ã¦ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã®ç¾åœ¨ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰ã‚’å¾—ã‚‹
   for(i = 0; i &lt; SDL_GetNumVideoDisplays(); ++i){
   
     int should_be_zero = SDL_GetCurrentDisplayMode(i, &amp;current);
 
     if(should_be_zero != 0)
-      // ƒGƒ‰[”­¶...
-      SDL_Log("ƒrƒfƒIƒfƒBƒXƒvƒŒƒC #%d ‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ“¾‚ç‚ê‚È‚©‚Á‚½: %s", i, SDL_GetError());
+      // ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿ...
+      SDL_Log("ãƒ“ãƒ‡ã‚ªãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ #%d ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰ã‚’å¾—ã‚‰ã‚Œãªã‹ã£ãŸ: %s", i, SDL_GetError());
 
     else 
-      // ¬Œ÷, Œ»İ‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ•\¦‚·‚é
-      SDL_Log("ƒfƒBƒXƒvƒŒƒC #%d: Œ»İ‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚Í %dx%dpx @ %dhz", i, current.w, current.h, current.refresh_rate);
+      // æˆåŠŸ, ç¾åœ¨ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰ã‚’è¡¨ç¤ºã™ã‚‹
+      SDL_Log("ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ #%d: ç¾åœ¨ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰ã¯ %dx%dpx @ %dhz", i, current.w, current.h, current.refresh_rate);
 
   }
  
-  // I—¹ˆ—‚µ‚ÄƒvƒƒOƒ‰ƒ€‚ğI—¹‚·‚é
+  // çµ‚äº†å‡¦ç†ã—ã¦ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’çµ‚äº†ã™ã‚‹
   SDL_Quit();     
   return 0;   
  
@@ -63,17 +63,17 @@ int main(int argc, char* argv[])
 </pre>
 </code>
 </p>
-<h2>Ú×</h2>
-‚±‚ÌŠÖ”‚Æ<a href="SDL_GetDesktopDisplayMode.html">SDL_GetDesktopDisplayMode()</a>‚Í, SDL‚ªƒtƒ‹ƒXƒNƒŠ[ƒ“‚Å, ‚©‚Â‰ğ‘œ“x‚ğ•Ï‚¦‚½‚Æ‚«ˆÙ‚È‚é.
-‚»‚Ìê‡, ‚±‚ÌŠÖ”‚ÍŒ»İ‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ–ß‚·‚ª, <a href="SDL_GetDesktopDisplayMode.html">SDL_GetDesktopDisplayMode()</a>‚Í•ÏX‘O‚ÌƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚ğ–ß‚·.
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.0ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>è©³ç´°</h2>
+ã“ã®é–¢æ•°ã¨<a href="SDL_GetDesktopDisplayMode.html">SDL_GetDesktopDisplayMode()</a>ã¯, SDLãŒãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã§, ã‹ã¤è§£åƒåº¦ã‚’å¤‰ãˆãŸã¨ãç•°ãªã‚‹.
+ãã®å ´åˆ, ã“ã®é–¢æ•°ã¯ç¾åœ¨ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰ã‚’æˆ»ã™ãŒ, <a href="SDL_GetDesktopDisplayMode.html">SDL_GetDesktopDisplayMode()</a>ã¯å¤‰æ›´å‰ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰ã‚’æˆ»ã™.
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.0ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_GetDesktopDisplayMode.html">SDL_GetDesktopDisplayMode</a><br>
 <a href="SDL_GetDisplayMode.html">SDL_GetDisplayMode</a><br>
 <a href="SDL_GetNumVideoDisplays.html">SDL_GetNumVideoDisplays</a><br>
 <a href="SDL_SetWindowDisplayMode.html">SDL_SetWindowDisplayMode</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_GetCurrentDisplayMode">SDL_GetCurrentDisplayMode - SDL Wiki</a>
 <hr>
 </body>

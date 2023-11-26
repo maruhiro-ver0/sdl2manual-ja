@@ -1,47 +1,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategorySurface.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategorySurface.html" title="1つ上">
 <title>SDL_PixelFormat</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryPixels.html">�s�N�Z���`���ƕϊ�</a> - SDL_PixelFormat
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryPixels.html">ピクセル形式と変換</a> - SDL_PixelFormat
 <hr>
 <h1>SDL_PixelFormat</h1>
-�s�N�Z���`���̏��̍\����
-<h2>�t�B�[���h</h2>
+ピクセル形式の情報の構造体
+<h2>フィールド</h2>
 <table border="1" summary="SDL_PixelFormat">
-<tr><td>Uint32</td><td>format</td><td><a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a>�̒l��1��</td></tr>
-<tr><td>SDL_Palette*</td><td>palette</td><td>�s�N�Z���`���Ɋ֘A�t����ꂽ<a href="SDL_Palette.html">SDL_Palette</a>�̔z��, NULL�̂Ƃ��p���b�g�������Ȃ�</td></tr>
-<tr><td>Uint8</td><td>BitsPerPixel</td><td>�s�N�Z���l�̗L���ȃr�b�g��. ��: 8, 15, 16, 24, 32</td></tr>
-<tr><td>Uint8</td><td>BytesPerPixel</td><td>�s�N�Z���l�ɕK�v�ȃo�C�g��. ��: 1, 2, 3, 4 (�ڍׂ��Q�Ƃ��邱��)</td></tr>
-<tr><td>Uint32</td><td>Rmask</td><td>�s�N�Z���̐Ԑ����̈ʒu��\���}�X�N</td></tr>
-<tr><td>Uint32</td><td>Gmask</td><td>�s�N�Z���̗ΐ����̈ʒu��\���}�X�N</td></tr>
-<tr><td>Uint32</td><td>Bmask</td><td>�s�N�Z���̐����̈ʒu��\���}�X�N</td></tr>
-<tr><td>Uint32</td><td>Amask</td><td>�s�N�Z���̃������̈ʒu��\���}�X�N. 0�Ȃ�΃������������Ȃ�</td></tr>
-<tr><td>Uint8</td><td>Rloss</td><td>(�����Ŏg�p)</td></tr>
-<tr><td>Uint8</td><td>Gloss</td><td>(�����Ŏg�p)</td></tr>
-<tr><td>Uint8</td><td>Bloss</td><td>(�����Ŏg�p)</td></tr>
-<tr><td>Uint8</td><td>Aloss</td><td>(�����Ŏg�p)</td></tr>
-<tr><td>Uint8</td><td>RShift</td><td>(�����Ŏg�p)</td></tr>
-<tr><td>Uint8</td><td>GShift</td><td>(�����Ŏg�p)</td></tr>
-<tr><td>Uint8</td><td>BShift</td><td>(�����Ŏg�p)</td></tr>
-<tr><td>Uint8</td><td>AShift</td><td>(�����Ŏg�p)</td></tr>
-<tr><td>int</td><td>refcount</td><td>(�����Ŏg�p)</td></tr>
-<tr><td>SDL_PixelFormat*</td><td>next</td><td>(�����Ŏg�p)</td></tr>
+<tr><td>Uint32</td><td>format</td><td><a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a>の値の1つ</td></tr>
+<tr><td>SDL_Palette*</td><td>palette</td><td>ピクセル形式に関連付けられた<a href="SDL_Palette.html">SDL_Palette</a>の配列, NULLのときパレットを持たない</td></tr>
+<tr><td>Uint8</td><td>BitsPerPixel</td><td>ピクセル値の有効なビット数. 例: 8, 15, 16, 24, 32</td></tr>
+<tr><td>Uint8</td><td>BytesPerPixel</td><td>ピクセル値に必要なバイト数. 例: 1, 2, 3, 4 (詳細を参照すること)</td></tr>
+<tr><td>Uint32</td><td>Rmask</td><td>ピクセルの赤成分の位置を表すマスク</td></tr>
+<tr><td>Uint32</td><td>Gmask</td><td>ピクセルの緑成分の位置を表すマスク</td></tr>
+<tr><td>Uint32</td><td>Bmask</td><td>ピクセルの青成分の位置を表すマスク</td></tr>
+<tr><td>Uint32</td><td>Amask</td><td>ピクセルのα成分の位置を表すマスク. 0ならばα成分を持たない</td></tr>
+<tr><td>Uint8</td><td>Rloss</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>Gloss</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>Bloss</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>Aloss</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>RShift</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>GShift</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>BShift</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>AShift</td><td>(内部で使用)</td></tr>
+<tr><td>int</td><td>refcount</td><td>(内部で使用)</td></tr>
+<tr><td>SDL_PixelFormat*</td><td>next</td><td>(内部で使用)</td></tr>
 </table>
-<h2>�T���v���R�[�h</h2>
+<h2>サンプルコード</h2>
 <p>
-8bit�`���͍ł��������₷��.
-8bit�`���ł�, BitsPerPixel��8��, BytesPerPixel��1�ł���.
-BytesPerPixel��1�Ȃ̂�, �S�Ẵs�N�Z����Uint8�ŕ\����, ���̒l��palette->colors�̓Y�����ł���.
-�����8bit�T�[�t�F�C�X�̃s�N�Z���̐F�͎��̂悤�ɓ���:
-surface->pixels����F�̒l�𓾂�. �����Ă����Y�����Ƃ���<a href="SDL_Color.html">SDL_Color</a>�\���̂�surface->format->palette->colors��ǂ�.
-�ȉ��̂悤�ɂȂ�:
+8bit形式は最も理解しやすい.
+8bit形式では, BitsPerPixelは8で, BytesPerPixelは1である.
+BytesPerPixelが1なので, 全てのピクセルはUint8で表され, その値はpalette->colorsの添え字である.
+よって8bitサーフェイスのピクセルの色は次のように得る:
+surface->pixelsから色の値を得る. そしてそれを添え字として<a href="SDL_Color.html">SDL_Color</a>構造体のsurface->format->palette->colorsを読む.
+以下のようになる:
 <code>
 <pre>
 SDL_Surface *surface;
@@ -52,27 +52,27 @@ Uint8 index;
 .
 .
 
-/* �����ŃT�[�t�F�C�X�𐶐����� */
+/* ここでサーフェイスを生成する */
 .
 .
 fmt=surface->format;
 
-/* �T�[�t�F�C�X�̃r�b�g�[�x���`�F�b�N���� */
+/* サーフェイスのビット深度をチェックする */
 if(fmt->BitsPerPixel!=8){
-  fprintf(stderr, "8bit�T�[�t�F�C�X�ł͂Ȃ�\n");
+  fprintf(stderr, "8bitサーフェイスではない¥n");
   return(-1);
 }
 
-/* �T�[�t�F�C�X�����b�N���� */
+/* サーフェイスをロックする */
 SDL_LockSurface(surface);
 
-/* ����̊p�̃s�N�Z���𓾂� */
+/* 左上の角のピクセルを得る */
 index=*(Uint8 *)surface-&gt;pixels;
 color=fmt-&gt;palette-&gt;colors[index];
 
-/* �T�[�t�F�C�X�̃��b�N���������� */
+/* サーフェイスのロックを解除する */
 SDL_UnlockSurface(surface);
-printf("Pixel Color-&gt; Red: %d, Green: %d, Blue: %d. Index: %d\n",
+printf("Pixel Color-&gt; Red: %d, Green: %d, Blue: %d. Index: %d¥n",
           color-&gt;r, color-&gt;g, color-&gt;b, index);
 .
 .
@@ -80,13 +80,13 @@ printf("Pixel Color-&gt; Red: %d, Green: %d, Blue: %d. Index: %d\n",
 </code>
 </p>
 <p>
-8bit�𒴂���s�N�Z���͕ʂ̍l�������K�v�ɂȂ�.
-������"TrueColor"�`���ł���, �F���̓p���b�g�ł͂Ȃ��s�N�Z�����g�Ɋi�[����Ă���.
-mask, shift, loss�t�B�[���h�łǂ̂悤�ɐF���G���R�[�h���Ă��邩�킩��.
-mask�t�B�[���h�ł��ꂼ��̐F�����𕪗����邱�Ƃ��ł�, shift�t�B�[���h�̓s�N�Z���l�̂��ꂼ��̐F�������E���牽�r�b�g�ڂ���m�邱�Ƃ��ł�, ������loss�t�B�[���h�͂��̃s�N�Z���l��8bit�̐F�����ɑ΂��ĉ��r�b�g�����Ă��邩��m�邱�Ƃ��ł���.
+8bitを超えるピクセルは別の考え方が必要になる.
+それらは"TrueColor"形式であり, 色情報はパレットではなくピクセル自身に格納されている.
+mask, shift, lossフィールドでどのように色をエンコードしているかわかる.
+maskフィールドでそれぞれの色成分を分離することができ, shiftフィールドはピクセル値のそれぞれの色成分が右から何ビット目かを知ることができ, そしてlossフィールドはこのピクセル値が8bitの色成分に対して何ビット失われているかを知ることができる.
 <code>
 <pre>
-/* 32bit�s�N�Z���l����F�����𓾂� */
+/* 32bitピクセル値から色成分を得る */
 SDL_PixelFormat *fmt;
 SDL_Surface *surface;
 Uint32 temp, pixel;
@@ -99,74 +99,74 @@ SDL_LockSurface(surface);
 pixel = *((Uint32*)surface->pixels);
 SDL_UnlockSurface(surface);
 
-/* �Ԑ����𓾂� */
-temp = pixel &amp; fmt-&gt;Rmask;  /* �Ԑ����𕪗����� */
-temp = temp &gt;&gt; fmt->Rshift; /* 8bit�܂ŉ��낷 */
-temp = temp &lt;&lt; fmt-&gt;Rloss;  /* 8bit�t���܂Ŋg������ */
+/* 赤成分を得る */
+temp = pixel &amp; fmt-&gt;Rmask;  /* 赤成分を分離する */
+temp = temp &gt;&gt; fmt->Rshift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Rloss;  /* 8bitフルまで拡張する */
 red = (Uint8)temp;
 
-/* �ΐ����𓾂� */
-temp = pixel &amp; fmt-&gt;Gmask;  /* �ΐ����𕪗����� */
-temp = temp &gt;&gt; fmt-&gt;Gshift; /* 8bit�܂ŉ��낷 */
-temp = temp &lt;&lt; fmt-&gt;Gloss;  /* 8bit�t���܂Ŋg������ */
+/* 緑成分を得る */
+temp = pixel &amp; fmt-&gt;Gmask;  /* 緑成分を分離する */
+temp = temp &gt;&gt; fmt-&gt;Gshift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Gloss;  /* 8bitフルまで拡張する */
 green = (Uint8)temp;
 
-/* �����𓾂� */
-temp = pixel &amp; fmt-&gt;Bmask;  /* �����𕪗����� */
-temp = temp &gt;&gt; fmt-&gt;Bshift; /* 8bit�܂ŉ��낷 */
-temp = temp &lt;&lt; fmt-&gt;Bloss;  /* 8bit�t���܂Ŋg������ */
+/* 青成分を得る */
+temp = pixel &amp; fmt-&gt;Bmask;  /* 青成分を分離する */
+temp = temp &gt;&gt; fmt-&gt;Bshift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Bloss;  /* 8bitフルまで拡張する */
 blue = (Uint8)temp;
 
-/* �������𓾂� */
-temp = pixel &amp; fmt-&gt;Amask;  /* �������𕪗����� */
-temp = temp &gt;&gt; fmt-&gt;Ashift; /* 8bit�܂ŉ��낷 */
-temp = temp &lt;&lt; fmt-&gt;Aloss;  /* 8bit�t���܂Ŋg������ */
+/* α成分を得る */
+temp = pixel &amp; fmt-&gt;Amask;  /* α成分を分離する */
+temp = temp &gt;&gt; fmt-&gt;Ashift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Aloss;  /* 8bitフルまで拡張する */
 alpha = (Uint8)temp;
 
-printf("Pixel Color -&gt; R: %d,  G: %d,  B: %d,  A: %d\n", red, green, blue, alpha);
+printf("Pixel Color -&gt; R: %d,  G: %d,  B: %d,  A: %d¥n", red, green, blue, alpha);
 .
 .
 .
 </pre>
 </code>
-</p><h2>�ڍ�</h2>
+</p><h2>詳細</h2>
 <p>
-���̍\���̂̃t�B�[���h�͑S�ēǂݎ���p�ł���.
+この構造体のフィールドは全て読み取り専用である.
 </p>
 <p>
-�s�N�Z���`���̓p���b�g���}�X�N�̂����ꂩ�ł���.
-�p���b�g�Ȃ��, Rmask, Gmask, Bmask, Amask�͑S��0�ł���.
+ピクセル形式はパレットかマスクのいずれかである.
+パレットならば, Rmask, Gmask, Bmask, Amaskは全て0である.
 </p>
 <p>
-�s�N�Z���̃o�C�g���ɑ΂���f�[�^�^�͈ȉ��̒ʂ肠��.
+ピクセルのバイト数に対するデータ型は以下の通りある.
 <table border="1" summary="">
-<tr><th>1�s�N�Z��������̃o�C�g��</th><th>�f�[�^�^</th></tr>
+<tr><th>1ピクセルあたりのバイト数</th><th>データ型</th></tr>
 <tr><td>1</td><td>Uint8</td></tr>
 <tr><td>2</td><td>Uint16</td></tr>
-<tr><td>3</td><td>3��Uint8</td></tr>
+<tr><td>3</td><td>3つのUint8</td></tr>
 <tr><td>4</td><td>Uint32</td></tr>
 </table>
 </p>
 <p>
-<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>��, <a href="SDL_Surface.html">SDL_Surface</a>��pixels�t�B�[���h�Ɋi�[���ꂽ�s�N�Z���̌`�����L�q����.
-�T�[�t�F�C�X��format�t�B�[���h�ɂ�<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>���i�[����Ă���.
+<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>は, <a href="SDL_Surface.html">SDL_Surface</a>のpixelsフィールドに格納されたピクセルの形式を記述する.
+サーフェイスのformatフィールドには<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>が格納されている.
 </p>
 <p>
-�s�N�Z���̃��x����ς������Ȃ��, SDL���ǂ̂悤�ɐF�����i�[���Ă��邩�𗝉����Ȃ���΂Ȃ�Ȃ�.
-�T���v���R�[�h�ɏڍׂȏ�񂪂���.
+ピクセルのレベルを変えたいならば, SDLがどのように色情報を格納しているかを理解しなければならない.
+サンプルコードに詳細な情報がある.
 </p>
 <p>
-����I�ȃs�N�Z���F��Ԃ̏��͈ȉ���Wikipedia�̍��ڂɂ���: <a href="http://en.wikipedia.org/wiki/RGBA_color_space">http://en.wikipedia.org/wiki/RGBA_color_space</a>
+現代的なピクセル色空間の情報は以下のWikipediaの項目にある: <a href="http://en.wikipedia.org/wiki/RGBA_color_space">http://en.wikipedia.org/wiki/RGBA_color_space</a>
 </p>
-<h2>�֘A����(�\����)</h2>
+<h2>関連項目(構造体)</h2>
 <a href="SDL_Surface.html">SDL_Surface</a><br>
-<h2>�֘A����(�֐�)</h2>
+<h2>関連項目(関数)</h2>
 <a href="SDL_ConvertSurface.html">SDL_ConvertSurface</a><br>
 <a href="SDL_GetRGB.html">SDL_GetRGB</a><br>
 <a href="SDL_GetRGBA.html">SDL_GetRGBA</a><br>
 <a href="SDL_MapRGB.html">SDL_MapRGB</a><br>
 <a href="SDL_MapRGBA.html">SDL_MapRGBA</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_PixelFormat">SDL_PixelFormat - SDL Wiki</a><br>
 <hr>
 </body>

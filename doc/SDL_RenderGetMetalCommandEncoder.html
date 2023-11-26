@@ -1,41 +1,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryRender.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryRender.html" title="1つ上">
 <title>SDL_RenderGetMetalCommandEncoder</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryRender.html">2D�����_�����O</a> - SDL_RenderGetMetalCommandEncoder
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_RenderGetMetalCommandEncoder
 <hr>
 <h1>SDL_RenderGetMetalCommandEncoder</h1>
-���݂̃����_����Metal�R�}���h�G���R�[�_�𓾂�
-<h2>�\��</h2>
+現在のレンダラのMetalコマンドエンコーダを得る
+<h2>構文</h2>
 <code>void* SDL_RenderGetMetalCommandEncoder(SDL_Renderer* renderer)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_RenderGetMetalCommandEncoder">
-<tr><td>renderer</td><td>�����_��</td></tr>
+<tr><td>renderer</td><td>レンダラ</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�id&lt;MTLRenderCommandEncoder&gt;, �����_����Metal�łȂ��Ƃ�, �܂��̓G���[�����������Ƃ�NULL��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+成功のときid&lt;MTLRenderCommandEncoder&gt;, レンダラがMetalでないとき, またはエラーが発生したときNULLを戻す.
+<h2>詳細</h2>
 <p>
-���̊֐���void*��߂�. SDL��Metal�̃w�b�_���C���N���[�h���Ă��Ȃ����߂ł���. ������, id&lt;MTLRenderCommandEncoder&gt;�ɃL���X�g���Ă����S�ł���.
+この関数はvoid*を戻す. SDLはMetalのヘッダをインクルードしていないためである. しかし, id&lt;MTLRenderCommandEncoder&gt;にキャストしても安全である.
 </p>
 <p>
-SDL 2.0.18�ȍ~�ł�, Metal��SDL�ɕ`��\�ȃ����_���̒񋟂����ۂ����ꍇ��NULL��߂��̂Œ��ӂ��邱��.
-����̓E�B���h�E����\��/�ŏ���/��ʊO�̂Ƃ�����������.
-����̓����_�[�^�[�Q�b�g�̃R�}���h�G���R�[�_�̏ꍇ�͔������Ȃ�. �E�B���h�E�̏ꍇ�݂̂ł���.
-�߂�l���m�F���邱��!
+SDL 2.0.18以降では, MetalがSDLに描画可能なレンダラの提供を拒否した場合はNULLを戻すので注意すること.
+これはウィンドウが非表示/最小化/画面外のとき発生しうる.
+これはレンダーターゲットのコマンドエンコーダの場合は発生しない. ウィンドウの場合のみである.
+戻り値を確認すること!
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.8�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.8以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_RenderGetMetalLayer.html">SDL_RenderGetMetalLayer</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_RenderGetMetalCommandEncoder">SDL_RenderGetMetalCommandEncoder - SDL Wiki</a>
 <hr>
 </body>

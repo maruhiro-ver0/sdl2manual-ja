@@ -1,51 +1,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryEvents.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryEvents.html" title="1ã¤ä¸Š">
 <title>SDL_FilterEvents</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryEvents.html">ƒCƒxƒ“ƒgˆ—</a> - SDL_FilterEvents
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryEvents.html">ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†</a> - SDL_FilterEvents
 <hr>
 <h1>SDL_FilterEvents</h1>
-Œ»İ‚ÌƒCƒxƒ“ƒgƒLƒ…[‚É‘Î‚µ‚Äw’è‚ÌƒtƒBƒ‹ƒ^ŠÖ”‚ğÀs‚·‚é. ƒtƒBƒ‹ƒ^ŠÖ”‚ª0‚ğ–ß‚·‚Æ, ‚±‚Ìˆ—‚Íæ‚èœ‚©‚ê‚é
-<h2>\•¶</h2>
+ç¾åœ¨ã®ã‚¤ãƒ™ãƒ³ãƒˆã‚­ãƒ¥ãƒ¼ã«å¯¾ã—ã¦æŒ‡å®šã®ãƒ•ã‚£ãƒ«ã‚¿é–¢æ•°ã‚’å®Ÿè¡Œã™ã‚‹. ãƒ•ã‚£ãƒ«ã‚¿é–¢æ•°ãŒ0ã‚’æˆ»ã™ã¨, ã“ã®å‡¦ç†ã¯å–ã‚Šé™¤ã‹ã‚Œã‚‹
+<h2>æ§‹æ–‡</h2>
 <code>void SDL_FilterEvents(SDL_EventFilter filter, void* userdata)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_FilterEvents">
-<tr><td>filter</td><td>ƒCƒxƒ“ƒg”­¶‚ÉŒÄ‚Î‚ê‚éŠÖ” (Ú×‚ğQÆ‚·‚é‚±‚Æ)</td></tr>
-<tr><td>userdata</td><td>filter‚Ö“n‚³‚ê‚éƒ|ƒCƒ“ƒ^</td></tr>
+<tr><td>filter</td><td>ã‚¤ãƒ™ãƒ³ãƒˆç™ºç”Ÿæ™‚ã«å‘¼ã°ã‚Œã‚‹é–¢æ•° (è©³ç´°ã‚’å‚ç…§ã™ã‚‹ã“ã¨)</td></tr>
+<tr><td>userdata</td><td>filterã¸æ¸¡ã•ã‚Œã‚‹ãƒã‚¤ãƒ³ã‚¿</td></tr>
 </table>
-<h2>Ú×</h2>
+<h2>è©³ç´°</h2>
 <p>
-filter‚ÌŠÖ”ƒvƒƒgƒ^ƒCƒv‚Í
+filterã®é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã¯
 </p>
 <p>
 <code>int YourEventFilter(void* userdata, SDL_Event* event)</code>
 </p>
 <p>
-YourEventFilter‚Í”CˆÓ‚ÌŠÖ”–¼‚Å, ƒpƒ‰ƒ[ƒ^‚ÍŸ‚Ì’Ê‚è‚Å‚ ‚é.
+YourEventFilterã¯ä»»æ„ã®é–¢æ•°åã§, ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯æ¬¡ã®é€šã‚Šã§ã‚ã‚‹.
 </p>
 <p>
 <table border="1" summary="YourEventFilter">
-<tr><td>userdata</td><td><a href="SDL_AddEventWatch.html">SDL_AddEventWatch()</a>‚Åİ’è‚µ‚½userdata</td></tr>
-<tr><td>event</td><td>ƒR[ƒ‹ƒoƒbƒN‚ğˆø‚«‹N‚±‚µ‚½ƒCƒxƒ“ƒg</td></tr>
+<tr><td>userdata</td><td><a href="SDL_AddEventWatch.html">SDL_AddEventWatch()</a>ã§è¨­å®šã—ãŸuserdata</td></tr>
+<tr><td>event</td><td>ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ã‚’å¼•ãèµ·ã“ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆ</td></tr>
 </table>
 </p>
 <p>
-Ú×‚Í<a href="SDL_SetEventFilter.html">SDL_SetEventFilter()</a>‚ğQÆ‚·‚é‚±‚Æ.
-<a href="SDL_SetEventFilter.html">SDL_SetEventFilter()</a>‚Æ‚Íˆá‚¢, ‚±‚ÌŠÖ”‚ÍƒtƒBƒ‹ƒ^‚ğ‚¸‚Á‚Æ“K—p‚·‚é‚Ì‚Å‚Í‚È‚­, ‚±‚ÌŠÖ”‚ª0‚ğ–ß‚·‚Ü‚ÅƒtƒBƒ‹ƒ^‚ğ“K—p‚·‚é.
+è©³ç´°ã¯<a href="SDL_SetEventFilter.html">SDL_SetEventFilter()</a>ã‚’å‚ç…§ã™ã‚‹ã“ã¨.
+<a href="SDL_SetEventFilter.html">SDL_SetEventFilter()</a>ã¨ã¯é•ã„, ã“ã®é–¢æ•°ã¯ãƒ•ã‚£ãƒ«ã‚¿ã‚’ãšã£ã¨é©ç”¨ã™ã‚‹ã®ã§ã¯ãªã, ã“ã®é–¢æ•°ãŒ0ã‚’æˆ»ã™ã¾ã§ãƒ•ã‚£ãƒ«ã‚¿ã‚’é©ç”¨ã™ã‚‹.
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.0ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.0ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_GetEventFilter.html">SDL_GetEventFilter</a><br>
 <a href="SDL_SetEventFilter.html">SDL_SetEventFilter</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_FilterEvents">SDL_FilterEvents - SDL Wiki</a>
 <hr>
 </body>

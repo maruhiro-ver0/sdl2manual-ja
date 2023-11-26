@@ -1,43 +1,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="ApiByCategory.html" title="1��">
-<title>�Z���T�[</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>センサー</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - �Z���T�[
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - センサー
 <hr>
-<h1>�Z���T�[</h1>
-�C���N���[�h�t�@�C��: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_sensor.h">SDL_sensor.h</a>
-<h2>�T�v</h2>
-<h2>�񋓑�</h2>
+<h1>センサー</h1>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_sensor.h">SDL_sensor.h</a>
+<h2>概要</h2>
+<h2>列挙体</h2>
 <ol>
-<li><a href="SDL_SensorType.html">SDL_SensorType</a> - SDL�Œ�`���ꂽ�Z���T�[�̎��.
+<li><a href="SDL_SensorType.html">SDL_SensorType</a> - SDLで定義されたセンサーの種類.
 </ol>
-<h2>�֐�</h2>
+<h2>関数</h2>
 <ol>
-<li><a href="SDL_LockSensors.html">SDL_LockSensors</a> - �Z���T�[API�ւ̃}���`�X���b�h�A�N�Z�X�����b�N����
-<li><a href="SDL_NumSensors.html">SDL_NumSensors</a> - �V�X�e���ɐڑ����ꂽ�Z���T�[�̐��𓾂�
-<li><a href="SDL_SensorClose.html">SDL_SensorClose</a> - SDL_SensorOpen�ŊJ�����Z���T�[�����
-<li><a href="SDL_SensorFromInstanceID.html">SDL_SensorFromInstanceID</a> - �C���X�^���XID�Ɗ֘A�t����ꂽSDL_Sensor��߂�
-<li><a href="SDL_SensorGetData.html">SDL_SensorGetData</a> - �I�[�v�����ꂽ�Z���T�[�̌��݂̏�Ԃ𓾂�
-<li><a href="SDL_SensorGetDataWithTimestamp.html">SDL_SensorGetDataWithTimestamp</a> - �I�[�v�����ꂽ�Z���T�[�̌��݂̏�ԂƍX�V���Ԃ𓾂�
-<li><a href="SDL_SensorGetDeviceInstanceID.html">SDL_SensorGetDeviceInstanceID</a> - �Z���T�[�̃C���X�^���XID�𓾂�
-<li><a href="SDL_SensorGetDeviceName.html">SDL_SensorGetDeviceName</a> - �Z���T�[�̎����Ɉˑ��������O�𓾂�
-<li><a href="SDL_SensorGetDeviceNonPortableType.html">SDL_SensorGetDeviceNonPortableType</a> - �Z���T�[�̊��Ɉˑ�������ނ𓾂�
-<li><a href="SDL_SensorGetDeviceType.html">SDL_SensorGetDeviceType</a> - �Z���T�[�̎�ނ𓾂�
-<li><a href="SDL_SensorGetInstanceID.html">SDL_SensorGetInstanceID</a> - �Z���T�[�̃C���X�^���XID�𓾂�
-<li><a href="SDL_SensorGetName.html">SDL_SensorGetName</a> - �Z���T�[�̎����Ɉˑ��������O�𓾂�
-<li><a href="SDL_SensorGetNonPortableType.html">SDL_SensorGetNonPortableType</a> - �Z���T�[�̊��Ɉˑ�������ނ𓾂�
-<li><a href="SDL_SensorGetType.html">SDL_SensorGetType</a> - �Z���T�[�̎�ނ𓾂�
-<li><a href="SDL_SensorOpen.html">SDL_SensorOpen</a> - �g�p����Z���T�[���J��
-<li><a href="SDL_SensorUpdate.html">SDL_SensorUpdate</a> - �J�����Z���T�[�̌��݂̏�Ԃ��X�V����
+<li><a href="SDL_LockSensors.html">SDL_LockSensors</a> - センサーAPIへのマルチスレッドアクセスをロックする
+<li><a href="SDL_NumSensors.html">SDL_NumSensors</a> - システムに接続されたセンサーの数を得る
+<li><a href="SDL_SensorClose.html">SDL_SensorClose</a> - SDL_SensorOpenで開いたセンサーを閉じる
+<li><a href="SDL_SensorFromInstanceID.html">SDL_SensorFromInstanceID</a> - インスタンスIDと関連付けられたSDL_Sensorを戻す
+<li><a href="SDL_SensorGetData.html">SDL_SensorGetData</a> - オープンされたセンサーの現在の状態を得る
+<li><a href="SDL_SensorGetDataWithTimestamp.html">SDL_SensorGetDataWithTimestamp</a> - オープンされたセンサーの現在の状態と更新時間を得る
+<li><a href="SDL_SensorGetDeviceInstanceID.html">SDL_SensorGetDeviceInstanceID</a> - センサーのインスタンスIDを得る
+<li><a href="SDL_SensorGetDeviceName.html">SDL_SensorGetDeviceName</a> - センサーの実装に依存した名前を得る
+<li><a href="SDL_SensorGetDeviceNonPortableType.html">SDL_SensorGetDeviceNonPortableType</a> - センサーの環境に依存した種類を得る
+<li><a href="SDL_SensorGetDeviceType.html">SDL_SensorGetDeviceType</a> - センサーの種類を得る
+<li><a href="SDL_SensorGetInstanceID.html">SDL_SensorGetInstanceID</a> - センサーのインスタンスIDを得る
+<li><a href="SDL_SensorGetName.html">SDL_SensorGetName</a> - センサーの実装に依存した名前を得る
+<li><a href="SDL_SensorGetNonPortableType.html">SDL_SensorGetNonPortableType</a> - センサーの環境に依存した種類を得る
+<li><a href="SDL_SensorGetType.html">SDL_SensorGetType</a> - センサーの種類を得る
+<li><a href="SDL_SensorOpen.html">SDL_SensorOpen</a> - 使用するセンサーを開く
+<li><a href="SDL_SensorUpdate.html">SDL_SensorUpdate</a> - 開いたセンサーの現在の状態を更新する
 </ol>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategorySensor">Sensor Support - SDL Wiki</a>
 <hr>
 </body>

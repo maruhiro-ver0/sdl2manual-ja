@@ -1,30 +1,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="ApiByCategory.html" title="1��">
-<title>Metal�O���t�B�b�N</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>Metalグラフィック</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - Metal�O���t�B�b�N
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - Metalグラフィック
 <hr>
-<h1>Metal�O���t�B�b�N</h1>
-�C���N���[�h�t�@�C��: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_metal.h">SDL_metal.h</a>
-<h2>�T�v</h2>
+<h1>Metalグラフィック</h1>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_metal.h">SDL_metal.h</a>
+<h2>概要</h2>
 <p>
-�����ɕ��ނ����֐���, Apple Metal API�ɓ����������̂ł���.
+ここに分類される関数は, Apple Metal APIに特化したものである.
 </p>
-<h2>�֐�</h2>
+<h2>関数</h2>
 <ol>
-<li><a href="SDL_Metal_CreateView.html">SDL_Metal_CreateView</a> - CAMetalLayer�ɂ��NSView/UIView�𐶐���, �w��̃E�B���h�E�Ɋ֘A�t����
-<li><a href="SDL_Metal_DestroyView.html">SDL_Metal_DestroyView</a> - ������SDL_MetalView��j������
-<li><a href="SDL_Metal_GetDrawableSize.html">SDL_Metal_GetDrawableSize</a> - �E�B���h�E�̕`��\��̃T�C�Y�𓾂� (�r���[�|�C���g, �V�U�[�Ȃǂ̐ݒ�Ɏg�p����)
-<li><a href="SDL_Metal_GetLayer.html">SDL_Metal_GetLayer</a> - �w��̃r���[�̔w���CAMetalLayer�ւ̃|�C���^�𓾂�
+<li><a href="SDL_Metal_CreateView.html">SDL_Metal_CreateView</a> - CAMetalLayerによるNSView/UIViewを生成し, 指定のウィンドウに関連付ける
+<li><a href="SDL_Metal_DestroyView.html">SDL_Metal_DestroyView</a> - 既存のSDL_MetalViewを破棄する
+<li><a href="SDL_Metal_GetDrawableSize.html">SDL_Metal_GetDrawableSize</a> - ウィンドウの描画可能域のサイズを得る (ビューポイント, シザーなどの設定に使用する)
+<li><a href="SDL_Metal_GetLayer.html">SDL_Metal_GetLayer</a> - 指定のビューの背後のCAMetalLayerへのポインタを得る
 </ol>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryMetal">Metal Support - SDL Wiki</a>
 <hr>
 </body>

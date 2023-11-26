@@ -1,40 +1,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryRender.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryRender.html" title="1つ上">
 <title>SDL_RenderSetIntegerScale</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryRender.html">2D�����_�����O</a> - SDL_RenderSetIntegerScale
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_RenderSetIntegerScale
 <hr>
 <h1>SDL_RenderSetIntegerScale</h1>
-�𑜓x��ˑ������_���[�Ŕ{���𐮐��{�ɋ������邩�ۂ���ݒ肷��
-<h2>�\��</h2>
+解像度非依存レンダラーで倍率を整数倍に強制するか否かを設定する
+<h2>構文</h2>
 <code>int SDL_RenderSetIntegerScale(SDL_Renderer* renderer, SDL_bool enable)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_RenderSetIntegerScale">
-<tr><td>renderer</td><td>�����{�̋�����ݒ肷�郌���_���[</td></tr>
-<tr><td>enable</td><td>�����{�̃����_�����O�̐ݒ�܂��͉���</td></tr>
+<tr><td>renderer</td><td>整数倍の強制を設定するレンダラー</td></tr>
+<tr><td>enable</td><td>整数倍のレンダリングの設定または解除</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0, ���s�̂Ƃ����̐���߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき負の数を戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>詳細</h2>
 <p>
-���̊֐��͘_���r���[�|�[�g�̔{���𐮐��{�Ɍ��肷�� - �܂�, �𑜓x���_���T�C�Y��2�̔{���̊Ԃ̂Ƃ�, �r���[�|�[�g�̃T�C�Y�͐؂�̂Ă��Ⴂ���̔{���ɂȂ�.
+この関数は論理ビューポートの倍率を整数倍に限定する - つまり, 解像度が論理サイズの2つの倍率の間のとき, ビューポートのサイズは切り捨てられ低い方の倍率になる.
 </p>
-<h2>�o�[�W����</h2>
+<h2>バージョン</h2>
 <p>
-SDL 2.0.5�ȍ~
+SDL 2.0.5以降
 </p>
-<h2>�֘A����(�֐�)</h2>
+<h2>関連項目(関数)</h2>
 <a href="SDL_RenderGetIntegerScale.html">SDL_RenderGetIntegerScale</a><br>
 <a href="SDL_RenderSetLogicalSize.html">SDL_RenderSetLogicalSize</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_RenderSetIntegerScale">SDL_RenderSetIntegerScale - SDL Wiki</a>
 <hr>
 </body>

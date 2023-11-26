@@ -1,43 +1,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1つ上">
 <title>Mix_QuerySpec</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_mixer-CategoryGeneral.html">���</a> - Mix_QuerySpec
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryGeneral.html">一般</a> - Mix_QuerySpec
 <hr>
 <h1>Mix_QuerySpec</h1>
-�I�[�f�B�I�f�o�C�X�̎��ۂ̃p�����[�^�𓾂�
-<h2>�\��</h2>
+オーディオデバイスの実際のパラメータを得る
+<h2>構文</h2>
 <code>int Mix_QuerySpec(int *frequency, Uint16 *format, int *channels)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="Mix_QuerySpec">
-<tr><td>frequency</td><td>Hz�P�ʂ̎��g���̑����̃|�C���^</td></tr>
-<tr><td>format</td><td>�`���̑����̃|�C���^</td></tr>
-<tr><td>channels</td><td>�f�o�C�X�̃`���l�����̑����̃|�C���^</td></tr>
+<tr><td>frequency</td><td>Hz単位の周波数の代入先のポインタ</td></tr>
+<tr><td>format</td><td>形式の代入先のポインタ</td></tr>
+<tr><td>channels</td><td>デバイスのチャネル数の代入先のポインタ</td></tr>
 </table>
-<h2>�߂�l</h2>
-�I�[�f�B�I�f�o�C�X���J���Ă���Ƃ�1, ����ȊO�̂Ƃ�0��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+オーディオデバイスが開いているとき1, それ以外のとき0を戻す.
+<h2>詳細</h2>
 <p>
-<a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice()</a>��allowed_changes��0�ȊO�ɂ��ČĂ񂾏ꍇ, �܂���<a href="Mix_OpenAudio.html">Mix_OpenAudio()</a>���Ă񂾏ꍇ, �ꕔ�̃f�o�C�X�̓A�v���P�[�V�����̗v���Ƃ͈قȂ�ݒ���s���ꍇ������.
-���̊֐��͎��ۂɐݒ肳�ꂽ�p�����[�^��񍐂���.
+<a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice()</a>のallowed_changesを0以外にして呼んだ場合, または<a href="Mix_OpenAudio.html">Mix_OpenAudio()</a>を呼んだ場合, 一部のデバイスはアプリケーションの要求とは異なる設定を行う場合がある.
+この関数は実際に設定されたパラメータを報告する.
 </p>
 <p>
-���̊֐���, �A�v���P�[�V�������n�[�h�E�F�A�ւ̑��M�o�b�t�@�𒼐ڑ��삵�悤�Ƃ���ꍇ�ɂ̂ݗL�p�ł���.
-�P�ɉ����t�@�C�����Đ��������Ȃ��, �჌�x���̏ڍׂ�SDL_mixer�ɔC��, ���̊֐��͖������Ă��悢.
+この関数は, アプリケーションがハードウェアへの送信バッファを直接操作しようとする場合にのみ有用である.
+単に音声ファイルを再生したいならば, 低レベルの詳細はSDL_mixerに任せ, この関数は無視してもよい.
 </p>
 <p>
-�I�[�f�B�I�f�o�C�X���J���Ă��Ȃ��ꍇ, ���̊֐���0��߂�.
+オーディオデバイスが開いていない場合, この関数は0を戻す.
 </p>
-<h2>�o�[�W����</h2>
-SDL_mixer 2.0.0�ȍ~
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/Mix_QuerySpec">SDL2_mixer/Mix_QuerySpec</a>
 <hr>
 </body>

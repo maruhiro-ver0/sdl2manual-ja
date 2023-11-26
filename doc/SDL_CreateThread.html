@@ -1,43 +1,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryThread.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryThread.html" title="1ã¤ä¸Š">
 <title>SDL_CreateThread</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryThread.html">ƒXƒŒƒbƒh</a> - SDL_CreateThread
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryThread.html">ã‚¹ãƒ¬ãƒƒãƒ‰</a> - SDL_CreateThread
 <hr>
 <h1>SDL_CreateThread</h1>
-V‚µ‚¢ƒXƒŒƒbƒh‚ğ¶¬‚·‚é
-<h2>\•¶</h2>
+æ–°ã—ã„ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’ç”Ÿæˆã™ã‚‹
+<h2>æ§‹æ–‡</h2>
 <code>SDL_Thread* SDL_CreateThread(SDL_ThreadFunction fn, const char* name, void* data)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_CreateThread">
-<tr><td>fn</td><td>V‚µ‚¢ƒXƒŒƒbƒh‚ÅŒÄ‚ÔŠÖ” (Ú×‚ğQÆ‚·‚é‚±‚Æ)</td></tr>
-<tr><td>name</td><td>ƒXƒŒƒbƒh‚Ì–¼‘O (Ú×‚ğQÆ‚·‚é‚±‚Æ)</td></tr>
-<tr><td>data</td><td>fn‚Ö“n‚·ƒ|ƒCƒ“ƒ^</td></tr>
+<tr><td>fn</td><td>æ–°ã—ã„ã‚¹ãƒ¬ãƒƒãƒ‰ã§å‘¼ã¶é–¢æ•° (è©³ç´°ã‚’å‚ç…§ã™ã‚‹ã“ã¨)</td></tr>
+<tr><td>name</td><td>ã‚¹ãƒ¬ãƒƒãƒ‰ã®åå‰ (è©³ç´°ã‚’å‚ç…§ã™ã‚‹ã“ã¨)</td></tr>
+<tr><td>data</td><td>fnã¸æ¸¡ã™ãƒã‚¤ãƒ³ã‚¿</td></tr>
 </table>
-<h2>–ß‚è’l</h2>
-¬Œ÷‚Ì‚Æ‚«V‚µ‚¢ƒXƒŒƒbƒhƒIƒuƒWƒFƒNƒg‚Ö‚Ì•s“§–¾ƒ|ƒCƒ“ƒ^(opaque pointer), ¸”s‚Ì‚Æ‚«NULL‚ğ–ß‚·.
-<a href="SDL_GetError.html">SDL_GetError()</a>‚ÅÚ×‚ğ’m‚é‚±‚Æ‚ª‚Å‚«‚é.
-<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<h2>æˆ»ã‚Šå€¤</h2>
+æˆåŠŸã®ã¨ãæ–°ã—ã„ã‚¹ãƒ¬ãƒƒãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®ä¸é€æ˜ãƒã‚¤ãƒ³ã‚¿(opaque pointer), å¤±æ•—ã®ã¨ãNULLã‚’æˆ»ã™.
+<a href="SDL_GetError.html">SDL_GetError()</a>ã§è©³ç´°ã‚’çŸ¥ã‚‹ã“ã¨ãŒã§ãã‚‹.
+<h2>ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h2>
 <p>
 <code>
 <pre>
 #include &lt;stdio.h&gt;
 #include "SDL_thread.h"
 
-/* ‚Æ‚Ä‚à’Pƒ‚ÈƒXƒŒƒbƒh - 50msŠÔŠu‚Å0‚©‚ç9‚Ü‚ÅƒJƒEƒ“ƒg‚·‚é */
+/* ã¨ã¦ã‚‚å˜ç´”ãªã‚¹ãƒ¬ãƒƒãƒ‰ - 50msé–“éš”ã§0ã‹ã‚‰9ã¾ã§ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹ */
 static int TestThread(void *ptr)
 {
     int cnt;
 
     for (cnt = 0; cnt &lt; 10; ++cnt) {
-        SDL_Log("ƒXƒŒƒbƒhƒJƒEƒ“ƒ^: %d\n", cnt);
+        SDL_Log("ã‚¹ãƒ¬ãƒƒãƒ‰ã‚«ã‚¦ãƒ³ã‚¿: %dÂ¥n", cnt);
         SDL_Delay(50);
     }
 
@@ -49,16 +49,16 @@ int main(int argc, char *argv[])
     SDL_Thread *thread;
     int         threadReturnValue;
 
-    SDL_Log("’Pƒ‚ÈSDL_CreateThread‚ÌƒeƒXƒg:\n");
+    SDL_Log("å˜ç´”ãªSDL_CreateThreadã®ãƒ†ã‚¹ãƒˆ:Â¥n");
 
-    /* ’P‚ÉƒXƒŒƒbƒh‚ğ¶¬‚·‚é */
+    /* å˜ã«ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ */
     thread = SDL_CreateThread(TestThread, "TestThread", (void *)NULL);
 
     if (NULL == thread) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDL_CreateThread ¸”s: %s\n", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDL_CreateThread å¤±æ•—: %sÂ¥n", SDL_GetError());
     } else {
         SDL_WaitThread(thread, &threadReturnValue);
-        SDL_Log("ƒXƒŒƒbƒh‚Ì–ß‚è’l: %d\n", threadReturnValue);
+        SDL_Log("ã‚¹ãƒ¬ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤: %dÂ¥n", threadReturnValue);
     }
 
     return 0;
@@ -67,39 +67,39 @@ int main(int argc, char *argv[])
 </code>
 </p>
 <p>
-o—Í:
+å‡ºåŠ›:
 <code>
 <pre>
-SDL_CreateThread‚ÌŠÈ’P‚ÈƒeƒXƒg:
-ƒXƒŒƒbƒhƒJƒEƒ“ƒ^: 0
-ƒXƒŒƒbƒhƒJƒEƒ“ƒ^: 1
-ƒXƒŒƒbƒhƒJƒEƒ“ƒ^: 2
-ƒXƒŒƒbƒhƒJƒEƒ“ƒ^: 3
-ƒXƒŒƒbƒhƒJƒEƒ“ƒ^: 4
-ƒXƒŒƒbƒhƒJƒEƒ“ƒ^: 5
-ƒXƒŒƒbƒhƒJƒEƒ“ƒ^: 6
-ƒXƒŒƒbƒhƒJƒEƒ“ƒ^: 7
-ƒXƒŒƒbƒhƒJƒEƒ“ƒ^: 8
-ƒXƒŒƒbƒhƒJƒEƒ“ƒ^: 9
-ƒXƒŒƒbƒh‚Ì–ß‚è’l: 10
+SDL_CreateThreadã®ç°¡å˜ãªãƒ†ã‚¹ãƒˆ:
+ã‚¹ãƒ¬ãƒƒãƒ‰ã‚«ã‚¦ãƒ³ã‚¿: 0
+ã‚¹ãƒ¬ãƒƒãƒ‰ã‚«ã‚¦ãƒ³ã‚¿: 1
+ã‚¹ãƒ¬ãƒƒãƒ‰ã‚«ã‚¦ãƒ³ã‚¿: 2
+ã‚¹ãƒ¬ãƒƒãƒ‰ã‚«ã‚¦ãƒ³ã‚¿: 3
+ã‚¹ãƒ¬ãƒƒãƒ‰ã‚«ã‚¦ãƒ³ã‚¿: 4
+ã‚¹ãƒ¬ãƒƒãƒ‰ã‚«ã‚¦ãƒ³ã‚¿: 5
+ã‚¹ãƒ¬ãƒƒãƒ‰ã‚«ã‚¦ãƒ³ã‚¿: 6
+ã‚¹ãƒ¬ãƒƒãƒ‰ã‚«ã‚¦ãƒ³ã‚¿: 7
+ã‚¹ãƒ¬ãƒƒãƒ‰ã‚«ã‚¦ãƒ³ã‚¿: 8
+ã‚¹ãƒ¬ãƒƒãƒ‰ã‚«ã‚¦ãƒ³ã‚¿: 9
+ã‚¹ãƒ¬ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤: 10
 </pre>
 </code>
 </p>
-<h2>Ú×</h2>
+<h2>è©³ç´°</h2>
 <p>
-‚±‚ê‚ÍŸ‚ÌŒÄ‚Ño‚µ‚Æ“™‰¿‚Å‚ ‚é:
+ã“ã‚Œã¯æ¬¡ã®å‘¼ã³å‡ºã—ã¨ç­‰ä¾¡ã§ã‚ã‚‹:
 </p>
 <p>
 <code>
 SDL_CreateThreadWithStackSize(fn, name, 0, data);
 </code>
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.0ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.0ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_CreateThreadWithStackSize.html">SDL_CreateThreadWithStackSize</a><br>
 <a href="SDL_WaitThread.html">SDL_WaitThread</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_CreateThread">SDL_CreateThread - SDL Wiki</a>
 <hr>
 </body>

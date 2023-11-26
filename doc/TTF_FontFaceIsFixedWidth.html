@@ -1,35 +1,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_ttf">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_ttf-CategoryAttributes.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_ttf-CategoryAttributes.html" title="1つ上">
 <title>TTF_FontFaceIsFixedWidth</title>
 </head>
 <body>
-<a href="index.html#SDL2_ttf">�ڎ�</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_ttf-CategoryAttributes.html">����</a> - TTF_FontFaceIsFixedWidth
+<a href="index.html#SDL2_ttf">目次</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_ttf-CategoryAttributes.html">属性</a> - TTF_FontFaceIsFixedWidth
 <hr>
 <h1>TTF_FontFaceIsFixedWidth</h1>
-�t�H���g���������ۂ��𓾂�
-<h2>�\��</h2>
+フォントが等幅が否かを得る
+<h2>構文</h2>
 <code>int TTF_FontFaceIsFixedWidth(const TTF_Font *font)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="TTF_FontFaceIsFixedWidth">
-<tr><td>font</td><td>��������t�H���g</td></tr>
+<tr><td>font</td><td>調査するフォント</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0�ȊO, �����łȂ��Ƃ�0��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+等幅のとき0以外, 等幅でないとき0を戻す.
+<h2>詳細</h2>
 <p>
-�u�����v�t�H���g�Ƃ͑S�ẴO���t�̕��������Ƃ����Ӗ��ł���, �Ⴆ�Ώ�������'i'�Ƒ啶����'W'�̕��������ł���.
-����͒[����e�L�X�g�G�f�B�^, �e�L�X�g��\�Ƃ��Ĉ����A�v���P�[�V�������ł悭�g����.
-���̑��̏ꍇ(WYSIWYG���[�v���\�t�g, �E�F�u�y�[�W��)�ł͓����t�H���g�͑����̏ꍇ�g���Ȃ�.
+「等幅」フォントとは全てのグリフの幅が同じという意味であり, 例えば小文字の'i'と大文字の'W'の幅も同じである.
+これは端末やテキストエディタ, テキストを表として扱うアプリケーション等でよく使われる.
+その他の場合(WYSIWYGワープロソフト, ウェブページ等)では等幅フォントは多くの場合使われない.
 </p>
-<h2>�o�[�W����</h2>
-SDL_net 2.0.12�ȍ~
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>バージョン</h2>
+SDL_net 2.0.12以降
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_ttf/TTF_FontFaceIsFixedWidth">SDL2_ttf/TTF_FontFaceIsFixedWidth</a>
 <hr>
 </body>

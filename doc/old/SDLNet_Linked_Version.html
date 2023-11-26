@@ -1,46 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_net">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_net-functions-general.html" title="1つ上">
-<title>SDLNet_Linked_Version</title>
-</head>
-<body>
-<a href="index.html#SDL_net">目次</a> - <a href="SDL_net-functions.html">3.関数</a> - <a href="SDL_net-functions-general.html">3.1一般</a> - SDLNet_Linked_Version
-<hr>
-<h1>SDLNet_Linked_Version</h1>
-<p>
-<code>const SDL_version *SDLNet_Linked_Version()</code><br>
-<code>void SDL_NET_VERSION(SDL_version *compile_version)</code>
-</p>
-<p>
-これは<a href="SDL_GetVersion.html">SDL_GetVersion</a>や<a href="SDL_VERSION.html">SDL_VERSION</a>と同じような機能を持つ.
-これらを使うと, 実行時のバージョンとコンパイル時のバージョンを比較できる.
-これらの関数/マクロは, 使う前にライブラリを初期化する必要はない.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-SDL_version compile_version;
-const SDL_version *link_version=SDLNet_Linked_Version();
-SDL_NET_VERSION(&amp;compile_version);
-printf("コンパイル時のSDL_netのバージョン: %d.%d.%d\n", 
-        compile_version.major,
-        compile_version.minor,
-        compile_version.patch);
-printf("実行中のSDL_netのバージョン: %d.%d.%d\n", 
-        link_version->major,
-        link_version->minor,
-        link_version->patch);
-</pre>
-</code>
-<h2>参照</h2>
-<a href="SDLNet_Init.html">SDLNet_Init</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_net/docs/SDL_net_7.html#SEC7">3.1.1 SDLNet_Linked_Version</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

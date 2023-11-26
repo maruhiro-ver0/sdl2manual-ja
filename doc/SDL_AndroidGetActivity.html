@@ -1,82 +1,82 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategorySystem.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategorySystem.html" title="1つ上">
 <title>SDL_AndroidGetActivity</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategorySystem.html">���ŗL�̋@�\</a> - SDL_AndroidGetActivity
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySystem.html">環境固有の機能</a> - SDL_AndroidGetActivity
 <hr>
 <h1>SDL_AndroidGetActivity</h1>
-Android�A�v���P�[�V�����ŃA�N�e�B�r�e�B�N���X��Java�C���X�^���X�𓾂�
-<h2>�\��</h2>
+AndroidアプリケーションでアクティビティクラスのJavaインスタンスを得る
+<h2>構文</h2>
 <code>void* SDL_AndroidGetActivity()</code>
-<h2>�߂�l</h2>
+<h2>戻り値</h2>
 <p>
-jobject�^��Android�A�v���P�[�V�����̃A�N�e�B�r�e�B�N���X�̃C���X�^���X��߂�.
-���s�̂Ƃ�NULL��߂�.
+jobject型のAndroidアプリケーションのアクティビティクラスのインスタンスを戻す.
+失敗のときNULLを戻す.
 </p>
-<h2>�T���v���R�[�h</h2>
+<h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
 #include "SDL.h"
 #include &lt;jni.h&gt;
 
-// ���̃T���v����C++�� "void showHome()" �Ƃ������O��Java�J�X�^�����\�b�h���K�v�ł���
+// このサンプルはC++と "void showHome()" という名前のJavaカスタムメソッドが必要である
 
-// Java�̃A�N�e�B�r�e�B�̃C���X�^���X�� void MyActivity.showHome() ���\�b�h���Ă�
+// Javaのアクティビティのインスタンスの void MyActivity.showHome() メソッドを呼ぶ
 void showHome(void)
 {
-    // JNI���𓾂�
+    // JNI環境を得る
     JNIEnv* env = (JNIEnv*)SDL_AndroidGetJNIEnv();
 
-    // SDLActivity��Java�C���X�^���X�𓾂�
+    // SDLActivityのJavaインスタンスを得る
     jobject activity = (jobject)SDL_AndroidGetActivity();
 
-    // �A�N�e�B�r�e�B��Java�N���X����������. SDLActivity�����̃T�u�N���X�ł���K�v������
+    // アクティビティのJavaクラスを検索する. SDLActivityかそのサブクラスである必要がある
     jclass clazz(env->GetObjectClass(activity));
 
-    // ���\�b�h��ID�𓾂�
+    // メソッドのIDを得る
     jmethodID method_id = env->GetMethodID(clazz, "showHome", "()V");
 
-    // Java���\�b�h�����ۂɌĂ�
+    // Javaメソッドを実際に呼ぶ
     env->CallVoidMethod(activity, method_id);
 
-    // ���[�J���Q�Ƃ��������
+    // ローカル参照を解放する
     env->DeleteLocalRef(activity);
     env->DeleteLocalRef(clazz);
 
-    // ����(��Android�pSDL�̎����̏ڍׂɊւ���L�q):
-    // ����Java�����Ă񂾃l�C�e�B�u�֐�����߂��, ���[�J���Q�Ƃ͎����I�ɍ폜
-    // �����. SDL�ł�main()���ꎩ�g���l�C�e�B�u�֐��ł���. ����������, �Q��
-    // �͎蓮�ō폜���Ȃ���΂Ȃ�Ȃ�. �������Ȃ���main()����߂���(�A�v���P�[
-    // �V�������I������)�n�߂ĎQ�Ƃ��폜����邩��ł���.
+    // 注意(とAndroid用SDLの実装の詳細に関する記述):
+    // もしJava側が呼んだネイティブ関数から戻ると, ローカル参照は自動的に削除
+    // される. SDLではmain()それ自身がネイティブ関数である. したがって, 参照
+    // は手動で削除しなければならない. そうしないとmain()から戻って(アプリケー
+    // ションが終了して)始めて参照が削除されるからである.
 }
 </pre>
 </code>
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-���̊֐���jobject�^��߂���, �߂�l�̊֐��v���g�^�C�v��void*�Œ�`����Ă���.
-SDL�̃w�b�_�ɂ�jni.h���C���N���[�h����Ă��Ȃ����߂ł���.
+この関数はjobject型を戻すが, 戻り値の関数プロトタイプはvoid*で定義されている.
+SDLのヘッダにはjni.hがインクルードされていないためである.
 </p>
 <p>
-���̊֐����߂���jobject�̓��[�J�����t�@�����X��, �Ăяo�������������K�v������.
-Java�l�C�e�B�u�C���^�[�t�F�[�X��PushLocalFrame(), PopLocalFrame(), DeleteLocalRef()�֐����Q�Ƃ��邱��.
+この関数が戻したjobjectはローカルリファレンスで, 呼び出し側が解放する必要がある.
+JavaネイティブインターフェースのPushLocalFrame(), PopLocalFrame(), DeleteLocalRef()関数を参照すること.
 </p>
 <p>
 <a href="https://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/functions.html">https://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/functions.html</a>
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_AndroidGetJNIEnv.html">SDL_AndroidGetJNIEnv</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_AndroidGetActivity">SDL_AndroidGetActivity - SDL Wiki</a>
 <hr>
 </body>

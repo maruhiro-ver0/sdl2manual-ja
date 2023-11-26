@@ -1,35 +1,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryVideo.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
 <title>SDL_GetWindowBrightness</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryVideo.html">�f�B�X�v���C�ƃE�B���h�E</a> - SDL_GetWindowBrightness
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GetWindowBrightness
 <hr>
 <h1>SDL_GetWindowBrightness</h1>
-�w�肵���E�B���h�E�����݂���f�B�X�v���C�̋P�x(�K���}�␳)�𓾂�
-<h2>�\��</h2>
+指定したウィンドウが存在するディスプレイの輝度(ガンマ補正)を得る
+<h2>構文</h2>
 <code>float SDL_GetWindowBrightness(SDL_Window* window)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_GetWindowBrightness">
-<tr><td>window</td><td>��������E�B���h�E</td></tr>
+<tr><td>window</td><td>調査するウィンドウ</td></tr>
 </table>
-<h2>�߂�l</h2>
-�E�B���h�E�̋P�x��߂�. 0.0�����S�ɐ^���Â�, 1.0���ʏ�̋P�x�ł���.
-<h2>�ڍ�</h2>
-�֐����ƈ����ɔ���, ���̃��\�b�h�͌X�̃E�B���h�E�ł͂Ȃ��f�B�X�v���C�S�̂̋P�x��߂�.
-�E�B���h�E�̒���������f�B�X�v���C���ΏۂƂȂ�.
-(���̃f�B�X�v���C�ԍ���<a href="SDL_GetWindowDisplayIndex.html">SDL_GetWindowDisplayIndex()</a>�œ�����.)
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>戻り値</h2>
+ウィンドウの輝度を戻す. 0.0が完全に真っ暗で, 1.0が通常の輝度である.
+<h2>詳細</h2>
+関数名と引数に反し, このメソッドは個々のウィンドウではなくディスプレイ全体の輝度を戻す.
+ウィンドウの中央があるディスプレイが対象となる.
+(このディスプレイ番号は<a href="SDL_GetWindowDisplayIndex.html">SDL_GetWindowDisplayIndex()</a>で得られる.)
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_SetWindowBrightness.html">SDL_SetWindowBrightness</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetWindowBrightness">SDL_GetWindowBrightness - SDL Wiki</a>
 <hr>
 </body>

@@ -1,55 +1,55 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryVideo.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
 <title>SDL_GetDisplayUsableBounds</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryVideo.html">�f�B�X�v���C�ƃE�B���h�E</a> - SDL_GetDisplayUsableBounds
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GetDisplayUsableBounds
 <hr>
 <h1>SDL_GetDisplayUsableBounds</h1>
-�f�B�X�v���C�ɕ\������闘�p�\�ȃf�X�N�g�b�v�̗̈�𓾂�
-<h2>�\��</h2>
+ディスプレイに表示される利用可能なデスクトップの領域を得る
+<h2>構文</h2>
 <code>int SDL_GetDisplayUsableBounds(int displayIndex, SDL_Rect* rect)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_GetDisplayUsableBounds">
-<tr><td>displayIndex</td><td>��������f�B�X�v���C�̔ԍ�</td></tr>
-<tr><td>rect</td><td>�f�B�X�v���C�̕\���̈��������<a href="SDL_Rect.html">SDL_Rect</a>�|�C���^</td></tr>
+<tr><td>displayIndex</td><td>調査するディスプレイの番号</td></tr>
+<tr><td>rect</td><td>ディスプレイの表示領域を代入する<a href="SDL_Rect.html">SDL_Rect</a>ポインタ</td></tr>
 </table>
-<h2>�߂�l</h2>
+<h2>戻り値</h2>
 <p>
-�����̂Ƃ�0, ���s�̂Ƃ����̐��̃G���[�R�[�h��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>���Ă�ŏڍׂ�m�邱�Ƃ��ł���.
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-��f�B�X�v���C(�f�B�X�v���C�ԍ�0)�̈ʒu�͏��(0,0)�ł���.
-</p>
-<p>
-�����<a href="SDL_GetDisplayBounds.html">SDL_GetDisplayBounds()</a>�Ɠ����\���̈��߂���, �V�X�e�����\�񂵂Ă��镔������菜����Ă���.
-�Ⴆ��Apple Mac OS X�̂Ȃ��, ���j���[�o�[��dock�̐�L���镔����������Ă���.
+主ディスプレイ(ディスプレイ番号0)の位置は常に(0,0)である.
 </p>
 <p>
-�E�B���h�E���t���X�N���[���ɂ����, �ʏ�͂����̗̈�͍l������Ȃ�. �����, ���̊֐��̓t���X�N���[���łȂ��E�B���h�E�ŗ��p�ł���ő�̃T�C�Y�𓾂�悢�w�j�ƂȂ�.
+これは<a href="SDL_GetDisplayBounds.html">SDL_GetDisplayBounds()</a>と同じ表示領域を戻すが, システムが予約している部分が取り除かれている.
+例えばApple Mac OS Xのならば, メニューバーとdockの占有する部分が引かれている.
 </p>
 <p>
-����rect��NULL�̏ꍇ, ���������.
+ウィンドウをフルスクリーンにすると, 通常はこれらの領域は考慮されない. よって, この関数はフルスクリーンでないウィンドウで利用できる最大のサイズを得るよい指針となる.
 </p>
 <p>
-����displayIndex���͈͊O�̏ꍇ��, ���̊֐���-1��߂�.
+引数rectがNULLの場合, 無視される.
 </p>
-<h2>�o�[�W����</h2>
 <p>
-SDL 2.0.5�ȍ~
+引数displayIndexが範囲外の場合も, この関数は-1を戻す.
 </p>
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.5以降
+</p>
+<h2>関連項目(関数)</h2>
 <a href="SDL_GetDisplayBounds.html">SDL_GetDisplayBounds</a><br>
 <a href="SDL_GetNumVideoDisplays.html">SDL_GetNumVideoDisplays</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_GetDisplayUsableBounds">SDL_GetDisplayUsableBounds - SDL Wiki</a>
 <hr>
 </body>

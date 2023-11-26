@@ -1,31 +1,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="FAQs.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="FAQs.html" title="1つ上">
 <title>FAQ: Linux</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="FAQs.html">FAQ</a> - Linux
+<a href="index.html">目次</a> - <a href="FAQs.html">FAQ</a> - Linux
 <hr>
 <h1>FAQ:Linux</h1>
-(����: ���̃y�[�W�̑唼��SDL 2.0�ł͂Ȃ�SDL 1.2�Ɋւ���L�q�ł���. 1.2�͌��݂̓T�|�[�g����Ă��Ȃ�����, SDL 2.0�̎g�p���������ׂ��ł���.)
-<h2>���ɑΉ����Ă��邩?</h2>
+(注意: このページの大半はSDL 2.0ではなくSDL 1.2に関する記述である. 1.2は現在はサポートされていないため, SDL 2.0の使用を検討すべきである.)
+<h2>何に対応しているか?</h2>
 <p>
-SDL��GNU libc�ƃJ�[�l���o�[�W����2.6�ȏオ�F������S�Ẵn�[�h�E�F�A�ɑΉ����Ă���.
+SDLはGNU libcとカーネルバージョン2.6以上が認識する全てのハードウェアに対応している.
 </p>
 <p>
-�ŐV�̏���<a href="https://wiki.libsdl.org/Installation">�C���X�g�[��</a>���Q�Ƃ��邱��.
+最新の情報は<a href="https://wiki.libsdl.org/Installation">インストール</a>を参照すること.
 </p>
-<h2>SDL�������̃v���W�F�N�g�ɒǉ�������@��?</h2>
+<h2>SDLを自分のプロジェクトに追加する方法は?</h2>
 <p>
-SDL 1.2�Ȃ��"sdl-config --cflags --libs", SDL 2.0�Ȃ��"sdl2-config --cflags --libs"�̏o�͂�, �Ⴆ�� gcc -o test test.c `sdl-config --cflags --libs` �̂悤�ɒǉ�����΂悢.
+SDL 1.2ならば"sdl-config --cflags --libs", SDL 2.0ならば"sdl2-config --cflags --libs"の出力を, 例えば gcc -o test test.c `sdl-config --cflags --libs` のように追加すればよい.
 </p>
 <p>
-�����v���W�F�N�g��Makefile�������ŏ����Ȃ��, ���̍s��Makefile�ɒǉ�����Ɛ�����CFLAGS��LDFLAGS��������.
+もしプロジェクトのMakefileを自分で書くならば, 次の行をMakefileに追加すると正しいCFLAGSとLDFLAGSが得られる.
 </p>
 <p>
 <code>
@@ -36,7 +36,7 @@ SDL_LDFLAGS := $(shell sdl-config --libs)
 </code>
 </p>
 <p>
-�v���W�F�N�g��autoconf��automake���g���Ȃ��, <a href="https://github.com/libsdl-org/SDL-1.2/blob/main/sdl.m4">sdl.m4</a> (<a href="https://github.com/libsdl-org/SDL/blob/main/sdl2.m4">sdl2.m4</a>)����e���R�s�[���Ă��Ȃ���acinclude.m4�t�@�C���ɒǉ���, ���̓��e�����Ȃ���configure.in�t�@�C���ɒǉ�����Ƃ悢. (SDL 1.2�p)
+プロジェクトでautoconfやautomakeを使うならば, <a href="https://github.com/libsdl-org/SDL-1.2/blob/main/sdl.m4">sdl.m4</a> (<a href="https://github.com/libsdl-org/SDL/blob/main/sdl2.m4">sdl2.m4</a>)を内容をコピーしてあなたのacinclude.m4ファイルに追加し, 次の内容をあなたのconfigure.inファイルに追加するとよい. (SDL 1.2用)
 </p>
 <p>
 <code>
@@ -53,17 +53,17 @@ LIBS="$LIBS $SDL_LIBS"
 </code>
 </p>
 <p>
-SDL 2.0�̏ꍇ��, AM_PATH_SDL��AM_PATH_SDL2�ƂȂ�, SDL_VERSION���K�؂ɐݒ肷��K�v������.
+SDL 2.0の場合は, AM_PATH_SDLはAM_PATH_SDL2となり, SDL_VERSIONも適切に設定する必要がある.
 </p>
-<h2>SDL RPM���C���X�g�[��������, SDL�A�v���P�[�V�������R���p�C���ł��Ȃ�</h2>
-SDL-devel RPM���C���X�g�[������K�v������: <a href="http://www.libsdl.org/download.php">http://www.libsdl.org/download.php</a>
-<h2>nasm 0.98���g���Ă��邪, SDL�̃����N���ɃN���b�V������</h2>
-�����nasm�A�Z���u�� �o�[�W���� 0.98(Red Hat 7.1�Ɋ܂܂��o�[�W����)�̃o�O�ł���.
-�ŐV�̃o�[�W����0.98.08�ɃA�b�v�O���[�h����K�v������.
-���炩�̗��R�ŃA�b�v�O���[�h�ł��Ȃ��Ȃ��, SDL���\�[�X����r���h����Ƃ�configure��"--disable-nasm"��n���A�Z���u���R�[�h�𖳌��ɂł���.
-<h2>SDL���\�[�X����C���X�g�[��������, SDL�A�v���P�[�V�������r���h�ł��Ȃ�</h2>
+<h2>SDL RPMをインストールしたが, SDLアプリケーションをコンパイルできない</h2>
+SDL-devel RPMをインストールする必要がある: <a href="http://www.libsdl.org/download.php">http://www.libsdl.org/download.php</a>
+<h2>nasm 0.98を使っているが, SDLのリンク時にクラッシュする</h2>
+これはnasmアセンブラ バージョン 0.98(Red Hat 7.1に含まれるバージョン)のバグである.
+最新のバージョン0.98.08にアップグレードする必要がある.
+何らかの理由でアップグレードできないならば, SDLをソースからビルドするときconfigureに"--disable-nasm"を渡しアセンブリコードを無効にできる.
+<h2>SDLをソースからインストールしたが, SDLアプリケーションをビルドできない</h2>
 <p>
-/etc/ld.so.conf��ҏW��, ���̍s�����邩�m�F����:
+/etc/ld.so.confを編集し, 次の行があるか確認する:
 </p>
 <p>
 <code>
@@ -73,10 +73,10 @@ SDL-devel RPM���C���X�g�[������K�v������: <a href="http://www.libsdl.org/downlo
 </code>
 </p>
 <p>
-root��/sbin/ldconfig�����s����.
+rootで/sbin/ldconfigを実行する.
 </p>
 <p>
-/usr/local/bin �Ɏ��s�p�X���ʂ��Ă��邩�m�F����:
+/usr/local/bin に実行パスが通っているか確認する:
 </p>
 <p>
 <code>
@@ -86,11 +86,11 @@ export PATH=$PATH:/usr/local/bin/
 </code>
 </p>
 <p>
-�V�X�e���ɕʂ̃o�[�W������SDL���Ȃ����Ƃ��m�F����.
-�����ăf�B���N�g������\�t�g�E�F�A�̃r���h��j�Q����"config.cache"�t�@�C����S�č폜����.
+システムに別のバージョンのSDLがないことを確認する.
+そしてディレクトリからソフトウェアのビルドを阻害する"config.cache"ファイルを全て削除する.
 </p>
 <p>
-��L�̑S�Ă��s���Ă��ł��Ȃ��ꍇ��, �r���h�ł��Ȃ��\�t�g�̂���f�B���N�g���ňȉ��̃R�}���h�����s�����o�͌��ʂ�SDL<a href="https://discourse.libsdl.org/">���[�����O���X�g</a>�ɑ����ė~����.
+上記の全てを行ってもできない場合は, ビルドできないソフトのあるディレクトリで以下のコマンドを実行した出力結果をSDL<a href="https://discourse.libsdl.org/">メーリングリスト</a>に送って欲しい.
 <ul>
 <li>which sdl-config
 <li>sdl-config --version
@@ -99,17 +99,17 @@ export PATH=$PATH:/usr/local/bin/
 </ul>
 </p>
 <h2>
-Mandrake�܂���Slackware���g���Ă��邪, �A�v���P�[�V������SDL��F�����Ȃ�!
+MandrakeまたはSlackwareを使っているが, アプリケーションがSDLを認識しない!
 </h2>
-�����炭����SDL��aRts�T�E���h�Ή��Ńr���h����Ă��邪, KDE���C�u�������V�X�e���̕W���̏ꏊ�ɃC���X�g�[������Ă��Ȃ�.
-libartsc.so.0�̂���f�B���N�g����/etc/ld.so.conf�t�@�C���ɒǉ���, "ldconfig"�R�}���h�����s����K�v������.
-�V�����o�[�W������Mandrake�ł�, ���̃f�B���N�g����/opt/kde/lib�ɂȂ�.
-<h2>���ϐ���ݒ肷����@��?</h2>
+おそらくそのSDLはaRtsサウンド対応でビルドされているが, KDEライブラリがシステムの標準の場所にインストールされていない.
+libartsc.so.0のあるディレクトリを/etc/ld.so.confファイルに追加し, "ldconfig"コマンドを実行する必要がある.
+新しいバージョンのMandrakeでは, そのディレクトリは/opt/kde/libになる.
+<h2>環境変数を設定する方法は?</h2>
 <p>
-���ϐ��̐ݒ���@�̓��O�C�������V�F���ňقȂ�:
+環境変数の設定方法はログインしたシェルで異なる:
 </p>
 <p>
-Bourne shell�h���̏ꍇ: (sh, ash, ksh, zsh, bash�Ȃ�)
+Bourne shell派生の場合: (sh, ash, ksh, zsh, bashなど)
 </p>
 <p>
 <code>
@@ -119,7 +119,7 @@ VARIABLE='value'; export VARIABLE
 </code>
 </p>
 <p>
-C shell�h���̏ꍇ: (csh, tcsh�Ȃ�)
+C shell派生の場合: (csh, tcshなど)
 </p>
 <p>
 <code>
@@ -128,10 +128,10 @@ setenv VARIABLE 'value'
 </pre>
 </code>
 </p>
-<h2>���̃G���[����������: "no video devices available"</h2>
+<h2>次のエラーが発生する: "no video devices available"</h2>
 <p>
-SDL��X�f�B�X�v���C���J���Ȃ������ꍇ, SDL�͂���X11�r�f�I�h���C�o���g��Ȃ�. �����đ��̎g����h���C�o���Ȃ����, ���̃G���[���񍐂����.
-������C�����邽�߂ɂ�, �f�B�X�v���C�̊��ϐ���K�؂ɐݒ肷��:
+SDLがXディスプレイを開けなかった場合, SDLはそのX11ビデオドライバを使わない. そして他の使えるドライバがなければ, このエラーが報告される.
+これを修復するためには, ディスプレイの環境変数を適切に設定する:
 </p>
 <p>
 sh:
@@ -154,44 +154,44 @@ setenv DISPLAY :0
 </code>
 </p>
 <p>
-����ł��������Ȃ��Ȃ��, �Ō�� xhost + localhost �����s����.
-�����S�Ă��s���Ă��������Ȃ����, SDL���\�[�X����r���h����. X11�J�����C�u���������邱�Ƃ��m�F���邱��. �������Ȃ����X11�ɑΉ����Ȃ�SDL�ɂȂ��Ă��܂�.
-X11�J�����C�u�������C���X�g�[�������Ȃ��, "make clean"�����s������configure�ƃr���h�����s����.
+それでも解決しないならば, 最後に xhost + localhost を実行する.
+これら全てを行っても解決しなければ, SDLをソースからビルドする. X11開発ライブラリがあることを確認すること. そうしなければX11に対応しないSDLになってしまう.
+X11開発ライブラリをインストールしたならば, "make clean"を実行した後configureとビルドを実行する.
 </p>
-<h2>���̃G���[����������: "SDL: Audio timeout - buggy audio driver? (disabled)"</h2>
-�ꕔ�̃I�[�f�B�I�h���C�o��select()����������������Ă��Ȃ�.
-���Ԋ֐����g�����ߎ��l�̑��肪���邪, ����͊��ϐ�SDL_DSP_NOSELECT��"1"�ɂ���ƗL���ɂȂ�.
-�����ESounD��aRts�̂悤�ȑ҂����Ԃ̒����T�E���h�T�[�o�ł��g����.
-<h2>�t���[���o�b�t�@ �R���\�[�� �A�N�Z�����[�V�����𖳌��ɂ�����@��?</h2>
-SDL1.0.3�Ȃ�Ί��ϐ�SDL_FBACCEL��"0"��ݒ肷��.
-<h2>DMA�I�[�f�B�I�̑Ή���L���ɂ�����@��?</h2>
-SDL 1.0.4�Ȃ�Ί��ϐ�SDL_AUDIODRIVER��"dma"��ݒ肷��.
-<h2>DGA�}�E�X�̑Ή��𖳌��ɂ�����@��?</h2>
-SDL 1.0.4�Ȃ�Ί��ϐ�SDL_VIDEO_X11_DGAMOUSE��"0"��ݒ肷��.
-<h2>X11�}�E�X�A�N�Z�����[�V������L���ɂ�����@��?</h2>
-SDL 1.0.8�Ȃ�Ί��ϐ�SDL_VIDEO_X11_MOUSEACCEL��"X/Y"��ݒ肷��. "X"�̓}�E�X�A�N�Z�����[�V�����̕��q��, "Y"�͕���ł���.
-�Ⴆ��, �}�E�X�A�N�Z�����[�V������2�ɂ������Ȃ��, �ϐ���"2/1"��ݒ肷��΂悢.
-�f�t�H���g�ł͌��݂�X11�}�E�X�A�N�Z�����[�V������ύX���Ȃ�.
-<h2>XFree86 XVideo�A�N�Z�����[�V�����𖳌��ɂ�����@��?</h2>
-YUV�n�[�h�E�F�A�A�N�Z�����[�V�����͊��ϐ�SDL_VIDEO_YUV_HWACCEL��"0"��ݒ肷��Ɩ����ɂł���.
-<h2>AALib���f�t�H���g�ɂ�����@��?</h2>
+<h2>次のエラーが発生する: "SDL: Audio timeout - buggy audio driver? (disabled)"</h2>
+一部のオーディオドライバはselect()が正しく実装されていない.
+時間関数を使った近似値の測定があるが, これは環境変数SDL_DSP_NOSELECTを"1"にすると有効になる.
+これはESounDやaRtsのような待ち時間の長いサウンドサーバでも使える.
+<h2>フレームバッファ コンソール アクセラレーションを無効にする方法は?</h2>
+SDL1.0.3ならば環境変数SDL_FBACCELに"0"を設定する.
+<h2>DMAオーディオの対応を有効にする方法は?</h2>
+SDL 1.0.4ならば環境変数SDL_AUDIODRIVERに"dma"を設定する.
+<h2>DGAマウスの対応を無効にする方法は?</h2>
+SDL 1.0.4ならば環境変数SDL_VIDEO_X11_DGAMOUSEに"0"を設定する.
+<h2>X11マウスアクセラレーションを有効にする方法は?</h2>
+SDL 1.0.8ならば環境変数SDL_VIDEO_X11_MOUSEACCELに"X/Y"を設定する. "X"はマウスアクセラレーションの分子で, "Y"は分母である.
+例えば, マウスアクセラレーションを2にしたいならば, 変数に"2/1"を設定すればよい.
+デフォルトでは現在のX11マウスアクセラレーションを変更しない.
+<h2>XFree86 XVideoアクセラレーションを無効にする方法は?</h2>
+YUVハードウェアアクセラレーションは環境変数SDL_VIDEO_YUV_HWACCELに"0"を設定すると無効にできる.
+<h2>AALibをデフォルトにする方法は?</h2>
 <p>
-SDL�̃r���h: make distclean; ./configure --enable-video-aalib ; make install
-</p>
-<p>
-�A�v���P�[�V�����̎��s: ���ϐ�SDL_VIDEODRIVER��"aalib"��ݒ肷��
-</p>
-<h2>SDL��DGA 2.0�r�f�I�h���C�o���g���悤�ɂ�����@��?</h2>
-XFree86��4.01�ȏ�ł��邱�Ƃ��m�F��, �v���O������root�Ŏ��s��, ���ϐ�SDL_VIDEODRIVER��"dga"��ݒ肵, ������Voodoo 3000, Matrox G400�Ȃǂ�DGA�h���C�o�ɐ������Ή������r�f�I�J�[�h���g��.
-<h2>X11��SDL_FULLSCREEN���w�肷���, ��ʑS�̂ɕ\����������ɍ�����ʂ̒����ɃE�B���h�E���\�������!</h2>
-<p>
-X���K�v�ȉ𑜓x�ɐ؂�ւ�����K�v������.
-���̏ꍇ, ���j�^�����̉𑜓x�ɑΉ����Ă��Ȃ���΂Ȃ�Ȃ�. �����Ă��̉𑜓x��X�T�[�o�ݒ�t�@�C���ɋL�q����Ă���K�v������.
+SDLのビルド: make distclean; ./configure --enable-video-aalib ; make install
 </p>
 <p>
-�ȉ���XFree86 4.0.1�̗Ⴞ��, 3.3.x������Ǝ��Ă���.
-�������Ȃ��̃��j�^�������̃r�f�I���[�h�ɑΉ����Ă��Ȃ��Ȃ��, X�T�[�o�͗L���ȃr�f�I���[�h�̈ꗗ���炻������O����̂Œ��ӂ��邱��.
-��:
+アプリケーションの実行: 環境変数SDL_VIDEODRIVERに"aalib"を設定する
+</p>
+<h2>SDLにDGA 2.0ビデオドライバを使うようにする方法は?</h2>
+XFree86が4.01以上であることを確認し, プログラムをrootで実行し, 環境変数SDL_VIDEODRIVERに"dga"を設定し, そしてVoodoo 3000, Matrox G400などのDGAドライバに正しく対応したビデオカードを使う.
+<h2>X11でSDL_FULLSCREENを指定すると, 画面全体に表示される代わりに黒い画面の中央にウィンドウが表示される!</h2>
+<p>
+Xが必要な解像度に切り替えられる必要がある.
+この場合, モニタがその解像度に対応していなければならない. そしてその解像度がXサーバ設定ファイルに記述されている必要がある.
+</p>
+<p>
+以下はXFree86 4.0.1の例だが, 3.3.xもこれと似ている.
+もしあなたのモニタがこれらのビデオモードに対応していないならば, Xサーバは有効なビデオモードの一覧からそれを除外するので注意すること.
+例:
 </p>
 <p>
 <code>
@@ -217,30 +217,30 @@ EndSection
 </code>
 </p>
 <p>
-�[�x8bit��16bit�ł͐ݒ肪�Ⴄ���Ƃɒ��ӂ��邱��.
-320x240��X���[�x16bit�ŋN�������ꍇ(�f�t�H���g)�ɂ�*����*�ł���.
+深度8bitと16bitでは設定が違うことに注意すること.
+320x240はXが深度16bitで起動した場合(デフォルト)には*無効*である.
 </p>
 <p>
-�����̐ݒ�������Ȃ��, XF86Config��ҏW�������X���ċN����, CTRL ALT + �� CTRL ALT - �������Ă����̉𑜓x�ɐݒ肷��. -- Andreas Umbach�ɂ��ǋL
+これらの設定を試すならば, XF86Configを編集した後にXを再起動し, CTRL ALT + と CTRL ALT - を押してこれらの解像度に設定する. -- Andreas Umbachによる追記
 </p>
-<h2>Fedora��SDL���r���h���邽�߂̑S�Ă̈ˑ����C���X�g�[��������@��?</h2>
+<h2>FedoraでSDLをビルドするための全ての依存をインストールする方法は?</h2>
 <p>
-Fedora��SDL 2.0���r���h���邽�߂ɂ͂����̃p�b�P�[�W���C���X�g�[������K�v������.
+FedoraにSDL 2.0をビルドするためにはこれらのパッケージをインストールする必要がある.
 </p>
 <p>
 sudo yum install rpm-build alsa-lib-devel libX11-devel libXScrnSaver-devel libXau-devel libXcursor-devel libXext-devel libXfixes-devel libXi-devel libXinerama-devel libXrandr-devel libXrender-devel libXxf86vm-devel mesa-libGL-devel pulseaudio-libs-devel
 </p>
-<h2>Ubuntu��SDL���r���h���邽�߂̑S�Ă̈ˑ����C���X�g�[��������@��?</h2>
+<h2>UbuntuでSDLをビルドするための全ての依存をインストールする方法は?</h2>
 <p>
-���̃R�}���h�����s����: sudo apt-get build-dep libsdl1.2
+次のコマンドを実行する: sudo apt-get build-dep libsdl1.2
 </p>
 <p>
-�ʂɈˑ��𓾂邱�Ƃ��ł���:
+個別に依存を得ることもできる:
 </p>
 <p>
 sudo apt-get install build-essential mercurial make autoconf automake libtool libasound2-dev libpulse-dev libaudio-dev libx11-dev libxext-dev libxrandr-dev libxcursor-dev libxi-dev libxinerama-dev libxxf86vm-dev libxss-dev libgl1-mesa-dev libesd0-dev
 </p>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/FAQLinux">FAQ: Linux - SDL Wiki</a>
 <hr>
 </body>

@@ -1,47 +1,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_ttf">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_ttf-CategoryAttributes.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_ttf-CategoryAttributes.html" title="1つ上">
 <title>TTF_MeasureText</title>
 </head>
 <body>
-<a href="index.html#SDL2_ttf">�ڎ�</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_ttf-CategoryAttributes.html">����</a> - TTF_MeasureText
+<a href="index.html#SDL2_ttf">目次</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_ttf-CategoryAttributes.html">属性</a> - TTF_MeasureText
 <hr>
 <h1>TTF_MeasureText</h1>
-�^����ꂽ���Ɏ��܂�Latin1�����������߂�
-<h2>�\��</h2>
+与えられた幅に収まるLatin1文字数を求める
+<h2>構文</h2>
 <code>int TTF_MeasureText(TTF_Font *font, const char *text, int measure_width, int *extent, int *count)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="TTF_MeasureText">
-<tr><td>font</td><td>�t�H���g</td></tr>
-<tr><td>text</td><td>���߂�Latin1�e�L�X�g</td></tr>
-<tr><td>measure_width</td><td>������̌��E���s�N�Z����</td></tr>
-<tr><td>extent</td><td>�����񂪎��܂�ŏ��̕��s�N�Z����</td></tr>
-<tr><td>count</td><td>�����_�����O�\�ȕ������̑����ւ̃|�C���^</td></tr>
+<tr><td>font</td><td>フォント</td></tr>
+<tr><td>text</td><td>求めるLatin1テキスト</td></tr>
+<tr><td>measure_width</td><td>文字列の限界幅ピクセル数</td></tr>
+<tr><td>extent</td><td>文字列が収まる最小の幅ピクセル数</td></tr>
+<tr><td>count</td><td>レンダリング可能な文字数の代入先へのポインタ</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ�0, �G���[�̂Ƃ�-1��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+成功のとき0, エラーのとき-1を戻す.
+<h2>詳細</h2>
 <p>
-measure_width�ɒB����܂Ń����_�����O�ł��镶���������߂�.
+measure_widthに達するまでレンダリングできる文字数を求める.
 </p>
 <p>
-���߂邽�߂ɕ�����������_�����O����K�v�͂Ȃ�.
+求めるために文字列をレンダリングする必要はない.
 </p>
 <p>
-1�o�C�gLatin1�ŃG���R�[�h����Ă���̂��m���łȂ�����, �{���ɕK�v�Ȃ̂�<a href="TTF_MeasureUTF8.html">TTF_MeasureUTF8()</a>���낤.
-US ASCII�����͂ǂ���̊֐��ł�����ɓ��삷�邪, ���̑����̕�����UTF-8�Ƃ��Ă̏������K�v�ł���.
+1バイトLatin1でエンコードされているのが確実でない限り, 本当に必要なのは<a href="TTF_MeasureUTF8.html">TTF_MeasureUTF8()</a>だろう.
+US ASCII文字はどちらの関数でも正常に動作するが, 他の多くの文字はUTF-8としての処理が必要である.
 </p>
-<h2>�o�[�W����</h2>
-SDL_ttf 2.0.18�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL_ttf 2.0.18以降
+<h2>関連項目(関数)</h2>
 <a href="TTF_MeasureUTF8.html">TTF_MeasureUTF8</a><br>
 <a href="TTF_MeasureUNICODE.html">TTF_MeasureUNICODE</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_ttf/TTF_MeasureText">SDL2_ttf/TTF_MeasureText</a>
 <hr>
 </body>

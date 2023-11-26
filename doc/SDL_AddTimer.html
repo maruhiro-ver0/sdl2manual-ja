@@ -1,91 +1,91 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryAudio.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAudio.html" title="1つ上">
 <title>SDL_AddTimer</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryTimer.html">�^�C�}</a> - SDL_AddTimer
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryTimer.html">タイマ</a> - SDL_AddTimer
 <hr>
 <h1>SDL_AddTimer</h1>
-�w��̃~���b���o�߂�����ɕʃX���b�h�̃R�[���o�b�N�֐����ĂԂ悤�ɐݒ肷��
-<h2>�\��</h2>
+指定のミリ秒が経過した後に別スレッドのコールバック関数を呼ぶように設定する
+<h2>構文</h2>
 <code>SDL_TimerID SDL_AddTimer(Uint32 interval, SDL_TimerCallback callback, void* param)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_AddTimer">
-<tr><td>interval</td><td>callback���ĂԂ܂ł̎���(�~���b)</td></tr>
-<tr><td>callback</td><td>�w���interval���o�߂�����ɌĂ΂��֐�</td></tr>
-<tr><td>param</td><td>callback�ɓn�����|�C���^</td></tr>
+<tr><td>interval</td><td>callbackを呼ぶまでの時間(ミリ秒)</td></tr>
+<tr><td>callback</td><td>指定のintervalが経過した後に呼ばれる関数</td></tr>
+<tr><td>param</td><td>callbackに渡されるポインタ</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ��^�C�}ID, ���s�̂Ƃ�0��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>���Ă�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�T���v���R�[�h</h2>
+<h2>戻り値</h2>
+成功のときタイマID, 失敗のとき0を戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
 <p>
 <code>
 <pre>
-// ��莞�Ԃ̌o�߂ŌĂ΂��֐�
+// 一定時間の経過で呼ばれる関数
 
 Uint32 callback(Uint32 interval, void* name) {
 
-    printf("Hello %s!\n", static_cast<char*>(name));
+    printf("Hello %s!¥n", static_cast<char*>(name));
        
     return 0;
 }
 
 ...
 
-// �^�C�}������������
+// タイマを初期化する
 
 if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
 
 ...
 
-// �^�C�}��1�b�ɐݒ肷��
+// タイマを1秒に設定する
 
 SDL_TimerID timerID = SDL_AddTimer(1000, callback, const_cast<char*>("SDL"));
 
-// ���C�����[�v
+// メインループ
 
 while(!quit) {
     ...
 }
 
-// ���C�����[�v�̌�Ń^�C�}����菜��
+// メインループの後でタイマを取り除く
 
 SDL_RemoveTimer(timerID);
 </pre>
 </code>
 </p>
-<h2>�ڍ�</h2>
+<h2>詳細</h2>
 <p>
-���̊֐����g���ꍇ, <a href="SDL_Init.html">SDL_Init()</a>��SDL_INIT_TIMER��n���Ă���K�v������.
+この関数を使う場合, <a href="SDL_Init.html">SDL_Init()</a>にSDL_INIT_TIMERを渡している必要がある.
 </p>
 <p>
-�R�[���o�b�N�֐��ɂ�, ��1�����Ɍ��݂̃^�C�}�Ԋu��, ��2�����Ƀ��[�U��<a href="SDL_AddTimer.html">SDL_AddTimer()</a>�Őݒ肵���p�����[�^���n�����.
-�R�[���o�b�N�֐��͎��̃^�C�}�Ԋu��߂��K�v������.
-0��߂��ƃ^�C�}�̓L�����Z�������.
+コールバック関数には, 第1引数に現在のタイマ間隔が, 第2引数にユーザが<a href="SDL_AddTimer.html">SDL_AddTimer()</a>で設定したパラメータが渡される.
+コールバック関数は次のタイマ間隔を戻す必要がある.
+0を戻すとタイマはキャンセルされる.
 </p>
 <p>
-�R�[���o�b�N�֐��͕ʃX���b�h�Ŏ��s�����. ���C���X���b�h�Ń^�C�}�R�[���o�b�N������������@���K�v�Ȃ�΃T���v���R�[�h���Q�Ƃ��邱��.
+コールバック関数は別スレッドで実行される. メインスレッドでタイマコールバックを処理する方法が必要ならばサンプルコードを参照すること.
 </p>
 <p>
-�^�C�}�̓R�[���o�b�N�����s����̂ɂ����������Ԃ��l�����Ă���.
-�Ⴆ��, �R�[���o�b�N�̎��s��250�~���b������, 1000(�~���b)��߂���, �^�C�}�͎��̌Ăяo���܂�750�~���b�����҂��Ȃ�.
+タイマはコールバックを実行するのにかかった時間を考慮している.
+例えば, コールバックの実行に250ミリ秒かかり, 1000(ミリ秒)を戻すと, タイマは次の呼び出しまで750ミリ秒しか待たない.
 </p>
 <p>
-�Ԋu��OS�X�P�W���[�����O�ŕs���m�ɂȂ肤��.
-�R�[���o�b�N���ŕs���m����␳����K�v������ꍇ, <a href="SDL_GetTicks.html">SDL_GetTicks()</a>�܂���<a href="SDL_GetPerformanceCounter.html">SDL_GetPerformanceCounter()</a>���g���Č��݂̎����ɒ��ڂ���K�v������.
+間隔はOSスケジューリングで不正確になりうる.
+コールバック内で不正確さを補正する必要がある場合, <a href="SDL_GetTicks.html">SDL_GetTicks()</a>または<a href="SDL_GetPerformanceCounter.html">SDL_GetPerformanceCounter()</a>を使って現在の時刻に注目する必要がある.
 </p>
-<h2>�o�[�W����</h2>
-SDL 2.0.0�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_RemoveTimer.html">SDL_RemoveTimer</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_AddTimer">SDL_AddTimer - SDL Wiki</a>
 <hr>
 </body>

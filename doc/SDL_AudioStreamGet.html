@@ -1,38 +1,38 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryAudio.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAudio.html" title="1つ上">
 <title>SDL_AudioStreamGet</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryAudio.html">�Đ��Ƙ^��</a> - SDL_AudioStreamGet
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryAudio.html">再生と録音</a> - SDL_AudioStreamGet
 <hr>
 <h1>SDL_AudioStreamGet</h1>
-�ϊ�/���T���v�����ꂽ�f�[�^�������X�g���[�����瓾��
-<h2>�\��</h2>
+変換/リサンプルされたデータを音声ストリームから得る
+<h2>構文</h2>
 <code>int SDL_AudioStreamGet(SDL_AudioStream* stream, const void* buf, int len)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_AudioStreamGet">
-<tr><td>stream</td><td>�ϊ����ꂽ�f�[�^�𓾂�X�g���[��</td></tr>
-<tr><td>buf</td><td>�����f�[�^���������܂��o�b�t�@�ւ̃|�C���^</td></tr>
-<tr><td>len</td><td>�������܂��f�[�^�̍ő�o�C�g��</td></tr>
+<tr><td>stream</td><td>変換されたデータを得るストリーム</td></tr>
+<tr><td>buf</td><td>音声データが書き込まれるバッファへのポインタ</td></tr>
+<tr><td>len</td><td>書き込まれるデータの最大バイト数</td></tr>
 </table>
-<h2>�߂�l</h2>
-�X�g���[������ǂݍ��񂾃o�C�g����߂�, ���s�̂Ƃ�-1��߂�.
-<h2>�o�[�W����</h2>
-2.0.7�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>戻り値</h2>
+ストリームから読み込んだバイト数を戻す, 失敗のとき-1を戻す.
+<h2>バージョン</h2>
+2.0.7以降
+<h2>関連項目(関数)</h2>
 <a href="SDL_NewAudioStream.html">SDL_NewAudioStream</a><br>
 <a href="SDL_AudioStreamPut.html">SDL_AudioStreamPut</a><br>
 <a href="SDL_AudioStreamAvailable.html">SDL_AudioStreamAvailable</a><br>
 <a href="SDL_AudioStreamFlush.html">SDL_AudioStreamFlush</a><br>
 <a href="SDL_AudioStreamClear.html">SDL_AudioStreamClear</a><br>
 <a href="SDL_FreeAudioStream.html">SDL_FreeAudioStream</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_AudioStreamGet">SDL_AudioStreamGet - SDL Wiki</a>
 <hr>
 </body>

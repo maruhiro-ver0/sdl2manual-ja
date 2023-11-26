@@ -1,64 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-functions-general.html" title="1つ上">
-<title>IMG_Init</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-functions.html">4.関数</a> - <a href="SDL_mixer-functions-general.html">4.1一般</a> - Mix_Init
-<hr>
-<h1>Mix_Init</h1>
-<p>
-<code>int Mix_Init(int flags)</code>
-</p>
-<p>
-<dl>
-<dt>flags</dt>
-<dd>
-扱うサンプリング音声/音楽形式(動的ライブラリを読み込む).
-以下の論理和で複数指定できる:<br>
-MIX_INIT_FLAC<br>
-MIX_INIT_MOD<br>
-MIX_INIT_MP3<br>
-MIX_INIT_OGG
-</dd>
-</dl>
-</p>
-<p>
-flagsで指定したライブラリを読み込んで初期化する. 少なくとも読み込めれば(既に読み込まれていれば)この関数は成功する.
-この関数は何度でも呼べるが, その場合でも<a href="Mix_Quit.html">Mix_Quit</a>関数を一度呼べば終了できる.
-既にライブラリを読み込んだ場合でも, 読み込んでいない場合でも, 解放するために(使わないために)引数として0を渡すことができる.
-</p>
-<p>
-メモ: ライブラリを読み込むとき一時的に停止するのを防ぐために, そして実際に読み込む前に本当にその形式に対応しているかチェックするために, あなたのプログラムが本格的に実行される前にMix_Init関数に使用するMIX_INIT_*フラグの論理和を渡して初期化したほうがよい.
-</p>
-<p>
-メモ: この関数はエラー文字列を設定しない. よって<a href="Mix_GetError.html">Mix_GetError</a>が意味のあるメッセージを戻すことを期待してはならない.
-</p>
-<p>
-戻り値: 初期化された全てのサンプリング音声/音楽ローダーのビットマスク
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// OGGとMOD形式のサンプリング音声/音楽ローダーを初期化する
-int flags=MIX_INIT_OGG|MIX_INIT_MOD;
-int initted=Mix_Init(flags);
-if(initted&amp;flags != flags) {
-    printf("Mix_Init: 要求したOGGとMOD形式のローダーの初期化に失敗した!\n");
-    printf("Mix_Init: %s\n", Mix_GetError());
-    // ここでエラーを処理する
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="Mix_Quit.html">Mix_Quit</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_9.html#SEC9">4.1.2 IMG_Init</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

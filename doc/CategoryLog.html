@@ -1,75 +1,75 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="ApiByCategory.html" title="1��">
-<title>���O</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>ログ</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - ���O
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - ログ
 <hr>
-<h1>���O</h1>
-�C���N���[�h�t�@�C��: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_log.h">SDL_log.h</a>
-<h2>�T�v</h2>
+<h1>ログ</h1>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_log.h">SDL_log.h</a>
+<h2>概要</h2>
 <p>
-�����ɕ��ނ����֐���, ���ނƏd�v�x�̂����ȒP�ȃ��O���b�Z�[�W���������̂ł���.
+ここに分類される関数は, 分類と重要度のついた簡単なログメッセージを扱うものである.
 </p>
 <p>
-�f�t�H���g�̃��O���ނ̏d�v�x�͎��̒ʂ�ł���.
+デフォルトのログ分類の重要度は次の通りである.
 <table border="1" summary="log priorities">
-<tr><th>����</th><th>�d�v�x</th></tr>
+<tr><th>分類</th><th>重要度</th></tr>
 <tr><td>SDL_LOG_CATEGORY_APPLICATION</td><td>SDL_LOG_PRIORITY_INFO</td></tr>
 <tr><td>SDL_LOG_CATEGORY_ASSERT</td><td>SDL_LOG_PRIORITY_WARN</td></tr>
 <tr><td>SDL_LOG_CATEGORY_TEST</td><td>SDL_LOG_PRIORITY_VERBOSE</td></tr>
-<tr><td>���̑��S��</td><td>SDL_LOG_PRIORITY_CRITICAL</td></tr>
+<tr><td>その他全て</td><td>SDL_LOG_PRIORITY_CRITICAL</td></tr>
 </table>
 </p>
 <p>
-SDL���f�o�b�O����Ƃ���, ���̂悤�ɌĂԂƂ悢���낤.
+SDLをデバッグするときは, 次のように呼ぶとよいだろう.
 </p>
 <p>
 <code>SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);</code>
 </p>
 <p>
-�e���̃��b�Z�[�W�̏o�͐�͎��̒ʂ�ł���.
+各環境のメッセージの出力先は次の通りである.
 <table border="1" summary="platforms">
-<tr><th>��</th><th>�o�͐�</th></tr>
-<tr><td>Windows</td><td>�f�o�b�O�o�̓X�g���[��</td></tr>
-<tr><td>Android</td><td>���O�o��</td></tr>
+<tr><th>環境</th><th>出力先</th></tr>
+<tr><td>Windows</td><td>デバッグ出力ストリーム</td></tr>
+<tr><td>Android</td><td>ログ出力</td></tr>
 <tr><td>PSP</td><td>"SDL_Log.txt"</td></tr>
-<tr><td>���̑�</td><td>�W���G���[�o�� (stderr)</td></tr>
+<tr><td>その他</td><td>標準エラー出力 (stderr)</td></tr>
 </table>
 </p>
 <p>
-SDL 2.0.24�ȑO�̏ꍇ, ���b�Z�[�W�͍ő咷(4096byte)�Ő؂���.
+SDL 2.0.24以前の場合, メッセージは最大長(4096byte)で切られる.
 </p>
-<h2>�񋓑�</h2>
+<h2>列挙体</h2>
 <ol>
-<li><a href="SDL_LOG_CATEGORY.html">SDL_LOG_CATEGORY</a> - ���炩���ߐݒ肳�ꂽ���O�̕��ނ̗񋓑�
-<li><a href="SDL_LogPriority.html">SDL_LogPriority</a> - ���炩���ߒ�`���ꂽ���O�̏d�v�x�̗񋓑�
+<li><a href="SDL_LOG_CATEGORY.html">SDL_LOG_CATEGORY</a> - あらかじめ設定されたログの分類の列挙体
+<li><a href="SDL_LogPriority.html">SDL_LogPriority</a> - あらかじめ定義されたログの重要度の列挙体
 </ol>
-<h2>�֐�</h2>
+<h2>関数</h2>
 <ol>
-<li><a href="SDL_Log.html">SDL_Log</a> - SDL_LOG_CATEGORY_APPLICATION���ރ��O��SDL_LOG_PRIORITY_INFO�̏d�v�x�ŏo�͂���
-<li><a href="SDL_LogCritical.html">SDL_LogCritical</a> - SDL_LOG_PRIORITY_CRITICAL�ȏ�̏d�v�x�̃��O���o�͂���
-<li><a href="SDL_LogDebug.html">SDL_LogDebug</a> - SDL_LOG_PRIORITY_DEBUG�ȏ�̏d�v�x�̃��O���o�͂���
-<li><a href="SDL_LogError.html">SDL_LogError</a> - SDL_LOG_PRIORITY_ERROR�ȏ�̏d�v�x�̃��O���o�͂���
-<li><a href="SDL_LogGetOutputFunction.html">SDL_LogGetOutputFunction</a> - ���݂̃��O�o�͊֐��𓾂�
-<li><a href="SDL_LogGetPriority.html">SDL_LogGetPriority</a> - �w��̃��O�̕��ނ̏d�v�x�𓾂�
-<li><a href="SDL_LogInfo.html">SDL_LogInfo</a> - SDL_LOG_PRIORITY_INFO�ȏ�̏d�v�x�̃��O���o�͂���
-<li><a href="SDL_LogMessage.html">SDL_LogMessage</a> - �w��̕��ނƏd�v�x�̃��O���o�͂���
-<li><a href="SDL_LogMessageV.html">SDL_LogMessageV</a> - �w��̕��ނƏd�v�x�̃��O���o�͂���
-<li><a href="SDL_LogResetPriorities.html">SDL_LogResetPriorities</a> - �S�Ă̏d�v�x���f�t�H���g�ɖ߂�
-<li><a href="SDL_LogSetAllPriority.html">SDL_LogSetAllPriority</a> - �S�Ă̕��ނ̏d�v�x��ݒ肷��
-<li><a href="SDL_LogSetOutputFunction.html">SDL_LogSetOutputFunction</a> - ���O�o�͊֐���u��������
-<li><a href="SDL_LogSetPriority.html">SDL_LogSetPriority</a> - �w��̕��ނ̏d�v�x��ݒ肷��
-<li><a href="SDL_LogVerbose.html">SDL_LogVerbose</a> - SDL_LOG_PRIORITY_VERBOSE�ȏ�̏d�v�x�̃��O���o�͂���
-<li><a href="SDL_LogWarn.html">SDL_LogWarn</a> - SDL_LOG_PRIORITY_WARN�ȏ�̏d�v�x�̃��O���o�͂���
+<li><a href="SDL_Log.html">SDL_Log</a> - SDL_LOG_CATEGORY_APPLICATION分類ログをSDL_LOG_PRIORITY_INFOの重要度で出力する
+<li><a href="SDL_LogCritical.html">SDL_LogCritical</a> - SDL_LOG_PRIORITY_CRITICAL以上の重要度のログを出力する
+<li><a href="SDL_LogDebug.html">SDL_LogDebug</a> - SDL_LOG_PRIORITY_DEBUG以上の重要度のログを出力する
+<li><a href="SDL_LogError.html">SDL_LogError</a> - SDL_LOG_PRIORITY_ERROR以上の重要度のログを出力する
+<li><a href="SDL_LogGetOutputFunction.html">SDL_LogGetOutputFunction</a> - 現在のログ出力関数を得る
+<li><a href="SDL_LogGetPriority.html">SDL_LogGetPriority</a> - 指定のログの分類の重要度を得る
+<li><a href="SDL_LogInfo.html">SDL_LogInfo</a> - SDL_LOG_PRIORITY_INFO以上の重要度のログを出力する
+<li><a href="SDL_LogMessage.html">SDL_LogMessage</a> - 指定の分類と重要度のログを出力する
+<li><a href="SDL_LogMessageV.html">SDL_LogMessageV</a> - 指定の分類と重要度のログを出力する
+<li><a href="SDL_LogResetPriorities.html">SDL_LogResetPriorities</a> - 全ての重要度をデフォルトに戻す
+<li><a href="SDL_LogSetAllPriority.html">SDL_LogSetAllPriority</a> - 全ての分類の重要度を設定する
+<li><a href="SDL_LogSetOutputFunction.html">SDL_LogSetOutputFunction</a> - ログ出力関数を置き換える
+<li><a href="SDL_LogSetPriority.html">SDL_LogSetPriority</a> - 指定の分類の重要度を設定する
+<li><a href="SDL_LogVerbose.html">SDL_LogVerbose</a> - SDL_LOG_PRIORITY_VERBOSE以上の重要度のログを出力する
+<li><a href="SDL_LogWarn.html">SDL_LogWarn</a> - SDL_LOG_PRIORITY_WARN以上の重要度のログを出力する
 </ol>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryLog">Log Handling - SDL Wiki</a>
 <hr>
 </body>

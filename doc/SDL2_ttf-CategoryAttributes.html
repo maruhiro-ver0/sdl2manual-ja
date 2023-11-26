@@ -1,78 +1,78 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_ttf">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_ttf-ApiByCategory.html" title="1��">
-<title>����</title>
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_ttf-ApiByCategory.html" title="1つ上">
+<title>属性</title>
 </head>
 <body>
-<a href="index.html#SDL2_ttf">�ڎ�</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(�@�\��)</a> - ����
+<a href="index.html#SDL2_ttf">目次</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(機能別)</a> - 属性
 <hr>
-<h1>����</h1>
+<h1>属性</h1>
 <p>
-�����̊֐���<a href="old/TTF_Font.html">TTF_Font</a>�ƑS�̂̑���������.
+これらの関数は<a href="old/TTF_Font.html">TTF_Font</a>と全体の属性を扱う.
 </p>
 <p>
-�����̃��g���b�N���ǂ̂悤�ɍ�p���邩��<a href="old/TTF_GlyphMetrics.html">TTF_GlyphMetrics</a>�̍Ō���Q�Ƃ��邱��.
+これらのメトリックがどのように作用するかは<a href="old/TTF_GlyphMetrics.html">TTF_GlyphMetrics</a>の最後を参照すること.
 </p>
-<h2>�S�̂̑���</h2>
+<h2>全体の属性</h2>
 <ol>
-<li><a href="TTF_ByteSwappedUNICODE.html">TTF_ByteSwappedUNICODE</a> - UNICODE�e�L�X�g�̃o�C�g�����̃f�t�H���g��ݒ肷��
+<li><a href="TTF_ByteSwappedUNICODE.html">TTF_ByteSwappedUNICODE</a> - UNICODEテキストのバイト交換のデフォルトを設定する
 </ol>
-<h2>�t�H���g�X�^�C��</h2>
+<h2>フォントスタイル</h2>
 <ol>
-<li><a href="TTF_GetFontStyle.html">TTF_GetFontStyle</a> - �t�H���g�X�^�C���̌��݂̐ݒ�𓾂�
-<li><a href="TTF_SetFontStyle.html">TTF_SetFontStyle</a> - �t�H���g�X�^�C����ݒ肷��
-<li><a href="TTF_GetFontOutline.html">TTF_GetFontOutline</a> - �t�H���g�̌��݂̃A�E�g���C���̒l�𓾂�
-<li><a href="TTF_SetFontOutline.html">TTF_SetFontOutline</a> - �t�H���g�̃A�E�g���C���̒l��ݒ肷��
+<li><a href="TTF_GetFontStyle.html">TTF_GetFontStyle</a> - フォントスタイルの現在の設定を得る
+<li><a href="TTF_SetFontStyle.html">TTF_SetFontStyle</a> - フォントスタイルを設定する
+<li><a href="TTF_GetFontOutline.html">TTF_GetFontOutline</a> - フォントの現在のアウトラインの値を得る
+<li><a href="TTF_SetFontOutline.html">TTF_SetFontOutline</a> - フォントのアウトラインの値を設定する
 </ol>
-<h2>�t�H���g�ݒ�</h2>
+<h2>フォント設定</h2>
 <ol>
-<li><a href="TTF_GetFontHinting.html">TTF_GetFontHinting</a> - �t�H���g�q���e�B���O�̌��݂̐ݒ�𓾂�
-<li><a href="TTF_SetFontHinting.html">TTF_SetFontHinting</a> - �t�H���g�q���e�B���O��ݒ肷��
-<li><a href="TTF_GetFontKerning.html">TTF_GetFontKerning</a> - �t�H���g�̃J�[�j���O�̗L�������𓾂�
-<li><a href="TTF_SetFontKerning.html">TTF_SetFontKerning</a> - �t�H���g�̃J�[�j���O�̗L��������ݒ肷��
-<li><a href="TTF_SetFontSize.html">TTF_SetFontSize</a> - �t�H���g�̃T�C�Y��ύX����
-<li><a href="TTF_SetFontSizeDPI.html">TTF_SetFontSizeDPI</a> - �t�H���g��DPI�P�ʂŎw�肵���𑜓x�ƃT�C�Y��ύX����
-<li><a href="TTF_GetFontWrappedAlign.html">TTF_GetFontWrappedAlign</a> - �t�H���g�̌��݂̐܂�Ԃ��̐ݒ�𓾂�
-<li><a href="TTF_SetFontWrappedAlign.html">TTF_SetFontWrappedAlign</a> - �t�H���g�̐܂�Ԃ�������ݒ肷��
-<li><a href="TTF_SetDirection.html">TTF_SetDirection</a> - ���������̃O���[�o���Ȑݒ���s��
-<li><a href="TTF_SetFontDirection.html">TTF_SetFontDirection</a> - �t�H���g�̏���������ݒ肷��
-<li><a href="TTF_SetScript.html">TTF_SetScript</a> - �����̌n�̃O���[�o���Ȑݒ���s�� 
-<li><a href="TTF_SetFontScriptName.html">TTF_SetFontScriptName</a> - �t�H���g�̕����̌n��ݒ肷��
+<li><a href="TTF_GetFontHinting.html">TTF_GetFontHinting</a> - フォントヒンティングの現在の設定を得る
+<li><a href="TTF_SetFontHinting.html">TTF_SetFontHinting</a> - フォントヒンティングを設定する
+<li><a href="TTF_GetFontKerning.html">TTF_GetFontKerning</a> - フォントのカーニングの有効無効を得る
+<li><a href="TTF_SetFontKerning.html">TTF_SetFontKerning</a> - フォントのカーニングの有効無効を設定する
+<li><a href="TTF_SetFontSize.html">TTF_SetFontSize</a> - フォントのサイズを変更する
+<li><a href="TTF_SetFontSizeDPI.html">TTF_SetFontSizeDPI</a> - フォントのDPI単位で指定した解像度とサイズを変更する
+<li><a href="TTF_GetFontWrappedAlign.html">TTF_GetFontWrappedAlign</a> - フォントの現在の折り返しの設定を得る
+<li><a href="TTF_SetFontWrappedAlign.html">TTF_SetFontWrappedAlign</a> - フォントの折り返し属性を設定する
+<li><a href="TTF_SetDirection.html">TTF_SetDirection</a> - 書字方向のグローバルな設定を行う
+<li><a href="TTF_SetFontDirection.html">TTF_SetFontDirection</a> - フォントの書字方向を設定する
+<li><a href="TTF_SetScript.html">TTF_SetScript</a> - 文字体系のグローバルな設定を行う 
+<li><a href="TTF_SetFontScriptName.html">TTF_SetFontScriptName</a> - フォントの文字体系を設定する
 </ol>
-<h2>�t�H���g���g���b�N</h2>
+<h2>フォントメトリック</h2>
 <ol>
-<li><a href="TTF_FontHeight.html">TTF_FontHeight</a> - �t�H���g�̍����𓾂�
-<li><a href="TTF_FontAscent.html">TTF_FontAscent</a> - �t�H���g�̃x�[�X���C�������[�̃I�t�Z�b�g�l(�A�Z���g�l)�𓾂�
-<li><a href="TTF_FontDescent.html">TTF_FontDescent</a> - �t�H���g�̃x�[�X���C�����牺�[�̃I�t�Z�b�g�l(�f�B�Z���g�l)�𓾂�
-<li><a href="TTF_FontLineSkip.html">TTF_FontLineSkip</a> - �t�H���g�̐����e�L�X�g�s�Ԃ𓾂�
+<li><a href="TTF_FontHeight.html">TTF_FontHeight</a> - フォントの高さを得る
+<li><a href="TTF_FontAscent.html">TTF_FontAscent</a> - フォントのベースラインから上端のオフセット値(アセント値)を得る
+<li><a href="TTF_FontDescent.html">TTF_FontDescent</a> - フォントのベースラインから下端のオフセット値(ディセント値)を得る
+<li><a href="TTF_FontLineSkip.html">TTF_FontLineSkip</a> - フォントの推奨テキスト行間を得る
 </ol>
-<h2>�t�H���g����</h2>
+<h2>フォント属性</h2>
 <ol>
-<li><a href="TTF_FontFaces.html">TTF_FontFaces</a> - �t�H���g�̃t�F�C�X���𓾂�
-<li><a href="TTF_FontFaceIsFixedWidth.html">TTF_FontFaceIsFixedWidth</a> - �t�H���g���������ۂ��𓾂�
-<li><a href="TTF_FontFaceFamilyName.html">TTF_FontFaceFamilyName</a> - �t�H���g�t�@�~���[���𓾂�
-<li><a href="TTF_FontFaceStyleName.html">TTF_FontFaceStyleName</a> - �t�H���g�̃X�^�C�����𓾂�
+<li><a href="TTF_FontFaces.html">TTF_FontFaces</a> - フォントのフェイス数を得る
+<li><a href="TTF_FontFaceIsFixedWidth.html">TTF_FontFaceIsFixedWidth</a> - フォントが等幅が否かを得る
+<li><a href="TTF_FontFaceFamilyName.html">TTF_FontFaceFamilyName</a> - フォントファミリー名を得る
+<li><a href="TTF_FontFaceStyleName.html">TTF_FontFaceStyleName</a> - フォントのスタイル名を得る
 </ol>
-<h2>�O���t</h2>
+<h2>グリフ</h2>
 <ol>
-<li><a href="TTF_GlyphIsProvided.html">TTF_GlyphIsProvided</a> - �t�H���g�̎w�肵��16�r�b�g�R�[�h�|�C���g�ɃO���t���񋟂���Ă��邩�`�F�b�N����
-<li><a href="TTF_GlyphIsProvided32.html">TTF_GlyphIsProvided32</a> - �t�H���g�̎w�肵��32�r�b�g�R�[�h�|�C���g�ɃO���t���񋟂���Ă��邩�`�F�b�N����
-<li><a href="TTF_GlyphMetrics.html">TTF_GlyphMetrics</a> - �t�H���g��16�r�b�g�O���t�̃��g���N�X(���@)�𓾂�
-<li><a href="TTF_GlyphMetrics32.html">TTF_GlyphMetrics32</a> - �t�H���g��32�r�b�g�O���t�̃��g���N�X(���@)�𓾂�
+<li><a href="TTF_GlyphIsProvided.html">TTF_GlyphIsProvided</a> - フォントの指定した16ビットコードポイントにグリフが提供されているかチェックする
+<li><a href="TTF_GlyphIsProvided32.html">TTF_GlyphIsProvided32</a> - フォントの指定した32ビットコードポイントにグリフが提供されているかチェックする
+<li><a href="TTF_GlyphMetrics.html">TTF_GlyphMetrics</a> - フォントの16ビットグリフのメトリクス(寸法)を得る
+<li><a href="TTF_GlyphMetrics32.html">TTF_GlyphMetrics32</a> - フォントの32ビットグリフのメトリクス(寸法)を得る
 </ol>
-<h2>�e�L�X�g���g���b�N</h2>
+<h2>テキストメトリック</h2>
 <ol>
-<li><a href="TTF_SizeText.html">TTF_SizeText</a> - Latin1������̃T�C�Y�����߂�
-<li><a href="TTF_SizeUTF8.html">TTF_SizeUTF8</a> - UTF-8������̃T�C�Y�����߂�
-<li><a href="TTF_SizeUNICODE.html">TTF_SizeUNICODE</a> - UCS-2������̃T�C�Y�����߂�
-<li><a href="TTF_MeasureText.html">TTF_MeasureText</a> - �^����ꂽ���Ɏ��܂�Latin1�����������߂�
-<li><a href="TTF_MeasureUTF8.html">TTF_MeasureUTF8</a> - �^����ꂽ���Ɏ��܂�UTF-8�����������߂�
-<li><a href="TTF_MeasureUNICODE.html">TTF_MeasureUNICODE</a> - �^����ꂽ���Ɏ��܂�UCS-2�����������߂�
+<li><a href="TTF_SizeText.html">TTF_SizeText</a> - Latin1文字列のサイズを求める
+<li><a href="TTF_SizeUTF8.html">TTF_SizeUTF8</a> - UTF-8文字列のサイズを求める
+<li><a href="TTF_SizeUNICODE.html">TTF_SizeUNICODE</a> - UCS-2文字列のサイズを求める
+<li><a href="TTF_MeasureText.html">TTF_MeasureText</a> - 与えられた幅に収まるLatin1文字数を求める
+<li><a href="TTF_MeasureUTF8.html">TTF_MeasureUTF8</a> - 与えられた幅に収まるUTF-8文字数を求める
+<li><a href="TTF_MeasureUNICODE.html">TTF_MeasureUNICODE</a> - 与えられた幅に収まるUCS-2文字数を求める
 </ol>
 <hr>
 </body>

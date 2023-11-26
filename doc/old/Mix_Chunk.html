@@ -1,61 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_mixer-types.html" title="1つ上">
-<title>Mix_Chunk</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - <a href="SDL_mixer-types.html">5.型</a> - Mix_Chunk
-<hr>
-<h1>Mix_Chunk</h1>
-<p>
-<code>
-<pre>
-typedef struct Mix_Chunk {
-    int allocated;
-    Uint8 *abuf;
-    Uint32 alen;
-    Uint8 volume;     /* サンプリング音声ごとのボリューム (0～128) */
-} Mix_Chunk;
-</pre>
-</code>
-</p>
-<p>
-<dl>
-<dt>allocated</dt><dd>
-チャンクを解放するときabufを解放するかを指示するブール値.
-0ならばメモリが確保されていないため, このチャンクが管理しない.
-1ならばメモリが確保されており, このチャンクが管理する
-</dd>
-<dt>abuf</dt><dd>
-サンプリングデータへのポインタ.
-出力の形式とサンプリングレートとなっている
-</dd>
-<dt>alen</dt><dd>
-abufのバイト長
-</dd>
-<dt>volume</dt><dd>
-0 = 無音, 128 = 最大ボリューム. ミキシングのとき効果がある
-</dd>
-</dl>
-</p>
-<p>
-音声チャンクの内部形式.
-サンプリングデータ, データのバイト長, ミキシングで使うボリュームが格納されている.
-</p>
-<h2>参照</h2>
-<a href="Mix_VolumeChunk.html">Mix_VolumeChunk</a>,
-<a href="Mix_GetChunk.html">Mix_GetChunk</a>,
-<a href="Mix_LoadWAV.html">Mix_LoadWAV</a>,
-<a href="Mix_LoadWAV_RW.html">Mix_LoadWAV_RW</a>,
-<a href="Mix_FreeChunk.html">Mix_FreeChunk</a>,
-<a href="Mix_Music.html">Mix_Music</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_85.html#SEC85">5.1 Mix_Chunk</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

@@ -1,40 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_mixer">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="index.html#SDL_mixer" title="1つ上">
-<title>3.競合</title>
-</head>
-<body>
-<a href="index.html#SDL_mixer">目次</a> - 3.競合
-<hr>
-<h1>3.競合</h1>
-<p>
-SDL_mixerの関数を使う場合は, 以下のSDLの関数を使ってはならない:
-<dl>
-<dt><a href="SDL_OpenAudio.html">SDL_OpenAudio</a></dt><dd>代わりに<a href="Mix_OpenAudio.html">Mix_OpenAudio</a>を使う.</dd>
-<dt><a href="SDL_CloseAudio.html">SDL_CloseAudio</a></dt><dd>代わりに<a href="Mix_CloseAudio.html">Mix_CloseAudio</a>を使う.</dd>
-<dt><a href="SDL_PauseAudio.html">SDL_PauseAudio</a></dt><dd>一時停止は<a href="Mix_Pause.html">Mix_Pause(-1)</a>と<a href="Mix_PauseMusic.html">Mix_PauseMusic</a>を代わりに使う.<br>再開は<a href="Mix_Resume.html">Mix_Resume(-1)</a>と<a href="Mix_ResumeMusic.html">Mix_ResumeMusic</a>を代わりに使う.</dd>
-<dt><a href="SDL_LockAudio.html">SDL_LockAudio</a></dt><dd>SDL_mixerではユーザが使う必要はない. 使うと問題を引き起こす可能性がある.</dd>
-<dt><a href="SDL_UnlockAudio.html">SDL_UnlockAudio</a></dt><dd>SDL_mixerではユーザが使う必要はない. 使うと問題を引き起こす可能性がある.</dd>
-</dl>
-</p>
-<p>
-以下の関数は使える:
-<dl>
-<dt>SDL_AudioDriverName (訳注: SDL 2.0では<a href="SDL_GetCurrentAudioDriver.html">SDL_GetCurrentAudioDriver</a>で置き換えられた)</dt><dd>通常通り使える.</dd>
-<dt><a href="SDL_GetAudioStatus.html">SDL_GetAudioStatus</a></dt><dd>通常通り使えるが, SDL_Mixerが無音でもSDL_AUDIO_PLAYINGを戻す.</dd>
-</dl>
-</p>
-<p>
-コールバックからSDL_mixerとSDLのオーディオ関数を呼ぶのはよくない.
-コールバックには効果音関数と他のSDL_mixerのオーディオのフックを含む.
-</p>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_5.html#SEC5">3. Conflicts</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

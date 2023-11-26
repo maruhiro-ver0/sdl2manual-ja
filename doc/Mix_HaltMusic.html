@@ -1,32 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1つ上">
 <title>Mix_HaltMusic</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_mixer-CategoryMusic.html">���y</a> - Mix_HaltMusic
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryMusic.html">音楽</a> - Mix_HaltMusic
 <hr>
 <h1>Mix_HaltMusic</h1>
-���y�̍Đ����~����
-<h2>�\��</h2>
+音楽の再生を停止する
+<h2>構文</h2>
 <code>int Mix_HaltMusic(void)</code>
-<h2>�߂�l</h2>
-���y����~�������ۂ��Ɋւ�炸0��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+音楽が停止したか否かに関わらず0を戻す.
+<h2>詳細</h2>
 <p>
-���̊֐��͐V�������y�I�u�W�F�N�g�̍Đ����J�n�����܂ŉ��y�̍Đ����~����.
+この関数は新しい音楽オブジェクトの再生が開始されるまで音楽の再生を停止する.
 </p>
 <p>
-���y����~����Ƃ�, <a href="Mix_HookMusicFinished.html">Mix_HookMusicFinished()</a>�Őݒ肳�ꂽ�R�[���o�b�N�����̊֐�����߂�O�ɌĂ΂��.
+音楽が停止するとき, <a href="Mix_HookMusicFinished.html">Mix_HookMusicFinished()</a>で設定されたコールバックがこの関数から戻る前に呼ばれる.
 </p>
-<h2>�o�[�W����</h2>
-SDL_mixer 2.0.0�ȍ~
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/Mix_HaltMusic">SDL2_mixer/Mix_HaltMusic</a>
 <hr>
 </body>

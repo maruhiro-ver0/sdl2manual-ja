@@ -1,37 +1,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryAssertions.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryAssertions.html" title="1ã¤ä¸Š">
 <title>SDL_assert_data</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryAssertions.html">ƒAƒT[ƒVƒ‡ƒ“</a> - SDL_assert_data
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryAssertions.html">ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³</a> - SDL_assert_data
 <hr>
 <h1>SDL_assert_data</h1>
-ƒAƒT[ƒVƒ‡ƒ“‚Ìî•ñ‚Ì\‘¢‘Ì
-<h2>ƒtƒB[ƒ‹ƒh</h2>
+ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã®æƒ…å ±ã®æ§‹é€ ä½“
+<h2>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰</h2>
 <table border="1" summary="SDL_assert_data">
-<tr><td>int</td><td>always_ignore</td><td>İ’è‚³‚ê‚Ä‚¢‚ê‚Î1, ‚¢‚È‚¯‚ê‚Î0</td></tr>
-<tr><td>unsigned int</td><td>trigger_count</td><td>ƒAƒT[ƒVƒ‡ƒ“‚Ì‰ñ”</td></tr>
-<tr><td>const char*</td><td>condition</td><td>ƒ`ƒFƒbƒN‚·‚éƒAƒT[ƒVƒ‡ƒ“‚ÌğŒ</td></tr>
-<tr><td>const char*</td><td>filename</td><td>ƒAƒT[ƒVƒ‡ƒ“‚Ì‚ ‚éƒtƒ@ƒCƒ‹‚Ì–¼‘O</td></tr>
-<tr><td>int</td><td>linenum</td><td>ƒAƒT[ƒVƒ‡ƒ“‚Ì‚ ‚éˆÊ’u</td></tr>
-<tr><td>const char*</td><td>function</td><td>ƒAƒT[ƒVƒ‡ƒ“‚Ì‚ ‚éŠÖ”</td></tr>
-<tr><td>const struct SDL_assert_data*</td><td>next</td><td>Ÿ‚ÌƒAƒT[ƒVƒ‡ƒ“î•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^</td></tr>
+<tr><td>int</td><td>always_ignore</td><td>è¨­å®šã•ã‚Œã¦ã„ã‚Œã°1, ã„ãªã‘ã‚Œã°0</td></tr>
+<tr><td>unsigned int</td><td>trigger_count</td><td>ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã®å›æ•°</td></tr>
+<tr><td>const char*</td><td>condition</td><td>ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã®æ¡ä»¶</td></tr>
+<tr><td>const char*</td><td>filename</td><td>ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰</td></tr>
+<tr><td>int</td><td>linenum</td><td>ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚ã‚‹ä½ç½®</td></tr>
+<tr><td>const char*</td><td>function</td><td>ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚ã‚‹é–¢æ•°</td></tr>
+<tr><td>const struct SDL_assert_data*</td><td>next</td><td>æ¬¡ã®ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³æƒ…å ±ã¸ã®ãƒã‚¤ãƒ³ã‚¿</td></tr>
 </table>
-<h2>Ú×</h2>
-‚±‚Ì\‘¢‘Ì‚ÍƒAƒT[ƒVƒ‡ƒ“ƒnƒ“ƒhƒ‰‚Åî•ñ‚ª‘‚«‚Ü‚ê, •ñ‚É‰Á‚¦‚ç‚ê‚é.
-<a href="SDL_GetAssertionReport.html">SDL_GetAssertionReport()</a>‚ÍƒŠƒ“ƒN‚³‚ê‚½ƒŠƒXƒg\‘¢‚Å‚±‚Ì\‘¢‘Ì‚ğ–ß‚·.
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>è©³ç´°</h2>
+ã“ã®æ§‹é€ ä½“ã¯ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ãƒãƒ³ãƒ‰ãƒ©ã§æƒ…å ±ãŒæ›¸ãè¾¼ã¾ã‚Œ, å ±å‘Šã«åŠ ãˆã‚‰ã‚Œã‚‹.
+<a href="SDL_GetAssertionReport.html">SDL_GetAssertionReport()</a>ã¯ãƒªãƒ³ã‚¯ã•ã‚ŒãŸãƒªã‚¹ãƒˆæ§‹é€ ã§ã“ã®æ§‹é€ ä½“ã‚’æˆ»ã™.
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_assert.html">SDL_assert</a><br>
 <a href="SDL_assert_paranoid.html">SDL_assert_paranoid</a><br>
 <a href="SDL_assert_release.html">SDL_assert_release</a><br>
 <a href="SDL_GetAssertionReport.html">SDL_GetAssertionReport</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_assert_data">SDL_assert_data - SDL Wiki</a><br>
 <hr>
 </body>

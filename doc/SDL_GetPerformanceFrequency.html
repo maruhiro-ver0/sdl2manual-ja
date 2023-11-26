@@ -1,23 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryTimer.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryTimer.html" title="1ã¤ä¸Š">
 <title>SDL_GetPerformanceFrequency</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryTimer.html">ƒ^ƒCƒ}</a> - SDL_GetPerformanceFrequency
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryTimer.html">ã‚¿ã‚¤ãƒ</a> - SDL_GetPerformanceFrequency
 <hr>
 <h1>SDL_GetPerformanceFrequency</h1>
-1•b‚ ‚½‚è‚Ì‚•ª‰ğ”\ƒJƒEƒ“ƒ^‚ğ“¾‚é
-<h2>\•¶</h2>
+1ç§’ã‚ãŸã‚Šã®é«˜åˆ†è§£èƒ½ã‚«ã‚¦ãƒ³ã‚¿ã‚’å¾—ã‚‹
+<h2>æ§‹æ–‡</h2>
 <code>Uint64 SDL_GetPerformanceFrequency(void)</code>
-<h2>–ß‚è’l</h2>
-ŠÂ‹«‚ÉˆË‘¶‚µ‚½1•b‚ ‚½‚è‚ÌƒJƒEƒ“ƒg”‚ğ“¾‚é.
-<h2>ƒTƒ“ƒvƒ‹ƒR[ƒh</h2>
+<h2>æˆ»ã‚Šå€¤</h2>
+ç’°å¢ƒã«ä¾å­˜ã—ãŸ1ç§’ã‚ãŸã‚Šã®ã‚«ã‚¦ãƒ³ãƒˆæ•°ã‚’å¾—ã‚‹.
+<h2>ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰</h2>
 <p>
 <code>
 <pre>
@@ -37,7 +37,7 @@ ticktock(Uint32 interval, void *param)
 static Uint32 SDLCALL
 callback(Uint32 interval, void *param)
 {
-    SDL_Log("ƒ^ƒCƒ} %d : ƒpƒ‰ƒ[ƒ^ = %d", interval, (int) (uintptr_t) param);
+    SDL_Log("ã‚¿ã‚¤ãƒ %d : ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ = %d", interval, (int) (uintptr_t) param);
     return interval;
 }
 
@@ -49,15 +49,15 @@ main(int argc, char *argv[])
     Uint32 start32, now32;
     Uint64 start, now;
 
-    /* ’Êí‚ÌƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒƒO‚ğ—LŒø‚É‚·‚é */
+    /* é€šå¸¸ã®ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ­ã‚°ã‚’æœ‰åŠ¹ã«ã™ã‚‹ */
     SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
 
     if (SDL_Init(SDL_INIT_TIMER) &lt; 0) {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDL‚ğ‰Šú‰»‚Å‚«‚È‚©‚Á‚½: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDLã‚’åˆæœŸåŒ–ã§ããªã‹ã£ãŸ: %s", SDL_GetError());
         return (1);
     }
 
-    /* ƒ^ƒCƒ}‚ğŠJn‚·‚é */
+    /* ã‚¿ã‚¤ãƒã‚’é–‹å§‹ã™ã‚‹ */
     desired = 0;
     if (argv[1]) {
         desired = SDL_atoi(argv[1]);
@@ -67,36 +67,36 @@ main(int argc, char *argv[])
     }
     t1 = SDL_AddTimer(desired, ticktock, NULL);
 
-    /* 10•bŠÔ‘Ò‚Â */
-    SDL_Log("10•bŠÔ‘Ò‚Â");
+    /* 10ç§’é–“å¾…ã¤ */
+    SDL_Log("10ç§’é–“å¾…ã¤");
     SDL_Delay(10 * 1000);
 
-    /* ƒ^ƒCƒ}‚ğ’â~‚·‚é */
+    /* ã‚¿ã‚¤ãƒã‚’åœæ­¢ã™ã‚‹ */
     SDL_RemoveTimer(t1);
 
-    /* Œ‹‰Ê‚ğ•\¦‚·‚é */
+    /* çµæœã‚’è¡¨ç¤ºã™ã‚‹ */
     if (ticks) {
-        SDL_Log("ƒ^ƒCƒ}•ª‰ğ”\: —v‹ = %d ms, ÀÛ = %f ms",
+        SDL_Log("ã‚¿ã‚¤ãƒåˆ†è§£èƒ½: è¦æ±‚ = %d ms, å®Ÿéš› = %f ms",
                 desired, (double) (10 * 1000) / ticks);
     }
 
-    /* •¡”‚Ìƒ^ƒCƒ}‚ÌƒeƒXƒg */
-    SDL_Log("•¡”‚Ìƒ^ƒCƒ}‚ÌƒeƒXƒg...");
+    /* è¤‡æ•°ã®ã‚¿ã‚¤ãƒã®ãƒ†ã‚¹ãƒˆ */
+    SDL_Log("è¤‡æ•°ã®ã‚¿ã‚¤ãƒã®ãƒ†ã‚¹ãƒˆ...");
     t1 = SDL_AddTimer(100, callback, (void *) 1);
     if (!t1)
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"ƒ^ƒCƒ}1‚ğ¶¬‚Å‚«‚È‚©‚Á‚½: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"ã‚¿ã‚¤ãƒ1ã‚’ç”Ÿæˆã§ããªã‹ã£ãŸ: %s", SDL_GetError());
     t2 = SDL_AddTimer(50, callback, (void *) 2);
     if (!t2)
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"ƒ^ƒCƒ}2‚ğ¶¬‚Å‚«‚È‚©‚Á‚½: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"ã‚¿ã‚¤ãƒ2ã‚’ç”Ÿæˆã§ããªã‹ã£ãŸ: %s", SDL_GetError());
     t3 = SDL_AddTimer(233, callback, (void *) 3);
     if (!t3)
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"ƒ^ƒCƒ}3‚ğ¶¬‚Å‚«‚È‚©‚Á‚½: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"ã‚¿ã‚¤ãƒ3ã‚’ç”Ÿæˆã§ããªã‹ã£ãŸ: %s", SDL_GetError());
 
-    /* 10•bŠÔ‘Ò‚Â */
-    SDL_Log("10•bŠÔ‘Ò‚Â");
+    /* 10ç§’é–“å¾…ã¤ */
+    SDL_Log("10ç§’é–“å¾…ã¤");
     SDL_Delay(10 * 1000);
 
-    SDL_Log("ƒ^ƒCƒ}1‚ğíœ‚µ, ‚³‚ç‚É5•bŠÔ‘Ò‚Â");
+    SDL_Log("ã‚¿ã‚¤ãƒ1ã‚’å‰Šé™¤ã—, ã•ã‚‰ã«5ç§’é–“å¾…ã¤");
     SDL_RemoveTimer(t1);
 
     SDL_Delay(5 * 1000);
@@ -109,15 +109,15 @@ main(int argc, char *argv[])
         ticktock(0, NULL);
     }
     now = SDL_GetPerformanceCounter();
-    SDL_Log("100–œ‰ñ‚ÌticktockŠÖ”‚ÌŒÄ‚Ño‚µ‚É‚Í %f ms ‚ğ—v‚µ‚½", (double)((now - start)*1000) / SDL_GetPerformanceFrequency());
+    SDL_Log("100ä¸‡å›ã®ticktocké–¢æ•°ã®å‘¼ã³å‡ºã—ã«ã¯ %f ms ã‚’è¦ã—ãŸ", (double)((now - start)*1000) / SDL_GetPerformanceFrequency());
 
-    SDL_Log("1•b‚ ‚½‚è‚Ì‚•ª‰ğ”\ƒJƒEƒ“ƒ^: %"SDL_PRIu64"", (unsigned long long) SDL_GetPerformanceFrequency());
+    SDL_Log("1ç§’ã‚ãŸã‚Šã®é«˜åˆ†è§£èƒ½ã‚«ã‚¦ãƒ³ã‚¿: %"SDL_PRIu64"", (unsigned long long) SDL_GetPerformanceFrequency());
     start32 = SDL_GetTicks();
     start = SDL_GetPerformanceCounter();
     SDL_Delay(1000);
     now = SDL_GetPerformanceCounter();
     now32 = SDL_GetTicks();
-    SDL_Log("SDL_Delay(1000) = %d ms, ‚•ª‰ğ”\‚Å‚Í %f", (now32-start32), (double)((now - start)*1000) / SDL_GetPerformanceFrequency());
+    SDL_Log("SDL_Delay(1000) = %d ms, é«˜åˆ†è§£èƒ½ã§ã¯ %f", (now32-start32), (double)((now - start)*1000) / SDL_GetPerformanceFrequency());
 
     SDL_Quit();
     return (0);
@@ -125,13 +125,13 @@ main(int argc, char *argv[])
 </pre>
 </code>
 </p>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
 <p>
-SDL 2.0.0ˆÈ~
+SDL 2.0.0ä»¥é™
 </p>
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_GetPerformanceCounter.html">SDL_GetPerformanceCounter</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_GetPerformanceFrequency">SDL_GetPerformanceFrequency - SDL Wiki</a>
 <hr>
 </body>

@@ -1,69 +1,69 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="index.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="index.html" title="1つ上">
 <title>TextInput</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - �`���[�g���A�� - TextInput
+<a href="index.html">目次</a> - チュートリアル - TextInput
 <hr>
 <h1>TextInput</h1>
-<h2>�Ȃ�?</h2>
+<h2>なぜ?</h2>
 <p>
-�Ȃ�SDL�ɂ̓e�L�X�g����API���K�v�Ȃ̂�?
+なぜSDLにはテキスト入力APIが必要なのか?
 </p>
 <p>
-�L�[�{�[�h�̃L�[��������, �v���O�����͕����C�x���g����M����. �����ł͂Ȃ��̂�?
+キーボードのキーを押せば, プログラムは文字イベントを受信する. そうではないのか?
 </p>
 <p>
-��ɂ��̂悤�ɒP���Ȃ킯�ł͂Ȃ�.
-1�̕����̂��߂ɕ����̃L�[���K�v�Ȃ��Ƃ�����, 1�̃L�[�������̕����𐶐����邱�Ƃ�����.
+常にそのように単純なわけではない.
+1つの文字のために複数のキーが必要なことがあり, 1つのキーが複数の文字を生成することもある.
 </p>
 <p>
-�e�L�X�g���͂�, ���E���̃��[�U���l������Ȃ��(�����Ă������ׂ���), �����ڂقǒP���ł͂Ȃ�.
-������, ���{��, �؍���Ȃǂ�����΂����ɂ킩�邾�낤.
-������CJK�ƌĂ΂�錾��ɂ͐���̕���������.
+テキスト入力は, 世界中のユーザを考慮するならば(そしてそうすべきだ), 見た目ほど単純ではない.
+中国語, 日本語, 韓国語などを見ればすぐにわかるだろう.
+これらのCJKと呼ばれる言語には数千の文字がある.
 </p>
 <p>
-�ꖜ�𒴂���L�[�̂���L�[�{�[�h�͑��݂����Ȃ�.
-���̉����@���\�t�g�E�F�A �C���v�b�g ���\�b�h�ł���.
+一万を超えるキーのあるキーボードは存在し得ない.
+その解決法がソフトウェア インプット メソッドである.
 </p>
-<h2>�p��</h2>
+<h2>用語</h2>
 <ul>
-<li>IME - �C���v�b�g ���\�b�h �G�f�B�^. �\�t�g�E�F�A �C���v�b�g ���\�b�h. �L�[���͂Ɋ��荞��, (�ŏI�I��)�A�v���P�[�V�����ɏo�͂���O�ɏ������邽�߂ɒʏ�p������v���O����.
-<li>���ϊ��e�L�X�g - ���[�U�����ݓ��͂��Ă���e�L�X�g. �e�L�X�g�͂܂����͂��I���ĂȂ�(���m��), IME�������ҏW���Ă���. ����I�ɂ�, ���̃e�L�X�g�͔w�i���h��Ԃ���Ă��邩, ���ɔj����������Ă���.
-<li>�ϊ� - ���ϊ��e�L�X�g�̒u������
-<li>�ϊ���⃊�X�g - �����܂���������ꍇ�ɗp������ϊ����̈ꗗ.
+<li>IME - インプット メソッド エディタ. ソフトウェア インプット メソッド. キー入力に割り込み, (最終的に)アプリケーションに出力する前に処理するために通常用いられるプログラム.
+<li>未変換テキスト - ユーザが現在入力しているテキスト. テキストはまだ入力を終えてなく(未確定), IMEがそれを編集している. 慣例的には, このテキストは背景が塗りつぶされているか, 下に破線が引かれている.
+<li>変換 - 未変換テキストの置き換え
+<li>変換候補リスト - あいまい性がある場合に用いられる変換候補の一覧.
 </ul>
-<h2>�菇</h2>
+<h2>手順</h2>
 <table border="1">
-<tr><th>����</th><th>����</th><th>��</th></tr><tr>
-<td>1</td><td>���[�U�̓C���v�b�g���\�b�h(IME)��L���ɂ���. �ʏ�̓z�b�g�L�[�܂���GUI�ŃC���v�b�g���\�b�h��I������.</td><td><img src="TextInput1.png" alt="step1"></td></tr>
-<td>2</td><td>���[�U�͑I����������œ��͂��J�n����.</td><td><img src="TextInput2.png" alt="step2"></td></tr>
-<td>3</td><td>���[�U�͖]�ނƂ���܂œ��͂𑱂���.</td><td><img src="TextInput3.png" alt="step3"></td></tr>
-<td>4</td><td>���[�U�͕ϊ���⃊�X�g���J��, �ϊ��e�L�X�g��I������. IME�������I�ɕϊ����X�g���J���悤�ɂ��邱�Ƃ��ł���.</td><td><img src="TextInput4.png" alt="step4"></td></tr>
-<td>5</td><td>���[�U�͕ϊ����m�肷��. IME�̓A�v���P�[�V�����Ƀe�L�X�g��n��.</td><td><img src="TextInput5.png" alt="step5"></td></tr>
+<tr><th>順序</th><th>説明</th><th>例</th></tr><tr>
+<td>1</td><td>ユーザはインプットメソッド(IME)を有効にする. 通常はホットキーまたはGUIでインプットメソッドを選択する.</td><td><img src="TextInput1.png" alt="step1"></td></tr>
+<td>2</td><td>ユーザは選択した言語で入力を開始する.</td><td><img src="TextInput2.png" alt="step2"></td></tr>
+<td>3</td><td>ユーザは望むところまで入力を続ける.</td><td><img src="TextInput3.png" alt="step3"></td></tr>
+<td>4</td><td>ユーザは変換候補リストを開き, 変換テキストを選択する. IMEが自動的に変換リストを開くようにすることもできる.</td><td><img src="TextInput4.png" alt="step4"></td></tr>
+<td>5</td><td>ユーザは変換を確定する. IMEはアプリケーションにテキストを渡す.</td><td><img src="TextInput5.png" alt="step5"></td></tr>
 </table>
 <p>
-�S�Ă̊��œ����ł���킯�ł͂Ȃ���, �T�v�Ƃ��Ă͂���ŏ\���ł���.
+全ての環境で同じであるわけではないが, 概要としてはこれで十分である.
 </p>
 <p>
-�����̃X�^�C���̃C���v�b�g���\�b�h�ɂ��Ă�<a href="http://www-archive.mozilla.org/projects/intl/input-method-spec.html">����</a>�œǂ߂�.
-SDL��"on-the-spot"���[�h�ɑΉ����Ă���.
-����͎����̂Ƃ��d�v�ł���: �A�v���P�[�V�����͖��ϊ��e�L�X�g��\������K�v������.
+複数のスタイルのインプットメソッドについては<a href="http://www-archive.mozilla.org/projects/intl/input-method-spec.html">ここ</a>で読める.
+SDLは"on-the-spot"モードに対応している.
+これは実装のとき重要である: アプリケーションは未変換テキストを表示する必要がある.
 </p>
 <h2>SDL</h2>
 <p>
-SDL�ł͂ǂ̂悤�ɂ��ăe�L�X�g���͂������΂悢��?
+SDLではどのようにしてテキスト入力を扱えばよいか?
 </p>
 <p>
-�܂��͗������:
+まずは例を示す:
 </p>
-<h3>��</h3>
+<h3>例</h3>
 <code>
 <pre>
 #include "SDL.h"
@@ -90,18 +90,18 @@ int main(int argc, char *argv[])
         if (SDL_PollEvent(&event)) {
             switch (event.type) {
                 case SDL_QUIT:
-                    /* �I�� */
+                    /* 終了 */
                     done = SDL_TRUE;
                     break;
                 case SDL_TEXTINPUT:
-                    /* �e�L�X�g�̖����ɐV�����e�L�X�g��ǉ����� */
+                    /* テキストの末尾に新しいテキストを追加する */
                     strcat(text, event.text.text);
                     break;
                 case SDL_TEXTEDITING:
                     /*
-                    ���ϊ��e�L�X�g���X�V����.
-                    �J�[�\���ʒu���X�V����.
-                    �I���̒�����ϊ�����(�\�Ȃ��).
+                    未変換テキストを更新する.
+                    カーソル位置を更新する.
+                    選択の長さを変換する(可能ならば).
                     */
                     composition = event.edit.text;
                     cursor = event.edit.start;
@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 }
 </pre>
 </code>
-<h3>�֐�</h3>
+<h3>関数</h3>
 <ul>
 <li><a href="SDL_StartTextInput.html">SDL_StartTextInput</a>
 <li><a href="SDL_StopTextInput.html">SDL_StopTextInput</a>
@@ -127,25 +127,25 @@ int main(int argc, char *argv[])
 <li><a href="SDL_IsScreenKeyboardShown.html">SDL_IsScreenKeyboardShown</a>
 <li><a href="SDL_HasScreenKeyboardSupport.html">SDL_HasScreenKeyboardSupport</a>
 </ul>
-<h3>�C�x���g</h3>
+<h3>イベント</h3>
 <ul>
 <li><a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a>
 <li><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a>
 </ul>
 <p>
-���ӂ��ׂ��d�v�ȓ_��, �A�v���P�[�V������<a href="SDL_StartTextInput.html">SDL_StartTextInput()</a>��<a href="SDL_StopTextInput.html">SDL_StopTextInput()</a>�Ńe�L�X�g���͂̉s�����R�ɐݒ�ł��邱�Ƃł���.
-�����Ή����Ă����, <a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect()</a>�͕ϊ���⃊�X�g���ǂ��ɊJ���������߂�.
+注意すべき重要な点は, アプリケーションは<a href="SDL_StartTextInput.html">SDL_StartTextInput()</a>と<a href="SDL_StopTextInput.html">SDL_StopTextInput()</a>でテキスト入力の可不可を自由に設定できることである.
+もし対応していれば, <a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect()</a>は変換候補リストをどこに開くかを決める.
 </p>
 <p>
-�A�v���P�[�V������, ���ϊ��e�L�X�g���ύX���ꂽ(�܂��͊J�n����)�Ȃ��, <a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a>�C�x���g����M����.
-���̃C�x���g�ɂ�, ���ϊ��e�L�X�g��, ���ϊ��e�L�X�g���̃J�[�\���̈ʒu���܂܂�Ă���.
-�����Ή����Ă����, �I�����ꂽ�e�L�X�g�̒������܂܂�Ă���.
+アプリケーションは, 未変換テキストが変更された(または開始した)ならば, <a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a>イベントを受信する.
+このイベントには, 未変換テキストと, 未変換テキスト内のカーソルの位置が含まれている.
+もし対応していれば, 選択されたテキストの長さも含まれている.
 </p>
 <p>
-�A�v���P�[�V������, �ϊ����m�肵(IME�ł͂Ȃ�)�ʏ�̃e�L�X�g���͂ɖ߂����Ƃ�<a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a>�C�x���g����M����.
-���̃C�x���g�̎�M��, �ϊ��̊m��, �܂��͖��ϊ��e�L�X�g�̓��͂��n�܂��Ă��Ȃ�(���ړ���)���Ƃ������Ă���.
+アプリケーションは, 変換が確定し(IMEではない)通常のテキスト入力に戻ったとき<a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a>イベントを受信する.
+このイベントの受信は, 変換の確定, または未変換テキストの入力が始まっていない(直接入力)ことを示している.
 </p>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/Tutorials-TextInput">Tutorials-TextInput - SDL Wiki</a>
 <hr>
 </body>

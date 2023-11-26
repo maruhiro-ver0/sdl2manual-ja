@@ -1,34 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1つ上">
 <title>Mix_GetChunk</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_mixer-CategoryChannels.html">�`���l��</a> - Mix_GetChunk
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryChannels.html">チャネル</a> - Mix_GetChunk
 <hr>
 <h1>Mix_GetChunk</h1>
-�~�L�T�[�`���l���Ɋ֘A�t����ꂽMix_Chunk�𓾂�
-<h2>�\��</h2>
+ミキサーチャネルに関連付けられたMix_Chunkを得る
+<h2>構文</h2>
 <code>Mix_Chunk * Mix_GetChunk(int channel)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="Mix_GetChunk">
-<tr><td>channel</td><td>��������`���l��</td></tr>
+<tr><td>channel</td><td>調査するチャネル</td></tr>
 </table>
-<h2>�߂�l</h2>
-���݂���ꍇ�͊֘A�t����ꂽ�`�����N��߂�.
-���݂��Ȃ��ꍇ��NULL��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+存在する場合は関連付けられたチャンクを戻す.
+存在しない場合はNULLを戻す.
+<h2>詳細</h2>
 <p>
-�`���l����MAX_CHANNEL_POST��-1���w�肵�Ă͂Ȃ�Ȃ�.
+チャネルにMAX_CHANNEL_POSTや-1を指定してはならない.
 </p>
-<h2>�o�[�W����</h2>
-SDL_mixer 2.0.0�ȍ~
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/Mix_GetChunk">SDL2_mixer/Mix_GetChunk</a>
 <hr>
 </body>

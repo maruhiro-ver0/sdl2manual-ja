@@ -1,58 +1,58 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL 2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="FAQs.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="FAQs.html" title="1つ上">
 <title>FAQ: Mac OS X</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="FAQs.html">FAQ</a> - Mac OS X
+<a href="index.html">目次</a> - <a href="FAQs.html">FAQ</a> - Mac OS X
 <hr>
 <h1>FAQ:Mac OS X</h1>
-<h2>���ɑΉ����Ă��邩?</h2>
+<h2>何に対応しているか?</h2>
 <p>
-SDL 2.0.0��Mac OS X 10.5�ȍ~��Xcode�ƌÓT�I��UNIX�X�^�C���̃r���h���ɑΉ����Ă���.
-���݂�Xcode�̂�SDL�t���[�����[�N���g���ăr���h�ł���.
-UNIX�X�^�C���̊��ł͌ÓT�I�ȋ��L�܂��͐ÓISDL���C�u�����ō쐬����.
+SDL 2.0.0はMac OS X 10.5以降のXcodeと古典的なUNIXスタイルのビルド環境に対応している.
+現在はXcodeのみSDLフレームワークを使ってビルドできる.
+UNIXスタイルの環境では古典的な共有または静的SDLライブラリで作成する.
 </p>
 <p>
-�ŐV�̏���<a href="https://wiki.libsdl.org/Installation">�C���X�g�[��</a>���Q�Ƃ��邱��.
+最新の情報は<a href="https://wiki.libsdl.org/Installation">インストール</a>を参照すること.
 </p>
 <h2>
-Xcode��UNIX�X�^�C���r���h���͉����Ⴄ?
+XcodeとUNIXスタイルビルド環境は何が違う?
 </h2>
 <p>
-SDL�J���p�b�P�[�W�ɂ̓t���[�����[�N�̌`��SDL���C�u�������܂܂�Ă���.
-�J����Xcode���g�������̂ł���Ή������͂Ȃ�.
-������, configure�X�N���v�g���g���A�v���P�[�V������, �قƂ�ǂ̏ꍇ, SDL��UNIX�X�^�C���ŃC���X�g�[������K�v������.
+SDL開発パッケージにはフレームワークの形のSDLライブラリが含まれている.
+開発にXcodeを使いたいのであれば何も問題はない.
+しかし, configureスクリプトを使うアプリケーションは, ほとんどの場合, SDLはUNIXスタイルでインストールする必要がある.
 </p>
 <p>
-�t���[�����[�N���C���X�g�[������ꍇ, �S�Ă�SDL�̃t�@�C��(���C�u�����ƃw�b�_)��.framework bundle�ɂ܂Ƃ߂��Ă���, /Library/Frameworks/ �܂��� ~/Library/Frameworks/ �ɃC���X�g�[�������.
-�����xcode���F���ł���悤�ɂȂ�.
-������, SDL�͎g��������UNIX�X�^�C���̃r���h�����g�������ꍇ��, �ʏ킱��SDL�͔F���ł��Ȃ�.
-(configure�X�N���v�g���蓮�ŏ��������ăt���[�����[�N���g����悤�ɂ�����O�����������邪, ����͋H�Ȃ��Ƃł���.)
+フレームワークをインストールする場合, 全てのSDLのファイル(ライブラリとヘッダ)は.framework bundleにまとめられていて, /Library/Frameworks/ または ‾/Library/Frameworks/ にインストールされる.
+これでxcodeが認識できるようになる.
+しかし, SDLは使いたいがUNIXスタイルのビルド環境を使いたい場合は, 通常このSDLは認識できない.
+(configureスクリプトを手動で書き換えてフレームワークを使えるようにした例外がいくつかあるが, それは稀なことである.)
 </p>
 <p>
-UNIX�X�^�C���ŃC���X�g�[������ꍇ, SDL�� /usr/local/bin, /usr/local/include, /usr/local/lib �ɃC���X�g�[�������. (���ۂ̃p�X�͈قȂ�ꍇ������. �Ⴆ��Fink SDL�p�b�P�[�W�̓f�t�H���g�ł� /usr/local �̑���� /sw ���g��.)
-���̏ꍇ, ��ʓI��UNIX�ɑΉ������r���h�V�X�e���͂���SDL��F���ł���.
+UNIXスタイルでインストールする場合, SDLは /usr/local/bin, /usr/local/include, /usr/local/lib にインストールされる. (実際のパスは異なる場合がある. 例えばFink SDLパッケージはデフォルトでは /usr/local の代わりに /sw を使う.)
+この場合, 一般的なUNIXに対応したビルドシステムはこのSDLを認識できる.
 </p>
-<h2>UNIX�X�^�C����SDL���C���X�g�[��������@��?</h2>
+<h2>UNIXスタイルのSDLをインストールする方法は?</h2>
 <p>
-�\�[�X���R���p�C�����ăC���X�g�[������(�ʏ�� ./configure && make && make install procedure).
-�܂���, �r���h���ꂽ�p�b�P�[�W���C���X�g�[������.
-�Ⴆ��, Fink��<a href="http://www.macports.org/">MacPorts</a>�̗��p�b�P�[�W���K���Ă��邾�낤.
-���ꂼ��̃T�C�g�ŏڍׂ�m�邱�Ƃ��ł���.
+ソースをコンパイルしてインストールする(通常は ./configure && make && make install procedure).
+または, ビルドされたパッケージをインストールする.
+例えば, Finkと<a href="http://www.macports.org/">MacPorts</a>の両パッケージが適しているだろう.
+それぞれのサイトで詳細を知ることができる.
 </p>
 <p>
-�A�v���P�[�V�����ɐÓI�����N����̂ł����, �ǂ̂悤��SDL���C���X�g�[������̂��͂��܂���ɂȂ�Ȃ�.
--- �Ⴆ��, Fink����SDL���C���X�g�[�����Ă�, �ÓI�Ƀ����N����̂ł����, ���[�U��Fink����C���X�g�[������K�v�͂Ȃ�.
+アプリケーションに静的リンクするのであれば, どのようにSDLをインストールするのかはあまり問題にならない.
+-- 例えば, FinkからSDLをインストールしても, 静的にリンクするのであれば, ユーザはFinkからインストールする必要はない.
 </p>
-<h2>OpenGL�A�v���P�[�V�������r���h������@��?</h2>
+<h2>OpenGLアプリケーションをビルドする方法は?</h2>
 <p>
-Mac OS X�ł�, OpenGL�w�b�_�ɂ͎��̂悤�ɃA�N�Z�X����:
+Mac OS Xでは, OpenGLヘッダには次のようにアクセスする:
 </p>
 <p>
 <code>
@@ -63,22 +63,22 @@ Mac OS X�ł�, OpenGL�w�b�_�ɂ͎��̂悤�ɃA�N�Z�X����:
 </code>
 </p>
 <p>
-�w�b�_�t�@�C��"SDL_opengl.h"�ɂ�, �����̃w�b�_���܂܂�Ă��Ă���.
+ヘッダファイル"SDL_opengl.h"には, これらのヘッダが含まれていている.
 </p>
 <p>
-Xcode���g���Ȃ��, OpenGL.framework���v���W�F�N�g�ɒǉ�����. �R�}���h���C����
+Xcodeを使うならば, OpenGL.frameworkをプロジェクトに追加する. コマンドラインに
 </p>
 <p>
 -framework OpenGL
 </p>
 <p>
-��Makefile��GCC�܂���LD�ɉ����邱��.
+をMakefileのGCCまたはLDに加えること.
 </p>
 <h2>
-�A�v���P�[�V������SDL�t���[�����[�N����������@��?
+アプリケーションにSDLフレームワークを加える方法は?
 </h2>
-�ǂ����@�������ɂ���: <a href="http://overooped.com/post/42240519/properly-bundling-frameworks-in-your-application">Properly bundling .frameworks in your application package</a>
-<h2>SDL Wiki�ւ̃����N</h2>
+良い方法がここにある: <a href="http://overooped.com/post/42240519/properly-bundling-frameworks-in-your-application">Properly bundling .frameworks in your application package</a>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/FAQMacOSX">FAQ: Mac OS X - SDL Wiki</a>
 <hr>
 </body>

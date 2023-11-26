@@ -1,46 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="ƒz[ƒ€">
-<link rel="parent" href="CategoryHints.html" title="1‚Âã">
+<link rel="top" href="index.html" title="ãƒ›ãƒ¼ãƒ ">
+<link rel="parent" href="CategoryHints.html" title="1ã¤ä¸Š">
 <title>SDL_DelHintCallback</title>
 </head>
 <body>
-<a href="index.html">–ÚŸ</a> - <a href="ApiByCategory.html">API(‹@”\•Ê)</a> - <a href="CategoryHints.html">ƒqƒ“ƒg</a> - SDL_DelHintCallback
+<a href="index.html">ç›®æ¬¡</a> - <a href="ApiByCategory.html">API(æ©Ÿèƒ½åˆ¥)</a> - <a href="CategoryHints.html">ãƒ’ãƒ³ãƒˆ</a> - SDL_DelHintCallback
 <hr>
 <h1>SDL_DelHintCallback</h1>
-w’è‚Ìƒqƒ“ƒg‚ğŠÄ‹‚·‚éŠÖ”‚ğæ‚èœ‚­
-<h2>\•¶</h2>
+æŒ‡å®šã®ãƒ’ãƒ³ãƒˆã‚’ç›£è¦–ã™ã‚‹é–¢æ•°ã‚’å–ã‚Šé™¤ã
+<h2>æ§‹æ–‡</h2>
 <code>void SDL_DelHintCallback(const char* name, SDL_HintCallback callback, void* userdata)</code>
-<h2>ˆø”</h2>
+<h2>å¼•æ•°</h2>
 <table border="1" summary="SDL_DelHintCallback">
-<tr><td>name</td><td>ŠÄ‹‚·‚éƒqƒ“ƒg</td></tr>
-<tr><td>callback</td><td>ƒqƒ“ƒg‚Ì’l‚ª•Ï‚í‚Á‚½‚Æ‚«ŒÄ‚ÔŠÖ”</td></tr>
-<tr><td>userdata</td><td>ƒR[ƒ‹ƒoƒbƒNŠÖ”‚É“n‚·ƒ|ƒCƒ“ƒ^</td></tr>
+<tr><td>name</td><td>ç›£è¦–ã™ã‚‹ãƒ’ãƒ³ãƒˆ</td></tr>
+<tr><td>callback</td><td>ãƒ’ãƒ³ãƒˆã®å€¤ãŒå¤‰ã‚ã£ãŸã¨ãå‘¼ã¶é–¢æ•°</td></tr>
+<tr><td>userdata</td><td>ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ã«æ¸¡ã™ãƒã‚¤ãƒ³ã‚¿</td></tr>
 </table>
-<h2>Ú×</h2>
+<h2>è©³ç´°</h2>
 <p>
-callback‚ÌŠÖ”ƒvƒƒgƒ^ƒCƒv‚Í
+callbackã®é–¢æ•°ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã¯
 </p>
 <p>
 <code>void SDL_HintCallback(void* userdata, const char* name, const char* oldValue, const char* newValue)</code>
 </p>
 <p>
-ˆø”‚Í
+å¼•æ•°ã¯
 <table border="1" summary="SDL_HintCallback">
-<tr><td>userdata</td><td><a href="SDL_AddHintCallback.html">SDL_AddHintCallback()</a>‚É“n‚µ‚½userdata</td></tr>
-<tr><td>name</td><td><a href="SDL_AddHintCallback.html">SDL_AddHintCallback()</a>‚É“n‚µ‚½name</td></tr>
-<tr><td>oldValue</td><td>•ÏX‘O‚Ì’l</td></tr>
-<tr><td>newValue</td><td>•ÏXŒã‚Ì’l</td></tr>
+<tr><td>userdata</td><td><a href="SDL_AddHintCallback.html">SDL_AddHintCallback()</a>ã«æ¸¡ã—ãŸuserdata</td></tr>
+<tr><td>name</td><td><a href="SDL_AddHintCallback.html">SDL_AddHintCallback()</a>ã«æ¸¡ã—ãŸname</td></tr>
+<tr><td>oldValue</td><td>å¤‰æ›´å‰ã®å€¤</td></tr>
+<tr><td>newValue</td><td>å¤‰æ›´å¾Œã®å€¤</td></tr>
 </table>
-<h2>ƒo[ƒWƒ‡ƒ“</h2>
-SDL 2.0.0ˆÈ~
-<h2>ŠÖ˜A€–Ú(ŠÖ”)</h2>
+<h2>ãƒãƒ¼ã‚¸ãƒ§ãƒ³</h2>
+SDL 2.0.0ä»¥é™
+<h2>é–¢é€£é …ç›®(é–¢æ•°)</h2>
 <a href="SDL_AddHintCallback.html">SDL_AddHintCallback</a><br>
-<h2>SDL Wiki‚Ö‚ÌƒŠƒ“ƒN</h2>
+<h2>SDL Wikiã¸ã®ãƒªãƒ³ã‚¯</h2>
 <a href="https://wiki.libsdl.org/SDL_DelHintCallback">SDL_DelHintCallback - SDL Wiki</a>
 <hr>
 </body>

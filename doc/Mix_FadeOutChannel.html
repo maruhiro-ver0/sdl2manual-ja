@@ -1,46 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_mixer">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1つ上">
 <title>Mix_FadeOutChannel</title>
 </head>
 <body>
-<a href="index.html#SDL2_mixer">�ڎ�</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_mixer-CategoryChannels.html">�`���l��</a> - Mix_FadeOutChannel
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryChannels.html">チャネル</a> - Mix_FadeOutChannel
 <hr>
 <h1>Mix_FadeOutChannel</h1>
-�w��̎��ԃt�F�[�h�A�E�g���ă`���l�����~����
-<h2>�\��</h2>
+指定の時間フェードアウトしてチャネルを停止する
+<h2>構文</h2>
 <code>int Mix_FadeOutChannel(int which, int ms)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="Mix_FadeOutChannel">
-<tr><td>which</td><td>�t�F�[�h�A�E�g������`���l��</td></tr>
-<tr><td>ms</td><td>�t�F�[�h�A�E�g�̃~���b�P�ʂ̎���</td></tr>
+<tr><td>which</td><td>フェードアウトさせるチャネル</td></tr>
+<tr><td>ms</td><td>フェードアウトのミリ秒単位の時間</td></tr>
 </table>
-<h2>�߂�l</h2>
-�t�F�[�h�A�E�g���ݒ肳�ꂽ�`���l���̐���߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+フェードアウトが設定されたチャネルの数を戻す.
+<h2>詳細</h2>
 <p>
-�`���l���͒ʏ�̃{�����[������ms�~���b�̎��Ԃŏ��X�ɖ����ɂȂ�.
-���Ԃ��o�߂�����̓`���l���͒�~����.
+チャネルは通常のボリュームからmsミリ秒の時間で徐々に無音になる.
+時間が経過した後はチャネルは停止する.
 </p>
 <p>
-��~�����`���l������͓o�^���ꂽ�G�t�F�N�g�͉�������, <a href="Mix_ChannelFinished.html">Mix_ChannelFinished()</a>�œo�^�����R�[���o�b�N���Ă΂��.
+停止したチャネルからは登録されたエフェクトは解除され, <a href="Mix_ChannelFinished.html">Mix_ChannelFinished()</a>で登録したコールバックが呼ばれる.
 </p>
 <p>
-�t�F�[�h���̃`���l����, ���̍Œ���<a href="Mix_Volume.html">Mix_Volume()</a>���Ă΂�Ă�, �{�����[�������X�ɕω�����.
-(�����������, �t�F�[�h���̃`���l���ɂ�<a href="Mix_Volume.html">Mix_Volume()</a>���Ă�ł����Ӗ��ł���.)
+フェード中のチャネルは, その最中に<a href="Mix_Volume.html">Mix_Volume()</a>が呼ばれても, ボリュームが徐々に変化する.
+(言い換えると, フェード中のチャネルには<a href="Mix_Volume.html">Mix_Volume()</a>を呼んでも無意味である.)
 </p>
 <p>
-���̊֐���ticks�Őݒ肵�����ԃu���b�N����Ȃ��̂Œ��ӂ��邱��.
-�`�����N�̒�~�܂ł̎��Ԃ�ݒ肵��, �~�L�T�[�̌�̊Ǘ��̂��߂Ɏ��Ԃ��L�^��, �����ɕ��A����.
+この関数はticksで設定した時間ブロックされないので注意すること.
+チャンクの停止までの時間を設定して, ミキサーの後の管理のために時間を記録し, すぐに復帰する.
 </p>
-<h2>�o�[�W����</h2>
-SDL_mixer 2.0.0�ȍ~
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/Mix_FadeOutChannel">SDL2_mixer/Mix_FadeOutChannel</a>
 <hr>
 </body>

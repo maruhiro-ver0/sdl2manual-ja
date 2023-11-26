@@ -1,61 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL_image">
-<link rel="top" href="index.html" title="ホーム">
-<link rel="parent" href="SDL_image-functions-loading.html" title="1つ上">
-<title>IMG_Load_RW</title>
-</head>
-<body>
-<a href="index.html#SDL_image">目次</a> - <a href="SDL_image-functions.html">3.関数</a> - <a href="SDL_image-functions-loading.html">3.2読み込み</a> - IMG_Load_RW
-<hr>
-<h1>IMG_Load_RW</h1>
-<p>
-<code>SDL_Surface *IMG_Load_RW(SDL_RWops *src, int freesrc)</code>
-</p>
-<p>
-<dl>
-<dt>src</dt><dd>読み込み元の<a href="SDL_RWops.html">SDL_RWops</a>. 画像はここから読み込まれる</dd>
-<dt>freesrc</dt><dd>0でないときsrcが自動的に閉じる/解放される</dd>
-</dl>
-</p>
-<p>
-srcを読み込んでサーフェイスを生成する.
-この関数はTGA以外の対応した画像を読み込める.
-<a href="SDL_RWops.html">SDL_RWops</a>の使い方は詳しく説明しないが, ほとんどのデータ元から読み込むことができる.
-</p>
-<p>
-メモ: 画像ローダーは初期化されている必要がある.
-もしあらかじめ<a href="IMG_Init.html">IMG_Init</a>で初期化されていなければ, 最初に画像を読み込もうとしたときに初期化を試みる.
-</p>
-<p>
-メモ: 透過ピクセルに対応した形式の画像ならば, SDL_imageはサーフェイスのカラーキーを設定する.
-次のようにするとサーフェイスのRLEアクセラレーションを有効にできる:<br>
-<code>SDL_SetColorKey(image, SDL_RLEACCEL, image->format->colorkey);</code>
-</p>
-<p>
-戻り値: 新しい<a href="SDL_Surface.html">SDL_Surface</a>へのポインタを戻す. 対応していない形式, ファイルの読み込みに失敗したときなどはNULLを戻す.
-</p>
-<h2>サンプルコード</h2>
-<code>
-<pre>
-// sample.pngをimageに読み込む
-SDL_Surface *image;
-image=IMG_Load_RW(SDL_RWFromFile("sample.png", "rb"), 1);
-if(!image) {
-    printf("IMG_Load_RW: %s\n", IMG_GetError());
-    // ここでエラー処理を行う
-}
-</pre>
-</code>
-<h2>参照</h2>
-<a href="IMG_Init.html">IMG_Init</a>,
-<a href="IMG_Load.html">IMG_Load</a>,
-<a href="IMG_LoadTyped_RW.html">IMG_LoadTyped_RW</a>
-<h2>原文へのリンク</h2>
-<a href="https://www.libsdl.org/projects/old/SDL_image/docs/SDL_image_12.html#SEC12">3.2.2 IMG_Load_RW</a>
-<hr>
-</body>
-</html>
+<link rel="top" href="index.html" title="郢晏ｸ�

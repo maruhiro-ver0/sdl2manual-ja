@@ -1,53 +1,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="SDL2_ttf">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="SDL2_ttf-CategoryRender.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_ttf-CategoryRender.html" title="1つ上">
 <title>TTF_RenderUNICODE_Blended_Wrapped</title>
 </head>
 <body>
-<a href="index.html#SDL2_ttf">�ڎ�</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(�@�\��)</a> - <a href="SDL2_ttf-CategoryRender.html">�����_�����O</a> - TTF_RenderUNICODE_Blended_Wrapped
+<a href="index.html#SDL2_ttf">目次</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_ttf-CategoryRender.html">レンダリング</a> - TTF_RenderUNICODE_Blended_Wrapped
 <hr>
 <h1>TTF_RenderUNICODE_Blended_Wrapped</h1>
-UCS-2�̉��s����e�L�X�g��, ��������ARGB�T�[�t�F�C�X�ɍ���(Blend)���[�h�Ń����_�����O����
-<h2>�\��</h2>
+UCS-2の改行するテキストを, 生成したARGBサーフェイスに混合(Blend)モードでレンダリングする
+<h2>構文</h2>
 <code>SDL_Surface *TTF_RenderUNICODE_Blended_Wrapped(TTF_Font *font, const Uint16 *text, SDL_Color fg, Uint32 wrapLength)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="TTF_RenderUNICODE_Blended_Wrapped">
-<tr><td>font</td><td>�����_�����O�Ŏg�p����t�H���g</td></tr>
-<tr><td>text</td><td>�����_�����O����UCS-2�e�L�X�g</td></tr>
-<tr><td>fg</td><td>�e�L�X�g�̑O�i�F</td></tr>
-<tr><td>wrapLength</td><td>���s����s�N�Z�����̒���</td></tr>
+<tr><td>font</td><td>レンダリングで使用するフォント</td></tr>
+<tr><td>text</td><td>レンダリングするUCS-2テキスト</td></tr>
+<tr><td>fg</td><td>テキストの前景色</td></tr>
+<tr><td>wrapLength</td><td>改行するピクセル数の長さ</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ��������ꂽ32�r�b�gARGB�T�[�t�F�C�X, �G���[�̂Ƃ�NULL��߂�.
-<h2>�ڍ�</h2>
+<h2>戻り値</h2>
+成功のとき生成された32ビットARGBサーフェイス, エラーのときNULLを戻す.
+<h2>詳細</h2>
 <p>
-���̊֐��͐V����32�r�b�gARGB�T�[�t�F�C�X�𐶐���, �w��̑O�i�F�ƃ��u�����h��p���ăf�B�U�����O���s�������_�����O����.
-���̊֐��̖߂�l�͐������ꂽ�T�[�t�F�C�X, �܂��̓G���[�����������ꍇ��NULL�ł���.
+この関数は新たに32ビットARGBサーフェイスを生成し, 指定の前景色とαブレンドを用いてディザリングを行いレンダリングする.
+この関数の戻り値は生成されたサーフェイス, またはエラーが発生した場合はNULLである.
 </p>
 <p>
-�e�L�X�g�̓s�N�Z������wrapLength�𒴂���Ƃ��s���܂��͌�̋�؂�ŉ��s�����.
+テキストはピクセル数がwrapLengthを超えるとき行末または語の区切りで改行される.
 </p>
 <p>
-wrapLength��0�̂Ƃ�, ���s�R�[�h�̏ꍇ�̂݉��s����.
+wrapLengthが0のとき, 改行コードの場合のみ改行する.
 </p>
 <p>
-���̊֐��̖��O��"Unicode"�ƂȂ��Ă��邪, ���݂̎��ۂ̓��͂�UCS-2(1�R�[�h�|�C���g16�r�b�g)�ł���.
-�G�����̂悤�Ȃ�������傫��Unicode�̒l�͓n���Ȃ�.
-���̂悤�ȃR�[�h�|�C���g��UTF-8�łŃA�N�Z�X�ł���.
+この関数の名前は"Unicode"となっているが, 現在の実際の入力はUCS-2(1コードポイント16ビット)である.
+絵文字のようなそれよりも大きなUnicodeの値は渡せない.
+そのようなコードポイントはUTF-8版でアクセスできる.
 </p>
 <p>
-<a href="TTF_RenderUNICODE_Solid_Wrapped.html">TTF_RenderUNICODE_Solid_Wrapped</a>, <a href="TTF_RenderUNICODE_Shaded_Wrapped.html">TTF_RenderUNICODE_Shaded_Wrapped</a>, <a href="TTF_RenderUNICODE_LCD_Wrapped.html">TTF_RenderUNICODE_LCD_Wrapped</a>���g���ƕʂ̉掿�Ń����_�����O�ł���.
+<a href="TTF_RenderUNICODE_Solid_Wrapped.html">TTF_RenderUNICODE_Solid_Wrapped</a>, <a href="TTF_RenderUNICODE_Shaded_Wrapped.html">TTF_RenderUNICODE_Shaded_Wrapped</a>, <a href="TTF_RenderUNICODE_LCD_Wrapped.html">TTF_RenderUNICODE_LCD_Wrapped</a>を使うと別の画質でレンダリングできる.
 </p>
-<h2>�o�[�W����</h2>
-SDL_ttf 2.0.18�ȍ~
-<h2>�֘A����(�֐�)</h2>
+<h2>バージョン</h2>
+SDL_ttf 2.0.18以降
+<h2>関連項目(関数)</h2>
 <a href="TTF_RenderUTF8_Blended_Wrapped.html">TTF_RenderUTF8_Blended_Wrapped</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_ttf/TTF_RenderUNICODE_Blended_Wrapped">SDL2_ttf/TTF_RenderUNICODE_Blended_Wrapped</a>
 <hr>
 </body>

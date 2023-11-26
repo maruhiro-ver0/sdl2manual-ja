@@ -1,36 +1,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja-JP">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
-<link rel="top" href="index.html" title="�z�[��">
-<link rel="parent" href="CategoryForceFeedback.html" title="1��">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryForceFeedback.html" title="1つ上">
 <title>SDL_HapticOpen</title>
 </head>
 <body>
-<a href="index.html">�ڎ�</a> - <a href="ApiByCategory.html">API(�@�\��)</a> - <a href="CategoryForceFeedback.html">�͊o�t�B�[�h�o�b�N</a> - SDL_HapticOpen
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryForceFeedback.html">力覚フィードバック</a> - SDL_HapticOpen
 <hr>
 <h1>SDL_HapticOpen</h1>
-�n�v�e�B�b�N�f�o�C�X���g�����߂ɊJ��
-<h2>�\��</h2>
+ハプティックデバイスを使うために開く
+<h2>構文</h2>
 <code>SDL_Haptic* SDL_HapticOpen(int device_index)</code>
-<h2>����</h2>
+<h2>引数</h2>
 <table border="1" summary="SDL_HapticOpen">
-<tr><td>device_index</td><td>�J���n�v�e�B�b�N�f�o�C�X�̔ԍ�</td></tr>
+<tr><td>device_index</td><td>開くハプティックデバイスの番号</td></tr>
 </table>
-<h2>�߂�l</h2>
-�����̂Ƃ��f�o�C�X���ʎq, ���s�̂Ƃ�NULL��߂�.
-<a href="SDL_GetError.html">SDL_GetError()</a>�ŏڍׂ�m�邱�Ƃ��ł���.
-<h2>�ڍ�</h2>
-�����̔ԍ���, �V�X�e�����N�Ԗڂ̃n�v�e�B�b�N�f�o�C�X��\��.
-�n�v�e�B�b�N�f�o�C�X���J����, �Q�C���͍ő�ɂȂ�, �����Z���^�����O�͖����ɂȂ�.
-�����̒l��, <a href="SDL_HapticSetGain.html">SDL_HapticSetGain()</a>��<a href="SDL_HapticSetAutocenter.html">SDL_HapticSetAutocenter()</a>�ŕύX�ł���.
-<h2>�o�[�W����</h2>
+<h2>戻り値</h2>
+成功のときデバイス識別子, 失敗のときNULLを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>詳細</h2>
+引数の番号は, システム上のN番目のハプティックデバイスを表す.
+ハプティックデバイスを開くと, ゲインは最大になり, 自動センタリングは無効になる.
+これらの値は, <a href="SDL_HapticSetGain.html">SDL_HapticSetGain()</a>と<a href="SDL_HapticSetAutocenter.html">SDL_HapticSetAutocenter()</a>で変更できる.
+<h2>バージョン</h2>
 <p>
-SDL 2.0.0�ȍ~
+SDL 2.0.0以降
 </p>
-<h2>�֘A����(�֐�)</h2>
+<h2>関連項目(関数)</h2>
 <a href="SDL_HapticClose.html">SDL_HapticClose</a><br>
 <a href="SDL_HapticIndex.html">SDL_HapticIndex</a><br>
 <a href="SDL_HapticOpenFromJoystick.html">SDL_HapticOpenFromJoystick</a><br>
@@ -39,7 +39,7 @@ SDL 2.0.0�ȍ~
 <a href="SDL_HapticSetAutocenter.html">SDL_HapticSetAutocenter</a><br>
 <a href="SDL_HapticSetGain.html">SDL_HapticSetGain</a><br>
 <a href="SDL_HapticStopAll.html">SDL_HapticStopAll</a><br>
-<h2>SDL Wiki�ւ̃����N</h2>
+<h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL_HapticOpen">SDL_HapticOpen - SDL Wiki</a>
 <hr>
 </body>
