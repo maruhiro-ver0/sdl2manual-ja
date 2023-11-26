@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryEffects.html" title="1つ上">
+<title>Mix_SetReverseStereo</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryEffects.html">エフェクト</a> - Mix_SetReverseStereo
+<hr>
+<h1>Mix_SetReverseStereo</h1>
+チャネルのステレオを逆にする
+<h2>構文</h2>
+<code>int Mix_SetReverseStereo(int channel, int flip)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_SetReverseStereo">
+<tr><td>channel</td><td>逆にするチャネル, またはMIX_CHANNEL_POST</td></tr>
+<tr><td>flip</td><td>0以外のときステレオを逆にする. 0のときこのエフェクトを無効にする</td></tr>
+</table>
+<h2>戻り値</h2>
+エラー(チャネルがない, または<a href="Mix_RegisterEffect.html">Mix_RegisterEffect()</a>が失敗)のとき0, エフェクトが有効になったとき0以外を戻す.
+オーディオデバイスがモノラルの場合は何もしないが, その場合でもこの関数は正常を戻す.
+エラーメッセージは<a href="Mix_GetError.html">Mix_GetError()</a>で得られる.
+<h2>詳細</h2>
+<p>
+この関数はユーザがスピーカーを逆につなげる場合や, 幻覚のようなエフェクトを掛ける場合に便利である.
+</p>
+<p>
+`flip`に0以外にしてこの関数を呼ぶと, チャンクのチャネルが通常の逆になる.
+`flip`を0にすると, エフェクトは解除される.
+</p>
+<p>
+この関数は内部で<a href="Mix_RegisterEffect.html">Mix_RegisterEffect()</a>APIを使用しているため, ユーザが通常通りスピーカーをつなぐ場合よりもCPUの負荷が高くなる.
+<a href="Mix_SetReverseStereo.html">Mix_SetReverseStereo()</a>はオーディオデバイスがステレオ出力に対応していない場合, エフェクトを登録せずに戻る.
+</p>
+<p>
+'channel'にMIX_CHANNEL_POSTを設定した場合, エフェクトはオーディオデバイスに送られる前の最後のミキシングの後に適用される(ポストエフェクト).
+</p>
+<p>
+他のSDLやSDL_mixerの関数とは異なり, この関数は成功ではなくエラーのとき0を戻す. 
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_SetReverseStereo">SDL2_mixer/Mix_SetReverseStereo</a>
+<hr>
+</body>
+</html>

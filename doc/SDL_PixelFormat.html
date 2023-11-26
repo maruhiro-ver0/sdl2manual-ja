@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategorySurface.html" title="1つ上">
+<title>SDL_PixelFormat</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryPixels.html">ピクセル形式と変換</a> - SDL_PixelFormat
+<hr>
+<h1>SDL_PixelFormat</h1>
+ピクセル形式の情報の構造体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_PixelFormat">
+<tr><td>Uint32</td><td>format</td><td><a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a>の値の1つ</td></tr>
+<tr><td>SDL_Palette*</td><td>palette</td><td>ピクセル形式に関連付けられた<a href="SDL_Palette.html">SDL_Palette</a>の配列, NULLのときパレットを持たない</td></tr>
+<tr><td>Uint8</td><td>BitsPerPixel</td><td>ピクセル値の有効なビット数. 例: 8, 15, 16, 24, 32</td></tr>
+<tr><td>Uint8</td><td>BytesPerPixel</td><td>ピクセル値に必要なバイト数. 例: 1, 2, 3, 4 (詳細を参照すること)</td></tr>
+<tr><td>Uint32</td><td>Rmask</td><td>ピクセルの赤成分の位置を表すマスク</td></tr>
+<tr><td>Uint32</td><td>Gmask</td><td>ピクセルの緑成分の位置を表すマスク</td></tr>
+<tr><td>Uint32</td><td>Bmask</td><td>ピクセルの青成分の位置を表すマスク</td></tr>
+<tr><td>Uint32</td><td>Amask</td><td>ピクセルのα成分の位置を表すマスク. 0ならばα成分を持たない</td></tr>
+<tr><td>Uint8</td><td>Rloss</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>Gloss</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>Bloss</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>Aloss</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>RShift</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>GShift</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>BShift</td><td>(内部で使用)</td></tr>
+<tr><td>Uint8</td><td>AShift</td><td>(内部で使用)</td></tr>
+<tr><td>int</td><td>refcount</td><td>(内部で使用)</td></tr>
+<tr><td>SDL_PixelFormat*</td><td>next</td><td>(内部で使用)</td></tr>
+</table>
+<h2>サンプルコード</h2>
+<p>
+8bit形式は最も理解しやすい.
+8bit形式では, BitsPerPixelは8で, BytesPerPixelは1である.
+BytesPerPixelが1なので, 全てのピクセルはUint8で表され, その値はpalette->colorsの添え字である.
+よって8bitサーフェイスのピクセルの色は次のように得る:
+surface->pixelsから色の値を得る. そしてそれを添え字として<a href="SDL_Color.html">SDL_Color</a>構造体のsurface->format->palette->colorsを読む.
+以下のようになる:
+<code>
+<pre>
+SDL_Surface *surface;
+SDL_PixelFormat *fmt;
+SDL_Color *color;
+Uint8 index;
+
+.
+.
+
+/* ここでサーフェイスを生成する */
+.
+.
+fmt=surface->format;
+
+/* サーフェイスのビット深度をチェックする */
+if(fmt->BitsPerPixel!=8){
+  fprintf(stderr, "8bitサーフェイスではない\n");
+  return(-1);
+}
+
+/* サーフェイスをロックする */
+SDL_LockSurface(surface);
+
+/* 左上の角のピクセルを得る */
+index=*(Uint8 *)surface-&gt;pixels;
+color=fmt-&gt;palette-&gt;colors[index];
+
+/* サーフェイスのロックを解除する */
+SDL_UnlockSurface(surface);
+printf("Pixel Color-&gt; Red: %d, Green: %d, Blue: %d. Index: %d\n",
+          color-&gt;r, color-&gt;g, color-&gt;b, index);
+.
+.
+</pre>
+</code>
+</p>
+<p>
+8bitを超えるピクセルは別の考え方が必要になる.
+それらは"TrueColor"形式であり, 色情報はパレットではなくピクセル自身に格納されている.
+mask, shift, lossフィールドでどのように色をエンコードしているかわかる.
+maskフィールドでそれぞれの色成分を分離することができ, shiftフィールドはピクセル値のそれぞれの色成分が右から何ビット目かを知ることができ, そしてlossフィールドはこのピクセル値が8bitの色成分に対して何ビット失われているかを知ることができる.
+<code>
+<pre>
+/* 32bitピクセル値から色成分を得る */
+SDL_PixelFormat *fmt;
+SDL_Surface *surface;
+Uint32 temp, pixel;
+Uint8 red, green, blue, alpha;
+.
+.
+.
+fmt = surface->format;
+SDL_LockSurface(surface);
+pixel = *((Uint32*)surface->pixels);
+SDL_UnlockSurface(surface);
+
+/* 赤成分を得る */
+temp = pixel &amp; fmt-&gt;Rmask;  /* 赤成分を分離する */
+temp = temp &gt;&gt; fmt->Rshift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Rloss;  /* 8bitフルまで拡張する */
+red = (Uint8)temp;
+
+/* 緑成分を得る */
+temp = pixel &amp; fmt-&gt;Gmask;  /* 緑成分を分離する */
+temp = temp &gt;&gt; fmt-&gt;Gshift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Gloss;  /* 8bitフルまで拡張する */
+green = (Uint8)temp;
+
+/* 青成分を得る */
+temp = pixel &amp; fmt-&gt;Bmask;  /* 青成分を分離する */
+temp = temp &gt;&gt; fmt-&gt;Bshift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Bloss;  /* 8bitフルまで拡張する */
+blue = (Uint8)temp;
+
+/* α成分を得る */
+temp = pixel &amp; fmt-&gt;Amask;  /* α成分を分離する */
+temp = temp &gt;&gt; fmt-&gt;Ashift; /* 8bitまで下ろす */
+temp = temp &lt;&lt; fmt-&gt;Aloss;  /* 8bitフルまで拡張する */
+alpha = (Uint8)temp;
+
+printf("Pixel Color -&gt; R: %d,  G: %d,  B: %d,  A: %d\n", red, green, blue, alpha);
+.
+.
+.
+</pre>
+</code>
+</p><h2>詳細</h2>
+<p>
+この構造体のフィールドは全て読み取り専用である.
+</p>
+<p>
+ピクセル形式はパレットかマスクのいずれかである.
+パレットならば, Rmask, Gmask, Bmask, Amaskは全て0である.
+</p>
+<p>
+ピクセルのバイト数に対するデータ型は以下の通りある.
+<table border="1" summary="">
+<tr><th>1ピクセルあたりのバイト数</th><th>データ型</th></tr>
+<tr><td>1</td><td>Uint8</td></tr>
+<tr><td>2</td><td>Uint16</td></tr>
+<tr><td>3</td><td>3つのUint8</td></tr>
+<tr><td>4</td><td>Uint32</td></tr>
+</table>
+</p>
+<p>
+<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>は, <a href="SDL_Surface.html">SDL_Surface</a>のpixelsフィールドに格納されたピクセルの形式を記述する.
+サーフェイスのformatフィールドには<a href="SDL_PixelFormat.html">SDL_PixelFormat</a>が格納されている.
+</p>
+<p>
+ピクセルのレベルを変えたいならば, SDLがどのように色情報を格納しているかを理解しなければならない.
+サンプルコードに詳細な情報がある.
+</p>
+<p>
+現代的なピクセル色空間の情報は以下のWikipediaの項目にある: <a href="http://en.wikipedia.org/wiki/RGBA_color_space">http://en.wikipedia.org/wiki/RGBA_color_space</a>
+</p>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_Surface.html">SDL_Surface</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_ConvertSurface.html">SDL_ConvertSurface</a><br>
+<a href="SDL_GetRGB.html">SDL_GetRGB</a><br>
+<a href="SDL_GetRGBA.html">SDL_GetRGBA</a><br>
+<a href="SDL_MapRGB.html">SDL_MapRGB</a><br>
+<a href="SDL_MapRGBA.html">SDL_MapRGBA</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_PixelFormat">SDL_PixelFormat - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

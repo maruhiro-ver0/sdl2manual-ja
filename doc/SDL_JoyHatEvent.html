@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryEvents.html" title="1つ上">
+<title>SDL_JoyHatEvent</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryEvents.html">イベント処理</a> - SDL_JoyHatEvent
+<hr>
+<h1>SDL_JoyHatEvent</h1>
+ジョイスティックハットイベントの構造体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_JoyButtonEvent">
+<tr><td>Uint32</td><td>type</td><td>SDL_JOYHATMOTION</td></tr>
+<tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
+<tr><td>SDL_JoystickID</td><td>which</td><td>イベントを報告したジョイスティックのインスタンスID</td></tr>
+<tr><td>Uint8</td><td>hat</td><td>変化したハットの番号</td></tr>
+<tr><td>Uint8</td><td>value</td><td>ハットの新しい位置 (詳細を参照すること)</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+<a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバで, SDL_JOYHATMOTIONが報告されたときに使われる.
+eventのjhatフィールドからアクセスできる.
+</p>
+<p>
+SDL_JOYHATMOTIONはユーザがジョイスティックのハットを動かすたびに発生する.
+</p>
+<p>
+valueは以下の値の1つである
+<table border="1" summary="SDL_HAT">
+<tr><td>SDL_HAT_LEFTUP</td><td>SDL_HAT_UP</td><td>SDL_HAT_RIGHTUP</td></tr>
+<tr><td>SDL_HAT_LEFT</td><td>SDL_HAT_CENTERED</td><td>SDL_HAT_RIGHT</td></tr>
+<tr><td>SDL_HAT_LEFTDOWN</td><td>SDL_HAT_DOWN</td><td>SDL_HAT_RIGHTDOWN</td></tr>
+</table>
+0はPOVが中央にあることを意味することに注意すること.
+</p>
+<h2>関連項目(列挙体)</h2>
+<a href="SDL_EventType.html">SDL_JoyHatEvent</a><br>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_Event.html">SDL_Event</a><br>
+<a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a><br>
+<a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a><br>
+<a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_JoystickEventState.html">SDL_JoystickEventState</a><br>
+<a href="SDL_JoystickGetHat.html">SDL_JoystickGetHat</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_JoyHatEvent">SDL_JoyHatEvent - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

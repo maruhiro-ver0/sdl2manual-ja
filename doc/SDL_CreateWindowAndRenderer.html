@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
+<title>SDL_CreateWindowAndRenderer</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_CreateWindowAndRenderer
+<hr>
+<h1>SDL_CreateWindowAndRenderer</h1>
+ウィンドウとデフォルトのレンダラを生成する
+<h2>構文</h2>
+<code>int SDL_CreateWindowAndRenderer(int width, int height, Uint32 window_flags, SDL_Window** window, SDL_Renderer** renderer)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_CreateWindowAndRenderer">
+<tr><td>width</td><td>ウィンドウの幅</td></tr>
+<tr><td>height</td><td>ウィンドウの高さ</td></tr>
+<tr><td>window_flags</td><td>ウィンドウを生成するときに使うフラグ (<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>を参照すること)</td></tr>
+<tr><td>window</td><td>生成されたウィンドウを代入するポインタ, 失敗のときはNULL</td></tr>
+<tr><td>renderer</td><td>生成されたレンダラを代入するポインタ, 失敗のときはNULL</td></tr>
+</table>
+<h2>戻り値</h2>
+<p>
+成功のとき0, 失敗のとき-1を戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+</p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+
+int main(int argc, char *argv[])
+{
+    SDL_Window *window;
+    SDL_Renderer *renderer;
+    SDL_Surface *surface;
+    SDL_Texture *texture;
+    SDL_Event event;
+
+    if (SDL_Init(SDL_INIT_VIDEO) &lt; 0) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "SDLを初期化できなかった: %s", SDL_GetError());
+        return 3;
+    }
+
+    if (SDL_CreateWindowAndRenderer(320, 240, SDL_WINDOW_RESIZABLE, &window, &renderer)) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "ウィンドウとレンダラーを生成できなかった: %s", SDL_GetError());
+        return 3;
+    }
+
+    surface = SDL_LoadBMP("sample.bmp");
+    if (!surface) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "画像からサーフェイスを生成できなかった: %s", SDL_GetError());
+        return 3;
+    }
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    if (!texture) {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "サーフェイスからテクスチャを生成できなかった: %s", SDL_GetError());
+        return 3;
+    }
+    SDL_FreeSurface(surface);
+
+    while (1) {
+        SDL_PollEvent(&event);
+        if (event.type == SDL_QUIT) {
+            break;
+        }
+        SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
+        SDL_RenderClear(renderer);
+        SDL_RenderCopy(renderer, texture, NULL, NULL);
+        SDL_RenderPresent(renderer);
+    }
+
+    SDL_DestroyTexture(texture);
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+
+    SDL_Quit();
+
+    return 0;
+}
+</pre>
+</code>
+</p>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="SDL_CreateRenderer.html">SDL_CreateRenderer</a><br>
+<a href="SDL_CreateWindow.html">SDL_CreateWindow</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_CreateWindowAndRenderer">SDL_CreateWindowAndRenderer - SDL Wiki</a>
+<hr>
+</body>
+</html>

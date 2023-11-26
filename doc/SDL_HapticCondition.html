@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryForceFeedback.html" title="1つ上">
+<title>SDL_HapticCondition</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryForceFeedback.html">力覚フィードバック</a> - SDL_HapticCondition
+<hr>
+<h1>SDL_HapticCondition</h1>
+条件効果のテンプレートの構造体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_HapticCondition">
+<tr><td colspan="3" align="center">ヘッダ</td></tr>
+<tr><td>Uint16</td><td>type</td><td>この構造体で扱う効果の1つ (詳細を参照すること)</td></tr>
+<tr><td><a href="SDL_HapticDirection.html">SDL_HapticDirection</a></td><td>direction</td><td>無効 (詳細を参照すること)</td></tr>
+<tr><td colspan="3" align="center">再生</td></tr>
+<tr><td>Uint32</td><td>length</td><td>継続時間(ミリ秒)</td></tr>
+<tr><td>Uint16</td><td>delay</td><td>効果が始まるまでの待ち時間</td></tr>
+<tr><td colspan="3" align="center">トリガ</td></tr>
+<tr><td>Uint16</td><td>button</td><td>効果を引き起こすボタン</td></tr>
+<tr><td>Uint16</td><td>interval</td><td>効果を再び引き起こす時間</td></tr>
+<tr><td colspan="3" align="center">条件</td></tr>
+<tr><td>Uint16[]</td><td>right_sat</td><td>ジョイスティックの正方向の強さ. 最大0xFFFF</td></tr>
+<tr><td>Uint16[]</td><td>left_sat</td><td>ジョイスティックの負方向の強さ. 最大0xFFFF</td></tr>
+<tr><td>Sint16[]</td><td>right_coeff</td><td>正方向の強さの増加速度</td></tr>
+<tr><td>Sint16[]</td><td>left_coeff</td><td>負方向の強さの増加速度</td></tr>
+<tr><td>Uint16[]</td><td>deadband</td><td>不感域のサイズ. 最大0xFFFF</td></tr>
+<tr><td>Sint16[]</td><td>center</td><td>不感域の位置</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+<table border="1" summary="type">
+<tr><td>SDL_HAPTIC_SPRING</td><td>効果は位置に基づく</td></tr>
+<tr><td>SDL_HAPTIC_DAMPER</td><td>効果は速度に基づく</td></tr>
+<tr><td>SDL_HAPTIC_INERTIA</td><td>効果は加速度に基づく</td></tr>
+<tr><td>SDL_HAPTIC_FRICTION</td><td>効果は運動に基づく</td></tr>
+</table>
+</p>
+<p>
+directionは内部で条件として扱われている.
+条件のメンバ(right_sat, left_sat, right_coeff, leftcoeff, deadband, center)には3つのパラメータがある(要素数3の配列である).
+[0]がX軸, [1]がY軸, [2]がZ軸を表す.
+右は軸の正の方向を表し, 左は軸の負の方向を表す.
+方向の正と負は<a href="SDL_HapticDirection.html">SDL_HapticDirection</a>の図を参照すること.
+</p>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_HapticDirection.html">SDL_HapticDirection</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_HapticNewEffect.html">SDL_HapticNewEffect</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_HapticCondition">SDL_HapticCondition - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

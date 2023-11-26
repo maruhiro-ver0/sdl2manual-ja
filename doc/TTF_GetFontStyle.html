@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_ttf-CategoryAttributes.html" title="1つ上">
+<title>TTF_GetFontStyle</title>
+</head>
+<body>
+<a href="index.html#SDL2_ttf">目次</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_ttf-CategoryAttributes.html">属性</a> - TTF_GetFontStyle
+<hr>
+<h1>TTF_GetFontStyle</h1>
+フォントスタイルの現在の設定を得る
+<h2>構文</h2>
+<code>int TTF_GetFontStyle(const TTF_Font *font)</code>
+<h2>引数</h2>
+<table border="1" summary="TTF_GetFontStyle">
+<tr><td>font</td><td>調査するフォント</td></tr>
+</table>
+<h2>戻り値</h2>
+フォントスタイルの現在の設定をビットフラグで戻す.
+<h2>詳細</h2>
+<p>
+フォントスタイルは次の値の論理和である:
+<ul>
+<li>TTF_STYLE_NORMAL (0)
+<li>TTF_STYLE_BOLD
+<li>TTF_STYLE_ITALIC
+<li>TTF_STYLE_UNDERLINE
+<li>TTF_STYLE_STRIKETHROUGH
+</ul>
+</p>
+<h2>バージョン</h2>
+SDL_net 2.0.12以降
+<h2>関連項目(関数)</h2>
+<a href="TTF_SetFontStyle.html">TTF_SetFontStyle</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_ttf/TTF_GetFontStyle">SDL2_ttf/TTF_GetFontStyle</a>
+<hr>
+</body>
+</html>

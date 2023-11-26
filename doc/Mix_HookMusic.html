@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryMusic.html" title="1つ上">
+<title>Mix_HookMusic</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryMusic.html">音楽</a> - Mix_HookMusic
+<hr>
+<h1>Mix_HookMusic</h1>
+ユーザ自身の音楽プレイヤーまたはさらなるミキサー関数を追加する
+<h2>構文</h2>
+<code>void Mix_HookMusic(void (SDLCALL *mix_func)(void *udata, Uint8 *stream, int len), void *arg)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_HookMusic">
+<tr><td>mix_func</td><td>新しいミックス後のコールバックになる関数</td></tr>
+<tr><td>arg</td><td>コールバックにそのまま渡されるポインタ</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+この関数は<a href="Mix_SetPostMix.html">Mix_SetPostMix()</a>と似ているが, 大きな違いがある.
+アプリケーションはこの関数<strong>と</strong><a href="Mix_SetPostMix.html">Mix_SetPostMix()</a>を同時に使えることに注意すること.
+この関数は組み込まれた音楽再生ルーチンを, 自分で作成したデコーダまたはサウンド生成器と置き換えることができる.
+</p>
+<p>
+指定されたコールバックは, SDL_Mixerがオーディオデバイスへのさらなるデータの供給を準備するたびに呼び出される.
+SDLオーディオコールバックの内部で実行されるため, コールバックからは早く戻らなければならない. さもないとオーディオ再生の問題になりうる.
+</p>
+<p>
+コールバックの実行は, SDL_mixerがさらなる音声をミックスしようとしたとき最初に行われる.
+入力時にバッファには無音が書き込まれている.
+よってコールバックは既にあるデータとのミックスやバッファの初期化を行う必要はない.
+</p>
+<p>
+この関数でコールバックを設定している間はSDL_mixerはあらゆる音楽のミックスを行わず, 代わりに設定したコールバックが使われることに注意すること.
+コールバックを無効にする(これにより組み込みの音楽再生が再び有効化される)ためには, この関数でNULLをコールバックにすること.
+</p>
+<p>
+コールバックが書き込むデータはオープンされたオーディオデバイスの形式で, コールバックから戻ったときSDL_mixerは再生中の全チャンク(音楽を除く)とバッファ内でミックスする.
+コールバックはバッファサイズを変えられない(よって, 必要な量と正確に一致するデータを用意するか, 無音のままにする必要がある).
+</p>
+<p>
+argポインタにはコールバックに渡されたものがそのまま渡され, コールバックはこれを(トラックの進行状況や設定など)自由に使える.
+</p>
+<p>
+ミックスされる音楽「チャネル」は1つしかないため, コールバックは1つしか使えない.
+複数の入力をミックスする場合は, 1つの関数で扱えるようにする必要がある.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="Mix_SetPostMix.html">Mix_SetPostMix</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_HookMusic">SDL2_mixer/Mix_HookMusic</a>
+<hr>
+</body>
+</html>

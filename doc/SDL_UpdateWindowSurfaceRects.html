@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
+<title>SDL_UpdateWindowSurfaceRects</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_UpdateWindowSurfaceRects
+<hr>
+<h1>SDL_UpdateWindowSurfaceRects</h1>
+ウィンドウサーフェイスの領域を画面にコピーする
+<h2>構文</h2>
+<code>int SDL_UpdateWindowSurfaceRects(SDL_Window* window, const SDL_Rect* rects, int numrects)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_UpdateWindowSurfaceRects">
+<tr><td>window</td><td>更新するウィンドウ</td></tr>
+<tr><td>rects</td><td>サーフェイスをコピーする領域の<a href="SDL_Rect.html">SDL_Rect</a>の配列</td></tr>
+<tr><td>numrects</td><td>領域の数</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>詳細</h2>
+<p>
+この関数は画面にサーフェイスの変更を反映するために使われる.
+</p>
+<p>
+この関数はSDL1.2 APIのSDL_UpdateRects()と等価である.
+</p>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="SDL_GetWindowSurface.html">SDL_GetWindowSurface</a><br>
+<a href="SDL_UpdateWindowSurface.html">SDL_UpdateWindowSurface</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_UpdateWindowSurfaceRects">SDL_UpdateWindowSurfaceRects - SDL Wiki</a>
+<hr>
+</body>
+</html>

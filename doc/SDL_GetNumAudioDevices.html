@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAudio.html" title="1つ上">
+<title>SDL_GetNumAudioDevices</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryAudio.html">再生と録音</a> - SDL_GetNumAudioDevices
+<hr>
+<h1>SDL_GetNumAudioDevices</h1>
+組み込まれたオーディオデバイスの数を得る
+<h2>構文</h2>
+<code>int SDL_GetNumAudioDevices(int iscapture)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_GetNumAudioDevices">
+<tr><td>iscapture</td><td>0のとき再生デバイス, 0でないとき録音デバイスを要求する</td></tr>
+</table>
+<h2>戻り値</h2>
+現在のドライバで使えるデバイスの数, またはデバイスの一覧を得られなかったとき-1を戻す.
+-1は失敗を意味しない.
+詳細を参照すること.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+int i, count = SDL_GetNumAudioDevices(0);
+for (i = 0; i &lt; count; ++i) {
+    printf("オーディオデバイス %d: %s\n", i, SDL_GetAudioDeviceName(i, 0));
+}
+</pre>
+</code>
+</p>
+<h2>詳細</h2>
+<p>
+この関数はオーディオサブシステムの初期化に成功した場合のみ有効である.
+</p>
+<p>
+録音はSDL2.0.4では実装されていないので注意すること.
+よって, iscaptureは将来用で, 現在は常に0にする必要がある.
+</p>
+<p>
+この関数はデバイスの一覧を決定できない場合-1を戻す.
+-1を戻すことは失敗ではない.
+例えば, SDLが遠隔のオーディオサーバと対話するとき, インターネット上の全てを一覧にすることはできない.
+しかし, 指定したホストを<a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>で開くことはできる.
+</p>
+<p>
+多くの場合, この関数が0以上の値を戻したとき, 既にデフォルトのデバイス(<a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>の第1引数がNULL)を開いている. 
+</p>
+<p>
+この関数は利用できるハードウェアを再検索する.
+ループで毎回呼ばずに, ループの開始時に一度だけ呼ぶ必要がある.
+</p>
+<p>
+<code>
+<pre>
+// このようにしてはならない.
+// for (int i = 0; i &lt; SDL_GetNumAudioDevices(0); i++)
+
+// 代わりにこうするべきである.
+const int count = SDL_GetNumAudioDevices(0);
+for (int i = 0; i &lt; count; i++) { /* ここにコードを書く */ }
+</pre>
+</code>
+</p>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="SDL_GetAudioDeviceName.html">SDL_GetAudioDeviceName</a><br>
+<a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_GetNumAudioDevices">SDL_GetNumAudioDevices - SDL Wiki</a>
+<hr>
+</body>
+</html>

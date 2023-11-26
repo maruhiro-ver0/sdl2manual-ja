@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryRender.html" title="1つ上">
+<title>SDL_RenderClear</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_RenderClear
+<hr>
+<h1>SDL_RenderClear</h1>
+現在のレンダーターゲットを色で塗りつぶして消去する
+<h2>構文</h2>
+<code>int SDL_RenderClear(SDL_Renderer* renderer)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_RenderClear">
+<tr><td>renderer</td><td>レンダリングコンテキスト</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, 失敗のとき負の数のエラーコードを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+#include "SDL.h"
+
+int main(int argc, char* argv[])
+{
+        SDL_Window* window;
+        SDL_Renderer* renderer;
+
+        /* SDLを初期化する */
+        if (SDL_Init(SDL_INIT_VIDEO) &lt; 0)
+                return 1;
+
+        /* 描画するウィンドウを生成する */
+        window = SDL_CreateWindow("SDL_RenderClear",
+                        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+                        512, 512,
+                        0);
+
+        /* ウィンドウへの描画で使うSDL_CreateRendererを生成する */
+        renderer = SDL_CreateRenderer(window, -1, 0);
+
+        /* 描画の色を選択する. ここでは赤を設定する */
+        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+
+        /* 選択した色で画面を消去する */
+        SDL_RenderClear(renderer);
+
+        /* 上の描画は全て裏側で行われている
+           これで新たに表示され, ウィンドウが赤くなる */
+        SDL_RenderPresent(renderer);
+
+        /* ウィンドウを見せるために5秒待つ */
+        SDL_Delay(5000);
+
+        /* 全て終了する */
+        SDL_Quit();
+        return 0;
+}
+</pre>
+</code>
+</p>
+<h2>詳細</h2>
+<p>
+この関数は描画領域とクリップ領域を無視して全体を消去する.
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_SetRenderDrawColor.html">SDL_SetRenderDrawColor</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_RenderClear">SDL_RenderClear - SDL Wiki</a>
+<hr>
+</body>
+</html>

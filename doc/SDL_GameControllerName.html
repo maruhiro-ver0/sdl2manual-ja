@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryGameController.html" title="1つ上">
+<title>SDL_GameControllerName</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryGameController.html">ゲームコントローラー</a> - SDL_GameControllerName
+<hr>
+<h1>SDL_GameControllerName</h1>
+開いたゲームコントローラーの実装から得た名前を得る
+<h2>構文</h2>
+<code>const char* SDL_GameControllerName(SDL_GameController* gamecontroller)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_GameControllerName">
+<tr><td>gamecontroller</td><td>ゲームコントローラー</td></tr>
+</table>
+<h2>戻り値</h2>
+ゲームコントローラーの実装から得た名前を戻す. 名前がないまたはgamecontrollerが不正の場合NULLを戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_GameController *controller = NULL;
+for (int i = 0; i &lt; SDL_NumJoysticks(); ++i) {
+    controller = SDL_GameControllerOpen(i);
+    if (controller) {
+        break;
+    }
+}
+
+if (controller) {
+    printf("有効なコントローラを検知した. 名称: %s\n", SDL_GameControllerName(controller));
+}
+</pre>
+</code>
+</p>
+<h2>詳細</h2>
+これは<a href="SDL_GameControllerNameForIndex.html">SDL_GameControllerNameForIndex()</a>と同じ名前である.
+しかし, (不安定な)デバイス番号の代わりに開いたゲームコントローラーを引数にする.
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_GameControllerNameForIndex.html">SDL_GameControllerNameForIndex</a><br>
+<a href="SDL_GameControllerOpen.html">SDL_GameControllerOpen</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_GameControllerName">SDL_GameControllerName - SDL Wiki</a>
+<hr>
+</body>
+</html>

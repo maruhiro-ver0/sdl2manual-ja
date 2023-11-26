@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryForceFeedback.html" title="1つ上">
+<title>SDL_HapticEffect</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryForceFeedback.html">力覚フィードバック</a> - SDL_HapticEffect
+<hr>
+<h1>SDL_HapticEffect</h1>
+ハプティック効果の全テンプレート共用体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_HapticEffect">
+<tr><td>Uint16</td><td>type</td><td>効果の種類</td></tr>
+<tr><td><a href="SDL_HapticConstant.html">SDL_HapticConstant</a></td><td>constand</td><td>一定効果</td></tr>
+<tr><td><a href="SDL_HapticPeriodic.html">SDL_HapticPeriodic</a></td><td>periodic</td><td>周期効果</td></tr>
+<tr><td><a href="SDL_HapticCondition.html">SDL_HapticCondition</a></td><td>condition</td><td>条件効果</td></tr>
+<tr><td><a href="SDL_HapticRamp.html">SDL_HapticRamp</a></td><td>ramp</td><td>増減効果</td></tr>
+<tr><td><a href="SDL_HapticLeftRight.html">SDL_HapticLeftRight</a></td><td>leftright</td><td>左右効果</td></tr>
+<tr><td><a href="SDL_HapticCustom.html">SDL_HapticCustom</a></td><td>custom</td><td>カスタム効果</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+この共用体に含まれる全ての構造体には次の項目がある.
+<table border="1" summary="">
+<tr><td colspan="3" align="center">再生 (この要目は左右効果を除く全ての効果にある)</td></tr>
+<tr><td>Uint32</td><td>length</td><td>継続時間(ミリ秒)</td></tr>
+<tr><td>Uint16</td><td>delay</td><td>効果が始まるまでの待ち時間</td></tr>
+<tr><td colspan="3" align="center">トリガ (この要目は左右効果を除く全ての効果にある)</td></tr>
+<tr><td>Uint16</td><td>button</td><td>効果を引き起こすボタン</td></tr>
+<tr><td>Uint16</td><td>interval</td><td>効果を再び引き起こす時間</td></tr>
+<tr><td colspan="3" align="center">エンベロープ (この要目は条件効果と左右効果を除く全ての効果にある)</td></tr>
+<tr><td>Uint16</td><td>attack_length</td><td>立ち上がりの継続時間</td></tr>
+<tr><td>Uint16</td><td>attack_level</td><td>立ち上がりの強さ</td></tr>
+<tr><td>Uint16</td><td>fade_length</td><td>立ち下げの継続時間</td></tr>
+<tr><td>Uint16</td><td>fade_level</td><td>立ち下げの強さ</td></tr>
+</table>
+</p>
+<p>
+全ての項目の最大値は32767(0x7FFF)で, 符号ありの型の場合は負の数も可能である.
+時間の項目は, 特別な場合を除き, ミリ秒単位である.
+</p>
+<p>
+lengthには0～32767の代わりにSDL_HAPTIC_INFINITYを渡すことができる.
+delay, interval, attack_length, fade_lengthはSDL_HAPTIC_INFINITYに対応していない.
+SDL_HAPTIC_RAMPの継続時間はSDL_HAPTIC_INFINITYに対応していない.
+立ち下がりの値は効果が終わるまで使われない.
+</p>
+<p>
+ボタントリガは全てのデバイスには対応していない.
+可能ならば使わない方がよい.
+ボタン番号はジョイスティックとは異なり1から始まる.
+</p>
+<p>
+attack_lengthとfade_levelの両方が0ならば, エンベロープは使われない. どちらかが0を超えていれば使われる.
+</p>
+<p>
+一定効果のエンベロープの時間は次のようである.<br>
+<pre>
+強さ
+^
+|
+|    effect level --&gt;  _________________
+|                     /                 \
+|                    /                   \
+|                   /                     \
+|                  /                       \ 
+| attack_level --&gt; |                        \
+|                  |                        |  &lt;---  fade_level
+|
++--------------------------------------------------&gt; 時間
+
+                   [--]                 [---]
+               attack_length          fade_length
+
+[------------------][-----------------------]
+       delay                 length
+</pre>
+attack_levelとfade_levelは, effect levelより上であることに注意すること.
+</p>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_HapticCondition.html">SDL_HapticCondition</a><br>
+<a href="SDL_HapticConstant.html">SDL_HapticConstant</a><br>
+<a href="SDL_HapticCustom.html">SDL_HapticCustom</a><br>
+<a href="SDL_HapticDirection.html">SDL_HapticDirection</a><br>
+<a href="SDL_HapticLeftRight.html">SDL_HapticLeftRight</a><br>
+<a href="SDL_HapticPeriodic.html">SDL_HapticPeriodic</a><br>
+<a href="SDL_HapticRamp.html">SDL_HapticRamp</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_HapticEffectSupported.html">SDL_HapticEffectSupported</a><br>
+<a href="SDL_HapticNewEffect.html">SDL_HapticNewEffect</a><br>
+<a href="SDL_HapticUpdateEffect.html">SDL_HapticUpdateEffect</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_HapticEffect">SDL_HapticEffect - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

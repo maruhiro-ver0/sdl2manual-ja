@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_image">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_image-CategoryInfo.html" title="1つ上">
+<title>IMG_isJPG</title>
+</head>
+<body>
+<a href="index.html#SDL2_image">目次</a> - <a href="SDL2_image-FrontPage.html">SDL_image</a> - <a href="SDL2_image-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_image-CategoryInfo.html">情報</a> - IMG_isJPG
+<hr>
+<h1>IMG_isJPG</h1>
+読込/シーク可能な<a href="SDL_RWops.html">SDL_RWops</a>がJPG画像データかチェックする
+<h2>構文</h2>
+<p>
+<code>int IMG_isJPG(SDL_RWops *src)</code>
+</p>
+<h2>引数</h2>
+<table border="1" summary="IMG_isJPG">
+<tr><td>src</td><td>チェックする画像の読込/シーク可能な<a href="SDL_RWops.html">SDL_RWops</td></tr>
+</table>
+<h2>戻り値</h2>
+<p>
+JPG画像のとき0以外, そうでないとき0を戻す.
+</p>
+<h2>詳細</h2>
+<p>
+この関数は, ファイルの<a href="SDL_RWops.html">SDL_RWops</a>からできるだけ少なく(通常は数バイト)読み込んでファイルの種類を判別しようとする.
+</p>
+<p>
+「チェック対象のファイル種別でない」こととI/Oエラーの区別は行わない.
+</p>
+<p>
+この関数が呼ばれると, RWopsを常に呼ばれた時点にシークして戻そうとするが, シーク時にエラーが発生しても何も報告せず正常に動作したとみなす.
+これは直後に別の種類のIMG_isType関数を使用する, または追加のシークをせずに画像を読み込めることを意味する.
+</p>
+<p>
+画像データの読み込み前にこの関数を呼ぶ必要はない. 多くの場合, SDL_imageの標準の読み込み関数はファイルの種別をチェックしている.
+</p>
+<h2>バージョン</h2>
+SDL_image 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="IMG_isAVIF.html">IMG_isAVIF</a><br>
+<a href="IMG_isBMP.html">IMG_isBMP</a><br>
+<a href="IMG_isICO.html">IMG_isICO</a><br>
+<a href="IMG_isCUR.html">IMG_isCUR</a><br>
+<a href="IMG_isGIF.html">IMG_isGIF</a><br>
+<a href="IMG_isJXL.html">IMG_isJXL</a><br>
+<a href="IMG_isLBM.html">IMG_isLBM</a><br>
+<a href="IMG_isPCX.html">IMG_isPCX</a><br>
+<a href="IMG_isPNG.html">IMG_isPNG</a><br>
+<a href="IMG_isPNM.html">IMG_isPNM</a><br>
+<a href="IMG_isSVG.html">IMG_isSVG</a><br>
+<a href="IMG_isQOI.html">IMG_isQOI</a><br>
+<a href="IMG_isTIF.html">IMG_isTIF</a><br>
+<a href="IMG_isXCF.html">IMG_isXCF</a><br>
+<a href="IMG_isXPM.html">IMG_isXPM</a><br>
+<a href="IMG_isXV.html">IMG_isXV</a><br>
+<a href="IMG_isWEBP.html">IMG_isWEBP</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_image/IMG_isJPG">SDL2_image/IMG_isJPG</a>
+<hr>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryEvents.html" title="1つ上">
+<title>SDL_Event</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryEvents.html">イベント処理</a> - SDL_Event
+<hr>
+<h1>SDL_Event</h1>
+異なる種類のイベントの情報を持つ共用体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_Event">
+<tr><td>Uint32</td><td>type</td><td>イベントの種類, このフィールドは全種類のイベントで共用している</td></tr>
+<tr><td>SDL_CommonEvent</td><td>common</td><td>共通イベントの情報</td></tr>
+<tr><td><a href="SDL_DisplayEvent.html">SDL_DisplayEvent</a></td><td>window</td><td>ディスプレイイベントの情報</td></tr>
+<tr><td><a href="SDL_WindowEvent.html">SDL_WindowEvent</a></td><td>window</td><td>ウィンドウイベントの情報</td></tr>
+<tr><td><a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a></td><td>key</td><td>キーボードイベントの情報</td></tr>
+<tr><td><a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a></td><td>edit</td><td>テキスト編集イベントの情報</td></tr>
+<tr><td><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a></td><td>text</td><td>テキスト入力イベントの情報</td></tr>
+<tr><td><a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a></td><td>motion</td><td>マウス移動イベントの情報</td></tr>
+<tr><td><a href="SDL_MouseButtonEvent.html">SDL_MouseButtonEvent</a></td><td>button</td><td>マウスボタンイベントの情報</td></tr>
+<tr><td><a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a></td><td>wheel</td><td>マウスホイールイベントの情報</td></tr>
+<tr><td><a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a></td><td>jaxis</td><td>ジョイスティック軸イベントの情報</td></tr>
+<tr><td><a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a></td><td>jball</td><td>ジョイスティックボールイベントの情報</td></tr>
+<tr><td><a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a></td><td>jhat</td><td>ジョイスティックハットイベントの情報</td></tr>
+<tr><td><a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a></td><td>jbutton</td><td>ジョイスティックボタンイベントの情報</td></tr>
+<tr><td><a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a></td><td>jdevice</td><td>ジョイスティック接続イベントの情報</td></tr>
+<tr><td><a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a></td><td>caxis</td><td>ゲームコントローラー軸イベントの情報</td></tr>
+<tr><td><a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a></td><td>cbutton</td><td>ゲームコントローラーボタンイベントの情報</td></tr>
+<tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a></td><td>cdevice</td><td>ゲームコントローラー接続イベントの情報</td></tr>
+<tr><td><a href="SDL_AudioDeviceEvent.html">SDL_AudioDeviceEvent</a></td><td>adevice</td><td>オーディオデバイスイベントの情報 (SDL 2.0.4以降)</td></tr>
+<tr><td><a href="SDL_QuitEvent.html">SDL_QuitEvent</a></td><td>quit</td><td>終了要求イベントの情報</td></tr>
+<tr><td><a href="SDL_UserEvent.html">SDL_UserEvent</a></td><td>user</td><td>アプリケーション定義イベントの情報</td></tr>
+<tr><td><a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a></td><td>syswm</td><td>システム依存ウィンドウイベントの情報</td></tr>
+<tr><td><a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a></td><td>tfinger</td><td>タッチイベントの情報</td></tr>
+<tr><td><a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a></td><td>mgesture</td><td>マルチタッチジェスチャーイベントの情報</td></tr>
+<tr><td><a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a></td><td>dgesture</td><td>複雑なジェスチャーイベントの情報</td></tr>
+<tr><td><a href="SDL_DropEvent.html">SDL_DropEvent</a></td><td>drop</td><td>ドラッグ&amp;ドロップイベントの情報</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+<a href="SDL_Event.html">SDL_Event</a>は全てのSDLイベント処理の中核で,
+SDLで使われる全てのイベント構造体の共用体である.
+どのイベントがどの共用体のメンバに対応しているかを知るのは簡単である.
+<a href="#table">後の表</a>にその関係がある.
+</p>
+<p>
+<a href="SDL_Event.html">SDL_Event</a>には2つの使い方がある
+<ul>
+<li><a href="#reading">キューからイベントを読み込む</a></li>
+<li><a href="#push">キューにイベントを書き込む</a></li>
+</ul>
+</p>
+<h3><a name="reading">キューからイベントを読み込む</a></h3>
+<p>
+<a href="SDL_PollEvent.html">SDL_PollEvent()</a>または<a href="SDL_PeepEvents.html">SDL_PeepEvents()</a>でキューからイベントを得られる.
+<a href="SDL_PollEvent.html">SDL_PollEvent()</a>を例に説明する.
+</p>
+<p>
+まず始めに, 空の<a href="SDL_Event.html">SDL_Event</a>を生成する.
+</p>
+<p>
+<code>
+SDL_Event test_event;
+</code>
+</p>
+<p>
+<a href="SDL_PollEvent.html">SDL_PollEvent()</a>はイベントを読み込み, キューから削除する.
+もしキューにイベントがなければ0を, あれば1を戻す.
+whileループを使い, 全てのイベントを処理する.
+</p>
+<p>
+<code>
+<pre>
+while (SDL_PollEvent(&amp;test_event)) {
+</pre>
+</code>
+</p>
+<p>
+<a href="SDL_PollEvent.html">SDL_PollEvent()</a>は引数の<a href="SDL_Event.html">SDL_Event</a>へのポインタにイベント情報を代入する.
+<a href="SDL_PollEvent.html">SDL_PollEvent()</a>はイベントをキューから取り除き, その後test_eventに書き込む.
+しかし, test_eventのtypeメンバにはイベントの種類も書き込まれている.
+よって, 種類に応じてイベントを処理するためにはswitch文を使う.
+</p>
+<p>
+<code>
+</pre>
+	switch (test_event.type) {
+</pre>
+</code>
+</p>
+<p>
+得られたイベントが何であるか, そしてそのイベントの種類は何であるかを知る必要がある.
+ここでは, アプリケーションでユーザがマウスを動かしたことを検知したいと想定する.
+イベント種類を見渡すと, SDL_MOUSEMOTIONに気がつく. これが探しているイベントだろう.
+<a href="#table">後の表</a>を見ると, SDL_MOUSEMOTIONイベントは<a href="SDL_Event.html">SDL_Event</a>のメンバの<a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a>で処理することが分かる.
+SDL_MOUSEMOTIONのイベントの種類はswitch文の内部で次のようにチェックできる.
+</p>
+<p>
+<code>
+<pre>
+	case SDL_MOUSEMOTION:
+</pre>
+</code>
+</p>
+<p>
+test_eventのmotionメンバの情報を全て表示したいとすると
+</p>
+<p>
+<code>
+<pre>
+		printf("マウス移動イベントを得た.\n");
+		printf("現在の位置は(%d, %d)\n", test_event.motion.x, test_event.motion.y);
+		break;
+	default:
+		printf("処理されないイベント!\n");
+		break;
+	}
+}
+printf("イベントキューは空.\n");
+</pre>
+</code>
+</p>
+<h3><a name="push">キューにイベントを書き込む</a></h3>
+キューにイベントを入れることも可能で, 2つの方法がある.
+<a href="SDL_PushEvent.html">SDL_PushEvent()</a>または<a href="SDL_PushEvent.html">SDL_PushEvent()</a>でキューにイベントを入れることができる.
+通常, これはSDL_USEREVENTをキューに入れるために使われる. しかし, 望むならばニセの入力イベントを発行するために使うこともできる.
+自分でイベントを作るのはイベントを選択するよりも簡単である.
+typeメンバを設定し, 構造体のメンバに適切な情報を書き込めばよい.
+<p>
+<code>
+<pre>
+SDL_Event user_event;
+
+user_event.type = SDL_USEREVENT;
+user_event.user.code = 2;
+user_event.user.data1 = NULL;
+user_event.user.data2 = NULL;
+SDL_PushEvent(&amp;user_event);
+</pre>
+</code>
+<h3><a name="table">イベントの種類と共用体のメンバの関係</a></h3>
+<table border="1" summary="table">
+<tr><th>イベントの種類(typeメンバ)</th><th>イベント構造体</th><th>SDL_Eventフィールド</th></tr>
+<tr><td>SDL_AUDIODEVICEADDED<br>SDL_AUDIODEVICEREMOVED</td><td><a href="SDL_AudioDeviceEvent.html">SDL_AudioDeviceEvent</a></td><td>adevice</td></tr>
+<tr><td>SDL_CONTROLLERAXISMOTION</td><td><a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a></td><td>caxis</td></tr>
+<tr><td>SDL_CONTROLLERBUTTONDOWN<br>SDL_CONTROLLERBUTTONUP</td><td><a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a></td><td>cbutton</td></tr>
+<tr><td>SDL_CONTROLLERDEVICEADDED<br>SDL_CONTROLLERDEVICEREMOVED<br>SDL_CONTROLLERDEVICEREMAPPED</td><td><a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a></td><td>cdevice</td></tr>
+<tr><td>SDL_DOLLARGESTURE<br>SDL_DOLLARRECORD</td><td><a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a></td><td>dgesture</td></tr>
+<tr><td>SDL_DROPFILE<br>SDL_DROPTEXT<br>SDL_DROPBEGIN<br>SDL_DROPCOMPLETE</td><td><a href="SDL_DropEvent.html">SDL_DropEvent</a></td><td>drop</td></tr>
+<tr><td>SDL_FINGERMOTION<br>SDL_FINGERDOWN<br>SDL_FINGERUP<br></td><td><a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a></td><td>tfinger</td></tr>
+<tr><td>SDL_KEYDOWN<br>SDL_KEYUP</td><td><a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a></td><td>key</td></tr>
+<tr><td>SDL_JOYAXISMOTION</td><td><a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a></td><td>jaxis</td></tr>
+<tr><td>SDL_JOYBALLMOTION</td><td><a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a></td><td>jball</td></tr>
+<tr><td>SDL_JOYHATMOTION</td><td><a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a></td><td>jhat</td></tr>
+<tr><td>SDL_JOYBUTTONDOWN<br>SDL_JOYBUTTONUP</td><td><a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a></td><td>jbutton</td></tr>
+<tr><td>SDL_JOYDEVICEADDED<br>SDL_JOYDEVICEREMOVED</td><td><a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a></td><td>jdevice</td></tr>
+<tr><td>SDL_MOUSEMOTION</td><td><a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a></td><td>motion</td></tr>
+<tr><td>SDL_MOUSEBUTTONDOWN<br>SDL_MOUSEBUTTONUP</td><td><a href="SDL_MouseButtonEvent.html">SDL_MouseButtonEvent</a></td><td>button</td></tr>
+<tr><td>SDL_MOUSEWHEEL</td><td><a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a></td><td>wheel</td></tr>
+<tr><td>SDL_MULTIGESTURE</td><td><a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a></td><td>mgesture</td></tr>
+<tr><td>SDL_QUIT</td><td><a href="SDL_QuitEvent.html">SDL_QuitEvent</a></td><td>quit</td></tr>
+<tr><td>SDL_SYSWMEVENT</td><td><a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a></td><td>syswm</td></tr>
+<tr><td>SDL_TEXTEDITING</td><td><a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a></td><td>edit</td></tr>
+<tr><td>SDL_TEXTINPUT</td><td><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a></td><td>text</td></tr>
+<tr><td>SDL_USEREVENT</td><td><a href="SDL_UserEvent.html">SDL_UserEvent</a></td><td>user</td></tr>
+<tr><td>SDL_WINDOWEVENT</td><td><a href="SDL_WindowEvent.html">SDL_WindowEvent</a></td><td>window</td></tr>
+<tr><td>その他のイベント</td><td>SDL_CommonEvent</td><td>なし. <a href="https://wiki.libsdl.org/SDL_EventType">type</a>フィールドを使うこと</td></tr>
+</table>
+<p>
+<h2>関連項目(列挙体)</h2>
+<a href="SDL_EventType.html">SDL_EventType</a><br>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_AudioDeviceEvent.html">SDL_AudioDeviceEvent</a><br>
+<a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a><br>
+<a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a><br>
+<a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a><br>
+<a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a><br>
+<a href="SDL_DropEvent.html">SDL_DropEvent</a><br>
+<a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a><br>
+<a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a><br>
+<a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a><br>
+<a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a><br>
+<a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a><br>
+<a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a><br>
+<a href="SDL_MouseButtonEvent.html">SDL_MouseButtonEvent</a><br>
+<a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a><br>
+<a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a><br>
+<a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a><br>
+<a href="SDL_QuitEvent.html">SDL_QuitEvent</a><br>
+<a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a><br>
+<a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a><br>
+<a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a><br>
+<a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a><br>
+<a href="SDL_UserEvent.html">SDL_UserEvent</a><br>
+<a href="SDL_WindowEvent.html">SDL_WindowEvent</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_PeepEvents.html">SDL_PeepEvents</a><br>
+<a href="SDL_PollEvent.html">SDL_PollEvent</a><br>
+<a href="SDL_PushEvent.html">SDL_PushEvent</a><br>
+<a href="SDL_WaitEvent.html">SDL_WaitEvent</a><br>
+<a href="SDL_WaitEventTimeout.html">SDL_WaitEventTimeout</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_Event">SDL_Event - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryEvents.html" title="1つ上">
+<title>SDL_JoyButtonEvent</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryEvents.html">イベント処理</a> - SDL_JoyButtonEvent
+<hr>
+<h1>SDL_JoyButtonEvent</h1>
+ジョイスティックボタンイベントの情報の構造体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_JoyButtonEvent">
+<tr><td>Uint32</td><td>type</td><td>SDL_JOYBUTTONDOWN または SDL_JOYBUTTONUP</td></tr>
+<tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
+<tr><td>SDL_JoystickID</td><td>which</td><td>イベントを報告したジョイスティックのインスタンスID</td></tr>
+<tr><td>Uint8</td><td>button</td><td>変化したボタンの番号</td></tr>
+<tr><td>Uint8</td><td>state</td><td>ボタンの状態. SDL_PRESSED または SDL_RELEASED</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+<a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバで, SDL_JOYBUTTONDOWNまたはSDL_JOYBUTTONUPが報告されたときに使われる.
+eventのjbuttonフィールドからアクセスできる.
+</p>
+<p>
+SDL_JOYBUTTONDOWNとSDL_JOYBUTTONUPはユーザがジョイスティックのボタンを押したときと離したときに発生する.
+</p>
+<h2>関連項目(列挙体)</h2>
+<a href="SDL_EventType.html">SDL_EventType</a><br>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_Event.html">SDL_Event</a><br>
+<a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a><br>
+<a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a><br>
+<a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a>
+<h2>関連項目(関数)</h2>
+<a href="SDL_JoystickEventState.html">SDL_JoystickEventState</a><br>
+<a href="SDL_JoystickGetButton.html">SDL_JoystickGetButton</a>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_JoyButtonEvent">SDL_JoyButtonEvent - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

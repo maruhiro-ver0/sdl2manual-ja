@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>ゲームコントローラー</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - ゲームコントローラー
+<hr>
+<h1>ゲームコントローラー</h1>
+インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_gamecontroller.h">SDL_gamecontroller.h</a>
+<h2>概要</h2>
+<p>
+ここに分類される関数は, ゲームコントローラーとゲームコントローラーにマッピング(対応付け)されたジョイスティックを扱う.
+これは既存のジョイスティックAPIの上に成り立っている.
+</p>
+<p>
+SDL_GameControllerはゲームパッド(コントローラー)をxbox360-padと同じようなものとして抽象化してあつかう.
+つまり, ゲームパッドには十字キー, 2つのアナログスティック, 右側の4ボタン(よくA, B, X, Yと呼ばれる), ショルダーボタン(その内の2つはコントローラーかもしれない), 中央の3ボタン(スタート, バック, そしてしばしばロゴボタン)がある.
+これは似たようなレイアウトのデバイス, 例えばPlaystation DualShockコントローラーにも存在するが, ボタン名が異なる.
+SDL_GameControllerでは, 対応する全てのデバイスはxbox360/XInputの名称に変換される.
+例えば, SDL_CONTROLLER_AXIS_LEFTXは常に左アナログスティックのX軸, SDL_CONTROLLER_BUTTON_Bは常に右側の4ボタンで最も右側のボタンである.
+これによりあなたのユーザに「Bでジャンプ, 左アナログスティックで移動」のように(同じようなデバイスに)一貫したルールを提供できる.
+SDL_Joystick(とDirectInputのような下位API)では, SDL(やDirectInput)上のスティックやボタンとデバイス上の物理的なスティック/ボタンの位置の対応付けを知ることはできない.
+</p>
+<p>
+もしStreamからゲームを起動すると, ゲームコントローラーは自動的にマッピングされる.
+</p>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_GameControllerAxis.html">SDL_GameControllerAxis</a> - コントローラーで利用可能な軸の列挙対
+<li><a href="SDL_GameControllerBindType.html">SDL_GameControllerBindType</a> - SDL_GameControllerButtonBind構造体のマップされたSDL_Joystickの種類の列挙体
+<li><a href="SDL_GameControllerButton.html">SDL_GameControllerButton</a> - コントローラーで利用可能なボタンの列挙対
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_GameControllerButtonBind.html">SDL_GameControllerButtonBind</a> - SDL_GameControllerの論理ボタン/軸がどのSDL_Joystickのボタン/軸/ハットにマップされたものかの情報を持つ構造体
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_GameControllerAddMapping.html">SDL_GameControllerAddMapping</a> - SDLが認識していないコントローラを追加する. または認識済みのコントローラを別の配置にする
+<li><a href="SDL_GameControllerAddMappingsFromFile.html">SDL_GameControllerAddMappingsFromFile</a> - ファイルから現在のSDL_GetPlatform()のゲームコントローラーマッピングを読み込む
+<li><a href="SDL_GameControllerAddMappingsFromRW.html">SDL_GameControllerAddMappingsFromRW</a> - SDLデータストリームからゲームコントローラーマッピングを読み込む
+<li><a href="SDL_GameControllerClose.html">SDL_GameControllerClose</a> - SDL_GameControllerOpen()で開いたゲームコントローラーを閉じる
+<li><a href="SDL_GameControllerEventState.html">SDL_GameControllerEventState</a> - ゲームコントローラーのイベントを有効・無効にする
+<li><a href="SDL_GameControllerFromInstanceID.html">SDL_GameControllerFromInstanceID</a> - インスタンスIDと関連付けられたSDL_GameControllerを得る
+<li><a href="SDL_GameControllerFromPlayerIndex.html">SDL_GameControllerFromPlayerIndex</a> - プレイヤーの番号と関連付けられたSDL_GameControllerを得る
+<li><a href="SDL_GameControllerGetAppleSFSymbolsNameForAxis.html">SDL_GameControllerGetAppleSFSymbolsNameForAxis</a> - Apple環境のゲームコントローラーの指定の軸のsfSymbolsNameを得る
+<li><a href="SDL_GameControllerGetAppleSFSymbolsNameForButton.html">SDL_GameControllerGetAppleSFSymbolsNameForButton</a> - Apple環境のゲームコントローラーの指定のボタンのsfSymbolsNameを得る
+<li><a href="SDL_GameControllerGetAttached.html">SDL_GameControllerGetAttached</a> - ゲームコントローラーが開かれていて, かつ接続されているかチェックする
+<li><a href="SDL_GameControllerGetAxis.html">SDL_GameControllerGetAxis</a> - ゲームコントローラーの軸の状態を得る
+<li><a href="SDL_GameControllerGetAxisFromString.html">SDL_GameControllerGetAxisFromString</a> - 文字列をゲームコントローラーの軸を表す列挙体の値に変換する
+<li><a href="SDL_GameControllerGetBindForAxis.html">SDL_GameControllerGetBindForAxis</a> - ゲームコントローラー軸マッピングのためのジョイスティック レイヤー バインドを得る
+<li><a href="SDL_GameControllerGetBindForButton.html">SDL_GameControllerGetBindForButton</a> - ゲームコントローラー ボタン マッピングのためのジョイスティック レイヤー バインドを得る
+<li><a href="SDL_GameControllerGetButton.html">SDL_GameControllerGetButton</a> - ゲームコントローラーのボタンの状態を得る
+<li><a href="SDL_GameControllerGetButtonFromString.html">SDL_GameControllerGetButtonFromString</a> - 文字列をボタンマッピングに変換する
+<li><a href="SDL_GameControllerGetFirmwareVersion.html">SDL_GameControllerGetFirmwareVersion</a> - 可能ならばオープンしたゲームコントローラーのファームウェアのバージョンを得る
+<li><a href="SDL_GameControllerGetJoystick.html">SDL_GameControllerGetJoystick</a> - ゲームコントローラーIDからジョイスティックIDを得る
+<li><a href="SDL_GameControllerGetNumTouchpadFingers.html">SDL_GameControllerGetNumTouchpadFingers</a> - ゲームコントローラーのタッチパッドの同時に検知できる指の数を得る
+<li><a href="SDL_GameControllerGetNumTouchpads.html">SDL_GameControllerGetNumTouchpads</a> - ゲームコントローラーのタッチパッドの数を得る
+<li><a href="SDL_GameControllerGetPlayerIndex.html">SDL_GameControllerGetPlayerIndex</a> - オープンされたゲームコントローラーのプレイヤーの番号を得る
+<li><a href="SDL_GameControllerGetProduct.html">SDL_GameControllerGetProduct</a> - 可能ならばオープンされたゲームコントローラーのUSBプロダクトIDを得る
+<li><a href="SDL_GameControllerGetProductVersion.html">SDL_GameControllerGetProductVersion</a> - 可能ならばオープンされたゲームコントローラーのプロダクトバージョンを得る
+<li><a href="SDL_GameControllerGetSensorData.html">SDL_GameControllerGetSensorData</a> - ゲームコントローラーのセンサーの状態を得る
+<li><a href="SDL_GameControllerGetSensorDataRate.html">SDL_GameControllerGetSensorDataRate</a> - ゲームコントローラーセンサーのデータレート(1秒あたりのイベント数)を得る
+<li><a href="SDL_GameControllerGetSensorDataWithTimestamp.html">SDL_GameControllerGetSensorDataWithTimestamp</a> - ゲームコントローラーのセンサーの状態と更新時間を得る
+<li><a href="SDL_GameControllerGetSerial.html">SDL_GameControllerGetSerial</a> - 可能ならばオープンされたゲームコントローラーのシリアル番号を得る
+<li><a href="SDL_GameControllerGetStringForAxis.html">SDL_GameControllerGetStringForAxis</a> - ゲームコントローラーの軸番号を文字列に変換する
+<li><a href="SDL_GameControllerGetStringForButton.html">SDL_GameControllerGetStringForButton</a> - ゲームコントローラーのボタン番号を文字列に変換する
+<li><a href="SDL_GameControllerGetTouchpadFinger.html">SDL_GameControllerGetTouchpadFinger</a> - ゲームコントローラーのタッチパッド上の指の状態を得る
+<li><a href="SDL_GameControllerGetType.html">SDL_GameControllerGetType</a> - オープンされたゲームコントローラーの種類を得る
+<li><a href="SDL_GameControllerGetVendor.html">SDL_GameControllerGetVendor</a> - 可能ならばオープンされたゲームコントローラーのベンダーIDを得る
+<li><a href="SDL_GameControllerHasAxis.html">SDL_GameControllerHasAxis</a> - ゲームコントローラーに指定の軸が存在するかを得る
+<li><a href="SDL_GameControllerHasButton.html">SDL_GameControllerHasButton</a> - ゲームコントローラーに指定のボタンが存在するかを得る
+<li><a href="SDL_GameControllerHasLED.html">SDL_GameControllerHasLED</a> - ゲームコントローラーにLEDが存在するかを得る
+<li><a href="SDL_GameControllerHasRumble.html">SDL_GameControllerHasRumble</a> - ゲームコントローラーが振動に対応しているかを得る
+<li><a href="SDL_GameControllerHasRumbleTriggers.html">SDL_GameControllerHasRumbleTriggers</a> - ゲームコントローラーがトリガー振動に対応しているかを得る
+<li><a href="SDL_GameControllerHasSensor.html">SDL_GameControllerHasSensor</a> - ゲームコントローラーに指定のセンサーが存在するかを得る
+<li><a href="SDL_GameControllerIsSensorEnabled.html">SDL_GameControllerIsSensorEnabled</a> - ゲームコントローラーの指定のセンサーが有効かを得る
+<li><a href="SDL_GameControllerMapping.html">SDL_GameControllerMapping</a> - ゲームコントローラーの現在のマッピングを得る
+<li><a href="SDL_GameControllerMappingForDeviceIndex.html">SDL_GameControllerMappingForDeviceIndex</a> - ゲームコントローラーのマッピングを得る
+<li><a href="SDL_GameControllerMappingForGUID.html">SDL_GameControllerMappingForGUID</a> - 指定のGUIDのゲームコントローラーマッピング文字列を得る
+<li><a href="SDL_GameControllerMappingForIndex.html">SDL_GameControllerMappingForIndex</a> - ゲームコントローラーの指定の番号のマッピングを得る
+<li><a href="SDL_GameControllerName.html">SDL_GameControllerName</a> - 開いたゲームコントローラーの実装から得た名前を得る
+<li><a href="SDL_GameControllerNameForIndex.html">SDL_GameControllerNameForIndex</a> - ゲームコントローラーの実装から得た名前を得る
+<li><a href="SDL_GameControllerNumMappings.html">SDL_GameControllerNumMappings</a> - インストールされているゲームコントローラーマッピングの数を得る
+<li><a href="SDL_GameControllerOpen.html">SDL_GameControllerOpen</a> - ゲームコントローラーを使うために開く
+<li><a href="SDL_GameControllerPath.html">SDL_GameControllerPath</a> - オープンしたゲームコントローラーの実装に依存したパスを得る
+<li><a href="SDL_GameControllerPathForIndex.html">SDL_GameControllerPathForIndex</a> - オープンしたゲームコントローラーの実装に依存したパスを得る
+<li><a href="SDL_GameControllerRumble.html">SDL_GameControllerRumble</a> - ゲームコントローラーの振動効果を開始する
+<li><a href="SDL_GameControllerRumbleTriggers.html">SDL_GameControllerRumbleTriggers</a> - ゲームコントローラーのトリガーの振動効果を開始する
+<li><a href="SDL_GameControllerSendEffect.html">SDL_GameControllerSendEffect</a> - コントローラー固有の効果パケットを送信する
+<li><a href="SDL_GameControllerSetLED.html">SDL_GameControllerSetLED</a> - ゲームコントローラーのLEDの色を変更する
+<li><a href="SDL_GameControllerSetPlayerIndex.html">SDL_GameControllerSetPlayerIndex</a> - オープンされたゲームコントローラーにプレイヤー番号を設定する
+<li><a href="SDL_GameControllerSetSensorEnabled.html">SDL_GameControllerSetSensorEnabled</a> - ゲームコントローラーのセンサーからのデータ報告を有効にするかを設定する
+<li><a href="SDL_GameControllerTypeForIndex.html">SDL_GameControllerTypeForIndex</a> - ゲームコントローラーの種類を得る
+<li><a href="SDL_GameControllerUpdate.html">SDL_GameControllerUpdate</a> - イベントループを使わないときゲームコントローラーの更新を吸い出す
+<li><a href="SDL_IsGameController.html">SDL_IsGameController</a> - ジョイスティクがゲームコントローラーインターフェースに対応しているかチェックする
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/CategoryGameController">GameController and Joystick Mapping - SDL Wiki</a>
+<hr>
+</body>
+</html>

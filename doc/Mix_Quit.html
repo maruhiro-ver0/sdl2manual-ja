@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryMusic.html" title="1つ上">
+<title>Mix_Quit</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryGeneral.html">一般</a> - Mix_Quit
+<hr>
+<h1>Mix_Quit</h1>
+SDL_mixerを解放する
+<h2>構文</h2>
+<code>void Mix_Quit(void)</code>
+<h2>詳細</h2>
+<p>
+これは全ての資源を解放した後に全てのオーディオデバイスを閉じるため, SDL_mixerで最後に呼び出す関数でなければならない.
+この関数は様々なコーデックで使用する共有ライブラリを解放する.
+</p>
+<p>
+この関数の呼び出しの後に<a href="Mix_Init.html">Mix_Init(0)</a>を呼ぶと0(コーデックがロードされていない)が戻る.
+</p>
+<p>
+この関数の呼び出しの後に<a href="Mix_Init.html">Mix_Init()</a>を呼んでコーデックを再ロードするのは安全である.
+</p>
+<p>
+</p>
+他のSDL周辺ライブラリとは異なり, Mix_Initの呼び出しは積み重ならない.
+<a href="Mix_Quit.html">Mix_Quit()</a>を一度だけ呼べば全ての後処理を行うことができ, Mix_Init呼び出しとペアになっている必要はない.
+最もよいのはプログラムではMix_Initと<a href="Mix_Quit.html">Mix_Quit()</a>を1度ずつ呼ぶことである.
+これは必須ではないが, そうでない場合は発生する危険性に注意する必要がある.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="Mix_Init.html">Mix_Init</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_Quit">SDL2_mixer/Mix_Quit</a>
+<hr>
+</body>
+</html>

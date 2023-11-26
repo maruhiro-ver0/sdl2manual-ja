@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryForceFeedback.html" title="1つ上">
+<title>SDL_HapticDirection</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryForceFeedback.html">力覚フィードバック</a> - SDL_HapticDirection
+<hr>
+<h1>SDL_HapticDirection</h1>
+効果の方向の構造体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_HapticDirection">
+<tr><td>Uint8</td><td>type</td><td>座標系の種類 (詳細を参照すること)</td></tr>
+<tr><td>Sint32[]</td><td>dir</td><td>方向 (詳細を参照すること)</td></tr>
+</table>
+<h2>サンプルコード</h2>
+<p>
+力を南からかける場合の全ての表現の例(力を南からかける場合, ユーザは力に対抗してスティックを引くことになる):
+<code>
+<pre>
+SDL_HapticDirection direction;
+
+// 直交座標
+direction.type = SDL_HAPTIC_CARTESIAN; // 直交座標を使う
+direction.dir[0] = 0; // X軸
+direction.dir[1] = 1; // Y軸
+// デバイスは2次元なので, 3つ目のパラメータは必要ない
+
+// 極座標
+direction.type = SDL_HAPTIC_POLAR; // 極座標を使う
+direction.dir[0] = 18000; // 極座標は最初のパラメータのみ使う
+
+// 球面座標
+direction.type = SDL_HAPTIC_SPHERICAL; // 球面座標を使う
+direction.dir[0] = 9000; // 2次元なのでこれ以上パラメータは必要ない
+</pre>
+</code>
+</p>
+<h2>詳細</h2>
+<p>
+ハプティックデバイスの基本方位は, デバイスの位置と相対的である.
+北をユーザが向いている方向とすると, 南がユーザのいる方向, 東が右, 西が左である.
+</p>
+<p>
+基本方位は次の図のようになっている.
+<pre>
+                .--.
+                |__| .-------.
+                |=.| |.-----.|
+                |--| ||     ||
+                |  | |'-----'|
+                |__|~')_____('
+               [ コンピュータ ]
+
+
+                   北 (0,-1)
+                      ^
+                      |
+                      |
+(-1,0) 西 &lt;----[ ハプティック ]----&gt; 東 (1,0)
+                      |
+                      |
+                      v
+                   南 (0,1)
+
+
+                  [ ユーザ ]
+                    \|||/
+                    (o o)
+              ---ooO-(_)-Ooo---
+</pre>
+</p>
+<p>
+座標系には次のものがある.
+<table border="1" summary="type">
+<tr><td>SDL_HAPTIC_POLAR</td><td>極座標</td></tr>
+<tr><td>SDL_HAPTIC_CARTESIAN</td><td>直交座標</td></tr>
+<tr><td>SDL_HAPTIC_SPHERICAL</td><td>球面座標</td></tr>
+</table>
+</p>
+<p>
+typeがSDL_HAPTIC_POLARならば, 方向は北から時計回りの度数の100倍で指定する.
+SDL_HAPTIC_POLARはdirの1番目のみ使う.
+基本方位は次のようになる.
+<table border="1" summary="SDL_HAPTIC_POLAR">
+<tr><td>北</td><td>0 (0度)</td></tr>
+<tr><td>東</td><td>9000 (90度)</td></tr>
+<tr><td>南</td><td>18000 (180度)</td></tr>
+<tr><td>西</td><td>27000 (270度)</td></tr>
+</table>
+</p>
+<p>
+typeがSDL_HAPTIC_CARTESIANならば, 方向は3軸(X軸, Y軸, Z軸)で指定する.
+SDL_HAPTIC_CARTESIANはdirの3番目までを使う.
+基本方位は次のようになる.
+<table border="1" summary="SDL_HAPTIC_CARTESIAN">
+<tr><td>北</td><td>0, -1, 0</td></tr>
+<tr><td>東</td><td>1, 0, 0</td></tr>
+<tr><td>南</td><td>0, 1, 0</td></tr>
+<tr><td>西</td><td>-1, 0 ,0</td></tr>
+</table>
+もし対応していればZ軸は効果の高さを表す. 対応していなければ使われない.
+直行座標系では(1, 2)は(2, 4)は同じである. 考慮されるのは方向のみで, 望むならば何倍にしてもよい.
+</p>
+<p>
+typeがSDL_HAPTIC_SPHERICALならば, 方向は2つの角度で指定する.
+dirの2番目までを使う.
+dirの値は次の通りである(全ての値は度数の100倍).
+<table border="1" summary="SDL_HAPTIC_SPHERICAL">
+<tr><td>(1, 0)から(0, 1)へ回転する角度</td></tr>
+<tr><td>(0, 0, 1)へ方向の角度 (少なくとも3軸のデバイスが必要)</td></tr>
+</table>
+</p>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_HapticPeriodic.html">SDL_HapticPeriodic</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_HapticNumAxes.html">SDL_HapticNumAxes</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_HapticDirection">SDL_HapticDirection - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

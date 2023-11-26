@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryIO.html" title="1つ上">
+<title>SDL_RWops</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryIO.html">ファイル入出力</a> - SDL_RWops
+<hr>
+<h1>SDL_RWops</h1>
+ストリーム入出力の抽象インターフェースを提供する構造体.
+アプリケーションは通常この構造体の内部を無視し, 不透明ポインタとして扱うことができる.
+しかし, 入出力を実装する低レベルコードにとっては, その詳細は重要である.
+<h2>フィールド</h2>
+<table border="1" summary="SDL_RWops">
+<tr><td>Sint64 (*)(SDL_RWops *)</td><td>size</td><td>ストリームサイズを報告するコールバック関数 (詳細を参照すること)</td></tr>
+<tr><td>Sint64 (*)(SDL_RWops *, Sint64, int)</td><td>seek</td><td>ストリームをシークするコールバック関数 (詳細を参照すること)</td></tr>
+<tr><td>size_t (*)(SDL_RWops *, void *, size_t, size_t)</td><td>read</td><td>ストリームから読み込むコールバック関数 (詳細を参照すること)</td></tr>
+<tr><td>size_t (*)(SDL_RWops *, const void *, size_t, size_t)</td><td>write</td><td>ストリームに書き込むコールバック関数 (詳細を参照すること)</td></tr>
+<tr><td>int (*)(SDL_RWops *)</td><td>close</td><td>ストリームを閉じるコールバック関数 (詳細を参照すること)</td></tr>
+<tr><td>Uint32</td><td>type</td><td>ストリームの種類 (詳細を参照すること)</td></tr>
+<tr><td>union</td><td>hidden</td><td>種類に固有のデータ (詳細を参照すること)</td></tr>
+</table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+SDL_RWops *io = SDL_RWFromFile("username.txt", "rb");
+if (io != NULL) {
+    char name[256];
+    if (io->read(io, name, sizeof (name), 1) > 0) {
+        printf("こんにちは %s!\n", name);
+    }
+    io->close(io);
+}
+</pre>
+</code>
+</p>
+<p>
+次の例の動きは上と同じだが, マクロインターフェースを使っている. この書き方が推奨されている.
+<code>
+<pre>
+SDL_RWops *io = SDL_RWFromFile("username.txt", "rb");
+if (io != NULL) {
+    char name[256];
+    if (SDL_RWread(io, name, sizeof (name), 1) > 0) {
+        printf("こんにちは %s!\n", name);
+    }
+    SDL_RWclose(io);
+}
+</pre>
+</code>
+</p>
+<h2>詳細</h2>
+<p>
+<a href="SDL_RWops.html">SDL_RWops</a>は入出力を抽象化したものである.
+ストリームの読み込み, 書き込み, シークが提供されており, 呼び出し側はデータがどこから来たものかを知る必要がない.
+</p>
+<p>
+例えば, <a href="SDL_RWops.html">SDL_RWops</a>がメモリバッファ, ディスク上のファイル, 接続されたwebサーバに設定されていても, 呼び出し側はデータの操作方法を変える必要がない.
+</p>
+<p>
+SDLはファイルやメモリバッファのようなストリームを読み込むいくつかの内部メソッドを提供している.
+しかし, この構造体はどのような種類のストリームでもアプリケーションやサードパーティーのライブラリで実装することができる.
+</p>
+<p>
+この構造体のほとんどのフィールドはストリームインターフェースの実装へのコールバックとして使われる関数へのポインタである.
+これらの呼び出し規約は全てSDLCALLである.
+</p>
+<p>
+SDL1.2ではこれらの関数の多くはintを使っていたが, SDL2.0ではより広い範囲を扱うためSint64になっている.
+</p>
+<p>
+アプリケーションはこの構造体の内部について知る必要はない.
+不透明ポインタとして扱い, <a href="SDL_RWread.html">SDL_RWread()</a>, <a href="SDL_RWwrite.html">SDL_RWwrite()</a>, <a href="SDL_RWseek.html">SDL_RWseek()</a>, <a href="SDL_RWtell.html">SDL_RWtell()</a>, <a href="SDL_RWclose.html">SDL_RWclose()</a>関数を使えばよい.
+また, <a href="SDL_RWFromFile.html">SDL_RWFromFile()</a>や<a href="SDL_RWFromMem.html">SDL_RWFromMem()</a>などを使えば, アプリケーションはこの構造体を生成, 修正することもほとんどない.
+</p>
+<p>
+しかし, サードパーティーライブラリや特別な低レベルコードの場合は, この構造体がどのように実装されているかを知る必要がある.
+</p>
+<h3>サイズ関数</h3>
+<p>
+sizeはストリーム全体のバイト数を報告する関数へのポインタである.
+もし, ストリームのサイズが決められなければ(サイズを知る方法がない, またはエラーが発生した), この関数は-1を戻す.
+</p>
+<h3>シーク関数</h3>
+<p>
+seekはストリームの次に読み込む/書き込む位置を設定する関数へのポインタである.
+シークはバイト単位で設定する.
+シークできなければ(シークする方法がない, またはエラーが発生した), この関数は-1を戻す. シークできれば新しい位置を戻すRW_SEEK_CURから0byteシークすると現在の位置を得ることができる.
+</p>
+<p>
+最後の引数は標準のfseek()の"whence"のように働く:
+<table border="1" summary="seek">
+<tr><th>識別子</th><th>値</th><th>機能</th></tr>
+<tr><td>RW_SEEK_SET</td><td>0</td><td>データの先頭からシークする</td></tr>
+<tr><td>RW_SEEK_CUR</td><td>1</td><td>現在の読込位置からシークする</td></tr>
+<tr><td>RW_SEEK_END</td><td>2</td><td>データの末尾からシークする</td></tr>
+</table>
+</p>
+<h3>読込関数</h3>
+<p>
+readはストリームから読み込み関数へのポインタである.
+それぞれsizeバイトの最大num個のオブジェクトを読み込みptrポインタへ書き込む.
+読み込んだオブジェクトの数を戻す. それは最大要求数以下の場合がある.
+エラーまたは終端の場合は0を戻す.
+</p>
+<h3>書込関数</h3>
+<p>
+writeはストリームへ書き込む関数へのポインタである.
+それぞれsizeバイトのnum個のオブジェクトをポインタptrから書き込む.
+書き込んだオブジェクトの数を戻す. 要求より少ない場合はエラーである.
+</p>
+<h3>閉じる関数</h3>
+<p>
+closeはストリームを閉じる関数へのポインタである.
+ストリームで使ったあらゆる資源と<a href="SDL_RWops.html">SDL_RWops</a>自身を<a href="SDL_FreeRW.html">SDL_FreeRW()</a>で解放する必要がある.
+成功のとき0, ディスクへの書き込みに失敗したときなどは-1を戻す.
+書き込みに失敗した場合でも, この関数を呼んだ後は<a href="SDL_RWops.html">SDL_RWops</a>は使えない.
+</p>
+<h3>ストリームの種類</h3>
+<p>
+typeフィールドは次の値の1つである.
+アプリケーションは通常この情報を無視できる.
+<table border="1" summary="type">
+<tr><th>識別子</th><th>値</th><th>機能</th></tr>
+<tr><td>SDL_RWOPS_UNKNOWN</td><td>0</td><td>不明またはアプリケーション定義のストリーム</td></tr>
+<tr><td>SDL_RWOPS_WINFILE</td><td>1</td><td>win32 ファイルハンドラ</td></tr>
+<tr><td>SDL_RWOPS_STDFILE</td><td>2</td><td>stdio.h FILE*</td></tr>
+<tr><td>SDL_RWOPS_JNIFILE</td><td>3</td><td>Androidの資源</td></tr>
+<tr><td>SDL_RWOPS_MEMORY</td><td>4</td><td>メモリストリーム(読込/書込)</td></tr>
+<tr><td>SDL_RWOPS_MEMORY_RO</td><td>5</td><td>メモリストリーム(読込専用)</td></tr>
+</table>
+</p>
+<p>
+アプリケーションとライブラリ独自の<a href="SDL_RWops.html">SDL_RWops</a>の実装の場合はSDL_RWOPS_UNKNOWNにする必要がある.
+他の値は全てSDLが内部で使うために予約されている.
+</p>
+<h3>固有のデータ</h3>
+<p>
+アプリケーションはこの共用体を完全に無視できる.
+この共用体の全てのフォールドはSDL内部で使用しており, 1つの例外を除き環境依存かつ参照禁止である.
+自分で<a href="SDL_RWops.html">SDL_RWops</a>を実装する場合はunknown共用体を使うことができる. その場合閉じるときに消去する必要がある.
+もし2つのポインタを設定したいならば, このポインタを実際のデータの構造体の領域へのポインタとして使うとよい.
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_AllocRW.html">SDL_AllocRW</a><br>
+<a href="SDL_FreeRW.html">SDL_FreeRW</a><br>
+<a href="SDL_RWclose.html">SDL_RWclose</a>
+<a href="SDL_RWFromConstMem.html">SDL_RWFromConstMem</a><br>
+<a href="SDL_RWFromFile.html">SDL_RWFromFile</a><br>
+<a href="SDL_RWFromFP.html">SDL_RWFromFP</a><br>
+<a href="SDL_RWFromMem.html">SDL_RWFromMem</a><br>
+<a href="SDL_RWread.html">SDL_RWread</a><br>
+<a href="SDL_RWseek.html">SDL_RWseek</a><br>
+<a href="SDL_RWtell.html">SDL_RWtell</a><br>
+<a href="SDL_RWwrite.html">SDL_RWwrite</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_RWops">SDL_RWops - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

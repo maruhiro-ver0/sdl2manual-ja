@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
+<title>SDL_DelHintCallback</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_DelHintCallback
+<hr>
+<h1>SDL_DelHintCallback</h1>
+指定のヒントを監視する関数を取り除く
+<h2>構文</h2>
+<code>void SDL_DelHintCallback(const char* name, SDL_HintCallback callback, void* userdata)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_DelHintCallback">
+<tr><td>name</td><td>監視するヒント</td></tr>
+<tr><td>callback</td><td>ヒントの値が変わったとき呼ぶ関数</td></tr>
+<tr><td>userdata</td><td>コールバック関数に渡すポインタ</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+callbackの関数プロトタイプは
+</p>
+<p>
+<code>void SDL_HintCallback(void* userdata, const char* name, const char* oldValue, const char* newValue)</code>
+</p>
+<p>
+引数は
+<table border="1" summary="SDL_HintCallback">
+<tr><td>userdata</td><td><a href="SDL_AddHintCallback.html">SDL_AddHintCallback()</a>に渡したuserdata</td></tr>
+<tr><td>name</td><td><a href="SDL_AddHintCallback.html">SDL_AddHintCallback()</a>に渡したname</td></tr>
+<tr><td>oldValue</td><td>変更前の値</td></tr>
+<tr><td>newValue</td><td>変更後の値</td></tr>
+</table>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="SDL_AddHintCallback.html">SDL_AddHintCallback</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_DelHintCallback">SDL_DelHintCallback - SDL Wiki</a>
+<hr>
+</body>
+</html>

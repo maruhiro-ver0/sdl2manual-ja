@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_image">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_image-CategoryGeneral.html" title="1つ上">
+<title>IMG_Quit</title>
+</head>
+<body>
+<a href="index.html#SDL2_image">目次</a> - <a href="SDL2_image-FrontPage.html">SDL_image</a> - <a href="SDL2_image-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_image-CategoryGeneral.html">一般</a> - IMG_Quit
+<hr>
+<h1>IMG_Quit</h1>
+SDL_imageを終了する
+<h2>構文</h2>
+<p>
+<code>void IMG_Quit()</code>
+</p>
+<h2>詳細</h2>
+<p>
+この関数が資源を解放した後はSDL_imageの関数を呼んではならない.
+この関数は様々なコードで使われる共有ライブラリをアンロードする.
+</p>
+<p>
+この呼び出しの後, <code>IMG_Init(0)</code>を呼ぶと0(読み込まれたコーデックがない)が戻る.
+</p>
+<p>
+この呼び出しの後, <code>IMG_Init()</a>を呼んでコーデックを再ロードするのは安全である.
+</p>
+<p>
+他の周辺ライブラリとは違い, IMG_Initは重ならない.
+一度<a href="IMG_Quit.html">IMG_Quit()</a>を呼べば全て終了するため, IMG_Initの回数呼ぶ必要はない.
+そのため, プログラム中ではIMG_InitとIMG_Quitを1度だけ呼ぶのが最良と考えられる.
+これは必須ではないが, そうでない場合は発生する危険性に注意する必要がある.
+</p>
+<h2>関連項目(関数)</h2>
+<a href="IMG_Init.html">IMG_Init</a>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_image/IMG_Quit">SDL2_image/IMG_Quit</a>
+<hr>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryMusic.html" title="1つ上">
+<title>Mix_QuickLoad_RAW</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategorySamples.html">サンプリング音声</a> - Mix_QuickLoad_RAW
+<hr>
+<h1>Mix_QuickLoad_RAW</h1>
+可能な限り高速にメモリからベタ形式の音声を読み込む
+<h2>構文</h2>
+<code>Mix_Chunk * Mix_QuickLoad_RAW(Uint8 *mem, Uint32 len)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_QuickLoad_RAW">
+<tr><td>mem</td><td>ベタ形式のPCMデータが書き込まれたメモリバッファ</td></tr>
+<tr><td>len</td><td>memで指定したバッファのバイト長</td></tr>
+</table>
+<h2>戻り値</h2>
+新しいチャンクを戻す. エラーのときNULLを戻す.
+<h2>詳細</h2>
+<p>
+音声データはオーディオデバイスの形式と同じでなければならない.
+この関数は変換を行わず, 形式の正しさもチェックしない.
+</p>
+<p>
+この関数が成功した場合, 戻されたチャンクに対して<a href="Mix_FreeChunk.html">Mix_FreeChunk()</a>を呼ぶまで確保されたメモリは維持される.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="Mix_FreeChunk.html">Mix_FreeChunk</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_QuickLoad_RAW">SDL2_mixer/Mix_QuickLoad_RAW</a>
+<hr>
+</body>
+</html>

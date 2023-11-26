@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryEvents.html" title="1つ上">
+<title>SDL_EventType</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryEvents.html">イベント処理</a> - SDL_EventType
+<hr>
+<h1>SDL_EventType</h1>
+送られたイベントの種類の列挙体
+<h2>値</h2>
+<table border="1" summary="SDL_EventType">
+<tr><td>SDL_FIRSTEVENT</td><td>(未使用)</td></tr>
+<tr><th colspan="2" align="center">アプリケーションのイベント</th></tr>
+<tr><td><a href="SDL_QuitEvent.html">SDL_QUIT</a></td><td>ユーザが終了を要求した (詳細を参照すること)</td></tr>
+<tr><th colspan="2" align="center">Android, iOS, WinRTのイベント (詳細を参照すること)</th></tr>
+<tr><td>SDL_APP_TERMINATING</td><td>OSがアプリケーションを終了させようとしている</td></tr>
+<tr><td>SDL_APP_LOWMEMORY</td><td>空きメモリが少ない. 何かを解放する必要がある</td></tr>
+<tr><td>SDL_APP_WILLENTERBACKGROUND</td><td>アプリケーションが裏側へ回ろうとしている</td></tr>
+<tr><td>SDL_APP_DIDENTERBACKGROUND</td><td>アプリケーションが裏側へ回った</td></tr>
+<tr><td>SDL_APP_WILLENTERFOREGROUND</td><td>アプリケーションが表へ現れようとしている</td></tr>
+<tr><td>SDL_APP_DIDENTERFOREGROUND</td><td>アプリケーションが表へ現れた</td></tr>
+<tr><td>SDL_LOCALECHANGED</td><td>ユーザのロケール選択が変わった</td></tr>
+<tr><th colspan="2" align="center">ディスプレイのイベント</th></tr>
+<tr><td><a href="SDL_DisplayEvent.html">SDL_DISPLAYEVENT</a></td><td>ディスプレイの状態が変わった</th></tr>
+<tr><th colspan="2" align="center">ウィンドウのイベント</td></tr>
+<tr><td><a href="SDL_WindowEvent.html">SDL_WINDOWEVENT</a></td><td>ウィンドウの状態が変わった</td></tr>
+<tr><td><a href="SDL_SysWMEvent.html">SDL_SYSWMEVENT</a></td><td>システム固有のイベントが発生した</td></tr>
+<tr><th colspan="2" align="center">キーボードのイベント</th></tr>
+<tr><td><a href="SDL_KeyboardEvent.html">SDL_KEYDOWN</a></td><td>キーが押された</td></tr>
+<tr><td><a href="SDL_KeyboardEvent.html">SDL_KEYUP</a></td><td>キーが離された</td></tr>
+<tr><td><a href="SDL_TextEditingEvent.html">SDL_TEXTEDITING</a></td><td>キーボードでテキストを編集している</td></tr>
+<tr><td><a href="SDL_TextInputEvent.html">SDL_TEXTINPUT</a></td><td>キーボードでテキストが入力された</td></tr>
+<tr><td>SDL_KEYMAPCHANGED</td><td>入力言語やキーボードレイアウトの変更のようなシステムイベントが原因でキーマップが変わった (SDL 2.0.4以降)</td></tr>
+<tr><th colspan="2" align="center">マウスのイベント</th></tr>
+<tr><td><a href="SDL_MouseMotionEvent.html">SDL_MOUSEMOTION</a></td><td>マウスが動いた</td></tr>
+<tr><td><a href="SDL_MouseButtonEvent.html">SDL_MOUSEBUTTONDOWN</a></td><td>マウスのボタンが押された</td></tr>
+<tr><td><a href="SDL_MouseButtonEvent.html">SDL_MOUSEBUTTONUP</a></td><td>マウスのボタンが離された</td></tr>
+<tr><td><a href="SDL_MouseWheelEvent.html">SDL_MOUSEWHEEL</a></td><td>マウスのホイールが動いた</td></tr>
+<tr><th colspan="2" align="center">ジョイスティックのイベント</th></tr>
+<tr><td><a href="SDL_JoyAxisEvent.html">SDL_JOYAXISMOTION</a></td><td>ジョイスティクが動いた</td></tr>
+<tr><td><a href="SDL_JoyBallEvent.html">SDL_JOYBALLMOTION</a></td><td>ジョイスティクのトラックボールが動いた</td></tr>
+<tr><td><a href="SDL_JoyHatEvent.html">SDL_JOYHATMOTION</a></td><td>ジョイスティックのハットが変わった</td></tr>
+<tr><td><a href="SDL_JoyButtonEvent.html">SDL_JOYBUTTONDOWN</a></td><td>ジョイスティックのボタンが押された</td></tr>
+<tr><td><a href="SDL_JoyButtonEvent.html">SDL_JOYBUTTONUP</a></td><td>ジョイスティックのボタンが離された</td></tr>
+<tr><td><a href="SDL_JoyDeviceEvent.html">SDL_JOYDEVICEADDED</a></td><td>ジョイスティックが接続された</td></tr>
+<tr><td><a href="SDL_JoyDeviceEvent.html">SDL_JOYDEVICEREMOVED</a></td><td>ジョイスティックが切断された</td></tr>
+<tr><th colspan="2" align="center">コントローラーのイベント</th></tr>
+<tr><td><a href="SDL_ControllerAxisEvent.html">SDL_CONTROLLERAXISMOTION</a></td><td>コントローラーが動いた</td></tr>
+<tr><td><a href="SDL_ControllerButtonEvent.html">SDL_CONTROLLERBUTTONDOWN</a></td><td>コントローラーのボタンが押された</td></tr>
+<tr><td><a href="SDL_ControllerButtonEvent.html">SDL_CONTROLLERBUTTONUP</a></td><td>コントローラーのボタンが離された</td></tr>
+<tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_CONTROLLERDEVICEADDED</a></td><td>コントローラーが接続された</td></tr>
+<tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_CONTROLLERDEVICEREMOVED</a></td><td>コントローラーが切断された</td></tr>
+<tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_CONTROLLERDEVICEREMAPPED</a></td><td>コントローラーのマッピングが変わった</td></tr>
+<tr><th colspan="2" align="center">タッチのイベント</th></tr>
+<tr><td><a href="SDL_TouchFingerEvent.html">SDL_FINGERDOWN</a></td><td>デバイスに指をつけた</td></tr>
+<tr><td><a href="SDL_TouchFingerEvent.html">SDL_FINGERUP</a></td><td>デバイスから指を離した</td></tr>
+<tr><td><a href="SDL_TouchFingerEvent.html">SDL_FINGERMOTION</a></td><td>デバイス上で指を動かした</td></tr>
+<tr><th colspan="2" align="center">ジェスチャーのイベント</th></tr>
+<tr><td><a href="SDL_DollarGestureEvent.html">SDL_DOLLARGESTURE</a></td><td></td></tr>
+<tr><td><a href="SDL_DollarGestureEvent.html">SDL_DOLLARRECORD</a></td><td></td></tr>
+<tr><td><a href="SDL_MultiGestureEvent.html">SDL_MULTIGESTURE</a></td><td></td></tr>
+<tr><th colspan="2" align="center">クリップボードのイベント</th></tr>
+<tr><td>SDL_CLIPBOARDUPDATE</td><td>クリップボードが変わった</td></tr>
+<tr><th colspan="2" align="center">ドラッグ&amp;ドロップのイベント</th></tr>
+<tr><td><a href="SDL_DropEvent.html">SDL_DROPFILE</a></td><td>ファイルをドロップした</td></tr>
+<tr><td><a href="SDL_DropEvent.html">SDL_DROPTEXT</a></td><td>text/plainのドラッグアンドドロップイベント (SDL 2.0.5以降)</td></tr>
+<tr><td><a href="SDL_DropEvent.html">SDL_DROPBEGIN</a></td><td>新しいグループのドロップが始まった (SDL 2.0.5以降)</td></tr>
+<tr><td><a href="SDL_DropEvent.html">SDL_DROPCOMPLETE</a></td><td>現在のグループのドロップが終わった (SDL 2.0.5以降)</td></tr>
+<tr><th colspan="2" align="center">オーディオホットプラグ(活線挿抜)のイベント</th></tr>
+<tr><td><a href="SDL_AudioDeviceEvent.html">SDL_AUDIODEVICEADDED</a></td><td>オーディオデバイスが新たに接続された (SDL 2.0.4以降)</td></tr>
+<tr><td><a href="SDL_AudioDeviceEvent.html">SDL_AUDIODEVICEREMOVED</a></td><td>オーディオデバイスが取り除かれた (SDL 2.0.4以降)</td></tr>
+<tr><th colspan="2" align="center">レンダラのイベント</th></tr>
+<tr><td>SDL_RENDER_TARGETS_RESET</td><td>レンダラの対象がリセットされコンテキストを更新する必要がある (SDL2.0.2以降)</td></tr>
+<tr><td>SDL_RENDER_DEVICE_RESET</td><td>デバイスがリセットされ全てのテクスチャを再生成する必要がある (SDL2.0.4以降)</td></tr>
+<tr><th colspan="2" align="center">ユーザ定義のイベント <a href="SDL_RegisterEvents.html">SDL_RegisterEvents()</a>で確保する必要がある</th></tr>
+<tr><td>SDL_USEREVENT</td><td>ユーザ固有のイベント</td></tr>
+<tr><td>SDL_LASTEVENT</td><td>内部の配列の終端のみのため</td></tr>
+</table>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+SDL_Event e;
+while (SDL_PollEvent(&e)) {
+    if (e.type == SDL_KEYDOWN) {
+        SDL_Log("ユーザがキーを押した!");
+    }
+}
+</pre>
+</code>
+<h2>詳細</h2>
+<h3><a name="SDL_QUIT">SDL_QUIT</a></h3>
+<p>
+SDL_QUITイベントは様々な理由で発生する.
+アプリケーションはこのイベントを無視するという選択もありうる.
+例えば, 作業中のデータを保存するかをユーザに尋ねたいとき等である.
+</p>
+<p>
+SQL_QUITはユーザが最後のウィンドウの閉じるボタンを押したときに発生する.
+このことにより, 追加でSDL_WINDOWEVENT/SDL_WINDOWEVENT_CLOSEイベントが発生する.
+アプリケーションはどちらか, あるいは両方でチェックでき, またはチェックしないこともできる.
+アプリケーションがSQL_QUITを無視して別のウィンドウを生成した場合, ユーザが次に最後のウィンドウの閉じるボタンを押すと再びSQL_QUITイベントが送られる.
+</p>
+<p>
+SQL_QUITはウィンドウを閉じようとしたときだけ発生するとは限らない.
+Mac OS X では, Command-Q (「アプリケーションを終了する」標準的なショートカット) を押すと, SQLはウィンドウの存在に関わらずSQL_QUITイベントを発生させる.
+しかし, 依然としてアプリケーションは自分自身を適切に終了させる必要がある.
+アプリケーションが完全に Command-Q を無視すると, Mac App Store の審査を通らないだろう.
+</p>
+<p>
+POSIXシステムでは, <a href="SDL_Init.html">SDL_Init</a>はSIGINT(キーボード割り込み)とSIGTERM(システム終了要求)の<a href="http://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB_%28%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%29">シグナルハンドラ</a>を設定する. もし, まだハンドラが存在しなくても, SQL_QUITイベントは発生する.
+SQL_QUITイベントが発生しないようにする方法はない.
+しかし, アプリケーションでシグナルハンドラを設定すると, シグナル発生時の終了イベントの発生が上書きされる.
+</p>
+<h3><a name="Android_iOS_and_WinRT_Event">Android, iOS, WinRTのイベント</a></h3>
+<p>
+「Android, iOS, WinRTのイベント」に分類されるのは, 通常のデスクトップアプリケーションとは別の要求が存在するモバイルまたは組み込みデバイス用のイベントである.
+これらのイベントはイベントフィルタで処理する必要がある.
+OSは即時の反応を必要としていて, イベントを送信した後に短い時間でプロセスを終了させる.
+よって, もしSDLイベントキューで処理すると遅すぎるだろう.
+その他のイベントは通常の<a href="SDL_PollEvent.html">SDL_PollEvent()</a>のループで処理できる.
+しかし, これらの特別なイベントには<a href="SDL_SetEventFilter.html">SDL_SetEventFilter()</a>を使いコールバックを設定するべきだ.
+</p>
+<p>
+イベントは以下のように対応している
+<table border="1" summary="Android_iOS_and_WinRT_Event">
+<tr><th>SDLイベント</th><th>発生条件</th><th>iOS</th><th>Android</th><th>WinRT</th></tr>
+<tr><td>SDL_APP_TERMINATING</td><td>アプリケーションがOSによって終了されようとしている</td><td>applicationWillTerminate()</td><td>onDestroy()</td><td>Exiting()</td></tr>
+<tr><td>SDL_APP_LOWMEMORY</td><td>アプリケーションの空きメモリが少ない. 可能ならメモリを解放する必要がある</td><td>applicationDidReceiveMemoryWarning()</td><td>onLowMemory()</td><td>-</td></tr>
+<tr><td>SDL_APP_WILLENTERBACKGROUND</td><td>アプリケーションが裏側へ回ろうとしている</td><td>applicationWillResignActive()</td><td>onPause()</td><td>Suspending()</td></tr>
+<tr><td>SDL_APP_DIDENTERBACKGROUND</td><td>アプリケーションが裏側へ回った. CPU時間が割り当てられないかもしれない</td><td>applicationDidEnterBackground()</td><td>onPause()</td><td>Suspending()</td></tr>
+<tr><td>SDL_APP_WILLENTERFOREGROUND</td><td>アプリケーションが前面に現れようとしている</td><td>applicationWillEnterForeground()</td><td>onResume()</td><td>Resuming()</td></tr>
+<tr><td>SDL_APP_DIDENTERFOREGROUND</td><td>アプリケーションが前面に現れた. ユーザとの対話が可能になった.</td><td>applicationDidBecomeActive()</td><td>onResume()</td><td>Resuming()</td></tr>
+</table>
+</p>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a><br>
+<a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a><br>
+<a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a><br>
+<a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a><br>
+<a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a><br>
+<a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a><br>
+<a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a><br>
+<a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a><br>
+<a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a><br>
+<a href="SDL_MouseButtonEvent.html">SDL_MouseButtonEvent</a><br>
+<a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a><br>
+<a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a><br>
+<a href="SDL_QuitEvent.html">SDL_QuitEvent</a><br>
+<a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a><br>
+<a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a><br>
+<a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a><br>
+<a href="SDL_UserEvent.html">SDL_UserEvent</a><br>
+<a href="SDL_WindowEvent.html">SDL_WindowEvent</a><br>
+<a href="SDL_DropEvent.html">SDL_DropEvent</a><br>
+<a href="SDL_AudioDeviceEvent.html">SDL_AudioDeviceEvent</a><br>
+<a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a><br>
+<a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a><br>
+<a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_PollEvent.html">SDL_PollEvent</a><br>
+<a href="SDL_SetEventFilter.html">SDL_SetEventFilter</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_EventType">SDL_EventType - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

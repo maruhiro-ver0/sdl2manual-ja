@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAudio.html" title="1つ上">
+<title>SDL_GetNumAudioDrivers</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryAudio.html">再生と録音</a> - SDL_GetNumAudioDrivers
+<hr>
+<h1>SDL_GetNumAudioDrivers</h1>
+組み込まれたオーディオドライバの数を得る
+<h2>構文</h2>
+<code>int SDL_GetNumAudioDrivers(void)</code>
+<h2>戻り値</h2>
+組み込まれたオーディオドライバの数を戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+int i, count = SDL_GetNumAudioDevices(0);
+for (i = 0; i &lt; count; ++i) {
+    printf("オーディオデバイス %d: %s\n", i, SDL_GetAudioDeviceName(i, 0));
+}
+</pre>
+</code>
+</p>
+<h2>詳細</h2>
+<p>
+この関数はハードコードされた数を戻す.
+負の数を戻すことはない.
+SDLをコンパイルしたときドライバがなくても, この関数は0を戻す.
+この一覧にドライバが存在することは, 機能することを意味しない.
+SDLとそのインターフェースが対話できるだけである.
+例えば, SDLがesoundに対応していても, esoundサーバがなければ, SDLのesoundドライバを使おうとしても失敗する.
+</p>
+<p>
+デフォルトでは, SDLは全てのドライバに対して, 優先度をつけて, 最初の使えるドライバを見つけるまで試行する.
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_GetAudioDriver.html">SDL_GetAudioDriver</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_GetNumAudioDrivers">SDL_GetNumAudioDrivers - SDL Wiki</a>
+<hr>
+</body>
+</html>

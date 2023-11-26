@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>キーボード</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - キーボード
+<hr>
+<h1>キーボード</h1>
+インクルードファイル:
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_keyboard.h">SDL_keyboard.h</a>
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_keycode.h">SDL_keycode.h</a>
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_scancode.h">SDL_scancode.h</a>
+<h2>概要</h2>
+<p>
+ここに分類される関数は, キーボードの入力を扱うものである.
+</p>
+<p>
+SDLにはキーを表す異なる値 - スキャンコードとキーコードがある.
+</p>
+<p>
+<a href="SDL_Scancode.html">SDL_Scancode</a>の値はキーボード上のキーの物理的な位置を表すために使う.
+この型の値はキーボードのキーを表し, <a href="SDL_Event.html">SDL_Event</a>のkey.keysym.scancodeフィールドなどで使われる.
+<a href="SDL_Scancode.html">SDL_Scancode</a>の値はUSBの標準(<a href="http://www.usb.org/developers/docs/">http://www.usb.org/developers/docs/</a>)に基づいている.
+スキャンコードの定数は, キーの名前の先頭にSDL_SCANCODE_をつけたものである. (例: SDL_SCANCODE_SPACE)
+</p>
+<p>
+<a href="SDL_Keycode.html">SDL_Keycode</a>の値は, 現在のキーボードレイアウトにマッピングされ, <a href="SDL_Scancode.html">SDL_Scancode</a>と一対一の関係にある.
+この型の値はキーボードの文字を表し, <a href="SDL_Event.html">SDL_Event</a>のkey.keysym.symフィールドなどで使われる.
+<a href="SDL_Keycode.html">SDL_Keycode</a>の値は, 修飾キーを押さずにそのキーを押した場合の文字のUnicodeに基づいている. 文字でないキーはスキャンコードの最上位ビットを立てた(0x8000000との論理和)値である.
+キーコードの定数は, キーの文字(小文字)の先頭にSDLK_をつけたものである. (例: SDLK_SPACE)<br>
+キーボードの一番上の行にある数字キーは特別な例外で, キーボードレイアウトに関係なく常にSDLK_0, SDLK_1, ..., SDLK_9にマッピングされる.
+</p>
+<p>
+2つの値の大きな違いは, OSが物理的なキーを別の仮想キーに割り当てているときに現れる.
+例えば, 標準的なQWERTYキーボードをドイツ語のQWERTZレイアウトに割り当てると, "Y"キーのスキャンコードはSDL_SCANCODE_Yだが, キーコードはSDLK_zとなる.
+どちらのコードを使うかはアプリケーションによる.
+操作がレイアウトによる(例えば"WASD"キーを左手で扱う方向キーとする)場合はスキャンコードが適しているが, 操作が文字による(例えば"I"がアイテムを意味する)場合はキーコードのほうがよい.
+</p>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_Keycode.html">SDL_Keycode</a> - SDL仮想キーコードの列挙体
+<li><a href="SDL_Keymod.html">SDL_Keymod</a> - 修飾キーマスクの列挙体
+<li><a href="SDL_Scancode.html">SDL_Scancode</a> - SDLキースキャンコードの列挙体
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_Keysym.html">SDL_Keysym</a> - キーイベントで使われたキーの構造体
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_ClearComposition.html">SDL_ClearComposition</a> - コンポジションウィンドウ/IME(漢字変換中ウィンドウ・矩形)をIMEを無効化せずに閉じる
+<li><a href="SDL_GetKeyboardFocus.html">SDL_GetKeyboardFocus</a> - キーボードフォーカスのあるウィンドウを得る
+<li><a href="SDL_GetKeyboardState.html">SDL_GetKeyboardState</a> - キーボードの状態を得る
+<li><a href="SDL_GetKeyFromName.html">SDL_GetKeyFromName</a> - 人が読めるキー名からキーコードを得る
+<li><a href="SDL_GetKeyFromScancode.html">SDL_GetKeyFromScancode</a> - 指定のキースキャンコードから現在のキーボードレイアウトに割り当てられたキーコードを得る
+<li><a href="SDL_GetKeyName.html">SDL_GetKeyName</a> - キーコードから人が読める名前を得る
+<li><a href="SDL_GetModState.html">SDL_GetModState</a> - 修飾キーの状態を得る
+<li><a href="SDL_GetScancodeFromKey.html">SDL_GetScancodeFromKey</a> - 指定のキーコードから現在のキーボードレイアウトに割り当てられたスキャンコードを得る
+<li><a href="SDL_GetScancodeFromName.html">SDL_GetScancodeFromName</a> - 人が読めるキー名からスキャンコードを得る
+<li><a href="SDL_GetScancodeName.html">SDL_GetScancodeName</a> - スキャンコードから人が読める名前を得る
+<li><a href="SDL_HasScreenKeyboardSupport.html">SDL_HasScreenKeyboardSupport</a> - スクリーンキーボードに対応しているかチェックする
+<li><a href="SDL_IsScreenKeyboardShown.html">SDL_IsScreenKeyboardShown</a> - スクリーンキーボードが指定のウィンドウに表示されているかチェックする
+<li><a href="SDL_IsTextInputActive.html">SDL_IsTextInputActive</a> - Unicodeテキスト入力イベントが有効かチェックする
+<li><a href="SDL_IsTextInputShown.html">SDL_IsTextInputShown</a> - IMEコンポジット(変換中ウィンドウ・矩形)または変換候補が現在表示されているかを戻す
+<li><a href="SDL_ResetKeyboard.html">SDL_ResetKeyboard</a> - キーボードの状態をクリアする
+<li><a href="SDL_SetModState.html">SDL_SetModState</a> - 修飾キーを設定する
+<li><a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect</a> - Unicodeテキスト入力で使う領域を設定する
+<li><a href="SDL_StartTextInput.html">SDL_StartTextInput</a> - テキスト入力イベントの受け入れを開始する
+<li><a href="SDL_StopTextInput.html">SDL_StopTextInput</a> - テキスト入力イベントの受け入れを停止する
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/CategoryKeyboard">Keyboard Support - SDL Wiki</a>
+<hr>
+</body>
+</html>

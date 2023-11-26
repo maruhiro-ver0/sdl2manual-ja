@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryRender.html" title="1つ上">
+<title>SDL_RendererFlip</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_RendererFlip
+<hr>
+<h1>SDL_RendererFlip</h1>
+<a href="SDL_RenderCopyEx.html">SDL_RenderCopyEx()</a>の反転のフラグの列挙体
+<h2>値</h2>
+<table border="1" summary="SDL_RendererFlip">
+<tr><td>SDL_FLIP_NONE</td><td>反転しない</td></tr>
+<tr><td>SDL_FLIP_HORIZONTAL</td><td>水平方向に反転</td></tr>
+<tr><td>SDL_FLIP_VERTICAL</td><td>垂直方向に反転</td></tr>
+</table>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* 一部のコンパイラの設定や言語(たとえばC++)ではキャストが必要である */
+SDL_RendererFlip flip = SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL;
+
+SDL_RenderCopyEx(renderer, texture, &amp;srcrect, &amp;dstrect, angle, &amp;center, flip);
+</pre>
+</code>
+</p>
+<h2>詳細</h2>
+対角線で反転(水平方向と垂直方向の両方)する場合は, 論理輪('|'演算子)を使うこと.
+<h2>関連項目(関数)</h2>
+<a href="SDL_RenderCopyEx.html">SDL_RenderCopyEx</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_RendererFlip">SDL_RendererFlip - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

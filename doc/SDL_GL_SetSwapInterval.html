@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
+<title>SDL_GL_SetSwapInterval</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_GL_SetSwapInterval
+<hr>
+<h1>SDL_GL_SetSwapInterval</a></h1>
+カレントコンテキストの交換インターバルを設定する
+<h2>構文</h2>
+<code>int SDL_GL_SetSwapInterval(int interval)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_GL_SetSwapInterval">
+<tr><td>interval</td><td>すぐに更新するとき0, 垂直帰線で同期するとき1, 適応垂直同期のとき-1 (詳細を参照すること)</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, 設定した交換インターバルが対応していない場合は-1を戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>詳細</h2>
+<p>
+一部の処理系ではintervalに-1を指定すると適応垂直同期(adaptive vsync)が有効になる.
+適応垂直同期は垂直帰線同期と同じように働くが, 与えられたフレームの垂直帰線同期に失敗したとき, バッファをただちに交換する. それによりユーザのフレーム落ちに対する不快感を抑えることができる.
+アプリケーションが適応垂直同期を要求したが処理系が対応していないとき, この関数は失敗し-1を戻す.
+その場合は, 再びこの関数をintervalを1にして呼ぶ必要がある.
+</p>
+<p>
+適応垂直同期は, 一部のglXドライバではGLX_EXT_swap_control_tearで, のWindowsドライバではWGL_EXT_swap_control_tearで実装されている.
+</p>
+<p>
+詳細は<a href="https://www.khronos.org/opengl/wiki/Swap_Interval#Adaptive_Vsync"> https://www.khronos.org/opengl/wiki/Swap_Interval#Adaptive_Vsync</a>を読むこと.
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_GL_GetSwapInterval.html">SDL_GL_GetSwapInterval</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_GL_SetSwapInterval">SDL_GL_SetSwapInterval - SDL Wiki</a>
+<hr>
+</body>
+</html>

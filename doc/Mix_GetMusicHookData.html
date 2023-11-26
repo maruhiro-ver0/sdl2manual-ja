@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1つ上">
+<title>Mix_GetMusicHookData</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryMusic.html">音楽</a> - Mix_GetMusicHookData
+<hr>
+<h1>Mix_GetMusicHookData</h1>
+音楽再生フックに渡されたユーザデータへのポインタを得る
+<h2>構文</h2>
+<code>void *Mix_GetMusicHookData(void)</code>
+<h2>戻り値</h2>
+以前<a href="Mix_HookMusic.html">Mix_HookMusic</a>に渡したユーザデータへのポインタを戻す.
+<h2>詳細</h2>
+<p>
+この関数は<a href="Mix_HookMusic.html">Mix_HookMusic()</a>に最後に渡したargポインタを戻す.
+一度も渡していない場合はNULLを戻す.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_GetMusicHookData">SDL2_mixer/Mix_GetMusicHookData</a>
+<hr>
+</body>
+</html>

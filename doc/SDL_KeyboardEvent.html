@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryEvents.html" title="1つ上">
+<title>SDL_KeyboardEvent</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryEvents.html">イベント処理</a> - SDL_KeyboardEvent
+<hr>
+<h1>SDL_KeyboardEvent</h1>
+キーボードイベントの構造体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_JoyDeviceEvent">
+<tr><td>Uint32</td><td>type</td><td>SDL_KEYDOWN または SDL_KEYUP</td></tr>
+<tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
+<tr><td>Uint32</td><td>windowID</td><td>フォーカスのあるウィンドウ (可能なら)</td></tr>
+<tr><td>Uint8</td><td>state</td><td>キーの状態. SDL_PRESSED または SDL_RELEASED</td></tr>
+<tr><td>Uint8</td><td>repeat</td><td>0でなければキーリピート</td></tr>
+<tr><td><a href="SDL_Keysym.html">SDL_Keysym</a></td><td>keysym</td><td>押されたまたは離されたキーの<a href="SDL_Keysym.html">SDL_Keysym</a></td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+<a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバで, SDL_KEYDOWN または SDL_KEYUPが報告されたときに使われる.
+eventのkeyフィールドからアクセスできる.
+</p>
+<p>
+SDL_KEYDOWN と SDL_KEYUPはユーザがキーボードを押したときと離したときに発生する.
+押されたまたは離されたキーの情報はkeysymメンバにある.
+</p>
+<h2>関連項目(列挙体)</h2>
+<a href="SDL_EventType.html">SDL_EventType</a><br>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_Event.html">SDL_Event</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_GetKeyboardState.html">SDL_GetKeyboardState</a><br>
+<a href="SDL_GetModState.html">SDL_GetModState</a>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_KeyboardEvent">SDL_KeyboardEvent - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

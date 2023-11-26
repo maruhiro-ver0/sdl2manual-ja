@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryRender.html" title="1つ上">
+<title>SDL_RendererInfo</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRender.html">2Dレンダリング</a> - SDL_RendererInfo
+<hr>
+<h1>SDL_RendererInfo</h1>
+レンダリングドライバまたは現在のレンダリングコンテキストの能力の構造体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_RendererInfo">
+<tr><td>const char*</td><td>name</td><td>レンダラーの名前</td></tr>
+<tr><td>Uint32</td><td>flags</td><td>対応したレンダラーのフラグ(<a href="SDL_RendererFlags.html">SDL_RendererFlags</a>)</td></tr>
+<tr><td>Uint32</td><td>num_texture_formats</td><td>可能なテクスチャフォーマットの数</td></tr>
+<tr><td>Uint32[16]</td><td>texture_formats</td><td>可能なテクスチャフォーマット(<a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a>)</td></tr>
+<tr><td>int</td><td>max_texture_width</td><td>テクスチャの最大幅</td></tr>
+<tr><td>int</td><td>max_texture_height</td><td>テクスチャの最大高さ</td></tr>
+</table>
+<h2>関連項目(列挙体)</h2>
+<a href="SDL_BlendMode.html">SDL_BlendMode</a><br>
+<a href="SDL_PixelFormatEnum.html">SDL_PixelFormatEnum</a><br>
+<a href="SDL_RendererFlags.html">SDL_RendererFlags</a><br>
+<a href="SDL_TextureModulate.html">SDL_TextureModulate</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_GetRenderDriverInfo.html">SDL_GetRenderDriverInfo</a><br>
+<a href="SDL_GetRendererInfo.html">SDL_GetRendererInfo</a><br>
+<a href="SDL_RenderCopy.html">SDL_RenderCopy</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_RendererInfo">SDL_RendererInfo - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

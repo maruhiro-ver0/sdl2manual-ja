@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryMusic.html" title="1つ上">
+<title>Mix_PlayingMusic</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryMusic.html">音楽</a> - Mix_PlayingMusicMusic
+<hr>
+<h1>Mix_PlayingMusic</h1>
+音楽ストリームの再生状態をチェックする
+<h2>構文</h2>
+<code>int Mix_PlayingMusic(void)</code>
+<h2>戻り値</h2>
+音楽が再生中のとき0以外, それ以外のとき0を戻す.
+<h2>詳細</h2>
+<p>
+音楽が再生中の場合, この関数は1を戻す.
+それ以外の場合, 0を戻す.
+</p>
+<p>
+一時停止中の音楽は, 現在はミキシングが進んでいなくても再生中とみなされる.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_PlayingMusic">SDL2_mixer/Mix_PlayingMusic</a>
+<hr>
+</body>
+</html>

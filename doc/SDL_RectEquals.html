@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryRect.html" title="1つ上">
+<title>SDL_RectEquals</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryRect.html">領域</a> - SDL_RectEquals
+<hr>
+<h1>SDL_RectEquals</h1>
+2つの長方形が等しいかチェックする
+<h2>構文</h2>
+<code>SDL_bool SDL_RectEquals(const SDL_Rect* a, const SDL_Rect* b)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_RectEquals">
+<tr><td>a</td><td>1番目の<a href="SDL_Rect.html">SDL_Rect</a></td></tr>
+<tr><td>b</td><td>2番目の<a href="SDL_Rect.html">SDL_Rect</a></td></tr>
+</table>
+<h2>戻り値</h2>
+2つの長方形が等しいときSDL_TRUE, 異なるときSDL_FALSEを戻す. 詳細を参照すること.
+<h2>詳細</h2>
+この関数は2つの長方形の幅, 高さ, 位置(X座標とY座標)の値を比較し, 全て等しければSDL_TRUEを戻す.
+異なる値が1つでもある, またはNULLのとき, SDL_FALSEを戻す.
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_RectEquals">SDL_RectEquals - SDL Wiki</a>
+<hr>
+</body>
+</html>

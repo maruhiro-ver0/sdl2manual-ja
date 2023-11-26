@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
+<title>SDL_SetHint</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_SetHint
+<hr>
+<h1>SDL_SetHint</h1>
+ヒントを通常の優先度で設定する
+<h2>構文</h2>
+<code>SDL_bool SDL_SetHint(const char* name, const char* value)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_SetHint">
+<tr><td>name</td><td>設定するヒント. 詳細は<a href="CategoryHints.html">ヒント</a>を参照すること</td></tr>
+<tr><td>value</td><td>ヒントの値</td></tr>
+</table>
+<h2>戻り値</h2>
+ヒントが設定されればSDL_TRUE, されなければSDL_FALSEを戻す.
+<h2>サンプルコード</h2>
+<code>
+<pre>
+SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+</pre>
+</code>
+<h2>詳細</h2>
+ヒントが既に設定されていれば, または環境変数が既に設定されていば, ヒントは設定されない.
+<a href="SDL_SetHintWithPriority.html">SDL_SetHintWithPriority()</a>で優先度をつけて上書きできる.
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="SDL_GetHint.html">SDL_GetHint</a><br>
+<a href="SDL_SetHintWithPriority.html">SDL_SetHintWithPriority</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_SetHint">SDL_SetHint - SDL Wiki</a>
+<hr>
+</body>
+</html>

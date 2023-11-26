@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1つ上">
+<title>Mix_GetNumMusicDecoders</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryMusic.html">音楽</a> - Mix_GetNumMusicDecoders
+<hr>
+<h1>Mix_GetNumMusicDecoders</h1>
+現在のビルドのSDL_mixerが提供する音楽デコーダの一覧を得る
+<h2>構文</h2>
+<code>int Mix_GetNumMusicDecoders(void)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_GetNumMusicDecoders">
+<tr><td>index</td><td>音楽デコーダの番号</td></tr>
+</table>
+<h2>戻り値</h2>
+音楽デコーダの名前を戻す.
+<h2>詳細</h2>
+<p>
+外部ライブラリが有効になった場合, このリストはビルド時と実行時の両方で変わることがある.
+この関数を呼んだ後は, オープン時にはデコーダが有効になっているため, <a href="Mix_OpenAudio.html">Mix_OpenAudio()</a>や<a href="Mix_OpenAudioDevice.html">Mix_OpenAudioDevice()</a>を呼んでも安全である.
+</p>
+<p>
+ある形式がこのリストに存在しても, その音声ファイルが再生できるとは限らない.
+しかし, 例えば有効なOgg Vorbisがインストールされているかなどを簡単に知ることができる.
+</p>
+<p>
+この関数が戻すのは静的な読み取り専用の値であるため, 編集や解放をしてはならない.
+このポインタは<a href="Mix_CloseAudio.html">Mix_CloseAudio()</a>を呼ぶまで有効である.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="Mix_GetMusicDecoder.html">Mix_GetMusicDecoder</a><br>
+<a href="Mix_HasMusicDecoder.html">Mix_HasMusicDecoder</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_GetNumMusicDecoders">SDL2_mixer/Mix_GetNumMusicDecoders</a>
+<hr>
+</body>
+</html>

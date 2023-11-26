@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryEvents.html" title="1つ上">
+<title>SDL_DropEvent</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryEvents.html">イベント処理</a> - SDL_DropEvent
+<hr>
+<h1>SDL_DropEvent</h1>
+ドラッグ&amp;ドロップイベントの情報の構造体
+<h2>フィールド</h2>
+<table border="1" summary="SDL_DropEvent">
+<tr><td>Uint32</td><td>type</td><td>SDL_DROPFILE, SDL_DROPTEXT, SDL_DROPBEGIN, または SDL_DROPCOMPLETE</td></tr>
+<tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
+<tr><td>char*</td><td>file</td><td>ファイル名. SDL_free()で解放する必要がある. SDL_DROPBEGIN, SDL_DROPCOMPLETEのときはNULL</td></tr>
+<tr><td>Uint32</td><td>windowID</td><td>もしあればドロップしたウィンドウ</td></tr>
+</table>
+<h2>サンプルコード</h2>
+<code>
+<pre>
+// サンプルプログラム:
+// SDL_DropEventの使い方
+
+#include "SDL.h"
+#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+    SDL_Window *window;
+    SDL_Event event;                        //  イベントハンドルの宣言
+    char* dropped_filedir;                  //  ドロップされたファイルとディレクトリへのポインタ
+
+    SDL_Init(SDL_INIT_VIDEO);               //  SDL2を初期化する
+
+    window = SDL_CreateWindow(  //  ウィンドウを生成する
+        "SDL_DropEventの使い方 このウィンドウにファイルをドロップしてください",
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
+        640,
+        480,
+        SDL_WINDOW_OPENGL
+    );
+
+    // ウィンドウの生成に成功したかチェックする
+    if (window == NULL) {
+        // ウィンドウが生成されなかったとき...
+        printf("ウィンドウを生成できなかった: %s\n", SDL_GetError());
+        return 1;
+    }
+
+    SDL_EventState(SDL_DROPFILE, SDL_ENABLE);
+
+    for(;;) {                               //  プログラムループ
+        while (SDL_PollEvent(&event)) {
+            switch (event.type) {
+                case (SDL_QUIT): {          //  終了の場合
+                    return 0;               //  終了処理は省略する
+                }
+
+                case (SDL_DROPFILE): {      //  ファイルがドロップされたとき
+                    dropped_filedir = event.drop.file;
+                    //  ドロップされたファイルとディレクトリを表示する
+                    SDL_ShowSimpleMessageBox(
+                        SDL_MESSAGEBOX_INFORMATION,
+                        "ウィンドウにドロップされたファイル",
+                        dropped_filedir,
+                        window
+                    );
+                    SDL_free(dropped_filedir);    //  dropped_filedirのメモリを解放する
+                    break;
+               }
+            }
+        }
+        SDL_Delay(0);
+    }
+
+    SDL_DestroyWindow(window);        //  ウィンドウを閉じて破棄する
+
+    SDL_Quit();                       //  終了処理
+    return 0;
+}
+</pre>
+</code>
+<h2>詳細</h2>
+<p>
+<a href="SDL_DropEvent.html">SDL_DropEvent</a>は<a href="SDL_Event.html">SDL_Event</a>のメンバで, typeがSDL_DROPFILE, SDL_DROPTEXT, SDL_DROPBEGIN, またはSDL_DROPCOMPLETEのとき報告される.
+イベントのdropフィールドからアクセスできる.
+</p>
+<p>
+これらのイベントはデフォルトで有効である.
+<a href="SDL_EventState.html">SDL_EventState()</a>で無効にできる.
+</p>
+<p>
+もしこれらのイベントを有効にしたならば, イベントでSDL_free()を使ってfilenameを解放する必要がある.
+</p>
+<p>
+SDL_DROPTEXT, SDL_DROPBEGIN, そしてSDL_DROPCOMPLETEはSDL 2.0.5以降で使える.
+</p>
+<h3>Mac OS X </h3>
+SDLアプリケーションでドラッグ&amp;ドロップを有効にするためには, 必ずinfo.plistファイルも編集しなければならない.
+<strong>Document Types</strong>を追加/修正すること.
+例えば, 全てのドキュメントタイプで有効にするためには, Document Types に "public.data" mime type を追加する必要がある.
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(列挙体)</h2>
+<a href="SDL_EventType.html">SDL_EventType</a><br>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_Event.html">SDL_Event</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_EventState.html">SDL_EventState</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_DropEvent">SDL_DropEvent - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

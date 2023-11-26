@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="ApiByCategory.html" title="1つ上">
+<title>スレッド</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - スレッド
+<hr>
+<h1>スレッド</h1>
+インクルードファイル:
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_thread.h">SDL_thread.h</a>
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_mutex.h">SDL_mutex.h</a>(スレッド同期プリミティブが含まれている)
+<h2>概要</h2>
+<p>
+ここに分類される関数は, システムに依存しないスレッド管理ルーチンである.
+</p>
+<p>
+メモ: ウィンドウの生成, レンダリング, イベントの受信をメインスレッド以外でできることを期待してはならない.
+環境に依存した例外や複雑な副作用が<a href="https://discourse.libsdl.org/">メーリングリスト/フォーラム</a>で報告されている.
+</p>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_ThreadPriority.html">SDL_ThreadPriority</a> - スレッドの優先度の列挙体
+</ol>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_CreateThread.html">SDL_CreateThread</a> - 新しいスレッドを生成する
+<li><a href="SDL_CreateThreadWithStackSize.html">SDL_CreateThreadWithStackSize</a> - スタックサイズを指定して新しいスレッドを生成する
+<li><a href="SDL_DetachThread.html">SDL_DetachThread</a> - スレッドが終了したとき自分で消滅するようにする
+<li><a href="SDL_GetThreadID.html">SDL_GetThreadID</a> - 指定のスレッドのスレッドIDを得る
+<li><a href="SDL_GetThreadName.html">SDL_GetThreadName</a> - SDL_CreateThread()で指定したスレッドの名前を得る
+<li><a href="SDL_SetThreadPriority.html">SDL_SetThreadPriority</a> - 現在のスレッドの優先度を設定する
+<li><a href="SDL_ThreadID.html">SDL_ThreadID</a> - 現在のスレッドのスレッドIDを得る
+<li><a href="SDL_TLSCleanup.html">SDL_TLSCleanup</a> - 現在のスレッドのスレッド局所記憶(TLS)を全て消去する
+<li><a href="SDL_TLSCreate.html">SDL_TLSCreate</a> - TLS(スレッド局所記憶)を生成する
+<li><a href="SDL_TLSGet.html">SDL_TLSGet</a> - 現在のスレッドのスレッド局所記憶IDの値を得る
+<li><a href="SDL_TLSSet.html">SDL_TLSSet</a> - 現在のスレッドのスレッド局所記憶IDの値を設定する
+<li><a href="SDL_WaitThread.html">SDL_WaitThread</a> - スレッドが終了するまで待つ
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/CategoryThread">Thread Management - SDL Wiki</a>
+<hr>
+</body>
+</html>

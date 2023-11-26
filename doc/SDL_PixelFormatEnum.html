@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryPixels.html" title="1つ上">
+<title>SDL_PixelFormatEnum</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryPixels.html">ピクセル形式と変換</a> - SDL_PixelFormatEnum
+<hr>
+<h1>SDL_PixelFormatEnum</h1>
+ピクセル形式の列挙体
+<h2>値</h2>
+<h3>ピクセル形式のマクロ</h3>
+<table border="1" summary="Pixel Format Macros">
+<tr><td>SDL_PIXELTYPE(format)</td><td>ピクセル形式の種類 (詳細を参照すること)</td></tr>
+<tr><td>SDL_PIXELORDER(format)</td><td>ピクセル形式のチャネルまたはビットの順番 (詳細を参照すること)</td></tr>
+<tr><td>SDL_PIXELLAYOUT(format)</td><td>ピクセル形式のチャネルのビットパターン (詳細を参照すること)</td></tr>
+<tr><td>SDL_BITSPERPIXEL(format)</td><td>ピクセル形式の色情報のビット数</td></tr>
+<tr><td>SDL_BYTESPERPIXEL(format)</td><td>ピクセルのバイト数</td></tr>
+<tr><td>SDL_ISPIXELFORMAT_INDEXED(format)</td><td>真のときパレットを持っている</td></tr>
+<tr><td>SDL_ISPIXELFORMAT_ALPHA(format)</td><td>真のときαチャネルを持っている</td></tr>
+<tr><td>SDL_ISPIXELFORMAT_FOURCC(format)</td><td>真のときYUVのような特別なフォーマットを持つ</td></tr>
+</table>
+<h3>ピクセル形式の値</h3>
+<table border="1" summary="Pixel Format Values">
+<tr><td>SDL_PIXELFORMAT_UNKNOWN</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_INDEX1LSB</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_INDEX1MSB</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_INDEX4LSB</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_INDEX4MSB</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_INDEX8</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGB332</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGB444</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGB555</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_BGR555</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_ARGB4444</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGBA4444</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_ABGR4444</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_BGRA4444</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_ARGB1555</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGBA5551</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_ABGR1555</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_BGRA5551</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGB565</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_BGR565</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGB24</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_BGR24</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGB888</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGBX8888</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_BGR888</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_BGRX8888</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_ARGB8888</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGBA8888</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_ABGR8888</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_BGRA8888</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_ARGB2101010</td><td></td></tr>
+<tr><td>SDL_PIXELFORMAT_RGBA32</td><td>現在の環境のRGBA順のバイト配列の色データのエイリアス (SDL 2.0.5以降)</td></tr>
+<tr><td>SDL_PIXELFORMAT_ARGB32</td><td>現在の環境のARGB順のバイト配列の色データのエイリアス (SDL 2.0.5以降)</td></tr>
+<tr><td>SDL_PIXELFORMAT_BGRA32</td><td>現在の環境のBGRA順のバイト配列の色データのエイリアス (SDL 2.0.5以降)</td></tr>
+<tr><td>SDL_PIXELFORMAT_ABGR32</td><td>現在の環境のABGR順のバイト配列の色データのエイリアス (SDL 2.0.5以降)</td></tr>
+<tr><td>SDL_PIXELFORMAT_YV12</td><td>均等モード: Y + V + U (3プレーン)</td></tr>
+<tr><td>SDL_PIXELFORMAT_IYUV</td><td>均等モード: Y + U + V (3プレーン)</td></tr>
+<tr><td>SDL_PIXELFORMAT_YUY2</td><td>圧縮モード: Y0+U0+Y1+V0 (1プレーン)</td></tr>
+<tr><td>SDL_PIXELFORMAT_UYVY</td><td>圧縮モード: U0+Y0+V0+Y1 (1プレーン)</td></tr>
+<tr><td>SDL_PIXELFORMAT_YVYU</td><td>圧縮モード: Y0+V0+Y1+U0 (1プレーン)</td></tr>
+</table>
+<h3>SDL_PIXELFORMAT_*32 エイリアス</h3>
+<p>
+SDL_PIXELFORMAT_RGBA32は, ビッグエンディアンではSDL_PIXELFORMAT_RGBA8888, リトルエンディアンではSDL_PIXELFORMAT_ABGR8888のエイリアスで, (SDL_PIXELFORMAT_RGB24でRGB順のバイト配列とするのと同じように) ピクセルをRGBA順のバイト配列で指定できる.
+</p>
+<p>
+しかし, これは単なるエイリアスで, 実際の値はエイリアス先の値と同じである.
+よって, SDL_GetPixelFormatName(SDL_PIXELFORMAT_RGBA32) は環境に依存したエイリアス元の名前を戻す. (例えば"SDL_PIXELFORMAT_ABGR8888")
+</p>
+<p>
+SDL_PIXELFORMAT_ARGB32, SDL_PIXELFORMAT_BGRA32, SDL_PIXELFORMAT_ABGR32も同様である. (当然, エイリアス先のピクセル形式だけは異なる.)
+</p>
+<p>
+SDL_PIXELFORMAT_*32エイリアスはSDL 2.0.5以降で使える.
+</p>
+<h2>詳細</h2>
+<p>
+ピクセル形式の種類は以下の値である
+<table border="1" summary="Pixel Type">
+<tr><td>SDL_PIXELTYPE_UNKNOWN</td></tr>
+<tr><td>SDL_PIXELTYPE_INDEX1</td></tr>
+<tr><td>SDL_PIXELTYPE_INDEX4</td></tr>
+<tr><td>SDL_PIXELTYPE_INDEX8</td></tr>
+<tr><td>SDL_PIXELTYPE_PACKED8</td></tr>
+<tr><td>SDL_PIXELTYPE_PACKED16</td></tr>
+<tr><td>SDL_PIXELTYPE_PACKED32</td></tr>
+<tr><td>SDL_PIXELTYPE_ARRAYU8</td></tr>
+<tr><td>SDL_PIXELTYPE_ARRAYU16</td></tr>
+<tr><td>SDL_PIXELTYPE_ARRAYU32</td></tr>
+<tr><td>SDL_PIXELTYPE_ARRAYF16</td></tr>
+<tr><td>SDL_PIXELTYPE_ARRAYF32</td></tr>
+</table>
+</p>
+<p>
+ピクセル形式の種類によって3つの順序(ビットマップ, 圧縮, 索引)が存在する
+<table border="1" summary="order">
+<tr><th>ビットマップピクセル順 (上位ビット→下位ビット)</th></tr>
+<tr><td>SDL_BITMAPORDER_NONE</td></tr>
+<tr><td>SDL_BITMAPORDER_4321</td></tr>
+<tr><td>SDL_BITMAPORDER_1234</td></tr>
+<tr><th>圧縮チャネル順 (上位ビット→下位ビット)</th></tr>
+<tr><td>SDL_PACKEDORDER_NONE</td></tr>
+<tr><td>SDL_PACKEDORDER_XRGB</td></tr>
+<tr><td>SDL_PACKEDORDER_RGBX</td></tr>
+<tr><td>SDL_PACKEDORDER_ARGB</td></tr>
+<tr><td>SDL_PACKEDORDER_RGBA</td></tr>
+<tr><td>SDL_PACKEDORDER_XBGR</td></tr>
+<tr><td>SDL_PACKEDORDER_BGRX</td></tr>
+<tr><td>SDL_PACKEDORDER_ABGR</td></tr>
+<tr><td>SDL_PACKEDORDER_BGRA</td></tr>
+<tr><th>索引チャネル順 (下位バイト→上位バイト)</th></tr>
+<tr><td>SDL_ARRAYORDER_NONE</td></tr>
+<tr><td>SDL_ARRAYORDER_RGB</td></tr>
+<tr><td>SDL_ARRAYORDER_RGBA</td></tr>
+<tr><td>SDL_ARRAYORDER_ARGB</td></tr>
+<tr><td>SDL_ARRAYORDER_BGR</td></tr>
+<tr><td>SDL_ARRAYORDER_BGRA</td></tr>
+<tr><td>SDL_ARRAYORDER_ABGR</td></tr>
+</table>
+</p>
+<p>
+圧縮ピクセルフォーマットは以下のチャネル配置の1つである
+<table border="1" summary="Packed layout">
+<tr><td>SDL_PACKEDLAYOUT_NONE</td></tr>
+<tr><td>SDL_PACKEDLAYOUT_332</td></tr>
+<tr><td>SDL_PACKEDLAYOUT_4444</td></tr>
+<tr><td>SDL_PACKEDLAYOUT_1555</td></tr>
+<tr><td>SDL_PACKEDLAYOUT_5551</td></tr>
+<tr><td>SDL_PACKEDLAYOUT_565</td></tr>
+<tr><td>SDL_PACKEDLAYOUT_8888</td></tr>
+<tr><td>SDL_PACKEDLAYOUT_2101010</td></tr>
+<tr><td>SDL_PACKEDLAYOUT_1010102</td></tr>
+</table>
+</p>
+<h2>関連項目(構造体)</h2>
+<a href="SDL_DisplayMode.html">SDL_DisplayMode</a><br>
+<a href="SDL_RendererInfo.html">SDL_RendererInfo</a><br>
+<h2>関連項目(関数)</h2>
+<a href="SDL_CreateTexture.html">SDL_CreateTexture</a><br>
+<a href="SDL_CreateTextureFromSurface.html">SDL_CreateTextureFromSurface</a><br>
+<a href="SDL_GetPixelFormatName.html">SDL_GetPixelFormatName</a><br>
+<a href="SDL_MasksToPixelFormatEnum.html">SDL_MasksToPixelFormatEnum</a><br>
+<a href="SDL_PixelFormatEnumToMasks.html">SDL_PixelFormatEnumToMasks</a><br>
+<a href="SDL_QueryTexture.html">SDL_QueryTexture</a><br>
+<a href="SDL_RenderReadPixels.html">SDL_RenderReadPixels</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_PixelFormatEnum">SDL_PixelFormatEnum</a><br>
+<hr>
+</body>
+</html>

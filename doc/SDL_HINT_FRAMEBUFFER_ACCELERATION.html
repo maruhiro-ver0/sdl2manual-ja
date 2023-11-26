@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
+<title>SDL_HINT_FRAMEBUFFER_ACCELERATION</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_HINT_FRAMEBUFFER_ACCELERATION
+<hr>
+<h1>SDL_HINT_FRAMEBUFFER_ACCELERATION</h1>
+<a href="SDL_GetWindowSurface.html">SDL_GetWindowSurface()</a>の3Dアクセラレータの使用のヒント
+<h2>値</h2>
+<table border="1" summary="SDL_HINT_FRAMEBUFFER_ACCELERATION">
+<tr><td>0</td><td>3Dアクセラレータを無効にする</td></tr>
+<tr><td>1</td><td>3Dアクセラレータを有効にする (デフォルトのレンダラーで)</td></tr>
+<tr><td>X</td><td>3Dアクセラレータを有効にする (Xが有効なレンダリングドライバならばXを使って (例: "direct3d", "opengl"など))</td></tr>
+</table>
+<h2>デフォルト</h2>
+SDLは各環境でアクセラレータの使用について最良の選択をしようとする.
+<h2>詳細</h2>
+SDLは, 3Dレンダリングエンジンのストリーミングテクスチャを使って, <a href="SDL_GetWindowSurface.html">SDL_GetWindowSurface()</a>が戻したサーフェイスの高速化を試みる.
+これは, 使用の有無と, 何を使用するかのヒントを与える.
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_HINT_FRAMEBUFFER_ACCELERATION">SDL_HINT_FRAMEBUFFER_ACCELERATION - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

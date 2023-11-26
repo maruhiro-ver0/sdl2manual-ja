@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryVideo.html" title="1つ上">
+<title>SDL_CreateWindow</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryVideo.html">ディスプレイとウィンドウ</a> - SDL_CreateWindow
+<hr>
+<h1>SDL_CreateWindow</h1>
+位置, 大きさ, フラグを指定してウィンドウを生成する
+<h2>構文</h2>
+<code>SDL_Window* SDL_CreateWindow(const char* title, int x, int y, int w, int h, Uint32 flags)</code>
+<h2>引数</h2>
+<table border="1" summary="SDL_CreateWindow">
+<tr><td>title</td><td>UTF-8文字列のウィンドウのタイトル</td></tr>
+<tr><td>x</td><td>ウィンドウのスクリーン座標系のX座標, SDL_WINDOWPOS_CENTERED, または SDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>y</td><td>ウィンドウのスクリーン座標系のY座標, SDL_WINDOWPOS_CENTERED, または SDL_WINDOWPOS_UNDEFINED</td></tr>
+<tr><td>w</td><td>ウィンドウのスクリーン座標系の幅</td></tr>
+<tr><td>h</td><td>ウィンドウのスクリーン座標系の高さ</td></tr>
+<tr><td>flags</td><td>0 または 1つ以上の<a href="SDL_WindowFlags.html">SDL_WindowFlags</a>列挙体の論理和</td></tr>
+</table>
+<h2>戻り値</h2>
+<p>
+生成されたウィンドウを戻す.
+失敗のときNULLを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+</p>
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+// サンプルプログラム:
+// SDL2でアプリケーションウィンドウを生成する
+
+#include "SDL.h"
+#include &lt;stdio.h&gt;
+
+int main(int argc, char* argv[]) {
+
+    SDL_Window *window;                    // ポインタを宣言する
+
+    SDL_Init(SDL_INIT_VIDEO);              // SDL2を初期化する
+
+    // 次の設定でアプリケーションウィンドウを生成する:
+    window = SDL_CreateWindow(
+        "An SDL2 window",                  // ウィンドウのタイトル
+        SDL_WINDOWPOS_UNDEFINED,           // X座標の初期値
+        SDL_WINDOWPOS_UNDEFINED,           // Y座標の初期値
+        640,                               // 幅のピクセル数
+        480,                               // 高さのピクセル数
+        SDL_WINDOW_OPENGL                  // フラグ
+    );
+
+    // ウィンドウの生成に成功したかチェックする
+    if (window == NULL) {
+        // ここを通ったならばウィンドウを生成できなかった...
+        printf("ウィンドウを生成できなかった: %s\n", SDL_GetError());
+        return 1;
+    }
+
+    // ウィンドウが開いた: ここでプログラムループに入る (SDL_PollEvent()を参照すること)
+
+    SDL_Delay(3000);  // 例として3000ミリ秒間停止する
+
+    // ウィンドウを閉じて破棄する
+    SDL_DestroyWindow(window);
+
+    // 終了処理
+    SDL_Quit();
+    return 0;
+}
+</pre>
+</code>
+</p>
+<h2>詳細</h2>
+<p>
+SDL_CreateWindow()ではSDL_WINDOW_SHOWNは無視される.
+SDL_WindowはSDL_WINDOW_HIDDENが設定されない限り表示される.
+SDL_WINDOW_SHOWNは<a href="SDL_GetWindowFlags.html">SDL_GetWindowFlags()</a>で問い合わせたとき使われる.
+</p>
+<p>
+AppleのmacOSでは, Info.plistのNSHighResolutionCapableプロパティは<strong>必ず</strong>YESでなければならない. そうしなければ高DPI OpenGL キャンバスを受信できない.
+</p>
+<p>
+高DPIに対応した環境(iOSやOS X)でSDL_WINDOW_ALLOW_HIGHDPIを指定してウィンドウを生成した場合, スクリーン座標系のウィンドウサイズは, ピクセル数のウィンドウサイズと異なる場合がある.
+<a href="SDL_GL_GetDrawableSize.html">SDL_GL_GetDrawableSize()</a>または<a href="SDL_GetRendererOutputSize.html">SDL_GetRendererOutputSize()</a>でピクセル数のクライアントサイズを得ることができる.
+このフラグを設定した場合, ウィンドウが生成された後に描画可能なサイズが変化しうるため, ウィンドウのサイズが変わった, またはディスプレイ間で移動したようなイベントが発生した後はサイズを調べなおさなければならないので注意すること.
+</p>
+<p>
+フルスクリーンの設定をした場合, 幅と高さの引数である<strong>w</strong>と<strong>h</strong>は使われない.
+しかし, 不正なサイズの引数(例えば大きすぎる)の場合は失敗する.
+全ての環境でのウィンドウサイズの事実上の限界は16384×16384である.
+</p>
+<p>
+SDL_WINDOW_OPENGLまたはSDL_WINDOW_VULKANフラグを指定してウィンドウを生成すると, 一致するLoadLibrary関数(<a href="SDL_GL_LoadLibrary.html">SDL_GL_LoadLibrary()</a>または<a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>)が呼び出され, <a href="SDL_DestroyWindow.html">SDL_DestroyWindow()</a>で一致するUnloadLibrary関数が呼ばれる.
+</p>
+<p>
+SDL_WINDOW_VULKANを指定してVulkanドライバが動作しなかった場合, <a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>が失敗するため<a href="SDL_CreateWindow.html">SDL_CreateWindow()も失敗する.</a>
+</p>
+<p>
+Metalに対応していないOSでSDL_WINDOW_METALを指定した場合, SDL_CreateWindow()は失敗する.
+</p>
+<p>
+Appleデバイス以外の場合, SDLはVulkanローダをリンクしないか, 動的リンクライブラリ版のリンクを要求する.
+後のバージョンのSDLではこの制約はなくなる予定である.
+</p>
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_CreateWindowFrom.html">SDL_CreateWindowFrom</a><br>
+<a href="SDL_DestroyWindow.html">SDL_DestroyWindow</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_CreateWindow">SDL_CreateWindow - SDL Wiki</a>
+<hr>
+</body>
+</html>

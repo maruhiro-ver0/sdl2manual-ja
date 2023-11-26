@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryGeneral.html" title="1つ上">
+<title>Mix_HaltGroup</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryGroups.html">グループ</a> - Mix_HaltGroup
+<hr>
+<h1>Mix_HaltGroup</h1>
+タグ付けされた複数のチャネルを停止する
+<h2>構文</h2>
+<code>int Mix_HaltGroup(int tag)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_HaltGroup">
+<tr><td>tag</td><td>チャネルグループのタグ</td></tr>
+</table>
+<h2>戻り値</h2>
+チャネルが停止したか否かに関わらず0を戻す.
+<h2>詳細</h2>
+<p>
+この関数は新しいチャンクの再生が開始されるまで指定のタグのチャネルでの再生を停止する.
+</p>
+<p>
+タグは複数のミキサーチャネルと関連付けられる任意の値で, チャネルをグループ化できる.
+</p>
+<p>
+tagのデフォルト値は-1である.
+</p>
+<p>
+停止したチャネルに設定されたエフェクトは解除され, <a href="Mix_ChannelFinished.html">Mix_ChannelFinished()</a>で設定されたコールバックがこの関数から戻る前に呼ばれる.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_HaltGroup">SDL2_mixer/Mix_HaltGroup</a>
+<hr>
+</body>
+</html>

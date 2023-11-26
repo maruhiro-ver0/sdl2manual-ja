@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
+<title>SDL_HINT_IME_INTERNAL_EDITING</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_HINT_IME_INTERNAL_EDITING
+<hr>
+<h1>SDL_HINT_IME_INTERNAL_EDITING</h1>
+<a href="SDL_TextEditingEvent.html">SDL_TEXTEDITING</a>イベントを送る代わりにIMEの内部でテキストの編集を行うか否かのヒント
+<h2>値</h2>
+<table border="1" summary="SDL_HINT_IME_INTERNAL_EDITING">
+<tr><td>0</td><td>
+<a href="SDL_TextEditingEvent.html">SDL_TEXTEDITING</a>イベントが送られる.
+そしてアプリケーションが, このイベントによるテキストと確定したテキストを, 何らかの方法で区別できるようにする必要がある. (デフォルト)
+</td></tr>
+<tr><td>1</td><td>
+IMEが対応していれば<a href="SDL_TextEditingEvent.html">SDL_TEXTEDITING</a>は送られない. 生成されたテキストはIMEのユーザインターフェースで表示される.
+</td></tr>
+</table>
+<h2>デフォルト</h2>
+デフォルトでは<a href="SDL_TextEditingEvent.html">SDL_TEXTEDITING</a>が送られる. そしてアプリケーションが, このイベントによるテキストと確定したテキストを, 何らかの方法で区別できるようにする必要がある.
+<h2>バージョン</h2>
+SDL 2.0.4以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_HINT_IME_INTERNAL_EDITING">SDL_HINT_IME_INTERNAL_EDITING - SDL Wiki</a><br>
+<hr>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryEffects.html" title="1つ上">
+<title>Mix_SetPostMix</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryEffects.html">エフェクト</a> - Mix_SetPostMix
+<hr>
+<h1>Mix_SetPostMix</h1>
+全てのミキシングが適用された後に呼ばれる関数を設定する
+<h2>構文</h2>
+<code>void Mix_SetPostMix(void (SDLCALL *mix_func)(void *udata, Uint8 *stream, int len), void *arg)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_SetPostMix">
+<tr><td>mix_func</td><td>新しいミックス後のコールバック関数</td></tr>
+<tr><td>arg</td><td>コールバックにそのまま渡されるポインタ</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+この関数はオーディオストリームのリアルタイムディスプレイやストリームデータのフィルタのために利用できる.
+</p>
+<p>
+コールバックは, SDL_mixerがオーディオデバイスに新しいデータを供給する準備ができるたびに呼ばれ, その後にミキシングが行われる.
+コールバックはSDLオーディオコールバックの内部で実行されるため, 高速である必要がある. そうでなければオーディオコールバックが問題を引き起こす可能性がある.
+</p>
+<p>
+コールバックに渡されるデータはオープンしたオーディオデバイスの形式で, SDL_mixerが全てのチャンクと音楽をミックスした後の実際の波形である.
+このデータは編集してもよいが, サイズを変えることはできない.
+(よって, 実行時に後ろのバッファを保存して次回のコールバックで追加する, または再生速度を上げてサイズを小さくする等を行わない限りはリバーブ効果を掛けることはできない.)
+</p>
+<p>
+`arg`ポインタはコールバックにそのまま渡され, コールバックが自由に使用できる(トラックの現在の状態, 設定など).
+</p>
+<p>
+コールバックをNULLにすると, 新しいコールバックを設定するまでミックス後コールバックは無効になる.
+</p>
+<p>
+コールバックは1つしか設定できない.
+複数の入力をミックスする必要がある場合でも1つの関数で処理できるようにしなければならない.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_SetPostMix">SDL2_mixer/Mix_SetPostMix</a>
+<hr>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryEffects.html" title="1つ上">
+<title>Mix_UnregisterAllEffects</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryEffects.html">エフェクト</a> - Mix_UnregisterAllEffects
+<hr>
+<h1>Mix_UnregisterAllEffects</h1>
+全てのエフェクト関数を解除する
+<h2>構文</h2>
+<code>int Mix_UnregisterAllEffects(int channel)</code>
+<h2>引数</h2>
+<table border="1" summary="Mix_UnregisterAllEffects">
+<tr><td>channel</td><td>全てのエフェクトを解除するチャネル, またはMIX_CHANNEL_POST</td></tr>
+</table>
+<h2>戻り値</h2>
+エラー(チャネルがない)のとき0, 全てのエフェクトが解除されたとき0以外を戻す.
+エラーメッセージは<a href="Mix_GetError.html">Mix_GetError()</a>で得られる.
+<h2>詳細</h2>
+<p>
+チャンクの再生中に全てのエフェクトを無効にしたい場合以外はこの関数を呼ぶ必要はない.
+</p>
+<p>
+<a href="Mix_SetPanning.html">Mix_SetPanning()</a>や内部でこのAPIを使用する他の組み込みエフェクトも無効にするので注意すること.
+この関数はチャネルの再生が完了したとき自動的に呼ばれる.
+これはチャネルを対象とするため, ポストエフェクトは解除されない.
+しかし, チャネルにMIX_CHANNEL_POSTを指定した場合は解除される.
+</p>
+<p>
+他のSDLやSDL_mixerの関数とは異なり, この関数は成功ではなくエラーのとき0を戻す. 
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_UnregisterAllEffects">SDL2_mixer/Mix_UnregisterAllEffects</a>
+<hr>
+</body>
+</html>

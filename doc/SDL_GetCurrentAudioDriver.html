@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAudio.html" title="1つ上">
+<title>SDL_GetCurrentAudioDriver</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryAudio.html">再生と録音</a> - SDL_GetCurrentAudioDriver
+<hr>
+<h1>SDL_GetCurrentAudioDriver</h1>
+現在のオーディオドライバの名前を得る
+<h2>構文</h2>
+<code>const char* SDL_GetCurrentAudioDriver(void)</code>
+<h2>戻り値</h2>
+現在のオーディオドライバの名前を戻す. 初期化されたドライバがない場合はNULLを戻す.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+const char* driver_name = SDL_GetCurrentAudioDriver();
+
+if (driver_name) {
+    printf("オーディオサブシステムは初期化されている; ドライバ = %s.\n", driver_name);
+} else {
+    printf("オーディオサブシステムは初期化されていない\n");
+}
+</pre>
+</code>
+</p>
+<h2>詳細</h2>
+戻された文字列は内部の静的メモリへのポインタで, 無効になることはない.
+オーディオサブシステムを終了し, 新しいドライバを初期化した場合も同様である.
+(当然この場合は, 再びこの関数を呼ぶと別の静的な文字列を戻す.)
+よって, 戻された文字列を編集や解放してはならない.
+<h2>バージョン</h2>
+<p>
+SDL 2.0.0以降
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_AudioInit.html">SDL_AudioInit</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_GetCurrentAudioDriver">SDL_GetCurrentAudioDriver - SDL Wiki</a>
+<hr>
+</body>
+</html>

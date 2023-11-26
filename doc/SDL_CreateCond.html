@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryMutex.html" title="1つ上">
+<title>SDL_CreateCond</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryMutex.html">同期プリミティブ</a> - SDL_CreateCond
+<hr>
+<h1>SDL_CreateCond</h1>
+新しい条件変数を生成する
+<h2>構文</h2>
+<code>SDL_cond* SDL_CreateCond(void)</code>
+<h2>戻り値</h2>
+新しい条件変数を戻す. 失敗のときNULLを戻す.
+<a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+条件変数の典型的な使い方:
+<code>
+<pre>
+SDL_bool condition = SDL_FALSE;
+SDL_mutex *lock;
+SDL_cond *cond;
+
+lock = SDL_CreateMutex();
+cond = SDL_CreateCond();
+.
+.
+Thread A:
+    SDL_LockMutex(lock);
+    while (!condition) {
+        SDL_CondWait(cond, lock);
+    }
+    SDL_UnlockMutex(lock);
+
+Thread B:
+    SDL_LockMutex(lock);
+    ...
+    condition = SDL_TRUE;
+    ...
+    SDL_CondSignal(cond);
+    SDL_UnlockMutex(lock);
+.
+.
+SDL_DestroyCond(cond);
+SDL_DestroyMutex(lock);
+</pre>
+</code>
+</p>
+<h2>バージョン</h2>
+SDL 2.0.0以降
+<h2>関連項目(関数)</h2>
+<a href="SDL_CondBroadcast.html">SDL_CondBroadcast</a><br>
+<a href="SDL_CondSignal.html">SDL_CondSignal</a><br>
+<a href="SDL_CondWait.html">SDL_CondWait</a><br>
+<a href="SDL_CondWaitTimeout.html">SDL_CondWaitTimeout</a><br>
+<a href="SDL_DestroyCond.html">SDL_DestroyCond</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL_CreateCond">SDL_CreateCond - SDL Wiki</a>
+<hr>
+</body>
+</html>
