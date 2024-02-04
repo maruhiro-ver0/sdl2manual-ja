@@ -12,6 +12,29 @@
 <a href="index.html">目次</a> - SDL 2.0の履歴
 <hr>
 <h1>SDL 2.0の履歴</h1>
+<h2>2.30.0の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>2ビットパレットカラー形式のサーフェイスの追加
+<li>可能ならばコントローラーSteam APIハンドルを得るSDL_GameControllerGetSteamHandle()の追加
+<li>コントローラーSteam APIハンドルが変わったとき送られるSDL_CONTROLLERSTEAMHANDLEUPDATEDイベントの追加. これはコントローラーの名称, VID, PIDが変わった場合も送られる
+<li>ログ出力のデフォルトを設定するSDL_LOGGING環境変数の追加
+</ul>
+<h3>macOS</h3>
+<ul>
+<li>IOKitコントローラードライバを使うか否かを選択するSDL_HINT_JOYSTICK_IOKITヒントの追加
+<li>GCControllerコントローラードライバを使うか否かを選択するSDL_HINT_JOYSTICK_MFIヒントの追加
+<li>複数のGPUが利用できる場合, レンダリングに高性能・低性能のどちらのGPUを使うか選択するSDL_HINT_RENDER_METAL_PREFER_LOW_POWER_DEVICEヒントの追加
+</ul>
+<h3>Xbox</h3>
+<ul>
+<li>SDL_GDKGetDefaultUser()関数の追加
+</ul>
+<h2>2.28.2の変更点</h2>
+<h3>全般</h3>
+<ul>
+<li>コントローラーでWindows.Gaming.Inputを使用するか否かを選択するSDL_HINT_JOYSTICK_WGIヒントの追加
+</ul>
 <h2>2.28.0の変更点</h2>
 <h3>全般</h3>
 <ul>
