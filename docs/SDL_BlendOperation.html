@@ -15,11 +15,11 @@
 <a href="SDL_ComposeCustomBlendMode.html">SDL_ComposeCustomBlendMode()</a>でカスタムブレンドモードを生成する場合に使われるブレンド演算の列挙体
 <h2>値</h2>
 <table border="1" summary="SDL_BlendOperation">
-<tr><td>SDL_BLENDOPERATION_ADD</td><td>加算<br>dst + src</td></tr>
-<tr><td>SDL_BLENDOPERATION_SUBTRACT</td><td>減算<br>dst - src</td></tr>
-<tr><td>SDL_BLENDOPERATION_REV_SUBTRACT</td><td>逆にした減算<br>src - dst</td></tr>
-<tr><td>SDL_BLENDOPERATION_MINIMUM</td><td>最小値<br>min(dst, src)</td></tr>
-<tr><td>SDL_BLENDOPERATION_MAXIMUM</td><td>最大値<br>max(dst, src)</td></tr>
+<tr><td>SDL_BLENDOPERATION_ADD</td><td>加算<br>dst + src</td><td>全てのレンダラーが対応</td></tr>
+<tr><td>SDL_BLENDOPERATION_SUBTRACT</td><td>減算<br>src - dst</td><td>D3D9, D3D11, OpenGL, OpenGLESが対応</td></tr>
+<tr><td>SDL_BLENDOPERATION_REV_SUBTRACT</td><td>逆にした減算<br>dst - src</td><td>D3D9, D3D11, OpenGL, OpenGLESが対応</td></tr>
+<tr><td>SDL_BLENDOPERATION_MINIMUM</td><td>最小値<br>min(dst, src)</td><td>D3D9, D3D11が対応</td></tr>
+<tr><td>SDL_BLENDOPERATION_MAXIMUM</td><td>最大値<br>max(dst, src)</td><td>D3D9, D3D11が対応</td></tr>
 </table>
 <h2>詳細</h2>
 <p>
