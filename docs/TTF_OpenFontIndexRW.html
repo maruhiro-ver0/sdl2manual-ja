@@ -18,7 +18,7 @@
 <h2>引数</h2>
 <table border="1" summary="TTF_OpenFontIndexRW">
 <tr><td>src</td><td>フォントファイルのデータを提供するSDL_RWops</td></tr>
-<tr><td>freesrc</td><td>0以外のときRWopsを閉じる. 0のとき開いたままにする</td></tr>
+<tr><td>freesrc</td><td>0以外のときフォントが閉じればRWopsを閉じる. 0のとき開いたままにする</td></tr>
 <tr><td>ptsize</td><td>フォントのポイントサイズ</td></tr>
 <tr><td>index</td><td>フォントフェイスの番号</td></tr>
 </table>
@@ -30,8 +30,8 @@
 値が大きすぎる場合, 最も大きな番号のサイズになる.
 </p>
 <p>
-freesrcが0以外のとき, 処理が成功してもしなくても関数から戻るときRWopsは閉じる.
-どのような場合でもこの関数を呼ぶと必要ならばSDL_mixerは全て読み込む.
+freesrcが0以外ならば, フォントが閉じればRWopsは自動的に閉じる.
+0ならば, フォントが閉じた後に自分でRWopsを閉じる必要がある.
 </p>
 <p>
 一部のフォントには複数の「フェイス」がある.
