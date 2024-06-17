@@ -12,8 +12,9 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryEvents.html">イベント処理</a> - SDLキーコード一覧表
 <hr>
 <h1>SDLキーコード一覧表</h1>
-表示できる文字のキーのキーコードは, カッコ内の文字のコードである.
-表示できる文字のないキーは, スキャンコードと1&lt;&lt;30 (0x40000000)の論理和である.
+表示可能な文字のキーのキーコードは, その文字のUnicodeコードポイントで表されている.
+表示できる文字の存在しないキーのキーコードは, <a href="SDL_Scancode.html">スキャンコード</a>と1&lt;&lt;30 (0x40000000)の論理和である.
+下の一覧表にはASCII文字のキーコードと, 対応する文字のないキーコードが記載されているが, 非ASCIIのUnicode文字は省略している.
 <table border="1" summary="SDLKeycodeLookup">
 <tr><th>10進数の値</th><th>16進数の値(文字)</th><th>SDL_Keycode</th></tr>
 <tr><td>0</td><td>0x00 ('¥0')</td><td>SDLK_UNKNOWN</td></tr>
