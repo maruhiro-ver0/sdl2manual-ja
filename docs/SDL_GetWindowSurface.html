@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
 </p>
 <h2>詳細</h2>
 <p>
-もし生成されることが必要ならば, 新しいサーフェイスはウィンドウに最適なピクセル形式で生成される.
+必要ならば, 新しいサーフェイスはウィンドウに最適なピクセル形式で生成される.
 このサーフェイスはウィンドウが破棄されたとき解放される.
 このサーフェイスを解放しようとしてはならない.
 </p>
@@ -70,7 +70,10 @@ int main(int argc, char* argv[])
 サイズが変わった後は正しいサーフェイスを得るために再びこの関数を呼ぶ必要がある.
 </p>
 <p>
-このことはウィンドウと3DまたはレンダリングAPIの結びつきと同じではない.
+ダブルまたはトリプルバッファを効率的に実装できるように, 一部の環境ではサーフェイスのpixelsポインタは<a href="SDL_UpdateWindowSurface.html">SDL_UpdateWindowSurface()</a>を呼ぶたびに変化する
+</p>
+<p>
+このウィンドウと3DまたはレンダリングAPIを混合して使うことはできない.
 </p>
 <p>
 この関数は<a href="SDL_HINT_FRAMEBUFFER_ACCELERATION.html">SDL_HINT_FRAMEBUFFER_ACCELERATION</a>の影響を受ける.
