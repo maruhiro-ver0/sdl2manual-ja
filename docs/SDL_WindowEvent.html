@@ -26,62 +26,62 @@
 <p>
 <code>
 <pre>
-void PrintEvent(const SDL_Event * event)
+void PrintEvent(const SDL_Event *event)
 {
-    if (event->type == SDL_WINDOWEVENT) {
-        switch (event->window.event) {
+    if (event-&gt;type == SDL_WINDOWEVENT) {
+        switch (event-&gt;window.event) {
         case SDL_WINDOWEVENT_SHOWN:
-            SDL_Log("ウィンドウ %d が見えるようになった", event->window.windowID);
+            SDL_Log("ウィンドウ %d が見えるようになった", event-&gt;window.windowID);
             break;
         case SDL_WINDOWEVENT_HIDDEN:
-            SDL_Log("ウィンドウ %d が見えないようになった", event->window.windowID);
+            SDL_Log("ウィンドウ %d が見えないようになった", event-&gt;window.windowID);
             break;
         case SDL_WINDOWEVENT_EXPOSED:
-            SDL_Log("ウィンドウ %d が現れた", event->window.windowID);
+            SDL_Log("ウィンドウ %d が現れた", event-&gt;window.windowID);
             break;
         case SDL_WINDOWEVENT_MOVED:
-            SDL_Log("ウィンドウ %d が %d,%d へ移動した", event->window.windowID, event->window.data1, event->window.data2);
+            SDL_Log("ウィンドウ %d が %d,%d へ移動した", event-&gt;window.windowID, event-&gt;window.data1, event-&gt;window.data2);
             break;
         case SDL_WINDOWEVENT_RESIZED:
-            SDL_Log("ウィンドウ %d の大きさが %dx%d になった", event->window.windowID, event->window.data1, event->window.data2);
+            SDL_Log("ウィンドウ %d の大きさが %dx%d になった", event-&gt;window.windowID, event-&gt;window.data1, event-&gt;window.data2);
             break;
         case SDL_WINDOWEVENT_SIZE_CHANGED:
-            SDL_Log("ウィンドウ %d の大きさが %dx%d に変わった", event->window.windowID, event->window.data1, event->window.data2);
+            SDL_Log("ウィンドウ %d の大きさが %dx%d に変わった", event-&gt;window.windowID, event-&gt;window.data1, event-&gt;window.data2);
             break;
         case SDL_WINDOWEVENT_MINIMIZED:
-            SDL_Log("ウィンドウ %d が最小化された", event->window.windowID);
+            SDL_Log("ウィンドウ %d が最小化された", event-&gt;window.windowID);
             break;
         case SDL_WINDOWEVENT_MAXIMIZED:
-            SDL_Log("ウィンドウ %d が最大化された", event->window.windowID);
+            SDL_Log("ウィンドウ %d が最大化された", event-&gt;window.windowID);
             break;
         case SDL_WINDOWEVENT_RESTORED:
-            SDL_Log("ウィンドウ %d 通常の大きさと位置になった", event->window.windowID);
+            SDL_Log("ウィンドウ %d 通常の大きさと位置になった", event-&gt;window.windowID);
             break;
         case SDL_WINDOWEVENT_ENTER:
-            SDL_Log("マウスがウィンドウ %d に入った", event->window.windowID);
+            SDL_Log("マウスがウィンドウ %d に入った", event-&gt;window.windowID);
             break;
         case SDL_WINDOWEVENT_LEAVE:
-            SDL_Log("マウスがウィンドウ %d から出た", event->window.windowID);
+            SDL_Log("マウスがウィンドウ %d から出た", event-&gt;window.windowID);
             break;
         case SDL_WINDOWEVENT_FOCUS_GAINED:
-            SDL_Log("ウィンドウ %d がキーボードフォーカスを得た", event->window.windowID);
+            SDL_Log("ウィンドウ %d がキーボードフォーカスを得た", event-&gt;window.windowID);
             break;
         case SDL_WINDOWEVENT_FOCUS_LOST:
-            SDL_Log("ウィンドウ %d がキーボードフォーカスを失った", event->window.windowID);
+            SDL_Log("ウィンドウ %d がキーボードフォーカスを失った", event-&gt;window.windowID);
             break;
         case SDL_WINDOWEVENT_CLOSE:
-            SDL_Log("ウィンドウ %d が閉じた", event->window.windowID);
+            SDL_Log("ウィンドウ %d が閉じた", event-&gt;window.windowID);
             break;
 #if SDL_VERSION_ATLEAST(2, 0, 5)
         case SDL_WINDOWEVENT_TAKE_FOCUS:
-            SDL_Log("ウィンドウ %d がフォーカスを与えられた", event->window.windowID);
+            SDL_Log("ウィンドウ %d がフォーカスを与えられた", event-&gt;window.windowID);
             break;
         case SDL_WINDOWEVENT_HIT_TEST:
-            SDL_Log("ウィンドウ %d が特殊なヒットテストを行った", event->window.windowID);
+            SDL_Log("ウィンドウ %d が特殊なヒットテストを行った", event-&gt;window.windowID);
             break;
 #endif
         default:
-            SDL_Log("ウィンドウ %d の不明なイベント %d", event->window.windowID, event->window.event);
+            SDL_Log("ウィンドウ %d の不明なイベント %d", event-&gt;window.windowID, event-&gt;window.event);
             break;
         }
     }

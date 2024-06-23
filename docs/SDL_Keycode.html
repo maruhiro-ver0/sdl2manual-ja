@@ -313,8 +313,10 @@ SDLのユーザは, SDLはほとんどの(全ての?)キーボードでこのコ
 <p>
 <code>
 <pre>
+extern SDL_Event *event;
+
 //キーの配置が換わっているかチェックし, 変わったキーを表示する
-if(event-&gt;key.keysym.scancode != SDL_GetScancodeFromKey(event-&gt;key.keysym.sym))
+if (event-&gt;key.keysym.scancode != SDL_GetScancodeFromKey(event-&gt;key.keysym.sym))
     printf("物理キー %s は %s として振舞う",
     SDL_GetScancodeName(event-&gt;key.keysym.scancode),
     SDL_GetKeyName(event-&gt;key.keysym.sym));

@@ -23,6 +23,24 @@
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
+<h2>サンプルコード</h2>
+<p>
+<code>
+<pre>
+/* ... */
+
+SDL_Surface *sfc /* = ... */;
+
+/* ... */
+
+if (SDL_SaveBMP(sfc, "somefile.bmp") != 0)
+{
+    // ビットマップ保存エラー
+    printf("SDL_SaveBMP 失敗: %s\n", SDL_GetError());
+}
+</pre>
+</code>
+</p>
 <h2>詳細</h2>
 <p>
 24bit, 32bit, 8bitパレットフォーマットのサーフェイスは, そのままBMPファイルとして保存される.

@@ -26,10 +26,22 @@
 <p>
 <code>
 <pre>
+#include "SDL.h"
 #include "SDL_bits.h"
 
-if (bitmask) {
-    int index = SDL_MostSignificantBitIndex32(bitmask);
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    SDL_Log("使い方: %s &lt;数値", argv[0]);
+    return 1;
+  }
+  int bitmask = SDL_atoi(argv[1]);
+  if (bitmask &lt; 0) {
+    SDL_Log("数値は正である必要がある");
+    return 1;
+  }
+  int index = SDL_MostSignificantBitIndex32(bitmask);
+  SDL_Log("MSBは %d ビット目", index);
+  return 0;
 }
 </pre>
 </code>

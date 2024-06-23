@@ -26,33 +26,35 @@
 <p>
 <code>
 <pre>
-SDL_Palette* palette = nullptr;
+SDL_Palette* palette = NULL;
 
-...
+/* ... */
 
-SDL_Init(SDL_EVERYTHING);
+SDL_Init(SDL_INIT_VIDEO);
+
+// ウィンドウとレンダラを生成する
+SDL_Window *window;
+SDL_Renderer *renderer;
+SDL_CreateWindowAndRenderer(640, 480, 0, &amp;window, &amp;renderer);
 
 // 4色のパレットを新たに生成する
-
 palette = SDL_AllocPalette(4);
 
-if (palette == nullptr) printf( "エラー: %s¥n", SDL_GetError() );
+if (palette == NULL) printf( "Error: %s\n", SDL_GetError() );
 
-...
+/* ... */
 
 // パレット0の緑成分と青成分を0にする
-
-palette->colors[0].g = 0;
-palette->colors[0].b = 0;
+palette-&gt;colors[0].g = 0;
+palette-&gt;colors[0].b = 0;
 
 // レンダラを赤色に設定する
+SDL_SetRenderDrawColor(renderer, palette-&gt;colors[0].r, palette-&gt;>colors[0].g, palette-&gt;colors[0].b, palette-&gt;colors[0].a);
 
-SDL_SetRenderDrawColor(renderer, palette->colors[0].r, palette->colors[0].g, palette->colors.b, palette->colors[0].a);
-
-...
+/* ... */
 
 SDL_FreePalette(palette);
-palette = nullptr;
+palette = NULL;
 </pre>
 </code>
 <h2>詳細</h2>

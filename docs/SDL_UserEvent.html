@@ -26,6 +26,9 @@
 <p>
 <code>
 <pre>
+Sint32 my_event_code;
+void *significant_data;
+
 Uint32 myEventType = SDL_RegisterEvents(1);
 if (myEventType != ((Uint32)-1)) {
     SDL_Event event;

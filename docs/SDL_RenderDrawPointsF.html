@@ -25,28 +25,30 @@
 <p>
 <code>
 <pre>
-// 画面の中央を求める
+#define WIDTH  640
+#define HEIGHT 480
 
+// 画面の中央を求める
 double x_centre = WIDTH / 2;
 double y_centre = HEIGHT / 2;
 
-...
+/* ... */
+
+SDL_Renderer *renderer;
 
 // 三角形の頂点を初期化する
-
 SDL_FPoint a = {x_centre, y_centre};
 SDL_FPoint b = {x_centre, y_centre - 10.5};
 SDL_FPoint c = {x_centre - 10.5, y_centre};
 
 // 頂点の配列を初期化する
-
 SDL_FPoint triangle[] = {
     a,
     b,
     c
 };
 
-...
+/* ... */
 
 // レンダラを白色に設定する
 

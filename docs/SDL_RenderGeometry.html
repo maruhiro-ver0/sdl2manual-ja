@@ -30,14 +30,15 @@
 <p>
 <code>
 <pre>
-// レンダラのための3つの頂点を生成する
+SDL_Renderer *renderer;
+SDL_Texture *texture;
 
+// レンダラのための3つの頂点を生成する
 SDL_Vertex vertex_1 = {{10.5, 10.5}, {255, 0, 0, 255}, {1, 1}};
 SDL_Vertex vertex_2 = {{20.5, 10.5}, {255, 0, 0, 255}, {1, 1}};
 SDL_Vertex vertex_3 = {{10.5, 20.5}, {255, 0, 0, 255}, {1, 1}};
 
 // 配列に書き込む
-
 SDL_Vertex vertices[] = {
     vertex_1,
     vertex_2,
@@ -45,12 +46,10 @@ SDL_Vertex vertices[] = {
 };
 
 // レンダラ色を設定する
-
 SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 SDL_RenderClear(renderer);
 
 // 赤い三角形をレンダリングする
-
 SDL_RenderGeometry(renderer, texture, vertices, 3, NULL, 0);
 
 SDL_RenderPresent(renderer);

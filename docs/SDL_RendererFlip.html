@@ -23,6 +23,13 @@
 <p>
 <code>
 <pre>
+extern SDL_Renderer *renderer;
+extern SDL_Texture *texture;
+extern SDL_Rect srcrect;
+extern SDL_Rect dstrect;
+extern int angle;
+extern SDL_Point center;
+
 /* 一部のコンパイラの設定や言語(たとえばC++)ではキャストが必要である */
 SDL_RendererFlip flip = SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL;
 

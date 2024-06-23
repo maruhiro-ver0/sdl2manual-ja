@@ -30,17 +30,17 @@
 <pre>
 SDL_PixelFormat* pixel_format = NULL;
 
-...
+/* ... */
 
 SDL_Init(SDL_INIT_EVERYTHING);
 
-pixel_format = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA32)
+pixel_format = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA32);
 
 if (pixel_format == NULL) printf( "エラー: %s¥n", SDL_GetError() );
 
-...
+/* ... */
 
-printf("バイト数: %i¥n", pixel_format->BytesPerPixel);
+printf("バイト数: %i¥n", pixel_format-&gt;BytesPerPixel);
 </pre>
 </code>
 <h2>詳細</h2>

@@ -30,14 +30,15 @@
 <pre>
 SDL_AudioSpec want, have;
 SDL_AudioDeviceID dev;
+extern void SDLCALL MyAudioCallback(void *userdata, Uint8 *stream, int len);
 
-SDL_memset(&want, 0, sizeof(want)); /* または SDL_zero(want); */
+SDL_memset(&amp;want, 0, sizeof(want)); /* または SDL_zero(want); */
 want.freq = 48000;
 want.format = AUDIO_F32;
 want.channels = 2;
 want.samples = 4096;
 want.callback = MyAudioCallback;  // 別の場所で関数を書く必要がある
-dev = SDL_OpenAudioDevice(NULL, 0, &want, &have, SDL_AUDIO_ALLOW_FORMAT_CHANGE);
+dev = SDL_OpenAudioDevice(NULL, 0, &amp;want, &amp;have, SDL_AUDIO_ALLOW_FORMAT_CHANGE);
 </pre>
 </code>
 </p>

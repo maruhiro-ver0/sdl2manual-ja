@@ -28,7 +28,11 @@
 <h2>サンプルコード</h2>
 <code>
 <pre>
-SDL_BlitSurface(surface, &source_rect, temp_surface, NULL);
+extern SDL_Surface *surface;
+extern SDL_Rect source_rect;
+SDL_Surface *temp_surface;
+
+SDL_BlitSurface(surface, &amp;source_rect, temp_surface, NULL);
 </pre>
 </code>
 <h2>詳細</h2>

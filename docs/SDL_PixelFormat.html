@@ -49,12 +49,12 @@ SDL_PixelFormat *fmt;
 SDL_Color *color;
 Uint8 index;
 
-.
-.
+/* ... */
 
 /* ここでサーフェイスを生成する */
-.
-.
+
+/* ... */
+
 fmt=surface->format;
 
 /* サーフェイスのビット深度をチェックする */
@@ -74,8 +74,8 @@ color=fmt-&gt;palette-&gt;colors[index];
 SDL_UnlockSurface(surface);
 printf("Pixel Color-&gt; Red: %d, Green: %d, Blue: %d. Index: %d¥n",
           color-&gt;r, color-&gt;g, color-&gt;b, index);
-.
-.
+
+/* ... */
 </pre>
 </code>
 </p>
@@ -91,9 +91,9 @@ SDL_PixelFormat *fmt;
 SDL_Surface *surface;
 Uint32 temp, pixel;
 Uint8 red, green, blue, alpha;
-.
-.
-.
+
+/* ... */
+
 fmt = surface->format;
 SDL_LockSurface(surface);
 pixel = *((Uint32*)surface->pixels);
@@ -124,9 +124,8 @@ temp = temp &lt;&lt; fmt-&gt;Aloss;  /* 8bitフルまで拡張する */
 alpha = (Uint8)temp;
 
 printf("Pixel Color -&gt; R: %d,  G: %d,  B: %d,  A: %d¥n", red, green, blue, alpha);
-.
-.
-.
+
+/* ... */
 </pre>
 </code>
 </p><h2>詳細</h2>

@@ -39,7 +39,7 @@ SDL_Surface *image = SDL_LoadBMP(image_path);
 /* ファイルの読み込みに失敗したらユーザに知らせる */
 if (!image) {
     printf("画像の読み込みに失敗した %s: %s¥n", image_path, SDL_GetError());
-    return;
+    return 1;
 }
 
 /* ここで画像を使う */

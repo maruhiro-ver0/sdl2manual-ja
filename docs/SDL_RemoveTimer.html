@@ -25,35 +25,29 @@
 <p>
 <code>
 <pre>
-// 時間が経過するとこの関数が呼ばれる
-
+// 一定時間の経過で呼ばれる関数
 Uint32 callback(Uint32 interval, void* name) {
-
-    printf("Hello %s!¥n", static_cast<char*>(name));
-       
+    printf("こんにちは %s!\n", (const char *)name);
     return 0;
 }
 
-...
+/* ... */
 
 // タイマを初期化する
+SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER);
 
-if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
-
-...
+/* ... */
 
 // タイマを1秒に設定する
+SDL_TimerID timerID = SDL_AddTimer(1000, callback, "SDL");
 
-SDL_TimerID timerID = SDL_AddTimer(1000, callback, const_cast<char*>("SDL"));
-
-// Main loop
-
+// メインループ
+SDL_bool quit;
 while(!quit) {
-    ...
+    /* ... */
 }
 
-// メインループの後でタイマを破棄する
-
+// メインループの後でタイマを取り除く
 SDL_RemoveTimer(timerID);
 </pre>
 </code>
