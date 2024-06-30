@@ -2,7 +2,6 @@
 <html lang="ja-JP">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
 <link rel="top" href="index.html" title="ホーム">
 <link rel="parent" href="CategoryForceFeedback.html" title="1つ上">
@@ -14,7 +13,7 @@
 <h1>SDL_HapticDirection</h1>
 効果の方向の構造体
 <h2>フィールド</h2>
-<table border="1" summary="SDL_HapticDirection">
+<table border="1">
 <tr><td>Uint8</td><td>type</td><td>座標系の種類 (詳細を参照すること)</td></tr>
 <tr><td>Sint32[]</td><td>dir</td><td>方向 (詳細を参照すること)</td></tr>
 </table>
@@ -77,7 +76,7 @@ direction.dir[0] = 9000; // 2次元なのでこれ以上パラメータは必要
 </p>
 <p>
 座標系には次のものがある.
-<table border="1" summary="type">
+<table border="1">
 <tr><td>SDL_HAPTIC_POLAR</td><td>極座標</td></tr>
 <tr><td>SDL_HAPTIC_CARTESIAN</td><td>直交座標</td></tr>
 <tr><td>SDL_HAPTIC_SPHERICAL</td><td>球面座標</td></tr>
@@ -87,7 +86,7 @@ direction.dir[0] = 9000; // 2次元なのでこれ以上パラメータは必要
 typeがSDL_HAPTIC_POLARならば, 方向は北から時計回りの度数の100倍で指定する.
 SDL_HAPTIC_POLARはdirの1番目のみ使う.
 基本方位は次のようになる.
-<table border="1" summary="SDL_HAPTIC_POLAR">
+<table border="1">
 <tr><td>北</td><td>0 (0度)</td></tr>
 <tr><td>東</td><td>9000 (90度)</td></tr>
 <tr><td>南</td><td>18000 (180度)</td></tr>
@@ -98,7 +97,7 @@ SDL_HAPTIC_POLARはdirの1番目のみ使う.
 typeがSDL_HAPTIC_CARTESIANならば, 方向は3軸(X軸, Y軸, Z軸)で指定する.
 SDL_HAPTIC_CARTESIANはdirの3番目までを使う.
 基本方位は次のようになる.
-<table border="1" summary="SDL_HAPTIC_CARTESIAN">
+<table border="1">
 <tr><td>北</td><td>0, -1, 0</td></tr>
 <tr><td>東</td><td>1, 0, 0</td></tr>
 <tr><td>南</td><td>0, 1, 0</td></tr>
@@ -111,7 +110,7 @@ SDL_HAPTIC_CARTESIANはdirの3番目までを使う.
 typeがSDL_HAPTIC_SPHERICALならば, 方向は2つの角度で指定する.
 dirの2番目までを使う.
 dirの値は次の通りである(全ての値は度数の100倍).
-<table border="1" summary="SDL_HAPTIC_SPHERICAL">
+<table border="1">
 <tr><td>(1, 0)から(0, 1)へ回転する角度</td></tr>
 <tr><td>(0, 0, 1)へ方向の角度 (少なくとも3軸のデバイスが必要)</td></tr>
 </table>

@@ -2,7 +2,6 @@
 <html lang="ja-JP">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
 <link rel="top" href="index.html" title="ホーム">
 <link rel="parent" href="CategoryEvents.html" title="1つ上">
@@ -14,7 +13,7 @@
 <h1>SDL_EventType</h1>
 送られたイベントの種類の列挙体
 <h2>値</h2>
-<table border="1" summary="SDL_EventType">
+<table border="1">
 <tr><td>SDL_FIRSTEVENT</td><td>(未使用)</td></tr>
 <tr><th colspan="2" align="center">アプリケーションのイベント</th></tr>
 <tr><td><a href="SDL_QuitEvent.html">SDL_QUIT</a></td><td>ユーザが終了を要求した (詳細を参照すること)</td></tr>
@@ -94,7 +93,7 @@ while (SDL_PollEvent(&e)) {
 </pre>
 </code>
 <h2>詳細</h2>
-<h3><a name="SDL_QUIT">SDL_QUIT</a></h3>
+<h3><a id="SDL_QUIT">SDL_QUIT</a></h3>
 <p>
 SDL_QUITイベントは様々な理由で発生する.
 アプリケーションはこのイベントを無視するという選択もありうる.
@@ -117,7 +116,7 @@ POSIXシステムでは, <a href="SDL_Init.html">SDL_Init</a>はSIGINT(キーボ
 SQL_QUITイベントが発生しないようにする方法はない.
 しかし, アプリケーションでシグナルハンドラを設定すると, シグナル発生時の終了イベントの発生が上書きされる.
 </p>
-<h3><a name="Android_iOS_and_WinRT_Event">Android, iOS, WinRTのイベント</a></h3>
+<h3><a id="Android_iOS_and_WinRT_Event">Android, iOS, WinRTのイベント</a></h3>
 <p>
 「Android, iOS, WinRTのイベント」に分類されるのは, 通常のデスクトップアプリケーションとは別の要求が存在するモバイルまたは組み込みデバイス用のイベントである.
 これらのイベントはイベントフィルタで処理する必要がある.
@@ -128,7 +127,7 @@ OSは即時の反応を必要としていて, イベントを送信した後に�
 </p>
 <p>
 イベントは以下のように対応している
-<table border="1" summary="Android_iOS_and_WinRT_Event">
+<table border="1">
 <tr><th>SDLイベント</th><th>発生条件</th><th>iOS</th><th>Android</th><th>WinRT</th></tr>
 <tr><td>SDL_APP_TERMINATING</td><td>アプリケーションがOSによって終了されようとしている</td><td>applicationWillTerminate()</td><td>onDestroy()</td><td>Exiting()</td></tr>
 <tr><td>SDL_APP_LOWMEMORY</td><td>アプリケーションの空きメモリが少ない. 可能ならメモリを解放する必要がある</td><td>applicationDidReceiveMemoryWarning()</td><td>onLowMemory()</td><td>-</td></tr>

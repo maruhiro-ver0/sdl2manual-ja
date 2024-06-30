@@ -2,7 +2,6 @@
 <html lang="ja-JP">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
 <link rel="top" href="index.html" title="ホーム">
 <link rel="parent" href="CategoryThread.html" title="1つ上">
@@ -16,7 +15,7 @@
 <h2>構文</h2>
 <code>int SDL_TLSSet(SDL_TLSID id, const void* value, void (*destructor)(void*))</code>
 <h2>引数</h2>
-<table border="1" summary="SDL_TLSSet">
+<table border="1">
 <tr><td>id</td><td>スレッド局所記憶ID</td></tr>
 <tr><td>value</td><td>現在のスレッドのスレッド局所記憶IDの値</td></tr>
 <tr><td>destructor</td><td>スレッドが終了したとき呼ばれる関数. ここでvalueを解放する</td></tr>
@@ -33,7 +32,7 @@ destructorの関数プロトタイプは
 </p>
 <p>
 引数は
-<table border="1" summary="destructor">
+<table border="1">
 <tr><td>value</td><td><a href="SDL_TLSSet.html">SDL_TLSSet()</a>に渡したvalue</td></tr>
 </table>
 </p>

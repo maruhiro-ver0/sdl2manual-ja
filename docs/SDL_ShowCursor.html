@@ -2,7 +2,6 @@
 <html lang="ja-JP">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
 <link rel="top" href="index.html" title="ホーム">
 <link rel="parent" href="CategoryMouse.html" title="1つ上">
@@ -16,7 +15,7 @@
 <h2>構文</h2>
 <code>int SDL_ShowCursor(int toggle)</code>
 <h2>引数</h2>
-<table border="1" summary="SDL_ShowCursor">
+<table border="1">
 <tr><td>toggle</td><td>SDL_ENABLEのとき表示, SDL_DISABLEのとき非表示, SDL_QUERYのとき現在の状態を調査する</td></tr>
 </table>
 <h2>戻り値</h2>
@@ -46,7 +45,7 @@ SDL_DISABLEまたはSDL_ENABLEのいずれかが戻る.
 </p>
 <p>
 toggleは次の値のいずれかである:
-<table border="1" summary="toggle">
+<table border="1">
 <tr><td>-1</td><td>SDL_QUERY</td><td>カーソルの現在の可視状態を戻す</td></tr>
 <tr><td>0</td><td>SDL_DISABLE</td><td>カーソルを見えないようにする (さらに現在のカーソルの可視状態を戻す)</td></tr>
 <tr><td>1</td><td>SDL_ENABLE</td><td>カーソルを見えるようにする (さらに現在のカーソルの可視状態を戻す)</td></tr>

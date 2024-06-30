@@ -2,7 +2,6 @@
 <html lang="ja-JP">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
 <link rel="top" href="index.html" title="ホーム">
 <link rel="parent" href="CategoryLog.html" title="1つ上">
@@ -16,7 +15,7 @@
 <h2>構文</h2>
 <code>void SDL_LogGetOutputFunction(SDL_LogOutputFunction* callback, void** userdata)</code>
 <h2>引数</h2>
-<table border="1" summary="SDL_LogGetOutputFunction">
+<table border="1">
 <tr><td>callback</td><td>現在のログコールバック関数を代入するポインタ. (詳細を参照すること)</td></tr>
 <tr><td>userdata</td><td>callbackに渡すポインタを代入するポインタ</td></tr>
 </table>
@@ -28,7 +27,7 @@ callbackの関数プロトタイプは
 <code>void SDL_LogOutputFunction(void* userdata, int category, SDL_LogPriority priority, const char* message)</code></p>
 <p>
 引数は
-<table border="1" summary="SDL_LogGetOutputFunction">
+<table border="1">
 <tr><td>userdata</td><td><a href="SDL_LogSetOutputFunction.html">SDL_LogSetOutputFunction()</a>に渡されたuserdata</td></tr>
 <tr><td>category</td><td>メッセージの<a href="SDL_LOG_CATEGORY.html">SDL_LOG_CATEGORY</a></td></tr>
 <tr><td>property</td><td>メッセージの<a href="SDL_LogPriority.html">SDL_LogPriority</a></td></tr>

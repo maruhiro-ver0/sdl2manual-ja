@@ -2,7 +2,6 @@
 <html lang="ja-JP">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
 <link rel="top" href="index.html" title="ホーム">
 <link rel="parent" href="CategoryRender.html" title="1つ上">
@@ -16,7 +15,7 @@
 <h2>構文</h2>
 <code>SDL_BlendMode SDL_ComposeCustomBlendMode(SDL_BlendFactor srcColorFactor, SDL_BlendFactor dstColorFactor, SDL_BlendOperation colorOperation, SDL_BlendFactor srcAlphaFactor, SDL_BlendFactor dstAlphaFactor, SDL_BlendOperation alphaOperation)</code>
 <h2>引数</h2>
-<table border="1" summary="SDL_ComposeCustomBlendMode">
+<table border="1">
 <tr><td>srcColorFactor</td><td>描画元のピクセルの赤, 緑, 青成分に乗算される<a href="SDL_BlendFactor.html">SDL_BlendFactor</a></td></tr>
 <tr><td>dstColorFactor</td><td>描画先のピクセルの赤, 緑, 青成分に乗算される<a href="SDL_BlendFactor.html">SDL_BlendFactor</a></td></tr>
 <tr><td>colorOperation</td><td>描画元と描画先のピクセルの赤, 緑, 青成分の合成に使われる<a href="SDL_BlendOperation.html">SDL_BlendOperation</a></td></tr>
@@ -64,7 +63,7 @@ colorOperation(src, dst)とalphaOperation(src, dst)関数は, 次の内の1つ�
 次の表はSDL 2.0.6における各レンダラーのカスタムブレンドモードの対応を示している.
 全てのレンダラーは<a href="SDL_BlendMode.html">SDL_BlendMode</a>列挙体の4つのブレンドモードには対応している.
 </p>
-<table border="1" summary="カスタムブレンドモード">
+<table border="1">
 <tr><td>direct3d</td><td>全ての係数と演算に対応. しかし, 一部の係数はSDL_BLENDOPERATION_MINIMUM演算またはSDL_BLENDOPERATION_MAXIMUM演算を指定すると予期しない結果になる</td></tr>
 <tr><td>direct3d11</td><td>Direct3D 9と同じ</td></tr>
 <tr><td>opengl</td><td>SDL_BLENDOPERATION_ADD演算で全ての係数に対応. OpenGL バージョン1.1, 1.2, 1.3はSDL 2.0.6では正常に動作しない</td></tr>

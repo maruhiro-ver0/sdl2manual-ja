@@ -2,7 +2,6 @@
 <html lang="ja-JP">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="keywords" content="Simple Directmedia Layer SDL2.0">
 <link rel="top" href="index.html" title="ホーム">
 <link rel="parent" href="CategoryAudio.html" title="1つ上">
@@ -16,7 +15,7 @@
 <h2>構文</h2>
 <code>int SDL_GetDefaultAudioInfo(char **name, SDL_AudioSpec *spec, int iscapture)</code>
 <h2>引数</h2>
-<table border="1" summary="SDL_GetDefaultAudioInfo">
+<table border="1">
 <tr><td>name</td><td>デバイスのデフォルト名の書き込み先ポインタ(NULLも可). 使用後はSDL_free()を呼ぶこと!</td></tr>
 <tr><td>spec</td><td>この関数で初期化される<a href="SDL_AudioSpec.html">SDL_AudioSpec</a></td></tr>
 <tr><td>iscapture</td><td>0でないとき録音デバイスを, 0のときデフォルトの出力デバイスを調査する</td></tr>
