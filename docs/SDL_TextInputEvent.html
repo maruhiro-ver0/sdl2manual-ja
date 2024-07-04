@@ -17,7 +17,7 @@
 <tr><td>Uint32</td><td>type</td><td>SDL_TEXTINPUT</td></tr>
 <tr><td>Uint32</td><td>timestamp</td><td>イベントのタイムスタンプ</td></tr>
 <tr><td>Uint32</td><td>windowID</td><td>フォーカスのあるウィンドウ (可能なら)</td></tr>
-<tr><td>char[32]</td><td>text</td><td>NUL終端のUTF-8テキスト</td></tr>
+<tr><td>char[SDL_TEXTINPUTEVENT_TEXT_SIZE]</td><td>text</td><td>NUL終端のUTF-8テキスト</td></tr>
 </table>
 <h2>詳細</h2>
 <p>
@@ -37,6 +37,16 @@ IMEで"abc"と入力し, そしてUnicode文字の"X"を得たとすると, SDL�
 SDLアプリケーションとIMEは両方ともキーを受け取り, これらのキーを扱うか否かを判断する.
 例えばユーザがバックスペースキーを押すと, 多くのIMEは入力中の最後の文字を削除する. そしてSDLは新しいSDL_TEXTEDITINGイベントを受信する. (ユーザがa, b, バックスペース, cと入力したならば, アプリケーションは4回のイベント'a', 'ab', 'a', 'ac'を受け取ることになる.)
 OSはSDL_TEXTEDITINGイベントで受け取ったテキストを表示したいかどうかはわからないため, <a href="SDL_SetTextInputRect.html">SDL_SetTextInputRect()</a>でOSに入力中のテキストを表示するか否かのヒントを与えることができる.
+</p>
+<p>
+テキストは<a href="SDL_TEXTINPUTEVENT_TEXT_SIZE.html">SDL_TEXTINPUTEVENT_TEXT_SIZE</a>バイトに制限される.
+このサイズより大きな文字列が来た場合, SDLはそれを複数のイベントに分けて送信する.
+文字列はUTF-8形式で, UTF-8の途中で分割されないことが保証されているため, どのイベントでも常にコードポイントは完全である.
+しかし, 複数のコードポイントで1つのグリフの場合(例えば絵文字の「サムアップ」に続く肌の色), 複数のイベントに分かれる可能性がある.
+</p>
+<p>
+このイベントは<a href="SDL_StartTextInput.html">SDL_StartTextInput()</a>でテキスト入力が有効にならない限り発生しない.
+テキスト入力はデスクトップ環境ではデフォルトで有効に, モバイル環境ではデフォルトで無効になっている.
 </p>
 <h2>関連項目(列挙体)</h2>
 <a href="SDL_EventType.html">SDL_EventType</a><br>
