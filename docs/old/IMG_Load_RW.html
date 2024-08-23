@@ -16,14 +16,14 @@
 </p>
 <p>
 <dl>
-<dt>src</dt><dd>読み込み元の<a href="SDL_RWops.html">SDL_RWops</a>. 画像はここから読み込まれる</dd>
+<dt>src</dt><dd>読み込み元の<a href="../SDL_RWops.html">SDL_RWops</a>. 画像はここから読み込まれる</dd>
 <dt>freesrc</dt><dd>0でないときsrcが自動的に閉じる/解放される</dd>
 </dl>
 </p>
 <p>
 srcを読み込んでサーフェイスを生成する.
 この関数はTGA以外の対応した画像を読み込める.
-<a href="SDL_RWops.html">SDL_RWops</a>の使い方は詳しく説明しないが, ほとんどのデータ元から読み込むことができる.
+<a href="../SDL_RWops.html">SDL_RWops</a>の使い方は詳しく説明しないが, ほとんどのデータ元から読み込むことができる.
 </p>
 <p>
 メモ: 画像ローダーは初期化されている必要がある.
@@ -35,7 +35,7 @@ srcを読み込んでサーフェイスを生成する.
 <code>SDL_SetColorKey(image, SDL_RLEACCEL, image->format->colorkey);</code>
 </p>
 <p>
-戻り値: 新しい<a href="SDL_Surface.html">SDL_Surface</a>へのポインタを戻す. 対応していない形式, ファイルの読み込みに失敗したときなどはNULLを戻す.
+戻り値: 新しい<a href="../SDL_Surface.html">SDL_Surface</a>へのポインタを戻す. 対応していない形式, ファイルの読み込みに失敗したときなどはNULLを戻す.
 </p>
 <h2>サンプルコード</h2>
 <code>
