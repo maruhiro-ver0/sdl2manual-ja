@@ -14,17 +14,6 @@
 インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_audio.h">SDL_audio.h</a>
 <h2>概要</h2>
 ここに分類される関数は, オーディオデバイスと音声入力/出力を扱うものである.
-<h2>列挙体</h2>
-<ol>
-<li><a href="SDL_AudioFormat.html">SDL_AudioFormat</a> - 音声形式の列挙体
-<li><a href="SDL_AudioStatus.html">SDL_AudioStatus</a> - オーディオデバイスの状態の列挙体
-</ol>
-<h2>構造体</h2>
-<ol>
-<li><a href="SDL_AudioCVT.html">SDL_AudioCVT</a> - 音声データ変換の情報の構造体
-<li><a href="SDL_AudioSpec.html">SDL_AudioSpec</a> - 音声出力形式の構造体
-<li><a href="SDL_AudioStream.html">SDL_AudioStream</a> - バッファ, 変換, 再サンプリング, 音声データの不透明構造体
-</ol>
 <h2>関数</h2>
 <ol>
 <li><a href="SDL_AudioInit.html">SDL_AudioInit</a> - 指定のオーディオドライバを初期化する
@@ -52,7 +41,6 @@
 <li><a href="SDL_GetNumAudioDevices.html">SDL_GetNumAudioDevices</a> - 組み込まれたオーディオデバイスの数を得る
 <li><a href="SDL_GetNumAudioDrivers.html">SDL_GetNumAudioDrivers</a> - 組み込まれたオーディオドライバの数を得る
 <li><a href="SDL_GetQueuedAudioSize.html">SDL_GetQueuedAudioSize</a> - キューにある音声データのバイト数を得る
-<li><a href="SDL_LoadWAV.html">SDL_LoadWAV</a> - ファイルからWAVEを読み込む
 <li><a href="SDL_LoadWAV_RW.html">SDL_LoadWAV_RW</a> - データソースからWAVEを読み込む
 <li><a href="SDL_LockAudio.html">SDL_LockAudio</a> - オーディオデバイスをロックする古い関数
 <li><a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice</a> - 指定のオーディオデバイスのコールバック関数の呼び出しをロックする
@@ -66,6 +54,28 @@
 <li><a href="SDL_QueueAudio.html">SDL_QueueAudio</a> - コールバック関数を使わずに音声デバイスのキューにデータを送信する
 <li><a href="SDL_UnlockAudio.html">SDL_UnlockAudio</a> - オーディオデバイスのロックを解除する古い関数
 <li><a href="SDL_UnlockAudioDevice.html">SDL_UnlockAudioDevice</a> - 指定のデバイスのコールバック関数の呼び出しのロックを解除する
+</ol>
+<h2>型</h2>
+<ol>
+<li>SDL_AudioCallback
+<li>SDL_AudioDeviceID
+<li><a href="SDL_AudioFormat.html">SDL_AudioFormat</a> - 音声形式のフラグ
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_AudioCVT.html">SDL_AudioCVT</a> - 音声データ変換の情報の構造体
+<li><a href="SDL_AudioSpec.html">SDL_AudioSpec</a> - 音声出力形式の構造体
+<li><a href="SDL_AudioStream.html">SDL_AudioStream</a> - バッファ, 変換, 再サンプリング, 音声データの不透明構造体
+</ol>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_AudioStatus.html">SDL_AudioStatus</a> - オーディオデバイスの状態の列挙体
+</ol>
+<h2>マクロ</h2>
+<ol>
+<li>SDL_AUDIOCVT_MAX_FILTERS
+<li><a href="SDL_LoadWAV.html">SDL_LoadWAV</a> - ファイルからWAVEを読み込む
+<li>SDL_MIX_MAXVOLUME
 </ol>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryAudio">Audio Device Management and Audio Playback - SDL Wiki</a>

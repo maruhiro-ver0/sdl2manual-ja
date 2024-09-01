@@ -13,9 +13,34 @@
 <h1>HIDデバイス</h1>
 インクルードファイル: <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_hidapi.h">SDL_hidapi.h</a>
 <h2>概要</h2>
+<p>
+SDL HIDAPI関数のヘッダファイルである.
+</p>
+<p>
+これはAlan OttによるHIDAPIインターフェースを適用したものであり, 以下のライセンスのソースコードが含まれている.
+</p>
+<p>
+HIDAPI - Multi-Platform library for
+communication with HID devices.
+</p>
+<p>
+Copyright 2009, Alan Ott, Signal 11 Software.
+All Rights Reserved.
+</p>
+<p>
+This software may be used by anyone for any reason so
+long as the copyright notice in the source files
+remains intact.
+</p>
+<p>
+(注意: このライセンスはSDLのzlibライセンスの第3項と同じであり, ユーザには新たに必要なことはない.)
+</p>
+<p>
+このコードを含まないSDLが必要ならば, SDL_HIDAPI_DISABLEDを1にしてビルドすること.
+例えばiOSやtvOSでCoreBluetoothフレームワークへの依存を避けたい場合にそうしたいかもしれない.
+</p>
 <h2>関数</h2>
 <ol>
-<li><a href="SDL_HideWindow.html">SDL_HideWindow</a> - ウィンドウを隠す
 <li><a href="SDL_hid_ble_scan.html">SDL_hid_ble_scan</a> - iOSまたはtvOSでSteamコントローラーとペアするためのBLEスキャンを開始または停止する
 <li><a href="SDL_hid_close.html">SDL_hid_close</a> - HIDデバイスを閉じる
 <li><a href="SDL_hid_device_change_count.html">SDL_hid_device_change_count</a> - デバイスが追加または削除された可能性があるごとに増加するカウンタの値を得る
@@ -33,8 +58,16 @@
 <li><a href="SDL_hid_read.html">SDL_hid_read</a> - HIDデバイスから入力レポートを読み込む
 <li><a href="SDL_hid_read_timeout.html">SDL_hid_read_timeout</a> - HIDデバイスから入力レポートをタイムアウト付きで読み込む
 <li><a href="SDL_hid_send_feature_report.html">SDL_hid_send_feature_report</a> - HIDデバイスに機能レポートを送信する
+<li>SDL_hid_set_nonblocking
 <li><a href="SDL_hid_write.html">SDL_hid_write</a> - HIDデバイスに出力レポートを書き込む
 </ol>
+<h2>関数</h2>
+<ol>
+<li>SDL_hid_device_
+<li>SDL_hid_device_info
+</ol>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/CategoryHIDAPI">HIDAPI - SDL Wiki</a>
 <hr>
 </body>
 </html>

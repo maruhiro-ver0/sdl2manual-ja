@@ -60,10 +60,6 @@
 <p>
 <em>注意:</em> アトミックロックで再帰的にロックするのは安全ではない.
 </p>
-<h2>構造体</h2>
-<ol>
-<li><a href="SDL_atomic_t.html">SDL_atomic_t</a> - アトミック整数値を表す構造体
-</ol>
 <h2>関数</h2>
 <ol>
 <li><a href="SDL_AtomicAdd.html">SDL_AtomicAdd</a> - アトミック変数に加算する
@@ -79,8 +75,11 @@
 <li><a href="SDL_AtomicTryLock.html">SDL_AtomicTryLock</a> - 0でない値を設定することでスピンロックを試みる
 <li><a href="SDL_AtomicUnlock.html">SDL_AtomicUnlock</a> - 0を設定することでスピンロックを解除する
 <li><a href="SDL_CompilerBarrier.html">SDL_CompilerBarrier</a> - コンパイラが呼び出しにまたがるグローバル変数の読込と書込の順序を入れ替えるのを防ぐ
-<li>SDL_MemoryBarrierAcquireFunction</li>
 <li><a href="SDL_MemoryBarrierReleaseFunction.html">SDL_MemoryBarrierReleaseFunction</a> - メモリバリアは, マルチコアCPUでコンパイラによって読み込みと書き込みの順序が変えられ, 順不同に見えるのを防ぐために存在する
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_atomic_t.html">SDL_atomic_t</a> - アトミック整数値を表す構造体
 </ol>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryAtomic">Atomic Operations - SDL Wiki</a>

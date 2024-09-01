@@ -23,7 +23,27 @@
 一般的にこれらのヒントには次のことが言える - それらは環境によって有効かもしれないし, 有効でないかもしれない.
 しかし, ライブラリに動作を示唆する方法をユーザとアプリケーションに提供する.
 </p>
-<h2>ヒント</h2>
+<h2>関数</h2>
+<ol>
+<li><a href="SDL_AddHintCallback.html">SDL_AddHintCallback</a> - 指定のヒントを監視する関数を追加する
+<li><a href="SDL_ClearHints.html">SDL_ClearHints</a> - 全てのヒントを消去する
+<li><a href="SDL_DelHintCallback.html">SDL_DelHintCallback</a> - 指定のヒントを監視する関数を取り除く
+<li><a href="SDL_GetHint.html">SDL_GetHint</a> - ヒントの値を得る
+<li><a href="SDL_GetHintBoolean.html">SDL_GetHintBoolean</a> - ヒントの真偽値を得る
+<li><a href="SDL_ResetHint.html">SDL_ResetHint</a> - ヒントをデフォルト値に戻す
+<li><a href="SDL_ResetHints.html">SDL_ResetHints</a> - 全てのヒントをデフォルトの値にリセットする
+<li><a href="SDL_SetHint.html">SDL_SetHint</a> - ヒントを通常の優先度で設定する
+<li><a href="SDL_SetHintWithPriority.html">SDL_SetHintWithPriority</a> - ヒントを指定の優先度で設定する
+</ol>
+<h2>型</h2>
+<ol>
+<li>SDL_HintCallback
+</ol>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_HintPriority.html">SDL_HintPriority</a> - ヒントの優先度の列挙体
+</ol>
+<h2>マクロ</h2>
 <ol>
 <li><a href="SDL_HINT_ACCELEROMETER_AS_JOYSTICK.html">SDL_HINT_ACCELEROMETER_AS_JOYSTICK</a> - Android/iOSの加速度センサーをジョイスティックの一覧に加えるか否かのヒント
 <li><a href="SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION.html">SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION</a> - APK拡張ファイルのメインファイルのバージョンを指定するヒント
@@ -76,22 +96,6 @@
 <li><a href="SDL_HINT_WINRT_PRIVACY_POLICY_URL.html">SDL_HINT_WINRT_PRIVACY_POLICY_URL</a> - WinRTアプリのプライバシーポリシーのURLを指定するヒント
 <li><a href="SDL_HINT_XINPUT_ENABLED.html">SDL_HINT_XINPUT_ENABLED</a> - XInputゲームパッドデバイスの検知の場合のヒント
 <li><a href="SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING.html">SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING</a> - SDLがXInputデバイスで古い軸とボタンのマッピングを使うようにするか否かを指定するヒント
-</ol>
-<h2>列挙体</h2>
-<ol>
-<li><a href="SDL_HintPriority.html">SDL_HintPriority</a> - ヒントの優先度の列挙体
-</ol>
-<h2>関数</h2>
-<ol>
-<li><a href="SDL_AddHintCallback.html">SDL_AddHintCallback</a> - 指定のヒントを監視する関数を追加する
-<li><a href="SDL_ClearHints.html">SDL_ClearHints</a> - 全てのヒントを消去する
-<li><a href="SDL_DelHintCallback.html">SDL_DelHintCallback</a> - 指定のヒントを監視する関数を取り除く
-<li><a href="SDL_GetHint.html">SDL_GetHint</a> - ヒントの値を得る
-<li><a href="SDL_GetHintBoolean.html">SDL_GetHintBoolean</a> - ヒントの真偽値を得る
-<li><a href="SDL_ResetHint.html">SDL_ResetHint</a> - ヒントをデフォルト値に戻す
-<li><a href="SDL_ResetHints.html">SDL_ResetHints</a> - 全てのヒントをデフォルトの値にリセットする
-<li><a href="SDL_SetHint.html">SDL_SetHint</a> - ヒントを通常の優先度で設定する
-<li><a href="SDL_SetHintWithPriority.html">SDL_SetHintWithPriority</a> - ヒントを指定の優先度で設定する
 </ol>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryHints">Configuration Variables - SDL Wiki</a>

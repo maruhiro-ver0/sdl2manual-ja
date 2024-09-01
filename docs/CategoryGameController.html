@@ -29,20 +29,9 @@ SDL_Joystick(とDirectInputのような下位API)では, SDL(やDirectInput)上�
 <p>
 もしStreamからゲームを起動すると, ゲームコントローラーは自動的にマッピングされる.
 </p>
-<h2>列挙体</h2>
-<ol>
-<li><a href="SDL_GameControllerAxis.html">SDL_GameControllerAxis</a> - コントローラーで利用可能な軸の列挙対
-<li><a href="SDL_GameControllerBindType.html">SDL_GameControllerBindType</a> - SDL_GameControllerButtonBind構造体のマップされたSDL_Joystickの種類の列挙体
-<li><a href="SDL_GameControllerButton.html">SDL_GameControllerButton</a> - コントローラーで利用可能なボタンの列挙対
-</ol>
-<h2>構造体</h2>
-<ol>
-<li><a href="SDL_GameControllerButtonBind.html">SDL_GameControllerButtonBind</a> - SDL_GameControllerの論理ボタン/軸がどのSDL_Joystickのボタン/軸/ハットにマップされたものかの情報を持つ構造体
-</ol>
 <h2>関数</h2>
 <ol>
 <li><a href="SDL_GameControllerAddMapping.html">SDL_GameControllerAddMapping</a> - SDLが認識していないコントローラを追加する. または認識済みのコントローラを別の配置にする
-<li><a href="SDL_GameControllerAddMappingsFromFile.html">SDL_GameControllerAddMappingsFromFile</a> - ファイルから現在のSDL_GetPlatform()のゲームコントローラーマッピングを読み込む
 <li><a href="SDL_GameControllerAddMappingsFromRW.html">SDL_GameControllerAddMappingsFromRW</a> - SDLデータストリームからゲームコントローラーマッピングを読み込む
 <li><a href="SDL_GameControllerClose.html">SDL_GameControllerClose</a> - SDL_GameControllerOpen()で開いたゲームコントローラーを閉じる
 <li><a href="SDL_GameControllerEventState.html">SDL_GameControllerEventState</a> - ゲームコントローラーのイベントを有効・無効にする
@@ -99,6 +88,21 @@ SDL_Joystick(とDirectInputのような下位API)では, SDL(やDirectInput)上�
 <li><a href="SDL_GameControllerTypeForIndex.html">SDL_GameControllerTypeForIndex</a> - ゲームコントローラーの種類を得る
 <li><a href="SDL_GameControllerUpdate.html">SDL_GameControllerUpdate</a> - イベントループを使わないときゲームコントローラーの更新を吸い出す
 <li><a href="SDL_IsGameController.html">SDL_IsGameController</a> - ジョイスティクがゲームコントローラーインターフェースに対応しているかチェックする
+</ol>
+<h2>構造体</h2>
+<ol>
+<li>_SDL_GameController
+<li><a href="SDL_GameControllerButtonBind.html">SDL_GameControllerButtonBind</a> - SDL_GameControllerの論理ボタン/軸がどのSDL_Joystickのボタン/軸/ハットにマップされたものかの情報を持つ構造体
+</ol>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_GameControllerAxis.html">SDL_GameControllerAxis</a> - コントローラーで利用可能な軸の列挙対
+<li><a href="SDL_GameControllerBindType.html">SDL_GameControllerBindType</a> - SDL_GameControllerButtonBind構造体のマップされたSDL_Joystickの種類の列挙体
+<li><a href="SDL_GameControllerButton.html">SDL_GameControllerButton</a> - コントローラーで利用可能なボタンの列挙対
+</ol>
+<h2>マクロ</h2>
+<ol>
+<li><a href="SDL_GameControllerAddMappingsFromFile.html">SDL_GameControllerAddMappingsFromFile</a> - ファイルから現在のSDL_GetPlatform()のゲームコントローラーマッピングを読み込む
 </ol>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryGameController">GameController and Joystick Mapping - SDL Wiki</a>

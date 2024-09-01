@@ -109,17 +109,6 @@ int test_haptic( SDL_Joystick * joystick ) {
 <p>
 このEdgar Simo Serraのblogにさらなる情報がある: <a href="http://bobbens.dyndns.org/journal/2010/sdl_haptic/">SDL Haptic In Depth</a> (<a href="https://web.archive.org/web/20130728040700/http://bobbens.dyndns.org/journal/2010/sdl_haptic/">アーカイブ</a>)
 </p>
-<h2>構造体</h2>
-<ol>
-<li><a href="SDL_HapticCondition.html">SDL_HapticCondition</a> - 条件効果のテンプレートの構造体
-<li><a href="SDL_HapticConstant.html">SDL_HapticConstant</a> - 一定効果のテンプレートの構造体
-<li><a href="SDL_HapticCustom.html">SDL_HapticCustom</a> - カスタム効果のテンプレートの構造体
-<li><a href="SDL_HapticDirection.html">SDL_HapticDirection</a> - 効果の方向の構造体
-<li><a href="SDL_HapticEffect.html">SDL_HapticEffect</a></li>
-<li><a href="SDL_HapticLeftRight.html">SDL_HapticLeftRight</a> - 左右効果のテンプレートの構造体
-<li><a href="SDL_HapticPeriodic.html">SDL_HapticPeriodic</a> - 周期効果のテンプレートの構造体
-<li><a href="SDL_HapticRamp.html">SDL_HapticRamp</a> - 増減効果のテンプレートの構造体
-</ol>
 <h2>関数</h2>
 <ol>
 <li><a href="SDL_HapticClose.html">SDL_HapticClose</a> - SDL_HapticOpen()で開いたハプティックデバイスを閉じる
@@ -153,8 +142,43 @@ int test_haptic( SDL_Joystick * joystick ) {
 <li><a href="SDL_MouseIsHaptic.html">SDL_MouseIsHaptic</a> - マウスにハプティックの機能があるかチェックする
 <li><a href="SDL_NumHaptics.html">SDL_NumHaptics</a> - システムに接続されたハプティックデバイスの数を得る
 </ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_HapticCondition.html">SDL_HapticCondition</a> - 条件効果のテンプレートの構造体
+<li><a href="SDL_HapticConstant.html">SDL_HapticConstant</a> - 一定効果のテンプレートの構造体
+<li><a href="SDL_HapticCustom.html">SDL_HapticCustom</a> - カスタム効果のテンプレートの構造体
+<li><a href="SDL_HapticDirection.html">SDL_HapticDirection</a> - 効果の方向の構造体
+<li><a href="SDL_HapticEffect.html">SDL_HapticEffect</a> - ハプティック効果の全テンプレート共用体
+<li><a href="SDL_HapticLeftRight.html">SDL_HapticLeftRight</a> - 左右効果のテンプレートの構造体
+<li><a href="SDL_HapticPeriodic.html">SDL_HapticPeriodic</a> - 周期効果のテンプレートの構造体
+<li><a href="SDL_HapticRamp.html">SDL_HapticRamp</a> - 増減効果のテンプレートの構造体
+</ol>
+<h2>マクロ</h2>
+<ol>
+<li>SDL_HAPTIC_AUTOCENTER
+<li>SDL_HAPTIC_CARTESIAN
+<li>SDL_HAPTIC_CONSTANT
+<li>SDL_HAPTIC_CUSTOM
+<li>SDL_HAPTIC_DAMPER
+<li>SDL_HAPTIC_FRICTION
+<li>SDL_HAPTIC_GAIN
+<li>SDL_HAPTIC_INERTIA
+<li>SDL_HAPTIC_INFINITY
+<li>SDL_HAPTIC_LEFTRIGHT
+<li>SDL_HAPTIC_PAUSE
+<li>SDL_HAPTIC_POLAR
+<li>SDL_HAPTIC_RAMP
+<li>SDL_HAPTIC_SAWTOOTHDOWN
+<li>SDL_HAPTIC_SAWTOOTHUP
+<li>SDL_HAPTIC_SINE
+<li>SDL_HAPTIC_SPHERICAL
+<li>SDL_HAPTIC_SPRING
+<li>SDL_HAPTIC_STATUS
+<li>SDL_HAPTIC_STEERING_AXIS
+<li>SDL_HAPTIC_TRIANGLE
+</ol>
 <h2>SDL Wikiへのリンク</h2>
-<a href="https://wiki.libsdl.org/SDL2/CategoryForceFeedback">Force Feedback Support - SDL Wiki</a>
+<a href="https://wiki.libsdl.org/SDL2/CategoryHaptic">Haptic - SDL Wiki</a>
 <hr>
 </body>
 </html>

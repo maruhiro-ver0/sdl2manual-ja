@@ -31,42 +31,6 @@
 イベントキューは<a href="SDL_Event.html">SDL_Event</a>の列で構成されていて, その1つ1つが未処理のイベントである.
 <a href="SDL_Event.html">SDL_Event</a>は<a href="SDL_PollEvent.html">SDL_PollEvent()</a>でキューから取り出され, そこに格納された情報はアプリケーションで処理される.
 </p>
-<h2>列挙体</h2>
-<ol>
-<li><a href="SDL_DisplayEventID.html">SDL_DisplayEventID</a> - ウィンドウイベントの列挙体
-<li><a href="SDL_EventType.html">SDL_EventType</a> - 送られたイベントの種類の列挙体
-<li><a href="SDL_WindowEventID.html">SDL_WindowEventID</a> - ウィンドウイベントの列挙体
-</ol>
-<h2>構造体</h2>
-<ol>
-<li><a href="SDL_AudioDeviceEvent.html">SDL_AudioDeviceEvent</a> - オーディオデバイスイベントの情報の構造体
-<li><a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a> - ゲームコントローラー軸イベントの情報の構造体
-<li><a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a> - コントローラーボタンイベントの情報の構造体
-<li><a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a> - ゲームコントローラー接続イベントの情報の構造体
-<li><a href="SDL_DisplayEvent.html">SDL_DisplayEvent</a> - ディスプレイ状態変化イベントの情報の構造体
-<li><a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a> - 複雑なジェスチャーイベントの情報の構造体
-<li><a href="SDL_DropEvent.html">SDL_DropEvent</a> - ドラッグ&amp;ドロップイベントの情報の構造体
-<li><a href="SDL_Event.html">SDL_Event</a> - 異なる種類のイベントの情報を持つ共用体
-<li><a href="SDL_Finger.html">SDL_Finger</a> - タッチの情報の構造体
-<li><a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a> - ジョイスティック軸イベントの情報の構造体
-<li><a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a> - ジョイスティックボールイベントの情報の構造体
-<li><a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a> - ジョイスティックボタンイベントの情報の構造体
-<li><a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a> - ジョイスティック接続イベントの構造体
-<li><a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a> - ジョイスティックハットイベントの構造体
-<li><a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a> - キーボードイベントの構造体
-<li><a href="SDL_MouseButtonEvent.html">SDL_MouseButtonEvent</a> - マウスボタンイベントの構造体
-<li><a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a> - マウス移動イベントの構造体
-<li><a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a> - マウスホイールイベントの構造体
-<li><a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a> - マルチタッチジェスチャーイベントの情報の構造体
-<li><a href="SDL_QuitEvent.html">SDL_QuitEvent</a> - 終了要求イベントの情報の構造体
-<li><a href="SDL_SensorEvent.html">SDL_SensorEvent</a> - センサー更新情報の構造体
-<li><a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a> - システム依存ウィンドウイベントの情報の構造体
-<li><a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a> - キーボードテキスト編集イベントの情報の構造体
-<li><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a> - テキスト入力イベントの情報の構造体
-<li><a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a> - タッチイベントの情報の構造体
-<li><a href="SDL_UserEvent.html">SDL_UserEvent</a> - アプリケーション定義イベントの情報の構造体
-<li><a href="SDL_WindowEvent.html">SDL_WindowEvent</a> - ウィンドウイベントの情報の構造体
-</ol>
 <h2>関数</h2>
 <ol>
 <li><a href="SDL_AddEventWatch.html">SDL_AddEventWatch</a> - イベントがキューに入った場合のコールバックを追加する
@@ -99,6 +63,50 @@
 <li><a href="SDL_SetEventFilter.html">SDL_SetEventFilter</a> - 内部状態が変わり内部キューに入る前に全てのイベントを処理するフィルタを設定する
 <li><a href="SDL_WaitEvent.html">SDL_WaitEvent</a> - 次のイベントが発生するまで無制限に待つ
 <li><a href="SDL_WaitEventTimeout.html">SDL_WaitEventTimeout</a> - 次のイベントが発生するまで指定の時間(ミリ秒)待つ
+</ol>
+<h2>型</h2>
+<ol>
+<li>SDL_EventFilter
+</ol>
+<h2>構造体</h2>
+<ol>
+<li><a href="SDL_AudioDeviceEvent.html">SDL_AudioDeviceEvent</a> - オーディオデバイスイベントの情報の構造体
+<li><a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a> - ゲームコントローラー軸イベントの情報の構造体
+<li><a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a> - コントローラーボタンイベントの情報の構造体
+<li><a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a> - ゲームコントローラー接続イベントの情報の構造体
+<li><a href="SDL_DisplayEvent.html">SDL_DisplayEvent</a> - ディスプレイ状態変化イベントの情報の構造体
+<li><a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a> - 複雑なジェスチャーイベントの情報の構造体
+<li><a href="SDL_DropEvent.html">SDL_DropEvent</a> - ドラッグ&amp;ドロップイベントの情報の構造体
+<li><a href="SDL_Event.html">SDL_Event</a> - 異なる種類のイベントの情報を持つ共用体
+<li><a href="SDL_Finger.html">SDL_Finger</a> - タッチの情報の構造体
+<li><a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a> - ジョイスティック軸イベントの情報の構造体
+<li><a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a> - ジョイスティックボールイベントの情報の構造体
+<li><a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a> - ジョイスティックボタンイベントの情報の構造体
+<li><a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a> - ジョイスティック接続イベントの構造体
+<li><a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a> - ジョイスティックハットイベントの構造体
+<li><a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a> - キーボードイベントの構造体
+<li><a href="SDL_MouseButtonEvent.html">SDL_MouseButtonEvent</a> - マウスボタンイベントの構造体
+<li><a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a> - マウス移動イベントの構造体
+<li><a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a> - マウスホイールイベントの構造体
+<li><a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a> - マルチタッチジェスチャーイベントの情報の構造体
+<li><a href="SDL_QuitEvent.html">SDL_QuitEvent</a> - 終了要求イベントの情報の構造体
+<li><a href="SDL_SensorEvent.html">SDL_SensorEvent</a> - センサー更新情報の構造体
+<li><a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a> - システム依存ウィンドウイベントの情報の構造体
+<li><a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a> - キーボードテキスト編集イベントの情報の構造体
+<li><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a> - テキスト入力イベントの情報の構造体
+<li><a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a> - タッチイベントの情報の構造体
+<li><a href="SDL_UserEvent.html">SDL_UserEvent</a> - アプリケーション定義イベントの情報の構造体
+<li><a href="SDL_WindowEvent.html">SDL_WindowEvent</a> - ウィンドウイベントの情報の構造体
+</ol>
+<h2>列挙体</h2>
+<ol>
+<li><a href="SDL_DisplayEventID.html">SDL_DisplayEventID</a> - ウィンドウイベントの列挙体
+<li><a href="SDL_EventType.html">SDL_EventType</a> - 送られたイベントの種類の列挙体
+<li><a href="SDL_WindowEventID.html">SDL_WindowEventID</a> - ウィンドウイベントの列挙体
+</ol>
+<h2>マクロ</h2>
+<ol>
+<li>SDL_TEXTINPUTEVENT_TEXT_SIZE
 </ol>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2/CategoryEvents">Event Handling - SDL Wiki</a>
