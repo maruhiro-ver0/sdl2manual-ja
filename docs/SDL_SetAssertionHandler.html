@@ -13,30 +13,16 @@
 <h1>SDL_SetAssertionHandler</h1>
 アプリケーション定義のアサーションハンドラを設定する
 <h2>構文</h2>
-<code>void SDL_SetAssertionHandler(SDL_AssertionHandler handler, void* userdata)</code>
+<code>void SDL_SetAssertionHandler(SDL_AssertionHandler handler, void *userdata)</code>
 <h2>引数</h2>
 <table border="1">
-<tr><td>handler</td><td>アサーションが失敗したとき呼ばれる関数. NULLのときデフォルトのハンドラ (詳細を参照すること)</td></tr>
+<tr><td>handler</td><td>アサーションが失敗したとき呼ばれる<a href="SDL_AssertionHandler.html">SDL_AssertionHandler</a>関数. NULLのときデフォルトのハンドラ (詳細を参照すること)</td></tr>
 <tr><td>userdata</td><td>handlerに渡されるポインタ</td></tr>
 </table>
 <h2>詳細</h2>
 <p>
 この関数で, アサーションに失敗したとき, 独自のUIと応答を設定できる.
 アプリケーションが設定しないとき, SDLはフルスクリーンの場合は最小化してそれぞれのシステムのGUIのダイアログを表示する.
-</p>
-<p>
-handlerの関数プロトタイプは
-</p>
-<p>
-<code>SDL_AssertState YourAssertionHandler(const SDL_assert_data* data, void* userdata)</code>
-</p>
-<p>
-YourAssertionHandlerは任意の関数名で, 引数は
-<table border="1">
-<tr><td>data</td><td>現在のアサーションを報告する<a href="SDL_assert_data.html">SDL_assert_data</a>へのポインタ</td></tr>
-<tr><td>userdata</td><td><a href="SDL_SetAssertionHandler.html">SDL_SetAssertionHandler()</a>に渡されたuserdata</td></tr>
-</table>
-このコールバック関数は, このアサーションの失敗をどのように扱うかを示す<a href="SDL_AssertState.html">SDL_AssertState</a>を戻す必要がある.
 </p>
 <p>
 このコールバック関数は, あらゆるスレッドから呼ばれる.
