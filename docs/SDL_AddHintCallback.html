@@ -17,11 +17,10 @@
 <h2>引数</h2>
 <table border="1">
 <tr><td>name</td><td>監視するヒント</td></tr>
-<tr><td>callback</td><td>ヒントの値が変わったとき呼ぶ関数</td></tr>
+<tr><td>callback</td><td>ヒントの値が変わったとき呼ぶ<a href="SDL_HintCallback.html">SDL_HintCallback</a>関数</td></tr>
 <tr><td>userdata</td><td>コールバック関数に渡すポインタ</td></tr>
 </table>
 <h2>サンプルコード</h2>
-<p>
 <code>
 <pre>
 // ヒントの値が新たに"1"になったときメッセージを表示するコールバック関数
@@ -52,22 +51,6 @@ while(SDL_PollEvent(&amp;event) != 0)
 SDL_AddHintCallback(SDL_HINT_XINPUT_ENABLED, callback, "SDL");
 </pre>
 </code>
-<h2>詳細</h2>
-<p>
-callbackの関数プロトタイプは
-</p>
-<p>
-<code>void SDL_HintCallback(void* userdata, const char* name, const char* oldValue, const char* newValue)</code>
-</p>
-<p>
-引数は
-<table border="1">
-<tr><td>userdata</td><td><a href="SDL_AddHintCallback.html">SDL_AddHintCallback()</a>に渡したuserdata</td></tr>
-<tr><td>name</td><td><a href="SDL_AddHintCallback.html">SDL_AddHintCallback()</a>に渡したname</td></tr>
-<tr><td>oldValue</td><td>変更前の値</td></tr>
-<tr><td>newValue</td><td>変更後の値</td></tr>
-</table>
-</p>
 <h2>バージョン</h2>
 SDL 2.0.0以降
 <h2>関連項目(関数)</h2>
