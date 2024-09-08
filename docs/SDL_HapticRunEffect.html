@@ -18,15 +18,15 @@
 <table border="1">
 <tr><td>haptic</td><td>効果を再生するハプティックデバイス</td></tr>
 <tr><td>effect</td><td>再生する効果のID</td></tr>
-<tr><td>iterations</td><td>効果を再生する回数. SDL_HAPTIC_INFINITYで無限 (詳細を参照すること)</td></tr>
+<tr><td>iterations</td><td>効果を再生する回数. <a href="SDL_HAPTIC_INFINITY.html">SDL_HAPTIC_INFINITY</a>で無限 (詳細を参照すること)</td></tr>
 </table>
 <h2>戻り値</h2>
 成功のとき0, 失敗のとき負の数のエラーコードを戻す.
 <a href="SDL_GetError.html">SDL_GetError()</a>で詳細を知ることができる.
 <h2>詳細</h2>
 <p>
-回数がSDL_HAPTIC_INFINITYのとき, 毎回エンベロープ(立ち上げと立ち下げ)を繰り返す.
-もし効果を永久に続けたいならば, 構造体/共用体の効果の長さをSDL_HAPTIC_INFINITYにすること.
+回数が<a href="SDL_HAPTIC_INFINITY.html">SDL_HAPTIC_INFINITY</a>のとき, 毎回エンベロープ(立ち上げと立ち下げ)を繰り返す.
+もし効果を永久に続けたいならば, 構造体/共用体の効果の長さを<a href="SDL_HAPTIC_INFINITY.html">SDL_HAPTIC_INFINITY</a>にすること.
 </p>
 <h2>バージョン</h2>
 <p>
