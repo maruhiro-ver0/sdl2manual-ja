@@ -72,12 +72,16 @@ samplesは一度に出力する音声の長さを決める.
 <p>
 silenceの値は<a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice()</a>によって計算される.
 </p>
-<p>
-チャネルデータは交互に格納されている.
-ステレオの場合, 左/右の順である.
-クアッドの場合, 左前/右前/左後/右後の順である.
-5.1の場合, 左前/右前/中央/低音/左後/右後の順である. (「低音」が「.1」スピーカー)
-</p>
+<pre>
+マルチチャネルの場合, SDLのデフォルトのデータ格納順は次の通りである:
+2:  FL  FR                          (ステレオ)
+3:  FL  FR LFE                      (2.1 サラウンド)
+4:  FL  FR  BL  BR                  (クアッド)
+5:  FL  FR LFE  BL  BR              (4.1 サラウンド)
+6:  FL  FR  FC LFE  SL  SR          (5.1 サラウンド - 最後の2つは BL BR もありうる)
+7:  FL  FR  FC LFE  BC  SL  SR      (6.1 サラウンド)
+8:  FL  FR  FC LFE  BL  BR  SL  SR  (7.1 サラウンド)
+</pre>
 <p>
 callbackの関数プロトタイプは<br>
 <code>void SDL_AudioCallback(void* userdata, Uint8* stream, int len)</code>
