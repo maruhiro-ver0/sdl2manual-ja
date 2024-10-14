@@ -16,7 +16,7 @@
 ここに分類される関数は, サーフェイスの生成, コピー, 長方形などの簡単な描画を行うためのものである.
 <h2>関数</h2>
 <ol>
-<li><a href="SDL_BlitScaled.html">SDL_BlitScaled</a> - サーフェイスを別のサーフェイスに拡大縮小してコピーする
+<li><a href="SDL_BlitScaled.html">SDL_BlitScaled</a> - サーフェイスを別のサーフェイスに拡大縮小してビットブロック転送する
 <li><a href="SDL_ConvertPixels.html">SDL_ConvertPixels</a> - ある形式のピクセル群を別の形式に変換してコピーする
 <li><a href="SDL_ConvertSurface.html">SDL_ConvertSurface</a> - 特定のピクセル形式へのコピーに最適化されたサーフェイスを既存のサーフェイスから生成する
 <li><a href="SDL_ConvertSurfaceFormat.html">SDL_ConvertSurfaceFormat</a> - 既存のサーフェイスを指定のピクセル形式に変換してコピーする
@@ -38,8 +38,8 @@
 <li><a href="SDL_HasSurfaceRLE.html">SDL_HasSurfaceRLE</a> - サーフェイスのRLE(ランレングス圧縮)が有効化されているかを得る
 <li><a href="SDL_LoadBMP_RW.html">SDL_LoadBMP_RW</a> - シーク可能なSDLデータストリームからBMP形式をサーフェイスに読み込む
 <li><a href="SDL_LockSurface.html">SDL_LockSurface</a> - ピクセル領域に直接アクセスできるように設定する
-<li><a href="SDL_LowerBlit.html">SDL_LowerBlit</a> - 低レベルのサーフェイスのコピーのみを行う
-<li><a href="SDL_LowerBlitScaled.html">SDL_LowerBlitScaled</a> - 低レベルのサーフェイスの拡大縮小コピーのみを行う
+<li><a href="SDL_LowerBlit.html">SDL_LowerBlit</a> - 低レベルのサーフェイスのビットブロック転送のみ行う
+<li><a href="SDL_LowerBlitScaled.html">SDL_LowerBlitScaled</a> - 低レベルのサーフェイスの拡大縮小ビットブロック転送のみ行う
 <li><a href="SDL_PremultiplyAlpha.html">SDL_PremultiplyAlpha</a> - ピクセル郡のアルファ値にプリマルチプライを行う
 <li><a href="SDL_SaveBMP_RW.html">SDL_SaveBMP_RW</a> - サーフェイスをシーク可能なSDLストリーム(メモリまたはファイル)にBMP形式で書き込む
 <li><a href="SDL_SetClipRect.html">SDL_SetClipRect</a> - サーフェイスのクリップ領域を設定する
@@ -56,7 +56,7 @@
 </ol>
 <h2>型</h2>
 <ol>
-<li>SDL_blit
+<li><a href="SDL_blit.html">SDL_blit</a> - サーフェイスビットブロック転送関数の関数型
 </ol>
 <h2>構造体</h2>
 <ol>
@@ -68,7 +68,7 @@
 </ol>
 <h2>マクロ</h2>
 <ol>
-<li><a href="SDL_BlitSurface.html">SDL_BlitSurface</a> - サーフェイスを別のサーフェイスに高速にコピーする
+<li><a href="SDL_BlitSurface.html">SDL_BlitSurface</a> - サーフェイスを別のサーフェイスに高速にビットブロック転送する
 <li><a href="SDL_LoadBMP.html">SDL_LoadBMP</a> - BMPファイルをサーフェイスに読み込む
 <li><a href="SDL_MUSTLOCK.html">SDL_MUSTLOCK</a> - アクセスのためにサーフェイスをロックする必要があるかを調べる
 <li><a href="SDL_SaveBMP.html">SDL_SaveBMP</a> - サーフェイスをBMPファイルとして保存する

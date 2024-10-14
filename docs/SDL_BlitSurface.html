@@ -11,7 +11,7 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_BlitSurface
 <hr>
 <h1>SDL_BlitSurface</h1>
-サーフェイスを別のサーフェイスに高速にコピーする
+サーフェイスを別のサーフェイスに高速にビットブロック転送する
 <h2>構文</h2>
 <code>int SDL_BlitSurface(SDL_Surface* src, const SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect)</code>
 <h2>引数</h2>
@@ -36,7 +36,7 @@ SDL_BlitSurface(surface, &amp;source_rect, temp_surface, NULL);
 </code>
 <h2>詳細</h2>
 <p>
-SDLのサーフェイスのコピーが内部でどのように行われるかを正確に理解していないならば, そしてどのように他のコピー関数を使うのか分からないならば<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>を使うべきである.
+SDLのサーフェイスのコピーが内部でどのように行われるかを正確に理解していないならば, そしてどのように他のビットブロック転送関数を使うのか分からないならば<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>を使うべきである.
 </p>
 <p>
 これはパブリックなコピー関数で, 内部で<a href="SDL_LowerBlit.html">SDL_LowerBlit()</a>を呼ぶ前に領域の検証とクリップを行っている.

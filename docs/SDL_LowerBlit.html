@@ -11,7 +11,7 @@
 <a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategorySurface.html">サーフェイスの生成と単純な描画</a> - SDL_LowerBlit
 <hr>
 <h1>SDL_LowerBlit</h1>
-低レベルのサーフェイスのコピーのみを行う
+低レベルのサーフェイスビットブロック転送のみ行う
 <h2>構文</h2>
 <code>int SDL_LowerBlit(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect)</code>
 <h2>引数</h2>
@@ -26,7 +26,7 @@
 <a href="SDL_GetError.html">SDL_GetError()</a>を呼んで詳細を知ることができる.
 <h2>詳細</h2>
 <p>
-これは半プライベートな関数で, 入力が既にクリップされているとみなして低レベルのサーフェイスのコピーを行う.
+これは半プライベートな関数で, 入力が既にクリップされているとみなして低レベルのサーフェイスのビットブロック転送を行う.
 </p>
 <p>
 自分が何をしているのかわからないならば, 代わりに<a href="SDL_BlitSurface.html">SDL_BlitSurface()</a>を使うべきである.

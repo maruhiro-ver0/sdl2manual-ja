@@ -51,7 +51,7 @@
 <li><a href="SDL_AudioStreamFlush.html">SDL_AudioStreamFlush</a> - 音声ストリームへのデータ送信が完了したことを通知する
 <li><a href="SDL_AudioStreamGet.html">SDL_AudioStreamGet</a> - 変換/リサンプルされたデータを音声ストリームから得る
 <li><a href="SDL_AudioStreamPut.html">SDL_AudioStreamPut</a> - 変換/リサンプルしたいデータを音声ストリームに追加する
-<li><a href="SDL_BlitScaled.html">SDL_BlitScaled</a> - サーフェイスを別のサーフェイスに拡大縮小してコピーする
+<li><a href="SDL_BlitScaled.html">SDL_BlitScaled</a> - サーフェイスを別のサーフェイスに拡大縮小してビットブロック転送する
 <li><a href="SDL_BuildAudioCVT.html">SDL_BuildAudioCVT</a> - 変換のためのSDL_AudioCVT構造体を初期化する
 <li><a href="SDL_CalculateGammaRamp.html">SDL_CalculateGammaRamp</a> - ガンマ値から256個のガンマランプ値を求める
 <li><a href="SDL_CaptureMouse.html">SDL_CaptureMouse</a> - SDLウィンドウの外でのマウスやトラックボールの入力を得られるようにする
@@ -513,8 +513,8 @@
 <li><a href="SDL_LogSetPriority.html">SDL_LogSetPriority</a> - 指定の分類の重要度を設定する
 <li><a href="SDL_LogVerbose.html">SDL_LogVerbose</a> - SDL_LOG_PRIORITY_VERBOSE以上の重要度のログを出力する
 <li><a href="SDL_LogWarn.html">SDL_LogWarn</a> - SDL_LOG_PRIORITY_WARN以上の重要度のログを出力する
-<li><a href="SDL_LowerBlit.html">SDL_LowerBlit</a> - 低レベルのサーフェイスのコピーのみを行う
-<li><a href="SDL_LowerBlitScaled.html">SDL_LowerBlitScaled</a> - 低レベルのサーフェイスの拡大縮小コピーのみを行う
+<li><a href="SDL_LowerBlit.html">SDL_LowerBlit</a> - 低レベルのサーフェイスのビットブロック転送のみ行う
+<li><a href="SDL_LowerBlitScaled.html">SDL_LowerBlitScaled</a> - 低レベルのサーフェイスの拡大縮小ビットブロック転送のみ行う
 <li><a href="SDL_MapRGB.html">SDL_MapRGB</a> - RGBの3つの値から指定のピクセル形式の不透明なピクセル値を求める
 <li><a href="SDL_MapRGBA.html">SDL_MapRGBA</a> - RGBAの4つの値から指定のピクセル形式のピクセル値を求める
 <li><a href="SDL_MasksToPixelFormatEnum.html">SDL_MasksToPixelFormatEnum</a> - ビット深度とRGBAマスクをピクセル形式に変換する
@@ -791,7 +791,7 @@
 <li><a href="SDL_AudioCallback.html">SDL_AudioCallback</a> - オーディオデバイスがさらなるデータを必要としたとき呼ばれる関数
 <li><a href="SDL_AudioDeviceID.html">SDL_AudioDeviceID</a> - SDLオーディオデバイスのID
 <li><a href="SDL_AudioFormat.html">SDL_AudioFormat</a> - 音声形式のフラグ
-<li>SDL_blit
+<li><a href="SDL_blit.html">SDL_blit</a> - サーフェイスビットブロック転送関数の関数型
 <li><a href="SDL_EventFilter.html">SDL_EventFilter</a> - SDL_AddEventWatch()で使用する関数の定義
 <li><a href="SDL_GLContext.html">SDL_GLContext</a> - OpenGLコンテキストの不透明ハンドラ
 <li><a href="SDL_HintCallback.html">SDL_HintCallback</a> - ヒントコールバック関数の型
@@ -942,7 +942,7 @@
 <li>SDL_ANDROID_EXTERNAL_STORAGE_READ
 <li>SDL_arraysize
 <li><a href="SDL_AUDIOCVT_MAX_FILTERS.html">SDL_AUDIOCVT_MAX_FILTERS</a> - SDL_AudioCVTのフィルタの上限
-<li><a href="SDL_BlitSurface.html">SDL_BlitSurface</a> - サーフェイスを別のサーフェイスに高速にコピーする
+<li><a href="SDL_BlitSurface.html">SDL_BlitSurface</a> - サーフェイスを別のサーフェイスに高速にビットブロック転送する
 <li>SDL_BUTTON
 <li><a href="SDL_COMPILEDVERSION.html">SDL_COMPILEDVERSION</a> - コンパイル時のSDLのバージョンを得るマクロ
 <li><a href="SDL_GameControllerAddMappingsFromFile.html">SDL_GameControllerAddMappingsFromFile</a> - ファイルから現在のSDL_GetPlatform()のゲームコントローラーマッピングを読み込む
