@@ -579,10 +579,10 @@ SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH = 0は, 2つのヒントを1とする�
 </ul>
 <li>以下の関数がスレッドセーフになった:
 <ul style="list-style:none;">
-<li>SDL_SetEventFilter()
-<li>SDL_GetEventFilter()
-<li>SDL_AddEventWatch()
-<li>SDL_DelEventWatch()
+<li><a href="SDL_SetEventFilter.html">SDL_SetEventFilter()</a>
+<li><a href="SDL_GetEventFilter.html">SDL_GetEventFilter()</a>
+<li><a href="SDL_AddEventWatch.html">SDL_AddEventWatch()</a>
+<li><a href="SDL_DelEventWatch.html">SDL_DelEventWatch()</a>
 </ul>
 </ul>
 <h2>2.0.6の変更点</h2>
@@ -630,7 +630,7 @@ test/testvulkan.cにサンプルがある.
 <li>サーフェイスのコピーを生成するSDL_DuplicateSurface()の追加
 <li>JACKオーディオドライバの試作を追加
 <li>2のベキ乗でない再サンプリングの実装. libsamplerateの使用を選択できる
-<li>再サンプリングの質を決めるSDL_HINT_AUDIO_RESAMPLING_MODEヒントの追加
+<li>再サンプリングの質を決める<a href="SDL_HINT_AUDIO_RESAMPLING_MODE.html">SDL_HINT_AUDIO_RESAMPLING_MODE</a>ヒントの追加
 <li>SDL_RenderSetLogicalSize()の拡大方法を決めるSDL_HINT_RENDER_LOGICAL_SIZE_MODEヒントの追加
 <ul style="list-style:none;">
 <li>"0" または "letterbox" - 上下/左右を黒帯にして画面に合わせる (デフォルト)
@@ -644,7 +644,7 @@ test/testvulkan.cにサンプルがある.
 <li>Windowsのオーディオドライバのデフォルトを新たにWASAPIとした. ホットプラグインとデフォルトオーディオデバイスの変更に対応
 <li>古いXAudio2オーディオドライバは非推奨となった. 次のリリースで廃止される予定である
 <li>SDL windowsでユーザのアイコンを指定するSDL_HINT_WINDOWS_INTRESOURCE_ICONヒントとSDL_HINT_WINDOWS_INTRESOURCE_ICON_SMALLヒントの追加
-<li>.NET言語と様々なWindowsデバッガに対応するためSDL_HINT_WINDOWS_DISABLE_THREAD_NAMINGヒントをデフォルトとした
+<li>.NET言語と様々なWindowsデバッガに対応するため<a href="SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING.html">SDL_HINT_WINDOWS_DISABLE_THREAD_NAMING</a>ヒントをデフォルトとした
 <li>ゲームコントローラーマッピングのGUID形式の更新. 古いマッピングは読み込み時に自動的に変換される
 <li>WindowsのSDL_WINDOW_ALWAYS_ON_TOPフラグを実装
 </ul>
@@ -654,7 +654,7 @@ test/testvulkan.cにサンプルがある.
 </ul>
 <h3>iOS</h3>
 <ul>
-<li>SDL_HINT_AUDIO_CATEGORYヒントによるオーディオカテゴリの操作を追加. サイレントスイッチが音声に影響を与えるか否かを決めるため
+<li><a href="SDL_HINT_AUDIO_CATEGORY.html">SDL_HINT_AUDIO_CATEGORY</a>ヒントによるオーディオカテゴリの操作を追加. サイレントスイッチが音声に影響を与えるか否かを決めるため
 </ul>
 <h2>2.0.5の変更点</h2>
 <h3>全般</h3>
