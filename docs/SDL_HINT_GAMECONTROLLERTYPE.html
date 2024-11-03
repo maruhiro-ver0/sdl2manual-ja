@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
+<title>SDL_HINT_GAMECONTROLLERTYPE</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_HINT_GAMECONTROLLERTYPE
+<hr>
+<h1>SDL_HINT_GAMECONTROLLERTYPE</h1>
+自動検知されるゲームコントローラータイプを上書きするヒント
+</table>
+<h2>詳細</h2>
+<p>
+値は VID/PID=type の形式でコンマで区切って指定する.
+</p>
+<p>
+VIDとPIDはちょうど4桁の16進数で指定すること(例えば0x00fd).
+</p>
+<p>
+typeは次の内の1つである: Xbox360 XboxOne PS3 PS4 PS5 SwitchPro
+</p>
+<p>
+このヒントはドライバが使用されるとき有効になるため, <a href="SDL_Init.html">SDL_Init</a>(SDL_INIT_GAMECONTROLLER)の前に設定する必要がある.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_GAMECONTROLLERTYPE">SDL_HINT_GAMECONTROLLERTYPE - SDL Wiki</a><br>
+<hr>
+</body>
+</html>
