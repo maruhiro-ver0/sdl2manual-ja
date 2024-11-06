@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
+<title>SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE
+<hr>
+<h1>SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE</h1>
+low_frequency_rumbleとhigh_frequency_rumbleをゲームキューブの3つの振動モード, 停止(0), 振動(1), 急停止(2)を実現するために使用するか否かを設定するヒント.
+これはADSRエンベロープを完全に同じにする必要があるアプリケーションで有用である
+<h2>値</h2>
+<table border="1">
+<tr><td>0</td><td>通常の振動の動作を使用する (デフォルト)</td></tr>
+<tr><td>1</td><td>ゲームキューブコントローラーの振動の動作を使用する</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+停止はlow_frequency_rumbleを0, high_frequency_rumbleを>0にすることで実現する.
+振動は両方に任意の値を設定する.
+急停止はlow_frequency_rumbleとhigh_frequency_rumbleの両方を0に設定する.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE">SDL_HINT_JOYSTICK_GAMECUBE_RUMBLE_BRAKE - SDL Wiki</a><br>
+<hr>
+</body>
+</html>
