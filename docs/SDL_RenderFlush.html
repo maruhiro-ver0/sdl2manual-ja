@@ -27,7 +27,7 @@ SDL_Rendererの後に追加でOpenGL/Direct3D/Metal/その他を直接呼び出�
 </p>
 <p>
 この関数は極めて特殊な場合のためにある:
-SDLのレンダーAPIを使い, 使用する下位レンダラ(OpenGL, Direct3Dなど)を指定して, SDL_HINT_RENDER_BATCHINGを"1"に設定し, SDLレンダーAPIの呼び出しに追加してOpenGL/D3D/その他を呼び出す場合である.
+SDLのレンダーAPIを使い, 使用する下位レンダラ(OpenGL, Direct3Dなど)を指定して, <a href="SDL_HINT_RENDER_BATCHING.html">SDL_HINT_RENDER_BATCHING</a>を"1"に設定し, SDLレンダーAPIの呼び出しに追加してOpenGL/D3D/その他を呼び出す場合である.
 この場合, SDLレンダーAPIと, 連携して使用する下位レベルAPIの間で, SDL_RenderFlush()を呼ぶ必要がある.
 </p>
 <p>
