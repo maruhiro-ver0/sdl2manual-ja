@@ -17,7 +17,17 @@
 <tr><td>SDL_THREAD_PRIORITY_LOW</td><td>優先度低 緊急でないバックグラウンドの処理</td></tr>
 <tr><td>SDL_THREAD_PRIORITY_NORMAL</td><td>優先度通常 一般的な目的の処理</td></tr>
 <tr><td>SDL_THREAD_PRIORITY_HIGH</td><td>優先度高 タイミングが重要な処理</td></tr>
+<tr><td>SDL_THREAD_PRIORITY_TIME_CRITICAL</td><td>優先度最高</td></tr>
 </table>
+<h2>詳細</h2>
+<p>
+SDLはスレッドの優先度を適用するために必要ならばシステムを変更する.
+優先度に関わるスレッドの状態を制御するコードは, <a href="SDL_SetThreadPriority.html">SDL_SetThreadPriority()</a>の呼び出しでそれらの状態が変化していることに注意する必要がある.
+<a href="SDL_HINT_THREAD_PRIORITY_POLICY.html">SDL_HINT_THREAD_PRIORITY_POLICYヒント</a>はこの変更を制御するために使用する.
+</p>
+<p>
+多くのシステムでは, 優先度を高や最高にするには特別な権限を必要とする.
+</p>
 <h2>関連項目(関数)</h2>
 <a href="SDL_SetThreadPriority.html">SDL_SetThreadPriority</a><br>
 <h2>SDL Wikiへのリンク</h2>
