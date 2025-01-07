@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
+<title>SDL_HINT_WINDOWS_DPI_AWARENESS</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_HINT_WINDOWS_DPI_AWARENESS
+<hr>
+<h1>SDL_HINT_WINDOWS_DPI_AWARENESS</h1>
+SDLがプロセスのDPI認識を設定するか否かを設定するヒント
+<h2>値</h2>
+<table border="1">
+<tr><td>""</td><td>DPI認識を変更しない (デフォルト)</td></tr>
+<tr><td>"unaware"</td><td>プロセスを高DPI非対応(Unaware)に設定する (Windows 8.1以降)</td></tr>
+<tr><td>"system"</td><td>システムDPI(System Aware)に設定する (Vista以降)</td></tr>
+<tr><td>"permonitor"</td><td>ディスプレイごとのDPI(Per-Monitor Aware)に設定する (Windows 8.1以降)</td></tr>
+<tr><td>"permonitorv2"</td><td>ディスプレイごとのDPI V2(Per-Monitor V2 Aware)に設定する (Windows 10 バージョン1607以降). "permonitor"との最も大きな見た目の違いは, 拡大率の異なるディスプレイの間にドラッグしたとき, ウィンドウタイトルバーが正しいサイズに拡大縮小される点である. これが推奨されるDPI認識である</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+このヒントはビデオサブシステムを初期化する前に設定する必要がある.
+</p>
+<p>
+DPI認識(DPI awareness)を設定する主な目的は, 高DPIモニタのSDLウィンドウがOSによってビットマップ拡大縮小されないようにすることにある.
+</p>
+<p>
+このヒントは外的な方法でDPI認識を設定する(例: SetProcessDpiAwarenessContextを呼ぶ)ことと同じで, SDLに仮想化した座標系を使わせることはない.
+そのため, 高DPIディスプレイでも1SDL座標は1ピクセルとなる.
+</p>
+<p>
+詳細は<a href="https://docs.microsoft.com/en-us/windows/win32/hidpi/high-dpi-desktop-application-development-on-windows">https://docs.microsoft.com/en-us/windows/win32/hidpi/high-dpi-desktop-application-development-on-windows</a>を参照すること.
+</p>
+<p>
+設定しようとしたDPI認識が実行中のOSで有効でない場合, SDLは有効で最も近いものに設定する.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_WINDOWS_DPI_AWARENESS">SDL_HINT_WINDOWS_DPI_AWARENESS - SDL Wiki</a><br>
+<hr>
+</body>
+</html>
