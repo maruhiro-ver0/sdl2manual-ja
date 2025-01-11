@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
+<title>SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS
+<hr>
+<h1>SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS</h1>
+WindowsでのmutexでSDLに強制的にクリティカルセクションを使用させるか否かを設定するヒント
+<h2>値</h2>
+<table border="1">
+<tr><td>0</td><td>可能ならばSRWロックを使用し, 不可能ならばクリティカルセクションを使用する (デフォルト)</td></tr>
+<tr><td>1</td><td>いかなる状況でもクリティカルセクションの使用を強制する</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+Windows 7以降では, Slim Reader/Writerロックが利用できる.
+これはパフォーマンスがより高く, カーネルリソースを消費せず, メモリの使用量がより少ない.
+SDLは古いバージョンのOSや, このヒントで強制されたときクリティカルセクションを使用する.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS">SDL_HINT_WINDOWS_FORCE_MUTEX_CRITICAL_SECTIONS - SDL Wiki</a><br>
+<hr>
+</body>
+</html>
