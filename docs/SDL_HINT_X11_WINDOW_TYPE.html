@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
+<title>SDL_HINT_X11_FORCE_OVERRIDE_REDIRECT</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_HINT_X11_FORCE_OVERRIDE_REDIRECT
+<hr>
+<h1>SDL_HINT_X11_FORCE_OVERRIDE_REDIRECT</h1>
+X11ウィンドウのタイプを強制的に設定するヒント
+<h2>詳細</h2>
+<p>
+現在はX11でのみ使用できて, 他の環境では無視される.
+</p>
+<p>
+<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>の内部では, SDLは_NET_WM_WINDOW_TYPE X11プロパティで生成するウィンドウのタイプをウィンドウマネージャに通知している.
+<a href="SDL_WindowFlags.html">SDL_WINDOW_TOOLTIP</a>や<a href="SDL_WindowFlags.html">SDL_WINDOW_POPUP_MENU</a>などを指定した場合は様々な値が設定される.
+「通常の」ウィンドウではタイプの指定を行わないが, このヒントを使ってタイプを指定することができる.
+例えば, ドックウィンドウの場合はこのヒントに"_NET_WM_WINDOW_TYPE_DOCK"を設定する.
+</p>
+<p>
+設定しないか""の場合は, このヒントは無視される.
+このヒントは影響を与えたい<a href="SDL_CreateWindow.html">SDL_CreateWindow()</a>の前に呼ぶ必要がある.
+</p>
+<h2>バージョン</h2>
+SDL 2.0.22以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_X11_FORCE_OVERRIDE_REDIRECT">SDL_HINT_X11_FORCE_OVERRIDE_REDIRECT - SDL Wiki</a><br>
+<hr>
+</body>
+</html>
