@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryHints.html" title="1つ上">
+<title>SDL_HINT_WINDOWS_USE_D3D9EX</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHints.html">ヒント</a> - SDL_HINT_WINDOWS_USE_D3D9EX
+<hr>
+<h1>SDL_HINT_WINDOWS_USE_D3D9EX</h1>
+通常のD3D9の代わりにWindows Vistaで導入されたD3D9Ex APIを使用するか否かを設定するヒント
+<h2>値</h2>
+<table border="1">
+<tr><td>0</td><td>元のDirect3D 9 APIを使用する (デフォルト)</td></tr>
+<tr><td>1</td><td>Vista以降のDirect3D 9Ex APIを使用する(不可能な場合はD3D9Exを使用する)</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+Direct3D 9Exには, Alt+Tabやユーザーアカウント制御プロンプトによるデバイス損失エラーを防ぐ状態管理の変更が加えられている.
+D3D9Exでは新しい挙動に対応するためアプリケーションを一部変更する必要がある場合があるため, デフォルトでは無効になっている.
+</p>
+<p>
+このヒントはビデオサブシステムの初期化の前に設定する必要がある.
+</p>
+<p>
+Direct3D 9Exの詳細は
+<a href="https://docs.microsoft.com/en-us/windows/win32/direct3darticles/graphics-apis-in-windows-vista#direct3d-9ex">https://docs.microsoft.com/en-us/windows/win32/direct3darticles/graphics-apis-in-windows-vista#direct3d-9ex</a>
+<a href="https://docs.microsoft.com/en-us/windows/win32/direct3darticles/direct3d-9ex-improvements">https://docs.microsoft.com/en-us/windows/win32/direct3darticles/direct3d-9ex-improvements</a>
+を参照すること.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/SDL_HINT_WINDOWS_USE_D3D9EX">SDL_HINT_WINDOWS_USE_D3D9EX - SDL Wiki</a><br>
+<hr>
+</body>
+</html>
