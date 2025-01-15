@@ -15,11 +15,12 @@
 <h2>フィールド</h2>
 <table border="1">
 <tr><td>Uint32</td><td>type</td><td>イベントの種類, このフィールドは全種類のイベントで共用している</td></tr>
-<tr><td>SDL_CommonEvent</td><td>common</td><td>共通イベントの情報</td></tr>
+<tr><td><a href="SDL_CommonEvent.html">SDL_CommonEvent</a></td><td>common</td><td>共通イベントの情報</td></tr>
 <tr><td><a href="SDL_DisplayEvent.html">SDL_DisplayEvent</a></td><td>window</td><td>ディスプレイイベントの情報</td></tr>
 <tr><td><a href="SDL_WindowEvent.html">SDL_WindowEvent</a></td><td>window</td><td>ウィンドウイベントの情報</td></tr>
 <tr><td><a href="SDL_KeyboardEvent.html">SDL_KeyboardEvent</a></td><td>key</td><td>キーボードイベントの情報</td></tr>
 <tr><td><a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a></td><td>edit</td><td>テキスト編集イベントの情報</td></tr>
+<tr><td><a href="SDL_TextEditingExtEvent.html">SDL_TextEditingExtEvent</a></td><td>editExt</td><td>拡張テキスト編集イベントの情報</td></tr>
 <tr><td><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a></td><td>text</td><td>テキスト入力イベントの情報</td></tr>
 <tr><td><a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a></td><td>motion</td><td>マウス移動イベントの情報</td></tr>
 <tr><td><a href="SDL_MouseButtonEvent.html">SDL_MouseButtonEvent</a></td><td>button</td><td>マウスボタンイベントの情報</td></tr>
@@ -29,10 +30,14 @@
 <tr><td><a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a></td><td>jhat</td><td>ジョイスティックハットイベントの情報</td></tr>
 <tr><td><a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a></td><td>jbutton</td><td>ジョイスティックボタンイベントの情報</td></tr>
 <tr><td><a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a></td><td>jdevice</td><td>ジョイスティック接続イベントの情報</td></tr>
+<tr><td><a href="SDL_JoyBatteryEvent.html">SDL_JoyBatteryEvent</a></td><td>jbattery</td><td>ジョイスティックバッテリー残量イベントの情報</td></tr>
+<tr><td><a href="SDL_ControllerTouchpadEvent.html">SDL_ControllerTouchpadEvent</a></td><td>ctouchpad</td><td>ゲームコントローラーイベントの情報</td></tr>
+<tr><td><a href="SDL_ControllerSensorEvent.html">SDL_ControllerSensorEvent</a></td><td>csensor</td><td>ゲームコントローラーセンサーの情報</td></tr>
 <tr><td><a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a></td><td>caxis</td><td>ゲームコントローラー軸イベントの情報</td></tr>
 <tr><td><a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a></td><td>cbutton</td><td>ゲームコントローラーボタンイベントの情報</td></tr>
 <tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a></td><td>cdevice</td><td>ゲームコントローラー接続イベントの情報</td></tr>
 <tr><td><a href="SDL_AudioDeviceEvent.html">SDL_AudioDeviceEvent</a></td><td>adevice</td><td>オーディオデバイスイベントの情報 (SDL 2.0.4以降)</td></tr>
+<tr><td><a href="SDL_SensorEvent.html">SDL_SensorEvent</a></td><td>sensor</td><td>センサーイベントの情報</td></tr>
 <tr><td><a href="SDL_QuitEvent.html">SDL_QuitEvent</a></td><td>quit</td><td>終了要求イベントの情報</td></tr>
 <tr><td><a href="SDL_UserEvent.html">SDL_UserEvent</a></td><td>user</td><td>アプリケーション定義イベントの情報</td></tr>
 <tr><td><a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a></td><td>syswm</td><td>システム依存ウィンドウイベントの情報</td></tr>
@@ -149,6 +154,9 @@ SDL_PushEvent(&amp;user_event);
 <tr><td>SDL_CONTROLLERAXISMOTION</td><td><a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a></td><td>caxis</td></tr>
 <tr><td>SDL_CONTROLLERBUTTONDOWN<br>SDL_CONTROLLERBUTTONUP</td><td><a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a></td><td>cbutton</td></tr>
 <tr><td>SDL_CONTROLLERDEVICEADDED<br>SDL_CONTROLLERDEVICEREMOVED<br>SDL_CONTROLLERDEVICEREMAPPED</td><td><a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a></td><td>cdevice</td></tr>
+<tr><td>SDL_CONTROLLERSENSORUPDATE</td><td><a href="SDL_ControllerSensorEvent.html">SDL_ControllerSensorEvent</a></td><td>csensor</td></tr>
+<tr><td>SDL_CONTROLLERTOUCHPADDOWN<br>SDL_CONTROLLERTOUCHPADMOTION<br>SDL_CONTROLLERTOUCHPADUP</td><td><a href="SDL_ControllerTouchpadEvent.html">SDL_ControllerTouchpadEvent</a></td><td>ctouchpad</td></tr>
+<tr><td>SDL_DISPLAYEVENT</td><td><a href="SDL_DisplayEvent.html">SDL_DisplayEvent</a></td><td>display</td></tr>
 <tr><td>SDL_DOLLARGESTURE<br>SDL_DOLLARRECORD</td><td><a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a></td><td>dgesture</td></tr>
 <tr><td>SDL_DROPFILE<br>SDL_DROPTEXT<br>SDL_DROPBEGIN<br>SDL_DROPCOMPLETE</td><td><a href="SDL_DropEvent.html">SDL_DropEvent</a></td><td>drop</td></tr>
 <tr><td>SDL_FINGERMOTION<br>SDL_FINGERDOWN<br>SDL_FINGERUP<br></td><td><a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a></td><td>tfinger</td></tr>
@@ -158,17 +166,20 @@ SDL_PushEvent(&amp;user_event);
 <tr><td>SDL_JOYHATMOTION</td><td><a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a></td><td>jhat</td></tr>
 <tr><td>SDL_JOYBUTTONDOWN<br>SDL_JOYBUTTONUP</td><td><a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a></td><td>jbutton</td></tr>
 <tr><td>SDL_JOYDEVICEADDED<br>SDL_JOYDEVICEREMOVED</td><td><a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a></td><td>jdevice</td></tr>
+<tr><td>SDL_JOYBATTERYUPDATED</td><td><a href="SDL_JoyBatteryEvent.html">SDL_JoyBatteryEvent</a></td><td>jbattery</td></tr>
 <tr><td>SDL_MOUSEMOTION</td><td><a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a></td><td>motion</td></tr>
 <tr><td>SDL_MOUSEBUTTONDOWN<br>SDL_MOUSEBUTTONUP</td><td><a href="SDL_MouseButtonEvent.html">SDL_MouseButtonEvent</a></td><td>button</td></tr>
 <tr><td>SDL_MOUSEWHEEL</td><td><a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a></td><td>wheel</td></tr>
 <tr><td>SDL_MULTIGESTURE</td><td><a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a></td><td>mgesture</td></tr>
 <tr><td>SDL_QUIT</td><td><a href="SDL_QuitEvent.html">SDL_QuitEvent</a></td><td>quit</td></tr>
+<tr><td>SDL_SENSORUPDATE</td><td><a href="SDL_SensorEvent.html">SDL_SensorEvent</a></td><td>sensor</td></tr>
 <tr><td>SDL_SYSWMEVENT</td><td><a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a></td><td>syswm</td></tr>
 <tr><td>SDL_TEXTEDITING</td><td><a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a></td><td>edit</td></tr>
+<tr><td>SDL_TEXTEDITING_EXT</td><td><a href="SDL_TextEditingExtEvent.html">SDL_TextEditingExtEvent</a></td><td>editExt</td></tr>
 <tr><td>SDL_TEXTINPUT</td><td><a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a></td><td>text</td></tr>
 <tr><td>SDL_USEREVENT</td><td><a href="SDL_UserEvent.html">SDL_UserEvent</a></td><td>user</td></tr>
 <tr><td>SDL_WINDOWEVENT</td><td><a href="SDL_WindowEvent.html">SDL_WindowEvent</a></td><td>window</td></tr>
-<tr><td>その他のイベント</td><td>SDL_CommonEvent</td><td>なし. <a href="https://wiki.libsdl.org/SDL2/SDL_EventType">type</a>フィールドを使うこと</td></tr>
+<tr><td>その他のイベント</td><td><a href="SDL_CommonEvent.html">SDL_CommonEvent</a></td><td>なし. <a href="https://wiki.libsdl.org/SDL2/SDL_EventType">type</a>フィールドを使うこと</td></tr>
 </table>
 <h2>関連項目(列挙体)</h2>
 <a href="SDL_EventType.html">SDL_EventType</a><br>
@@ -177,10 +188,14 @@ SDL_PushEvent(&amp;user_event);
 <a href="SDL_ControllerAxisEvent.html">SDL_ControllerAxisEvent</a><br>
 <a href="SDL_ControllerButtonEvent.html">SDL_ControllerButtonEvent</a><br>
 <a href="SDL_ControllerDeviceEvent.html">SDL_ControllerDeviceEvent</a><br>
+<a href="SDL_ControllerSensorEvent.html">SDL_ControllerSensorEvent</a><br>
+<a href="SDL_ControllerTouchpadEvent.html">SDL_ControllerTouchpadEvent</a><br>
+<a href="SDL_DisplayEvent.html">SDL_DisplayEvent</a><br>
 <a href="SDL_DollarGestureEvent.html">SDL_DollarGestureEvent</a><br>
 <a href="SDL_DropEvent.html">SDL_DropEvent</a><br>
 <a href="SDL_JoyAxisEvent.html">SDL_JoyAxisEvent</a><br>
 <a href="SDL_JoyBallEvent.html">SDL_JoyBallEvent</a><br>
+<a href="SDL_JoyBatteryEvent.html">SDL_JoyBatteryEvent</a><br>
 <a href="SDL_JoyButtonEvent.html">SDL_JoyButtonEvent</a><br>
 <a href="SDL_JoyDeviceEvent.html">SDL_JoyDeviceEvent</a><br>
 <a href="SDL_JoyHatEvent.html">SDL_JoyHatEvent</a><br>
@@ -189,13 +204,14 @@ SDL_PushEvent(&amp;user_event);
 <a href="SDL_MouseMotionEvent.html">SDL_MouseMotionEvent</a><br>
 <a href="SDL_MouseWheelEvent.html">SDL_MouseWheelEvent</a><br>
 <a href="SDL_MultiGestureEvent.html">SDL_MultiGestureEvent</a><br>
-<a href="SDL_QuitEvent.html">SDL_QuitEvent</a><br>
+<a href="SDL_SensorEvent.html">SDL_SensorEvent</a><br>
 <a href="SDL_SysWMEvent.html">SDL_SysWMEvent</a><br>
 <a href="SDL_TextEditingEvent.html">SDL_TextEditingEvent</a><br>
+<a href="SDL_TextEditingExtEvent.html">SDL_TextEditingExtEvent</a><br>
 <a href="SDL_TextInputEvent.html">SDL_TextInputEvent</a><br>
 <a href="SDL_TouchFingerEvent.html">SDL_TouchFingerEvent</a><br>
 <a href="SDL_UserEvent.html">SDL_UserEvent</a><br>
-<a href="SDL_WindowEvent.html">SDL_WindowEvent</a><br>
+<a href="SDL_WindowEvent.html">SDL_WindowEvent</a>
 <h2>関連項目(関数)</h2>
 <a href="SDL_PeepEvents.html">SDL_PeepEvents</a><br>
 <a href="SDL_PollEvent.html">SDL_PollEvent</a><br>

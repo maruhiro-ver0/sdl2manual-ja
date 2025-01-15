@@ -36,6 +36,7 @@
 <tr><td><a href="SDL_TextEditingEvent.html">SDL_TEXTEDITING</a></td><td>キーボードでテキストを編集している</td></tr>
 <tr><td><a href="SDL_TextInputEvent.html">SDL_TEXTINPUT</a></td><td>キーボードでテキストが入力された</td></tr>
 <tr><td>SDL_KEYMAPCHANGED</td><td>入力言語やキーボードレイアウトの変更のようなシステムイベントが原因でキーマップが変わった (SDL 2.0.4以降)</td></tr>
+<tr><td><a href="SDL_TextEditingExtEvent.html">SDL_TEXTEDITING_EXT</a></td><td>キーボードでテキストを編集している(拡張)</td></tr>
 <tr><th colspan="2" align="center">マウスのイベント</th></tr>
 <tr><td><a href="SDL_MouseMotionEvent.html">SDL_MOUSEMOTION</a></td><td>マウスが動いた</td></tr>
 <tr><td><a href="SDL_MouseButtonEvent.html">SDL_MOUSEBUTTONDOWN</a></td><td>マウスのボタンが押された</td></tr>
@@ -49,6 +50,7 @@
 <tr><td><a href="SDL_JoyButtonEvent.html">SDL_JOYBUTTONUP</a></td><td>ジョイスティックのボタンが離された</td></tr>
 <tr><td><a href="SDL_JoyDeviceEvent.html">SDL_JOYDEVICEADDED</a></td><td>ジョイスティックが接続された</td></tr>
 <tr><td><a href="SDL_JoyDeviceEvent.html">SDL_JOYDEVICEREMOVED</a></td><td>ジョイスティックが切断された</td></tr>
+<tr><td><a href="SDL_JoyBatteryEvent.html">SDL_JOYBATTERYUPDATED</a></td><td>ジョイスティックのバッテリー残量が変化した</td></tr>
 <tr><th colspan="2" align="center">コントローラーのイベント</th></tr>
 <tr><td><a href="SDL_ControllerAxisEvent.html">SDL_CONTROLLERAXISMOTION</a></td><td>コントローラーが動いた</td></tr>
 <tr><td><a href="SDL_ControllerButtonEvent.html">SDL_CONTROLLERBUTTONDOWN</a></td><td>コントローラーのボタンが押された</td></tr>
@@ -56,6 +58,12 @@
 <tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_CONTROLLERDEVICEADDED</a></td><td>コントローラーが接続された</td></tr>
 <tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_CONTROLLERDEVICEREMOVED</a></td><td>コントローラーが切断された</td></tr>
 <tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_CONTROLLERDEVICEREMAPPED</a></td><td>コントローラーのマッピングが変わった</td></tr>
+<tr><td><a href="SDL_ControllerTouchpadEvent.html">SDL_CONTROLLERTOUCHPADDOWN</a></td><td>コントローラーのタッチパッドに指をつけた</td></tr>
+<tr><td><a href="SDL_ControllerTouchpadEvent.html">SDL_CONTROLLERTOUCHPADMOTION</a></td><td>コントローラーのタッチパッドから指を離した</td></tr>
+<tr><td><a href="SDL_ControllerTouchpadEvent.html">SDL_CONTROLLERTOUCHPADUP</a></td><td>>コントローラーのタッチパッド上で指を動かした</td></tr>
+<tr><td><a href="SDL_ControllerSensorEvent.html">SDL_CONTROLLERSENSORUPDATE</a></td><td>コントローラーのセンサー状態が変わった</td></tr>
+<tr><td>SDL_CONTROLLERUPDATECOMPLETE_RESERVED_FOR_SDL3</td><td>SDL3のための予約</td></tr>
+<tr><td><a href="SDL_ControllerDeviceEvent.html">SDL_CONTROLLERSTEAMHANDLEUPDATED</a></td><td>コントローラーのSteamハンドラが変わった</td></tr>
 <tr><th colspan="2" align="center">タッチのイベント</th></tr>
 <tr><td><a href="SDL_TouchFingerEvent.html">SDL_FINGERDOWN</a></td><td>デバイスに指をつけた</td></tr>
 <tr><td><a href="SDL_TouchFingerEvent.html">SDL_FINGERUP</a></td><td>デバイスから指を離した</td></tr>
@@ -74,11 +82,15 @@
 <tr><th colspan="2" align="center">オーディオホットプラグ(活線挿抜)のイベント</th></tr>
 <tr><td><a href="SDL_AudioDeviceEvent.html">SDL_AUDIODEVICEADDED</a></td><td>オーディオデバイスが新たに接続された (SDL 2.0.4以降)</td></tr>
 <tr><td><a href="SDL_AudioDeviceEvent.html">SDL_AUDIODEVICEREMOVED</a></td><td>オーディオデバイスが取り除かれた (SDL 2.0.4以降)</td></tr>
+<tr><th colspan="2" align="center">センサーのイベント</th></tr>
+<tr><td><a href="SDL_SensorUpdate.html">SDL_SENSORUPDATE</a></td><td>センサー状態が変わった</td></tr>
 <tr><th colspan="2" align="center">レンダラのイベント</th></tr>
 <tr><td>SDL_RENDER_TARGETS_RESET</td><td>レンダラの対象がリセットされコンテキストを更新する必要がある (SDL2.0.2以降)</td></tr>
 <tr><td>SDL_RENDER_DEVICE_RESET</td><td>デバイスがリセットされ全てのテクスチャを再生成する必要がある (SDL2.0.4以降)</td></tr>
+<tr><th colspan="2" align="center">内部イベント</th></tr>
+<tr><td>SDL_POLLSENTINEL</td><td>イベントポーリングサイクルの終了</td></tr>
 <tr><th colspan="2" align="center">ユーザ定義のイベント <a href="SDL_RegisterEvents.html">SDL_RegisterEvents()</a>で確保する必要がある</th></tr>
-<tr><td>SDL_USEREVENT</td><td>ユーザ固有のイベント</td></tr>
+<tr><td><a href="SDL_UserEvent.html">SDL_USEREVENT</a></td><td>ユーザ固有のイベント</td></tr>
 <tr><td>SDL_LASTEVENT</td><td>内部の配列の終端のみのため</td></tr>
 </table>
 <h2>サンプルコード</h2>
