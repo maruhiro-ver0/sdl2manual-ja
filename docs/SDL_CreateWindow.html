@@ -99,7 +99,7 @@ AppleのmacOSでは, Info.plistのNSHighResolutionCapableプロパティは<stro
 SDL_WINDOW_OPENGLまたはSDL_WINDOW_VULKANフラグを指定してウィンドウを生成すると, 一致するLoadLibrary関数(<a href="SDL_GL_LoadLibrary.html">SDL_GL_LoadLibrary()</a>または<a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>)が呼び出され, <a href="SDL_DestroyWindow.html">SDL_DestroyWindow()</a>で一致するUnloadLibrary関数が呼ばれる.
 </p>
 <p>
-SDL_WINDOW_VULKANを指定してVulkanドライバが動作しなかった場合, <a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>が失敗するため<a href="SDL_CreateWindow.html">SDL_CreateWindow()も失敗する.</a>
+SDL_WINDOW_VULKANを指定してVulkanドライバが動作しなかった場合, <a href="SDL_Vulkan_LoadLibrary.html">SDL_Vulkan_LoadLibrary()</a>が失敗するためSDL_CreateWindow()も失敗する.
 </p>
 <p>
 Metalに対応していないOSでSDL_WINDOW_METALを指定した場合, SDL_CreateWindow()は失敗する.
