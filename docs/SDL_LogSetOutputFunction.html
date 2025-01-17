@@ -16,24 +16,9 @@
 <code>void SDL_LogSetOutputFunction(SDL_LogOutputFunction callback, void* userdata)</code>
 <h2>引数</h2>
 <table border="1">
-<tr><td>callback</td><td>ログ出力時に代わりに呼ぶ関数 (詳細を参照すること)</td></tr>
+<tr><td>callback</td><td>ログ出力時に代わりに呼ぶ<a href="SDL_LogOutputFunction.html">SDL_LogOutputFunction</a>型の関数</td></tr>
 <tr><td>userdata</td><td>callbackに渡すポインタ</td></tr>
 </table>
-<h2>詳細</h2>
-<p>
-callbackの関数プロトタイプは
-</p>
-<p>
-<code>void SDL_LogOutputFunction(void* userdata, int category, SDL_LogPriority priority, const char* message)</code></p>
-<p>
-引数は
-<table border="1">
-<tr><td>userdata</td><td><a href="SDL_LogSetOutputFunction.html">SDL_LogSetOutputFunction()</a>に渡されたuserdata</td></tr>
-<tr><td>category</td><td>メッセージの<a href="SDL_LOG_CATEGORY.html">SDL_LOG_CATEGORY</a></td></tr>
-<tr><td>property</td><td>メッセージの<a href="SDL_LogPriority.html">SDL_LogPriority</a></td></tr>
-<tr><td>message</td><td>出力するメッセージ</td></tr>
-</table>
-</p>
 <h2>バージョン</h2>
 SDL 2.0.0以降
 <h2>関連項目(関数)</h2>
