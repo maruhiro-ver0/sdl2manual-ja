@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryAPI.html" title="1つ上">
+<title>SDL_hid_device_info</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryHID.html">HIDデバイス</a> - SDL_hid_device_info
+<hr>
+<h1>SDL_hid_device_info</h1>
+接続されたHIDデバイスの情報の構造体
+<h2>フィールド</h2>
+<table border="1">
+<tr><td>char *</td><td>path</td><td>環境依存のデバイスパス名</td></tr>
+<tr><td>unsigned short</td><td>vendor_id</td><td>デバイスベンダーID</td></tr>
+<tr><td>unsigned short</td><td>product_id</td><td>デバイス製品ID</td></tr>
+<tr><td>wchar_t *</td><td>serial_number</td><td>シリアル番号</td></tr>
+<tr><td>unsigned short</td><td>release_number</td><td>BCD形式のデバイスのリリース番号. デバイスのバージョンでもある</td></tr>
+<tr><td>wchar_t *</td><td>manufacturer_string</td><td>製造者文字列</td></tr>
+<tr><td>wchar_t *</td><td>product_string</td><td>製品文字列</td></tr>
+<tr><td>unsigned short</td><td>usage_page</td><td>このデバイス/インターフェースの使用法ページ(Windows/Macのみ)</td></tr>
+<tr><td>unsigned short</td><td>usage</td><td>このデバイス/インターフェースの使用法(Windows/Macのみ)</td></tr>
+<tr><td>int</td><td>interface_number</td><td>
+この論理デバイスが表すUSBインターフェース<br>
+* Linuxでは常に両方が有効<br>
+* Windowsでは2つ以上のインターフェースがある場合のみ有効<br>
+</td></tr>
+<tr><td>int</td><td>interface_class</td><td rowspan="3">
+USBインターフェースの追加情報
+libusb, Androidで有効
+</td></tr>
+<tr><td>int</td><td>interface_subclass</td></tr>
+<tr><td>int</td><td>interface_protocol</td></tr>
+<tr><td>struct SDL_hid_device_info *</td><td>next</td><td>次のデバイスへのポインタ</td></tr>
+</table>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/SDL_hid_device_info">SDL_hid_device_info - SDL Wiki</a>
+<hr>
+</body>
+</html>
