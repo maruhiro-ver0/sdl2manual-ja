@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="Simple Directmedia Layer SDL2.0">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="CategoryJoystick.html" title="1つ上">
+<title>SDL_VirtualJoystickDesc</title>
+</head>
+<body>
+<a href="index.html">目次</a> - <a href="ApiByCategory.html">API(機能別)</a> - <a href="CategoryJoystick.html">ジョイスティック</a> - SDL_VirtualJoystickDesc
+<hr>
+<h1>SDL_VirtualJoystickDesc</h1>
+仮想ジョイスティックの定義の構造体
+<h2>値</h2>
+<table border="1">
+<tr><td>Uint16</td><td>version</td><td><a href="SDL_VIRTUAL_JOYSTICK_DESC_VERSION.html">SDL_VIRTUAL_JOYSTICK_DESC_VERSION</a></td></tr>
+<tr><td>Uint16</td><td>type</td><td>SDL_JoystickType</td></tr>
+<tr><td>Uint16</td><td>naxes</td><td>ジョイスティックの軸の数</td></tr>
+<tr><td>Uint16</td><td>nbuttons</td><td>ジョイスティックのボタンの数</td></tr>
+<tr><td>Uint16</td><td>nhats</td><td>ジョイスティックのハットの数</td></tr>
+<tr><td>Uint16</td><td>vendor_id</td><td>ジョイスティックのUSBベンダーID</td></tr>
+<tr><td>Uint16</td><td>product_id</td><td>ジョイスティックの製品ID</td></tr>
+<tr><td>Uint16</td><td>padding</td><td>未使用</td></tr>
+<tr><td>Uint32</td><td>button_mask</td><td>有効なボタンのマスク<br>例: <code>(1 << <a href="SDL_GameControllerButton.html">SDL_CONTROLLER_BUTTON_A</a>)</code></td></tr>
+<tr><td>Uint32</td><td>axis_mask</td><td>有効な軸のマスク<br>例: <code>(1 << <a href="SDL_GameControllerAxis.html">SDL_CONTROLLER_AXIS_LEFTX</a>)</code></td></tr>
+<tr><td>const char *</td><td>name</td><td>ジョイスティックの名前</td></tr>
+<tr><td>void *</td><td>userdata</td><td>コールバックに渡されるユーザデータへのポインタ</td></tr>
+<tr><td>void (SDLCALL *)(void *userdata)</td><td>Update</td><td>ジョイスティックの状態を更新する必要があるとき呼ばれる関数へのポインタ</td></tr>
+<tr><td>void (SDLCALL *)(void *userdata, int player_index)</td><td>SetPlayerIndex</td><td>プレイヤーの順序が設定されたとき呼ばれる関数へのポインタ</td></tr>
+<tr><td>int (SDLCALL *)(void *userdata, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble)</td><td>Rumble</td><td><a href="SDL_JoystickRumble.html">SDL_JoystickRumble()</a>の実装へのポインタ</td></tr>
+<tr><td>int (SDLCALL *)(void *userdata, Uint16 left_rumble, Uint16 right_rumble)</td><td>RumbleTriggers</td><td><a href="SDL_JoystickRumbleTriggers.html">SDL_JoystickRumbleTriggers()</a>の実装へのポインタ</td></tr>
+<tr><td>int (SDLCALL *)(void *userdata, Uint8 red, Uint8 green, Uint8 blue)</td><td>SetLED</td><td><a href="SDL_JoystickSetLED.html">SDL_JoystickSetLED()</a>の実装へのポインタ</td></tr>
+<tr><td>int (SDLCALL *)(void *userdata, const void *data, int size)</td><td>SendEffect</td><td><a href="SDL_JoystickSendEffect.html">SDL_JoystickSendEffect()</a>の実装へのポインタ</td></tr>
+</table>
+<h2>詳細</h2>
+<p>
+呼び出し側は構造体を0で初期化し, <a href="SDL_JoystickAttachVirtualEx.html">SDL_JoystickAttachVirtualEx()</a>を呼ぶ前にversionに<a href="SDL_VIRTUAL_JOYSTICK_DESC_VERSION.html">SDL_VIRTUAL_JOYSTICK_DESC_VERSION</a>を設定する必要がある.
+構造体の各項目は任意で, 0のままにすることができる.
+</p>
+<h2>関連項目(関数)</h2>
+<a href="SDL_JoystickAttachVirtualEx.html">SDL_JoystickAttachVirtualEx</a><br>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2/SDL_VirtualJoystickDesc">SDL_VirtualJoystickDesc - SDL Wiki</a>
+<hr>
+</body>
+</html>
