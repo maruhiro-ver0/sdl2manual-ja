@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="SDL2_image">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_image-CategoryGeneral.html" title="1つ上">
+<title>SDL_IMAGE_COMPILEDVERSION</title>
+</head>
+<body>
+<a href="index.html#SDL2_image">目次</a> - <a href="SDL2_image-FrontPage.html">SDL_image</a> - <a href="SDL2_image-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_image-CategoryGeneral.html">一般</a> - IMG_init
+<hr>
+<h1>SDL_IMAGE_COMPILEDVERSION</h1>
+SDL_imageの現在のバージョンナンバーのマクロ<br>
+非推奨: 代わりにSDL_IMAGE_VERSION_ATLEASTまたはSDL_IMAGE_VERSIONを使用すること.
+<h2>構文</h2>
+<p>
+<code>#define SDL_IMAGE_COMPILEDVERSION SDL_VERSIONNUM(SDL_IMAGE_MAJOR_VERSION, SDL_IMAGE_MINOR_VERSION, SDL_IMAGE_PATCHLEVEL)</code>
+</p>
+<h2>詳細</h2>
+<p>
+バージョン2.9.0以降では, マイナーバージョンは千の位にオーバーフローしてしまう. 例えば, 2.23.0は4300となる.
+このマクロはSDL 3.xやSDL_image 3.xでは使用できなくなる予定である.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_image/SDL_IMAGE_COMPILEDVERSION">SDL2_image/SDL_IMAGE_COMPILEDVERSION</a>
+<hr>
+</body>
+</html>
