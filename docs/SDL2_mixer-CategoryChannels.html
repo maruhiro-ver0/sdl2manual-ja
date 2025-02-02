@@ -15,15 +15,16 @@
 <h2>設定</h2>
 <ol>
 <li><a href="Mix_AllocateChannels.html">Mix_AllocateChannels</a> - ミキサーが管理するチャネルの数を動的に変更する
-<li><a href="Mix_Volume.html">Mix_Volume</a> - 指定のチャネルのボリュームを設定する
 <li><a href="Mix_MasterVolume.html">Mix_MasterVolume</a> - 全チャネルの全体ボリュームを設定する
+<li><a href="Mix_Volume.html">Mix_Volume</a> - 指定のチャネルのボリュームを設定する
 </ol>
 <h2>再生</h2>
 <ol>
-<li><a href="Mix_PlayChannel.html">Mix_PlayChannel</a> - 指定のチャネルのチャンクを再生する
-<li><a href="Mix_PlayChannelTimed.html">Mix_PlayChannelTimed</a> - 指定のチャネルのチャンクを時間を指定して再生する
 <li><a href="Mix_FadeInChannel.html">Mix_FadeInChannel</a> - 指定のチャネルで音声チャンクをフェードインしながら再生する
 <li><a href="Mix_FadeInChannelTimed.html">Mix_FadeInChannelTimed</a> - 再生時間を指定して指定のチャネルで音声チャンクをフェードインしながら再生する
+<li>Mix_Fading
+<li><a href="Mix_PlayChannel.html">Mix_PlayChannel</a> - 指定のチャネルのチャンクを再生する
+<li><a href="Mix_PlayChannelTimed.html">Mix_PlayChannelTimed</a> - 指定のチャネルのチャンクを時間を指定して再生する
 </ol>
 <h2>一時停止</h2>
 <ol>
@@ -32,21 +33,17 @@
 </ol>
 <h2>停止</h2>
 <ol>
-<li><a href="Mix_HaltChannel.html">Mix_HaltChannel</a> - 指定のチャネルを停止する
+<li><a href="Mix_ChannelFinished.html">Mix_ChannelFinished</a> - チャネルの再生が完了したとき呼ばれるコールバックを設定する
 <li><a href="Mix_ExpireChannel.html">Mix_ExpireChannel</a> - 指定のチャネルの停止までの時間を変更する
 <li><a href="Mix_FadeOutChannel.html">Mix_FadeOutChannel</a> - 指定の時間フェードアウトしてチャネルを停止する
-<li><a href="Mix_ChannelFinished.html">Mix_ChannelFinished</a> - チャネルの再生が完了したとき呼ばれるコールバックを設定する
+<li><a href="Mix_HaltChannel.html">Mix_HaltChannel</a> - 指定のチャネルを停止する
 </ol>
 <h2>情報獲得</h2>
 <ol>
-<li><a href="Mix_Playing.html">Mix_Playing</a> - 指定のチャネルの再生状態をチェックする
-<li><a href="Mix_Paused.html">Mix_Paused</a> - 指定のチャネルが一時停止中か否かを得る
 <li><a href="Mix_FadingChannel.html">Mix_FadingChannel</a> - チャネルのフェーディング状態を得る
 <li><a href="Mix_GetChunk.html">Mix_GetChunk</a> - ミキサーチャネルに関連付けられたMix_Chunkを得る
-</ol>
-<h2>列挙体</h2>
-<ol>
-<li>Mix_Fading
+<li><a href="Mix_Paused.html">Mix_Paused</a> - 指定のチャネルが一時停止中か否かを得る
+<li><a href="Mix_Playing.html">Mix_Playing</a> - 指定のチャネルの再生状態をチェックする
 </ol>
 <hr>
 </body>
