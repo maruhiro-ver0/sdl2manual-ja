@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="SDL2_mixer">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_mixer-CategoryMusic.html" title="1つ上">
+<title>Mix_StartTrack</title>
+</head>
+<body>
+<a href="index.html#SDL2_mixer">目次</a> - <a href="SDL2_mixer-FrontPage.html">SDL_mixer</a> - <a href="SDL2_mixer-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_mixer-CategoryMusic.html">音楽</a> - Mix_StartTrack
+<hr>
+<h1>Mix_StartTrack</h1>
+音楽オブジェクトのトラックの再生を開始する
+<h2>構文</h2>
+<code>int Mix_StartTrack(Mix_Music *music, int track)</code>
+<h2>引数</h2>
+<table border="1">
+<tr><td>music</td><td>音楽オブジェクト</td></tr>
+<tr><td>track</td><td>再生するトラック番号. 0が最初のトラック</td></tr>
+</table>
+<h2>戻り値</h2>
+成功のとき0, エラーまたは実装されていないとき-1を戻す.
+<h2>詳細</h2>
+<p>
+この関数はGME形式に対してのみ使用できる.
+</p>
+<h2>バージョン</h2>
+SDL_mixer 2.8.0以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_mixer/Mix_StartTrack">SDL2_mixer/Mix_StartTrack</a>
+<hr>
+</body>
+</html>
