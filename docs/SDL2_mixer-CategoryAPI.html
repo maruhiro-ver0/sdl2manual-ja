@@ -31,6 +31,7 @@
 <li><a href="Mix_FreeMusic.html">Mix_FreeMusic</a> - 音楽オブジェクトを解放する
 <li><a href="Mix_GetChunk.html">Mix_GetChunk</a> - ミキサーチャネルに関連付けられたMix_Chunkを得る
 <li><a href="Mix_GetChunkDecoder.html">Mix_GetChunkDecoder</a> - チャンクデコーダの名前を得る
+<li><a href="Mix_GetError.html">Mix_GetError</a> - 最後のSDL_mixerエラーを得る
 <li><a href="Mix_GetMusicAlbumTag.html">Mix_GetMusicAlbumTag</a> - 音楽オブジェクトのアルバム名を得る
 <li><a href="Mix_GetMusicArtistTag.html">Mix_GetMusicArtistTag</a> - 音楽オブジェクトのアーティスト名を得る
 <li><a href="Mix_GetMusicCopyrightTag.html">Mix_GetMusicCopyrightTag</a> - 音楽オブジェクトの著作権表記を得る
@@ -46,6 +47,7 @@
 <li><a href="Mix_GetMusicVolume.html">Mix_GetMusicVolume</a> - 音楽の現在のボリュームを得る
 <li><a href="Mix_GetNumChunkDecoders.html">Mix_GetNumChunkDecoders</a> - 現在のビルドのSDL_mixerが提供するチャンクデコーダの一覧を得る
 <li><a href="Mix_GetNumMusicDecoders.html">Mix_GetNumMusicDecoders</a> - 現在のビルドのSDL_mixerが提供する音楽デコーダの一覧を得る
+<li>Mix_GetNumTracks
 <li><a href="Mix_GetSoundFonts.html">Mix_GetSoundFonts</a> - MIDIバックエンドで使用されるサウンドフォントのパスを得る
 <li><a href="Mix_GetSynchroValue.html">Mix_GetSynchroValue</a> - この関数は何もしない. 使用してはならない.
 <li><a href="Mix_GetTimidityCfg.html">Mix_GetTimidityCfg</a> - 設定されたTimidity設定ファイルのフルパス名を得る
@@ -103,23 +105,38 @@
 <li><a href="Mix_SetSoundFonts.html">Mix_SetSoundFonts</a> - MIDIバックエンドで使用されるサウンドフォントのパスを設定する
 <li><a href="Mix_SetSynchroValue.html">Mix_SetSynchroValue</a> - この関数は何もしない. 使用してはならない.
 <li><a href="Mix_SetTimidityCfg.html">Mix_SetTimidityCfg</a> - Timidity設定ファイルのフルパス名を設定する
+<li>Mix_StartTrack
 <li><a href="Mix_UnregisterAllEffects.html">Mix_UnregisterAllEffects</a> - 全てのエフェクト関数を解除する
 <li><a href="Mix_UnregisterEffect.html">Mix_UnregisterEffect</a> - エフェクト関数を解除する
 <li><a href="Mix_Volume.html">Mix_Volume</a> - 指定のチャネルのボリュームを設定する
 <li><a href="Mix_VolumeChunk.html">Mix_VolumeChunk</a> - 指定したチャンクのボリュームを設定する
 <li><a href="Mix_VolumeMusic.html">Mix_VolumeMusic</a> - 音楽のボリュームを設定する
 </ol>
-<h2>マクロ</h2>
-<ol>
-<li><a href="Mix_ClearError.html">Mix_ClearError</a> - 最後のSDL_mixerエラーを消去する
-</ol>
 <h2>型</h2>
 <ol>
 <li><a href="_Mix_Music.html">_Mix_Music</a> - デコードされた音楽チャンクの内部形式の型
+<li>Mix_EffectDone_t
+<li>Mix_EffectFunc_t
+<li>Mix_Music
 </ol>
 <h2>構造体</h2>
 <ol>
 <li><a href="Mix_Chunk.html">Mix_Chunk</a> - 音声チャンクの内部形式の構造体
+</ol>
+<h2>列挙体</h2>
+<ol>
+<li>Mix_Fading
+<li>MIX_InitFlags
+<li>Mix_MusicType
+</ol>
+<h2>マクロ</h2>
+<ol>
+<li><a href="Mix_ClearError.html">Mix_ClearError</a> - 最後のSDL_mixerエラーを消去する
+<li>SDL_MIXER_COMPILEDVERSION
+<li>SDL_MIXER_MAJOR_VERSION
+<li>SDL_MIXER_VERSION
+<li>SDL_MIXER_VERSION_ATLEAST
+<li>Mix_SetError
 </ol>
 <h2>SDL Wikiへのリンク</h2>
 <a href="https://wiki.libsdl.org/SDL2_mixer/CategoryAPI">SDL2_mixer/CategoryAPI</a>
