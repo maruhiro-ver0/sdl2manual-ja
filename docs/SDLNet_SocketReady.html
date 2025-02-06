@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="SDL_net">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_net-CategorySocketSets.html" title="1つ上">
+<title>SDLNet_SocketReady</title>
+</head>
+<body>
+<a href="index.html#SDL2_net">目次</a> - <a href="SDL2_net-FrontPage.html">SDL_net</a> - <a href="SDL2_net-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_net-CategorySocketSets.html">ソケットセット</a> - SDLNet_SocketReady
+<hr>
+<h1>SDLNet_SocketReady</h1>
+ソケットセット内の指定したソケットからデータを読み込めるかチェックする
+<h2>構文</h2>
+<code>#define SDLNet_SocketReady(sock) _SDLNet_SocketReady((SDLNet_GenericSocket)(sock))</code>
+<h2>引数</h2>
+<table border="1">
+<tr><td>sock</td><td>チェックするソケット</td></tr>
+</table>
+<h2>戻り値</h2>
+ソケットに新しいデータがある場合は0以外, それ以外の場合0を戻す.
+<h2>詳細</h2>
+<p>
+After calling SDLNet_CheckSockets(), you can use this function on a socket that was in the socket set, to find out if data is available for reading.
+<a href="SDLNet_CheckSockets.html">SDLNet_CheckSockets()</a>を呼んだ後に, この関数をソケットセット内のソケットに対して使うことで, データを読み込めるかを調べることができる.
+</p>
+<h2>バージョン</h2>
+SDL_net 2.0.0以降
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_net/SDLNet_SocketReady">SDL2_net/SDLNet_SocketReady</a>
+<hr>
+</body>
+</html>
