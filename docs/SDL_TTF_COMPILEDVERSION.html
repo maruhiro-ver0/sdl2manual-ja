@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="SDL2_ttf">
+<link rel="top" href="index.html" title="ホーム">
+<link rel="parent" href="SDL2_ttf-CategoryGeneral.html" title="1つ上">
+<title>SDL_TTF_COMPILEDVERSION</title>
+</head>
+<body>
+<a href="index.html#SDL2_ttf">目次</a> - <a href="SDL2_ttf-FrontPage.html">SDL_ttf</a> - <a href="SDL2_ttf-ApiByCategory.html">API(機能別)</a> - <a href="SDL2_ttf-CategoryGeneral.html">一般</a> - SDL_TTF_COMPILEDVERSION
+<hr>
+<h1>SDL_TTF_COMPILEDVERSION</h1>
+SDL_ttfの現在のバージョンナンバーのマクロ
+<h2>非推奨</h2>
+代わりに<a href="SDL_TTF_VERSION_ATLEAST.html">SDL_TTF_VERSION_ATLEAST</a>または<a href="SDL_TTF_VERSION.html">SDL_TTF_VERSION</a>を使用すること.
+<h2>構文</h2>
+<p>
+<code>#define SDL_TTF_COMPILEDVERSION SDL_VERSIONNUM(SDL_TTF_MAJOR_VERSION, SDL_TTF_MINOR_VERSION, SDL_TTF_PATCHLEVEL)</code>
+</p>
+<h2>詳細</h2>
+<p>
+バージョン2.9.0以降では, マイナーバージョンは千の位にオーバーフローしてしまう. 例えば, 2.23.0は4300となる.
+このマクロはSDL 3.xやSDL_ttf 3.xでは使用できなくなる予定である.
+</p>
+<h2>SDL Wikiへのリンク</h2>
+<a href="https://wiki.libsdl.org/SDL2_ttf/SDL_TTF_COMPILEDVERSION">SDL2_ttf/SDL_TTF_COMPILEDVERSION</a>
+<hr>
+</body>
+</html>
